@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  database:
+    env_file:
+      - .env
+    container_name: observatorio_container
+    hostname: observatorio_container
+    image: postgres:13-alpine
+    restart: always
+    volumes:
+      - ./data:/var/lib/postgresql/data/
+    ports:
+      - 5436:5432
+    environment:
+      TZ: America/Sao_Paulo
