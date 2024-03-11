@@ -14,59 +14,131 @@ datasource db {
 }
 
 model RelatorioMunicipal {
-  id             Int              @id @default(autoincrement())
-  ano            DateTime         @db.Date
-  Imposto        Imposto[]
-  ReceitasEnsino ReceitasEnsino[]
-  ReceitasFundeb ReceitasFundeb[]
-  DespesasFundeb DespesasFundeb[]
+  id                                              Int                                               @id @default(autoincrement())
+  ano                                             DateTime                                          @db.Date
+  deducoesFundebMagisterio                        DeducoesFundebMagisterio[]
+  dontroleUtilizacaoRecursos                      ControleUtilizacaoRecursos[]
+  deducoesParaFinsDeLimitesConstitucional         DeducoesParaFinsDeLimitesConstitucional[]
+  destosAPagarInscritosDisponibilidadesFinanceira RestosAPagarInscritosDisponibilidadesFinanceira[]
+  fluxoFinanceiroDeRecursos                       FluxoFinanceiroDeRecursos[]
+  Receita                                         Receita[]
+  Despesa                                         Despesa[]
 }
 
-model CamposRelatorio {
-  id                                                          Int              @id @default(autoincrement())
-  previsaoInicial                                             Float
-  previsaoAtualizada                                          Float
-  realizadaBimestre                                           Float
-  realizadaAteBimestre                                        Float
-  percentual                                                  Float
-  impostoIptu                                                 Imposto[]        @relation("iptu")
-  receitasEnsino                                              ReceitasEnsino[]
-  impostoReceitaResultantePropriedadePredialTerritorialUrbana Imposto[]        @relation("receitaResultantePropriedadePredialTerritorialUrbana")
+model Receita {
+  id                  Int                @id @default(autoincrement())
+  tipo                ReceitaTipos
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
+  itensReceita        ItemReceita[]
 }
 
-model Imposto {
-  id                                                     Int                 @id @default(autoincrement())
-  camposIptuId                                           Int
-  iptu                                                   CamposRelatorio     @relation(name: "iptu", fields: [camposIptuId], references: [id])
-  receitaResultantePropriedadePredialTerritorialUrbanaId Int
-  receitaResultantePropriedadePredialTerritorialUrbana   CamposRelatorio     @relation(name: "receitaResultantePropriedadePredialTerritorialUrbana", fields: [receitaResultantePropriedadePredialTerritorialUrbanaId], references: [id])
-  RelatorioMunicipal                                     RelatorioMunicipal? @relation(fields: [relatorioMunicipalId], references: [id])
-  relatorioMunicipalId                                   Int?
+model Despesa {
+  id                  Int                @id @default(autoincrement())
+  tipo                DespesaTipos
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
+  itensDespesa        ItemDespesa[]
 }
 
-model ReceitasEnsino {
-  id Int @id @default(autoincrement())
-
-  RelatorioMunicipal   RelatorioMunicipal? @relation(fields: [relatorioMunicipalId], references: [id])
-  relatorioMunicipalId Int?
-  CamposRelatorio      CamposRelatorio?    @relation(fields: [camposRelatorioId], references: [id])
-  camposRelatorioId    Int?
+model ItemReceita {
+  id                           Int              @id @default(autoincrement())
+  tipo                         ItemReceitaTipos
+  previsaoInicial              Float
+  previsaoAtualizada           Float
+  receitasRealizadaBimestre    Float
+  receitasRealizadaAteBimestre Float
+  percentual                   Float
+  topicoId                     Int
+  topicosRelatorio             Receita          @relation(fields: [topicoId], references: [id])
 }
 
-model ReceitasFundeb {
-  id                   Int                 @id @default(autoincrement())
-  RelatorioMunicipal   RelatorioMunicipal? @relation(fields: [relatorioMunicipalId], references: [id])
-  relatorioMunicipalId Int?
-}
-
-model DespesasFundeb {
-  id                   Int                 @id @default(autoincrement())
-  RelatorioMunicipal   RelatorioMunicipal? @relation(fields: [relatorioMunicipalId], references: [id])
-  relatorioMunicipalId Int?
+model ItemDespesa {
+  id                           Int              @id @default(autoincrement())
+  tipo                         ItemDespesaTipos
+  dotacaoInicial               Float
+  dotacaoAtualizada            Float
+  receitasRealizadaBimestre    Float
+  receitasRealizadaAteBimestre Float
+  percentual                   Float
+  topicoId                     Int
+  topicosRelatorio             Despesa          @relation(fields: [topicoId], references: [id])
 }
 
 model DeducoesFundebMagisterio {
-  id    Int    @id @default(autoincrement())
-  tipo  String
-  valor Float
+  id                  Int                          @id @default(autoincrement())
+  tipo                DeducoesFundebMagisterioTipo
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal           @relation(fields: [relatorioMunicialId], references: [id])
+}
+
+model ControleUtilizacaoRecursos {
+  id                  Int                            @id @default(autoincrement())
+  tipo                ControleUtilizacaoRecursosTipo
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal             @relation(fields: [relatorioMunicialId], references: [id])
+}
+
+model DeducoesParaFinsDeLimitesConstitucional {
+  id                  Int                                         @id @default(autoincrement())
+  tipo                DeducoesParaFinsDeLimitesConstitucionalTipo
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal                          @relation(fields: [relatorioMunicialId], references: [id])
+}
+
+model RestosAPagarInscritosDisponibilidadesFinanceira {
+  id                     Int                                                 @id @default(autoincrement())
+  tipo                   RestosAPagarInscritosDisponibilidadesFinanceiraTipo
+  saldoAteBimestre       Float
+  canceladoEmDoisMilOnze Float
+  relatorioMunicialId    Int
+  relatorioMunicial      RelatorioMunicipal                                  @relation(fields: [relatorioMunicialId], references: [id])
+}
+
+model FluxoFinanceiroDeRecursos {
+  id                  Int                @id @default(autoincrement())
+  valorFundeb         Float
+  valorFundef         Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
+}
+
+enum ReceitaTipos {
+  RECEITAS_DE_IMPOSTO
+  RECEITAS_FINANCIAMENTO_DO_ENSINO
+  RECEITAS_DO_FUNDEB
+  RECEITAS_ACOES_MDE
+}
+
+enum DespesaTipos {
+  DESPESAS_DO_FUNDEB
+  DESPESAS_ACOES_MDE
+  DESPESAS_CUSTEADAS_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO
+}
+
+enum ItemReceitaTipos {
+  IPTU
+}
+
+enum ItemDespesaTipos {
+  PAGAMENTO_PROFISSIONAIS_MAGISTERIO
+}
+
+enum DeducoesFundebMagisterioTipo {
+  RESTOS_A_PAGAR
+}
+
+enum ControleUtilizacaoRecursosTipo {
+  RECURSOS_RECEBIDOS_FUNDEB
+}
+
+enum DeducoesParaFinsDeLimitesConstitucionalTipo {
+  RESULTADO_LIQUIDO
+}
+
+enum RestosAPagarInscritosDisponibilidadesFinanceiraTipo {
+  RESTOS_A_PAGAR_DE_DESPESA_COM_MDE
 }
