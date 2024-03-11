@@ -12,3 +12,61 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model RelatorioMunicipal {
+  id             Int              @id @default(autoincrement())
+  ano            DateTime         @db.Date
+  Imposto        Imposto[]
+  ReceitasEnsino ReceitasEnsino[]
+  ReceitasFundeb ReceitasFundeb[]
+  DespesasFundeb DespesasFundeb[]
+}
+
+model CamposRelatorio {
+  id                                                          Int              @id @default(autoincrement())
+  previsaoInicial                                             Float
+  previsaoAtualizada                                          Float
+  realizadaBimestre                                           Float
+  realizadaAteBimestre                                        Float
+  percentual                                                  Float
+  impostoIptu                                                 Imposto[]        @relation("iptu")
+  receitasEnsino                                              ReceitasEnsino[]
+  impostoReceitaResultantePropriedadePredialTerritorialUrbana Imposto[]        @relation("receitaResultantePropriedadePredialTerritorialUrbana")
+}
+
+model Imposto {
+  id                                                     Int                 @id @default(autoincrement())
+  camposIptuId                                           Int
+  iptu                                                   CamposRelatorio     @relation(name: "iptu", fields: [camposIptuId], references: [id])
+  receitaResultantePropriedadePredialTerritorialUrbanaId Int
+  receitaResultantePropriedadePredialTerritorialUrbana   CamposRelatorio     @relation(name: "receitaResultantePropriedadePredialTerritorialUrbana", fields: [receitaResultantePropriedadePredialTerritorialUrbanaId], references: [id])
+  RelatorioMunicipal                                     RelatorioMunicipal? @relation(fields: [relatorioMunicipalId], references: [id])
+  relatorioMunicipalId                                   Int?
+}
+
+model ReceitasEnsino {
+  id Int @id @default(autoincrement())
+
+  RelatorioMunicipal   RelatorioMunicipal? @relation(fields: [relatorioMunicipalId], references: [id])
+  relatorioMunicipalId Int?
+  CamposRelatorio      CamposRelatorio?    @relation(fields: [camposRelatorioId], references: [id])
+  camposRelatorioId    Int?
+}
+
+model ReceitasFundeb {
+  id                   Int                 @id @default(autoincrement())
+  RelatorioMunicipal   RelatorioMunicipal? @relation(fields: [relatorioMunicipalId], references: [id])
+  relatorioMunicipalId Int?
+}
+
+model DespesasFundeb {
+  id                   Int                 @id @default(autoincrement())
+  RelatorioMunicipal   RelatorioMunicipal? @relation(fields: [relatorioMunicipalId], references: [id])
+  relatorioMunicipalId Int?
+}
+
+model DeducoesFundebMagisterio {
+  id    Int    @id @default(autoincrement())
+  tipo  String
+  valor Float
+}
