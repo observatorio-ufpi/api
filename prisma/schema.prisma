@@ -17,9 +17,9 @@ model RelatorioMunicipal {
   id                                              Int                                               @id @default(autoincrement())
   ano                                             DateTime                                          @db.Date
   deducoesFundebMagisterio                        DeducoesFundebMagisterio[]
-  dontroleUtilizacaoRecursos                      ControleUtilizacaoRecursos[]
+  controleUtilizacaoRecursos                      ControleUtilizacaoRecursos[]
   deducoesParaFinsDeLimitesConstitucional         DeducoesParaFinsDeLimitesConstitucional[]
-  destosAPagarInscritosDisponibilidadesFinanceira RestosAPagarInscritosDisponibilidadesFinanceira[]
+  restosAPagarInscritosDisponibilidadesFinanceira RestosAPagarInscritosDisponibilidadesFinanceira[]
   fluxoFinanceiroDeRecursos                       FluxoFinanceiroDeRecursos[]
   receita                                         Receita[]
   despesa                                         Despesa[]
@@ -93,17 +93,18 @@ model RestosAPagarInscritosDisponibilidadesFinanceira {
   id                     Int                                                 @id @default(autoincrement())
   tipo                   RestosAPagarInscritosDisponibilidadesFinanceiraTipo
   saldoAteBimestre       Float
-  canceladoEmDoisMilOnze Float
+  canceladoNoAnoAtual Float
   relatorioMunicialId    Int
   relatorioMunicial      RelatorioMunicipal                                  @relation(fields: [relatorioMunicialId], references: [id])
 }
 
 model FluxoFinanceiroDeRecursos {
-  id                  Int                @id @default(autoincrement())
+  id                  Int                            @id @default(autoincrement())
+  tipo                FluxoFinanceiroDeRecursosTipos
   valorFundeb         Float
   valorFundef         Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
+  relatorioMunicial   RelatorioMunicipal             @relation(fields: [relatorioMunicialId], references: [id])
 }
 
 enum ReceitaTipos {
@@ -213,7 +214,6 @@ enum ItemDespesaTipos {
   DESPESAS_CUSTEADAS_COM_OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO
   TOTAL_OUTRAS_DESPESAS_CUSTEADAS_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO
   TOTAL_GERAL_DESPESAS_MDE
-
 }
 
 enum DeducoesFundebMagisterioTipo {
@@ -244,4 +244,12 @@ enum DeducoesParaFinsDeLimitesConstitucionalTipo {
 
 enum RestosAPagarInscritosDisponibilidadesFinanceiraTipo {
   RESTOS_A_PAGAR_DE_DESPESA_COM_MDE
+}
+
+enum FluxoFinanceiroDeRecursosTipos {
+  SALDO_FINANCEIRO_31_DE_DEZEMBRO_ANO_ANTERIOR
+  INGRESSO_RECURSOS_ATE_BIMESTRE
+  PAGAMENTOS_EFETUADOS_ATE_BIMESTRE
+  RECEITA_APLICACAO_FINANCEIRA_DOS_RECURSOS_ATE_BIMESTRE
+  SALDO_FINANCEIRO_NO_EXERCICIO_ATUAL
 }
