@@ -15,7 +15,8 @@ datasource db {
 
 model RelatorioMunicipal {
   id                                              Int                                               @id @default(autoincrement())
-  ano                                             DateTime                                          @db.Date
+  ano                                             String
+  codigoMunicipio                                 String
   deducoesFundebMagisterio                        DeducoesFundebMagisterio[]
   controleUtilizacaoRecursos                      ControleUtilizacaoRecursos[]
   deducoesParaFinsDeLimitesConstitucional         DeducoesParaFinsDeLimitesConstitucional[]
@@ -26,43 +27,27 @@ model RelatorioMunicipal {
 }
 
 model Receita {
-  id                  Int                @id @default(autoincrement())
-  tipo                ReceitaTipos
-  relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
-  itensReceita        ItemReceita[]
-}
-
-model Despesa {
-  id                  Int                @id @default(autoincrement())
-  tipo                DespesaTipos
-  relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
-  itensDespesa        ItemDespesa[]
-}
-
-model ItemReceita {
-  id                           Int              @id @default(autoincrement())
+  id                           Int                @id @default(autoincrement())
   tipo                         ItemReceitaTipos
   previsaoInicial              Float
   previsaoAtualizada           Float
   receitasRealizadaBimestre    Float
   receitasRealizadaAteBimestre Float
   percentual                   Float
-  receitaId                    Int
-  receitasRelatorio            Receita          @relation(fields: [receitaId], references: [id])
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
 }
 
-model ItemDespesa {
-  id                           Int              @id @default(autoincrement())
+model Despesa {
+  id                           Int                @id @default(autoincrement())
   tipo                         ItemDespesaTipos
   dotacaoInicial               Float
   dotacaoAtualizada            Float
   receitasRealizadaBimestre    Float
   receitasRealizadaAteBimestre Float
   percentual                   Float
-  despesaId                    Int
-  despesasRelatorio            Despesa          @relation(fields: [despesaId], references: [id])
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
 }
 
 model DeducoesFundebMagisterio {
