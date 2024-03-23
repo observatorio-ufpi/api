@@ -36,6 +36,8 @@ model Receita {
   percentual                   Float
   relatorioMunicialId          Int
   relatorioMunicial            RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
+
+  @@unique([relatorioMunicialId, tipo])
 }
 
 model Despesa {
@@ -48,6 +50,8 @@ model Despesa {
   percentual                   Float
   relatorioMunicialId          Int
   relatorioMunicial            RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
+
+  @@unique([relatorioMunicialId, tipo])
 }
 
 model DeducoesFundebMagisterio {

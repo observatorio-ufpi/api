@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ItemDespesaTipos, ItemReceitaTipos } from '@prisma/client';
 import * as ExcelJS from 'exceljs';
+import * as fs from 'fs';
+import * as path from 'path';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -178,182 +180,273 @@ export class SeedingService {
     };
 
     try {
-      const workbook = new ExcelJS.Workbook();
-      await workbook.csv.readFile(
-        'C:\\Users\\Luis Felipe\\Documents\\fnde-excel\\tabula-RREO_Municipal_220850_1_2010.csv',
-      );
+      const diretorio = 'C:\\Users\\Luis Felipe\\Documents\\fnde-excel';
 
-      const filename = 'tabula-RREO_Municipal_220850_1_2010';
-      const worksheet = workbook.getWorksheet(1);
-      const filenameRegex = /(\d{4})_(\d+)_\d+$/;
-      const match = filename.match(filenameRegex);
+      const arquivos = fs.readdirSync(diretorio);
 
-      let relatorio;
+      for (const arquivo of arquivos) {
+        if (arquivo.endsWith('.csv')) {
+          const caminhoArquivo = path.join(
+            diretorio,
+            'tabula-RREO_Municipal_220830_1_2010.csv',
+          );
 
-      if (match) {
-        const codigo = match[1];
-        const ano = match[2];
-        relatorio = await this.prismaService.relatorioMunicipal.create({
-          data: {
-            ano,
-            codigoMunicipio: codigo,
-          },
-        });
+          const workbook = new ExcelJS.Workbook();
+          await workbook.csv.readFile(caminhoArquivo);
 
-        // Agora você pode usar o ano e o código conforme necessário
-        console.log('Ano:', ano);
-        console.log('Código:', codigo);
-      } else {
-        console.log('Nome do arquivo inválido');
-      }
+          const match = arquivo.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
-      for (let i = 2; i <= worksheet.actualRowCount; i++) {
-        const row = worksheet.getRow(i);
+          if (match) {
+            const codigo = match[1];
+            const ano = match[3];
 
-        const tipoReceitaDespesaExcel = row.getCell(1).value as string;
-        if (tipoReceitaDespesaExcel === null) {
-          continue;
+            console.log('Ano:', ano);
+            console.log('Código:', codigo);
+
+            const worksheet = workbook.getWorksheet(1);
+
+            const relatorio =
+              await this.prismaService.relatorioMunicipal.create({
+                data: {
+                  ano,
+                  codigoMunicipio: codigo,
+                },
+              });
+
+            for (let i = 2; i <= worksheet.actualRowCount; i++) {
+              const row = worksheet.getRow(i);
+
+              const tipoReceitaDespesaExcel = row.getCell(1).value as string;
+              if (tipoReceitaDespesaExcel === null) {
+                continue;
+              }
+              const tipoReceitaDespesaLimpo = tipoReceitaDespesaExcel.replace(
+                /\r?\n|\r/g,
+                ' ',
+              );
+
+              console.log(tipoReceitaDespesaLimpo);
+
+              let tipoReceitaEnum;
+              let tipoDespesaEnum;
+
+              for (const key in mapeamentoReceitas) {
+                const receitaExiste =
+                  await this.prismaService.receita.findUnique({
+                    where: {
+                      relatorioMunicialId_tipo: {
+                        relatorioMunicialId: relatorio.id,
+                        tipo: mapeamentoReceitas[key],
+                      },
+                    },
+                  });
+
+                if (
+                  this.isSimilar(tipoReceitaDespesaLimpo, key, 5) &&
+                  !receitaExiste
+                ) {
+                  tipoReceitaEnum = mapeamentoReceitas[key];
+                  break;
+                }
+              }
+
+              for (const key in mapeamentoDespesas) {
+                const despesaExiste =
+                  await this.prismaService.despesa.findUnique({
+                    where: {
+                      relatorioMunicialId_tipo: {
+                        relatorioMunicialId: relatorio.id,
+                        tipo: mapeamentoDespesas[key],
+                      },
+                    },
+                  });
+
+                if (
+                  this.isSimilar(tipoReceitaDespesaLimpo, key, 5) &&
+                  !despesaExiste
+                ) {
+                  tipoDespesaEnum = mapeamentoDespesas[key];
+                  break;
+                }
+              }
+
+              if (tipoReceitaEnum) {
+                const secondCellValue = row.getCell(2).value;
+                const secondCellNumericValue = secondCellValue
+                  ? parseFloat(
+                      secondCellValue
+                        .toString()
+                        .replace(/[^\d,-]/g, '')
+                        .replace(',', '.'),
+                    )
+                  : 0;
+
+                const thirdCellValue = row.getCell(3).value;
+                const thirdCellNumericValue = thirdCellValue
+                  ? parseFloat(
+                      thirdCellValue
+                        .toString()
+                        .replace(/[^\d,-]/g, '')
+                        .replace(',', '.'),
+                    )
+                  : 0;
+
+                const fourthCellValue = row.getCell(4).value;
+                const fourthCellNumericValue = fourthCellValue
+                  ? parseFloat(
+                      fourthCellValue
+                        .toString()
+                        .replace(/[^\d,-]/g, '')
+                        .replace(',', '.'),
+                    )
+                  : 0;
+
+                const fifthCellValue = row.getCell(5).value;
+                const fifthCellNumericValue = fifthCellValue
+                  ? parseFloat(
+                      fifthCellValue
+                        .toString()
+                        .replace(/[^\d,-]/g, '')
+                        .replace(',', '.'),
+                    )
+                  : 0;
+
+                const sixthCellValue = row.getCell(6).value;
+                const sixthCellNumericValue = sixthCellValue
+                  ? parseFloat(
+                      sixthCellValue
+                        .toString()
+                        .replace(/[^\d,-]/g, '')
+                        .replace(',', '.'),
+                    )
+                  : 0;
+
+                await this.prismaService.receita.create({
+                  data: {
+                    tipo: tipoReceitaEnum,
+                    previsaoInicial: secondCellNumericValue,
+                    previsaoAtualizada: thirdCellNumericValue,
+                    receitasRealizadaBimestre: fourthCellNumericValue,
+                    receitasRealizadaAteBimestre: fifthCellNumericValue,
+                    percentual: sixthCellNumericValue,
+                    relatorioMunicialId: relatorio.id,
+                  },
+                });
+              } else if (tipoDespesaEnum) {
+                const secondCellValue = row.getCell(2).value;
+                const secondCellNumericValue = secondCellValue
+                  ? parseFloat(
+                      secondCellValue
+                        .toString()
+                        .replace(/[^\d,-]/g, '')
+                        .replace(',', '.'),
+                    )
+                  : 0;
+
+                const thirdCellValue = row.getCell(3).value;
+                const thirdCellNumericValue = thirdCellValue
+                  ? parseFloat(
+                      thirdCellValue
+                        .toString()
+                        .replace(/[^\d,-]/g, '')
+                        .replace(',', '.'),
+                    )
+                  : 0;
+
+                const fourthCellValue = row.getCell(4).value;
+                const fourthCellNumericValue = fourthCellValue
+                  ? parseFloat(
+                      fourthCellValue
+                        .toString()
+                        .replace(/[^\d,-]/g, '')
+                        .replace(',', '.'),
+                    )
+                  : 0;
+
+                const fifthCellValue = row.getCell(5).value;
+                const fifthCellNumericValue = fifthCellValue
+                  ? parseFloat(
+                      fifthCellValue
+                        .toString()
+                        .replace(/[^\d,-]/g, '')
+                        .replace(',', '.'),
+                    )
+                  : 0;
+
+                const sixthCellValue = row.getCell(6).value;
+                const sixthCellNumericValue = sixthCellValue
+                  ? parseFloat(
+                      sixthCellValue
+                        .toString()
+                        .replace(/[^\d,-]/g, '')
+                        .replace(',', '.'),
+                    )
+                  : 0;
+
+                await this.prismaService.despesa.create({
+                  data: {
+                    tipo: tipoDespesaEnum,
+                    dotacaoInicial: secondCellNumericValue,
+                    dotacaoAtualizada: thirdCellNumericValue,
+                    receitasRealizadaBimestre: fourthCellNumericValue,
+                    receitasRealizadaAteBimestre: fifthCellNumericValue,
+                    percentual: sixthCellNumericValue,
+                    relatorioMunicialId: relatorio.id,
+                  },
+                });
+              } else {
+                console.log(
+                  `Tipo de receita ou despesa desconhecido: ${tipoReceitaDespesaExcel}\n`,
+                );
+              }
+            }
+
+            break;
+          } else {
+            console.log('Nome do arquivo inválido:', arquivo);
+          }
         }
-        const tipoReceitaDespesaLimpo = tipoReceitaDespesaExcel.replace(
-          /\r?\n|\r/g,
-          ' ',
-        );
-        console.log(tipoReceitaDespesaLimpo);
-        const tipoReceitaEnum = mapeamentoReceitas[tipoReceitaDespesaLimpo];
-        const tipoDespesaEnum = mapeamentoDespesas[tipoReceitaDespesaLimpo];
-
-        if (tipoReceitaEnum) {
-          const secondCellValue = row.getCell(2).value;
-          const secondCellNumericValue = secondCellValue
-            ? parseFloat(
-                secondCellValue
-                  .toString()
-                  .replace(/[^\d,-]/g, '')
-                  .replace(',', '.'),
-              )
-            : 0;
-
-          const thirdCellValue = row.getCell(3).value;
-          const thirdCellNumericValue = thirdCellValue
-            ? parseFloat(
-                thirdCellValue
-                  .toString()
-                  .replace(/[^\d,-]/g, '')
-                  .replace(',', '.'),
-              )
-            : 0;
-
-          const fourthCellValue = row.getCell(4).value;
-          const fourthCellNumericValue = fourthCellValue
-            ? parseFloat(
-                fourthCellValue
-                  .toString()
-                  .replace(/[^\d,-]/g, '')
-                  .replace(',', '.'),
-              )
-            : 0;
-
-          const fifthCellValue = row.getCell(5).value;
-          const fifthCellNumericValue = fifthCellValue
-            ? parseFloat(
-                fifthCellValue
-                  .toString()
-                  .replace(/[^\d,-]/g, '')
-                  .replace(',', '.'),
-              )
-            : 0;
-
-          const sixthCellValue = row.getCell(6).value;
-          const sixthCellNumericValue = sixthCellValue
-            ? parseFloat(
-                sixthCellValue
-                  .toString()
-                  .replace(/[^\d,-]/g, '')
-                  .replace(',', '.'),
-              )
-            : 0;
-
-          await this.prismaService.receita.create({
-            data: {
-              tipo: tipoReceitaEnum,
-              previsaoInicial: secondCellNumericValue,
-              previsaoAtualizada: thirdCellNumericValue,
-              receitasRealizadaBimestre: fourthCellNumericValue,
-              receitasRealizadaAteBimestre: fifthCellNumericValue,
-              percentual: sixthCellNumericValue,
-              relatorioMunicialId: relatorio.id,
-            },
-          });
-        } else if (tipoDespesaEnum) {
-          const secondCellValue = row.getCell(2).value;
-          const secondCellNumericValue = secondCellValue
-            ? parseFloat(
-                secondCellValue
-                  .toString()
-                  .replace(/[^\d,-]/g, '')
-                  .replace(',', '.'),
-              )
-            : 0;
-
-          const thirdCellValue = row.getCell(3).value;
-          const thirdCellNumericValue = thirdCellValue
-            ? parseFloat(
-                thirdCellValue
-                  .toString()
-                  .replace(/[^\d,-]/g, '')
-                  .replace(',', '.'),
-              )
-            : 0;
-
-          const fourthCellValue = row.getCell(4).value;
-          const fourthCellNumericValue = fourthCellValue
-            ? parseFloat(
-                fourthCellValue
-                  .toString()
-                  .replace(/[^\d,-]/g, '')
-                  .replace(',', '.'),
-              )
-            : 0;
-
-          const fifthCellValue = row.getCell(5).value;
-          const fifthCellNumericValue = fifthCellValue
-            ? parseFloat(
-                fifthCellValue
-                  .toString()
-                  .replace(/[^\d,-]/g, '')
-                  .replace(',', '.'),
-              )
-            : 0;
-
-          const sixthCellValue = row.getCell(6).value;
-          const sixthCellNumericValue = sixthCellValue
-            ? parseFloat(
-                sixthCellValue
-                  .toString()
-                  .replace(/[^\d,-]/g, '')
-                  .replace(',', '.'),
-              )
-            : 0;
-
-          await this.prismaService.despesa.create({
-            data: {
-              tipo: tipoDespesaEnum,
-              dotacaoInicial: secondCellNumericValue,
-              dotacaoAtualizada: thirdCellNumericValue,
-              receitasRealizadaBimestre: fourthCellNumericValue,
-              receitasRealizadaAteBimestre: fifthCellNumericValue,
-              percentual: sixthCellNumericValue,
-              relatorioMunicialId: relatorio.id,
-            },
-          });
-        } else {
-          // console.log(
-          //   `Tipo de receita ou despesa desconhecido: ${tipoReceitaDespesaExcel}\n`,
-          // );
-        }
+        break;
       }
     } catch (error) {
       console.log(error);
     }
+  }
+
+  private levenshteinDistance(a: string, b: string): number {
+    a = a.replace(/\s+/g, '');
+    b = b.replace(/\s+/g, '');
+    const matrix = [];
+
+    // Initialize matrix with distances from empty string
+    for (let i = 0; i <= b.length; i++) {
+      matrix[i] = [i];
+    }
+
+    for (let j = 0; j <= a.length; j++) {
+      matrix[0][j] = j;
+    }
+
+    // Calculate Levenshtein distance
+    for (let i = 1; i <= b.length; i++) {
+      for (let j = 1; j <= a.length; j++) {
+        if (b.charAt(i - 1) === a.charAt(j - 1)) {
+          matrix[i][j] = matrix[i - 1][j - 1];
+        } else {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j - 1] + 1, // Substitution
+            matrix[i][j - 1] + 1, // Insertion
+            matrix[i - 1][j] + 1, // Deletion
+          );
+        }
+      }
+    }
+
+    return matrix[b.length][a.length];
+  }
+
+  private isSimilar(a: string, b: string, tolerance: number): boolean {
+    const distance = this.levenshteinDistance(a.toLowerCase(), b.toLowerCase());
+    return distance <= tolerance;
   }
 }
