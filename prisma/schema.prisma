@@ -35,7 +35,7 @@ model Receita {
   receitasRealizadaAteBimestre Float
   percentual                   Float
   relatorioMunicialId          Int
-  relatorioMunicial            RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
+  relatorioMunicial            RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
@@ -49,7 +49,7 @@ model Despesa {
   receitasRealizadaAteBimestre Float
   percentual                   Float
   relatorioMunicialId          Int
-  relatorioMunicial            RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id])
+  relatorioMunicial            RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
@@ -59,7 +59,9 @@ model DeducoesFundebMagisterio {
   tipo                DeducoesFundebMagisterioTipo
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal           @relation(fields: [relatorioMunicialId], references: [id])
+  relatorioMunicial   RelatorioMunicipal           @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
 }
 
 model ControleUtilizacaoRecursos {
@@ -67,7 +69,9 @@ model ControleUtilizacaoRecursos {
   tipo                ControleUtilizacaoRecursosTipo
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal             @relation(fields: [relatorioMunicialId], references: [id])
+  relatorioMunicial   RelatorioMunicipal             @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
 }
 
 model DeducoesParaFinsDeLimitesConstitucional {
@@ -75,7 +79,9 @@ model DeducoesParaFinsDeLimitesConstitucional {
   tipo                DeducoesParaFinsDeLimitesConstitucionalTipo
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal                          @relation(fields: [relatorioMunicialId], references: [id])
+  relatorioMunicial   RelatorioMunicipal                          @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
 }
 
 model RestosAPagarInscritosDisponibilidadesFinanceira {
@@ -84,7 +90,9 @@ model RestosAPagarInscritosDisponibilidadesFinanceira {
   saldoAteBimestre    Float
   canceladoNoAnoAtual Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal                                  @relation(fields: [relatorioMunicialId], references: [id])
+  relatorioMunicial   RelatorioMunicipal                                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
 }
 
 model FluxoFinanceiroDeRecursos {
@@ -93,7 +101,9 @@ model FluxoFinanceiroDeRecursos {
   valorFundeb         Float
   valorFundef         Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal             @relation(fields: [relatorioMunicialId], references: [id])
+  relatorioMunicial   RelatorioMunicipal             @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
 }
 
 enum ReceitaTipos {
@@ -222,6 +232,7 @@ enum DeducoesParaFinsDeLimitesConstitucionalTipo {
   DESPESAS_CUSTEADAS_A_COMPLEMENTACAO_DO_FUNDEB_NO_EXERCICIO
   RECEITA_DE_APLICACAO_FINANCEIRA_DOS_RECURSOS_DO_FUNDEB_ATE_BIM
   DESPESAS_CUSTEADAS_SUPERAVIT_FINANCEIRO_DO_EXERCICIO_ANTERIOR
+  DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_OUTROS_IMPOSTOS
   RESTOS_A_PAGAR_INSCRITOS_SEM_DISPONIBILIDADE_FINANCEIRA
   CANCELAMENTO_RESTOS_PAGAR_INSCRITOS_DISPONIBILIDADE_FINANCEIRA
   TOTAL_DE_DEDUCOES_PARA_FINS_DE_LIMITE_CONSTITUCIONAL
