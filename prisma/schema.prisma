@@ -13,113 +13,113 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model RelatorioMunicipal {
+model RelatorioMunicipal1014 {
   id                                              Int                                               @id @default(autoincrement())
   ano                                             String
   codigoMunicipio                                 String
-  deducoesFundebMagisterio                        DeducoesFundebMagisterio[]
-  controleUtilizacaoRecursos                      ControleUtilizacaoRecursos[]
-  deducoesParaFinsDeLimitesConstitucional         DeducoesParaFinsDeLimitesConstitucional[]
-  restosAPagarInscritosDisponibilidadesFinanceira RestosAPagarInscritosDisponibilidadesFinanceira[]
-  fluxoFinanceiroDeRecursos                       FluxoFinanceiroDeRecursos[]
-  receita                                         Receita[]
-  despesa                                         Despesa[]
+  deducoesFundebMagisterio                        DeducoesFundebMagisterio1014[]
+  controleUtilizacaoRecursos                      ControleUtilizacaoRecursos1014[]
+  deducoesParaFinsDeLimitesConstitucional         DeducoesParaFinsDeLimitesConstitucional1014[]
+  restosAPagarInscritosDisponibilidadesFinanceira RestosAPagarInscritosDisponibilidadesFinanceira1014[]
+  fluxoFinanceiroDeRecursos                       FluxoFinanceiroDeRecursos1014[]
+  receita                                         Receita1014[]
+  despesa                                         Despesa1014[]
 }
 
-model Receita {
-  id                           Int                @id @default(autoincrement())
-  tipo                         ItemReceitaTipos
+model Receita1014 {
+  id                           Int                    @id @default(autoincrement())
+  tipo                         ItemReceitaTipos1014
   previsaoInicial              Float
   previsaoAtualizada           Float
   receitasRealizadaBimestre    Float
   receitasRealizadaAteBimestre Float
   percentual                   Float
   relatorioMunicialId          Int
-  relatorioMunicial            RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial            RelatorioMunicipal1014 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model Despesa {
+model Despesa1014 {
   id                           Int                @id @default(autoincrement())
-  tipo                         ItemDespesaTipos
+  tipo                         ItemDespesaTipos1014
   dotacaoInicial               Float
   dotacaoAtualizada            Float
   receitasRealizadaBimestre    Float
   receitasRealizadaAteBimestre Float
   percentual                   Float
   relatorioMunicialId          Int
-  relatorioMunicial            RelatorioMunicipal @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial            RelatorioMunicipal1014 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model DeducoesFundebMagisterio {
+model DeducoesFundebMagisterio1014 {
   id                  Int                          @id @default(autoincrement())
-  tipo                DeducoesFundebMagisterioTipo
+  tipo                DeducoesFundebMagisterioTipo1014
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal           @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1014           @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model ControleUtilizacaoRecursos {
+model ControleUtilizacaoRecursos1014 {
   id                  Int                            @id @default(autoincrement())
-  tipo                ControleUtilizacaoRecursosTipo
+  tipo                ControleUtilizacaoRecursosTipo1014
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal             @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1014             @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model DeducoesParaFinsDeLimitesConstitucional {
+model DeducoesParaFinsDeLimitesConstitucional1014 {
   id                  Int                                         @id @default(autoincrement())
-  tipo                DeducoesParaFinsDeLimitesConstitucionalTipo
+  tipo                DeducoesParaFinsDeLimitesConstitucionalTipo1014
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal                          @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1014                          @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model RestosAPagarInscritosDisponibilidadesFinanceira {
+model RestosAPagarInscritosDisponibilidadesFinanceira1014 {
   id                  Int                                                 @id @default(autoincrement())
-  tipo                RestosAPagarInscritosDisponibilidadesFinanceiraTipo
+  tipo                RestosAPagarInscritosDisponibilidadesFinanceiraTipo1014
   saldoAteBimestre    Float
   canceladoNoAnoAtual Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal                                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1014                                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model FluxoFinanceiroDeRecursos {
+model FluxoFinanceiroDeRecursos1014 {
   id                  Int                            @id @default(autoincrement())
-  tipo                FluxoFinanceiroDeRecursosTipos
+  tipo                FluxoFinanceiroDeRecursosTipos1014
   valorFundeb         Float
   valorFundef         Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal             @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1014             @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-enum ReceitaTipos {
+enum ReceitaTipos1014 {
   RECEITAS_DE_IMPOSTO
   RECEITAS_FINANCIAMENTO_DO_ENSINO
   RECEITAS_DO_FUNDEB
   RECEITAS_ACOES_MDE
 }
 
-enum DespesaTipos {
+enum DespesaTipos1014 {
   DESPESAS_DO_FUNDEB
   DESPESAS_ACOES_MDE
   DESPESAS_CUSTEADAS_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO
 }
 
-enum ItemReceitaTipos {
+enum ItemReceitaTipos1014 {
   RECEITA_DE_IMPOSTOS
   IPTU_RECEITA_RESULTANTE
   IPTU
@@ -188,7 +188,7 @@ enum ItemReceitaTipos {
   IMPOSTOS_E_TRANSFERENCIAS_DESTINADAS_MDE
 }
 
-enum ItemDespesaTipos {
+enum ItemDespesaTipos1014 {
   FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO
   FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_EDUCACAO_INFANTIL
   FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_ENSINO_FUNDAMENTAL
@@ -215,19 +215,19 @@ enum ItemDespesaTipos {
   TOTAL_GERAL_DESPESAS_MDE
 }
 
-enum DeducoesFundebMagisterioTipo {
+enum DeducoesFundebMagisterioTipo1014 {
   RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_FUNDEB
   DESPESAS_SUPERAVIT_FINANCEIRO_EXERCICIO_ANTERIOR_FUNDEB
   TOTAL_DEDUCOES_PARA_FINS_LIMITE_FUNDEB
   MINIMO_60_PORCENTO_FUNDEB_REMUNERACAO_MAGISTERIO_EDUCACAO
 }
 
-enum ControleUtilizacaoRecursosTipo {
+enum ControleUtilizacaoRecursosTipo1014 {
   RECURSOS_NAO_UTILIZADOS_FUNDEB_ANO_ANTERIOR
   DESPESAS_CUSTEADAS_COM_FUNDEB_ANO_ANTERIOR_ATE_1_TRIM_ATUAL
 }
 
-enum DeducoesParaFinsDeLimitesConstitucionalTipo {
+enum DeducoesParaFinsDeLimitesConstitucionalTipo1014 {
   RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB
   DESPESAS_CUSTEADAS_A_COMPLEMENTACAO_DO_FUNDEB_NO_EXERCICIO
   RECEITA_DE_APLICACAO_FINANCEIRA_DOS_RECURSOS_DO_FUNDEB_ATE_BIM
@@ -240,11 +240,11 @@ enum DeducoesParaFinsDeLimitesConstitucionalTipo {
   MINIMO_DE_25_PORCENTO_DAS_RECEITAS_RESULTANTES_DE_IMPOSTOS_MDE
 }
 
-enum RestosAPagarInscritosDisponibilidadesFinanceiraTipo {
+enum RestosAPagarInscritosDisponibilidadesFinanceiraTipo1014 {
   RESTOS_A_PAGAR_DE_DESPESA_MDE
 }
 
-enum FluxoFinanceiroDeRecursosTipos {
+enum FluxoFinanceiroDeRecursosTipos1014 {
   SALDO_FINANCEIRO_31_DE_DEZEMBRO_ANO_ANTERIOR
   INGRESSO_RECURSOS_ATE_BIM
   PAGAMENTOS_EFETUADOS_ATE_BIM

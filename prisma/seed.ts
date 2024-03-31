@@ -1,12 +1,12 @@
 import {
-  ControleUtilizacaoRecursosTipo,
-  DeducoesFundebMagisterioTipo,
-  DeducoesParaFinsDeLimitesConstitucionalTipo,
-  FluxoFinanceiroDeRecursosTipos,
-  ItemDespesaTipos,
-  ItemReceitaTipos,
-  RelatorioMunicipal,
-  RestosAPagarInscritosDisponibilidadesFinanceiraTipo,
+  ControleUtilizacaoRecursosTipo1014,
+  DeducoesFundebMagisterioTipo1014,
+  DeducoesParaFinsDeLimitesConstitucionalTipo1014,
+  FluxoFinanceiroDeRecursosTipos1014,
+  ItemDespesaTipos1014,
+  ItemReceitaTipos1014,
+  RelatorioMunicipal1014,
+  RestosAPagarInscritosDisponibilidadesFinanceiraTipo1014,
 } from '@prisma/client';
 import * as ExcelJS from 'exceljs';
 import * as fs from 'fs';
@@ -51,7 +51,7 @@ async function seedDatabaseTenToFourteen() {
 
           const worksheet = workbook.getWorksheet(1);
 
-          const relatorio = await prisma.relatorioMunicipal.create({
+          const relatorio = await prisma.relatorioMunicipal1014.create({
             data: {
               ano,
               codigoMunicipio: codigo,
@@ -91,7 +91,7 @@ async function seedDatabaseTenToFourteen() {
             } = await getCellsNumericValues(row);
 
             if (tipoReceitaEnum) {
-              await prisma.receita.create({
+              await prisma.receita1014.create({
                 data: {
                   tipo: tipoReceitaEnum,
                   previsaoInicial: secondCellNumericValue,
@@ -103,7 +103,7 @@ async function seedDatabaseTenToFourteen() {
                 },
               });
             } else if (tipoDespesaEnum) {
-              await prisma.despesa.create({
+              await prisma.despesa1014.create({
                 data: {
                   tipo: tipoDespesaEnum,
                   dotacaoInicial: secondCellNumericValue,
@@ -115,7 +115,7 @@ async function seedDatabaseTenToFourteen() {
                 },
               });
             } else if (tipoDeducoesFundebMagisterioEnum) {
-              await prisma.deducoesFundebMagisterio.create({
+              await prisma.deducoesFundebMagisterio1014.create({
                 data: {
                   tipo: tipoDeducoesFundebMagisterioEnum,
                   valor: secondCellNumericValue,
@@ -123,7 +123,7 @@ async function seedDatabaseTenToFourteen() {
                 },
               });
             } else if (tipoControleUtilizacaoRecursosEnum) {
-              await prisma.controleUtilizacaoRecursos.create({
+              await prisma.controleUtilizacaoRecursos1014.create({
                 data: {
                   tipo: tipoControleUtilizacaoRecursosEnum,
                   valor: secondCellNumericValue,
@@ -131,7 +131,7 @@ async function seedDatabaseTenToFourteen() {
                 },
               });
             } else if (tipoDeducoesParaFinsDeLimitesConstitucionalEnum) {
-              await prisma.deducoesParaFinsDeLimitesConstitucional.create({
+              await prisma.deducoesParaFinsDeLimitesConstitucional1014.create({
                 data: {
                   tipo: tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
                   valor: secondCellNumericValue,
@@ -139,7 +139,7 @@ async function seedDatabaseTenToFourteen() {
                 },
               });
             } else if (tipoRestosAPagarEnum) {
-              await prisma.restosAPagarInscritosDisponibilidadesFinanceira.create(
+              await prisma.restosAPagarInscritosDisponibilidadesFinanceira1014.create(
                 {
                   data: {
                     tipo: tipoRestosAPagarEnum,
@@ -150,7 +150,7 @@ async function seedDatabaseTenToFourteen() {
                 },
               );
             } else if (tipoFluxoFinanceiroDeRecursos) {
-              await prisma.fluxoFinanceiroDeRecursos.create({
+              await prisma.fluxoFinanceiroDeRecursos1014.create({
                 data: {
                   tipo: tipoFluxoFinanceiroDeRecursos,
                   valorFundeb: secondCellNumericValue,
@@ -212,20 +212,20 @@ function isSimilar(a: string, b: string, tolerance: number): boolean {
 }
 
 async function findTypes(
-  relatorio: RelatorioMunicipal,
+  relatorio: RelatorioMunicipal1014,
   tipoReceitaDespesaLimpo: string,
 ) {
-  let tipoReceitaEnum: ItemReceitaTipos;
-  let tipoDespesaEnum: ItemDespesaTipos;
-  let tipoDeducoesFundebMagisterioEnum: DeducoesFundebMagisterioTipo;
-  let tipoControleUtilizacaoRecursosEnum: ControleUtilizacaoRecursosTipo;
-  let tipoDeducoesParaFinsDeLimitesConstitucionalEnum: DeducoesParaFinsDeLimitesConstitucionalTipo;
-  let tipoRestosAPagarEnum: RestosAPagarInscritosDisponibilidadesFinanceiraTipo;
-  let tipoFluxoFinanceiroDeRecursos: FluxoFinanceiroDeRecursosTipos;
+  let tipoReceitaEnum: ItemReceitaTipos1014;
+  let tipoDespesaEnum: ItemDespesaTipos1014;
+  let tipoDeducoesFundebMagisterioEnum: DeducoesFundebMagisterioTipo1014;
+  let tipoControleUtilizacaoRecursosEnum: ControleUtilizacaoRecursosTipo1014;
+  let tipoDeducoesParaFinsDeLimitesConstitucionalEnum: DeducoesParaFinsDeLimitesConstitucionalTipo1014;
+  let tipoRestosAPagarEnum: RestosAPagarInscritosDisponibilidadesFinanceiraTipo1014;
+  let tipoFluxoFinanceiroDeRecursos: FluxoFinanceiroDeRecursosTipos1014;
   let tipoJaDefinido = false;
 
   for (const key in mapeamentoReceitas) {
-    const receitaExiste = await prisma.receita.findUnique({
+    const receitaExiste = await prisma.receita1014.findUnique({
       where: {
         relatorioMunicialId_tipo: {
           relatorioMunicialId: relatorio.id,
@@ -245,7 +245,7 @@ async function findTypes(
     if (tipoJaDefinido) {
       break;
     }
-    const despesaExiste = await prisma.despesa.findUnique({
+    const despesaExiste = await prisma.despesa1014.findUnique({
       where: {
         relatorioMunicialId_tipo: {
           relatorioMunicialId: relatorio.id,
@@ -265,7 +265,7 @@ async function findTypes(
     if (tipoJaDefinido) {
       break;
     }
-    const deducaoExiste = await prisma.deducoesFundebMagisterio.findUnique({
+    const deducaoExiste = await prisma.deducoesFundebMagisterio1014.findUnique({
       where: {
         relatorioMunicialId_tipo: {
           relatorioMunicialId: relatorio.id,
@@ -286,14 +286,15 @@ async function findTypes(
     if (tipoJaDefinido) {
       break;
     }
-    const controleExiste = await prisma.controleUtilizacaoRecursos.findUnique({
-      where: {
-        relatorioMunicialId_tipo: {
-          relatorioMunicialId: relatorio.id,
-          tipo: mapeamentoControleUtilizacaoRecursos[key],
+    const controleExiste =
+      await prisma.controleUtilizacaoRecursos1014.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoControleUtilizacaoRecursos[key],
+          },
         },
-      },
-    });
+      });
 
     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !controleExiste) {
       tipoControleUtilizacaoRecursosEnum =
@@ -308,7 +309,7 @@ async function findTypes(
       break;
     }
     const deducaoConstitucionalExiste =
-      await prisma.deducoesParaFinsDeLimitesConstitucional.findUnique({
+      await prisma.deducoesParaFinsDeLimitesConstitucional1014.findUnique({
         where: {
           relatorioMunicialId_tipo: {
             relatorioMunicialId: relatorio.id,
@@ -333,14 +334,16 @@ async function findTypes(
       break;
     }
     const restosAPagarExiste =
-      await prisma.restosAPagarInscritosDisponibilidadesFinanceira.findUnique({
-        where: {
-          relatorioMunicialId_tipo: {
-            relatorioMunicialId: relatorio.id,
-            tipo: mapeamentoRestosAPagar[key],
+      await prisma.restosAPagarInscritosDisponibilidadesFinanceira1014.findUnique(
+        {
+          where: {
+            relatorioMunicialId_tipo: {
+              relatorioMunicialId: relatorio.id,
+              tipo: mapeamentoRestosAPagar[key],
+            },
           },
         },
-      });
+      );
 
     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !restosAPagarExiste) {
       tipoRestosAPagarEnum = mapeamentoRestosAPagar[key];
@@ -354,7 +357,7 @@ async function findTypes(
       break;
     }
     const fluxoFinanceiroExiste =
-      await prisma.fluxoFinanceiroDeRecursos.findUnique({
+      await prisma.fluxoFinanceiroDeRecursos1014.findUnique({
         where: {
           relatorioMunicialId_tipo: {
             relatorioMunicialId: relatorio.id,
