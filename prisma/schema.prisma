@@ -14,7 +14,7 @@ datasource db {
 }
 
 model RelatorioMunicipal1014 {
-  id                                              Int                                               @id @default(autoincrement())
+  id                                              Int                                                   @id @default(autoincrement())
   ano                                             String
   codigoMunicipio                                 String
   deducoesFundebMagisterio                        DeducoesFundebMagisterio1014[]
@@ -41,21 +41,21 @@ model Receita1014 {
 }
 
 model Despesa1014 {
-  id                           Int                @id @default(autoincrement())
-  tipo                         ItemDespesaTipos1014
-  dotacaoInicial               Float
-  dotacaoAtualizada            Float
-  receitasRealizadaBimestre    Float
-  receitasRealizadaAteBimestre Float
-  percentual                   Float
-  relatorioMunicialId          Int
-  relatorioMunicial            RelatorioMunicipal1014 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  id                            Int                    @id @default(autoincrement())
+  tipo                          ItemDespesaTipos1014
+  dotacaoInicial                Float
+  dotacaoAtualizada             Float
+  despesasLiquidadasBimestre    Float
+  despesasLiquidadasAteBimestre Float
+  percentual                    Float
+  relatorioMunicialId           Int
+  relatorioMunicial             RelatorioMunicipal1014 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
 model DeducoesFundebMagisterio1014 {
-  id                  Int                          @id @default(autoincrement())
+  id                  Int                              @id @default(autoincrement())
   tipo                DeducoesFundebMagisterioTipo1014
   valor               Float
   relatorioMunicialId Int
@@ -65,7 +65,7 @@ model DeducoesFundebMagisterio1014 {
 }
 
 model ControleUtilizacaoRecursos1014 {
-  id                  Int                            @id @default(autoincrement())
+  id                  Int                                @id @default(autoincrement())
   tipo                ControleUtilizacaoRecursosTipo1014
   valor               Float
   relatorioMunicialId Int
@@ -75,7 +75,7 @@ model ControleUtilizacaoRecursos1014 {
 }
 
 model DeducoesParaFinsDeLimitesConstitucional1014 {
-  id                  Int                                         @id @default(autoincrement())
+  id                  Int                                             @id @default(autoincrement())
   tipo                DeducoesParaFinsDeLimitesConstitucionalTipo1014
   valor               Float
   relatorioMunicialId Int
@@ -85,7 +85,7 @@ model DeducoesParaFinsDeLimitesConstitucional1014 {
 }
 
 model RestosAPagarInscritosDisponibilidadesFinanceira1014 {
-  id                  Int                                                 @id @default(autoincrement())
+  id                  Int                                                     @id @default(autoincrement())
   tipo                RestosAPagarInscritosDisponibilidadesFinanceiraTipo1014
   saldoAteBimestre    Float
   canceladoNoAnoAtual Float
@@ -96,7 +96,7 @@ model RestosAPagarInscritosDisponibilidadesFinanceira1014 {
 }
 
 model FluxoFinanceiroDeRecursos1014 {
-  id                  Int                            @id @default(autoincrement())
+  id                  Int                                @id @default(autoincrement())
   tipo                FluxoFinanceiroDeRecursosTipos1014
   valorFundeb         Float
   valorFundef         Float
@@ -250,4 +250,297 @@ enum FluxoFinanceiroDeRecursosTipos1014 {
   PAGAMENTOS_EFETUADOS_ATE_BIM
   RECEITA_APLICACAO_FINANCEIRA_DOS_RECURSOS_ATE_BIM
   SALDO_FINANCEIRO_NO_EXERCICIO_ATUAL
+}
+
+model RelatorioMunicipal21 {
+  id                                                         Int                                                          @id @default(autoincrement())
+  ano                                                        String
+  codigoMunicipio                                            String
+  receita21                                                  Receita21[]
+  despesa21                                                  Despesa21[]
+  despesasCusteadasFundebExercicio21                         DespesasCusteadasFundebExercicio21[]
+  recursosRecebidosNaoUtilizados21                           RecursosRecebidosNaoUtilizados21[]
+  indicadores21Art212                                        Indicadores21Art212[]
+  indicador21Art25AplicacaoSuperavit                         Indicador21Art25AplicacaoSuperavit[]
+  indicador21Art25MaximoDeSuperavit                          Indicador21Art25MaximoDeSuperavit[]
+  aplicacaoDespesasFinsLimiteMinimoConstitucional21          AplicacaoDespesasFinsLimiteMinimoConstitucional21[]
+  apuracaoLimiteMinimoConstitucional21                       ApuracaoLimiteMinimoConstitucional21[]
+  restosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21 RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21[]
+  controleDisponibildadeFinanceiraConciliacaoBancaria21      ControleDisponibildadeFinanceiraConciliacaoBancaria21[]
+}
+
+model Receita21 {
+  id                           Int                  @id @default(autoincrement())
+  tipo                         ItemReceitaTipos21
+  previsaoAtualizada           Float
+  receitasRealizadaAteBimestre Float
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal21 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model Despesa21 {
+  id                                    Int                  @id @default(autoincrement())
+  tipo                                  ItemDespesasTipos21
+  dotacaoAtualizada                     Float
+  despesasEmpenhadasAteBimestre         Float
+  despesasLiquidadasAteBimestre         Float
+  despesasPagasAteBimestre              Float
+  inscritosEmRestosAPagarNaoProcessados Float
+  relatorioMunicialId                   Int
+  relatorioMunicial                     RelatorioMunicipal21 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model DespesasCusteadasFundebExercicio21 {
+  id                                            Int                                     @id @default(autoincrement())
+  tipo                                          DespesasCusteadasFundebExercicioTipos21
+  despesasEmpenhadasAteBimestre                 Float
+  despesasLiquidadasAteBimestre                 Float
+  despesasPagasAteBimestre                      Float
+  inscritosEmRestosAPagarNaoProcessados         Float
+  inscritosEmRestosAPagarNaoProcessadosSemCaixa Float
+  relatorioMunicialId                           Int
+  relatorioMunicial                             RelatorioMunicipal21                    @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model RecursosRecebidosNaoUtilizados21 {
+  id                  Int                                   @id @default(autoincrement())
+  tipo                RecursosRecebidosNaoUtilizadosTipos21
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal21                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model Indicadores21Art212 {
+  id                           Int                      @id @default(autoincrement())
+  tipo                         IndicadoresTipos21Art212
+  valorExigido                 Float
+  valorAplicado                Float
+  valorConsideradoAposDeducoes Float
+  percentualAplicado           Float
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal21     @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model Indicador21Art25MaximoDeSuperavit {
+  id                           Int                                    @id @default(autoincrement())
+  tipo                         IndicadorTipos21Art25MaximoDeSuperavit
+  valorPermitido               Float
+  valorNaoAplicado             Float
+  valorNaoAplicadoAposDeducoes Float
+  percentualNaoAplicado        Float
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal21                   @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model Indicador21Art25AplicacaoSuperavit {
+  id                                       Int                                     @id @default(autoincrement())
+  tipo                                     IndicadorTipos21Art25AplicacaoSuperavit
+  valorSuperavitPermitidoExercicioAnterior Float
+  valorNaoAplicadoExercicioAnterior        Float
+  valorSuperavitAplicadoAtePrimeiroQuadrim Float
+  valorAplicadoAposPrimeiroQuadrim         Float
+  valorNaoAplicado                         Float
+  relatorioMunicialId                      Int
+  relatorioMunicial                        RelatorioMunicipal21                    @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model AplicacaoDespesasFinsLimiteMinimoConstitucional21 {
+  id                  Int                                                    @id @default(autoincrement())
+  tipo                AplicacaoDespesasFinsLimiteMinimoConstitucionalTipos21
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal21                                   @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model ApuracaoLimiteMinimoConstitucional21 {
+  id                  Int                                       @id @default(autoincrement())
+  tipo                ApuracaoLimiteMinimoConstitucionalTipos21
+  valorExigido        Float
+  valorAplicado       Float
+  percentualAplicado  Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal21                      @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21 {
+  id                  Int                                                             @id @default(autoincrement())
+  tipo                RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebTipos21
+  saldoInicial        Float
+  rpLiquidados        Float
+  rpPagos             Float
+  rpCancelados        Float
+  saldoFinal          Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal21                                            @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model ControleDisponibildadeFinanceiraConciliacaoBancaria21 {
+  id                  Int                                                        @id @default(autoincrement())
+  tipo                ControleDisponibildadeFinanceiraConciliacaoBancariaTipos21
+  fundeb              Float
+  salarioEducacao     Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal21                                       @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+enum ItemReceitaTipos21 {
+  RECEITA_DE_IMPOSTOS
+  RECEITA_IPTU
+  RECEITA_ITBI
+  RECEITA_ISS
+  RECEITA_IRRF
+  RECEITA_TRANSFERENCIAS_CONSTITUCIONAIS
+  COTA_PARTE_FPM
+  COTA_PARTE_FPM_PARCELA_CF_B
+  OTA_PARTE_FPM_PARCELA_CF_D_E
+  COTA_PARTE_ICMS
+  COTA_PARTE_IPI_EXPORTACAO
+  COTA_PARTE_ITR
+  COTA_PARTE_IPVA
+  COTA_PARTE_IOF_OURO
+  COMPENSACOES_FINANCEIRAS
+  TOTAL_RECEITA_IMPOSTOS
+  TOTAL_DESTINADO_FUNDEB
+  VALOR_MINIMO_APLICADO_MDE
+  RECEITAS_RECEBIDAS_FUNDEB
+  FUNDEB_IMPOSTOS_TRANSFERENCIAS
+  FUNDEB_PRINCIPAL_6_1_1
+  FUNDEB_RENDIMENTO_APLICACAO_FINCANCEIRA_6_1_2
+  FUNDEB_COMPLEMENTACAO_UNIAO_VAAF
+  FUNDEB_PRINCIPAL_6_2_1
+  FUNDEB_RENDIMENTO_APLICACAO_FINCANCEIRA_6_2_2
+  FUNDEB_COMPLEMENTACAO_UNIAO_VAAT
+  FUNDEB_PRINCIPAL_6_3_1
+  FUNDEB_RENDIMENTO_APLICACAO_FINCANCEIRA_6_3_3
+  RESULTADO_LIQUIDO_TRANSFERENCIAS_FUNDEB
+  FIN_ENSINO_RECEITA_TRANSFERENCIAS_FNDE
+  FIN_ENSINO_SALARIO_EDUCACAO
+  FIN_ENSINO_PDDE
+  FIN_ENSINO_PNAE
+  FIN_ENSINO_PNATE
+  FIN_ENSINO_OUTRAS_TRANSFERENCIAS_FNDE
+  FIN_ENSINO_RECEITA_TRANSFERENCIAS_CONVENIOS
+  FIN_ENSINO_RECEITA_ROYALTIES_DESTINADOS_EDUCACAO
+  FIN_ENSINO_RECEITA_OPERACOES_CREDITO_EDUCACAO
+  FIN_ENSINO_OUTRAS_RECEITAS
+  FIN_ENSINO_TOTAL_RECEITAS_ADICIONAIS
+}
+
+enum ItemDespesasTipos21 {
+  FUNDEB_PROFISSIONAIS_EDUCACAO_BASICA
+  FUNDEB_EDUCACAO_INFANTIL
+  FUNDEB_CRECHE
+  FUNDEB_PRE_ESCOLA
+  FUNDEB_ENSINO_FUNDAMENTAL
+  FUNDEB_OUTRAS_DESPESAS
+  FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL
+  FUNDEB_OUTRAS_DESPESAS_EDUCACAO_CRECHE
+  FUNDEB_OUTRAS_DESPESAS_PRE_ESCOLA
+  FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL
+  TOTAL_DESPESAS_FUNDEB
+  MDE_EDUCACAO_INFANTIL
+  MDE_CRECHE
+  MDE_PRE_ESCOLA
+  MDE_ENSINO_FUNDAMENTAL
+  TOTAL_ACOES_TIPICAS_MDE
+  OUTRAS_DESPESAS_EDUCACAO_INFANTIL
+  OUTRAS_DESPESAS_CRECHE
+  OUTRAS_DESPESAS_PRE_ESCOLA
+  OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL
+  OUTRAS_DESPESAS_ENSINO_MEDIO
+  OUTRAS_DESPESAS_ENSINO_SUPERIOR
+  OUTRAS_DESPESAS_ENSINO_PROFISSIONAL_NAO_INTEGRADO
+  TOTAL_OUTRAS_DESPESAS_EDUCACAO
+  TOTAL_GERAL_DESPESAS_EDUCACAO
+  DESPESAS_CORRENTES
+  PESSOAL_ATIVO
+  PESSOAL_INATIVO
+  TRANSFERENCIAS_INSTITUICOES_47_1_3
+  OUTRAS_DESPESAS_CORRENTES
+  DESPESAS_DE_CAPITAL
+  TRANSFERENCIAS_INSTITUICOES_47_2_1
+  OUTRAS_DESPESAS_CAPITAL
+}
+
+enum DespesasCusteadasFundebExercicioTipos21 {
+  TOTAL_DESPESAS_FUNDEB_PROFISSIONAIS_EDUCACAO_BASICA
+  TOTAL_DESPESAS_FUNDEB_IMPOSTOS_TRANSFERENCIAS
+  TOTAL_DESPESAS_FUNDEB_COMPLEMENTACAO_UNIAO_VAAF
+  TOTAL_DESPESAS_FUNDEB_COMPLEMENTACAO_UNIAO_VAAT
+  TOTAL_DESPESAS_FUNDEB_COMPLEMENTACAO_UNIAO_VAAT_EDUCACAO_INFANTIL
+  TOTAL_DESPESAS_FUNDEB_COMPLEMENTACAO_UNIAO_VAAT_DESPESA_CAPITAL
+}
+
+enum RecursosRecebidosNaoUtilizadosTipos21 {
+  TOTAL_RECURSOS_SUPERAVIT
+  SUPERAVIT_EXERCICIO_ANTERIOR
+  SUPERAVIT_RESIDUAL_OUTROS_EXERCICIOS
+}
+
+enum IndicadoresTipos21Art212 {
+  MINIMO_70_FUNDEB_REMUNERACAO_PROFESSORES
+  PERCENTUAL_50_COMPLEMENTACAO_UNIAO_VAAT_EDUCACAO_INFANTIL
+  MINIMO_15_COMPLEMENTACAO_UNIAO_VAAT_DESPESAS_CAPITAL
+}
+
+enum IndicadorTipos21Art25MaximoDeSuperavit {
+  TOTAL_RECEITA_RECEBIDA_NAO_APLICADA_EXERCICIO
+}
+
+enum IndicadorTipos21Art25AplicacaoSuperavit {
+  TOTAL_DESPESAS_CUSTEADAS_COM_SUPERAVIT_FUNDEB
+  TOTAL_DESPESAS_CUSTEADAS_COM_FUNDEB_IMPOSTOS_TRANSFERENCIAS
+  TOTAL_DESPESAS_CUSTEADAS_COM_FUNDEB_COMPLEMENTACAO_UNIAO
+}
+
+enum AplicacaoDespesasFinsLimiteMinimoConstitucionalTipos21 {
+  TOTAL_DESPESAS_MDE_CUSTEADAS_COM_RECURSOS_IMPOSTOS
+  RESULTADO_LIQUIDO_TRANSFERENCIAS_FUNDEB
+  RESTOS_A_PAGAR_NAO_PROCESSADOS_SEM_DISPONIBILIDADE_FUNDEB_IMPOSTOS
+  RESTOS_A_PAGAR_NAO_PROCESSADOS_SEM_DISPONIBILIDADE_IMPOSTOS
+  CANCELAMENTO_RESTOS_A_PAGAR_COM_DISPONIBILIDADE_IMPOSTOS
+  TOTAL_DESPESAS_PARA_FINS_LIMITE
+}
+
+enum ApuracaoLimiteMinimoConstitucionalTipos21 {
+  APLICACAO_EM_MDE_SOBRE_RECEITA_DE_IMPOSTOS
+}
+
+enum RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebTipos21 {
+  RESTOS_A_PAGAR_DE_DESPESAS_COM_MDE
+  EXECUTADAS_COM_RECURSOS_IMPOSTOS_TRANSFERENCIAS_IMPOSTO
+  EXECUTADAS_COM_RECURSOS_FUNDEB_IMPOSTOS
+  EXECUTADAS_COM_RECURSOS_FUNDEB_COMPLEMENTACAO_UNIAO
+}
+
+enum ControleDisponibildadeFinanceiraConciliacaoBancariaTipos21 {
+  DISPONIBILIDADE_FINANCEIRA_EM_31_DE_DEZEMBRO_ANO_ANTERIOR
+  INGRESSO_DE_RECURSOS_ATE_O_BIMESTRE_ORCAMENTARIO
+  PAGAMENTOS_EFETUADOS_ATE_O_BIMESTRE_ORCAMENTARIO_E_RESTOS_A_PAGAR
+  DISPONIBILIDADE_FINANCEIRA_ATE_O_BIMESTRE
+  AJUSTES_POSITIVOS_RETENCOES_E_OUTROS_VALORES_EXTRAORCAMENTARIOS
+  AJUSTES_NEGATIVOS_OUTROS_VALORES_EXTRAORCAMENTARIOS
+  SALDO_FINANCEIRO_CONCILIADO_SALDO_BANCARIO
 }
