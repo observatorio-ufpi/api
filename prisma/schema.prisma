@@ -26,6 +26,20 @@ model RelatorioMunicipal1014 {
   despesa                                         Despesa1014[]
 }
 
+model RelatorioMunicipal1520 {
+  id                                              Int                                                   @id @default(autoincrement())
+  ano                                             String
+  codigoMunicipio                                 String
+  deducoesParaFinsLimiteFundeb                    DeducoesFinsLimiteFundeb1520[]
+  indicadoresFundeb                               IndicadoresFundeb1520[]
+  controleRecursosNoExercicioSubsequente          ControleRecursosNoExercicioSubsequente1520[]
+  deducoesParaFinsDeLimitesConstitucional         DeducoesParaFinsDeLimitesConstitucional1520[]
+  restosAPagarInscritosDisponibilidadesFinanceira RestosAPagarInscritosDisponibilidadesFinanceira1520[]
+  fluxoFinanceiroDeRecursosFundeb                 FluxoFinanceiroDeRecursosFundeb1520[]
+  receita1520                                     Receita1520[]
+  despesa1520                                     Despesa1520[]
+}
+
 model Receita1014 {
   id                           Int                    @id @default(autoincrement())
   tipo                         ItemReceitaTipos1014
@@ -40,6 +54,19 @@ model Receita1014 {
   @@unique([relatorioMunicialId, tipo])
 }
 
+model Receita1520 {
+  id                           Int                    @id @default(autoincrement())
+  tipo                         ItemReceitaTipos1520
+  previsaoInicial              Float
+  previsaoAtualizada           Float
+  receitasRealizadaAteBimestre Float
+  percentual                   Float
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal1520 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
 model Despesa1014 {
   id                            Int                    @id @default(autoincrement())
   tipo                          ItemDespesaTipos1014
@@ -50,6 +77,22 @@ model Despesa1014 {
   percentual                    Float
   relatorioMunicialId           Int
   relatorioMunicial             RelatorioMunicipal1014 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model Despesa1520 {
+  id                            Int                    @id @default(autoincrement())
+  tipo                          ItemDespesaTipos1520
+  dotacaoInicial                Float
+  dotacaoAtualizada             Float
+  despesasEmpenhadasAteBimestre Float
+  despesasEmpenhadasPercentual  Float
+  despesasLiquidadasAteBimestre Float
+  despesasLiquidadasPercentual  Float
+  inscritasRestosPagar          Float
+  relatorioMunicialId           Int
+  relatorioMunicial             RelatorioMunicipal1520 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
@@ -102,6 +145,67 @@ model FluxoFinanceiroDeRecursos1014 {
   valorFundef         Float
   relatorioMunicialId Int
   relatorioMunicial   RelatorioMunicipal1014             @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model DeducoesFinsLimiteFundeb1520 {
+  id                  Int                              @id @default(autoincrement())
+  tipo                DeducoesFinsLimiteFundebTipo1520
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1520           @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model IndicadoresFundeb1520 {
+  id                  Int                       @id @default(autoincrement())
+  tipo                IndicadoresFundebTipo1520
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1520    @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model ControleRecursosNoExercicioSubsequente1520 {
+  id                  Int                                            @id @default(autoincrement())
+  tipo                ControleRecursosNoExercicioSubsequenteTipo1520
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1520                         @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model DeducoesParaFinsDeLimitesConstitucional1520 {
+  id                  Int                                             @id @default(autoincrement())
+  tipo                DeducoesParaFinsDeLimitesConstitucionalTipo1520
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1520                          @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model FluxoFinanceiroDeRecursosFundeb1520 {
+  id                  Int                                     @id @default(autoincrement())
+  tipo                FluxoFinanceiroDeRecursosFundebTipo1520
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1520                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model RestosAPagarInscritosDisponibilidadesFinanceira1520 {
+  id                  Int                                                     @id @default(autoincrement())
+  tipo                RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520
+  saldoAteBimestre    Float
+  canceladoNoAno      Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1520                                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
@@ -188,6 +292,78 @@ enum ItemReceitaTipos1014 {
   IMPOSTOS_E_TRANSFERENCIAS_DESTINADAS_MDE
 }
 
+enum ItemReceitaTipos1520 {
+  RECEITA_DE_IMPOSTOS
+  IPTU_RECEITA_RESULTANTE
+  IPTU
+  IPTU_MULTAS_JUROS_MORA
+  IPTU_DIVIDA_ATIVA
+  IPTU_MULTAS_JUROS_MORA_DIVIDA_ATIVA
+  IPTU_DEDUCOES_RECEITA
+  ITBI_RECEITA_RESULTANTE
+  ITBI
+  ITBI_MULTAS_JUROS_MORA
+  ITBI_DIVIDA_ATIVA
+  ITBI_MULTAS_JUROS_MORA_DIVIDA_ATIVA
+  ITBI_DEDUCOES_RECEITA
+  ISS_RECEITA_RESULTANTE
+  ISS
+  ISS_MULTAS_JUROS_MORA
+  ISS_DIVIDA_ATIVA
+  ISS_MULTAS_JUROS_MORA_DIVIDA_ATIVA
+  ISS_DEDUCOES_RECEITA
+  IRRF_RECEITA_RESULTANTE
+  IRRF
+  IRRF_MULTAS_JUROS_MORA
+  IRRF_DIVIDA_ATIVA
+  IRRF_MULTAS_JUROS_MORA_DIVIDA_ATIVA
+  IRRF_DEDUCOES_RECEITA
+  ITR_RECEITA_RESULTANTE
+  ITR
+  ITR_MULTAS_JUROS_MORA
+  ITR_DIVIDA_ATIVA
+  ITR_MULTAS_JUROS_MORA_DIVIDA_ATIVA
+  ITR_DEDUCOES_RECEITA
+  RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS
+  COTA_PARTE_FPM
+  COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B
+  COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D
+  COTA_PARTE_ICMS
+  ICMS_DESONERACAO_LC_87_1996
+  COTA_PARTE_IPI_EXPORTACAO
+  COTA_PARTE_ITR
+  COTA_PARTE_IPVA
+  COTA_PARTE_IOF_OURO
+  TOTAL_RECEITA_IMPOSTOS
+  RECEITA_APLICACAO_FINANCEIRA
+  RECEITA_TRANSFERENCIAS_FNDE
+  TRANSFERENCIAS_SALARIO_EDUCACAO
+  TRANSFERENCIAS_DIRETAS_PDDE
+  TRANSFERENCIAS_DIRETAS_PNAE
+  TRANSFERENCIAS_DIRETAS_PNATE
+  OUTRAS_TRANSFERENCIAS_FNDE
+  APLICACAO_FINANCEIRA_FNDE
+  RECEITA_TRANSFERENCIAS_CONVENIOS
+  TRANSFERENCIAS_CONVENIOS
+  APLICACAO_FINANCEIRA_CONVENIOS
+  RECEITA_OPERACOES_CREDITO
+  OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO
+  TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO
+  RECEITAS_DESTINADAS_AO_FUNDEB
+  COTA_PARTE_FPM_DESTINADA_AO_FUNDEB
+  COTA_PARTE_ICMS_DESTINADA_AO_FUNDEB
+  ICMS_DESONERACAO_DESTINADA_AO_FUNDEB
+  COTA_PARTE_IPI_EXPORTACAO_DESTINADA_AO_FUNDEB
+  COTA_PARTE_ITR_OU_ITR_ARRECADADOS_DESTINADOS_AO_FUNDEB
+  COTA_PARTE_IPVA_DESTINADA_AO_FUNDEB
+  RECEITAS_RECEBIDAS_DO_FUNDEB
+  TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB
+  COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB
+  RECEITA_DE_APLICACAO_FINANCEIRA_DOS_RECURSOS_DO_FUNDEB
+  RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB
+  IMPOSTOS_E_TRANSFERENCIAS_DESTINADAS_MDE
+}
+
 enum ItemDespesaTipos1014 {
   FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO
   FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_EDUCACAO_INFANTIL
@@ -199,6 +375,37 @@ enum ItemDespesaTipos1014 {
   MDE_DESPESAS_EDUCACAO_INFANTIL
   MDE_EDUCACAO_INFANTIL_DESPESAS_CUSTEADAS_FUNDEB
   MDE_EDUCACAO_INFANTIL_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS
+  MDE_DESPESAS_ENSINO_FUNDAMENTAL
+  MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_FUNDEB
+  MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS
+  MDE_DESPESAS_ENSINO_MEDIO
+  MDE_DESPESAS_ENSINO_SUPERIOR
+  MDE_DESPESAS_ENSINO_PROFISSIONAL_NAO_INTEGRADO_ENSINO_REGULAR
+  MDE_OUTRAS_DESPESAS
+  MDE_TOTAL_DESPESAS_ACOES_TIPICAS
+  DESPESAS_CUSTEADAS_APLICACAO_FINANCEIRA_VINCULADAS_ENSINO
+  DESPESAS_CUSTEADAS_CONTRIBUICAO_SOCIAL_SALARIO_EDUCACAO
+  DESPESAS_CUSTEADAS_OPERACOES_CREDITO
+  DESPESAS_CUSTEADAS_OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO
+  TOTAL_OUTRAS_DESPESAS_CUSTEADAS_FINANCIAMENTO_ENSINO
+  TOTAL_GERAL_DESPESAS_MDE
+}
+
+enum ItemDespesaTipos1520 {
+  FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO
+  FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_EDUCACAO_INFANTIL
+  FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_ENSINO_FUNDAMENTAL
+  FUNDEB_OUTRAS_DESPESAS
+  FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL
+  FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL
+  FUNDEB_TOTAL_DESPESAS_FUNDEB
+  MDE_DESPESAS_EDUCACAO_INFANTIL
+  MDE_DESPESAS_EDUCACAO_INFANTIL_CRECHE
+  MDE_EDUCACAO_INFANTIL_CRECHE_DESPESAS_CUSTEADAS_FUNDEB
+  MDE_EDUCACAO_INFANTIL_CRECHE_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS
+  MDE_DESPESAS_EDUCACAO_INFANTIL_PRE_ESCOLA
+  MDE_EDUCACAO_INFANTIL_PRE_ESCOLA_DESPESAS_CUSTEADAS_FUNDEB
+  MDE_EDUCACAO_INFANTIL_PRE_ESCOLA_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS
   MDE_DESPESAS_ENSINO_FUNDAMENTAL
   MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_FUNDEB
   MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS
@@ -543,4 +750,55 @@ enum ControleDisponibildadeFinanceiraConciliacaoBancariaTipos21 {
   AJUSTES_POSITIVOS_RETENCOES_E_OUTROS_VALORES_EXTRAORCAMENTARIOS
   AJUSTES_NEGATIVOS_OUTROS_VALORES_EXTRAORCAMENTARIOS
   SALDO_FINANCEIRO_CONCILIADO_SALDO_BANCARIO
+}
+
+enum DeducoesFinsLimiteFundebTipo1520 {
+  RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_FUNDEB
+  RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_FUNDEB_60_PORCENTO
+  RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_FUNDEB_40_PORCENTO
+  DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_FUNDEB
+  DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_FUNDEB_60_PORCENTO
+  DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_FUNDEB_40_PORCENTO
+  TOTAL_DEDUCOES_PARA_FINS_LIMITE_FUNDEB
+}
+
+enum IndicadoresFundebTipo1520 {
+  TOTAL_DE_DESPESAS_FUNDEB_PARA_FINS_DE_LIMITE
+  MINIMO_60_PORCENTO_FUNDEB_REMUNERACAO_MAGISTERIO
+  MAXIMO_40_PORCENTO_DESPESAS_MDE
+  MAXIMO_5_PORCENTO_NAO_APLICADO_NO_EXERCICIO
+}
+
+enum ControleRecursosNoExercicioSubsequenteTipo1520 {
+  RECURSOS_RECEBIDOS_FUNDEB_NAO_UTILIZADOS
+  DESPESAS_CUSTEADAS_COM_SALDO_FUNDEB_NAO_UTILIZADOS_ATE_1_TRIM_ATUAL
+}
+
+enum DeducoesParaFinsDeLimitesConstitucionalTipo1520 {
+  RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB
+  DESPESAS_CUSTEADAS_A_COMPLEMENTACAO_DO_FUNDEB_NO_EXERCICIO
+  RECEITA_DE_APLICACAO_FINANCEIRA_DOS_RECURSOS_DO_FUNDEB_ATE_BIM
+  DESPESAS_CUSTEADAS_SUPERAVIT_FINANCEIRO_DO_EXERCICIO_ANTERIOR
+  DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_OUTROS_IMPOSTOS
+  RESTOS_A_PAGAR_INSCRITOS_SEM_DISPONIBILIDADE_FINANCEIRA
+  CANCELAMENTO_RESTOS_PAGAR_INSCRITOS_DISPONIBILIDADE_FINANCEIRA
+  TOTAL_DE_DEDUCOES_PARA_FINS_DE_LIMITE_CONSTITUCIONAL
+  TOTAL_DE_DESPESAS_PARA_FINS_DE_LIMITE
+  MINIMO_DE_25_PORCENTO_DAS_RECEITAS_RESULTANTES_DE_IMPOSTOS_MDE
+}
+
+enum FluxoFinanceiroDeRecursosFundebTipo1520 {
+  SALDO_FINANCEIRO_31_DE_DEZEMBRO_ANO_ANTERIOR
+  INGRESSO_RECURSOS_ATE_BIM
+  PAGAMENTOS_EFETUADOS_ATE_BIM
+  ORCAMENTO_DO_EXERCICIO
+  RESTOS_A_PAGAR
+  RECEITA_APLICACAO_FINANCEIRA_DOS_RECURSOS_ATE_BIM
+  SALDO_FINANCEIRO_NO_EXERCICIO_ATUAL
+}
+
+enum RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520 {
+  RESTOS_A_PAGAR_DE_DESPESA_MDE
+  EXECUTADAS_COM_RECURSOS_DE_IMPOSTOS_ENSINO
+  EXECUTADAS_COM_RECURSOS_FUNDEB
 }
