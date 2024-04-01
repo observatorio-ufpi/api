@@ -26,7 +26,7 @@ const prisma = new PrismaClient();
 
 async function seedDatabaseTenToFourteen() {
   try {
-    const diretorio = 'C:\\Users\\Luis Felipe\\Documents\\fnde-excel';
+    const diretorio = process.env.FILES_SPREADSHEET_URL;
 
     const arquivos = fs.readdirSync(diretorio);
 
@@ -108,8 +108,8 @@ async function seedDatabaseTenToFourteen() {
                   tipo: tipoDespesaEnum,
                   dotacaoInicial: secondCellNumericValue,
                   dotacaoAtualizada: thirdCellNumericValue,
-                  receitasRealizadaBimestre: fourthCellNumericValue,
-                  receitasRealizadaAteBimestre: fifthCellNumericValue,
+                  despesasLiquidadasBimestre: fourthCellNumericValue,
+                  despesasLiquidadasAteBimestre: fifthCellNumericValue,
                   percentual: sixthCellNumericValue,
                   relatorioMunicialId: relatorio.id,
                 },
