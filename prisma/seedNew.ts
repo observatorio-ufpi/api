@@ -1,203 +1,34 @@
 import {
   ControleRecursosNoExercicioSubsequenteTipo1520,
-  ControleUtilizacaoRecursosTipo1014,
   DeducoesFinsLimiteFundebTipo1520,
-  DeducoesFundebMagisterioTipo1014,
-  DeducoesParaFinsDeLimitesConstitucionalTipo1014,
   DeducoesParaFinsDeLimitesConstitucionalTipo1520,
   FluxoFinanceiroDeRecursosFundebTipo1520,
-  FluxoFinanceiroDeRecursosTipos1014,
   IndicadoresFundebTipo1520,
-  ItemDespesaTipos1014,
   ItemDespesaTipos1520,
-  ItemReceitaTipos1014,
   ItemReceitaTipos1520,
-  RelatorioMunicipal1014,
   RelatorioMunicipal1520,
-  RestosAPagarInscritosDisponibilidadesFinanceiraTipo1014,
   RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520,
 } from '@prisma/client';
 import * as ExcelJS from 'exceljs';
 import * as fs from 'fs';
 import * as path from 'path';
 import {
-  mapeamentoControleUtilizacaoRecursos,
-  mapeamentoDeducoesFundebMagisterio,
-  mapeamentoDeducoesParaFinsDeLimitesConstitucional,
-  mapeamentoDespesas,
-  mapeamentoFluxoFinanceiroDeRecursos,
-  mapeamentoReceitas,
-  mapeamentoRestosAPagar,
-} from './seeding.map.2010-2014';
-
-import {
-  mapeamentoControleRecursosNoExercicioSubsequente1520,
-  mapeamentoDeducoesParaFinsDeLimitesConstitucional1520,
   mapeamentoDeducoesParaFinsLimiteFundeb1520,
   mapeamentoDespesas1520,
-  mapeamentoFluxoFinanceiroDeRecursosFundeb1520,
-  mapeamentoIndicadoresFundeb1520,
   mapeamentoReceitas1520,
+  mapeamentoIndicadoresFundeb1520,
+  mapeamentoControleRecursosNoExercicioSubsequente1520,
+  mapeamentoDeducoesParaFinsDeLimitesConstitucional1520,
+  mapeamentoFluxoFinanceiroDeRecursosFundeb1520,
   mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1520,
 } from './seeding.map.2015-2020';
 
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-async function seedDatabaseTenToFourteen() {
-  try {
-    const diretorio = process.env.FILES_SPREADSHEET_URL;
-
-    const arquivos = fs.readdirSync(diretorio);
-
-    for (const arquivo of arquivos) {
-      if (arquivo.endsWith('.csv')) {
-        const caminhoArquivo = path.join(
-          diretorio,
-          'tabula-RREO_Municipal_220830_1_2010.csv',
-        );
-
-        const workbook = new ExcelJS.Workbook();
-        await workbook.csv.readFile(caminhoArquivo);
-
-        const match = arquivo.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
-
-        if (match) {
-          const codigo = match[1];
-          const ano = match[3];
-
-          console.log('Ano:', ano);
-          console.log('Código:', codigo);
-
-          const worksheet = workbook.getWorksheet(1);
-
-          const relatorio = await prisma.relatorioMunicipal1014.create({
-            data: {
-              ano,
-              codigoMunicipio: codigo,
-            },
-          });
-
-          for (let i = 2; i <= worksheet.actualRowCount; i++) {
-            const row = worksheet.getRow(i);
-
-            const tipoReceitaDespesaExcel = row.getCell(1).value as string;
-            if (tipoReceitaDespesaExcel === null) {
-              continue;
-            }
-            const tipoReceitaDespesaLimpo = tipoReceitaDespesaExcel.replace(
-              /\r?\n|\r/g,
-              ' ',
-            );
-
-            console.log(tipoReceitaDespesaLimpo);
-
-            const {
-              tipoReceitaEnum,
-              tipoDespesaEnum,
-              tipoDeducoesFundebMagisterioEnum,
-              tipoControleUtilizacaoRecursosEnum,
-              tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
-              tipoRestosAPagarEnum,
-              tipoFluxoFinanceiroDeRecursos,
-            } = await findTypes1014(relatorio, tipoReceitaDespesaLimpo);
-
-            const {
-              secondCellNumericValue,
-              thirdCellNumericValue,
-              fourthCellNumericValue,
-              fifthCellNumericValue,
-              sixthCellNumericValue,
-            } = await getCellsNumericValues(row);
-
-            if (tipoReceitaEnum) {
-              await prisma.receita1014.create({
-                data: {
-                  tipo: tipoReceitaEnum,
-                  previsaoInicial: secondCellNumericValue,
-                  previsaoAtualizada: thirdCellNumericValue,
-                  receitasRealizadaBimestre: fourthCellNumericValue,
-                  receitasRealizadaAteBimestre: fifthCellNumericValue,
-                  percentual: sixthCellNumericValue,
-                  relatorioMunicialId: relatorio.id,
-                },
-              });
-            } else if (tipoDespesaEnum) {
-              await prisma.despesa1014.create({
-                data: {
-                  tipo: tipoDespesaEnum,
-                  dotacaoInicial: secondCellNumericValue,
-                  dotacaoAtualizada: thirdCellNumericValue,
-                  despesasLiquidadasBimestre: fourthCellNumericValue,
-                  despesasLiquidadasAteBimestre: fifthCellNumericValue,
-                  percentual: sixthCellNumericValue,
-                  relatorioMunicialId: relatorio.id,
-                },
-              });
-            } else if (tipoDeducoesFundebMagisterioEnum) {
-              await prisma.deducoesFundebMagisterio1014.create({
-                data: {
-                  tipo: tipoDeducoesFundebMagisterioEnum,
-                  valor: secondCellNumericValue,
-                  relatorioMunicialId: relatorio.id,
-                },
-              });
-            } else if (tipoControleUtilizacaoRecursosEnum) {
-              await prisma.controleUtilizacaoRecursos1014.create({
-                data: {
-                  tipo: tipoControleUtilizacaoRecursosEnum,
-                  valor: secondCellNumericValue,
-                  relatorioMunicialId: relatorio.id,
-                },
-              });
-            } else if (tipoDeducoesParaFinsDeLimitesConstitucionalEnum) {
-              await prisma.deducoesParaFinsDeLimitesConstitucional1014.create({
-                data: {
-                  tipo: tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
-                  valor: secondCellNumericValue,
-                  relatorioMunicialId: relatorio.id,
-                },
-              });
-            } else if (tipoRestosAPagarEnum) {
-              await prisma.restosAPagarInscritosDisponibilidadesFinanceira1014.create(
-                {
-                  data: {
-                    tipo: tipoRestosAPagarEnum,
-                    saldoAteBimestre: secondCellNumericValue,
-                    canceladoNoAnoAtual: thirdCellNumericValue,
-                    relatorioMunicialId: relatorio.id,
-                  },
-                },
-              );
-            } else if (tipoFluxoFinanceiroDeRecursos) {
-              await prisma.fluxoFinanceiroDeRecursos1014.create({
-                data: {
-                  tipo: tipoFluxoFinanceiroDeRecursos,
-                  valorFundeb: secondCellNumericValue,
-                  valorFundef: thirdCellNumericValue,
-                  relatorioMunicialId: relatorio.id,
-                },
-              });
-            } else {
-              console.log(
-                `Tipo de receita ou despesa desconhecido: ${tipoReceitaDespesaExcel}\n`,
-              );
-            }
-          }
-          break;
-        } else {
-          console.log('Nome do arquivo inválido:', arquivo);
-        }
-      }
-      break;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
 async function seedDatabasefifteenTotwenty() {
   try {
-    const diretorio = process.env.FILES_SPREADSHEET_URL;
+    const diretorio = process.env.FILES_SPREADSHEET_URL1;
 
     const arquivos = fs.readdirSync(diretorio);
 
@@ -205,7 +36,7 @@ async function seedDatabasefifteenTotwenty() {
       if (arquivo.endsWith('.csv')) {
         const caminhoArquivo = path.join(
           diretorio,
-          'tabula-RREO_Municipal_220005_1_2015.csv',
+          'tabula-RREO_Municipal_220830_1_2015.csv',
         );
 
         const workbook = new ExcelJS.Workbook();
@@ -252,7 +83,7 @@ async function seedDatabasefifteenTotwenty() {
               tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
               tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum,
               tipoFluxoFinanceiroDeRecursosFundebEnum,
-            } = await findTypes1520(relatorio, tipoReceitaDespesaLimpo);
+            } = await findTypes(relatorio, tipoReceitaDespesaLimpo);
 
             const {
               secondCellNumericValue,
@@ -395,180 +226,7 @@ function isSimilar(a: string, b: string, tolerance: number): boolean {
   return distance <= tolerance;
 }
 
-async function findTypes1014(
-  relatorio: RelatorioMunicipal1014,
-  tipoReceitaDespesaLimpo: string,
-) {
-  let tipoReceitaEnum: ItemReceitaTipos1014;
-  let tipoDespesaEnum: ItemDespesaTipos1014;
-  let tipoDeducoesFundebMagisterioEnum: DeducoesFundebMagisterioTipo1014;
-  let tipoControleUtilizacaoRecursosEnum: ControleUtilizacaoRecursosTipo1014;
-  let tipoDeducoesParaFinsDeLimitesConstitucionalEnum: DeducoesParaFinsDeLimitesConstitucionalTipo1014;
-  let tipoRestosAPagarEnum: RestosAPagarInscritosDisponibilidadesFinanceiraTipo1014;
-  let tipoFluxoFinanceiroDeRecursos: FluxoFinanceiroDeRecursosTipos1014;
-  let tipoJaDefinido = false;
-
-  for (const key in mapeamentoReceitas) {
-    const receitaExiste = await prisma.receita1014.findUnique({
-      where: {
-        relatorioMunicialId_tipo: {
-          relatorioMunicialId: relatorio.id,
-          tipo: mapeamentoReceitas[key],
-        },
-      },
-    });
-
-    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !receitaExiste) {
-      tipoReceitaEnum = mapeamentoReceitas[key];
-      tipoJaDefinido = true;
-      break;
-    }
-  }
-
-  for (const key in mapeamentoDespesas) {
-    if (tipoJaDefinido) {
-      break;
-    }
-    const despesaExiste = await prisma.despesa1014.findUnique({
-      where: {
-        relatorioMunicialId_tipo: {
-          relatorioMunicialId: relatorio.id,
-          tipo: mapeamentoDespesas[key],
-        },
-      },
-    });
-
-    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !despesaExiste) {
-      tipoDespesaEnum = mapeamentoDespesas[key];
-      tipoJaDefinido = true;
-      break;
-    }
-  }
-
-  for (const key in mapeamentoDeducoesFundebMagisterio) {
-    if (tipoJaDefinido) {
-      break;
-    }
-    const deducaoExiste = await prisma.deducoesFundebMagisterio1014.findUnique({
-      where: {
-        relatorioMunicialId_tipo: {
-          relatorioMunicialId: relatorio.id,
-          tipo: mapeamentoDeducoesFundebMagisterio[key],
-        },
-      },
-    });
-
-    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !deducaoExiste) {
-      tipoDeducoesFundebMagisterioEnum =
-        mapeamentoDeducoesFundebMagisterio[key];
-      tipoJaDefinido = true;
-      break;
-    }
-  }
-
-  for (const key in mapeamentoControleUtilizacaoRecursos) {
-    if (tipoJaDefinido) {
-      break;
-    }
-    const controleExiste =
-      await prisma.controleUtilizacaoRecursos1014.findUnique({
-        where: {
-          relatorioMunicialId_tipo: {
-            relatorioMunicialId: relatorio.id,
-            tipo: mapeamentoControleUtilizacaoRecursos[key],
-          },
-        },
-      });
-
-    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !controleExiste) {
-      tipoControleUtilizacaoRecursosEnum =
-        mapeamentoControleUtilizacaoRecursos[key];
-      tipoJaDefinido = true;
-      break;
-    }
-  }
-
-  for (const key in mapeamentoDeducoesParaFinsDeLimitesConstitucional) {
-    if (tipoJaDefinido) {
-      break;
-    }
-    const deducaoConstitucionalExiste =
-      await prisma.deducoesParaFinsDeLimitesConstitucional1014.findUnique({
-        where: {
-          relatorioMunicialId_tipo: {
-            relatorioMunicialId: relatorio.id,
-            tipo: mapeamentoDeducoesParaFinsDeLimitesConstitucional[key],
-          },
-        },
-      });
-
-    if (
-      isSimilar(tipoReceitaDespesaLimpo, key, 5) &&
-      !deducaoConstitucionalExiste
-    ) {
-      tipoDeducoesParaFinsDeLimitesConstitucionalEnum =
-        mapeamentoDeducoesParaFinsDeLimitesConstitucional[key];
-      tipoJaDefinido = true;
-      break;
-    }
-  }
-
-  for (const key in mapeamentoRestosAPagar) {
-    if (tipoJaDefinido) {
-      break;
-    }
-    const restosAPagarExiste =
-      await prisma.restosAPagarInscritosDisponibilidadesFinanceira1014.findUnique(
-        {
-          where: {
-            relatorioMunicialId_tipo: {
-              relatorioMunicialId: relatorio.id,
-              tipo: mapeamentoRestosAPagar[key],
-            },
-          },
-        },
-      );
-
-    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !restosAPagarExiste) {
-      tipoRestosAPagarEnum = mapeamentoRestosAPagar[key];
-      tipoJaDefinido = true;
-      break;
-    }
-  }
-
-  for (const key in mapeamentoFluxoFinanceiroDeRecursos) {
-    if (tipoJaDefinido) {
-      break;
-    }
-    const fluxoFinanceiroExiste =
-      await prisma.fluxoFinanceiroDeRecursos1014.findUnique({
-        where: {
-          relatorioMunicialId_tipo: {
-            relatorioMunicialId: relatorio.id,
-            tipo: mapeamentoFluxoFinanceiroDeRecursos[key],
-          },
-        },
-      });
-
-    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !fluxoFinanceiroExiste) {
-      tipoFluxoFinanceiroDeRecursos = mapeamentoFluxoFinanceiroDeRecursos[key];
-      tipoJaDefinido = true;
-      break;
-    }
-  }
-
-  return {
-    tipoReceitaEnum,
-    tipoDespesaEnum,
-    tipoDeducoesFundebMagisterioEnum,
-    tipoControleUtilizacaoRecursosEnum,
-    tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
-    tipoRestosAPagarEnum,
-    tipoFluxoFinanceiroDeRecursos,
-  };
-}
-
-async function findTypes1520(
+async function findTypes(
   relatorio: RelatorioMunicipal1520,
   tipoReceitaDespesaLimpo: string,
 ) {
@@ -846,14 +504,6 @@ async function getCellsNumericValues(row: ExcelJS.Row) {
   };
 }
 
-// seedDatabaseTenToFourteen()
-//   .catch((e) => {
-//     console.error(e);
-//     process.exit(1);
-//   })
-//   .finally(async () => {
-//     await prisma.$disconnect();
-//   });
 seedDatabasefifteenTotwenty()
   .catch((e) => {
     console.error(e);

@@ -1,9 +1,18 @@
-import { ControleRecursosNoExercicioSubsequenteTipo1520, DeducoesFinsLimiteFundebTipo1520, DeducoesParaFinsDeLimitesConstitucionalTipo1520, FluxoFinanceiroDeRecursosFundebTipo1520, IndicadoresFundebTipo1520, ItemDespesaTipos1520, ItemReceitaTipos1520, RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520 } from "@prisma/client";
+import {
+  ControleRecursosNoExercicioSubsequenteTipo1520,
+  DeducoesFinsLimiteFundebTipo1520,
+  DeducoesParaFinsDeLimitesConstitucionalTipo1520,
+  FluxoFinanceiroDeRecursosFundebTipo1520,
+  IndicadoresFundebTipo1520,
+  ItemDespesaTipos1520,
+  ItemReceitaTipos1520,
+  RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520,
+} from '@prisma/client';
 
-export const mapeamentoReceitas: {
-    [key: string]: ItemReceitaTipos1520;
+export const mapeamentoReceitas1520: {
+  [key: string]: ItemReceitaTipos1520;
 } = {
-    '1- RECEITA DE IMPOSTOS': ItemReceitaTipos1520.RECEITA_DE_IMPOSTOS,
+  '1- RECEITA DE IMPOSTOS': ItemReceitaTipos1520.RECEITA_DE_IMPOSTOS,
   '1.1- Receita Resultante do Imposto sobre a Propriedade Predial e Territorial Urbana - IPTU':
     ItemReceitaTipos1520.IPTU_RECEITA_RESULTANTE,
   '1.1.1- IPTU': ItemReceitaTipos1520.IPTU,
@@ -129,98 +138,104 @@ export const mapeamentoReceitas: {
     ItemReceitaTipos1520.IMPOSTOS_E_TRANSFERENCIAS_DESTINADAS_MDE,
 };
 
-export const mapeamentoDeducoesParaFinsLimiteFundeb: {
-    [key: string]: DeducoesFinsLimiteFundebTipo1520;
+export const mapeamentoDeducoesParaFinsLimiteFundeb1520: {
+  [key: string]: DeducoesFinsLimiteFundebTipo1520;
 } = {
-    '16- RESTOS A PAGAR INSCRITOS NO EXERCÍCIO SEM DISPONIBILIDADE FINANCEIRA DE RECURSOS DO FUNDEB':
+  '16- RESTOS A PAGAR INSCRITOS NO EXERCÍCIO SEM DISPONIBILIDADE FINANCEIRA DE RECURSOS DO FUNDEB':
     DeducoesFinsLimiteFundebTipo1520.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA,
-    '16.1 - FUNDEB 60%': DeducoesFinsLimiteFundebTipo1520.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO,
-    '16.2 - FUNDEB 40%': DeducoesFinsLimiteFundebTipo1520.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO,
-    '17- DESPESAS CUSTEADAS COM O SUPERÁVIT FINANCEIRO, DO EXERCÍCIO ANTERIOR, DO FUNDEB':
+  '16.1 - FUNDEB 60%':
+    DeducoesFinsLimiteFundebTipo1520.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO,
+  '16.2 - FUNDEB 40%':
+    DeducoesFinsLimiteFundebTipo1520.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO,
+  '17- DESPESAS CUSTEADAS COM O SUPERÁVIT FINANCEIRO, DO EXERCÍCIO ANTERIOR, DO FUNDEB':
     DeducoesFinsLimiteFundebTipo1520.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR,
-    '17.1 - FUNDEB 60%': DeducoesFinsLimiteFundebTipo1520.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
-    '17.2 - FUNDEB 40%': DeducoesFinsLimiteFundebTipo1520.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
-    '18- TOTAL DAS DEDUÇÕES CONSIDERADAS PARA FINS DE LIMITE DO FUNDEB (16 + 17)':
+  '17.1 - FUNDEB 60%':
+    DeducoesFinsLimiteFundebTipo1520.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
+  '17.2 - FUNDEB 40%':
+    DeducoesFinsLimiteFundebTipo1520.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
+  '18- TOTAL DAS DEDUÇÕES CONSIDERADAS PARA FINS DE LIMITE DO FUNDEB (16 + 17)':
     DeducoesFinsLimiteFundebTipo1520.TOTAL_DEDUCOES_PARA_FINS_LIMITE,
 };
 
-export const mapeamentoIndicadoresFundeb: {
-    [key: string]: IndicadoresFundebTipo1520;
+export const mapeamentoIndicadoresFundeb1520: {
+  [key: string]: IndicadoresFundebTipo1520;
 } = {
-    '19- TOTAL DAS DESPESAS DO FUNDEB PARA FINS DE LIMITE (15 - 18)':
+  '19- TOTAL DAS DESPESAS DO FUNDEB PARA FINS DE LIMITE (15 - 18)':
     IndicadoresFundebTipo1520.TOTAL_DE_DESPESAS_FUNDEB_PARA_FINS_DE_LIMITE,
-    '19.1 - Mínimo de 60% do FUNDEB na remuneração do Magistério 1 (13 - (16.1 + 17.1))/ (11) x 100)%':
+  '19.1 - Mínimo de 60% do FUNDEB na remuneração do Magistério 1 (13 - (16.1 + 17.1))/ (11) x 100)%':
     IndicadoresFundebTipo1520.MINIMO_60_PORCENTO_FUNDEB_REMUNERACAO_MAGISTERIO,
-    '19.2 - Máximo de 40% em Despesas com MDE, que não Remuneração do Magistério (14 - (16.2 + 17.2)) / (11) x 100)%':
+  '19.2 - Máximo de 40% em Despesas com MDE, que não Remuneração do Magistério (14 - (16.2 + 17.2)) / (11) x 100)%':
     IndicadoresFundebTipo1520.MAXIMO_40_PORCENTO_DESPESAS_MDE,
-    '19.3 - Máximo de 5% não Aplicado no Exercício (100 - (19.1 + 19.2))%':
+  '19.3 - Máximo de 5% não Aplicado no Exercício (100 - (19.1 + 19.2))%':
     IndicadoresFundebTipo1520.MAXIMO_5_PORCENTO_NAO_APLICADO_NO_EXERCICIO,
 };
 
-export const mapeamentoControleRecursosNoExercicioSubsequente: {
-    [key: string]: ControleRecursosNoExercicioSubsequenteTipo1520;
+export const mapeamentoControleRecursosNoExercicioSubsequente1520: {
+  [key: string]: ControleRecursosNoExercicioSubsequenteTipo1520;
 } = {
-    '20 – RECURSOS RECEBIDOS DO FUNDEB EM 2015 QUE NÃO FORAM UTILIZADOS':
+  '20 – RECURSOS RECEBIDOS DO FUNDEB EM 2015 QUE NÃO FORAM UTILIZADOS':
     ControleRecursosNoExercicioSubsequenteTipo1520.RECURSOS_RECEBIDOS_FUNDEB_NAO_UTILIZADOS,
-    '21 – DESPESAS CUSTEADAS COM O SALDO DO ITEM 20 ATÉ O 1º TRIMESTRE DE 2016':
+  '21 – DESPESAS CUSTEADAS COM O SALDO DO ITEM 20 ATÉ O 1º TRIMESTRE DE 2016':
     ControleRecursosNoExercicioSubsequenteTipo1520.DESPESAS_CUSTEADAS_C_SALDO_FUNDEB_N_UTILIZADOS_1_TRIM_ATUAL,
 };
 
-export const mapeamentoDeducoesParaFinsDeLimitesConstitucional: {
-    [key: string]: DeducoesParaFinsDeLimitesConstitucionalTipo1520;
+export const mapeamentoDeducoesParaFinsDeLimitesConstitucional1520: {
+  [key: string]: DeducoesParaFinsDeLimitesConstitucionalTipo1520;
 } = {
-    '30- RESULTADO LÍQUIDO DAS TRANSFERÊNCIAS DO FUNDEB = (12)':
+  '30- RESULTADO LÍQUIDO DAS TRANSFERÊNCIAS DO FUNDEB = (12)':
     DeducoesParaFinsDeLimitesConstitucionalTipo1520.RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB,
-    '31- DESPESAS CUSTEADAS COM A COMPLEMENTAÇÃO DO FUNDEB NO EXERCÍCIO':
+  '31- DESPESAS CUSTEADAS COM A COMPLEMENTAÇÃO DO FUNDEB NO EXERCÍCIO':
     DeducoesParaFinsDeLimitesConstitucionalTipo1520.DESPESAS_CUSTEADAS_A_COMPLEMENTACAO_DO_FUNDEB_NO_EXERCICIO,
-    '32- RECEITA DE APLICAÇÃO FINANCEIRA DOS RECURSOS DO FUNDEB ATÉ O BIMESTRE = (50 h)':
+  '32- RECEITA DE APLICAÇÃO FINANCEIRA DOS RECURSOS DO FUNDEB ATÉ O BIMESTRE = (50 h)':
     DeducoesParaFinsDeLimitesConstitucionalTipo1520.RECEITA_DE_APLICACAO_FINANCEIRA_DOS_RECURSOS_DO_FUNDEB_ATE_BIM,
-    '33- DESPESAS CUSTEADAS COM O SUPERÁVIT FINANCEIRO, DO EXERCÍCIO ANTERIOR, DO FUNDEB':
+  '33- DESPESAS CUSTEADAS COM O SUPERÁVIT FINANCEIRO, DO EXERCÍCIO ANTERIOR, DO FUNDEB':
     DeducoesParaFinsDeLimitesConstitucionalTipo1520.DESPESAS_CUSTEADAS_SUPERAVIT_FINANCEIRO_DO_EXERCICIO_ANTERIOR,
-    '34- DESPESAS CUSTEADAS COM O SUPERÁVIT FINANCEIRO, DO EXERCÍCIO ANTERIOR, DE OUTROS RECURSOS DE IMPOSTOS':
+  '34- DESPESAS CUSTEADAS COM O SUPERÁVIT FINANCEIRO, DO EXERCÍCIO ANTERIOR, DE OUTROS RECURSOS DE IMPOSTOS':
     DeducoesParaFinsDeLimitesConstitucionalTipo1520.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_OUTROS_IMPOSTOS,
-    '35- RESTOS A PAGAR INSCRITOS NO EXERCÍCIO SEM DISPONIBILIDADE FINANCEIRA DE RECURSOS DE IMPOSTOS VINCULADOS AO ENSINO':
+  '35- RESTOS A PAGAR INSCRITOS NO EXERCÍCIO SEM DISPONIBILIDADE FINANCEIRA DE RECURSOS DE IMPOSTOS VINCULADOS AO ENSINO':
     DeducoesParaFinsDeLimitesConstitucionalTipo1520.RESTOS_A_PAGAR_INSCRITOS_SEM_DISPONIBILIDADE_FINANCEIRA,
-    '36- CANCELAMENTO, NO EXERCÍCIO, DE RESTOS A PAGAR INSCRITOS COM DISPONIBILIDADE FINANCEIRA DE RECURSOS DE IMPOSTOS VINCULADOS AO ENSINO = (46 g)':
+  '36- CANCELAMENTO, NO EXERCÍCIO, DE RESTOS A PAGAR INSCRITOS COM DISPONIBILIDADE FINANCEIRA DE RECURSOS DE IMPOSTOS VINCULADOS AO ENSINO = (46 g)':
     DeducoesParaFinsDeLimitesConstitucionalTipo1520.CANCELAMENTO_RESTOS_PAGAR_INSCRITOS_DISPONIBILIDADE_FINANCEIRA,
-    '37- TOTAL DAS DEDUÇÕES CONSIDERADAS PARA FINS DE LIMITE CONSTITUCIONAL (30 + 31 + 32 + 33 + 34 + 35 + 36)':
+  '37- TOTAL DAS DEDUÇÕES CONSIDERADAS PARA FINS DE LIMITE CONSTITUCIONAL (30 + 31 + 32 + 33 + 34 + 35 + 36)':
     DeducoesParaFinsDeLimitesConstitucionalTipo1520.TOTAL_DE_DEDUCOES_PARA_FINS_DE_LIMITE_CONSTITUCIONAL,
-    '38- TOTAL DAS DESPESAS PARA FINS DE LIMITE ((23 + 24) – (37))':
+  '38- TOTAL DAS DESPESAS PARA FINS DE LIMITE ((23 + 24) – (37))':
     DeducoesParaFinsDeLimitesConstitucionalTipo1520.TOTAL_DE_DESPESAS_PARA_FINS_DE_LIMITE,
-    '39- MÍNIMO DE 25% DAS RECEITAS RESULTANTES DE IMPOSTOS EM MDE5((38) / (3) x 100) %':
+  '39- MÍNIMO DE 25% DAS RECEITAS RESULTANTES DE IMPOSTOS EM MDE5((38) / (3) x 100) %':
     DeducoesParaFinsDeLimitesConstitucionalTipo1520.MINIMO_DE_25_PORCENTO_DAS_RECEITAS_RESULTANTES_DE_IMPOSTOS_MDE,
 };
 
-export const mapeamentoFluxoFinanceiroDeRecursosFundeb: {
-    [key: string]: FluxoFinanceiroDeRecursosFundebTipo1520,
+export const mapeamentoFluxoFinanceiroDeRecursosFundeb1520: {
+  [key: string]: FluxoFinanceiroDeRecursosFundebTipo1520;
 } = {
-    '47- SALDO FINANCEIRO EM 31 DE DEZEMBRO DE 2015':
+  '47- SALDO FINANCEIRO EM 31 DE DEZEMBRO DE 2015':
     FluxoFinanceiroDeRecursosFundebTipo1520.SALDO_FINANCEIRO_31_DE_DEZEMBRO_ANO_ANTERIOR,
-    '48- (+) INGRESSO DE RECURSOS ATÉ O BIMESTRE':
+  '48- (+) INGRESSO DE RECURSOS ATÉ O BIMESTRE':
     FluxoFinanceiroDeRecursosFundebTipo1520.INGRESSO_RECURSOS_ATE_BIM,
-    '49- (-) PAGAMENTOS EFETUADOS ATÉ O BIMESTRE':
+  '49- (-) PAGAMENTOS EFETUADOS ATÉ O BIMESTRE':
     FluxoFinanceiroDeRecursosFundebTipo1520.PAGAMENTOS_EFETUADOS_ATE_BIM,
-    '49.1- Orçamento do Exercício': FluxoFinanceiroDeRecursosFundebTipo1520.ORCAMENTO_DO_EXERCICIO,
-    '49.2- Restos a Pagar': FluxoFinanceiroDeRecursosFundebTipo1520.RESTOS_A_PAGAR,
-    '50- (+) RECEITA DE APLICAÇÃO FINANCEIRA DOS RECURSOS ATÉ O BIMESTRE':
+  '49.1- Orçamento do Exercício':
+    FluxoFinanceiroDeRecursosFundebTipo1520.ORCAMENTO_DO_EXERCICIO,
+  '49.2- Restos a Pagar':
+    FluxoFinanceiroDeRecursosFundebTipo1520.RESTOS_A_PAGAR,
+  '50- (+) RECEITA DE APLICAÇÃO FINANCEIRA DOS RECURSOS ATÉ O BIMESTRE':
     FluxoFinanceiroDeRecursosFundebTipo1520.RECEITA_APLICACAO_FINANCEIRA_DOS_RECURSOS_ATE_BIM,
-    '51- (=) SALDO FINANCEIRO NO EXERCÍCIO ATUAL':
+  '51- (=) SALDO FINANCEIRO NO EXERCÍCIO ATUAL':
     FluxoFinanceiroDeRecursosFundebTipo1520.SALDO_FINANCEIRO_NO_EXERCICIO_ATUAL,
 };
 
-export const mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira: {
-    [key: string]: RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520;
+export const mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1520: {
+  [key: string]: RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520;
 } = {
-    '46- RESTOS A PAGAR DE DESPESAS COM MDE':
+  '46- RESTOS A PAGAR DE DESPESAS COM MDE':
     RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520.RESTOS_A_PAGAR_DE_DESPESA_MDE,
-    '46.1- Executadas com Recursos de Impostos Vinculados ao Ensino':
+  '46.1- Executadas com Recursos de Impostos Vinculados ao Ensino':
     RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520.EXECUTADAS_COM_RECURSOS_DE_IMPOSTOS_ENSINO,
-    '46.2- Executadas com Recursos do FUNDEB':
-    RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520.EXECUTADAS_COM_RECURSOS_FUNDEB
-}
+  '46.2- Executadas com Recursos do FUNDEB':
+    RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520.EXECUTADAS_COM_RECURSOS_FUNDEB,
+};
 
-export const mapeamentoDespesas: {
-    [key: string] : ItemDespesaTipos1520;
+export const mapeamentoDespesas1520: {
+  [key: string]: ItemDespesaTipos1520;
 } = {
   '13- PAGAMENTO DOS PROFISSIONAIS DO MAGISTÉRIO':
     ItemDespesaTipos1520.FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO,
@@ -241,7 +256,8 @@ export const mapeamentoDespesas: {
     ItemDespesaTipos1520.MDE_EDUCACAO_INFANTIL_CRECHE_DESPESAS_CUSTEADAS_FUNDEB,
   '23.1.2 - Despesas Custeadas com Outros Recursos de Impostos':
     ItemDespesaTipos1520.MDE_EDUCACAO_INFANTIL_CRECHE_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS,
-  '23.2- Pré-escola': ItemDespesaTipos1520.MDE_DESPESAS_EDUCACAO_INFANTIL_PRE_ESCOLA,
+  '23.2- Pré-escola':
+    ItemDespesaTipos1520.MDE_DESPESAS_EDUCACAO_INFANTIL_PRE_ESCOLA,
   '23.2.1 - Despesas Custeadas com Recursos do FUNDEB':
     ItemDespesaTipos1520.MDE_EDUCACAO_INFANTIL_PRE_ESCOLA_DESPESAS_CUSTEADAS_FUNDEB,
   '23.2.2 - Despesas Custeadas com Outros Recursos de Impostos':
@@ -271,4 +287,4 @@ export const mapeamentoDespesas: {
     ItemDespesaTipos1520.TOTAL_OUTRAS_DESPESAS_CUSTEADAS_FINANCIAMENTO_ENSINO,
   '45- TOTAL GERAL DAS DESPESAS COM MDE (29 + 44)':
     ItemDespesaTipos1520.TOTAL_GERAL_DESPESAS_MDE,
-}
+};
