@@ -1,0 +1,2 @@
+-- AlterEnum
+ALTER TYPE "RecursosRecebidosNaoUtilizadosTipos21" ADD VALUE 'TOTAL_RECURSOS_FUNDEB_DISPONIVEIS_UTILIZACAO';

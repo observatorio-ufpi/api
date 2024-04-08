@@ -846,14 +846,15 @@ async function getCellsNumericValues(row: ExcelJS.Row) {
   };
 }
 
-// seedDatabaseTenToFourteen()
-//   .catch((e) => {
-//     console.error(e);
-//     process.exit(1);
-//   })
-//   .finally(async () => {
-//     await prisma.$disconnect();
-//   });
+seedDatabaseTenToFourteen()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
+
 seedDatabasefifteenTotwenty()
   .catch((e) => {
     console.error(e);
