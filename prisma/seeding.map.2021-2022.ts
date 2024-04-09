@@ -233,7 +233,7 @@ export const mapeamentoRestosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb2
     RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebTipos21.EXECUTADAS_COM_RECURSOS_FUNDEB_COMPLEMENTACAO_UNIAO,
 };
 
-export const mapeamentoControleDisponibilidadeFinanceiraConciliacaoBancaria: {
+export const mapeamentoControleDisponibilidadeFinanceiraConciliacaoBancaria21: {
   [key: string]: ControleDisponibildadeFinanceiraConciliacaoBancariaTipos21;
 } = {
   '48- Disponibilidade Financeira em 31 de Dezembro de 2021':

@@ -54,7 +54,7 @@ model RelatorioMunicipal21 {
   aplicacaoDespesasFinsLimiteMinimoConstitucional21          AplicacaoDespesasFinsLimiteMinimoConstitucional21[]
   apuracaoLimiteMinimoConstitucional21                       ApuracaoLimiteMinimoConstitucional21[]
   restosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21 RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21[]
-  controleDisponibildadeFinanceiraConciliacaoBancaria21      ControleDisponibildadeFinanceiraConciliacaoBancaria21[]
+  controleDisponibildadeFinanceiraConciliacaoBancaria21      ControleDisponibilidadeFinanceiraConciliacaoBancaria21[]
 }
 
 model Receita1014 {
@@ -315,6 +315,7 @@ model Indicador21Art25AplicacaoSuperavit {
   valorSuperavitPermitidoExercicioAnterior Float
   valorNaoAplicadoExercicioAnterior        Float
   valorSuperavitAplicadoAtePrimeiroQuadrim Float
+  valorAplicadoAtePrimQuarLimiteConst      Float
   valorAplicadoAposPrimeiroQuadrim         Float
   valorNaoAplicado                         Float
   relatorioMunicialId                      Int
@@ -359,7 +360,7 @@ model RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21 {
   @@unique([relatorioMunicialId, tipo])
 }
 
-model ControleDisponibildadeFinanceiraConciliacaoBancaria21 {
+model ControleDisponibilidadeFinanceiraConciliacaoBancaria21 {
   id                  Int                                                        @id @default(autoincrement())
   tipo                ControleDisponibildadeFinanceiraConciliacaoBancariaTipos21
   fundeb              Float
