@@ -13,6 +13,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model RelatorioMunicipal06 {
+  id                                      Int                                       @id @default(autoincrement())
+  ano                                     String
+  codigoMunicipio                         String
+  perdaGanhoTransferenciasFundeb          PerdaGanhoTransferenciasFundeb[]
+  controleRestosAPagarVinculadosEducacao  ControleRestosAPagarVinculadosEducacao[]
+  deducoesDaDespesa                       DeducoesDaDespesa[]
+  compensacaoRestosAPagar                 CompensacaoRestosAPagar[]
+  tabelaCumprimentoLimitesConstitucionais TabelaCumprimentoLimitesConstitucionais[]
+  saldoFinanceiroFundef                   SaldoFinanceiroFundef[]
+  receita06                               Receita06[]
+  despesa06                               Despesa06[]
+}
+
 model RelatorioMunicipal1014 {
   id                                              Int                                                   @id @default(autoincrement())
   ano                                             String
@@ -55,6 +69,96 @@ model RelatorioMunicipal21 {
   apuracaoLimiteMinimoConstitucional21                       ApuracaoLimiteMinimoConstitucional21[]
   restosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21 RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21[]
   controleDisponibildadeFinanceiraConciliacaoBancaria21      ControleDisponibilidadeFinanceiraConciliacaoBancaria21[]
+}
+
+model Receita06 {
+  id                           Int                  @id @default(autoincrement())
+  tipo                         ItemReceitaTipos06
+  previsaoInicial              Float
+  previsaoAtualizada           Float
+  receitasRealizadasNoAno      Float
+  receitasRealizadasPercentual Float
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal06 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model Despesa06 {
+  id                          Int                  @id @default(autoincrement())
+  tipo                        ItemDespesaTipos06
+  dotacaoInicial              Float
+  dotacaoAtualizada           Float
+  depesasLiquidadasNoAno      Float
+  depesasLiquidadasPercentual Float
+  relatorioMunicialId         Int
+  relatorioMunicial           RelatorioMunicipal06 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model PerdaGanhoTransferenciasFundeb {
+  id                  Int                                  @id @default(autoincrement())
+  tipo                PerdaGanhoTransferenciasFundebTipo06
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal06                 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model DeducoesDaDespesa {
+  id                  Int                     @id @default(autoincrement())
+  tipo                DeducoesDaDespesaTipo06
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal06    @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model ControleRestosAPagarVinculadosEducacao {
+  id                           Int                                          @id @default(autoincrement())
+  tipo                         ControleRestosAPagarVinculadosEducacaoTipo06
+  aplicacaoMinimaAnoAnterior   Float
+  aplicacaoApuradaAnoAnterior  Float
+  restosAPagarAnoAnterior      Float
+  restosAPagarCanceladaAnoAtul Float
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal06                         @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model CompensacaoRestosAPagar {
+  id                  Int                           @id @default(autoincrement())
+  tipo                CompensacaoRestosAPagarTipo06
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal06          @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model SaldoFinanceiroFundef {
+  id                Int                         @id @default(autoincrement())
+  tipo              SaldoFinanceiroFundefTipo06
+  anoAnterior       Float
+  anoAtual          Int
+  relatorioMunicialId Int
+  relatorioMunicial RelatorioMunicipal06        @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model TabelaCumprimentoLimitesConstitucionais {
+  id                  Int                                           @id @default(autoincrement())
+  tipo                TabelaCumprimentoLimitesConstitucionaisTipo06
+  porcentagem         Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal06                          @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
 }
 
 model Receita1014 {
@@ -369,6 +473,92 @@ model ControleDisponibilidadeFinanceiraConciliacaoBancaria21 {
   relatorioMunicial   RelatorioMunicipal21                                       @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
+}
+
+enum ItemReceitaTipos06 {
+  RECEITA_RESULTANTE_DE_IMPOSTOS
+  RECEITAS_DE_IMPOSTOS
+  IMPOSTOS
+  DIVIDA_ATIVA_DOS_IMPOSTOS
+  MULTAS_JUROS_MORA_IMPOSTOS_E_DIVIDA
+  RECEITAS_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAL
+  COTA_PARTE_FPM_85_PORCENTO
+  TRANSFERENCIA_FINANCEIRA_ICMS_DESONERACAO
+  COTA_PARTE_ICMS_85_PORCENTO
+  COTA_PARTE_IPI_EXPORTACAO_85_PORCENTO
+  PARCELA_TRANSFERENCIAS_DESTINADAS_A_FORMACAO_DO_FUNDEF
+  COTA_PARTE_ITR_100_PORCENTO
+  COTA_PARTE_IOF_OURO_100_PORCENTO
+  COTA_PARTE_IPVA_100_PORCENTO
+  RECEITAS_VINCULADAS_AD_ENSINO
+  TRANSFERENCIAS_MULTIGOVERNAMENTAIS_DO_FUNDEF
+  TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEF
+  COMPLEMENTACAO_DA_UNIAO_AO_FUNDEF
+  TRANSFERENCIAS_DO_FNDE
+  TRANSFERENCIAS_DO_SALARIO_EDUCACAO
+  OUTRAS_TRANSFERENCIAS_DO_FNDE
+  TRANSFERENCIAS_DESTINADAS_A_PROGRAMAS_DE_EDUCACAO
+  RECEITA_DE_OPERACOES_DE_CREDITO_DESTINADAS_A_EDUCACAO
+  OUTRAS_RECEITAS_DESTINADAS_EDUCACAO
+  TOTAL_RECEITAS
+}
+
+enum ItemDespesaTipos06 {
+  DESPESAS_VINCULADAS_RECEITAS_RESULTANTES_DE_IMPOSTOS
+  DESPESAS_COM_ENSINO_FUNDAMENTAL
+  DESPESAS_COM_EDUCACAO_INFANTIL_CRECHES_E_PRE_ESCOLAS
+  OUTRAS_DESPESAS_COM_ENSINO
+  DESPESAS_VINCULADAS_AO_FUNDEF_NO_ENSINO_FUNDAMENTAL
+  PAGAMENTO_PROFISSIONAIS_MAGISTERIO_DO_ENSINO_FUNDAMENTAL
+  OUTRAS_DESPESAS_NO_ENSINO_FUNDAMENTAL
+  VINCULADAS_A_CONTRIBUICAO_SOCIAL_DO_SALARIO_EDUCACAO
+  FINANCIADAS_COM_RECURSOS_DE_OPERACOES_DE_CREDITO
+  FINANCIADAS_COM_OUTROS_RECURSOS_VINCULADOS_A_EDUCACAO
+  TOTAL_DAS_DESPESAS_COM_ENSINO
+  ENSINO_FUNDAMENTAL
+  ENSINO_MEDIO
+  ENSINO_PROFISSIONAL
+  ENSINO_SUPERIOR
+  EDUCACAO_INFANTIL
+  EDUCACAO_DE_JOVENS_E_ADULTOS
+  EDUCACAO_ESPECIAL
+  OUTRAS_SUBFUNCOES
+  TOTAL_DAS_DESPESAS_COM_ENSINO_POR_SUBFUNCAO
+}
+
+enum PerdaGanhoTransferenciasFundebTipo06 {
+  PERDA_NAS_TRANSFERENCIAS_DO_FUNDEF
+  GANHO_NAS_TRANSFERENCIAS_DO_FUNDEF
+}
+
+enum DeducoesDaDespesaTipo06 {
+  PARCELA_GANHO_DO_FUNDEF_APLICADA_NO_EXERCICIO
+  RESTOS_A_PAGAR_INSCRITOS_SEM_DISPONIBILIDADE_FINANCEIRA
+  DESPESAS_COM_ENSINO_FUNDAMENTAL
+  DESPESAS_COM_EDUCACAO_INFANTIL_CRECHES_E_PRE_ESCOLAS
+  DESPESAS_VINCULADAS_SUPERAVIT_FINANCEIRO_DO_GANHO_FUNDEF
+  TOTAL
+}
+
+enum ControleRestosAPagarVinculadosEducacaoTipo06 {
+  RESTOS_A_PAGAR_DE_DESPESAS_COM_MANUTENCAO_ENSINO
+  RESTOS_A_PAGAR_DE_DESPESAS_COM_ENSINO_FUNDAMENTAL
+}
+
+enum CompensacaoRestosAPagarTipo06 {
+  MANUTENCAO_DESENVOLVIMENTO_DO_ENSINO
+  ENSINO_FUNDAMENTAL
+  TOTAL_DAS_DESPESAS_PARA_FINS_LIMITE_CONSTITUCIONAL
+}
+
+enum SaldoFinanceiroFundefTipo06 {
+  SALDO_FINANCEIRO_DO_FUNDEF
+}
+
+enum TabelaCumprimentoLimitesConstitucionaisTipo06 {
+  MINIMO_DE_25_PORCENTO_DAS_RECEITAS_RESULTANTES_DE_IMPOSTOS
+  MINIMO_60_PORCENTO_DOS_RECURSOS_COM_MDE_ENSINO_FUNDAMENTAL
+  MINIMO_60_PORCENTO_DO_FUNDEF_NA_REMUNERACAO_ENSINO_FUNDAMENTAL
 }
 
 enum DespesaTipos1014 {
