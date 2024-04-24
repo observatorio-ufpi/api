@@ -17,12 +17,12 @@ model RelatorioMunicipal06 {
   id                                      Int                                       @id @default(autoincrement())
   ano                                     String
   codigoMunicipio                         String
-  perdaGanhoTransferenciasFundeb          PerdaGanhoTransferenciasFundeb[]
-  controleRestosAPagarVinculadosEducacao  ControleRestosAPagarVinculadosEducacao[]
-  deducoesDaDespesa                       DeducoesDaDespesa[]
-  compensacaoRestosAPagar                 CompensacaoRestosAPagar[]
-  tabelaCumprimentoLimitesConstitucionais TabelaCumprimentoLimitesConstitucionais[]
-  saldoFinanceiroFundef                   SaldoFinanceiroFundef[]
+  perdaGanhoTransferenciasFundeb          PerdaGanhoTransferenciasFundeb06[]
+  controleRestosAPagarVinculadosEducacao  ControleRestosAPagarVinculadosEducacao06[]
+  deducoesDaDespesa                       DeducoesDaDespesa06[]
+  compensacaoRestosAPagar                 CompensacaoRestosAPagar06[]
+  tabelaCumprimentoLimitesConstitucionais TabelaCumprimentoLimitesConstitucionais06[]
+  saldoFinanceiroFundef                   SaldoFinanceiroFundef06[]
   receita06                               Receita06[]
   despesa06                               Despesa06[]
 }
@@ -97,7 +97,7 @@ model Despesa06 {
   @@unique([relatorioMunicialId, tipo])
 }
 
-model PerdaGanhoTransferenciasFundeb {
+model PerdaGanhoTransferenciasFundeb06 {
   id                  Int                                  @id @default(autoincrement())
   tipo                PerdaGanhoTransferenciasFundebTipo06
   valor               Float
@@ -107,7 +107,7 @@ model PerdaGanhoTransferenciasFundeb {
   @@unique([relatorioMunicialId, tipo])
 }
 
-model DeducoesDaDespesa {
+model DeducoesDaDespesa06 {
   id                  Int                     @id @default(autoincrement())
   tipo                DeducoesDaDespesaTipo06
   valor               Float
@@ -117,7 +117,7 @@ model DeducoesDaDespesa {
   @@unique([relatorioMunicialId, tipo])
 }
 
-model ControleRestosAPagarVinculadosEducacao {
+model ControleRestosAPagarVinculadosEducacao06 {
   id                           Int                                          @id @default(autoincrement())
   tipo                         ControleRestosAPagarVinculadosEducacaoTipo06
   aplicacaoMinimaAnoAnterior   Float
@@ -130,7 +130,7 @@ model ControleRestosAPagarVinculadosEducacao {
   @@unique([relatorioMunicialId, tipo])
 }
 
-model CompensacaoRestosAPagar {
+model CompensacaoRestosAPagar06 {
   id                  Int                           @id @default(autoincrement())
   tipo                CompensacaoRestosAPagarTipo06
   valor               Float
@@ -140,7 +140,7 @@ model CompensacaoRestosAPagar {
   @@unique([relatorioMunicialId, tipo])
 }
 
-model SaldoFinanceiroFundef {
+model SaldoFinanceiroFundef06 {
   id                Int                         @id @default(autoincrement())
   tipo              SaldoFinanceiroFundefTipo06
   anoAnterior       Float
@@ -151,7 +151,7 @@ model SaldoFinanceiroFundef {
   @@unique([relatorioMunicialId, tipo])
 }
 
-model TabelaCumprimentoLimitesConstitucionais {
+model TabelaCumprimentoLimitesConstitucionais06 {
   id                  Int                                           @id @default(autoincrement())
   tipo                TabelaCumprimentoLimitesConstitucionaisTipo06
   porcentagem         Float
