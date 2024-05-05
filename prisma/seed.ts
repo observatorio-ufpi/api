@@ -172,8 +172,8 @@ async function seedDatabaseZeroSix() {
                   tipo: tipoDespesaEnum,
                   dotacaoInicial: secondCellNumericValue,
                   dotacaoAtualizada: thirdCellNumericValue,
-                  depesasLiquidadasNoAno: fifthCellNumericValue,
-                  depesasLiquidadasPercentual: sixthCellNumericValue,
+                  despesasLiquidadasNoAno: fifthCellNumericValue,
+                  despesasLiquidadasPercentual: sixthCellNumericValue,
                   relatorioMunicialId: relatorio.id,
                 },
               });
