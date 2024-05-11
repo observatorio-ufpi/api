@@ -35,8 +35,8 @@ model RelatorioMunicipal0708 {
   fluxoFinanceiroRecursosFundeb               FluxoFinanceiroRecursosFundeb0708[]
   informacoesControleFinanceiro               InformacoesControleFinanceiro0708[]
   minimo60PorCentoFundeb                      Minimo60PorCentoFundeb0708[]
-  receita06                                   Receita0708[]
-  despesa06                                   Despesa0708[]
+  receita0708                                 Receita0708[]
+  despesa0708                                 Despesa0708[]
 }
 
 model RelatorioMunicipal1014 {
@@ -714,7 +714,7 @@ enum ItemDespesaTipos0708 {
   MDE_ENSINO_FUNDAMENTAL
   MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_FUNDEB
   MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS
-  MDE_DESPESAS_ENSNO_MEDIO
+  MDE_DESPESAS_ENSINO_MEDIO
   MDE_DESPESAS_ENSINO_SUPERIOR
   MDE_DESPESAS_ENSINO_PROFISSIONAL_NAO_INTEGRADO_ENSINO_REGULAR
   MDE_OUTRAS_DESPESAS

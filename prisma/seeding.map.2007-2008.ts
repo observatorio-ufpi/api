@@ -1,0 +1,194 @@
+import {
+  DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708,
+  FluxoFinanceiroRecursosFundebTipo0708,
+  InformacoesControleFinanceiroTipo0708,
+  ItemDespesaTipos0708,
+  ItemReceitaTipos0708,
+  Minimo60PorCentoFundebTipo0708,
+} from '@prisma/client';
+
+export const mapeamentoReceitas0708: {
+  [key: string]: ItemReceitaTipos0708;
+} = {
+  '1 - RECEITAS DE IMPOSTOS': ItemReceitaTipos0708.RECEITAS_DE_IMPOSTO,
+  '1.1 - Receita Resultante do Imposto sobre a Propriedade Predial e Territorial Urbana - IPTU':
+    ItemReceitaTipos0708.RECEITA_RESULTANTE_IMPOSTO_IPTU,
+  'Imposto sobre a Propriedade Predial e Territorial Urbana - IPTU':
+    ItemReceitaTipos0708.IMPOSTO_PROPRIEDADE_PREDIAL_TERRITORIAL_URBANA_IPTU,
+  'Multas, Juros de Mora e Outros Encargos do IPTU':
+    ItemReceitaTipos0708.MULTAS_JUROS_MORA_OUTROS_ENCARGOS_IPTU,
+  'Dívida Ativa do IPTU': ItemReceitaTipos0708.DIVIDA_ATIVA_IPTU,
+  'Multas, Juros de Mora, Atualização Monetária e Outros Encargos da Dívida Ativa do IPTU':
+    ItemReceitaTipos0708.MULTAS_JUROS_MORA_ATUALIZACAO_MONETARIA_DIVIDA_ATIVA_IPTU,
+  '1.2 - Receita Resultante do Imposto sobre Transmissão Inter Vivos ITBI':
+    ItemReceitaTipos0708.RECEITA_RESULTANTE_ITBI,
+  'Imposto sobre Transmissão Inter Vivos - ITBI':
+    ItemReceitaTipos0708.IMPOSTO_TRANSMISSAO_INTER_VIVOS_ITBI,
+  'Multas, Juros de Mora e Outros Encargos do ITBI':
+    ItemReceitaTipos0708.MULTAS_JUROS_MORA_OUTROS_ENCARGOS_ITBI,
+  'Dívida Ativa do ITBI': ItemReceitaTipos0708.DIVIDA_ATIVA_ITBI,
+  'Multas, Juros de Mora, Atualização Monetária e Outros Encargos da Dívida Ativa do ITBI':
+    ItemReceitaTipos0708.MULTAS_JUROS_MORA_ATUALIZACAO_MONETARIA_DIVIDA_ATIVA_ITBI,
+  '1.3 - Receita Resultante do Imposto sobre Serviços de Qualquer Natureza - ISS':
+    ItemReceitaTipos0708.RECEITA_RESULTANTE_ISS,
+  'Imposto sobre Serviços de Qualquer Natureza - ISS':
+    ItemReceitaTipos0708.IMPOSTO_SERVICOS_QUALQUER_NATUREZA_ISS,
+  'Multas, Juros de Mora e Outros Encargos do ISS':
+    ItemReceitaTipos0708.MULTAS_JUROS_MORA_OUTROS_ENCARGOS_ISS,
+  'Dívida Ativa do ISS': ItemReceitaTipos0708.DIVIDA_ATIVA_ISS,
+  'Multas, Juros de Mora, Atualização Monetária e Outros Encargos da Dívida Ativa do ISS':
+    ItemReceitaTipos0708.MULTAS_JUROS_MORA_ATUALIZACAO_MONETARIA_DIVIDA_ATIVA_ISS,
+  '1.4 - Receita Resultante do Imposto de Renda Retido na Fonte - IRRF':
+    ItemReceitaTipos0708.RECEITA_RESULTANTE_IRRF,
+  'Imposto de Renda Retido na Fonte - IRRF':
+    ItemReceitaTipos0708.IMPOSTO_RENDA_RETIDO_FONTE_IRRF,
+  'Multas, Juros de Mora e Outros Encargos do IRRF':
+    ItemReceitaTipos0708.MULTAS_JUROS_MORA_OUTROS_ENCARGOS_IRRF,
+  'Dívida Ativa do IRRF': ItemReceitaTipos0708.DIVIDA_ATIVA_IRRF,
+  'Multas, Juros de Mora, Atualização Monetária e Outros Encargos da Dívida':
+    ItemReceitaTipos0708.MULTAS_JUROS_MORA_ATUALIZACAO_MONETARIA_DIVIDA_ATIVA_IRRF,
+  '2 - RECEITAS DE TRANSFERÊNCIAS CONSTITUCIONAIS E LEGAIS':
+    ItemReceitaTipos0708.RECEITAS_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAL,
+  '2.1 - Cota-Parte FPM': ItemReceitaTipos0708.COTA_PARTE_FPM,
+  '2.2 - Cota-Parte ICMS': ItemReceitaTipos0708.COTA_PARTE_ICMS,
+  '2.3 - ICMS-Desoneração - L.C. nº 87/1996':
+    ItemReceitaTipos0708.ICMS_DESONERACAO,
+  '2.4 - Cota-Parte IPI-Exportação':
+    ItemReceitaTipos0708.COTA_PARTE_IPI_EXPORTACAO,
+  '2.5 - Cota-Parte ITR': ItemReceitaTipos0708.COTA_PARTE_ITR,
+  '2.6 - Cota-Parte IPVA': ItemReceitaTipos0708.COTA_PARTE_IPVA,
+  '2.7 - Cota-Parte IOF-Ouro': ItemReceitaTipos0708.COTA_PARTE_IOF_OURO,
+  '3 - TOTAL DA RECEITA BRUTA DE IMPOSTOS (1+2)':
+    ItemReceitaTipos0708.TOTAL_RECEITA_BRUTA_IMPOSTOS,
+  '4 - TRANSFERÊNCIAS DO FNDE': ItemReceitaTipos0708.TRANSFERENCIAS_FNDE,
+  '4.1 - Transferências do Salário-Educação':
+    ItemReceitaTipos0708.TRANSFERENCIAS_SALARIO_EDUCACAO,
+  '4.2 - Outras Transferências do FNDE':
+    ItemReceitaTipos0708.OUTRAS_TRANSFERENCIAS_FNDE,
+  '5 - TRANSFERÊNCIAS DE CONVÊNIOS DESTINADAS A PROGRAMAS DE EDUCAÇÃO':
+    ItemReceitaTipos0708.TRANSFERENCIAS_CONVENIOS_PROGRAMAS_EDUCACAO,
+  '6 - RECEITA DE OPERAÇÕES DE CRÉDITO DESTINADA À EDUCAÇÃO':
+    ItemReceitaTipos0708.RECEITA_OPERACOES_CREDITO_DESTINADA_EDUCACAO,
+  '7 - OUTRAS RECEITAS DESTINADAS À EDUCAÇÃO':
+    ItemReceitaTipos0708.OUTRAS_RECEITAS_DESTINADAS_EDUCACAO,
+  '8 - TOTAL DAS OUTRAS RECEITAS DESTINADAS AO ENSINO (4+5+6+7)':
+    ItemReceitaTipos0708.TOTAL_OUTRAS_RECEITAS_DESTINADAS_ENSINO,
+  '9 - RECEITAS DESTINADAS AO FUNDEB':
+    ItemReceitaTipos0708.RECEITAS_DESTINADAS_AO_FUNDEB,
+  '9.1 - Cota-Parte FPM Destinada ao FUNDEB':
+    ItemReceitaTipos0708.COTA_PARTE_FPM_DESTINADA_FUNDEB,
+  '9.2 - Cota-Parte ICMS Destinada ao FUNDEB':
+    ItemReceitaTipos0708.COTA_PARTE_ICMS_DESTINADA_FUNDEB,
+  '9.3 - ICMS-Desoneração Destinada ao FUNDEB':
+    ItemReceitaTipos0708.ICMS_DESONERACAO_DESTINADA_FUNDEB,
+  '9.4 - Cota-Parte IPI-Exportação Destinada ao FUNDEB':
+    ItemReceitaTipos0708.COTA_PARTE_IPI_EXPORTACAO_DESTINADA_FUNDEB,
+  '9.5 - Cota-Parte ITR Destinada ao FUNDEB':
+    ItemReceitaTipos0708.COTA_PARTE_ITR_DESTINADA_FUNDEB,
+  '9.6 - Cota-Parte IPVA Destinada ao FUNDEB':
+    ItemReceitaTipos0708.COTA_PARTE_IPVA_DESTINADA_FUNDEB,
+  '10 - RECEITAS RECEBIDAS DO FUNDEB':
+    ItemReceitaTipos0708.RECEITAS_RECEBIDAS_DO_FUNDEB,
+  '10.1 - Transferências de Recursos do FUNDEB':
+    ItemReceitaTipos0708.TRANSFERENCIAS_RECURSOS_FUNDEB,
+  '10.2 - Complementação da União ao FUNDEB':
+    ItemReceitaTipos0708.COMPLEMENTACAO_UNIAO_FUNDEB,
+  '10.3 - Receita de Aplicação Financeira dos Recursos do FUNDEB':
+    ItemReceitaTipos0708.RECEITA_APLICACAO_FINANCEIRA_RECURSOS_FUNDEB,
+  '11 - RESULTADO LÍQUIDO DAS TRANSFERÊNCIAS DO FUNDEB (10.1-9)':
+    ItemReceitaTipos0708.RESULTADO_LIQUIDO_TRANSFERENCIAS_FUNDEB,
+  '16 - IMPOSTOS E TRANSFERÊNCIAS DESTINADAS À MDE (25% DE 3)1':
+    ItemReceitaTipos0708.IMPOSTOS_E_TRANSFERENCIAS_DESTINADAS_MDE,
+};
+export const mapeamentoDespesas0708: {
+  [key: string]: ItemDespesaTipos0708;
+} = {
+  '12 - PAGAMENTO DOS PROFISSIONAIS DO MAGISTÉRIO':
+    ItemDespesaTipos0708.FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO,
+  '12.1 - Com Educação Infantil':
+    ItemDespesaTipos0708.FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_EDUCACAO_INFANTIL,
+  '12.2 - Com Ensino Fundamental':
+    ItemDespesaTipos0708.FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_ENSINO_FUNDAMENTAL,
+  '13 - OUTRAS DESPESAS': ItemDespesaTipos0708.FUNDEB_OUTRAS_DESPESAS,
+  '13.1 - Com Educação Infantil':
+    ItemDespesaTipos0708.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
+  '13.2 - Com Ensino Fundamental':
+    ItemDespesaTipos0708.FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
+  '14 - TOTAL DAS DESPESAS DO FUNDEB (12+13)':
+    ItemDespesaTipos0708.TOTAL_DESPESAS_FUNDEB,
+  '17 - EDUCAÇÃO INFANTIL': ItemDespesaTipos0708.MDE_EDUCACAO_INFANTIL,
+  '17.1 - Despesas Custeadas com Recursos do FUNDEB':
+    ItemDespesaTipos0708.MDE_EDUCACAO_INFANTIL_DESPESAS_CUSTEADAS_FUNDEB,
+  '17.2 - Despesas Custeadas com Outros Recursos de Impostos':
+    ItemDespesaTipos0708.MDE_EDUCACAO_INFANTIL_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS,
+  '18 - ENSINO FUNDAMENTAL': ItemDespesaTipos0708.MDE_ENSINO_FUNDAMENTAL,
+  '18.1 - Despesas Custeadas com Recursos do FUNDEB':
+    ItemDespesaTipos0708.MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_FUNDEB,
+  '18.2 - Despesas Custeadas com Outros Recursos de Impostos':
+    ItemDespesaTipos0708.MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS,
+  '19 - ENSINO MÉDIO': ItemDespesaTipos0708.MDE_DESPESAS_ENSINO_MEDIO,
+  '20 - ENSINO SUPERIOR': ItemDespesaTipos0708.MDE_DESPESAS_ENSINO_SUPERIOR,
+  '21 - ENSINO PROFISSIONAL NÃO INTEGRADO AO ENSINO REGULAR':
+    ItemDespesaTipos0708.MDE_DESPESAS_ENSINO_PROFISSIONAL_NAO_INTEGRADO_ENSINO_REGULAR,
+  '22 - OUTRAS': ItemDespesaTipos0708.MDE_OUTRAS_DESPESAS,
+  '23 - TOTAL DAS DESPESAS COM AÇÕES TÍPICAS DE MANUTENÇÃO E DESENVOLVIMENTO DO ENSINO (17+18+19+20+21+22)':
+    ItemDespesaTipos0708.TOTAL_DESPESAS_COM_ACOES_TIPICAS_MDE,
+  '32 - CONTRIBUIÇÃO SOCIAL DO SALÁRIO-EDUCAÇÃO':
+    ItemDespesaTipos0708.CONTRIBUICAO_SOCIAL_SALARIO_EDUCACAO,
+  '33 - RECURSOS DE OPERAÇÕES DE CRÉDITO':
+    ItemDespesaTipos0708.RECURSOS_OPERACOES_DE_CREDITO,
+  '34 - OUTROS RECURSOS DESTINADOS À EDUCAÇÃO':
+    ItemDespesaTipos0708.OUTROS_RECURSOS_DESTINADOS_A_EDUCACAO,
+  '35 - TOTAL DAS OUTRAS DESPESAS CUSTEADAS COM RECURSOS DESTINADOS À MDE (32+33+34)':
+    ItemDespesaTipos0708.TOTAL_OUTRAS_DESPESAS_CUSTEADAS_RECURSOS_DESTINADOS_MDE,
+  '36 - TOTAL DAS DESPESAS COM ENSINO (23+35)':
+    ItemDespesaTipos0708.TOTAL_DESPESAS_COM_ENSINO,
+};
+export const mapeamentoMinimo60PorCentoFundeb0708: {
+  [key: string]: Minimo60PorCentoFundebTipo0708;
+} = {
+  '15 - MÍNIMO DE 60% DO FUNDEB NA REMUNERAÇÃO DO MAGISTÉRIO COM EDUCAÇÃO E ENSINO FUNDAMENTAL1 (12/10) X 100%':
+    Minimo60PorCentoFundebTipo0708.MINIMO_60_PORCENTO_FUNDEB_REMUNERACAO_MAGISTERIO_EDUCACAO,
+};
+
+export const mapeamentoDeducoesAdicoesParaFinsLimiteConstitucional0708: {
+  [key: string]: DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708;
+} = {
+  '24 - RESULTADO LÍQUIDO DAS TRANSFERÊNCIAS DO FUNDEB = (11)':
+    DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708.RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB,
+  '25 - DESPESAS CUSTEADAS COM A COMPLEMENTAÇÃO DO FUNDEB NO EXERCÍCIO':
+    DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708.DESPESAS_CUSTEADAS_A_COMPLEMENTACAO_DO_FUNDEB_NO_EXERCICIO,
+  '26 - RESTOS A PAGAR INSCRITOS NO EXERCÍCIO SEM DISPONIBILIDADE FINANCEIRA DE RECURSOS DE IMPOSTOS VINCULADOS AO ENSINO2':
+    DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708.RESTOS_A_PAGAR_INSCRITOS_SEM_DISPONIBILIDADE_FINANCEIRA,
+  '27 - DESPESAS VINCULADAS AO SUPERÁVIT FINANCEIRO DO ACRÉSCIMO E DA COMPLEMENTAÇÃO DO FUNDEB DO EXERCÍCIO ANTERIOR':
+    DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708.DESPESAS_VINCULADAS_SUPERAVIT_FINANCEIRO_DO_FUNDEF,
+  '28 - CANCELAMENTO, NO EXERCÍCIO, DE RESTOS A PAGAR INSCRITOS COM A DISPONIBILIDADE FINANCEIRA DE RECURSOS DE IMPOSTOS VINCULADOS AO ENSINO = (37g)':
+    DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708.CANCELAMENTO_RESTOS_PAGAR_INSCRITOS_DISPONIBILIDADE_FINANCEIRA,
+  '29 - RECEITA DE APLICAÇÃO FINANCEIRA DOS RECURSOS DO FUNDEB ATÉ O BIMESTRE = (41)':
+    DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708.RECEITA_APLICACAO_FINANCEIRA_DOS_RECURSOS_FUNDEB_ATE_BIM,
+  '30 - TOTAL DAS DEDUÇÕES / ADIÇÕES CONSIDERADAS PARA FINS DE LIMITE CONSTITUCIONAL (24+25+26+27+28+29)':
+    DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708.TOTAL_DE_DEDUCOES_ADICOES_PARA_FINS_DE_LIMITE_CONSTITUCIONAL,
+  '31 - MÍNIMO DE 25% DAS RECEITAS RESULTANTES DE IMPOSTOS NA MANUTENÇÃO E DESENVOLVIMENTO DO ENSINO3 [(17+18) - (30) / (3)] X 100%':
+    DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708.MINIMO_DE_25_PORCENTO_DAS_RECEITAS_RESULTANTES_DE_IMPOSTOS,
+};
+export const mapeamentoInformacoesControleFinanceiro0708: {
+  [key: string]: InformacoesControleFinanceiroTipo0708;
+} = {
+  '37 - RESTOS A PAGAR DE DESPESAS COM MANUTENÇÃO E DESENVOLVIMENTO DO ENSINO':
+    InformacoesControleFinanceiroTipo0708.RESTOS_A_PAGAR_DE_DESPESA_MDE,
+};
+
+export const mapeamentoFluxoFinanceiroRecursosFundeb0708: {
+  [key: string]: FluxoFinanceiroRecursosFundebTipo0708;
+} = {
+  '38 - SALDO FINANCEIRO DO FUNDEF EM 31 DE DEZEMBRO DE 2006':
+    FluxoFinanceiroRecursosFundebTipo0708.SALDO_FINANCEIRO_DO_FUNDEF_ANO_ANTERIOR,
+  '39 - (+) INGRESSO DE RECURSOS DO FUNDEB ATÉ O BIMESTRE':
+    FluxoFinanceiroRecursosFundebTipo0708.INGRESSO_RECURSOS_FUNDEB_ATE_BIM,
+  '40 - (-) PAGAMENTOS EFETUADOS ATÉ O BIMESTRE':
+    FluxoFinanceiroRecursosFundebTipo0708.PAGAMENTOS_EFETUADOS_ATE_BIM,
+  '41 - (+) RECEITA DE APLICAÇÃO FINANCEIRA DOS RECURSOS DO FUNDEB ATÉ O BIMESTRE':
+    FluxoFinanceiroRecursosFundebTipo0708.RECEITA_APLICACAO_FINANCEIRA_DOS_RECURSOS_FUNDEB_ATE_BIM,
+  '42 - (=) SALDO FINANCEIRO DO FUNDEB NO EXERCÍCIO ATUAL':
+    FluxoFinanceiroRecursosFundebTipo0708.SALDO_FINANCEIRO_DO_FUNDEF_EXERCICIO_ATUAL,
+};
