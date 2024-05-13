@@ -83,10 +83,10 @@ import {
 import {
   mapeamentoDeducoesAdicoesParaFinsLimiteConstitucional0708,
   mapeamentoDespesas0708,
+  mapeamentoFluxoFinanceiroRecursosFundeb0708,
   mapeamentoInformacoesControleFinanceiro0708,
   mapeamentoMinimo60PorCentoFundeb0708,
   mapeamentoReceitas0708,
-  mapeamentoFluxoFinanceiroRecursosFundeb0708,
 } from './seeding.map.2007-2008';
 import {
   mapeamentoAplicacaoDespesasFinsLimiteMinimoConstitucional21,
@@ -119,7 +119,10 @@ async function seedDatabaseZeroSix() {
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
-        const match = arquivo.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
+        //const fileMatch = arquivo;
+        const fileMatch = 'tabula-RREO_Municipal_220005_1_2006.csv';
+
+        const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
         if (match) {
           const codigo = match[1];
@@ -277,7 +280,10 @@ async function seedDatabaseSevenAndEight() {
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
-        const match = arquivo.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
+        //const fileMatch = arquivo;
+        const fileMatch = 'tabula-RREO_Municipal_220005_1_2007.csv';
+
+        const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
         if (match) {
           const codigo = match[1];
@@ -410,13 +416,16 @@ async function seedDatabaseTenToFourteen() {
       if (arquivo.endsWith('.csv')) {
         const caminhoArquivo = path.join(
           diretorio,
-          'tabula-RREO_Municipal_220830_1_2010.csv',
+          'tabula-RREO_Municipal_220005_1_2010.csv',
         );
 
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
-        const match = arquivo.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
+        //const fileMatch = arquivo;
+        const fileMatch = 'tabula-RREO_Municipal_220005_1_2010.csv';
+
+        const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
         if (match) {
           const codigo = match[1];
@@ -568,7 +577,10 @@ async function seedDatabasefifteenTotwenty() {
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
-        const match = arquivo.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
+        //const fileMatch = arquivo;
+        const fileMatch = 'tabula-RREO_Municipal_220005_1_2015.csv';
+
+        const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
         if (match) {
           const codigo = match[1];
@@ -733,7 +745,10 @@ async function seedDatabaseTwentyOneTwentyTwo() {
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
-        const match = arquivo.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
+        //const fileMatch = arquivo;
+        const fileMatch = 'tabula-RREO_Municipal_220005_6_2021.csv';
+
+        const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
         if (match) {
           const codigo = match[1];
@@ -2088,37 +2103,19 @@ async function getCellsNumericValues(row: ExcelJS.Row) {
 //   .finally(async () => {
 //     await prisma.$disconnect();
 //   });
-seedDatabaseSevenAndEight()
-  .catch((e) => {
+async function main() {
+  try {
+    await seedDatabaseZeroSix();
+    await seedDatabaseSevenAndEight();
+    await seedDatabaseTenToFourteen();
+    await seedDatabasefifteenTotwenty();
+    await seedDatabaseTwentyOneTwentyTwo();
+  } catch (e) {
     console.error(e);
     process.exit(1);
-  })
-  .finally(async () => {
+  } finally {
     await prisma.$disconnect();
-  });
-// seedDatabaseTenToFourteen()
-//   .catch((e) => {
-//     console.error(e);
-//     process.exit(1);
-//   })
-//   .finally(async () => {
-//     await prisma.$disconnect();
-//   });
+  }
+}
 
-// seedDatabasefifteenTotwenty()
-//   .catch((e) => {
-//     console.error(e);
-//     process.exit(1);
-//   })
-//   .finally(async () => {
-//     await prisma.$disconnect();
-//   });
-
-// seedDatabaseTwentyOneTwentyTwo()
-//   .catch((e) => {
-//     console.error(e);
-//     process.exit(1);
-//   })
-//   .finally(async () => {
-//     await prisma.$disconnect();
-//   });
+main();
