@@ -3,7 +3,7 @@ import {
   ItemReceitaTipos06,
   ItemReceitaTipos0708,
   ItemReceitaTipos1014,
-  ItemReceitaTipos1520,
+  ItemReceitaTipos1516e1920,
   ItemReceitaTipos21,
 } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -17,7 +17,7 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        receita06: {
+        receita: {
           where: {
             tipo: {
               in: [
@@ -73,7 +73,7 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita0708: {
+          receita: {
             where: {
               tipo: {
                 in: [
@@ -97,22 +97,22 @@ export class ResearchesService {
       });
 
     const revenues1520 =
-      await this.prismaService.relatorioMunicipal1520.findMany({
+      await this.prismaService.relatorioMunicipal1516e1920.findMany({
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita1520: {
+          receita: {
             where: {
               tipo: {
                 in: [
-                  ItemReceitaTipos1520.COTA_PARTE_FPM,
-                  ItemReceitaTipos1520.COTA_PARTE_ICMS,
-                  ItemReceitaTipos1520.ICMS_DESONERACAO_LC_87_1996,
-                  ItemReceitaTipos1520.COTA_PARTE_IPI_EXPORTACAO,
-                  ItemReceitaTipos1520.COTA_PARTE_ITR,
-                  ItemReceitaTipos1520.COTA_PARTE_IPVA,
-                  ItemReceitaTipos1520.COTA_PARTE_IOF_OURO,
-                  ItemReceitaTipos1520.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                  ItemReceitaTipos1516e1920.COTA_PARTE_FPM,
+                  ItemReceitaTipos1516e1920.COTA_PARTE_ICMS,
+                  ItemReceitaTipos1516e1920.ICMS_DESONERACAO_LC_87_1996,
+                  ItemReceitaTipos1516e1920.COTA_PARTE_IPI_EXPORTACAO,
+                  ItemReceitaTipos1516e1920.COTA_PARTE_ITR,
+                  ItemReceitaTipos1516e1920.COTA_PARTE_IPVA,
+                  ItemReceitaTipos1516e1920.COTA_PARTE_IOF_OURO,
+                  ItemReceitaTipos1516e1920.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
                 ],
               },
             },
@@ -129,7 +129,7 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita21: {
+          receita: {
             where: {
               tipo: {
                 in: [
@@ -207,7 +207,7 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        receita06: {
+        receita: {
           where: {
             tipo: {
               in: [
@@ -230,7 +230,7 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita0708: {
+          receita: {
             where: {
               tipo: {
                 in: [
@@ -249,17 +249,17 @@ export class ResearchesService {
       });
 
     const revenues1520 =
-      await this.prismaService.relatorioMunicipal1520.findMany({
+      await this.prismaService.relatorioMunicipal1516e1920.findMany({
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita1520: {
+          receita: {
             where: {
               tipo: {
                 in: [
-                  ItemReceitaTipos1520.RECEITA_DE_IMPOSTOS,
-                  ItemReceitaTipos1520.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
-                  ItemReceitaTipos1520.TOTAL_RECEITA_IMPOSTOS,
+                  ItemReceitaTipos1516e1920.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos1516e1920.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                  ItemReceitaTipos1516e1920.TOTAL_RECEITA_IMPOSTOS,
                 ],
               },
             },
@@ -276,7 +276,7 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita21: {
+          receita: {
             where: {
               tipo: {
                 in: [
@@ -349,7 +349,7 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        receita06: {
+        receita: {
           where: {
             tipo: {
               in: [
@@ -372,7 +372,7 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita0708: {
+          receita: {
             where: {
               tipo: {
                 in: [
@@ -420,20 +420,20 @@ export class ResearchesService {
       });
 
     const revenues1520 =
-      await this.prismaService.relatorioMunicipal1520.findMany({
+      await this.prismaService.relatorioMunicipal1516e1920.findMany({
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita1520: {
+          receita: {
             where: {
               tipo: {
                 in: [
-                  ItemReceitaTipos1520.RECEITAS_DESTINADAS_AO_FUNDEB,
-                  ItemReceitaTipos1520.TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB,
-                  ItemReceitaTipos1520.RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB,
-                  ItemReceitaTipos1520.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB,
-                  ItemReceitaTipos1520.RECEITA_DE_APLICACAO_FINANCEIRA_DOS_RECURSOS_DO_FUNDEB,
-                  ItemReceitaTipos1520.RECEITAS_RECEBIDAS_DO_FUNDEB,
+                  ItemReceitaTipos1516e1920.RECEITAS_DESTINADAS_AO_FUNDEB,
+                  ItemReceitaTipos1516e1920.TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB,
+                  ItemReceitaTipos1516e1920.RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB,
+                  ItemReceitaTipos1516e1920.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB,
+                  ItemReceitaTipos1516e1920.RECEITA_DE_APLICACAO_FINANCEIRA_DOS_RECURSOS_DO_FUNDEB,
+                  ItemReceitaTipos1516e1920.RECEITAS_RECEBIDAS_DO_FUNDEB,
                 ],
               },
             },
@@ -450,7 +450,7 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita21: {
+          receita: {
             where: {
               tipo: {
                 in: [
@@ -540,7 +540,7 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        receita06: {
+        receita: {
           where: {
             tipo: {
               in: [
@@ -563,7 +563,7 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita0708: {
+          receita: {
             where: {
               tipo: {
                 in: [ItemReceitaTipos0708.COMPLEMENTACAO_UNIAO_FUNDEB],
@@ -597,14 +597,16 @@ export class ResearchesService {
       });
 
     const revenues1520 =
-      await this.prismaService.relatorioMunicipal1520.findMany({
+      await this.prismaService.relatorioMunicipal1516e1920.findMany({
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita1520: {
+          receita: {
             where: {
               tipo: {
-                in: [ItemReceitaTipos1520.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB],
+                in: [
+                  ItemReceitaTipos1516e1920.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB,
+                ],
               },
             },
             select: {
@@ -620,7 +622,7 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-          receita21: {
+          receita: {
             where: {
               tipo: {
                 in: [

@@ -23,8 +23,8 @@ model RelatorioMunicipal06 {
   compensacaoRestosAPagar                 CompensacaoRestosAPagar06[]
   tabelaCumprimentoLimitesConstitucionais TabelaCumprimentoLimitesConstitucionais06[]
   saldoFinanceiroFundef                   SaldoFinanceiroFundef06[]
-  receita06                               Receita06[]
-  despesa06                               Despesa06[]
+  receita                                 Receita06[]
+  despesa                                 Despesa06[]
 }
 
 model RelatorioMunicipal0708 {
@@ -35,8 +35,8 @@ model RelatorioMunicipal0708 {
   fluxoFinanceiroRecursosFundeb               FluxoFinanceiroRecursosFundeb0708[]
   informacoesControleFinanceiro               InformacoesControleFinanceiro0708[]
   minimo60PorCentoFundeb                      Minimo60PorCentoFundeb0708[]
-  receita0708                                 Receita0708[]
-  despesa0708                                 Despesa0708[]
+  receita                                     Receita0708[]
+  despesa                                     Despesa0708[]
 }
 
 model RelatorioMunicipal1014 {
@@ -52,35 +52,49 @@ model RelatorioMunicipal1014 {
   despesa                                         Despesa1014[]
 }
 
-model RelatorioMunicipal1520 {
+model RelatorioMunicipal1516e1920 {
+  id                                              Int                                                        @id @default(autoincrement())
+  ano                                             String
+  codigoMunicipio                                 String
+  deducoesParaFinsLimiteFundeb                    DeducoesFinsLimiteFundeb1516e1920[]
+  indicadoresFundeb                               IndicadoresFundeb1516e1920[]
+  controleRecursosNoExercicioSubsequente          ControleRecursosNoExercicioSubsequente1516e1920[]
+  deducoesParaFinsDeLimitesConstitucional         DeducoesParaFinsDeLimitesConstitucional1516e1920[]
+  restosAPagarInscritosDisponibilidadesFinanceira RestosAPagarInscritosDisponibilidadesFinanceira1516e1920[]
+  fluxoFinanceiroDeRecursosFundeb                 FluxoFinanceiroDeRecursosFundeb1516e1920[]
+  receita                                         Receita1516e1920[]
+  despesa                                         Despesa1516e1920[]
+}
+
+model RelatorioMunicipal1718 {
   id                                              Int                                                   @id @default(autoincrement())
   ano                                             String
   codigoMunicipio                                 String
-  deducoesParaFinsLimiteFundeb                    DeducoesFinsLimiteFundeb1520[]
-  indicadoresFundeb                               IndicadoresFundeb1520[]
-  controleRecursosNoExercicioSubsequente          ControleRecursosNoExercicioSubsequente1520[]
-  deducoesParaFinsDeLimitesConstitucional         DeducoesParaFinsDeLimitesConstitucional1520[]
-  restosAPagarInscritosDisponibilidadesFinanceira RestosAPagarInscritosDisponibilidadesFinanceira1520[]
-  fluxoFinanceiroDeRecursosFundeb                 FluxoFinanceiroDeRecursosFundeb1520[]
-  receita1520                                     Receita1520[]
-  despesa1520                                     Despesa1520[]
+  deducoesParaFinsLimiteFundeb                    DeducoesFinsLimiteFundeb1718[]
+  indicadoresFundeb                               IndicadoresFundeb1718[]
+  controleRecursosNoExercicioSubsequente          ControleRecursosNoExercicioSubsequente1718[]
+  deducoesParaFinsDeLimitesConstitucional         DeducoesParaFinsDeLimitesConstitucional1718[]
+  restosAPagarInscritosDisponibilidadesFinanceira RestosAPagarInscritosDisponibilidadesFinanceira1718[]
+  controleDisponibilidadeFinanceira1718           ControleDisponibilidadeFinanceira1718[]
+  receita                                         Receita1718[]
+  despesa                                         Despesa1718[]
 }
 
 model RelatorioMunicipal21 {
-  id                                                         Int                                                          @id @default(autoincrement())
-  ano                                                        String
-  codigoMunicipio                                            String
-  receita21                                                  Receita21[]
-  despesa21                                                  Despesa21[]
-  despesasCusteadasFundebExercicio21                         DespesasCusteadasFundebExercicio21[]
-  recursosRecebidosNaoUtilizados21                           RecursosRecebidosNaoUtilizados21[]
-  indicadores21Art212                                        Indicadores21Art212[]
-  indicador21Art25AplicacaoSuperavit                         Indicador21Art25AplicacaoSuperavit[]
-  indicador21Art25MaximoDeSuperavit                          Indicador21Art25MaximoDeSuperavit[]
-  aplicacaoDespesasFinsLimiteMinimoConstitucional21          AplicacaoDespesasFinsLimiteMinimoConstitucional21[]
-  apuracaoLimiteMinimoConstitucional21                       ApuracaoLimiteMinimoConstitucional21[]
-  restosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21 RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21[]
-  controleDisponibildadeFinanceiraConciliacaoBancaria21      ControleDisponibilidadeFinanceiraConciliacaoBancaria21[]
+  id                                                       Int                                                          @id @default(autoincrement())
+  ano                                                      String
+  codigoMunicipio                                          String
+  receita                                                  Receita21[]
+  despesa                                                  Despesa21[]
+  despesasCusteadasFundebExercicio                         DespesasCusteadasFundebExercicio21[]
+  recursosRecebidosNaoUtilizados                           RecursosRecebidosNaoUtilizados21[]
+  indicadoresArt212                                        Indicadores21Art212[]
+  indicadorArt25AplicacaoSuperavit                         Indicador21Art25AplicacaoSuperavit[]
+  indicadorArt25MaximoDeSuperavit                          Indicador21Art25MaximoDeSuperavit[]
+  aplicacaoDespesasFinsLimiteMinimoConstitucional          AplicacaoDespesasFinsLimiteMinimoConstitucional21[]
+  apuracaoLimiteMinimoConstitucional                       ApuracaoLimiteMinimoConstitucional21[]
+  restosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21[]
+  controleDisponibildadeFinanceiraConciliacaoBancaria      ControleDisponibilidadeFinanceiraConciliacaoBancaria21[]
 }
 
 model Receita06 {
@@ -97,14 +111,14 @@ model Receita06 {
 }
 
 model Despesa06 {
-  id                          Int                  @id @default(autoincrement())
-  tipo                        ItemDespesaTipos06
-  dotacaoInicial              Float
-  dotacaoAtualizada           Float
+  id                           Int                  @id @default(autoincrement())
+  tipo                         ItemDespesaTipos06
+  dotacaoInicial               Float
+  dotacaoAtualizada            Float
   despesasLiquidadasNoAno      Float
   despesasLiquidadasPercentual Float
-  relatorioMunicialId         Int
-  relatorioMunicial           RelatorioMunicipal06 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal06 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
@@ -187,24 +201,24 @@ model Receita0708 {
 }
 
 model Despesa0708 {
-  id                         Int                    @id @default(autoincrement())
-  tipo                       ItemDespesaTipos0708
-  dotacaoInicial             Float
-  dotacaoAtualizada          Float
+  id                           Int                    @id @default(autoincrement())
+  tipo                         ItemDespesaTipos0708
+  dotacaoInicial               Float
+  dotacaoAtualizada            Float
   despesasEmpenhadasNoAno      Float
   despesasEmpenhadasPercentual Float
-  relatorioMunicialId        Int
-  relatorioMunicial          RelatorioMunicipal0708 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal0708 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
 model Minimo60PorCentoFundeb0708 {
-  id                         Int                    @id @default(autoincrement())
-  tipo                       Minimo60PorCentoFundebTipo0708
+  id                           Int                            @id @default(autoincrement())
+  tipo                         Minimo60PorCentoFundebTipo0708
   despesasRealizadasPercentual Float
-  relatorioMunicialId        Int
-  relatorioMunicial          RelatorioMunicipal0708 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal0708         @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
@@ -320,22 +334,22 @@ model FluxoFinanceiroDeRecursos1014 {
   @@unique([relatorioMunicialId, tipo])
 }
 
-model Receita1520 {
-  id                           Int                    @id @default(autoincrement())
-  tipo                         ItemReceitaTipos1520
+model Receita1516e1920 {
+  id                           Int                         @id @default(autoincrement())
+  tipo                         ItemReceitaTipos1516e1920
   previsaoInicial              Float
   previsaoAtualizada           Float
   receitasRealizadaAteBimestre Float
   percentual                   Float
   relatorioMunicialId          Int
-  relatorioMunicial            RelatorioMunicipal1520 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial            RelatorioMunicipal1516e1920 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model Despesa1520 {
-  id                            Int                    @id @default(autoincrement())
-  tipo                          ItemDespesaTipos1520
+model Despesa1516e1920 {
+  id                            Int                         @id @default(autoincrement())
+  tipo                          ItemDespesaTipos1516e1920
   dotacaoInicial                Float
   dotacaoAtualizada             Float
   despesasEmpenhadasAteBimestre Float
@@ -344,77 +358,161 @@ model Despesa1520 {
   despesasLiquidadasPercentual  Float
   inscritasRestosPagar          Float
   relatorioMunicialId           Int
-  relatorioMunicial             RelatorioMunicipal1520 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial             RelatorioMunicipal1516e1920 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model DeducoesFinsLimiteFundeb1520 {
-  id                  Int                              @id @default(autoincrement())
-  tipo                DeducoesFinsLimiteFundebTipo1520
+model DeducoesFinsLimiteFundeb1516e1920 {
+  id                  Int                                   @id @default(autoincrement())
+  tipo                DeducoesFinsLimiteFundebTipo1516e1920
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal1520           @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1516e1920           @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model IndicadoresFundeb1520 {
-  id                  Int                       @id @default(autoincrement())
-  tipo                IndicadoresFundebTipo1520
+model IndicadoresFundeb1516e1920 {
+  id                  Int                            @id @default(autoincrement())
+  tipo                IndicadoresFundebTipo1516e1920
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal1520    @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1516e1920    @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model ControleRecursosNoExercicioSubsequente1520 {
-  id                  Int                                            @id @default(autoincrement())
-  tipo                ControleRecursosNoExercicioSubsequenteTipo1520
+model ControleRecursosNoExercicioSubsequente1516e1920 {
+  id                  Int                                                 @id @default(autoincrement())
+  tipo                ControleRecursosNoExercicioSubsequenteTipo1516e1920
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal1520                         @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1516e1920                         @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model DeducoesParaFinsDeLimitesConstitucional1520 {
-  id                  Int                                             @id @default(autoincrement())
-  tipo                DeducoesParaFinsDeLimitesConstitucionalTipo1520
+model DeducoesParaFinsDeLimitesConstitucional1516e1920 {
+  id                  Int                                                  @id @default(autoincrement())
+  tipo                DeducoesParaFinsDeLimitesConstitucionalTipo1516e1920
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal1520                          @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1516e1920                          @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model FluxoFinanceiroDeRecursosFundeb1520 {
-  id                  Int                                     @id @default(autoincrement())
-  tipo                FluxoFinanceiroDeRecursosFundebTipo1520
+model FluxoFinanceiroDeRecursosFundeb1516e1920 {
+  id                  Int                                          @id @default(autoincrement())
+  tipo                FluxoFinanceiroDeRecursosFundebTipo1516e1920
   valor               Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal1520                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1516e1920                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-model RestosAPagarInscritosDisponibilidadesFinanceira1520 {
-  id                  Int                                                     @id @default(autoincrement())
-  tipo                RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520
+model RestosAPagarInscritosDisponibilidadesFinanceira1516e1920 {
+  id                  Int                                                          @id @default(autoincrement())
+  tipo                RestosAPagarInscritosDisponibilidadesFinanceiraTipo1516e1920
   saldoAteBimestre    Float
   canceladoNoAno      Float
   relatorioMunicialId Int
-  relatorioMunicial   RelatorioMunicipal1520                                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioMunicial   RelatorioMunicipal1516e1920                                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
 }
 
-enum ReceitaTipos1014 {
-  RECEITAS_DE_IMPOSTO
-  RECEITAS_FINANCIAMENTO_DO_ENSINO
-  RECEITAS_DO_FUNDEB
-  RECEITAS_ACOES_MDE
+model Receita1718 {
+  id                           Int                    @id @default(autoincrement())
+  tipo                         ItemReceitaTipos1718
+  previsaoInicial              Float
+  previsaoAtualizada           Float
+  receitasRealizadaAteBimestre Float
+  percentual                   Float
+  relatorioMunicialId          Int
+  relatorioMunicial            RelatorioMunicipal1718 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model Despesa1718 {
+  id                            Int                    @id @default(autoincrement())
+  tipo                          ItemDespesaTipos1718
+  dotacaoInicial                Float
+  dotacaoAtualizada             Float
+  despesasEmpenhadasAteBimestre Float
+  despesasEmpenhadasPercentual  Float
+  despesasLiquidadasAteBimestre Float
+  despesasLiquidadasPercentual  Float
+  inscritasRestosPagar          Float
+  relatorioMunicialId           Int
+  relatorioMunicial             RelatorioMunicipal1718 @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model DeducoesFinsLimiteFundeb1718 {
+  id                  Int                              @id @default(autoincrement())
+  tipo                DeducoesFinsLimiteFundebTipo1718
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1718           @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model IndicadoresFundeb1718 {
+  id                  Int                       @id @default(autoincrement())
+  tipo                IndicadoresFundebTipo1718
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1718    @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model ControleRecursosNoExercicioSubsequente1718 {
+  id                  Int                                            @id @default(autoincrement())
+  tipo                ControleRecursosNoExercicioSubsequenteTipo1718
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1718                         @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model DeducoesParaFinsDeLimitesConstitucional1718 {
+  id                  Int                                             @id @default(autoincrement())
+  tipo                DeducoesParaFinsDeLimitesConstitucionalTipo1718
+  valor               Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1718                          @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model ControleDisponibilidadeFinanceira1718 {
+  id                  Int                                       @id @default(autoincrement())
+  tipo                ControleDisponibilidadeFinanceiraTipo1718
+  fundeb              Float
+  salarioEducacao     Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1718                    @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
+}
+
+model RestosAPagarInscritosDisponibilidadesFinanceira1718 {
+  id                  Int                                                     @id @default(autoincrement())
+  tipo                RestosAPagarInscritosDisponibilidadesFinanceiraTipo1718
+  saldoAteBimestre    Float
+  canceladoNoAno      Float
+  relatorioMunicialId Int
+  relatorioMunicial   RelatorioMunicipal1718                                  @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+
+  @@unique([relatorioMunicialId, tipo])
 }
 
 model Receita21 {
@@ -552,6 +650,13 @@ model ControleDisponibilidadeFinanceiraConciliacaoBancaria21 {
   relatorioMunicial   RelatorioMunicipal21                                       @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
 
   @@unique([relatorioMunicialId, tipo])
+}
+
+enum ReceitaTipos1014 {
+  RECEITAS_DE_IMPOSTO
+  RECEITAS_FINANCIAMENTO_DO_ENSINO
+  RECEITAS_DO_FUNDEB
+  RECEITAS_ACOES_MDE
 }
 
 enum ItemReceitaTipos06 {
@@ -725,6 +830,7 @@ enum ItemDespesaTipos0708 {
   TOTAL_OUTRAS_DESPESAS_CUSTEADAS_RECURSOS_DESTINADOS_MDE
   TOTAL_DESPESAS_COM_ENSINO
 }
+
 enum Minimo60PorCentoFundebTipo0708 {
   MINIMO_60_PORCENTO_FUNDEB_REMUNERACAO_MAGISTERIO_EDUCACAO
 }
@@ -885,7 +991,7 @@ enum FluxoFinanceiroDeRecursosTipos1014 {
   SALDO_FINANCEIRO_NO_EXERCICIO_ATUAL
 }
 
-enum ItemReceitaTipos1520 {
+enum ItemReceitaTipos1516e1920 {
   RECEITA_DE_IMPOSTOS
   IPTU_RECEITA_RESULTANTE
   IPTU
@@ -958,7 +1064,7 @@ enum ItemReceitaTipos1520 {
   IMPOSTOS_E_TRANSFERENCIAS_DESTINADAS_MDE
 }
 
-enum ItemDespesaTipos1520 {
+enum ItemDespesaTipos1516e1920 {
   FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO
   FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_EDUCACAO_INFANTIL
   FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_ENSINO_FUNDAMENTAL
@@ -989,7 +1095,7 @@ enum ItemDespesaTipos1520 {
   TOTAL_GERAL_DESPESAS_MDE
 }
 
-enum DeducoesFinsLimiteFundebTipo1520 {
+enum DeducoesFinsLimiteFundebTipo1516e1920 {
   RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA
   RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO
   RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO
@@ -999,19 +1105,19 @@ enum DeducoesFinsLimiteFundebTipo1520 {
   TOTAL_DEDUCOES_PARA_FINS_LIMITE
 }
 
-enum IndicadoresFundebTipo1520 {
+enum IndicadoresFundebTipo1516e1920 {
   TOTAL_DE_DESPESAS_FUNDEB_PARA_FINS_DE_LIMITE
   MINIMO_60_PORCENTO_FUNDEB_REMUNERACAO_MAGISTERIO
   MAXIMO_40_PORCENTO_DESPESAS_MDE
   MAXIMO_5_PORCENTO_NAO_APLICADO_NO_EXERCICIO
 }
 
-enum ControleRecursosNoExercicioSubsequenteTipo1520 {
+enum ControleRecursosNoExercicioSubsequenteTipo1516e1920 {
   RECURSOS_RECEBIDOS_FUNDEB_NAO_UTILIZADOS
   DESPESAS_CUSTEADAS_C_SALDO_FUNDEB_N_UTILIZADOS_1_TRIM_ATUAL
 }
 
-enum DeducoesParaFinsDeLimitesConstitucionalTipo1520 {
+enum DeducoesParaFinsDeLimitesConstitucionalTipo1516e1920 {
   RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB
   DESPESAS_CUSTEADAS_A_COMPLEMENTACAO_DO_FUNDEB_NO_EXERCICIO
   RECEITA_DE_APLICACAO_FINANCEIRA_DOS_RECURSOS_DO_FUNDEB_ATE_BIM
@@ -1024,7 +1130,7 @@ enum DeducoesParaFinsDeLimitesConstitucionalTipo1520 {
   MINIMO_DE_25_PORCENTO_DAS_RECEITAS_RESULTANTES_DE_IMPOSTOS_MDE
 }
 
-enum FluxoFinanceiroDeRecursosFundebTipo1520 {
+enum FluxoFinanceiroDeRecursosFundebTipo1516e1920 {
   SALDO_FINANCEIRO_31_DE_DEZEMBRO_ANO_ANTERIOR
   INGRESSO_RECURSOS_ATE_BIM
   PAGAMENTOS_EFETUADOS_ATE_BIM
@@ -1034,7 +1140,148 @@ enum FluxoFinanceiroDeRecursosFundebTipo1520 {
   SALDO_FINANCEIRO_NO_EXERCICIO_ATUAL
 }
 
-enum RestosAPagarInscritosDisponibilidadesFinanceiraTipo1520 {
+enum RestosAPagarInscritosDisponibilidadesFinanceiraTipo1516e1920 {
+  RESTOS_A_PAGAR_DE_DESPESA_MDE
+  EXECUTADAS_COM_RECURSOS_DE_IMPOSTOS_ENSINO
+  EXECUTADAS_COM_RECURSOS_FUNDEB
+}
+
+enum ItemReceitaTipos1718 {
+  RECEITA_DE_IMPOSTOS
+  IPTU_RECEITA_RESULTANTE
+  IPTU
+  IPTU_MULTAS_JUROS_MORA
+  ITBI_RECEITA_RESULTANTE
+  ITBI
+  ITBI_MULTAS_JUROS_MORA
+  ISS_RECEITA_RESULTANTE
+  ISS
+  ISS_MULTAS_JUROS_MORA
+  IRRF_RECEITA_RESULTANTE
+  ITR_RECEITA_RESULTANTE
+  ITR
+  ITR_MULTAS_JUROS_MORA
+  RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS
+  COTA_PARTE_FPM
+  COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B
+  COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D
+  COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_E
+  COTA_PARTE_ICMS
+  ICMS_DESONERACAO_LC_87_1996
+  COTA_PARTE_IPI_EXPORTACAO
+  COTA_PARTE_ITR
+  COTA_PARTE_IPVA
+  COTA_PARTE_IOF_OURO
+  TOTAL_RECEITA_IMPOSTOS
+  RECEITA_APLICACAO_FINANCEIRA
+  RECEITA_TRANSFERENCIAS_FNDE
+  TRANSFERENCIAS_SALARIO_EDUCACAO
+  TRANSFERENCIAS_DIRETAS_PDDE
+  TRANSFERENCIAS_DIRETAS_PNAE
+  TRANSFERENCIAS_DIRETAS_PNATE
+  OUTRAS_TRANSFERENCIAS_FNDE
+  APLICACAO_FINANCEIRA_FNDE
+  RECEITA_TRANSFERENCIAS_CONVENIOS
+  TRANSFERENCIAS_CONVENIOS
+  APLICACAO_FINANCEIRA_CONVENIOS
+  RECEITA_OPERACOES_CREDITO
+  OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO
+  TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO
+  RECEITAS_DESTINADAS_AO_FUNDEB
+  COTA_PARTE_FPM_DESTINADA_AO_FUNDEB
+  COTA_PARTE_ICMS_DESTINADA_AO_FUNDEB
+  ICMS_DESONERACAO_DESTINADA_AO_FUNDEB
+  COTA_PARTE_IPI_EXPORTACAO_DESTINADA_AO_FUNDEB
+  COTA_PARTE_ITR_OU_ITR_ARRECADADOS_DESTINADOS_AO_FUNDEB
+  COTA_PARTE_IPVA_DESTINADA_AO_FUNDEB
+  RECEITAS_RECEBIDAS_DO_FUNDEB
+  TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB
+  COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB
+  RECEITA_DE_APLICACAO_FINANCEIRA_DOS_RECURSOS_DO_FUNDEB
+  RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB
+}
+
+enum ItemDespesaTipos1718 {
+  FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO
+  FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_EDUCACAO_INFANTIL
+  FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_ENSINO_FUNDAMENTAL
+  FUNDEB_OUTRAS_DESPESAS
+  FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL
+  FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL
+  FUNDEB_TOTAL_DESPESAS_FUNDEB
+  MDE_DESPESAS_EDUCACAO_INFANTIL
+  MDE_DESPESAS_EDUCACAO_INFANTIL_CRECHE
+  MDE_EDUCACAO_INFANTIL_CRECHE_DESPESAS_CUSTEADAS_FUNDEB
+  MDE_EDUCACAO_INFANTIL_CRECHE_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS
+  MDE_DESPESAS_EDUCACAO_INFANTIL_PRE_ESCOLA
+  MDE_EDUCACAO_INFANTIL_PRE_ESCOLA_DESPESAS_CUSTEADAS_FUNDEB
+  MDE_EDUCACAO_INFANTIL_PRE_ESCOLA_DESPESAS_CUSTEADAS_IMPOSTOS
+  MDE_DESPESAS_ENSINO_FUNDAMENTAL
+  MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_FUNDEB
+  MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS
+  MDE_DESPESAS_ENSINO_MEDIO
+  MDE_DESPESAS_ENSINO_SUPERIOR
+  MDE_DESPESAS_ENSINO_PROFISSIONAL_NAO_INTEGRADO_ENSINO_REGULAR
+  MDE_OUTRAS_DESPESAS
+  MDE_TOTAL_DESPESAS_ACOES_TIPICAS
+  DESPESAS_CUSTEADAS_APLICACAO_FINANCEIRA_VINCULADAS_ENSINO
+  DESPESAS_CUSTEADAS_CONTRIBUICAO_SOCIAL_SALARIO_EDUCACAO
+  DESPESAS_CUSTEADAS_OPERACOES_CREDITO
+  DESPESAS_CUSTEADAS_OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO
+  TOTAL_OUTRAS_DESPESAS_CUSTEADAS_FINANCIAMENTO_ENSINO
+  TOTAL_GERAL_DESPESAS_MDE
+}
+
+enum DeducoesFinsLimiteFundebTipo1718 {
+  RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA
+  RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO
+  RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO
+  DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR
+  DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO
+  DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO
+  TOTAL_DEDUCOES_PARA_FINS_LIMITE
+}
+
+enum IndicadoresFundebTipo1718 {
+  TOTAL_DE_DESPESAS_FUNDEB_PARA_FINS_DE_LIMITE
+  MINIMO_60_PORCENTO_FUNDEB_REMUNERACAO_MAGISTERIO
+  MAXIMO_40_PORCENTO_DESPESAS_MDE
+  MAXIMO_5_PORCENTO_NAO_APLICADO_NO_EXERCICIO
+}
+
+enum ControleRecursosNoExercicioSubsequenteTipo1718 {
+  RECURSOS_RECEBIDOS_FUNDEB_NAO_UTILIZADOS
+  DESPESAS_CUSTEADAS_C_SALDO_FUNDEB_N_UTILIZADOS_1_TRIM_ATUAL
+}
+
+enum DeducoesParaFinsDeLimitesConstitucionalTipo1718 {
+  RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB
+  DESPESAS_CUSTEADAS_A_COMPLEMENTACAO_DO_FUNDEB_NO_EXERCICIO
+  RECEITA_DE_APLICACAO_FINANCEIRA_DOS_RECURSOS_DO_FUNDEB_ATE_BIM
+  DESPESAS_CUSTEADAS_SUPERAVIT_FINANCEIRO_DO_EXERCICIO_ANTERIOR
+  DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_OUTROS_IMPOSTOS
+  RESTOS_A_PAGAR_INSCRITOS_SEM_DISPONIBILIDADE_FINANCEIRA
+  CANCELAMENTO_RESTOS_PAGAR_INSCRITOS_DISPONIBILIDADE_FINANCEIRA
+  TOTAL_DE_DEDUCOES_PARA_FINS_DE_LIMITE_CONSTITUCIONAL
+  TOTAL_DE_DESPESAS_PARA_FINS_DE_LIMITE
+  PERCENTUAL_DE_APLICACAO_MDE_SOBRE_RECEITA_LIQUIDA_IMPOSTOS
+}
+
+enum ControleDisponibilidadeFinanceiraTipo1718 {
+  SALDO_FINANCEIRO_31_DE_DEZEMBRO_ANO_ANTERIOR
+  INGRESSO_RECURSOS_ATE_BIM
+  PAGAMENTOS_EFETUADOS_ATE_BIM
+  ORCAMENTO_DO_EXERCICIO
+  RESTOS_A_PAGAR
+  RECEITA_APLICACAO_FINANCEIRA_DOS_RECURSOS_ATE_BIM
+  DISPONIBILIDADE_FINANCEIRA_ATE_O_BIM
+  AJUSTES
+  RETENCOES
+  CONCILIACAO_BANCARIA
+  SALDO_FINANCEIRO_CONCILIADO
+}
+
+enum RestosAPagarInscritosDisponibilidadesFinanceiraTipo1718 {
   RESTOS_A_PAGAR_DE_DESPESA_MDE
   EXECUTADAS_COM_RECURSOS_DE_IMPOSTOS_ENSINO
   EXECUTADAS_COM_RECURSOS_FUNDEB
