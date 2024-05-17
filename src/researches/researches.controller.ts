@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { ResearchesService } from './researches.service';
 import { ApiTags } from '@nestjs/swagger';
+import { ResearchesService } from './researches.service';
 
 @ApiTags('researches')
 @Controller('researches')
@@ -10,5 +10,20 @@ export class ResearchesController {
   @Get('/ct-revenue')
   constitutionalTransfersRevenue() {
     return this.researchesService.constitutionalTransfersRevenue();
+  }
+
+  @Get('/cf-revenue')
+  complementationFundeb() {
+    return this.researchesService.complementationFundeb();
+  }
+
+  @Get('/mf-revenue')
+  municipalFundeb() {
+    return this.researchesService.municipalFundeb();
+  }
+
+  @Get('/municipal-revenue')
+  municipalRevenue() {
+    return this.researchesService.municipalRevenue();
   }
 }
