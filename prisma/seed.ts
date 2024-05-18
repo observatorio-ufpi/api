@@ -4,62 +4,71 @@ import {
   CompensacaoRestosAPagarTipo06,
   ControleDisponibildadeFinanceiraConciliacaoBancariaTipos21,
   ControleDisponibilidadeFinanceiraTipo1718,
-  ControleRecursosNoExercicioSubsequenteTipo1516e1920,
+  ControleDisponibilidadeFinanceiraTipo1920,
+  ControleRecursosNoExercicioSubsequenteTipo1516,
   ControleRecursosNoExercicioSubsequenteTipo1718,
+  ControleRecursosNoExercicioSubsequenteTipo1920,
   ControleRestosAPagarVinculadosEducacaoTipo06,
-  ControleUtilizacaoRecursosTipo1012,
+  ControleUtilizacaoRecursosTipo0912,
   ControleUtilizacaoRecursosTipo1314,
   DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708,
   DeducoesDaDespesaTipo06,
   DeducoesFinsLimiteFundebTipo1314,
-  DeducoesFinsLimiteFundebTipo1516e1920,
+  DeducoesFinsLimiteFundebTipo1516,
   DeducoesFinsLimiteFundebTipo1718,
-  DeducoesFundebMagisterioTipo1012,
-  DeducoesParaFinsDeLimitesConstitucionalTipo1012,
+  DeducoesFinsLimiteFundebTipo1920,
+  DeducoesFundebMagisterioTipo0912,
+  DeducoesParaFinsDeLimitesConstitucionalTipo0912,
   DeducoesParaFinsDeLimitesConstitucionalTipo1314,
-  DeducoesParaFinsDeLimitesConstitucionalTipo1516e1920,
+  DeducoesParaFinsDeLimitesConstitucionalTipo1516,
   DeducoesParaFinsDeLimitesConstitucionalTipo1718,
+  DeducoesParaFinsDeLimitesConstitucionalTipo1920,
   DespesasCusteadasFundebExercicioTipos21,
-  FluxoFinanceiroDeRecursosFundebTipo1516e1920,
-  FluxoFinanceiroDeRecursosTipos1012,
+  FluxoFinanceiroDeRecursosFundebTipo1516,
+  FluxoFinanceiroDeRecursosTipos0912,
   FluxoFinanceiroDeRecursosTipos1314,
   FluxoFinanceiroRecursosFundebTipo0708,
   IndicadorTipos21Art25AplicacaoSuperavit,
   IndicadorTipos21Art25MaximoDeSuperavit,
   IndicadoresFundebTipo1314,
-  IndicadoresFundebTipo1516e1920,
+  IndicadoresFundebTipo1516,
   IndicadoresFundebTipo1718,
+  IndicadoresFundebTipo1920,
   IndicadoresTipos21Art212,
   InformacoesControleFinanceiroTipo0708,
   ItemDespesaTipos06,
   ItemDespesaTipos0708,
-  ItemDespesaTipos1012,
+  ItemDespesaTipos0912,
   ItemDespesaTipos1314,
-  ItemDespesaTipos1516e1920,
+  ItemDespesaTipos1516,
   ItemDespesaTipos1718,
+  ItemDespesaTipos1920,
   ItemDespesasTipos21,
   ItemReceitaTipos06,
   ItemReceitaTipos0708,
-  ItemReceitaTipos1012,
+  ItemReceitaTipos0912,
   ItemReceitaTipos1314,
-  ItemReceitaTipos1516e1920,
+  ItemReceitaTipos1516,
   ItemReceitaTipos1718,
+  ItemReceitaTipos1920,
   ItemReceitaTipos21,
   Minimo60PorCentoFundebTipo0708,
   PerdaGanhoTransferenciasFundebTipo06,
   RecursosRecebidosNaoUtilizadosTipos21,
   RelatorioMunicipal06,
   RelatorioMunicipal0708,
-  RelatorioMunicipal1012,
+  RelatorioMunicipal0912,
   RelatorioMunicipal1314,
-  RelatorioMunicipal1516e1920,
+  RelatorioMunicipal1516,
   RelatorioMunicipal1718,
+  RelatorioMunicipal1920,
   RelatorioMunicipal21,
   RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebTipos21,
-  RestosAPagarInscritosDisponibilidadesFinanceiraTipo1012,
+  RestosAPagarInscritosDisponibilidadesFinanceiraTipo0912,
   RestosAPagarInscritosDisponibilidadesFinanceiraTipo1314,
-  RestosAPagarInscritosDisponibilidadesFinanceiraTipo1516e1920,
+  RestosAPagarInscritosDisponibilidadesFinanceiraTipo1516,
   RestosAPagarInscritosDisponibilidadesFinanceiraTipo1718,
+  RestosAPagarInscritosDisponibilidadesFinanceiraTipo1920,
   SaldoFinanceiroFundefTipo06,
   TabelaCumprimentoLimitesConstitucionaisTipo06,
 } from '@prisma/client';
@@ -74,18 +83,18 @@ import {
   mapeamentoFluxoFinanceiroDeRecursos,
   mapeamentoReceitas,
   mapeamentoRestosAPagar,
-} from './seeding.map.2010-2012';
+} from './seeding.map.2009-2012';
 
 import {
-  mapeamentoControleRecursosNoExercicioSubsequente1516e1920,
-  mapeamentoDeducoesParaFinsDeLimitesConstitucional1516e1920,
-  mapeamentoDeducoesParaFinsLimiteFundeb1516e1920,
-  mapeamentoDespesas1516e1920,
-  mapeamentoFluxoFinanceiroDeRecursosFundeb1516e1920,
-  mapeamentoIndicadoresFundeb1516e1920,
-  mapeamentoReceitas1516e1920,
-  mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1516e1920,
-} from './seeding.map.2015-2016-2019-2020';
+  mapeamentoControleRecursosNoExercicioSubsequente1516,
+  mapeamentoDeducoesParaFinsDeLimitesConstitucional1516,
+  mapeamentoDeducoesParaFinsLimiteFundeb1516,
+  mapeamentoDespesas1516,
+  mapeamentoFluxoFinanceiroDeRecursosFundeb1516,
+  mapeamentoIndicadoresFundeb1516,
+  mapeamentoReceitas1516,
+  mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1516,
+} from './seeding.map.2015-2016';
 
 import { PrismaClient } from '@prisma/client';
 import {
@@ -126,6 +135,16 @@ import {
   mapeamentoReceitas1718,
   mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1718,
 } from './seeding.map.2017-2018';
+import {
+  mapeamentoControleDisponibilidadeFinanceira1920,
+  mapeamentoControleRecursosNoExercicioSubsequente1920,
+  mapeamentoDeducoesParaFinsDeLimitesConstitucional1920,
+  mapeamentoDeducoesParaFinsLimiteFundeb1920,
+  mapeamentoDespesas1920,
+  mapeamentoIndicadoresFundeb1920,
+  mapeamentoReceitas1920,
+  mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1920,
+} from './seeding.map.2019-2020';
 import {
   mapeamentoAplicacaoDespesasFinsLimiteMinimoConstitucional21,
   mapeamentoApuracaoLimiteMinimoConstitucional21,
@@ -444,7 +463,7 @@ async function seedDatabase0708() {
   }
 }
 
-async function seedDatabase1012() {
+async function seedDatabase0912() {
   try {
     const diretorio = process.env.FILES_SPREADSHEET_URL;
 
@@ -474,7 +493,7 @@ async function seedDatabase1012() {
 
           const worksheet = workbook.getWorksheet(1);
 
-          const relatorio = await prisma.relatorioMunicipal1012.create({
+          const relatorio = await prisma.relatorioMunicipal0912.create({
             data: {
               ano,
               codigoMunicipio: codigo,
@@ -503,7 +522,7 @@ async function seedDatabase1012() {
               tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
               tipoRestosAPagarEnum,
               tipoFluxoFinanceiroDeRecursos,
-            } = await findTypes1012(relatorio, tipoReceitaDespesaLimpo);
+            } = await findTypes0912(relatorio, tipoReceitaDespesaLimpo);
 
             const {
               secondCellNumericValue,
@@ -514,7 +533,7 @@ async function seedDatabase1012() {
             } = await getCellsNumericValues(row);
 
             if (tipoReceitaEnum) {
-              await prisma.receita1012.create({
+              await prisma.receita0912.create({
                 data: {
                   tipo: tipoReceitaEnum,
                   previsaoInicial: secondCellNumericValue,
@@ -526,7 +545,7 @@ async function seedDatabase1012() {
                 },
               });
             } else if (tipoDespesaEnum) {
-              await prisma.despesa1012.create({
+              await prisma.despesa0912.create({
                 data: {
                   tipo: tipoDespesaEnum,
                   dotacaoInicial: secondCellNumericValue,
@@ -538,7 +557,7 @@ async function seedDatabase1012() {
                 },
               });
             } else if (tipoDeducoesFundebMagisterioEnum) {
-              await prisma.deducoesFundebMagisterio1012.create({
+              await prisma.deducoesFundebMagisterio0912.create({
                 data: {
                   tipo: tipoDeducoesFundebMagisterioEnum,
                   valor: secondCellNumericValue,
@@ -546,7 +565,7 @@ async function seedDatabase1012() {
                 },
               });
             } else if (tipoControleUtilizacaoRecursosEnum) {
-              await prisma.controleUtilizacaoRecursos1012.create({
+              await prisma.controleUtilizacaoRecursos0912.create({
                 data: {
                   tipo: tipoControleUtilizacaoRecursosEnum,
                   valor: secondCellNumericValue,
@@ -554,7 +573,7 @@ async function seedDatabase1012() {
                 },
               });
             } else if (tipoDeducoesParaFinsDeLimitesConstitucionalEnum) {
-              await prisma.deducoesParaFinsDeLimitesConstitucional1012.create({
+              await prisma.deducoesParaFinsDeLimitesConstitucional0912.create({
                 data: {
                   tipo: tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
                   valor: secondCellNumericValue,
@@ -562,7 +581,7 @@ async function seedDatabase1012() {
                 },
               });
             } else if (tipoRestosAPagarEnum) {
-              await prisma.restosAPagarInscritosDisponibilidadesFinanceira1012.create(
+              await prisma.restosAPagarInscritosDisponibilidadesFinanceira0912.create(
                 {
                   data: {
                     tipo: tipoRestosAPagarEnum,
@@ -573,7 +592,7 @@ async function seedDatabase1012() {
                 },
               );
             } else if (tipoFluxoFinanceiroDeRecursos) {
-              await prisma.fluxoFinanceiroDeRecursos1012.create({
+              await prisma.fluxoFinanceiroDeRecursos0912.create({
                 data: {
                   tipo: tipoFluxoFinanceiroDeRecursos,
                   valorFundeb: secondCellNumericValue,
@@ -762,7 +781,7 @@ async function seedDatabase1314() {
   }
 }
 
-async function seedDatabase1516And1920() {
+async function seedDatabase1516() {
   try {
     const diretorio = process.env.FILES_SPREADSHEET_URL;
 
@@ -792,7 +811,7 @@ async function seedDatabase1516And1920() {
 
           const worksheet = workbook.getWorksheet(1);
 
-          const relatorio = await prisma.relatorioMunicipal1516e1920.create({
+          const relatorio = await prisma.relatorioMunicipal1516.create({
             data: {
               ano,
               codigoMunicipio: codigo,
@@ -822,7 +841,7 @@ async function seedDatabase1516And1920() {
               tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
               tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum,
               tipoFluxoFinanceiroDeRecursosFundebEnum,
-            } = await findTypes1516e1920(relatorio, tipoReceitaDespesaLimpo);
+            } = await findTypes1516(relatorio, tipoReceitaDespesaLimpo);
 
             const {
               secondCellNumericValue,
@@ -835,7 +854,7 @@ async function seedDatabase1516And1920() {
             } = await getCellsNumericValues(row);
 
             if (tipoReceitaEnum) {
-              await prisma.receita1516e1920.create({
+              await prisma.receita1516.create({
                 data: {
                   tipo: tipoReceitaEnum,
                   previsaoInicial: secondCellNumericValue,
@@ -846,7 +865,7 @@ async function seedDatabase1516And1920() {
                 },
               });
             } else if (tipoDespesaEnum) {
-              await prisma.despesa1516e1920.create({
+              await prisma.despesa1516.create({
                 data: {
                   tipo: tipoDespesaEnum,
                   dotacaoInicial: secondCellNumericValue,
@@ -860,7 +879,7 @@ async function seedDatabase1516And1920() {
                 },
               });
             } else if (tipoDeducoesParaFinsLimiteFundebEnum) {
-              await prisma.deducoesFinsLimiteFundeb1516e1920.create({
+              await prisma.deducoesFinsLimiteFundeb1516.create({
                 data: {
                   tipo: tipoDeducoesParaFinsLimiteFundebEnum,
                   valor: secondCellNumericValue,
@@ -868,7 +887,7 @@ async function seedDatabase1516And1920() {
                 },
               });
             } else if (tipoIndicadoresFundebEnum) {
-              await prisma.indicadoresFundeb1516e1920.create({
+              await prisma.indicadoresFundeb1516.create({
                 data: {
                   tipo: tipoIndicadoresFundebEnum,
                   valor: secondCellNumericValue,
@@ -876,29 +895,25 @@ async function seedDatabase1516And1920() {
                 },
               });
             } else if (tipoControleRecursosNoExercicioSubsequenteEnum) {
-              await prisma.controleRecursosNoExercicioSubsequente1516e1920.create(
-                {
-                  data: {
-                    tipo: tipoControleRecursosNoExercicioSubsequenteEnum,
-                    valor: secondCellNumericValue,
-                    relatorioMunicialId: relatorio.id,
-                  },
+              await prisma.controleRecursosNoExercicioSubsequente1516.create({
+                data: {
+                  tipo: tipoControleRecursosNoExercicioSubsequenteEnum,
+                  valor: secondCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
                 },
-              );
+              });
             } else if (tipoDeducoesParaFinsDeLimitesConstitucionalEnum) {
-              await prisma.deducoesParaFinsDeLimitesConstitucional1516e1920.create(
-                {
-                  data: {
-                    tipo: tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
-                    valor: secondCellNumericValue,
-                    relatorioMunicialId: relatorio.id,
-                  },
+              await prisma.deducoesParaFinsDeLimitesConstitucional1516.create({
+                data: {
+                  tipo: tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
+                  valor: secondCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
                 },
-              );
+              });
             } else if (
               tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum
             ) {
-              await prisma.restosAPagarInscritosDisponibilidadesFinanceira1516e1920.create(
+              await prisma.restosAPagarInscritosDisponibilidadesFinanceira1516.create(
                 {
                   data: {
                     tipo: tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum,
@@ -909,7 +924,7 @@ async function seedDatabase1516And1920() {
                 },
               );
             } else if (tipoFluxoFinanceiroDeRecursosFundebEnum) {
-              await prisma.fluxoFinanceiroDeRecursosFundeb1516e1920.create({
+              await prisma.fluxoFinanceiroDeRecursosFundeb1516.create({
                 data: {
                   tipo: tipoFluxoFinanceiroDeRecursosFundebEnum,
                   valor: secondCellNumericValue,
@@ -1078,6 +1093,175 @@ async function seedDatabase1718() {
               );
             } else if (tipoControleDisponibilidadeFinanceiraEnum) {
               await prisma.controleDisponibilidadeFinanceira1718.create({
+                data: {
+                  tipo: tipoControleDisponibilidadeFinanceiraEnum,
+                  fundeb: secondCellNumericValue,
+                  salarioEducacao: thirdCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else {
+              console.log(
+                `Tipo de receita ou despesa desconhecido: ${tipoReceitaDespesaExcel}\n`,
+              );
+            }
+          }
+          break;
+        } else {
+          console.log('Nome do arquivo inválido:', arquivo);
+        }
+      }
+      break;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function seedDatabase1920() {
+  try {
+    const diretorio = process.env.FILES_SPREADSHEET_URL;
+
+    const arquivos = fs.readdirSync(diretorio);
+
+    for (const arquivo of arquivos) {
+      if (arquivo.endsWith('.csv')) {
+        const caminhoArquivo = path.join(
+          diretorio,
+          'tabula-RREO_Municipal_220005_6_2019.csv',
+        );
+
+        const workbook = new ExcelJS.Workbook();
+        await workbook.csv.readFile(caminhoArquivo);
+
+        //const fileMatch = arquivo;
+        const fileMatch = 'tabula-RREO_Municipal_220005_6_2019.csv';
+
+        const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
+
+        if (match) {
+          const codigo = match[1];
+          const ano = match[3];
+
+          console.log('Ano:', ano);
+          console.log('Código:', codigo);
+
+          const worksheet = workbook.getWorksheet(1);
+
+          const relatorio = await prisma.relatorioMunicipal1920.create({
+            data: {
+              ano,
+              codigoMunicipio: codigo,
+            },
+          });
+
+          for (let i = 2; i <= worksheet.actualRowCount; i++) {
+            const row = worksheet.getRow(i);
+
+            const tipoReceitaDespesaExcel = row.getCell(1).value as string;
+            if (tipoReceitaDespesaExcel === null) {
+              continue;
+            }
+            const tipoReceitaDespesaLimpo = tipoReceitaDespesaExcel.replace(
+              /\r?\n|\r/g,
+              ' ',
+            );
+
+            console.log(tipoReceitaDespesaLimpo);
+
+            const {
+              tipoReceitaEnum,
+              tipoDespesaEnum,
+              tipoDeducoesParaFinsLimiteFundebEnum,
+              tipoIndicadoresFundebEnum,
+              tipoControleRecursosNoExercicioSubsequenteEnum,
+              tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
+              tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum,
+              tipoControleDisponibilidadeFinanceiraEnum,
+            } = await findTypes1920(relatorio, tipoReceitaDespesaLimpo);
+
+            const {
+              secondCellNumericValue,
+              thirdCellNumericValue,
+              fourthCellNumericValue,
+              fifthCellNumericValue,
+              sixthCellNumericValue,
+              seventhCellNumericValue,
+              eighthCellNumericValue,
+            } = await getCellsNumericValues(row);
+
+            if (tipoReceitaEnum) {
+              await prisma.receita1920.create({
+                data: {
+                  tipo: tipoReceitaEnum,
+                  previsaoInicial: secondCellNumericValue,
+                  previsaoAtualizada: thirdCellNumericValue,
+                  receitasRealizadaAteBimestre: fourthCellNumericValue,
+                  percentual: fifthCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoDespesaEnum) {
+              await prisma.despesa1920.create({
+                data: {
+                  tipo: tipoDespesaEnum,
+                  dotacaoInicial: secondCellNumericValue,
+                  dotacaoAtualizada: thirdCellNumericValue,
+                  despesasEmpenhadasAteBimestre: fourthCellNumericValue,
+                  despesasEmpenhadasPercentual: fifthCellNumericValue,
+                  despesasLiquidadasAteBimestre: sixthCellNumericValue,
+                  despesasLiquidadasPercentual: seventhCellNumericValue,
+                  inscritasRestosPagar: eighthCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoDeducoesParaFinsLimiteFundebEnum) {
+              await prisma.deducoesFinsLimiteFundeb1920.create({
+                data: {
+                  tipo: tipoDeducoesParaFinsLimiteFundebEnum,
+                  valor: secondCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoIndicadoresFundebEnum) {
+              await prisma.indicadoresFundeb1920.create({
+                data: {
+                  tipo: tipoIndicadoresFundebEnum,
+                  valor: secondCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoControleRecursosNoExercicioSubsequenteEnum) {
+              await prisma.controleRecursosNoExercicioSubsequente1920.create({
+                data: {
+                  tipo: tipoControleRecursosNoExercicioSubsequenteEnum,
+                  valor: secondCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoDeducoesParaFinsDeLimitesConstitucionalEnum) {
+              await prisma.deducoesParaFinsDeLimitesConstitucional1920.create({
+                data: {
+                  tipo: tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
+                  valor: secondCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (
+              tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum
+            ) {
+              await prisma.restosAPagarInscritosDisponibilidadesFinanceira1920.create(
+                {
+                  data: {
+                    tipo: tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum,
+                    saldoAteBimestre: secondCellNumericValue,
+                    canceladoNoAno: thirdCellNumericValue,
+                    relatorioMunicialId: relatorio.id,
+                  },
+                },
+              );
+            } else if (tipoControleDisponibilidadeFinanceiraEnum) {
+              await prisma.controleDisponibilidadeFinanceira1920.create({
                 data: {
                   tipo: tipoControleDisponibilidadeFinanceiraEnum,
                   fundeb: secondCellNumericValue,
@@ -1717,21 +1901,21 @@ async function findTypes0708(
   };
 }
 
-async function findTypes1012(
-  relatorio: RelatorioMunicipal1012,
+async function findTypes0912(
+  relatorio: RelatorioMunicipal0912,
   tipoReceitaDespesaLimpo: string,
 ) {
-  let tipoReceitaEnum: ItemReceitaTipos1012;
-  let tipoDespesaEnum: ItemDespesaTipos1012;
-  let tipoDeducoesFundebMagisterioEnum: DeducoesFundebMagisterioTipo1012;
-  let tipoControleUtilizacaoRecursosEnum: ControleUtilizacaoRecursosTipo1012;
-  let tipoDeducoesParaFinsDeLimitesConstitucionalEnum: DeducoesParaFinsDeLimitesConstitucionalTipo1012;
-  let tipoRestosAPagarEnum: RestosAPagarInscritosDisponibilidadesFinanceiraTipo1012;
-  let tipoFluxoFinanceiroDeRecursos: FluxoFinanceiroDeRecursosTipos1012;
+  let tipoReceitaEnum: ItemReceitaTipos0912;
+  let tipoDespesaEnum: ItemDespesaTipos0912;
+  let tipoDeducoesFundebMagisterioEnum: DeducoesFundebMagisterioTipo0912;
+  let tipoControleUtilizacaoRecursosEnum: ControleUtilizacaoRecursosTipo0912;
+  let tipoDeducoesParaFinsDeLimitesConstitucionalEnum: DeducoesParaFinsDeLimitesConstitucionalTipo0912;
+  let tipoRestosAPagarEnum: RestosAPagarInscritosDisponibilidadesFinanceiraTipo0912;
+  let tipoFluxoFinanceiroDeRecursos: FluxoFinanceiroDeRecursosTipos0912;
   let tipoJaDefinido = false;
 
   for (const key in mapeamentoReceitas) {
-    const receitaExiste = await prisma.receita1012.findUnique({
+    const receitaExiste = await prisma.receita0912.findUnique({
       where: {
         relatorioMunicialId_tipo: {
           relatorioMunicialId: relatorio.id,
@@ -1751,7 +1935,7 @@ async function findTypes1012(
     if (tipoJaDefinido) {
       break;
     }
-    const despesaExiste = await prisma.despesa1012.findUnique({
+    const despesaExiste = await prisma.despesa0912.findUnique({
       where: {
         relatorioMunicialId_tipo: {
           relatorioMunicialId: relatorio.id,
@@ -1771,7 +1955,7 @@ async function findTypes1012(
     if (tipoJaDefinido) {
       break;
     }
-    const deducaoExiste = await prisma.deducoesFundebMagisterio1012.findUnique({
+    const deducaoExiste = await prisma.deducoesFundebMagisterio0912.findUnique({
       where: {
         relatorioMunicialId_tipo: {
           relatorioMunicialId: relatorio.id,
@@ -1793,7 +1977,7 @@ async function findTypes1012(
       break;
     }
     const controleExiste =
-      await prisma.controleUtilizacaoRecursos1012.findUnique({
+      await prisma.controleUtilizacaoRecursos0912.findUnique({
         where: {
           relatorioMunicialId_tipo: {
             relatorioMunicialId: relatorio.id,
@@ -1815,7 +1999,7 @@ async function findTypes1012(
       break;
     }
     const deducaoConstitucionalExiste =
-      await prisma.deducoesParaFinsDeLimitesConstitucional1012.findUnique({
+      await prisma.deducoesParaFinsDeLimitesConstitucional0912.findUnique({
         where: {
           relatorioMunicialId_tipo: {
             relatorioMunicialId: relatorio.id,
@@ -1840,7 +2024,7 @@ async function findTypes1012(
       break;
     }
     const restosAPagarExiste =
-      await prisma.restosAPagarInscritosDisponibilidadesFinanceira1012.findUnique(
+      await prisma.restosAPagarInscritosDisponibilidadesFinanceira0912.findUnique(
         {
           where: {
             relatorioMunicialId_tipo: {
@@ -1863,7 +2047,7 @@ async function findTypes1012(
       break;
     }
     const fluxoFinanceiroExiste =
-      await prisma.fluxoFinanceiroDeRecursos1012.findUnique({
+      await prisma.fluxoFinanceiroDeRecursos0912.findUnique({
         where: {
           relatorioMunicialId_tipo: {
             relatorioMunicialId: relatorio.id,
@@ -2086,135 +2270,130 @@ async function findTypes1314(
   };
 }
 
-async function findTypes1516e1920(
-  relatorio: RelatorioMunicipal1516e1920,
+async function findTypes1516(
+  relatorio: RelatorioMunicipal1516,
   tipoReceitaDespesaLimpo: string,
 ) {
-  let tipoReceitaEnum: ItemReceitaTipos1516e1920;
-  let tipoDespesaEnum: ItemDespesaTipos1516e1920;
-  let tipoDeducoesParaFinsLimiteFundebEnum: DeducoesFinsLimiteFundebTipo1516e1920;
-  let tipoIndicadoresFundebEnum: IndicadoresFundebTipo1516e1920;
-  let tipoControleRecursosNoExercicioSubsequenteEnum: ControleRecursosNoExercicioSubsequenteTipo1516e1920;
-  let tipoDeducoesParaFinsDeLimitesConstitucionalEnum: DeducoesParaFinsDeLimitesConstitucionalTipo1516e1920;
-  let tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum: RestosAPagarInscritosDisponibilidadesFinanceiraTipo1516e1920;
-  let tipoFluxoFinanceiroDeRecursosFundebEnum: FluxoFinanceiroDeRecursosFundebTipo1516e1920;
+  let tipoReceitaEnum: ItemReceitaTipos1516;
+  let tipoDespesaEnum: ItemDespesaTipos1516;
+  let tipoDeducoesParaFinsLimiteFundebEnum: DeducoesFinsLimiteFundebTipo1516;
+  let tipoIndicadoresFundebEnum: IndicadoresFundebTipo1516;
+  let tipoControleRecursosNoExercicioSubsequenteEnum: ControleRecursosNoExercicioSubsequenteTipo1516;
+  let tipoDeducoesParaFinsDeLimitesConstitucionalEnum: DeducoesParaFinsDeLimitesConstitucionalTipo1516;
+  let tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum: RestosAPagarInscritosDisponibilidadesFinanceiraTipo1516;
+  let tipoFluxoFinanceiroDeRecursosFundebEnum: FluxoFinanceiroDeRecursosFundebTipo1516;
   let tipoJaDefinido = false;
 
-  for (const key in mapeamentoReceitas1516e1920) {
-    const receitaExiste = await prisma.receita1516e1920.findUnique({
+  for (const key in mapeamentoReceitas1516) {
+    const receitaExiste = await prisma.receita1516.findUnique({
       where: {
         relatorioMunicialId_tipo: {
           relatorioMunicialId: relatorio.id,
-          tipo: mapeamentoReceitas1516e1920[key],
+          tipo: mapeamentoReceitas1516[key],
         },
       },
     });
 
     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !receitaExiste) {
-      tipoReceitaEnum = mapeamentoReceitas1516e1920[key];
+      tipoReceitaEnum = mapeamentoReceitas1516[key];
       tipoJaDefinido = true;
       break;
     }
   }
 
-  for (const key in mapeamentoDespesas1516e1920) {
+  for (const key in mapeamentoDespesas1516) {
     if (tipoJaDefinido) {
       break;
     }
-    const despesaExiste = await prisma.despesa1516e1920.findUnique({
+    const despesaExiste = await prisma.despesa1516.findUnique({
       where: {
         relatorioMunicialId_tipo: {
           relatorioMunicialId: relatorio.id,
-          tipo: mapeamentoDespesas1516e1920[key],
+          tipo: mapeamentoDespesas1516[key],
         },
       },
     });
 
     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !despesaExiste) {
-      tipoDespesaEnum = mapeamentoDespesas1516e1920[key];
+      tipoDespesaEnum = mapeamentoDespesas1516[key];
       tipoJaDefinido = true;
       break;
     }
   }
 
-  for (const key in mapeamentoDeducoesParaFinsLimiteFundeb1516e1920) {
+  for (const key in mapeamentoDeducoesParaFinsLimiteFundeb1516) {
     if (tipoJaDefinido) {
       break;
     }
-    const deducaoExiste =
-      await prisma.deducoesFinsLimiteFundeb1516e1920.findUnique({
-        where: {
-          relatorioMunicialId_tipo: {
-            relatorioMunicialId: relatorio.id,
-            tipo: mapeamentoDeducoesParaFinsLimiteFundeb1516e1920[key],
-          },
-        },
-      });
-
-    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !deducaoExiste) {
-      tipoDeducoesParaFinsLimiteFundebEnum =
-        mapeamentoDeducoesParaFinsLimiteFundeb1516e1920[key];
-      tipoJaDefinido = true;
-      break;
-    }
-  }
-
-  for (const key in mapeamentoIndicadoresFundeb1516e1920) {
-    if (tipoJaDefinido) {
-      break;
-    }
-    const indicadorExiste = await prisma.indicadoresFundeb1516e1920.findUnique({
+    const deducaoExiste = await prisma.deducoesFinsLimiteFundeb1516.findUnique({
       where: {
         relatorioMunicialId_tipo: {
           relatorioMunicialId: relatorio.id,
-          tipo: mapeamentoIndicadoresFundeb1516e1920[key],
+          tipo: mapeamentoDeducoesParaFinsLimiteFundeb1516[key],
+        },
+      },
+    });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !deducaoExiste) {
+      tipoDeducoesParaFinsLimiteFundebEnum =
+        mapeamentoDeducoesParaFinsLimiteFundeb1516[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoIndicadoresFundeb1516) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste = await prisma.indicadoresFundeb1516.findUnique({
+      where: {
+        relatorioMunicialId_tipo: {
+          relatorioMunicialId: relatorio.id,
+          tipo: mapeamentoIndicadoresFundeb1516[key],
         },
       },
     });
 
     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
-      tipoIndicadoresFundebEnum = mapeamentoIndicadoresFundeb1516e1920[key];
+      tipoIndicadoresFundebEnum = mapeamentoIndicadoresFundeb1516[key];
       tipoJaDefinido = true;
       break;
     }
   }
 
-  for (const key in mapeamentoControleRecursosNoExercicioSubsequente1516e1920) {
+  for (const key in mapeamentoControleRecursosNoExercicioSubsequente1516) {
     if (tipoJaDefinido) {
       break;
     }
     const controleExiste =
-      await prisma.controleRecursosNoExercicioSubsequente1516e1920.findUnique({
+      await prisma.controleRecursosNoExercicioSubsequente1516.findUnique({
         where: {
           relatorioMunicialId_tipo: {
             relatorioMunicialId: relatorio.id,
-            tipo: mapeamentoControleRecursosNoExercicioSubsequente1516e1920[
-              key
-            ],
+            tipo: mapeamentoControleRecursosNoExercicioSubsequente1516[key],
           },
         },
       });
 
     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !controleExiste) {
       tipoControleRecursosNoExercicioSubsequenteEnum =
-        mapeamentoControleRecursosNoExercicioSubsequente1516e1920[key];
+        mapeamentoControleRecursosNoExercicioSubsequente1516[key];
       tipoJaDefinido = true;
       break;
     }
   }
 
-  for (const key in mapeamentoDeducoesParaFinsDeLimitesConstitucional1516e1920) {
+  for (const key in mapeamentoDeducoesParaFinsDeLimitesConstitucional1516) {
     if (tipoJaDefinido) {
       break;
     }
     const deducaoConstitucionalExiste =
-      await prisma.deducoesParaFinsDeLimitesConstitucional1516e1920.findUnique({
+      await prisma.deducoesParaFinsDeLimitesConstitucional1516.findUnique({
         where: {
           relatorioMunicialId_tipo: {
             relatorioMunicialId: relatorio.id,
-            tipo: mapeamentoDeducoesParaFinsDeLimitesConstitucional1516e1920[
-              key
-            ],
+            tipo: mapeamentoDeducoesParaFinsDeLimitesConstitucional1516[key],
           },
         },
       });
@@ -2224,45 +2403,45 @@ async function findTypes1516e1920(
       !deducaoConstitucionalExiste
     ) {
       tipoDeducoesParaFinsDeLimitesConstitucionalEnum =
-        mapeamentoDeducoesParaFinsDeLimitesConstitucional1516e1920[key];
+        mapeamentoDeducoesParaFinsDeLimitesConstitucional1516[key];
       tipoJaDefinido = true;
       break;
     }
   }
 
-  for (const key in mapeamentoFluxoFinanceiroDeRecursosFundeb1516e1920) {
+  for (const key in mapeamentoFluxoFinanceiroDeRecursosFundeb1516) {
     if (tipoJaDefinido) {
       break;
     }
     const fluxoExiste =
-      await prisma.fluxoFinanceiroDeRecursosFundeb1516e1920.findUnique({
+      await prisma.fluxoFinanceiroDeRecursosFundeb1516.findUnique({
         where: {
           relatorioMunicialId_tipo: {
             relatorioMunicialId: relatorio.id,
-            tipo: mapeamentoFluxoFinanceiroDeRecursosFundeb1516e1920[key],
+            tipo: mapeamentoFluxoFinanceiroDeRecursosFundeb1516[key],
           },
         },
       });
 
     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !fluxoExiste) {
       tipoFluxoFinanceiroDeRecursosFundebEnum =
-        mapeamentoFluxoFinanceiroDeRecursosFundeb1516e1920[key];
+        mapeamentoFluxoFinanceiroDeRecursosFundeb1516[key];
       tipoJaDefinido = true;
       break;
     }
   }
 
-  for (const key in mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1516e1920) {
+  for (const key in mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1516) {
     if (tipoJaDefinido) {
       break;
     }
     const restoAPagarExiste =
-      await prisma.restosAPagarInscritosDisponibilidadesFinanceira1516e1920.findUnique(
+      await prisma.restosAPagarInscritosDisponibilidadesFinanceira1516.findUnique(
         {
           where: {
             relatorioMunicialId_tipo: {
               relatorioMunicialId: relatorio.id,
-              tipo: mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1516e1920[
+              tipo: mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1516[
                 key
               ],
             },
@@ -2272,7 +2451,7 @@ async function findTypes1516e1920(
 
     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !restoAPagarExiste) {
       tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum =
-        mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1516e1920[key];
+        mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1516[key];
       tipoJaDefinido = true;
       break;
     }
@@ -2471,6 +2650,204 @@ async function findTypes1718(
     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !restoAPagarExiste) {
       tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum =
         mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1718[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  return {
+    tipoReceitaEnum,
+    tipoDespesaEnum,
+    tipoDeducoesParaFinsLimiteFundebEnum,
+    tipoIndicadoresFundebEnum,
+    tipoControleRecursosNoExercicioSubsequenteEnum,
+    tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
+    tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum,
+    tipoControleDisponibilidadeFinanceiraEnum,
+  };
+}
+
+async function findTypes1920(
+  relatorio: RelatorioMunicipal1920,
+  tipoReceitaDespesaLimpo: string,
+) {
+  let tipoReceitaEnum: ItemReceitaTipos1920;
+  let tipoDespesaEnum: ItemDespesaTipos1920;
+  let tipoDeducoesParaFinsLimiteFundebEnum: DeducoesFinsLimiteFundebTipo1920;
+  let tipoIndicadoresFundebEnum: IndicadoresFundebTipo1920;
+  let tipoControleRecursosNoExercicioSubsequenteEnum: ControleRecursosNoExercicioSubsequenteTipo1920;
+  let tipoDeducoesParaFinsDeLimitesConstitucionalEnum: DeducoesParaFinsDeLimitesConstitucionalTipo1920;
+  let tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum: RestosAPagarInscritosDisponibilidadesFinanceiraTipo1920;
+  let tipoControleDisponibilidadeFinanceiraEnum: ControleDisponibilidadeFinanceiraTipo1920;
+  let tipoJaDefinido = false;
+
+  for (const key in mapeamentoReceitas1920) {
+    const receitaExiste = await prisma.receita1920.findUnique({
+      where: {
+        relatorioMunicialId_tipo: {
+          relatorioMunicialId: relatorio.id,
+          tipo: mapeamentoReceitas1920[key],
+        },
+      },
+    });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !receitaExiste) {
+      tipoReceitaEnum = mapeamentoReceitas1920[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoDespesas1920) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const despesaExiste = await prisma.despesa1920.findUnique({
+      where: {
+        relatorioMunicialId_tipo: {
+          relatorioMunicialId: relatorio.id,
+          tipo: mapeamentoDespesas1920[key],
+        },
+      },
+    });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !despesaExiste) {
+      tipoDespesaEnum = mapeamentoDespesas1920[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoDeducoesParaFinsLimiteFundeb1920) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const deducaoExiste = await prisma.deducoesFinsLimiteFundeb1920.findUnique({
+      where: {
+        relatorioMunicialId_tipo: {
+          relatorioMunicialId: relatorio.id,
+          tipo: mapeamentoDeducoesParaFinsLimiteFundeb1920[key],
+        },
+      },
+    });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !deducaoExiste) {
+      tipoDeducoesParaFinsLimiteFundebEnum =
+        mapeamentoDeducoesParaFinsLimiteFundeb1920[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoIndicadoresFundeb1920) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste = await prisma.indicadoresFundeb1920.findUnique({
+      where: {
+        relatorioMunicialId_tipo: {
+          relatorioMunicialId: relatorio.id,
+          tipo: mapeamentoIndicadoresFundeb1920[key],
+        },
+      },
+    });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoIndicadoresFundebEnum = mapeamentoIndicadoresFundeb1920[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+  for (const key in mapeamentoControleRecursosNoExercicioSubsequente1920) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const controleExiste =
+      await prisma.controleRecursosNoExercicioSubsequente1920.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoControleRecursosNoExercicioSubsequente1920[key],
+          },
+        },
+      });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !controleExiste) {
+      tipoControleRecursosNoExercicioSubsequenteEnum =
+        mapeamentoControleRecursosNoExercicioSubsequente1920[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoDeducoesParaFinsDeLimitesConstitucional1920) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const deducaoConstitucionalExiste =
+      await prisma.deducoesParaFinsDeLimitesConstitucional1920.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoDeducoesParaFinsDeLimitesConstitucional1920[key],
+          },
+        },
+      });
+
+    if (
+      isSimilar(tipoReceitaDespesaLimpo, key, 5) &&
+      !deducaoConstitucionalExiste
+    ) {
+      tipoDeducoesParaFinsDeLimitesConstitucionalEnum =
+        mapeamentoDeducoesParaFinsDeLimitesConstitucional1920[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoControleDisponibilidadeFinanceira1920) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const fluxoExiste =
+      await prisma.controleDisponibilidadeFinanceira1920.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoControleDisponibilidadeFinanceira1920[key],
+          },
+        },
+      });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !fluxoExiste) {
+      tipoControleDisponibilidadeFinanceiraEnum =
+        mapeamentoControleDisponibilidadeFinanceira1920[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1920) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const restoAPagarExiste =
+      await prisma.restosAPagarInscritosDisponibilidadesFinanceira1920.findUnique(
+        {
+          where: {
+            relatorioMunicialId_tipo: {
+              relatorioMunicialId: relatorio.id,
+              tipo: mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1920[
+                key
+              ],
+            },
+          },
+        },
+      );
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !restoAPagarExiste) {
+      tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum =
+        mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1920[key];
       tipoJaDefinido = true;
       break;
     }
@@ -2881,10 +3258,11 @@ async function main() {
   try {
     await seedDatabase06();
     await seedDatabase0708();
-    await seedDatabase1012();
+    await seedDatabase0912();
     await seedDatabase1314();
-    await seedDatabase1516And1920();
+    await seedDatabase1516();
     await seedDatabase1718();
+    await seedDatabase1920();
     await seedDatabase2122();
   } catch (e) {
     console.error(e);

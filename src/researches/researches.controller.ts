@@ -7,6 +7,11 @@ import { ResearchesService } from './researches.service';
 export class ResearchesController {
   constructor(private readonly researchesService: ResearchesService) {}
 
+  @Get('/mt-revenue')
+  municipalTaxesRevenues() {
+    return this.researchesService.municipalTaxesRevenue();
+  }
+
   @Get('/ct-revenue')
   constitutionalTransfersRevenue() {
     return this.researchesService.constitutionalTransfersRevenue();
