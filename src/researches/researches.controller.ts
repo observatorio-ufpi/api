@@ -7,9 +7,9 @@ import { ResearchesService } from './researches.service';
 export class ResearchesController {
   constructor(private readonly researchesService: ResearchesService) {}
 
-  @Get('/mt-revenue')
+  @Get('/mot-revenue')
   municipalTaxesRevenues() {
-    return this.researchesService.municipalTaxesRevenue();
+    return this.researchesService.municipalOwnTaxesRevenue();
   }
 
   @Get('/ct-revenue')
@@ -17,18 +17,18 @@ export class ResearchesController {
     return this.researchesService.constitutionalTransfersRevenue();
   }
 
-  @Get('/cf-revenue')
-  complementationFundeb() {
-    return this.researchesService.complementationFundeb();
-  }
-
   @Get('/mf-revenue')
   municipalFundeb() {
-    return this.researchesService.municipalFundeb();
+    return this.researchesService.municipalFundebFundefComposition();
   }
 
-  @Get('/municipal-revenue')
+  @Get('/cf-revenue')
+  complementationFundeb() {
+    return this.researchesService.complementationFundebFundef();
+  }
+
+  @Get('/mt-revenue')
   municipalRevenue() {
-    return this.researchesService.municipalRevenue();
+    return this.researchesService.municipalTaxesRevenue();
   }
 }
