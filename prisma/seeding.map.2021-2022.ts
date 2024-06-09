@@ -102,6 +102,7 @@ export const mapeamentoDespesas21: {
     ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
   '12- TOTAL DAS DESPESAS COM RECURSOS DO FUNDEB (10 + 11)':
     ItemDespesasTipos21.TOTAL_DESPESAS_FUNDEB,
+  '24- EDUCAÇÃO INFANTIL': ItemDespesasTipos21.MDE_EDUCACAO_INFANTIL,
   '24.1- Creche': ItemDespesasTipos21.MDE_CRECHE,
   '24.2- Pré-escola': ItemDespesasTipos21.MDE_PRE_ESCOLA,
   '25- ENSINO FUNDAMENTAL': ItemDespesasTipos21.MDE_ENSINO_FUNDAMENTAL,

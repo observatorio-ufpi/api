@@ -8,7 +8,7 @@ export class ResearchesController {
   constructor(private readonly researchesService: ResearchesService) {}
 
   @Get('/mot-revenue')
-  municipalTaxesRevenues() {
+  municipalOwnTaxesRevenues() {
     return this.researchesService.municipalOwnTaxesRevenue();
   }
 
@@ -17,18 +17,43 @@ export class ResearchesController {
     return this.researchesService.constitutionalTransfersRevenue();
   }
 
-  @Get('/mf-revenue')
-  municipalFundeb() {
+  @Get('/mt-revenue')
+  municipalTaxesRevenues() {
+    return this.researchesService.municipalTaxesRevenue();
+  }
+
+  @Get('/addtional-education-revenue')
+  additionalMunicipalEducationRevenue() {
+    return this.researchesService.additionalMunicipalEducationRevenue();
+  }
+
+  @Get('/mfc-revenue')
+  municipalFundebFundefComposition() {
     return this.researchesService.municipalFundebFundefComposition();
   }
 
   @Get('/cf-revenue')
-  complementationFundeb() {
+  complementationFundebFundef() {
     return this.researchesService.complementationFundebFundef();
   }
 
-  @Get('/mt-revenue')
-  municipalRevenue() {
-    return this.researchesService.municipalTaxesRevenue();
+  @Get('/mc-limit-revenue')
+  municipalConstitutionalLimitMde() {
+    return this.researchesService.municipalConstitutionalLimitMde();
+  }
+
+  @Get('/basic-education-expense')
+  expensesBasicEducationFundeb() {
+    return this.researchesService.expensesBasicEducationFundeb();
+  }
+
+  @Get('/areas-activity-expense')
+  expensesAreasOfActivityMde() {
+    return this.researchesService.expensesAreasOfActivityMde();
+  }
+
+  @Get('/basic-education-minimal-potential-revenue')
+  municipalBasicEducationMinimalPotentialRevenue() {
+    return this.researchesService.municipalBasicEducationMinimalPotentialRevenue();
   }
 }
