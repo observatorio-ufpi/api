@@ -396,6 +396,60 @@ export class ResearchesService {
       },
     });
 
+    const modifiedRevenues06 = revenues06.map((item) => {
+      const newReceita = item.receita.map((r) => {
+        if (r.tipo === ItemReceitaTipos06.COTA_PARTE_FPM_85_PORCENTO) {
+          const valorCorrigido = (
+            (r.receitasRealizadasNoAno / 85) *
+            100
+          ).toFixed(2);
+          return {
+            tipo: 'FPM',
+            receitasRealizadasNoAno: parseFloat(valorCorrigido),
+          };
+        } else if (r.tipo === ItemReceitaTipos06.COTA_PARTE_ICMS_85_PORCENTO) {
+          const valorCorrigido = (
+            (r.receitasRealizadasNoAno / 85) *
+            100
+          ).toFixed(2);
+          return {
+            tipo: 'COTA_PARTE_ICMS',
+            receitasRealizadasNoAno: parseFloat(valorCorrigido),
+          };
+        } else if (
+          r.tipo ===
+          ItemReceitaTipos06.TRANSFERENCIA_FINANCEIRA_ICMS_DESONERACAO
+        ) {
+          const valorCorrigido = (
+            (r.receitasRealizadasNoAno / 85) *
+            100
+          ).toFixed(2);
+          return {
+            tipo: 'ICMS_DESONERACAO',
+            receitasRealizadasNoAno: parseFloat(valorCorrigido),
+          };
+        } else if (
+          r.tipo === ItemReceitaTipos06.COTA_PARTE_IPI_EXPORTACAO_85_PORCENTO
+        ) {
+          const valorCorrigido = (
+            (r.receitasRealizadasNoAno / 85) *
+            100
+          ).toFixed(2);
+          return {
+            tipo: 'IPI_EXPORTACAO',
+            receitasRealizadasNoAno: parseFloat(valorCorrigido),
+          };
+        } else {
+          return r;
+        }
+      });
+
+      return {
+        ...item,
+        receita: newReceita,
+      };
+    });
+
     const revenues0708 =
       await this.prismaService.relatorioMunicipal0708.findMany({
         select: {
@@ -599,16 +653,16 @@ export class ResearchesService {
 
     const groupedRevenues = {};
 
-    if (revenues06) {
-      revenues06.forEach((revenue) => {
+    if (modifiedRevenues06) {
+      modifiedRevenues06.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues06: [] };
+          groupedRevenues[codigoMunicipio] = { modifiedRevenues06: [] };
         }
-        if (!groupedRevenues[codigoMunicipio].revenues06) {
-          groupedRevenues[codigoMunicipio].revenues06 = [];
+        if (!groupedRevenues[codigoMunicipio].modifiedRevenues06) {
+          groupedRevenues[codigoMunicipio].modifiedRevenues06 = [];
         }
-        groupedRevenues[codigoMunicipio].revenues06.push(revenue);
+        groupedRevenues[codigoMunicipio].modifiedRevenues06.push(revenue);
       });
     }
 
@@ -914,6 +968,7 @@ export class ResearchesService {
                 ItemReceitaTipos06.TRANSFERENCIAS_DESTINADAS_A_PROGRAMAS_DE_EDUCACAO,
                 ItemReceitaTipos06.RECEITA_DE_OPERACOES_DE_CREDITO_DESTINADAS_A_EDUCACAO,
                 ItemReceitaTipos06.OUTRAS_RECEITAS_DESTINADAS_EDUCACAO,
+                ItemReceitaTipos06.TRANSFERENCIAS_DO_FNDE,
               ],
             },
           },
@@ -923,6 +978,36 @@ export class ResearchesService {
           },
         },
       },
+    });
+
+    const modifiedRevenues06 = revenues06.map((item) => {
+      let totalValue = 0;
+
+      item.receita.forEach((r) => {
+        if (
+          r.tipo === ItemReceitaTipos06.TRANSFERENCIAS_DO_FNDE ||
+          r.tipo === ItemReceitaTipos06.OUTRAS_RECEITAS_DESTINADAS_EDUCACAO ||
+          r.tipo ===
+            ItemReceitaTipos06.RECEITA_DE_OPERACOES_DE_CREDITO_DESTINADAS_A_EDUCACAO ||
+          r.tipo ===
+            ItemReceitaTipos06.TRANSFERENCIAS_DESTINADAS_A_PROGRAMAS_DE_EDUCACAO
+        ) {
+          totalValue += r.receitasRealizadasNoAno;
+        }
+      });
+
+      totalValue = parseFloat(totalValue.toFixed(2));
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'TOTAL',
+            receitasRealizadasNoAno: totalValue,
+          },
+        ],
+      };
     });
 
     const revenues0708 =
@@ -1133,16 +1218,16 @@ export class ResearchesService {
 
     const groupedRevenues = {};
 
-    if (revenues06) {
-      revenues06.forEach((revenue) => {
+    if (modifiedRevenues06) {
+      modifiedRevenues06.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues06: [] };
+          groupedRevenues[codigoMunicipio] = { modifiedRevenues06: [] };
         }
-        if (!groupedRevenues[codigoMunicipio].revenues06) {
-          groupedRevenues[codigoMunicipio].revenues06 = [];
+        if (!groupedRevenues[codigoMunicipio].modifiedRevenues06) {
+          groupedRevenues[codigoMunicipio].modifiedRevenues06 = [];
         }
-        groupedRevenues[codigoMunicipio].revenues06.push(revenue);
+        groupedRevenues[codigoMunicipio].modifiedRevenues06.push(revenue);
       });
     }
 
@@ -1235,6 +1320,49 @@ export class ResearchesService {
           },
         },
       },
+    });
+
+    const modifiedRevenues06 = revenues06.map((item) => {
+      let resultadoLiquido = 0;
+      let totalFunDeb = 0;
+
+      item.receita.forEach((r) => {
+        if (
+          r.tipo ===
+          ItemReceitaTipos06.PARCELA_TRANSFERENCIAS_DESTINADAS_A_FORMACAO_DO_FUNDEF
+        ) {
+          resultadoLiquido -= r.receitasRealizadasNoAno;
+        }
+        if (
+          r.tipo === ItemReceitaTipos06.TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEF
+        ) {
+          resultadoLiquido += r.receitasRealizadasNoAno;
+          totalFunDeb += r.receitasRealizadasNoAno;
+        }
+        if (r.tipo === ItemReceitaTipos06.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEF) {
+          totalFunDeb += r.receitasRealizadasNoAno;
+        }
+      });
+
+      // Arredondar os valores para duas casas decimais
+      resultadoLiquido = parseFloat(resultadoLiquido.toFixed(2));
+      totalFunDeb = parseFloat(totalFunDeb.toFixed(2));
+
+      // Adicionar os novos objetos ao array de receitas
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'RESULTADO_LIQUIDO',
+            receitasRealizadasNoAno: resultadoLiquido,
+          },
+          {
+            tipo: 'TOTAL_FUNDEB',
+            receitasRealizadasNoAno: totalFunDeb,
+          },
+        ],
+      };
     });
 
     const revenues0708 =
@@ -1408,6 +1536,8 @@ export class ResearchesService {
                 in: [
                   ItemReceitaTipos21.TOTAL_DESTINADO_FUNDEB,
                   ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_1_1,
+                  ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_2_1,
+                  ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_3_1,
                   ItemReceitaTipos21.RESULTADO_LIQUIDO_TRANSFERENCIAS_FUNDEB,
                   ItemReceitaTipos21.FUNDEB_COMPLEMENTACAO_UNIAO_VAAF,
                   ItemReceitaTipos21.FUNDEB_COMPLEMENTACAO_UNIAO_VAAT,
@@ -1427,18 +1557,75 @@ export class ResearchesService {
       },
     );
 
+    const modifiedRevenues2122 = revenues2122.map((item) => {
+      let complementacaoUniao = 0;
+      let receitaAplicacaoFinanceira = 0;
+
+      item.receita.forEach((r) => {
+        if (
+          r.tipo === ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_2_1 ||
+          r.tipo === ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_3_1
+        ) {
+          complementacaoUniao += r.receitasRealizadaAteBimestre;
+        }
+        if (
+          r.tipo ===
+            ItemReceitaTipos21.FUNDEB_RENDIMENTO_APLICACAO_FINCANCEIRA_6_1_2 ||
+          r.tipo ===
+            ItemReceitaTipos21.FUNDEB_RENDIMENTO_APLICACAO_FINCANCEIRA_6_2_2 ||
+          r.tipo ===
+            ItemReceitaTipos21.FUNDEB_RENDIMENTO_APLICACAO_FINCANCEIRA_6_3_2
+        ) {
+          receitaAplicacaoFinanceira += r.receitasRealizadaAteBimestre;
+        }
+      });
+
+      // Arredondar os valores para duas casas decimais
+      complementacaoUniao = parseFloat(complementacaoUniao.toFixed(2));
+      receitaAplicacaoFinanceira = parseFloat(
+        receitaAplicacaoFinanceira.toFixed(2),
+      );
+
+      // Filtrar para remover os tipos usados no cálculo
+      const filteredReceita = item.receita.filter(
+        (r) =>
+          ![
+            ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_2_1,
+            ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_3_1,
+            ItemReceitaTipos21.FUNDEB_RENDIMENTO_APLICACAO_FINCANCEIRA_6_1_2,
+            ItemReceitaTipos21.FUNDEB_RENDIMENTO_APLICACAO_FINCANCEIRA_6_2_2,
+            ItemReceitaTipos21.FUNDEB_RENDIMENTO_APLICACAO_FINCANCEIRA_6_3_2,
+          ].includes(r.tipo as any),
+      );
+
+      return {
+        ...item,
+        receita: [
+          ...filteredReceita,
+          {
+            tipo: 'COMPLEMENTACAO_UNIAO',
+            receitasRealizadaAteBimestre: complementacaoUniao,
+          },
+          {
+            tipo: 'RECEITA_APLICACAO_FINANCEIRA',
+            receitasRealizadaAteBimestre: receitaAplicacaoFinanceira,
+          },
+        ],
+      };
+    });
+
     const groupedRevenues = {};
 
-    if (revenues06) {
-      revenues06.forEach((revenue) => {
+    if (modifiedRevenues06) {
+      modifiedRevenues06.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues06: [] };
+          groupedRevenues[codigoMunicipio] = { modifiedRevenues06: [] };
         }
-        if (!groupedRevenues[codigoMunicipio].revenues06) {
-          groupedRevenues[codigoMunicipio].revenues06 = [];
+        if (!groupedRevenues[codigoMunicipio].modifiedRevenues06) {
+          groupedRevenues[codigoMunicipio].modifiedRevenues06 = [];
         }
-        groupedRevenues[codigoMunicipio].revenues06.push(revenue);
+        groupedRevenues[codigoMunicipio].modifiedRevenues06.push(revenue);
       });
     }
 
@@ -1481,16 +1668,16 @@ export class ResearchesService {
       });
     }
 
-    if (revenues2122) {
-      revenues2122.forEach((revenue) => {
+    if (modifiedRevenues2122) {
+      modifiedRevenues2122.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues2122: [] };
+          groupedRevenues[codigoMunicipio] = { modifiedRevenues2122: [] };
         }
-        if (!groupedRevenues[codigoMunicipio].revenues2122) {
-          groupedRevenues[codigoMunicipio].revenues2122 = [];
+        if (!groupedRevenues[codigoMunicipio].modifiedRevenues2122) {
+          groupedRevenues[codigoMunicipio].modifiedRevenues2122 = [];
         }
-        groupedRevenues[codigoMunicipio].revenues2122.push(revenue);
+        groupedRevenues[codigoMunicipio].modifiedRevenues2122.push(revenue);
       });
     }
 
@@ -1505,11 +1692,7 @@ export class ResearchesService {
         receita: {
           where: {
             tipo: {
-              in: [
-                ItemReceitaTipos06.RECEITAS_DE_IMPOSTOS,
-                ItemReceitaTipos06.RECEITAS_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAL,
-                ItemReceitaTipos06.RECEITA_RESULTANTE_DE_IMPOSTOS,
-              ],
+              in: [ItemReceitaTipos06.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEF],
             },
           },
           select: {
@@ -1518,6 +1701,30 @@ export class ResearchesService {
           },
         },
       },
+    });
+
+    const modifiedRevenues06 = revenues06.map((item) => {
+      let totalValue = 0;
+
+      item.receita.forEach((r) => {
+        if (r.tipo === ItemReceitaTipos06.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEF) {
+          totalValue += r.receitasRealizadasNoAno;
+        }
+      });
+
+      // Arredondar o totalValue para duas casas decimais
+      totalValue = parseFloat(totalValue.toFixed(2));
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'TOTAL',
+            receitasRealizadaAteBimestre: totalValue,
+          },
+        ],
+      };
     });
 
     const revenues0708 =
@@ -1539,6 +1746,30 @@ export class ResearchesService {
         },
       });
 
+    const modifiedRevenues0708 = revenues0708.map((item) => {
+      let totalValue = 0;
+
+      item.receita.forEach((r) => {
+        if (r.tipo === ItemReceitaTipos0708.COMPLEMENTACAO_UNIAO_FUNDEB) {
+          totalValue += r.receitasRealizadasNoAno;
+        }
+      });
+
+      // Arredondar o totalValue para duas casas decimais
+      totalValue = parseFloat(totalValue.toFixed(2));
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'TOTAL',
+            receitasRealizadaAteBimestre: totalValue,
+          },
+        ],
+      };
+    });
+
     const revenues0912 =
       await this.prismaService.relatorioMunicipal0912.findMany({
         select: {
@@ -1557,6 +1788,30 @@ export class ResearchesService {
           },
         },
       });
+
+    const modifiedRevenues0912 = revenues0912.map((item) => {
+      let totalValue = 0;
+
+      item.receita.forEach((r) => {
+        if (r.tipo === ItemReceitaTipos0912.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB) {
+          totalValue += r.receitasRealizadaBimestre;
+        }
+      });
+
+      // Arredondar o totalValue para duas casas decimais
+      totalValue = parseFloat(totalValue.toFixed(2));
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'TOTAL',
+            receitasRealizadaAteBimestre: totalValue,
+          },
+        ],
+      };
+    });
 
     const revenues1314 =
       await this.prismaService.relatorioMunicipal1314.findMany({
@@ -1577,7 +1832,34 @@ export class ResearchesService {
         },
       });
 
-    const revenues0914 = [...revenues0912, ...revenues1314];
+    const modifiedRevenues1314 = revenues1314.map((item) => {
+      let totalValue = 0;
+
+      item.receita.forEach((r) => {
+        if (r.tipo === ItemReceitaTipos1314.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB) {
+          totalValue += r.receitasRealizadaBimestre;
+        }
+      });
+
+      // Arredondar o totalValue para duas casas decimais
+      totalValue = parseFloat(totalValue.toFixed(2));
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'TOTAL',
+            receitasRealizadaAteBimestre: totalValue,
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues0914 = [
+      ...modifiedRevenues0912,
+      ...modifiedRevenues1314,
+    ];
 
     const revenues1516 =
       await this.prismaService.relatorioMunicipal1516.findMany({
@@ -1598,6 +1880,30 @@ export class ResearchesService {
         },
       });
 
+    const modifiedRevenues1516 = revenues1516.map((item) => {
+      let totalValue = 0;
+
+      item.receita.forEach((r) => {
+        if (r.tipo === ItemReceitaTipos1516.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB) {
+          totalValue += r.receitasRealizadaAteBimestre;
+        }
+      });
+
+      // Arredondar o totalValue para duas casas decimais
+      totalValue = parseFloat(totalValue.toFixed(2));
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'TOTAL',
+            receitasRealizadaAteBimestre: totalValue,
+          },
+        ],
+      };
+    });
+
     const revenues1718 =
       await this.prismaService.relatorioMunicipal1718.findMany({
         select: {
@@ -1616,6 +1922,30 @@ export class ResearchesService {
           },
         },
       });
+
+    const modifiedRevenues1718 = revenues1718.map((item) => {
+      let totalValue = 0;
+
+      item.receita.forEach((r) => {
+        if (r.tipo === ItemReceitaTipos1718.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB) {
+          totalValue += r.receitasRealizadaAteBimestre;
+        }
+      });
+
+      // Arredondar o totalValue para duas casas decimais
+      totalValue = parseFloat(totalValue.toFixed(2));
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'TOTAL',
+            receitasRealizadaAteBimestre: totalValue,
+          },
+        ],
+      };
+    });
 
     const revenues1920 =
       await this.prismaService.relatorioMunicipal1920.findMany({
@@ -1636,7 +1966,35 @@ export class ResearchesService {
         },
       });
 
-    const revenues1520 = [...revenues1516, ...revenues1718, ...revenues1920];
+    const modifiedRevenues1920 = revenues1920.map((item) => {
+      let totalValue = 0;
+
+      item.receita.forEach((r) => {
+        if (r.tipo === ItemReceitaTipos1920.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB) {
+          totalValue += r.receitasRealizadaAteBimestre;
+        }
+      });
+
+      // Arredondar o totalValue para duas casas decimais
+      totalValue = parseFloat(totalValue.toFixed(2));
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'TOTAL',
+            receitasRealizadaAteBimestre: totalValue,
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues1520 = [
+      ...modifiedRevenues1516,
+      ...modifiedRevenues1718,
+      ...modifiedRevenues1920,
+    ];
 
     const revenues2122 = await this.prismaService.relatorioMunicipal21.findMany(
       {
@@ -1661,70 +2019,97 @@ export class ResearchesService {
       },
     );
 
+    const modifiedRevenues2122 = revenues2122.map((item) => {
+      let totalValue = 0;
+
+      item.receita.forEach((r) => {
+        if (
+          r.tipo === ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_2_1 ||
+          r.tipo === ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_3_1
+        ) {
+          totalValue += r.receitasRealizadaAteBimestre;
+        }
+      });
+
+      // Arredondar o totalValue para duas casas decimais
+      totalValue = parseFloat(totalValue.toFixed(2));
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'TOTAL',
+            receitasRealizadaAteBimestre: totalValue,
+          },
+        ],
+      };
+    });
+
     const groupedRevenues = {};
 
-    if (revenues06) {
-      revenues06.forEach((revenue) => {
+    if (modifiedRevenues06) {
+      modifiedRevenues06.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues06: [] };
+          groupedRevenues[codigoMunicipio] = { modifiedRevenues06: [] };
         }
-        if (!groupedRevenues[codigoMunicipio].revenues06) {
-          groupedRevenues[codigoMunicipio].revenues06 = [];
+        if (!groupedRevenues[codigoMunicipio].modifiedRevenues06) {
+          groupedRevenues[codigoMunicipio].modifiedRevenues06 = [];
         }
-        groupedRevenues[codigoMunicipio].revenues06.push(revenue);
+        groupedRevenues[codigoMunicipio].modifiedRevenues06.push(revenue);
       });
     }
 
-    if (revenues0708) {
-      revenues0708.forEach((revenue) => {
+    if (modifiedRevenues0708) {
+      modifiedRevenues0708.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0708: [] };
+          groupedRevenues[codigoMunicipio] = { modifiedRevenues0708: [] };
         }
-        if (!groupedRevenues[codigoMunicipio].revenues0708) {
-          groupedRevenues[codigoMunicipio].revenues0708 = [];
+        if (!groupedRevenues[codigoMunicipio].modifiedRevenues0708) {
+          groupedRevenues[codigoMunicipio].modifiedRevenues0708 = [];
         }
-        groupedRevenues[codigoMunicipio].revenues0708.push(revenue);
+        groupedRevenues[codigoMunicipio].modifiedRevenues0708.push(revenue);
       });
     }
 
-    if (revenues0914) {
-      revenues0914.forEach((revenue) => {
+    if (modifiedRevenues0914) {
+      modifiedRevenues0914.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0914: [] };
+          groupedRevenues[codigoMunicipio] = { modifiedRevenues0914: [] };
         }
-        if (!groupedRevenues[codigoMunicipio].revenues0914) {
-          groupedRevenues[codigoMunicipio].revenues0914 = [];
+        if (!groupedRevenues[codigoMunicipio].modifiedRevenues0914) {
+          groupedRevenues[codigoMunicipio].modifiedRevenues0914 = [];
         }
-        groupedRevenues[codigoMunicipio].revenues0914.push(revenue);
+        groupedRevenues[codigoMunicipio].modifiedRevenues0914.push(revenue);
       });
     }
 
-    if (revenues1520) {
-      revenues1520.forEach((revenue) => {
+    if (modifiedRevenues1520) {
+      modifiedRevenues1520.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1520: [] };
+          groupedRevenues[codigoMunicipio] = { modifiedRevenues1520: [] };
         }
-        if (!groupedRevenues[codigoMunicipio].revenues1520) {
-          groupedRevenues[codigoMunicipio].revenues1520 = [];
+        if (!groupedRevenues[codigoMunicipio].modifiedRevenues1520) {
+          groupedRevenues[codigoMunicipio].modifiedRevenues1520 = [];
         }
-        groupedRevenues[codigoMunicipio].revenues1520.push(revenue);
+        groupedRevenues[codigoMunicipio].modifiedRevenues1520.push(revenue);
       });
     }
 
-    if (revenues2122) {
-      revenues2122.forEach((revenue) => {
+    if (modifiedRevenues2122) {
+      modifiedRevenues2122.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues2122: [] };
+          groupedRevenues[codigoMunicipio] = { modifiedRevenues2122: [] };
         }
-        if (!groupedRevenues[codigoMunicipio].revenues2122) {
-          groupedRevenues[codigoMunicipio].revenues2122 = [];
+        if (!groupedRevenues[codigoMunicipio].modifiedRevenues2122) {
+          groupedRevenues[codigoMunicipio].modifiedRevenues2122 = [];
         }
-        groupedRevenues[codigoMunicipio].revenues2122.push(revenue);
+        groupedRevenues[codigoMunicipio].modifiedRevenues2122.push(revenue);
       });
     }
 
@@ -2539,19 +2924,6 @@ export class ResearchesService {
             tipo: true,
           },
         },
-        tabelaCumprimentoLimitesConstitucionais: {
-          where: {
-            tipo: {
-              in: [
-                TabelaCumprimentoLimitesConstitucionaisTipo06.MINIMO_60_PORCENTO_DO_FUNDEF_NA_REMUNERACAO_ENSINO_FUNDAMENTAL,
-              ],
-            },
-          },
-          select: {
-            porcentagem: true,
-            tipo: true,
-          },
-        },
       },
     });
 
@@ -2739,20 +3111,25 @@ export class ResearchesService {
                   ItemDespesasTipos21.FUNDEB_EDUCACAO_INFANTIL,
                   ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
                   ItemDespesasTipos21.MDE_EDUCACAO_INFANTIL,
+                  ItemDespesasTipos21.OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
                   ItemDespesasTipos21.FUNDEB_CRECHE,
                   ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_CRECHE,
                   ItemDespesasTipos21.MDE_CRECHE,
+                  ItemDespesasTipos21.OUTRAS_DESPESAS_CRECHE,
                   ItemDespesasTipos21.FUNDEB_PRE_ESCOLA,
                   ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_PRE_ESCOLA,
                   ItemDespesasTipos21.MDE_PRE_ESCOLA,
+                  ItemDespesasTipos21.OUTRAS_DESPESAS_PRE_ESCOLA,
                   ItemDespesasTipos21.FUNDEB_ENSINO_FUNDAMENTAL,
                   ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
                   ItemDespesasTipos21.MDE_ENSINO_FUNDAMENTAL,
+                  ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
                   ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_MEDIO,
                   ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_SUPERIOR,
                   ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_PROFISSIONAL_NAO_INTEGRADO,
                   ItemDespesasTipos21.TOTAL_DESPESAS_FUNDEB,
                   ItemDespesasTipos21.TOTAL_ACOES_TIPICAS_MDE,
+                  ItemDespesasTipos21.TOTAL_OUTRAS_DESPESAS_EDUCACAO,
                 ],
               },
             },
@@ -2764,6 +3141,125 @@ export class ResearchesService {
         },
       },
     );
+
+    const modifiedRevenues2122 = revenues2122.map((item) => {
+      let totalEducacaoInfantil = 0;
+      let totalCreche = 0;
+      let totalPreEscola = 0;
+      let totalEnsinoFundamental = 0;
+      let totalGeral = 0;
+
+      item.despesa.forEach((d) => {
+        if (
+          [
+            ItemDespesasTipos21.FUNDEB_EDUCACAO_INFANTIL,
+            ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
+            ItemDespesasTipos21.MDE_EDUCACAO_INFANTIL,
+            ItemDespesasTipos21.OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
+          ].includes(d.tipo as any)
+        ) {
+          totalEducacaoInfantil += d.despesasLiquidadasAteBimestre;
+        }
+        if (
+          [
+            ItemDespesasTipos21.FUNDEB_CRECHE,
+            ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_CRECHE,
+            ItemDespesasTipos21.MDE_CRECHE,
+            ItemDespesasTipos21.OUTRAS_DESPESAS_CRECHE,
+          ].includes(d.tipo as any)
+        ) {
+          totalCreche += d.despesasLiquidadasAteBimestre;
+        }
+        if (
+          [
+            ItemDespesasTipos21.FUNDEB_PRE_ESCOLA,
+            ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_PRE_ESCOLA,
+            ItemDespesasTipos21.MDE_PRE_ESCOLA,
+            ItemDespesasTipos21.OUTRAS_DESPESAS_PRE_ESCOLA,
+          ].includes(d.tipo as any)
+        ) {
+          totalPreEscola += d.despesasLiquidadasAteBimestre;
+        }
+        if (
+          [
+            ItemDespesasTipos21.FUNDEB_ENSINO_FUNDAMENTAL,
+            ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
+            ItemDespesasTipos21.MDE_ENSINO_FUNDAMENTAL,
+            ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
+          ].includes(d.tipo as any)
+        ) {
+          totalEnsinoFundamental += d.despesasLiquidadasAteBimestre;
+        }
+        if (
+          [
+            ItemDespesasTipos21.TOTAL_DESPESAS_FUNDEB,
+            ItemDespesasTipos21.TOTAL_ACOES_TIPICAS_MDE,
+            ItemDespesasTipos21.TOTAL_OUTRAS_DESPESAS_EDUCACAO,
+          ].includes(d.tipo as any)
+        ) {
+          totalGeral += d.despesasLiquidadasAteBimestre;
+        }
+      });
+
+      // Arredondar os valores para duas casas decimais
+      totalEducacaoInfantil = parseFloat(totalEducacaoInfantil.toFixed(2));
+      totalCreche = parseFloat(totalCreche.toFixed(2));
+      totalPreEscola = parseFloat(totalPreEscola.toFixed(2));
+      totalEnsinoFundamental = parseFloat(totalEnsinoFundamental.toFixed(2));
+      totalGeral = parseFloat(totalGeral.toFixed(2));
+
+      // Filtrar para remover os tipos usados no cálculo
+      const filteredDespesas = item.despesa.filter(
+        (d) =>
+          ![
+            ItemDespesasTipos21.FUNDEB_EDUCACAO_INFANTIL,
+            ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
+            ItemDespesasTipos21.MDE_EDUCACAO_INFANTIL,
+            ItemDespesasTipos21.OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
+            ItemDespesasTipos21.FUNDEB_CRECHE,
+            ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_CRECHE,
+            ItemDespesasTipos21.MDE_CRECHE,
+            ItemDespesasTipos21.OUTRAS_DESPESAS_CRECHE,
+            ItemDespesasTipos21.FUNDEB_PRE_ESCOLA,
+            ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_PRE_ESCOLA,
+            ItemDespesasTipos21.MDE_PRE_ESCOLA,
+            ItemDespesasTipos21.OUTRAS_DESPESAS_PRE_ESCOLA,
+            ItemDespesasTipos21.FUNDEB_ENSINO_FUNDAMENTAL,
+            ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
+            ItemDespesasTipos21.MDE_ENSINO_FUNDAMENTAL,
+            ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
+            ItemDespesasTipos21.TOTAL_DESPESAS_FUNDEB,
+            ItemDespesasTipos21.TOTAL_ACOES_TIPICAS_MDE,
+          ].includes(d.tipo as any),
+      );
+
+      return {
+        ...item,
+        despesa: [
+          ...filteredDespesas,
+          {
+            tipo: 'EDUCACAO_INFANTIL',
+            despesasLiquidadasAteBimestre: totalEducacaoInfantil,
+          },
+          {
+            tipo: 'CRECHE',
+            despesasLiquidadasAteBimestre: totalCreche,
+          },
+          {
+            tipo: 'PRE_ESCOLA',
+            despesasLiquidadasAteBimestre: totalPreEscola,
+          },
+          {
+            tipo: 'ENSINO_FUNDAMENTAL',
+            despesasLiquidadasAteBimestre: totalEnsinoFundamental,
+          },
+          {
+            tipo: 'TOTAL',
+            despesasLiquidadasAteBimestre: totalGeral,
+          },
+        ],
+      };
+    });
 
     const groupedRevenues = {};
 
@@ -2845,16 +3341,16 @@ export class ResearchesService {
       });
     }
 
-    if (revenues2122) {
-      revenues2122.forEach((revenue) => {
+    if (modifiedRevenues2122) {
+      modifiedRevenues2122.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues2122: [] };
+          groupedRevenues[codigoMunicipio] = { modifiedRevenues2122: [] };
         }
-        if (!groupedRevenues[codigoMunicipio].revenues2122) {
-          groupedRevenues[codigoMunicipio].revenues2122 = [];
+        if (!groupedRevenues[codigoMunicipio].modifiedRevenues2122) {
+          groupedRevenues[codigoMunicipio].modifiedRevenues2122 = [];
         }
-        groupedRevenues[codigoMunicipio].revenues2122.push(revenue);
+        groupedRevenues[codigoMunicipio].modifiedRevenues2122.push(revenue);
       });
     }
 
