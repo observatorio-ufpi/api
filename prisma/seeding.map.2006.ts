@@ -46,7 +46,7 @@ export const mapeamentoReceitas06: {
     ItemReceitaTipos06.TRANSFERENCIAS_DO_SALARIO_EDUCACAO,
   'Outras Transferências do FNDE':
     ItemReceitaTipos06.OUTRAS_TRANSFERENCIAS_DO_FNDE,
-  'Transferências Destinadas a Programas de Educação':
+  ' Transferências de Convênios Destinadas a Programas de Educação':
     ItemReceitaTipos06.TRANSFERENCIAS_DESTINADAS_A_PROGRAMAS_DE_EDUCACAO,
   'Receita de Operações de Crédito Destinadas à Educação':
     ItemReceitaTipos06.RECEITA_DE_OPERACOES_DE_CREDITO_DESTINADAS_A_EDUCACAO,

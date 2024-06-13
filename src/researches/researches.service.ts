@@ -180,6 +180,7 @@ export class ResearchesService {
                   ItemReceitaTipos1516.ITBI_RECEITA_RESULTANTE,
                   ItemReceitaTipos1516.ISS_RECEITA_RESULTANTE,
                   ItemReceitaTipos1516.IRRF_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1516.ITR_RECEITA_RESULTANTE,
                   ItemReceitaTipos1516.RECEITA_DE_IMPOSTOS,
                 ],
               },
