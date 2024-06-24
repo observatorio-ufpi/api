@@ -1,8 +1,11 @@
 import {
   AplicacaoDespesasFinsLimiteMinimoConstitucionalTipos21,
+  ApuracaoDespesasLimiteMinimoConstitucionalTipos23,
   ApuracaoLimiteMinimoConstitucionalTipos21,
+  ApuracaoLimiteMinimoConstitucionalTipos23,
   CompensacaoRestosAPagarTipo06,
   ControleDisponibildadeFinanceiraConciliacaoBancariaTipos21,
+  ControleDisponibilidadeFinanceiraEConciliacaoBancariaTipos23,
   ControleDisponibilidadeFinanceiraTipo1718,
   ControleDisponibilidadeFinanceiraTipo1920,
   ControleRecursosNoExercicioSubsequenteTipo1516,
@@ -24,12 +27,17 @@ import {
   DeducoesParaFinsDeLimitesConstitucionalTipo1718,
   DeducoesParaFinsDeLimitesConstitucionalTipo1920,
   DespesasCusteadasFundebExercicioTipos21,
+  DespesasCusteadasFundebExercicioTipos23,
+  EmendaConstitucionalExclusivoSiopeTipos23,
   FluxoFinanceiroDeRecursosFundebTipo1516,
   FluxoFinanceiroDeRecursosTipos0912,
   FluxoFinanceiroDeRecursosTipos1314,
   FluxoFinanceiroRecursosFundebTipo0708,
+  IndicadorArt25AplicacaoSuperavitTipos23,
+  IndicadorArt25Maximo10PorCentoDeSuperavitTipos23,
   IndicadorTipos21Art25AplicacaoSuperavit,
   IndicadorTipos21Art25MaximoDeSuperavit,
+  IndicadoresArt212Tipos23,
   IndicadoresFundebTipo1314,
   IndicadoresFundebTipo1516,
   IndicadoresFundebTipo1718,
@@ -43,6 +51,7 @@ import {
   ItemDespesaTipos1516,
   ItemDespesaTipos1718,
   ItemDespesaTipos1920,
+  ItemDespesaTipos23,
   ItemDespesasTipos21,
   ItemReceitaTipos06,
   ItemReceitaTipos0708,
@@ -52,9 +61,11 @@ import {
   ItemReceitaTipos1718,
   ItemReceitaTipos1920,
   ItemReceitaTipos21,
+  ItemReceitaTipos23,
   Minimo60PorCentoFundebTipo0708,
   PerdaGanhoTransferenciasFundebTipo06,
   RecursosRecebidosNaoUtilizadosTipos21,
+  RecursosRecebidosNaoUtilizadosTipos23,
   RelatorioMunicipal06,
   RelatorioMunicipal0708,
   RelatorioMunicipal0912,
@@ -63,12 +74,14 @@ import {
   RelatorioMunicipal1718,
   RelatorioMunicipal1920,
   RelatorioMunicipal21,
+  RelatorioMunicipal23,
   RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebTipos21,
   RestosAPagarInscritosDisponibilidadesFinanceiraTipo0912,
   RestosAPagarInscritosDisponibilidadesFinanceiraTipo1314,
   RestosAPagarInscritosDisponibilidadesFinanceiraTipo1516,
   RestosAPagarInscritosDisponibilidadesFinanceiraTipo1718,
   RestosAPagarInscritosDisponibilidadesFinanceiraTipo1920,
+  RestosAPagarParaCumprimentoDoLimiteTipos23,
   SaldoFinanceiroFundefTipo06,
   TabelaCumprimentoLimitesConstitucionaisTipo06,
 } from '@prisma/client';
@@ -158,6 +171,20 @@ import {
   mapeamentoRecursosRecebidosNaoUtilizados21,
   mapeamentoRestosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21,
 } from './seeding.map.2021-2022';
+import {
+  mapeamentoApuracaoDespesasLimiteMinimoConstitucional23,
+  mapeamentoApuracaoLimiteMinimoConstitucional23,
+  mapeamentoControleDisponibilidadeFinanceiraEConciliacaoBancaria23,
+  mapeamentoDespesas23,
+  mapeamentoDespesasCusteadasFundebExercicio23,
+  mapeamentoEmendaConstitucionalExclusivoSiope23,
+  mapeamentoIndicadorArt25AplicacaoSuperavit23,
+  mapeamentoIndicadorArt25Maximo10PorCentoDeSuperavit23,
+  mapeamentoIndicadores23Art212,
+  mapeamentoReceitas23,
+  mapeamentoRecursosRecebidosNaoUtilizados23,
+  mapeamentoRestosAPagarParaCumprimentoDoLimite23,
+} from './seeding.map.2023';
 const prisma = new PrismaClient();
 
 async function seedDatabase06() {
@@ -1493,6 +1520,234 @@ async function seedDatabase2122() {
                   },
                 },
               );
+            } else {
+              console.log(
+                `Tipo de receita ou despesa desconhecido: ${tipoReceitaDespesaExcel}\n`,
+              );
+            }
+          }
+          break;
+        } else {
+          console.log('Nome do arquivo inválido:', arquivo);
+        }
+      }
+      break;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function seedDatabase23() {
+  try {
+    const diretorio = process.env.FILES_SPREADSHEET_URL;
+
+    const arquivos = fs.readdirSync(diretorio);
+
+    for (const arquivo of arquivos) {
+      if (arquivo.endsWith('.csv')) {
+        const caminhoArquivo = path.join(
+          diretorio,
+          'tabula-RREO_Municipal_221100_6_2023.csv',
+        );
+
+        const workbook = new ExcelJS.Workbook();
+        await workbook.csv.readFile(caminhoArquivo);
+
+        //const fileMatch = arquivo;
+        const fileMatch = 'tabula-RREO_Municipal_221100_6_2023.csv';
+
+        const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
+
+        if (match) {
+          const codigo = match[1];
+          const ano = match[3];
+
+          console.log('Ano:', ano);
+          console.log('Código:', codigo);
+
+          const worksheet = workbook.getWorksheet(1);
+
+          const relatorio = await prisma.relatorioMunicipal23.create({
+            data: {
+              ano,
+              codigoMunicipio: codigo,
+            },
+          });
+
+          for (let i = 2; i <= worksheet.actualRowCount; i++) {
+            const row = worksheet.getRow(i);
+
+            const tipoReceitaDespesaExcel = row.getCell(1).value as string;
+            if (tipoReceitaDespesaExcel === null) {
+              continue;
+            }
+            const tipoReceitaDespesaLimpo = tipoReceitaDespesaExcel.replace(
+              /\r?\n|\r/g,
+              ' ',
+            );
+
+            console.log(tipoReceitaDespesaLimpo);
+
+            const {
+              tipoReceitaEnum,
+              tipoDespesaEnum,
+              tipoRecursosRecebidosNaoUtilizadosEnum,
+              tipoDespesasCusteadasFundebExercicioEnum,
+              tipoIndicadores23Art212Enum,
+              tipoIndicador23Art25MaximoDeSuperavitEnum,
+              tipoIndicador23Art25AplicacaoSuperavitEnum,
+              tipoApuracaoDespesasLimiteMinimoConstitucionalEnum,
+              tipoApuracaoLimiteMinimoConstitucionalEnum,
+              tipoRestosAPagarParaCumprimentoDoLimiteEnum,
+              tipoControleDisponibilidadeFinanceiraEConciliacaoBancariaEnum,
+              tipoEmendaConstitucionalExclusivoSiopeEnum,
+            } = await findTypes23(relatorio, tipoReceitaDespesaLimpo);
+
+            const [
+              secondCellNumericValue,
+              thirdCellNumericValue,
+              fourthCellNumericValue,
+              fifthCellNumericValue,
+              sixthCellNumericValue,
+              seventhCellNumericValue,
+            ] = await getCellsNumericValues2(row, 7);
+
+            if (tipoReceitaEnum) {
+              await prisma.receita23.create({
+                data: {
+                  tipo: tipoReceitaEnum,
+                  previsaoAtualizada: secondCellNumericValue,
+                  receitasRealizadasAteBimestre: thirdCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoDespesaEnum) {
+              await prisma.despesa23.create({
+                data: {
+                  tipo: tipoDespesaEnum,
+                  dotacaoAtualizada: secondCellNumericValue,
+                  despesasEmpenhadasAteBimestre: thirdCellNumericValue,
+                  despesasLiquidadasAteBimestre: fourthCellNumericValue,
+                  despesasPagasAteBimestre: fifthCellNumericValue,
+                  inscritosEmRestosAPagarNaoProcessados: sixthCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoRecursosRecebidosNaoUtilizadosEnum) {
+              await prisma.recursosRecebidosNaoUtilizados23.create({
+                data: {
+                  tipo: tipoRecursosRecebidosNaoUtilizadosEnum,
+                  valor: secondCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoDespesasCusteadasFundebExercicioEnum) {
+              await prisma.despesasCusteadasFundebExercicio23.create({
+                data: {
+                  tipo: tipoDespesasCusteadasFundebExercicioEnum,
+                  despesasEmpenhadasAteBimestre: secondCellNumericValue,
+                  despesasLiquidadasAteBimestre: thirdCellNumericValue,
+                  despesasPagasAteBimestre: fourthCellNumericValue,
+                  inscritosEmRestosAPagarNaoProcessados: fifthCellNumericValue,
+                  inscritasEmRestosAPagarSemCaixa: sixthCellNumericValue,
+                  despesasSuperiorAoTotalDasReceitas: seventhCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoIndicadores23Art212Enum) {
+              await prisma.indicadores23Art212.create({
+                data: {
+                  tipo: tipoIndicadores23Art212Enum,
+                  valorExigido: secondCellNumericValue,
+                  valorAplicado: thirdCellNumericValue,
+                  valorConsideradoAposDeducoes: fourthCellNumericValue,
+                  percentualAplicado: fifthCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoIndicador23Art25MaximoDeSuperavitEnum) {
+              await prisma.indicador23Art25Maximo10PorCentoDeSuperavit.create({
+                data: {
+                  tipo: tipoIndicador23Art25MaximoDeSuperavitEnum,
+                  valorMaximoPermitido: secondCellNumericValue,
+                  valorNaoAplicado: thirdCellNumericValue,
+                  valorNaoAplicadoAposAjuste: fourthCellNumericValue,
+                  valorNaoAplicadoExcedenteMaximoPermitido:
+                    fifthCellNumericValue,
+                  percentualNaoAplicado: sixthCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoIndicador23Art25AplicacaoSuperavitEnum) {
+              await prisma.indicador23Art25AplicacaoSuperavit.create({
+                data: {
+                  tipo: tipoIndicador23Art25AplicacaoSuperavitEnum,
+                  valorSuperavitExercicioAnterior: secondCellNumericValue,
+                  valorNaoAplicadoExercicioAnterior: thirdCellNumericValue,
+                  valorSuperavitAplicadoAtePrimeiroQuadrimestre:
+                    fourthCellNumericValue,
+                  valorAplicadoAtePrimeiroQuadrimestre: fifthCellNumericValue,
+                  valorTotalSuperavitNaoAplicadoAteFinalExercicio:
+                    sixthCellNumericValue,
+                  valorAplicadoAtePrimeiroQuadrimestreLimiteConstitucional:
+                    seventhCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoApuracaoDespesasLimiteMinimoConstitucionalEnum) {
+              await prisma.apuracaoDespesasLimiteMinimoConstitucional23.create({
+                data: {
+                  tipo: tipoApuracaoDespesasLimiteMinimoConstitucionalEnum,
+                  valor: secondCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoApuracaoLimiteMinimoConstitucionalEnum) {
+              await prisma.apuracaoLimiteMinimoConstitucional23.create({
+                data: {
+                  tipo: tipoApuracaoLimiteMinimoConstitucionalEnum,
+                  valorExigido: secondCellNumericValue,
+                  valorAplicado: thirdCellNumericValue,
+                  percentualAplicado: fourthCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (tipoRestosAPagarParaCumprimentoDoLimiteEnum) {
+              await prisma.restosAPagarParaCumprimentoDoLimite23.create({
+                data: {
+                  tipo: tipoRestosAPagarParaCumprimentoDoLimiteEnum,
+                  saldoInicial: secondCellNumericValue,
+                  rpLiquidados: thirdCellNumericValue,
+                  rpPagos: fourthCellNumericValue,
+                  rpCancelados: fifthCellNumericValue,
+                  saldoFinal: sixthCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
+            } else if (
+              tipoControleDisponibilidadeFinanceiraEConciliacaoBancariaEnum
+            ) {
+              await prisma.controleDisponibilidadeFinanceiraEConciliacaoBancaria23.create(
+                {
+                  data: {
+                    tipo: tipoControleDisponibilidadeFinanceiraEConciliacaoBancariaEnum,
+                    fundeb: secondCellNumericValue,
+                    salarioEducacao: thirdCellNumericValue,
+                    relatorioMunicialId: relatorio.id,
+                  },
+                },
+              );
+            } else if (tipoEmendaConstitucionalExclusivoSiopeEnum) {
+              await prisma.emendaConstitucionalExclusivoSiope23.create({
+                data: {
+                  tipo: tipoEmendaConstitucionalExclusivoSiopeEnum,
+                  valorExigido: secondCellNumericValue,
+                  valorAplicado: thirdCellNumericValue,
+                  diferencaCompensacao: fourthCellNumericValue,
+                  relatorioMunicialId: relatorio.id,
+                },
+              });
             } else {
               console.log(
                 `Tipo de receita ou despesa desconhecido: ${tipoReceitaDespesaExcel}\n`,
@@ -3148,6 +3403,300 @@ async function findTypes21(
   };
 }
 
+async function findTypes23(
+  relatorio: RelatorioMunicipal23,
+  tipoReceitaDespesaLimpo: string,
+) {
+  let tipoReceitaEnum: ItemReceitaTipos23;
+  let tipoDespesaEnum: ItemDespesaTipos23;
+  let tipoRecursosRecebidosNaoUtilizadosEnum: RecursosRecebidosNaoUtilizadosTipos23;
+  let tipoDespesasCusteadasFundebExercicioEnum: DespesasCusteadasFundebExercicioTipos23;
+  let tipoIndicadores23Art212Enum: IndicadoresArt212Tipos23;
+  let tipoIndicador23Art25MaximoDeSuperavitEnum: IndicadorArt25Maximo10PorCentoDeSuperavitTipos23;
+  let tipoIndicador23Art25AplicacaoSuperavitEnum: IndicadorArt25AplicacaoSuperavitTipos23;
+  let tipoApuracaoDespesasLimiteMinimoConstitucionalEnum: ApuracaoDespesasLimiteMinimoConstitucionalTipos23;
+  let tipoApuracaoLimiteMinimoConstitucionalEnum: ApuracaoLimiteMinimoConstitucionalTipos23;
+  let tipoRestosAPagarParaCumprimentoDoLimiteEnum: RestosAPagarParaCumprimentoDoLimiteTipos23;
+  let tipoControleDisponibilidadeFinanceiraEConciliacaoBancariaEnum: ControleDisponibilidadeFinanceiraEConciliacaoBancariaTipos23;
+  let tipoEmendaConstitucionalExclusivoSiopeEnum: EmendaConstitucionalExclusivoSiopeTipos23;
+  let tipoJaDefinido = false;
+
+  // Percorre o mapeamento de receitas para o ano de 2023
+  for (const key in mapeamentoReceitas23) {
+    const receitaExiste = await prisma.receita23.findUnique({
+      where: {
+        relatorioMunicialId_tipo: {
+          relatorioMunicialId: relatorio.id,
+          tipo: mapeamentoReceitas23[key],
+        },
+      },
+    });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !receitaExiste) {
+      tipoReceitaEnum = mapeamentoReceitas23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoDespesas23) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const despesaExiste = await prisma.despesa23.findUnique({
+      where: {
+        relatorioMunicialId_tipo: {
+          relatorioMunicialId: relatorio.id,
+          tipo: mapeamentoDespesas23[key],
+        },
+      },
+    });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !despesaExiste) {
+      tipoDespesaEnum = mapeamentoDespesas23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoRecursosRecebidosNaoUtilizados23) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const recursoExiste =
+      await prisma.recursosRecebidosNaoUtilizados23.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoRecursosRecebidosNaoUtilizados23[key],
+          },
+        },
+      });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !recursoExiste) {
+      tipoRecursosRecebidosNaoUtilizadosEnum =
+        mapeamentoRecursosRecebidosNaoUtilizados23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoDespesasCusteadasFundebExercicio23) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const despesaExiste =
+      await prisma.despesasCusteadasFundebExercicio23.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoDespesasCusteadasFundebExercicio23[key],
+          },
+        },
+      });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !despesaExiste) {
+      tipoDespesasCusteadasFundebExercicioEnum =
+        mapeamentoDespesasCusteadasFundebExercicio23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoIndicadores23Art212) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste = await prisma.indicadores23Art212.findUnique({
+      where: {
+        relatorioMunicialId_tipo: {
+          relatorioMunicialId: relatorio.id,
+          tipo: mapeamentoIndicadores23Art212[key],
+        },
+      },
+    });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoIndicadores23Art212Enum = mapeamentoIndicadores23Art212[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoIndicadorArt25Maximo10PorCentoDeSuperavit23) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste =
+      await prisma.indicador23Art25Maximo10PorCentoDeSuperavit.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoIndicadorArt25Maximo10PorCentoDeSuperavit23[key],
+          },
+        },
+      });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoIndicador23Art25MaximoDeSuperavitEnum =
+        mapeamentoIndicadorArt25Maximo10PorCentoDeSuperavit23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoIndicadorArt25AplicacaoSuperavit23) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste =
+      await prisma.indicador23Art25AplicacaoSuperavit.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoIndicadorArt25AplicacaoSuperavit23[key],
+          },
+        },
+      });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoIndicador23Art25AplicacaoSuperavitEnum =
+        mapeamentoIndicadorArt25AplicacaoSuperavit23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoApuracaoDespesasLimiteMinimoConstitucional23) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste =
+      await prisma.apuracaoDespesasLimiteMinimoConstitucional23.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoApuracaoDespesasLimiteMinimoConstitucional23[key],
+          },
+        },
+      });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoApuracaoDespesasLimiteMinimoConstitucionalEnum =
+        mapeamentoApuracaoDespesasLimiteMinimoConstitucional23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoApuracaoLimiteMinimoConstitucional23) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste =
+      await prisma.apuracaoLimiteMinimoConstitucional23.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoApuracaoLimiteMinimoConstitucional23[key],
+          },
+        },
+      });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoApuracaoLimiteMinimoConstitucionalEnum =
+        mapeamentoApuracaoLimiteMinimoConstitucional23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoRestosAPagarParaCumprimentoDoLimite23) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste =
+      await prisma.restosAPagarParaCumprimentoDoLimite23.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoRestosAPagarParaCumprimentoDoLimite23[key],
+          },
+        },
+      });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoRestosAPagarParaCumprimentoDoLimiteEnum =
+        mapeamentoRestosAPagarParaCumprimentoDoLimite23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoControleDisponibilidadeFinanceiraEConciliacaoBancaria23) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste =
+      await prisma.controleDisponibilidadeFinanceiraEConciliacaoBancaria23.findUnique(
+        {
+          where: {
+            relatorioMunicialId_tipo: {
+              relatorioMunicialId: relatorio.id,
+              tipo: mapeamentoControleDisponibilidadeFinanceiraEConciliacaoBancaria23[
+                key
+              ],
+            },
+          },
+        },
+      );
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoControleDisponibilidadeFinanceiraEConciliacaoBancariaEnum =
+        mapeamentoControleDisponibilidadeFinanceiraEConciliacaoBancaria23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoEmendaConstitucionalExclusivoSiope23) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste =
+      await prisma.emendaConstitucionalExclusivoSiope23.findUnique({
+        where: {
+          relatorioMunicialId_tipo: {
+            relatorioMunicialId: relatorio.id,
+            tipo: mapeamentoEmendaConstitucionalExclusivoSiope23[key],
+          },
+        },
+      });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoEmendaConstitucionalExclusivoSiopeEnum =
+        mapeamentoEmendaConstitucionalExclusivoSiope23[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  return {
+    tipoReceitaEnum,
+    tipoDespesaEnum,
+    tipoRecursosRecebidosNaoUtilizadosEnum,
+    tipoDespesasCusteadasFundebExercicioEnum,
+    tipoIndicadores23Art212Enum,
+    tipoIndicador23Art25MaximoDeSuperavitEnum,
+    tipoIndicador23Art25AplicacaoSuperavitEnum,
+    tipoApuracaoDespesasLimiteMinimoConstitucionalEnum,
+    tipoApuracaoLimiteMinimoConstitucionalEnum,
+    tipoRestosAPagarParaCumprimentoDoLimiteEnum,
+    tipoControleDisponibilidadeFinanceiraEConciliacaoBancariaEnum,
+    tipoEmendaConstitucionalExclusivoSiopeEnum,
+  };
+}
+
 async function getCellsNumericValues2(row: ExcelJS.Row, numColumns: number) {
   const numericValues = [];
 
@@ -3258,14 +3807,15 @@ async function getCellsNumericValues(row: ExcelJS.Row) {
 //   });
 async function main() {
   try {
-    // await seedDatabase06();
-    //  await seedDatabase0708();
-    await seedDatabase0912();
-    // await seedDatabase1314();
-    // await seedDatabase1516();
-    //  await seedDatabase1718();
-    //   await seedDatabase1920();
-    //  await seedDatabase2122();
+    //await seedDatabase06();
+    //await seedDatabase0708();
+    //await seedDatabase0912();
+    //await seedDatabase1314();
+    //await seedDatabase1516();
+    //await seedDatabase1718();
+    //await seedDatabase1920();
+    //await seedDatabase2122();
+    await seedDatabase23();
   } catch (e) {
     console.error(e);
     process.exit(1);
