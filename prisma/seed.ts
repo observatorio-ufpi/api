@@ -171,14 +171,14 @@ async function seedDatabase06() {
         const caminhoArquivo = path.join(
           diretorio,
           //arquivo,
-          'tabula-RREO_Municipal_220020_1_2006.csv',
+          'tabula-RREO_Municipal_221100_1_2006.csv',
         );
 
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
         //const fileMatch = arquivo;
-        const fileMatch = 'tabula-RREO_Municipal_220020_1_2006.csv';
+        const fileMatch = 'tabula-RREO_Municipal_221100_1_2006.csv';
 
         const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
@@ -333,14 +333,14 @@ async function seedDatabase0708() {
         const caminhoArquivo = path.join(
           diretorio,
           //arquivo,
-          'tabula-RREO_Municipal_220020_1_2007.csv',
+          'tabula-RREO_Municipal_221100_1_2008.csv',
         );
 
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
         //const fileMatch = arquivo;
-        const fileMatch = 'tabula-RREO_Municipal_220020_1_2007.csv';
+        const fileMatch = 'tabula-RREO_Municipal_221100_1_2008.csv';
 
         const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
@@ -475,14 +475,14 @@ async function seedDatabase0912() {
       if (arquivo.endsWith('.csv')) {
         const caminhoArquivo = path.join(
           diretorio,
-          'tabula-RREO_Municipal_220020_1_2010.csv',
+          'tabula-RREO_Municipal_221100_1_2012.csv',
         );
 
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
         //const fileMatch = arquivo;
-        const fileMatch = 'tabula-RREO_Municipal_220020_1_2010.csv';
+        const fileMatch = 'tabula-RREO_Municipal_221100_1_2012.csv';
 
         const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
@@ -630,14 +630,14 @@ async function seedDatabase1314() {
       if (arquivo.endsWith('.csv')) {
         const caminhoArquivo = path.join(
           diretorio,
-          'tabula-RREO_Municipal_220020_1_2013.csv',
+          'tabula-RREO_Municipal_221100_1_2014.csv',
         );
 
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
         //const fileMatch = arquivo;
-        const fileMatch = 'tabula-RREO_Municipal_220020_1_2013.csv';
+        const fileMatch = 'tabula-RREO_Municipal_221100_1_2014.csv';
 
         const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
@@ -793,14 +793,14 @@ async function seedDatabase1516() {
       if (arquivo.endsWith('.csv')) {
         const caminhoArquivo = path.join(
           diretorio,
-          'tabula-RREO_Municipal_220020_1_2015.csv',
+          'tabula-RREO_Municipal_221100_1_2016.csv',
         );
 
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
         //const fileMatch = arquivo;
-        const fileMatch = 'tabula-RREO_Municipal_220020_1_2015.csv';
+        const fileMatch = 'tabula-RREO_Municipal_221100_1_2016.csv';
 
         const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
@@ -961,14 +961,14 @@ async function seedDatabase1718() {
       if (arquivo.endsWith('.csv')) {
         const caminhoArquivo = path.join(
           diretorio,
-          'tabula-RREO_Municipal_220025_6_2017.csv',
+          'tabula-RREO_Municipal_221100_6_2018.csv',
         );
 
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
         //const fileMatch = arquivo;
-        const fileMatch = 'tabula-RREO_Municipal_220025_6_2017.csv';
+        const fileMatch = 'tabula-RREO_Municipal_221100_6_2018.csv';
 
         const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
@@ -1130,14 +1130,14 @@ async function seedDatabase1920() {
       if (arquivo.endsWith('.csv')) {
         const caminhoArquivo = path.join(
           diretorio,
-          'tabula-RREO_Municipal_220025_6_2019.csv',
+          'tabula-RREO_Municipal_221100_6_2020.csv',
         );
 
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
         //const fileMatch = arquivo;
-        const fileMatch = 'tabula-RREO_Municipal_220025_6_2019.csv';
+        const fileMatch = 'tabula-RREO_Municipal_221100_6_2020.csv';
 
         const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
@@ -1299,14 +1299,14 @@ async function seedDatabase2122() {
       if (arquivo.endsWith('.csv')) {
         const caminhoArquivo = path.join(
           diretorio,
-          'tabula-RREO_Municipal_220020_6_2021.csv',
+          'tabula-RREO_Municipal_221100_6_2022.csv',
         );
 
         const workbook = new ExcelJS.Workbook();
         await workbook.csv.readFile(caminhoArquivo);
 
         //const fileMatch = arquivo;
-        const fileMatch = 'tabula-RREO_Municipal_220020_6_2021.csv';
+        const fileMatch = 'tabula-RREO_Municipal_221100_6_2022.csv';
 
         const match = fileMatch.match(/(\d{6})_(\d{1,6})_(\d{4})\.csv$/);
 
@@ -3258,14 +3258,14 @@ async function getCellsNumericValues(row: ExcelJS.Row) {
 //   });
 async function main() {
   try {
-    //await seedDatabase06();
-    //await seedDatabase0708();
-    //await seedDatabase0912();
-    //await seedDatabase1314();
-    //await seedDatabase1516();
-    await seedDatabase1718();
-    await seedDatabase1920();
-    //await seedDatabase2122();
+    // await seedDatabase06();
+    //  await seedDatabase0708();
+    await seedDatabase0912();
+    // await seedDatabase1314();
+    // await seedDatabase1516();
+    //  await seedDatabase1718();
+    //   await seedDatabase1920();
+    //  await seedDatabase2122();
   } catch (e) {
     console.error(e);
     process.exit(1);

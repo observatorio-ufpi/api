@@ -1056,7 +1056,7 @@ export class ResearchesService {
               },
             },
             select: {
-              receitasRealizadaBimestre: true,
+              receitasRealizadaAteBimestre: true,
               tipo: true,
             },
           },
@@ -1086,7 +1086,7 @@ export class ResearchesService {
               },
             },
             select: {
-              receitasRealizadaBimestre: true,
+              receitasRealizadaAteBimestre: true,
               tipo: true,
             },
           },
@@ -1410,7 +1410,7 @@ export class ResearchesService {
               },
             },
             select: {
-              receitasRealizadaBimestre: true,
+              receitasRealizadaAteBimestre: true,
               tipo: true,
             },
           },
@@ -1436,7 +1436,7 @@ export class ResearchesService {
               },
             },
             select: {
-              receitasRealizadaBimestre: true,
+              receitasRealizadaAteBimestre: true,
               tipo: true,
             },
           },
@@ -1782,7 +1782,7 @@ export class ResearchesService {
               },
             },
             select: {
-              receitasRealizadaBimestre: true,
+              receitasRealizadaAteBimestre: true,
               tipo: true,
             },
           },
@@ -1794,7 +1794,7 @@ export class ResearchesService {
 
       item.receita.forEach((r) => {
         if (r.tipo === ItemReceitaTipos0912.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB) {
-          totalValue += r.receitasRealizadaBimestre;
+          totalValue += r.receitasRealizadaAteBimestre;
         }
       });
 
@@ -1825,7 +1825,7 @@ export class ResearchesService {
               },
             },
             select: {
-              receitasRealizadaBimestre: true,
+              receitasRealizadaAteBimestre: true,
               tipo: true,
             },
           },
@@ -1837,7 +1837,7 @@ export class ResearchesService {
 
       item.receita.forEach((r) => {
         if (r.tipo === ItemReceitaTipos1314.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB) {
-          totalValue += r.receitasRealizadaBimestre;
+          totalValue += r.receitasRealizadaAteBimestre;
         }
       });
 
