@@ -194,7 +194,7 @@ export const mapeamentoDeducoesParaFinsDeLimitesConstitucional1314: {
     DeducoesParaFinsDeLimitesConstitucionalTipo1314.TOTAL_DE_DEDUCOES_PARA_FINS_DE_LIMITE_CONSTITUCIONAL,
   '38- TOTAL DAS DESPESAS PARA FINS DE LIMITE ((23 + 24) – (37))':
     DeducoesParaFinsDeLimitesConstitucionalTipo1314.TOTAL_DE_DESPESAS_PARA_FINS_DE_LIMITE,
-  '39- MÍNIMO DE 25% DAS RECEITAS RESULTANTES DE IMPOSTOS EM M5 D((3E8) / (3) x 100) %':
+  '39- MÍNIMO DE 25% DAS RECEITAS RESULTANTES DE IMPOSTOS EM MDE((38) / (3) x 100)_%___5':
     DeducoesParaFinsDeLimitesConstitucionalTipo1314.MINIMO_DE_25_PORCENTO_DAS_RECEITAS_RESULTANTES_DE_IMPOSTOS_MDE,
 };
 

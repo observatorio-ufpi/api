@@ -2464,7 +2464,7 @@ export class ResearchesService {
 
       item.receita.forEach((r) => {
         if (r.tipo === ItemReceitaTipos06.RECEITA_RESULTANTE_DE_IMPOSTOS) {
-          receitaResultanteDeImpostos = 0.25 * r.receitasRealizadasNoAno;
+          receitaResultanteDeImpostos = r.receitasRealizadasNoAno;
         }
       });
 
@@ -2927,6 +2927,7 @@ export class ResearchesService {
             select: {
               valorExigido: true,
               valorAplicado: true,
+              percentualAplicado: true,
               tipo: true,
             },
           },
@@ -2937,6 +2938,7 @@ export class ResearchesService {
     const modifiedRevenues2122 = revenues2122.map((item) => {
       let valorExigidoMde = 0;
       let valorAplicadoMde = 0;
+      let percentualAplicadoMde = 0;
 
       item.apuracaoLimiteMinimoConstitucional.forEach((r) => {
         if (
@@ -2945,11 +2947,13 @@ export class ResearchesService {
         ) {
           valorExigidoMde = r.valorExigido;
           valorAplicadoMde = r.valorAplicado;
+          percentualAplicadoMde = r.percentualAplicado;
         }
       });
 
       valorExigidoMde = parseFloat(valorExigidoMde.toFixed(2));
       valorAplicadoMde = parseFloat(valorAplicadoMde.toFixed(2));
+      percentualAplicadoMde = parseFloat(percentualAplicadoMde.toFixed(2));
 
       const filteredApuracao = item.apuracaoLimiteMinimoConstitucional.filter(
         (r) =>
@@ -2968,6 +2972,10 @@ export class ResearchesService {
           {
             tipo: 'VALOR_APLICADO_MDE',
             valor: valorAplicadoMde,
+          },
+          {
+            tipo: 'PERCENTUAL_APLICADO_MDE',
+            valor: percentualAplicadoMde,
           },
         ],
       };

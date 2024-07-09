@@ -1,0 +1,171 @@
+-- CreateEnum
+CREATE TYPE "ItemReceitaEstadualTipos1920" AS ENUM ('RECEITA_IMPOSTOS', 'RECEITA_RESULTANTE_ICMS', 'ICMS', 'ICMS_MULTAS_JUROS_ENCARGOS', 'ICMS_ADICIONAL_2_PORCENTO', 'RECEITA_RESULTANTE_ITCD', 'ITCD', 'ITCD_MULTAS_JUROS_ENCARGOS', 'RECEITA_RESULTANTE_IPVA', 'IPVA', 'IPVA_MULTAS_JUROS_ENCARGOS', 'IRRF', 'TRANSFERENCIAS_CONSTITUCIONAIS_LEGAIS', 'FPE', 'ICMS_DESONERACAO', 'IPI_EXPORTACAO', 'IOF_OURO', 'DEDUCOES_TRANSFERENCIAS_CONSTITUCIONAIS_MUNICIPIOS', 'DEDUCAO_ICMS_MUNICIPIOS', 'DEDUCAO_IPVA_MUNICIPIOS', 'DEDUCAO_IPI_EXPORTACAO_MUNICIPIOS', 'TOTAL_RECEITA_LIQUIDA_IMPOSTOS', 'APLICACAO_FINANCEIRA_IMPOSTOS_ENSINO', 'TRANSFERENCIAS_FNDE', 'TRANSFERENCIAS_SALARIO_EDUCACAO', 'TRANSFERENCIAS_DIRETAS_PDDE', 'TRANSFERENCIAS_DIRETAS_PNAE', 'TRANSFERENCIAS_DIRETAS_PNATE', 'OUTRAS_TRANSFERENCIAS_FNDE', 'APLICACAO_FINANCEIRA_FNDE', 'RECEITA_TRANSFERENCIAS_CONVENIOS', 'TRANSFERENCIAS_CONVENIOS', 'APLICACAO_FINANCEIRA_RECURSOS_CONVENIOS', 'OPERACOES_CREDITO', 'OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO', 'TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO', 'RECEITAS_DESTINADAS_AO_FUNDEB', 'RECEITA_RESULTANTE_ICMS_FUNDEB', 'RECEITA_RESULTANTE_ITCD_FUNDEB', 'RECEITA_RESULTANTE_IPVA_FUNDEB', 'COTA_PARTE_FPE_FUNDEB', 'ICMS_DESONERACAO_FUNDEB', 'COTA_PARTE_IPI_EXPORTACAO_FUNDEB', 'RECEITAS_RECEBIDAS_FUNDEB', 'TRANSFERENCIAS_RECURSOS_FUNDEB', 'COMPLEMENTACAO_UNIAO_FUNDEB', 'RECEITA_APLICACAO_FINANCEIRA_FUNDEB', 'RESULTADO_LIQUIDO_TRANSFERENCIAS_FUNDEB');
+
+-- CreateEnum
+CREATE TYPE "ItemDespesaEstadualTipos1920" AS ENUM ('PAGAMENTO_PROFISSIONAIS_MAGISTERIO', 'PAGAMENTO_MAGISTERIO_ENSINO_FUNDAMENTAL', 'PAGAMENTO_MAGISTERIO_ENSINO_MEDIO', 'OUTRAS_DESPESAS', 'OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL', 'OUTRAS_DESPESAS_ENSINO_MEDIO', 'TOTAL_DESPESAS_FUNDEB', 'EDUCACAO_INFANTIL', 'CRECHE', 'PRE_ESCOLA', 'ENSINO_FUNDAMENTAL', 'DESPESAS_FUNDAMENTAL_FUNDEB', 'DESPESAS_FUNDAMENTAL_OUTROS_IMPOSTOS', 'ENSINO_MEDIO', 'DESPESAS_MEDIO_FUNDEB', 'DESPESAS_MEDIO_OUTROS_IMPOSTOS', 'ENSINO_SUPERIOR', 'ENSINO_PROFISSIONAL_NAO_INTEGRADO', 'OUTRAS', 'TOTAL_DESPESAS_ACOES_TIPICAS_MDE', 'DESPESAS_APLICACAO_FINANCEIRA_OUTROS_IMPOSTOS', 'DESPESAS_CONTRIBUICAO_SALARIO_EDUCACAO', 'DESPESAS_OPERACOES_CREDITO', 'DESPESAS_OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO', 'TOTAL_OUTRAS_DESPESAS_FINANCIAMENTO_ENSINO', 'TOTAL_GERAL_DESPESAS_MDE');
+
+-- CreateEnum
+CREATE TYPE "DeducoesFinsLimiteFundebEstadualTipo1920" AS ENUM ('RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA', 'RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO', 'RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO', 'DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR', 'DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO', 'DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO', 'TOTAL_DEDUCOES_PARA_FINS_LIMITE');
+
+-- CreateEnum
+CREATE TYPE "IndicadoresFundebEstadualTipo1920" AS ENUM ('TOTAL_DE_DESPESAS_FUNDEB_PARA_FINS_DE_LIMITE', 'MINIMO_60_PORCENTO_FUNDEB_REMUNERACAO_MAGISTERIO', 'MAXIMO_40_PORCENTO_DESPESAS_MDE', 'MAXIMO_5_PORCENTO_NAO_APLICADO_NO_EXERCICIO');
+
+-- CreateEnum
+CREATE TYPE "ControleRecursosNoExercicioSubsequenteEstadualTipo1920" AS ENUM ('RECURSOS_RECEBIDOS_FUNDEB_NAO_UTILIZADOS', 'DESPESAS_CUSTEADAS_C_SALDO_FUNDEB_N_UTILIZADOS_1_TRIM_ATUAL');
+
+-- CreateEnum
+CREATE TYPE "DeducoesParaFinsDeLimitesConstitucionalEstadualTipo1920" AS ENUM ('RESULTADO_LIQUIDO_DAS_TRANSFERENCIAS_DO_FUNDEB', 'DESPESAS_CUSTEADAS_A_COMPLEMENTACAO_DO_FUNDEB_NO_EXERCICIO', 'DESPESAS_CUSTEADAS_SUPERAVIT_FINANCEIRO_DO_EXERCICIO_ANTERIOR', 'DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_OUTROS_IMPOSTOS', 'RESTOS_A_PAGAR_INSCRITOS_SEM_DISPONIBILIDADE_FINANCEIRA', 'CANCELAMENTO_RESTOS_PAGAR_INSCRITOS_DISPONIBILIDADE_FINANCEIRA', 'TOTAL_DE_DEDUCOES_PARA_FINS_DE_LIMITE_CONSTITUCIONAL', 'TOTAL_DE_DESPESAS_PARA_FINS_DE_LIMITE', 'PERCENTUAL_DE_APLICACAO_MDE_SOBRE_RECEITA_LIQUIDA_IMPOSTOS');
+
+-- CreateEnum
+CREATE TYPE "FluxoFinanceiroRecursosEstadualTipos1920" AS ENUM ('SALDO_FINANCEIRO_31_DE_DEZEMBRO_ANO_ANTERIOR', 'INGRESSO_RECURSOS_ATE_BIM', 'PAGAMENTOS_EFETUADOS_ATE_BIM', 'ORCAMENTO_DO_EXERCICIO', 'RESTOS_A_PAGAR', 'RECEITA_APLICACAO_FINANCEIRA_DOS_RECURSOS_ATE_BIM', 'DISPONIBILIDADE_FINANCEIRA_ATE_O_BIM', 'AJUSTES', 'RETENCOES', 'CONCILIACAO_BANCARIA', 'VALOR_A_RECUPERAR', 'OUTROS_VALORES_EXTRA_ORCAMENTARIO', 'SALDO_FINANCEIRO_CONCILIADO');
+
+-- CreateEnum
+CREATE TYPE "RestosAPagarInscritosDisponibilidadesFinanceiraEstadualTipo1920" AS ENUM ('RESTOS_A_PAGAR_DE_DESPESA_MDE', 'EXECUTADAS_COM_RECURSOS_DE_IMPOSTOS_ENSINO', 'EXECUTADAS_COM_RECURSOS_FUNDEB');
+
+-- CreateTable
+CREATE TABLE "RelatorioEstadual1920" (
+    "id" SERIAL NOT NULL,
+    "ano" TEXT NOT NULL,
+    "codigoEstado" TEXT NOT NULL,
+
+    CONSTRAINT "RelatorioEstadual1920_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "ReceitaEstadual1920" (
+    "id" SERIAL NOT NULL,
+    "tipo" "ItemReceitaEstadualTipos1920" NOT NULL,
+    "previsaoInicial" DOUBLE PRECISION NOT NULL,
+    "previsaoAtualizada" DOUBLE PRECISION NOT NULL,
+    "receitasRealizadaAteBimestre" DOUBLE PRECISION NOT NULL,
+    "percentual" DOUBLE PRECISION NOT NULL,
+    "relatorioEstadualId" INTEGER NOT NULL,
+
+    CONSTRAINT "ReceitaEstadual1920_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "DespesaEstadual1920" (
+    "id" SERIAL NOT NULL,
+    "tipo" "ItemDespesaEstadualTipos1920" NOT NULL,
+    "dotacaoInicial" DOUBLE PRECISION NOT NULL,
+    "dotacaoAtualizada" DOUBLE PRECISION NOT NULL,
+    "despesasEmpenhadasAteBimestre" DOUBLE PRECISION NOT NULL,
+    "despesasEmpenhadasPercentual" DOUBLE PRECISION NOT NULL,
+    "despesasLiquidadasAteBimestre" DOUBLE PRECISION NOT NULL,
+    "despesasLiquidadasPercentual" DOUBLE PRECISION NOT NULL,
+    "inscritasRestosPagar" DOUBLE PRECISION NOT NULL,
+    "relatorioEstadualId" INTEGER NOT NULL,
+
+    CONSTRAINT "DespesaEstadual1920_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "DeducoesFinsLimiteFundebEstadual1920" (
+    "id" SERIAL NOT NULL,
+    "tipo" "DeducoesFinsLimiteFundebEstadualTipo1920" NOT NULL,
+    "valor" DOUBLE PRECISION NOT NULL,
+    "relatorioEstadualId" INTEGER NOT NULL,
+
+    CONSTRAINT "DeducoesFinsLimiteFundebEstadual1920_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "IndicadoresFundebEstadual1920" (
+    "id" SERIAL NOT NULL,
+    "tipo" "IndicadoresFundebEstadualTipo1920" NOT NULL,
+    "valor" DOUBLE PRECISION NOT NULL,
+    "relatorioEstadualId" INTEGER NOT NULL,
+
+    CONSTRAINT "IndicadoresFundebEstadual1920_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "ControleRecursosNoExercicioSubsequenteEstadual1920" (
+    "id" SERIAL NOT NULL,
+    "tipo" "ControleRecursosNoExercicioSubsequenteEstadualTipo1920" NOT NULL,
+    "valor" DOUBLE PRECISION NOT NULL,
+    "relatorioEstadualId" INTEGER NOT NULL,
+
+    CONSTRAINT "ControleRecursosNoExercicioSubsequenteEstadual1920_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "DeducoesParaFinsDeLimitesConstitucionalEstadual1920" (
+    "id" SERIAL NOT NULL,
+    "tipo" "DeducoesParaFinsDeLimitesConstitucionalEstadualTipo1920" NOT NULL,
+    "valor" DOUBLE PRECISION NOT NULL,
+    "relatorioEstadualId" INTEGER NOT NULL,
+
+    CONSTRAINT "DeducoesParaFinsDeLimitesConstitucionalEstadual1920_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "FluxoFinanceiroRecursosEstadual1920" (
+    "id" SERIAL NOT NULL,
+    "tipo" "FluxoFinanceiroRecursosEstadualTipos1920" NOT NULL,
+    "fundeb" DOUBLE PRECISION NOT NULL,
+    "salarioEducacao" DOUBLE PRECISION NOT NULL,
+    "relatorioEstadualId" INTEGER NOT NULL,
+
+    CONSTRAINT "FluxoFinanceiroRecursosEstadual1920_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "RestosAPagarInscritosDisponibilidadesFinanceiraEstadual1920" (
+    "id" SERIAL NOT NULL,
+    "tipo" "RestosAPagarInscritosDisponibilidadesFinanceiraEstadualTipo1920" NOT NULL,
+    "saldoAteBimestre" DOUBLE PRECISION NOT NULL,
+    "canceladoNoAno" DOUBLE PRECISION NOT NULL,
+    "relatorioEstadualId" INTEGER NOT NULL,
+
+    CONSTRAINT "RestosAPagarInscritosDisponibilidadesFinanceiraEstadual192_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "ReceitaEstadual1920_relatorioEstadualId_tipo_key" ON "ReceitaEstadual1920"("relatorioEstadualId", "tipo");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "DespesaEstadual1920_relatorioEstadualId_tipo_key" ON "DespesaEstadual1920"("relatorioEstadualId", "tipo");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "DeducoesFinsLimiteFundebEstadual1920_relatorioEstadualId_ti_key" ON "DeducoesFinsLimiteFundebEstadual1920"("relatorioEstadualId", "tipo");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "IndicadoresFundebEstadual1920_relatorioEstadualId_tipo_key" ON "IndicadoresFundebEstadual1920"("relatorioEstadualId", "tipo");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "ControleRecursosNoExercicioSubsequenteEstadual1920_relatori_key" ON "ControleRecursosNoExercicioSubsequenteEstadual1920"("relatorioEstadualId", "tipo");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "DeducoesParaFinsDeLimitesConstitucionalEstadual1920_relator_key" ON "DeducoesParaFinsDeLimitesConstitucionalEstadual1920"("relatorioEstadualId", "tipo");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "FluxoFinanceiroRecursosEstadual1920_relatorioEstadualId_tip_key" ON "FluxoFinanceiroRecursosEstadual1920"("relatorioEstadualId", "tipo");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "RestosAPagarInscritosDisponibilidadesFinanceiraEstadual1920_key" ON "RestosAPagarInscritosDisponibilidadesFinanceiraEstadual1920"("relatorioEstadualId", "tipo");
+
+-- AddForeignKey
+ALTER TABLE "ReceitaEstadual1920" ADD CONSTRAINT "ReceitaEstadual1920_relatorioEstadualId_fkey" FOREIGN KEY ("relatorioEstadualId") REFERENCES "RelatorioEstadual1920"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "DespesaEstadual1920" ADD CONSTRAINT "DespesaEstadual1920_relatorioEstadualId_fkey" FOREIGN KEY ("relatorioEstadualId") REFERENCES "RelatorioEstadual1920"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "DeducoesFinsLimiteFundebEstadual1920" ADD CONSTRAINT "DeducoesFinsLimiteFundebEstadual1920_relatorioEstadualId_fkey" FOREIGN KEY ("relatorioEstadualId") REFERENCES "RelatorioEstadual1920"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "IndicadoresFundebEstadual1920" ADD CONSTRAINT "IndicadoresFundebEstadual1920_relatorioEstadualId_fkey" FOREIGN KEY ("relatorioEstadualId") REFERENCES "RelatorioEstadual1920"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "ControleRecursosNoExercicioSubsequenteEstadual1920" ADD CONSTRAINT "ControleRecursosNoExercicioSubsequenteEstadual1920_relator_fkey" FOREIGN KEY ("relatorioEstadualId") REFERENCES "RelatorioEstadual1920"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "DeducoesParaFinsDeLimitesConstitucionalEstadual1920" ADD CONSTRAINT "DeducoesParaFinsDeLimitesConstitucionalEstadual1920_relato_fkey" FOREIGN KEY ("relatorioEstadualId") REFERENCES "RelatorioEstadual1920"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "FluxoFinanceiroRecursosEstadual1920" ADD CONSTRAINT "FluxoFinanceiroRecursosEstadual1920_relatorioEstadualId_fkey" FOREIGN KEY ("relatorioEstadualId") REFERENCES "RelatorioEstadual1920"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "RestosAPagarInscritosDisponibilidadesFinanceiraEstadual1920" ADD CONSTRAINT "RestosAPagarInscritosDisponibilidadesFinanceiraEstadual192_fkey" FOREIGN KEY ("relatorioEstadualId") REFERENCES "RelatorioEstadual1920"("id") ON DELETE CASCADE ON UPDATE CASCADE;
