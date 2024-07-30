@@ -128,6 +128,7 @@ import {
 } from './seeding.map.2015-2016';
 
 import { PrismaClient } from '@prisma/client';
+import { municipios } from './municipios.mapping';
 import {
   mapeamentoCompensacaoRestosAPagarTipo06,
   mapeamentoControleRestosAPagarVinculadosEducacaoTipo06,
@@ -246,12 +247,29 @@ async function seedDatabase06(
     console.log('Ano:', ano);
     console.log('Código:', codigo);
 
+    const municipioInfo = municipios[codigo];
+    if (!municipioInfo) {
+      console.log(
+        `Informações do município não encontradas para o código: ${codigo}`,
+      );
+      return;
+    }
+
+    console.log(municipioInfo);
+
     const worksheet = workbook.getWorksheet(1);
 
     const relatorio = await prisma.relatorioMunicipal06.create({
       data: {
         ano,
         codigoMunicipio: codigo,
+        nomeMunicipio: municipioInfo.nomeMunicipio,
+        territorioDeDesenvolvimentoMunicipio:
+          municipioInfo.territorioDesenvolvimento,
+        aglomeradoMunicipio: municipioInfo.aglomerado,
+        gerenciaRegionalMunicipio: municipioInfo.gerencia,
+        populacaoMunicipio: municipioInfo.populacao,
+        faixaPopulacionalMunicipio: municipioInfo.faixaPopulacional,
       },
     });
 
@@ -393,12 +411,29 @@ async function seedDatabase0708(
     console.log('Ano:', ano);
     console.log('Código:', codigo);
 
+    const municipioInfo = municipios[codigo];
+    if (!municipioInfo) {
+      console.log(
+        `Informações do município não encontradas para o código: ${codigo}`,
+      );
+      return;
+    }
+
+    console.log(municipioInfo);
+
     const worksheet = workbook.getWorksheet(1);
 
     const relatorio = await prisma.relatorioMunicipal0708.create({
       data: {
         ano,
         codigoMunicipio: codigo,
+        nomeMunicipio: municipioInfo.nomeMunicipio,
+        territorioDeDesenvolvimentoMunicipio:
+          municipioInfo.territorioDesenvolvimento,
+        aglomeradoMunicipio: municipioInfo.aglomerado,
+        gerenciaRegionalMunicipio: municipioInfo.gerencia,
+        populacaoMunicipio: municipioInfo.populacao,
+        faixaPopulacionalMunicipio: municipioInfo.faixaPopulacional,
       },
     });
 
@@ -517,12 +552,29 @@ async function seedDatabase0912(
     console.log('Ano:', ano);
     console.log('Código:', codigo);
 
+    const municipioInfo = municipios[codigo];
+    if (!municipioInfo) {
+      console.log(
+        `Informações do município não encontradas para o código: ${codigo}`,
+      );
+      return;
+    }
+
+    console.log(municipioInfo);
+
     const worksheet = workbook.getWorksheet(1);
 
     const relatorio = await prisma.relatorioMunicipal0912.create({
       data: {
         ano,
         codigoMunicipio: codigo,
+        nomeMunicipio: municipioInfo.nomeMunicipio,
+        territorioDeDesenvolvimentoMunicipio:
+          municipioInfo.territorioDesenvolvimento,
+        aglomeradoMunicipio: municipioInfo.aglomerado,
+        gerenciaRegionalMunicipio: municipioInfo.gerencia,
+        populacaoMunicipio: municipioInfo.populacao,
+        faixaPopulacionalMunicipio: municipioInfo.faixaPopulacional,
       },
     });
 
@@ -656,12 +708,29 @@ async function seedDatabase1314(
     console.log('Ano:', ano);
     console.log('Código:', codigo);
 
+    const municipioInfo = municipios[codigo];
+    if (!municipioInfo) {
+      console.log(
+        `Informações do município não encontradas para o código: ${codigo}`,
+      );
+      return;
+    }
+
+    console.log(municipioInfo);
+
     const worksheet = workbook.getWorksheet(1);
 
     const relatorio = await prisma.relatorioMunicipal1314.create({
       data: {
         ano,
         codigoMunicipio: codigo,
+        nomeMunicipio: municipioInfo.nomeMunicipio,
+        territorioDeDesenvolvimentoMunicipio:
+          municipioInfo.territorioDesenvolvimento,
+        aglomeradoMunicipio: municipioInfo.aglomerado,
+        gerenciaRegionalMunicipio: municipioInfo.gerencia,
+        populacaoMunicipio: municipioInfo.populacao,
+        faixaPopulacionalMunicipio: municipioInfo.faixaPopulacional,
       },
     });
 
@@ -803,12 +872,29 @@ async function seedDatabase1516(
     console.log('Ano:', ano);
     console.log('Código:', codigo);
 
+    const municipioInfo = municipios[codigo];
+    if (!municipioInfo) {
+      console.log(
+        `Informações do município não encontradas para o código: ${codigo}`,
+      );
+      return;
+    }
+
+    console.log(municipioInfo);
+
     const worksheet = workbook.getWorksheet(1);
 
     const relatorio = await prisma.relatorioMunicipal1516.create({
       data: {
         ano,
         codigoMunicipio: codigo,
+        nomeMunicipio: municipioInfo.nomeMunicipio,
+        territorioDeDesenvolvimentoMunicipio:
+          municipioInfo.territorioDesenvolvimento,
+        aglomeradoMunicipio: municipioInfo.aglomerado,
+        gerenciaRegionalMunicipio: municipioInfo.gerencia,
+        populacaoMunicipio: municipioInfo.populacao,
+        faixaPopulacionalMunicipio: municipioInfo.faixaPopulacional,
       },
     });
 
@@ -953,12 +1039,29 @@ async function seedDatabase1718(
     console.log('Ano:', ano);
     console.log('Código:', codigo);
 
+    const municipioInfo = municipios[codigo];
+    if (!municipioInfo) {
+      console.log(
+        `Informações do município não encontradas para o código: ${codigo}`,
+      );
+      return;
+    }
+
+    console.log(municipioInfo);
+
     const worksheet = workbook.getWorksheet(1);
 
     const relatorio = await prisma.relatorioMunicipal1718.create({
       data: {
         ano,
         codigoMunicipio: codigo,
+        nomeMunicipio: municipioInfo.nomeMunicipio,
+        territorioDeDesenvolvimentoMunicipio:
+          municipioInfo.territorioDesenvolvimento,
+        aglomeradoMunicipio: municipioInfo.aglomerado,
+        gerenciaRegionalMunicipio: municipioInfo.gerencia,
+        populacaoMunicipio: municipioInfo.populacao,
+        faixaPopulacionalMunicipio: municipioInfo.faixaPopulacional,
       },
     });
 
@@ -1257,12 +1360,29 @@ async function seedDatabase1920(
     console.log('Ano:', ano);
     console.log('Código:', codigo);
 
+    const municipioInfo = municipios[codigo];
+    if (!municipioInfo) {
+      console.log(
+        `Informações do município não encontradas para o código: ${codigo}`,
+      );
+      return;
+    }
+
+    console.log(municipioInfo);
+
     const worksheet = workbook.getWorksheet(1);
 
     const relatorio = await prisma.relatorioMunicipal1920.create({
       data: {
         ano,
         codigoMunicipio: codigo,
+        nomeMunicipio: municipioInfo.nomeMunicipio,
+        territorioDeDesenvolvimentoMunicipio:
+          municipioInfo.territorioDesenvolvimento,
+        aglomeradoMunicipio: municipioInfo.aglomerado,
+        gerenciaRegionalMunicipio: municipioInfo.gerencia,
+        populacaoMunicipio: municipioInfo.populacao,
+        faixaPopulacionalMunicipio: municipioInfo.faixaPopulacional,
       },
     });
 
@@ -1561,12 +1681,29 @@ async function seedDatabase2122(
     console.log('Ano:', ano);
     console.log('Código:', codigo);
 
+    const municipioInfo = municipios[codigo];
+    if (!municipioInfo) {
+      console.log(
+        `Informações do município não encontradas para o código: ${codigo}`,
+      );
+      return;
+    }
+
+    console.log(municipioInfo);
+
     const worksheet = workbook.getWorksheet(1);
 
     const relatorio = await prisma.relatorioMunicipal21.create({
       data: {
         ano,
         codigoMunicipio: codigo,
+        nomeMunicipio: municipioInfo.nomeMunicipio,
+        territorioDeDesenvolvimentoMunicipio:
+          municipioInfo.territorioDesenvolvimento,
+        aglomeradoMunicipio: municipioInfo.aglomerado,
+        gerenciaRegionalMunicipio: municipioInfo.gerencia,
+        populacaoMunicipio: municipioInfo.populacao,
+        faixaPopulacionalMunicipio: municipioInfo.faixaPopulacional,
       },
     });
 
@@ -1759,12 +1896,29 @@ async function seedDatabase23(
     console.log('Ano:', ano);
     console.log('Código:', codigo);
 
+    const municipioInfo = municipios[codigo];
+    if (!municipioInfo) {
+      console.log(
+        `Informações do município não encontradas para o código: ${codigo}`,
+      );
+      return;
+    }
+
+    console.log(municipioInfo);
+
     const worksheet = workbook.getWorksheet(1);
 
     const relatorio = await prisma.relatorioMunicipal23.create({
       data: {
         ano,
         codigoMunicipio: codigo,
+        nomeMunicipio: municipioInfo.nomeMunicipio,
+        territorioDeDesenvolvimentoMunicipio:
+          municipioInfo.territorioDesenvolvimento,
+        aglomeradoMunicipio: municipioInfo.aglomerado,
+        gerenciaRegionalMunicipio: municipioInfo.gerencia,
+        populacaoMunicipio: municipioInfo.populacao,
+        faixaPopulacionalMunicipio: municipioInfo.faixaPopulacional,
       },
     });
 
@@ -4427,6 +4581,42 @@ async function main() {
             await seedDatabase2122(caminhoArquivo, ano, codigo);
           } else if (['2023'].includes(ano)) {
             await seedDatabase23(caminhoArquivo, ano, codigo);
+          } else {
+            console.log(`Ano inválido: ${ano}`);
+          }
+        } else {
+          console.log('Nome do arquivo inválido:', arquivo);
+        }
+      }
+    }
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+async function mainEstadual() {
+  try {
+    const diretorio = process.env.FILES_SPREADSHEET_URL;
+
+    const arquivos = fs.readdirSync(diretorio);
+
+    for (const arquivo of arquivos) {
+      if (arquivo.endsWith('.csv')) {
+        const caminhoArquivo = path.join(diretorio, arquivo);
+
+        const match = arquivo.match(/(\d{2})_(\d{1,6})_(\d{4})\.csv$/);
+
+        if (match) {
+          const codigo = match[1];
+          const ano = match[3];
+
+          if (['2017', '2018'].includes(ano)) {
+            await seedDatabaseEstadual1718(caminhoArquivo, ano, codigo);
+          } else if (['2019', '2020'].includes(ano)) {
+            await seedDatabaseEstadual1920(caminhoArquivo, ano, codigo);
           } else {
             console.log(`Ano inválido: ${ano}`);
           }

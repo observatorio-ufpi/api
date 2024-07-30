@@ -46,7 +46,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class ResearchesService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async municipalOwnTaxesRevenue() {
+  async municipalOwnTaxesRevenue(filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -62,6 +62,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -88,6 +91,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues09 = await this.prismaService.relatorioMunicipal0912.findMany(
@@ -113,6 +119,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       },
     );
@@ -141,6 +150,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1314 =
@@ -166,6 +178,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -195,6 +210,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1718 =
@@ -220,6 +238,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -248,6 +269,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues2122 = await this.prismaService.relatorioMunicipal21.findMany(
@@ -273,6 +297,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       },
     );
 
@@ -297,6 +324,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -397,7 +427,7 @@ export class ResearchesService {
     return groupedRevenues;
   }
 
-  async constitutionalTransfersRevenue() {
+  async constitutionalTransfersRevenue(filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -422,6 +452,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -505,6 +538,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues0912 =
@@ -533,6 +569,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1314 =
@@ -560,6 +599,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -591,6 +633,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1718 =
@@ -619,6 +664,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1920 =
@@ -646,6 +694,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -677,6 +728,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       },
     );
 
@@ -704,6 +758,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -766,7 +823,7 @@ export class ResearchesService {
     return groupedRevenues;
   }
 
-  async municipalTaxesRevenue() {
+  async municipalTaxesRevenue(filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -786,6 +843,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -810,6 +870,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues0912 =
@@ -833,6 +896,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1314 =
@@ -855,6 +921,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -881,6 +950,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1718 =
@@ -904,6 +976,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1920 =
@@ -926,6 +1001,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -952,6 +1030,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       },
     );
 
@@ -974,6 +1055,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -1036,7 +1120,7 @@ export class ResearchesService {
     return groupedRevenues;
   }
 
-  async additionalMunicipalEducationRevenue() {
+  async additionalMunicipalEducationRevenue(filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -1059,6 +1143,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -1116,6 +1203,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues0912 =
@@ -1142,6 +1232,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -1173,6 +1266,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1516 =
@@ -1202,6 +1298,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -1233,6 +1332,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1920 =
@@ -1262,6 +1364,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -1295,6 +1400,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       },
     );
 
@@ -1324,6 +1432,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -1423,7 +1534,7 @@ export class ResearchesService {
     return groupedRevenues;
   }
 
-  async municipalFundebFundefComposition() {
+  async municipalFundebFundefComposition(filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -1443,6 +1554,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -1513,6 +1627,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues0912 =
@@ -1539,6 +1656,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1314 =
@@ -1564,6 +1684,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -1593,6 +1716,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1718 =
@@ -1619,6 +1745,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1920 =
@@ -1644,6 +1773,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -1675,6 +1807,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       },
     );
@@ -1766,6 +1901,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -1932,7 +2070,7 @@ export class ResearchesService {
     return groupedRevenues;
   }
 
-  async complementationFundebFundef() {
+  async complementationFundebFundef(filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -1948,6 +2086,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -1992,6 +2133,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues0708 = revenues0708.map((item) => {
@@ -2035,6 +2179,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues0912 = revenues0912.map((item) => {
@@ -2077,6 +2224,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -2126,6 +2276,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues1516 = revenues1516.map((item) => {
@@ -2169,6 +2322,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues1718 = revenues1718.map((item) => {
@@ -2211,6 +2367,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -2264,6 +2423,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       },
     );
 
@@ -2313,6 +2475,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -2426,7 +2591,7 @@ export class ResearchesService {
     return groupedRevenues;
   }
 
-  async municipalConstitutionalLimitMde() {
+  async municipalConstitutionalLimitMde(filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -2455,6 +2620,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -2551,6 +2719,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues0708 = revenues0708.map((item) => {
@@ -2636,6 +2807,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues0912 = revenues0912.map((item) => {
@@ -2696,6 +2870,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues1314 = revenues1314.map((item) => {
@@ -2755,6 +2932,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -2822,6 +3002,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues1718 = revenues1718.map((item) => {
@@ -2882,6 +3065,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues1920 = revenues1920.map((item) => {
@@ -2931,6 +3117,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       },
     );
@@ -3000,6 +3189,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -3144,7 +3336,7 @@ export class ResearchesService {
     return groupedRevenues;
   }
 
-  async expensesBasicEducationFundeb() {
+  async expensesBasicEducationFundeb(filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -3175,6 +3367,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -3210,6 +3405,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues0912 =
@@ -3244,6 +3442,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -3347,6 +3548,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -3461,6 +3665,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues1516 = revenues1516.map((item) => {
@@ -3572,6 +3779,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -3685,6 +3895,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues1920 = revenues1920.map((item) => {
@@ -3777,6 +3990,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       },
     );
 
@@ -3841,6 +4057,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -3983,7 +4202,7 @@ export class ResearchesService {
     return groupedRevenues;
   }
 
-  async expensesAreasOfActivityMde() {
+  async expensesAreasOfActivityMde(filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -4009,6 +4228,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -4037,6 +4259,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues0912 =
@@ -4063,6 +4288,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -4093,6 +4321,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1516 =
@@ -4121,6 +4352,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -4151,6 +4385,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const revenues1920 =
@@ -4179,6 +4416,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -4223,6 +4463,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       },
     );
@@ -4376,6 +4619,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -4558,7 +4804,7 @@ export class ResearchesService {
     return groupedRevenues;
   }
 
-  async municipalBasicEducationMinimalPotentialRevenue() {
+  async municipalBasicEducationMinimalPotentialRevenue(filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -4581,6 +4827,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
@@ -4658,6 +4907,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues0708 = revenues0708.map((item) => {
@@ -4725,6 +4977,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -4803,6 +5058,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -4904,6 +5162,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues1516 = revenues1516.map((item) => {
@@ -5004,6 +5265,9 @@ export class ResearchesService {
             },
           },
         },
+        where: {
+          ...filters,
+        },
       });
 
     const modifiedRevenues1718 = revenues1718.map((item) => {
@@ -5103,6 +5367,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       });
 
@@ -5223,6 +5490,9 @@ export class ResearchesService {
               tipo: true,
             },
           },
+        },
+        where: {
+          ...filters,
         },
       },
     );
@@ -5356,6 +5626,9 @@ export class ResearchesService {
             tipo: true,
           },
         },
+      },
+      where: {
+        ...filters,
       },
     });
 
