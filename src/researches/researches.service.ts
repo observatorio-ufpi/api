@@ -2773,16 +2773,10 @@ export class ResearchesService {
       item.receita.forEach((r) => {
         if (r.tipo === ItemReceitaTipos1920.TOTAL_RECEITA_IMPOSTOS) {
           totalReceitaImpostos = 0.25 * r.receitasRealizadaAteBimestre;
-          console.log(
-            item.codigoMunicipio + ':' + r.receitasRealizadaAteBimestre,
-            totalReceitaImpostos,
-          );
         }
       });
 
       const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(4));
-
-      console.log(item.codigoMunicipio, valorExigidoMde);
 
       const filteredReceita = item.receita.filter(
         (r) => r.tipo !== ItemReceitaTipos1920.TOTAL_RECEITA_IMPOSTOS,
@@ -3432,28 +3426,18 @@ export class ResearchesService {
         }
       });
 
-      if (item.codigoMunicipio == '220190') {
-        console.log(item);
-      }
-
       item.deducoesParaFinsLimiteFundeb.forEach((d) => {
         if (
           d.tipo ===
           DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO
         ) {
           deducoesFundeb60Porcento16_1 = d.valor;
-          console.log(
-            item.codigoMunicipio + ' ' + deducoesFundeb60Porcento16_1,
-          );
         }
         if (
           d.tipo ===
           DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO
         ) {
           deducoesFundeb60Porcento17_1 = d.valor;
-          console.log(
-            item.codigoMunicipio + ' ' + deducoesFundeb60Porcento17_1,
-          );
         }
       });
 

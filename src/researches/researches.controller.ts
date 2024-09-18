@@ -343,10 +343,10 @@ export class ResearchesController {
 
     // Combine todos os resultados em um único objeto ou array
     return {
-      additionalEducationRevenue,
       municipalOwnTaxesRevenue,
       constitutionalTransfersRevenue,
       municipalTaxesRevenue,
+      additionalEducationRevenue,
       fundebFundefComposition,
       fundebComplementation,
       constitutionalLimitMde,
