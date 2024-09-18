@@ -52,7 +52,7 @@ export const mapeamentoReceitas06: {
     ItemReceitaTipos06.RECEITA_DE_OPERACOES_DE_CREDITO_DESTINADAS_A_EDUCACAO,
   'Outras Receitas Destinadas à Educação':
     ItemReceitaTipos06.OUTRAS_RECEITAS_DESTINADAS_EDUCACAO,
-  'TOTAL DAS RECEITAS (VI)': ItemReceitaTipos06.TOTAL_RECEITAS,
+  'TOTAL DAS RECEITAS (VI) = (I + III - II)': ItemReceitaTipos06.TOTAL_RECEITAS,
 };
 
 export const mapeamentoDespesas06: {
@@ -88,7 +88,7 @@ export const mapeamentoDespesas06: {
     ItemDespesaTipos06.EDUCACAO_DE_JOVENS_E_ADULTOS,
   'EDUCAÇÃO ESPECIAL': ItemDespesaTipos06.EDUCACAO_ESPECIAL,
   'Outras Subfunções': ItemDespesaTipos06.OUTRAS_SUBFUNCOES,
-  'TOTAL DAS DESPESAS COM ENSINO POR SUBFUNÇÃO':
+  'TOTAL DAS DESPESAS COM ENSINO':
     ItemDespesaTipos06.TOTAL_DAS_DESPESAS_COM_ENSINO_POR_SUBFUNCAO,
 };
 
@@ -148,7 +148,7 @@ export const mapeamentoDeducoesDaDespesaTipo06: {
 export const mapeamentoPerdaGanhoTransferenciasFundebTipo06: {
   [key: string]: PerdaGanhoTransferenciasFundebTipo06;
 } = {
-  'PERDA NAS TRANSFERÊNCIAS DO FUNDEF':
+  'PERDA NAS TRANSFERÊNCIAS DO FUNDEF (XIII)':
     PerdaGanhoTransferenciasFundebTipo06.PERDA_NAS_TRANSFERENCIAS_DO_FUNDEF,
   'GANHO NAS TRANSFERÊNCIAS DO FUNDEF':
     PerdaGanhoTransferenciasFundebTipo06.GANHO_NAS_TRANSFERENCIAS_DO_FUNDEF,

@@ -255,7 +255,7 @@ async function seedDatabase06(
       return;
     }
 
-    console.log(municipioInfo);
+    // console.log(municipioInfo);
 
     const worksheet = workbook.getWorksheet(1);
 
@@ -295,7 +295,7 @@ async function seedDatabase06(
         tipoDeducoesDaDespesaEnum,
         tipoCompensacaoRestosAPagarEnum,
         tipoControleRestosAPagarVinculadosEducacaoEnum,
-        ///tipoPerdaGanhoTransferenciasFundebEnum,
+        // tipoPerdaGanhoTransferenciasFundebEnum,
       } = await findTypes06(relatorio, tipoReceitaDespesaLimpo);
 
       const {
@@ -381,6 +381,16 @@ async function seedDatabase06(
             relatorioMunicialId: relatorio.id,
           },
         });
+        // } else if (tipoPerdaGanhoTransferenciasFundebEnum) {
+        //   console.log('entrou perda e ganho');
+        //   await prisma.perdaGanhoTransferenciasFundeb06.create({
+        //     data: {
+        //       tipo: tipoPerdaGanhoTransferenciasFundebEnum,
+        //       valor: secondCellNumericValue,
+        //       relatorioMunicialId: relatorio.id,
+        //     },
+        //   });
+        // } else {
       } else {
         console.log(
           `Tipo de receita ou despesa desconhecido: ${tipoReceitaDespesaExcel}\n`,
@@ -419,7 +429,7 @@ async function seedDatabase0708(
       return;
     }
 
-    console.log(municipioInfo);
+   // console.log(municipioInfo);
 
     const worksheet = workbook.getWorksheet(1);
 
@@ -2106,7 +2116,7 @@ async function seedDatabase23(
 }
 
 function prepareString(str: string): string {
-  return str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  return str.replace(/[^a-zA-Z0-9()]/g, '').toLowerCase();
 }
 
 function isSimilar(a: string, b: string, tolerance: number): boolean {
@@ -2188,7 +2198,7 @@ async function findTypes06(
       },
     });
 
-    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !despesaExiste) {
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 3) && !despesaExiste) {
       tipoDespesaEnum = mapeamentoDespesas06[key];
       tipoJaDefinido = true;
       break;
@@ -2689,6 +2699,9 @@ async function findTypes1314(
   let tipoJaDefinido = false;
 
   for (const key in mapeamentoReceitas1314) {
+    if (tipoJaDefinido) {
+      break;
+    }
     const receitaExiste = await prisma.receita1314.findUnique({
       where: {
         relatorioMunicialId_tipo: {
@@ -2921,27 +2934,6 @@ async function findTypes1516(
     }
   }
 
-  for (const key in mapeamentoDeducoesParaFinsLimiteFundeb1516) {
-    if (tipoJaDefinido) {
-      break;
-    }
-    const deducaoExiste = await prisma.deducoesFinsLimiteFundeb1516.findUnique({
-      where: {
-        relatorioMunicialId_tipo: {
-          relatorioMunicialId: relatorio.id,
-          tipo: mapeamentoDeducoesParaFinsLimiteFundeb1516[key],
-        },
-      },
-    });
-
-    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !deducaoExiste) {
-      tipoDeducoesParaFinsLimiteFundebEnum =
-        mapeamentoDeducoesParaFinsLimiteFundeb1516[key];
-      tipoJaDefinido = true;
-      break;
-    }
-  }
-
   for (const key in mapeamentoIndicadoresFundeb1516) {
     if (tipoJaDefinido) {
       break;
@@ -3052,6 +3044,27 @@ async function findTypes1516(
     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !restoAPagarExiste) {
       tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum =
         mapeamentoRestosAPagarInscritosDisponibilidadesFinanceira1516[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoDeducoesParaFinsLimiteFundeb1516) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const deducaoExiste = await prisma.deducoesFinsLimiteFundeb1516.findUnique({
+      where: {
+        relatorioMunicialId_tipo: {
+          relatorioMunicialId: relatorio.id,
+          tipo: mapeamentoDeducoesParaFinsLimiteFundeb1516[key],
+        },
+      },
+    });
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 3) && !deducaoExiste) {
+      tipoDeducoesParaFinsLimiteFundebEnum =
+        mapeamentoDeducoesParaFinsLimiteFundeb1516[key];
       tipoJaDefinido = true;
       break;
     }

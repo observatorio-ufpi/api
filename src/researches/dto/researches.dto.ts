@@ -2,6 +2,11 @@ import { ApiPropertyOptional } from '@nestjs/swagger';
 import { FaixaPopulacional, Regioes } from '@prisma/client';
 import { IsEnum, IsOptional, IsString } from 'class-validator';
 
+export enum GroupType {
+  MUNICIPIO = 'municipio',
+  ANO = 'ano',
+}
+
 export class ResearchesFiltersDto {
   @IsOptional()
   @ApiPropertyOptional()
@@ -30,5 +35,5 @@ export class ResearchesFiltersDto {
   @IsOptional()
   @ApiPropertyOptional()
   @IsString()
-  gerenciaMunicipio?: string;
+  gerenciaRegionalMunicipio?: string;
 }

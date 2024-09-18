@@ -41,12 +41,13 @@ import {
   TabelaCumprimentoLimitesConstitucionaisTipo06,
 } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { GroupType } from './dto/researches.dto';
 
 @Injectable()
 export class ResearchesService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async municipalOwnTaxesRevenue(filters?: object) {
+  async municipalOwnTaxesRevenue(groupType: GroupType, filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -108,7 +109,7 @@ export class ResearchesService {
                   ItemReceitaTipos0912.IPTU_RECEITA_RESULTANTE,
                   ItemReceitaTipos0912.ITBI_RECEITA_RESULTANTE,
                   ItemReceitaTipos0912.ISS_RECEITA_RESULTANTE,
-                  ItemReceitaTipos0912.IRRF,
+                  ItemReceitaTipos0912.IRRF_RECEITA_RESULTANTE,
                   ItemReceitaTipos0912.ITR_RECEITA_RESULTANTE,
                   ItemReceitaTipos0912.RECEITA_DE_IMPOSTOS,
                 ],
@@ -332,102 +333,36 @@ export class ResearchesService {
 
     const revenues2123 = [...revenues2122, ...revenues23];
 
-    const groupedRevenues = {};
+    let groupedRevenues = {};
 
-    if (revenues06) {
-      revenues06.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues06: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues06) {
-          groupedRevenues[codigoMunicipio].revenues06 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues06.push(revenue);
-      });
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'revenues06', data: revenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'revenues09', data: revenues09 },
+        { key: 'revenues1014', data: revenues1014 },
+        { key: 'revenues1518', data: revenues1518 },
+        { key: 'revenues1920', data: revenues1920 },
+        { key: 'revenues2123', data: revenues2123 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByAno([
+        { key: 'revenues06', data: revenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'revenues09', data: revenues09 },
+        { key: 'revenues1014', data: revenues1014 },
+        { key: 'revenues1518', data: revenues1518 },
+        { key: 'revenues1920', data: revenues1920 },
+        { key: 'revenues2123', data: revenues2123 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
     }
 
-    if (revenues0708) {
-      revenues0708.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0708: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues0708) {
-          groupedRevenues[codigoMunicipio].revenues0708 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues0708.push(revenue);
-      });
-    }
-
-    if (revenues09) {
-      revenues09.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues09: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues09) {
-          groupedRevenues[codigoMunicipio].revenues09 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues09.push(revenue);
-      });
-    }
-
-    if (revenues1014) {
-      revenues1014.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1014: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1014) {
-          groupedRevenues[codigoMunicipio].revenues1014 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1014.push(revenue);
-      });
-    }
-
-    if (revenues1518) {
-      revenues1518.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1518: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1518) {
-          groupedRevenues[codigoMunicipio].revenues1518 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1518.push(revenue);
-      });
-    }
-
-    if (revenues1920) {
-      revenues1920.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1920: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1920) {
-          groupedRevenues[codigoMunicipio].revenues1920 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1920.push(revenue);
-      });
-    }
-
-    if (revenues2123) {
-      revenues2123.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues2123: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues2123) {
-          groupedRevenues[codigoMunicipio].revenues2123 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues2123.push(revenue);
-      });
-    }
     return groupedRevenues;
   }
 
-  async constitutionalTransfersRevenue(filters?: object) {
+  async constitutionalTransfersRevenue(groupType: GroupType, filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -464,7 +399,7 @@ export class ResearchesService {
           const valorCorrigido = (
             (r.receitasRealizadasNoAno / 85) *
             100
-          ).toFixed(2);
+          ).toFixed(4);
           return {
             tipo: 'FPM',
             receitasRealizadasNoAno: parseFloat(valorCorrigido),
@@ -473,7 +408,7 @@ export class ResearchesService {
           const valorCorrigido = (
             (r.receitasRealizadasNoAno / 85) *
             100
-          ).toFixed(2);
+          ).toFixed(4);
           return {
             tipo: 'COTA_PARTE_ICMS',
             receitasRealizadasNoAno: parseFloat(valorCorrigido),
@@ -485,7 +420,7 @@ export class ResearchesService {
           const valorCorrigido = (
             (r.receitasRealizadasNoAno / 85) *
             100
-          ).toFixed(2);
+          ).toFixed(4);
           return {
             tipo: 'ICMS_DESONERACAO',
             receitasRealizadasNoAno: parseFloat(valorCorrigido),
@@ -496,7 +431,7 @@ export class ResearchesService {
           const valorCorrigido = (
             (r.receitasRealizadasNoAno / 85) *
             100
-          ).toFixed(2);
+          ).toFixed(4);
           return {
             tipo: 'IPI_EXPORTACAO',
             receitasRealizadasNoAno: parseFloat(valorCorrigido),
@@ -766,64 +701,30 @@ export class ResearchesService {
 
     const revenues2123 = [...revenues2122, ...revenues23];
 
-    const groupedRevenues = {};
+    let groupedRevenues = {};
 
-    if (modifiedRevenues06) {
-      modifiedRevenues06.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues06: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues06) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues06 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues06.push(revenue);
-      });
-    }
-
-    if (revenues0714) {
-      revenues0714.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0714: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues0714) {
-          groupedRevenues[codigoMunicipio].revenues0714 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues0714.push(revenue);
-      });
-    }
-
-    if (revenues1520) {
-      revenues1520.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1520: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1520) {
-          groupedRevenues[codigoMunicipio].revenues1520 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1520.push(revenue);
-      });
-    }
-
-    if (revenues2123) {
-      revenues2123.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues2123: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues2123) {
-          groupedRevenues[codigoMunicipio].revenues2123 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues2123.push(revenue);
-      });
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'revenues0714', data: revenues0714 },
+        { key: 'revenues1520', data: revenues1520 },
+        { key: 'revenues2123', data: revenues2123 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByAno([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'revenues0714', data: revenues0714 },
+        { key: 'revenues1520', data: revenues1520 },
+        { key: 'revenues2123', data: revenues2123 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
     }
 
     return groupedRevenues;
   }
 
-  async municipalTaxesRevenue(filters?: object) {
+  async municipalTaxesRevenue(groupType: GroupType, filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -1063,64 +964,33 @@ export class ResearchesService {
 
     const revenues2123 = [...revenues2122, ...revenues23];
 
-    const groupedRevenues = {};
+    let groupedRevenues = {};
 
-    if (revenues06) {
-      revenues06.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues06: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues06) {
-          groupedRevenues[codigoMunicipio].revenues06 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues06.push(revenue);
-      });
-    }
-
-    if (revenues0714) {
-      revenues0714.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0714: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues0714) {
-          groupedRevenues[codigoMunicipio].revenues0714 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues0714.push(revenue);
-      });
-    }
-
-    if (revenues1520) {
-      revenues1520.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1520: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1520) {
-          groupedRevenues[codigoMunicipio].revenues1520 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1520.push(revenue);
-      });
-    }
-
-    if (revenues2123) {
-      revenues2123.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues2123: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues2123) {
-          groupedRevenues[codigoMunicipio].revenues2123 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues2123.push(revenue);
-      });
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'revenues06', data: revenues06 },
+        { key: 'revenues0714', data: revenues0714 },
+        { key: 'revenues1520', data: revenues1520 },
+        { key: 'revenues2123', data: revenues2123 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByAno([
+        { key: 'revenues06', data: revenues06 },
+        { key: 'revenues0714', data: revenues0714 },
+        { key: 'revenues1520', data: revenues1520 },
+        { key: 'revenues2123', data: revenues2123 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
     }
 
     return groupedRevenues;
   }
 
-  async additionalMunicipalEducationRevenue(filters?: object) {
+  async additionalMunicipalEducationRevenue(
+    groupType: GroupType,
+    filters?: object,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -1165,7 +1035,7 @@ export class ResearchesService {
         }
       });
 
-      totalValue = parseFloat(totalValue.toFixed(2));
+      totalValue = parseFloat(totalValue.toFixed(4));
 
       return {
         ...item,
@@ -1220,7 +1090,7 @@ export class ResearchesService {
                   ItemReceitaTipos0912.TRANSFERENCIAS_SALARIO_EDUCACAO,
                   ItemReceitaTipos0912.OUTRAS_TRANSFERENCIAS_FNDE,
                   ItemReceitaTipos0912.APLICACAO_FINANCEIRA_FNDE,
-                  ItemReceitaTipos0912.TRANSFERENCIAS_CONVENIOS,
+                  ItemReceitaTipos0912.RECEITA_TRANSFERENCIAS_CONVENIOS,
                   ItemReceitaTipos0912.RECEITA_OPERACOES_CREDITO,
                   ItemReceitaTipos0912.OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO,
                   ItemReceitaTipos0912.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
@@ -1253,7 +1123,7 @@ export class ResearchesService {
                   ItemReceitaTipos1314.TRANSFERENCIAS_DIRETAS_PDDE,
                   ItemReceitaTipos1314.TRANSFERENCIAS_DIRETAS_PNAE,
                   ItemReceitaTipos1314.TRANSFERENCIAS_DIRETAS_PNATE,
-                  ItemReceitaTipos1314.TRANSFERENCIAS_CONVENIOS,
+                  ItemReceitaTipos1314.RECEITA_TRANSFERENCIAS_CONVENIOS,
                   ItemReceitaTipos1314.RECEITA_OPERACOES_CREDITO,
                   ItemReceitaTipos1314.OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO,
                   ItemReceitaTipos1314.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
@@ -1286,7 +1156,7 @@ export class ResearchesService {
                   ItemReceitaTipos1516.TRANSFERENCIAS_DIRETAS_PDDE,
                   ItemReceitaTipos1516.TRANSFERENCIAS_DIRETAS_PNAE,
                   ItemReceitaTipos1516.TRANSFERENCIAS_DIRETAS_PNATE,
-                  ItemReceitaTipos1516.TRANSFERENCIAS_CONVENIOS,
+                  ItemReceitaTipos1516.RECEITA_TRANSFERENCIAS_CONVENIOS,
                   ItemReceitaTipos1516.RECEITA_OPERACOES_CREDITO,
                   ItemReceitaTipos1516.OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO,
                   ItemReceitaTipos1516.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
@@ -1319,7 +1189,7 @@ export class ResearchesService {
                   ItemReceitaTipos1718.TRANSFERENCIAS_DIRETAS_PDDE,
                   ItemReceitaTipos1718.TRANSFERENCIAS_DIRETAS_PNAE,
                   ItemReceitaTipos1718.TRANSFERENCIAS_DIRETAS_PNATE,
-                  ItemReceitaTipos1718.TRANSFERENCIAS_CONVENIOS,
+                  ItemReceitaTipos1718.RECEITA_TRANSFERENCIAS_CONVENIOS,
                   ItemReceitaTipos1718.RECEITA_OPERACOES_CREDITO,
                   ItemReceitaTipos1718.OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO,
                   ItemReceitaTipos1718.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
@@ -1352,7 +1222,7 @@ export class ResearchesService {
                   ItemReceitaTipos1920.TRANSFERENCIAS_DIRETAS_PDDE,
                   ItemReceitaTipos1920.TRANSFERENCIAS_DIRETAS_PNAE,
                   ItemReceitaTipos1920.TRANSFERENCIAS_DIRETAS_PNATE,
-                  ItemReceitaTipos1920.TRANSFERENCIAS_CONVENIOS,
+                  ItemReceitaTipos1920.RECEITA_TRANSFERENCIAS_CONVENIOS,
                   ItemReceitaTipos1920.RECEITA_OPERACOES_CREDITO,
                   ItemReceitaTipos1920.OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO,
                   ItemReceitaTipos1920.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
@@ -1438,103 +1308,39 @@ export class ResearchesService {
       },
     });
 
-    const groupedRevenues = {};
+    let groupedRevenues = {};
 
-    if (modifiedRevenues06) {
-      modifiedRevenues06.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues06: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues06) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues06 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues06.push(revenue);
-      });
-    }
-
-    if (revenues0708) {
-      revenues0708.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0708: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues0708) {
-          groupedRevenues[codigoMunicipio].revenues0708 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues0708.push(revenue);
-      });
-    }
-
-    if (revenues0912) {
-      revenues0912.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0912: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues0912) {
-          groupedRevenues[codigoMunicipio].revenues0912 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues0912.push(revenue);
-      });
-    }
-
-    if (revenues1314) {
-      revenues1314.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1314: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1314) {
-          groupedRevenues[codigoMunicipio].revenues1314 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1314.push(revenue);
-      });
-    }
-
-    if (revenues1520) {
-      revenues1520.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1520: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1520) {
-          groupedRevenues[codigoMunicipio].revenues1520 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1520.push(revenue);
-      });
-    }
-
-    if (revenues2122) {
-      revenues2122.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues2122: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues2122) {
-          groupedRevenues[codigoMunicipio].revenues2122 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues2122.push(revenue);
-      });
-    }
-
-    if (revenues23) {
-      revenues23.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues23: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues23) {
-          groupedRevenues[codigoMunicipio].revenues23 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues23.push(revenue);
-      });
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'revenues0912', data: revenues0912 },
+        { key: 'revenues1314', data: revenues1314 },
+        { key: 'revenues1520', data: revenues1520 },
+        { key: 'revenues2122', data: revenues2122 },
+        { key: 'revenues23', data: revenues23 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'revenues0912', data: revenues0912 },
+        { key: 'revenues1314', data: revenues1314 },
+        { key: 'revenues1520', data: revenues1520 },
+        { key: 'revenues2122', data: revenues2122 },
+        { key: 'revenues23', data: revenues23 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
     }
 
     return groupedRevenues;
   }
 
-  async municipalFundebFundefComposition(filters?: object) {
+  async municipalFundebFundefComposition(
+    groupType: GroupType,
+    filters?: object,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -1583,8 +1389,8 @@ export class ResearchesService {
       });
 
       // Arredondar os valores para duas casas decimais
-      resultadoLiquido = parseFloat(resultadoLiquido.toFixed(2));
-      totalFunDeb = parseFloat(totalFunDeb.toFixed(2));
+      resultadoLiquido = parseFloat(resultadoLiquido.toFixed(4));
+      totalFunDeb = parseFloat(totalFunDeb.toFixed(4));
 
       // Adicionar os novos objetos ao array de receitas
       return {
@@ -1838,9 +1644,9 @@ export class ResearchesService {
       });
 
       // Arredondar os valores para duas casas decimais
-      complementacaoUniao = parseFloat(complementacaoUniao.toFixed(2));
+      complementacaoUniao = parseFloat(complementacaoUniao.toFixed(4));
       receitaAplicacaoFinanceira = parseFloat(
-        receitaAplicacaoFinanceira.toFixed(2),
+        receitaAplicacaoFinanceira.toFixed(4),
       );
 
       // Filtrar para remover os tipos usados no cálculo
@@ -1942,12 +1748,12 @@ export class ResearchesService {
       });
 
       // Arredondar os valores para duas casas decimais
-      complementacaoUniao = parseFloat(complementacaoUniao.toFixed(2));
+      complementacaoUniao = parseFloat(complementacaoUniao.toFixed(4));
       receitaAplicacaoFinanceira = parseFloat(
-        receitaAplicacaoFinanceira.toFixed(2),
+        receitaAplicacaoFinanceira.toFixed(4),
       );
       ressarcimentoRecursosFundeb = parseFloat(
-        ressarcimentoRecursosFundeb.toFixed(2),
+        ressarcimentoRecursosFundeb.toFixed(4),
       );
 
       // Filtrar para remover os tipos usados no cálculo
@@ -1987,90 +1793,34 @@ export class ResearchesService {
       };
     });
 
-    const groupedRevenues = {};
+    let groupedRevenues = {};
 
-    if (modifiedRevenues06) {
-      modifiedRevenues06.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues06: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues06) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues06 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues06.push(revenue);
-      });
-    }
-
-    if (revenues0708) {
-      revenues0708.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0708: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues0708) {
-          groupedRevenues[codigoMunicipio].revenues0708 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues0708.push(revenue);
-      });
-    }
-
-    if (revenues0914) {
-      revenues0914.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0914: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues0914) {
-          groupedRevenues[codigoMunicipio].revenues0914 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues0914.push(revenue);
-      });
-    }
-
-    if (revenues1520) {
-      revenues1520.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1520: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1520) {
-          groupedRevenues[codigoMunicipio].revenues1520 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1520.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues2122) {
-      modifiedRevenues2122.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues2122: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues2122) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues2122 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues2122.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues23) {
-      modifiedRevenues23.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues23: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues23) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues23 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues23.push(revenue);
-      });
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'revenues0914', data: revenues0914 },
+        { key: 'revenues1520', data: revenues1520 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByAno([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'revenues0914', data: revenues0914 },
+        { key: 'revenues1520', data: revenues1520 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
     }
 
     return groupedRevenues;
   }
 
-  async complementationFundebFundef(filters?: object) {
+  async complementationFundebFundef(groupType: GroupType, filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -2102,7 +1852,7 @@ export class ResearchesService {
       });
 
       // Arredondar o totalValue para duas casas decimais
-      totalValue = parseFloat(totalValue.toFixed(2));
+      totalValue = parseFloat(totalValue.toFixed(4));
 
       return {
         ...item,
@@ -2148,7 +1898,7 @@ export class ResearchesService {
       });
 
       // Arredondar o totalValue para duas casas decimais
-      totalValue = parseFloat(totalValue.toFixed(2));
+      totalValue = parseFloat(totalValue.toFixed(4));
 
       return {
         ...item,
@@ -2194,7 +1944,7 @@ export class ResearchesService {
       });
 
       // Arredondar o totalValue para duas casas decimais
-      totalValue = parseFloat(totalValue.toFixed(2));
+      totalValue = parseFloat(totalValue.toFixed(4));
 
       return {
         ...item,
@@ -2240,7 +1990,7 @@ export class ResearchesService {
       });
 
       // Arredondar o totalValue para duas casas decimais
-      totalValue = parseFloat(totalValue.toFixed(2));
+      totalValue = parseFloat(totalValue.toFixed(4));
 
       return {
         ...item,
@@ -2291,7 +2041,7 @@ export class ResearchesService {
       });
 
       // Arredondar o totalValue para duas casas decimais
-      totalValue = parseFloat(totalValue.toFixed(2));
+      totalValue = parseFloat(totalValue.toFixed(4));
 
       return {
         ...item,
@@ -2337,7 +2087,7 @@ export class ResearchesService {
       });
 
       // Arredondar o totalValue para duas casas decimais
-      totalValue = parseFloat(totalValue.toFixed(2));
+      totalValue = parseFloat(totalValue.toFixed(4));
 
       return {
         ...item,
@@ -2383,7 +2133,7 @@ export class ResearchesService {
       });
 
       // Arredondar o totalValue para duas casas decimais
-      totalValue = parseFloat(totalValue.toFixed(2));
+      totalValue = parseFloat(totalValue.toFixed(4));
 
       return {
         ...item,
@@ -2442,7 +2192,7 @@ export class ResearchesService {
       });
 
       // Arredondar o totalValue para duas casas decimais
-      totalValue = parseFloat(totalValue.toFixed(2));
+      totalValue = parseFloat(totalValue.toFixed(4));
 
       return {
         ...item,
@@ -2494,7 +2244,7 @@ export class ResearchesService {
         }
       });
 
-      totalValue = parseFloat(totalValue.toFixed(2));
+      totalValue = parseFloat(totalValue.toFixed(4));
 
       return {
         ...item,
@@ -2508,90 +2258,37 @@ export class ResearchesService {
       };
     });
 
-    const groupedRevenues = {};
+    let groupedRevenues = {};
 
-    if (modifiedRevenues06) {
-      modifiedRevenues06.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues06: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues06) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues06 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues06.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues0708) {
-      modifiedRevenues0708.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues0708: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues0708) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues0708 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues0708.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues0914) {
-      modifiedRevenues0914.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues0914: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues0914) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues0914 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues0914.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues1520) {
-      modifiedRevenues1520.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues1520: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues1520) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues1520 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues1520.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues2122) {
-      modifiedRevenues2122.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues2122: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues2122) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues2122 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues2122.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues23) {
-      modifiedRevenues23.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues23: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues23) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues23 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues23.push(revenue);
-      });
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'modifiedRevenues0708', data: modifiedRevenues0708 },
+        { key: 'modifiedRevenues0914', data: modifiedRevenues0914 },
+        { key: 'modifiedRevenues1520', data: modifiedRevenues1520 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByAno([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'modifiedRevenues0708', data: modifiedRevenues0708 },
+        { key: 'modifiedRevenues0914', data: modifiedRevenues0914 },
+        { key: 'modifiedRevenues1520', data: modifiedRevenues1520 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
     }
 
     return groupedRevenues;
   }
 
-  async municipalConstitutionalLimitMde(filters?: object) {
+  async municipalConstitutionalLimitMde(
+    groupType: GroupType,
+    filters?: object,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -2632,7 +2329,7 @@ export class ResearchesService {
 
       item.receita.forEach((r) => {
         if (r.tipo === ItemReceitaTipos06.RECEITA_RESULTANTE_DE_IMPOSTOS) {
-          receitaResultanteDeImpostos = r.receitasRealizadasNoAno;
+          receitaResultanteDeImpostos = r.receitasRealizadasNoAno * 0.25;
         }
       });
 
@@ -2646,13 +2343,13 @@ export class ResearchesService {
       });
 
       const valorExigidoMde = parseFloat(
-        receitaResultanteDeImpostos.toFixed(2),
+        receitaResultanteDeImpostos.toFixed(4),
       );
       const valorAplicadoMde = parseFloat(
         (
           (receitaResultanteDeImpostos / 100) *
           minimo25PorcentoDasReceitasResultantesDeImpostos
-        ).toFixed(2),
+        ).toFixed(4),
       );
 
       const filteredReceitas = item.receita.filter(
@@ -2749,7 +2446,7 @@ export class ResearchesService {
         (
           totalDespesasComAcoesTipicasMde -
           totalDeducoesAdicoesParaFinsDeLimiteConstitucional
-        ).toFixed(2),
+        ).toFixed(4),
       );
 
       const filteredDespesa = item.despesa.filter(
@@ -2821,7 +2518,7 @@ export class ResearchesService {
         }
       });
 
-      const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(2));
+      const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(4));
 
       const filteredReceita = item.receita.filter(
         (r) => r.tipo !== ItemReceitaTipos0912.TOTAL_RECEITA_IMPOSTOS,
@@ -2884,7 +2581,7 @@ export class ResearchesService {
         }
       });
 
-      const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(2));
+      const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(4));
 
       const filteredReceita = item.receita.filter(
         (r) => r.tipo !== ItemReceitaTipos1314.TOTAL_RECEITA_IMPOSTOS,
@@ -2947,7 +2644,7 @@ export class ResearchesService {
         }
       });
 
-      const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(2));
+      const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(4));
 
       const filteredReceita = item.receita.filter(
         (r) => r.tipo !== ItemReceitaTipos1516.TOTAL_RECEITA_IMPOSTOS,
@@ -2965,7 +2662,7 @@ export class ResearchesService {
       };
     });
 
-    const modifiedRenevues0916 = [
+    const modifiedRevenues0916 = [
       ...modifiedRevenues0912,
       ...modifiedRevenues1314,
       ...modifiedRevenues1516,
@@ -3016,7 +2713,7 @@ export class ResearchesService {
         }
       });
 
-      const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(2));
+      const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(4));
 
       const filteredReceita = item.receita.filter(
         (r) => r.tipo !== ItemReceitaTipos1718.TOTAL_RECEITA_IMPOSTOS,
@@ -3076,10 +2773,16 @@ export class ResearchesService {
       item.receita.forEach((r) => {
         if (r.tipo === ItemReceitaTipos1920.TOTAL_RECEITA_IMPOSTOS) {
           totalReceitaImpostos = 0.25 * r.receitasRealizadaAteBimestre;
+          console.log(
+            item.codigoMunicipio + ':' + r.receitasRealizadaAteBimestre,
+            totalReceitaImpostos,
+          );
         }
       });
 
-      const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(2));
+      const valorExigidoMde = parseFloat(totalReceitaImpostos.toFixed(4));
+
+      console.log(item.codigoMunicipio, valorExigidoMde);
 
       const filteredReceita = item.receita.filter(
         (r) => r.tipo !== ItemReceitaTipos1920.TOTAL_RECEITA_IMPOSTOS,
@@ -3140,9 +2843,9 @@ export class ResearchesService {
         }
       });
 
-      valorExigidoMde = parseFloat(valorExigidoMde.toFixed(2));
-      valorAplicadoMde = parseFloat(valorAplicadoMde.toFixed(2));
-      percentualAplicadoMde = parseFloat(percentualAplicadoMde.toFixed(2));
+      valorExigidoMde = parseFloat(valorExigidoMde.toFixed(4));
+      valorAplicadoMde = parseFloat(valorAplicadoMde.toFixed(4));
+      percentualAplicadoMde = parseFloat(percentualAplicadoMde.toFixed(4));
 
       const filteredApuracao = item.apuracaoLimiteMinimoConstitucional.filter(
         (r) =>
@@ -3211,8 +2914,8 @@ export class ResearchesService {
         }
       });
 
-      valorExigidoMde = parseFloat(valorExigidoMde.toFixed(2));
-      valorAplicadoMde = parseFloat(valorAplicadoMde.toFixed(2));
+      valorExigidoMde = parseFloat(valorExigidoMde.toFixed(4));
+      valorAplicadoMde = parseFloat(valorAplicadoMde.toFixed(4));
 
       const filteredApuracao = item.apuracaoLimiteMinimoConstitucional.filter(
         (r) =>
@@ -3240,103 +2943,36 @@ export class ResearchesService {
       };
     });
 
-    const groupedRevenues = {};
+    let groupedRevenues = {};
 
-    if (modifiedRevenues06) {
-      modifiedRevenues06.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues06: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues06) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues06 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues06.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues0708) {
-      modifiedRevenues0708.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues0708: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues0708) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues0708 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues0708.push(revenue);
-      });
-    }
-
-    if (modifiedRenevues0916) {
-      modifiedRenevues0916.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRenevues0916: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRenevues0916) {
-          groupedRevenues[codigoMunicipio].modifiedRenevues0916 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRenevues0916.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues1718) {
-      modifiedRevenues1718.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues1718: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues1718) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues1718 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues1718.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues1920) {
-      modifiedRevenues1920.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues1920: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues1920) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues1920 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues1920.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues2122) {
-      modifiedRevenues2122.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues2122: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues2122) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues2122 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues2122.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues23) {
-      modifiedRevenues23.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues23: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues23) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues23 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues23.push(revenue);
-      });
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'modifiedRevenues0708', data: modifiedRevenues0708 },
+        { key: 'modifiedRevenues0916', data: modifiedRevenues0916 },
+        { key: 'modifiedRevenues1718', data: modifiedRevenues1718 },
+        { key: 'modifiedRevenues1920', data: modifiedRevenues1920 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByAno([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'modifiedRevenues0708', data: modifiedRevenues0708 },
+        { key: 'modifiedRevenues0916', data: modifiedRevenues0916 },
+        { key: 'modifiedRevenues1718', data: modifiedRevenues1718 },
+        { key: 'modifiedRevenues1920', data: modifiedRevenues1920 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
     }
 
     return groupedRevenues;
   }
 
-  async expensesBasicEducationFundeb(filters?: object) {
+  async expensesBasicEducationFundeb(groupType: GroupType, filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -3475,7 +3111,7 @@ export class ResearchesService {
         (
           fundebPagamentoProfissionaisMagisterio -
           totalDeducoesParaFinsLimiteFundeb
-        ).toFixed(2),
+        ).toFixed(4),
       );
 
       // Remove os tipos que foram usados no cálculo
@@ -3554,10 +3190,6 @@ export class ResearchesService {
         },
       });
 
-    revenues1314.forEach((item) => {
-      console.log(item);
-    });
-
     const modifiedRevenues1314 = revenues1314.map((item) => {
       let fundebPagamentoProfissionaisMagisterio = 0;
       let deducoesFundeb60Porcento16_1 = 0;
@@ -3590,7 +3222,7 @@ export class ResearchesService {
         (
           fundebPagamentoProfissionaisMagisterio -
           (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
-        ).toFixed(2),
+        ).toFixed(4),
       );
 
       // Remove os tipos que foram usados no cálculo
@@ -3704,7 +3336,7 @@ export class ResearchesService {
         (
           fundebPagamentoProfissionaisMagisterio -
           (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
-        ).toFixed(2),
+        ).toFixed(4),
       );
 
       // Remove os tipos que foram usados no cálculo
@@ -3800,18 +3432,28 @@ export class ResearchesService {
         }
       });
 
+      if (item.codigoMunicipio == '220190') {
+        console.log(item);
+      }
+
       item.deducoesParaFinsLimiteFundeb.forEach((d) => {
         if (
           d.tipo ===
           DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO
         ) {
           deducoesFundeb60Porcento16_1 = d.valor;
+          console.log(
+            item.codigoMunicipio + ' ' + deducoesFundeb60Porcento16_1,
+          );
         }
         if (
           d.tipo ===
           DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO
         ) {
           deducoesFundeb60Porcento17_1 = d.valor;
+          console.log(
+            item.codigoMunicipio + ' ' + deducoesFundeb60Porcento17_1,
+          );
         }
       });
 
@@ -3819,7 +3461,7 @@ export class ResearchesService {
         (
           fundebPagamentoProfissionaisMagisterio -
           (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
-        ).toFixed(2),
+        ).toFixed(4),
       );
 
       // Remove os tipos que foram usados no cálculo
@@ -3934,7 +3576,7 @@ export class ResearchesService {
         (
           fundebPagamentoProfissionaisMagisterio -
           (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
-        ).toFixed(2),
+        ).toFixed(4),
       );
 
       // Remove os tipos que foram usados no cálculo
@@ -4011,10 +3653,10 @@ export class ResearchesService {
       });
 
       despesasProfissionaisEducacaoBasica = parseFloat(
-        despesasProfissionaisEducacaoBasica.toFixed(2),
+        despesasProfissionaisEducacaoBasica.toFixed(4),
       );
       porcentagemAplicadoProfissionaisEducacaoBasica = parseFloat(
-        porcentagemAplicadoProfissionaisEducacaoBasica.toFixed(2),
+        porcentagemAplicadoProfissionaisEducacaoBasica.toFixed(4),
       );
 
       const filteredReceita = item.indicadoresArt212.filter(
@@ -4078,10 +3720,10 @@ export class ResearchesService {
       });
 
       despesasProfissionaisEducacaoBasica = parseFloat(
-        despesasProfissionaisEducacaoBasica.toFixed(2),
+        despesasProfissionaisEducacaoBasica.toFixed(4),
       );
       porcentagemAplicadoProfissionaisEducacaoBasica = parseFloat(
-        porcentagemAplicadoProfissionaisEducacaoBasica.toFixed(2),
+        porcentagemAplicadoProfissionaisEducacaoBasica.toFixed(4),
       );
 
       const filteredReceita = item.indicadoresArt212.filter(
@@ -4106,103 +3748,36 @@ export class ResearchesService {
       };
     });
 
-    const groupedRevenues = {};
+    let groupedRevenues = {};
 
-    if (revenues06) {
-      revenues06.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues06: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues06) {
-          groupedRevenues[codigoMunicipio].revenues06 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues06.push(revenue);
-      });
-    }
-
-    if (revenues0708) {
-      revenues0708.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0708: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues0708) {
-          groupedRevenues[codigoMunicipio].revenues0708 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues0708.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues0912) {
-      modifiedRevenues0912.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues0912: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues0912) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues0912 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues0912.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues1314) {
-      modifiedRevenues1314.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues1314: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues1314) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues1314 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues1314.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues1520) {
-      modifiedRevenues1520.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues1520: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues1520) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues1520 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues1520.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues2122) {
-      modifiedRevenues2122.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues2122: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues2122) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues2122 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues2122.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues23) {
-      modifiedRevenues23.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues23: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues23) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues23 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues23.push(revenue);
-      });
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'revenues06', data: revenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'modifiedRenevues0912', data: modifiedRevenues0912 },
+        { key: 'modifiedRenevues1314', data: modifiedRevenues1314 },
+        { key: 'modifiedRevenues1520', data: modifiedRevenues1520 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByAno([
+        { key: 'revenues06', data: revenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'modifiedRenevues0912', data: modifiedRevenues0912 },
+        { key: 'modifiedRenevues1314', data: modifiedRevenues1314 },
+        { key: 'modifiedRevenues1520', data: modifiedRevenues1520 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
     }
 
     return groupedRevenues;
   }
 
-  async expensesAreasOfActivityMde(filters?: object) {
+  async expensesAreasOfActivityMde(groupType: GroupType, filters?: object) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -4219,7 +3794,7 @@ export class ResearchesService {
                 ItemDespesaTipos06.EDUCACAO_DE_JOVENS_E_ADULTOS,
                 ItemDespesaTipos06.ENSINO_PROFISSIONAL,
                 ItemDespesaTipos06.OUTRAS_SUBFUNCOES,
-                ItemDespesaTipos06.TOTAL_DAS_DESPESAS_COM_ENSINO,
+                ItemDespesaTipos06.TOTAL_DAS_DESPESAS_COM_ENSINO_POR_SUBFUNCAO,
               ],
             },
           },
@@ -4530,11 +4105,11 @@ export class ResearchesService {
       });
 
       // Arredondar os valores para duas casas decimais
-      totalEducacaoInfantil = parseFloat(totalEducacaoInfantil.toFixed(2));
-      totalCreche = parseFloat(totalCreche.toFixed(2));
-      totalPreEscola = parseFloat(totalPreEscola.toFixed(2));
-      totalEnsinoFundamental = parseFloat(totalEnsinoFundamental.toFixed(2));
-      totalGeral = parseFloat(totalGeral.toFixed(2));
+      totalEducacaoInfantil = parseFloat(totalEducacaoInfantil.toFixed(4));
+      totalCreche = parseFloat(totalCreche.toFixed(4));
+      totalPreEscola = parseFloat(totalPreEscola.toFixed(4));
+      totalEnsinoFundamental = parseFloat(totalEnsinoFundamental.toFixed(4));
+      totalGeral = parseFloat(totalGeral.toFixed(4));
 
       // Filtrar para remover os tipos usados no cálculo
       const filteredDespesas = item.despesa.filter(
@@ -4658,9 +4233,9 @@ export class ResearchesService {
       });
 
       // Arredondar os valores para duas casas decimais
-      totalEducacaoInfantil = parseFloat(totalEducacaoInfantil.toFixed(2));
-      totalEnsinoFundamental = parseFloat(totalEnsinoFundamental.toFixed(2));
-      totalGeral = parseFloat(totalGeral.toFixed(2));
+      totalEducacaoInfantil = parseFloat(totalEducacaoInfantil.toFixed(4));
+      totalEnsinoFundamental = parseFloat(totalEnsinoFundamental.toFixed(4));
+      totalGeral = parseFloat(totalGeral.toFixed(4));
 
       // Filtrar para remover os tipos usados no cálculo
       const filteredDespesas = item.despesa.filter(
@@ -4695,116 +4270,41 @@ export class ResearchesService {
       };
     });
 
-    const groupedRevenues = {};
+    let groupedRevenues = {};
 
-    if (revenues06) {
-      revenues06.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues06: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues06) {
-          groupedRevenues[codigoMunicipio].revenues06 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues06.push(revenue);
-      });
-    }
-
-    if (revenues0708) {
-      revenues0708.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0708: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues0708) {
-          groupedRevenues[codigoMunicipio].revenues0708 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues0708.push(revenue);
-      });
-    }
-
-    if (revenues0912) {
-      revenues0912.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues0912: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues0912) {
-          groupedRevenues[codigoMunicipio].revenues0912 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues0912.push(revenue);
-      });
-    }
-
-    if (revenues1314) {
-      revenues1314.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1314: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1314) {
-          groupedRevenues[codigoMunicipio].revenues1314 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1314.push(revenue);
-      });
-    }
-
-    if (revenues1516) {
-      revenues1516.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1516: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1516) {
-          groupedRevenues[codigoMunicipio].revenues1516 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1516.push(revenue);
-      });
-    }
-
-    if (revenues1720) {
-      revenues1720.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { revenues1720: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].revenues1720) {
-          groupedRevenues[codigoMunicipio].revenues1720 = [];
-        }
-        groupedRevenues[codigoMunicipio].revenues1720.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues2122) {
-      modifiedRevenues2122.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues2122: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues2122) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues2122 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues2122.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues23) {
-      modifiedRevenues23.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues23: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues23) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues23 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues2122.push(revenue);
-      });
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'revenues06', data: revenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'revenues0912', data: revenues0912 },
+        { key: 'revenues1314', data: revenues1314 },
+        { key: 'revenues1516', data: revenues1516 },
+        { key: 'revenues1720', data: revenues1720 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByAno([
+        { key: 'revenues06', data: revenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'revenues0912', data: revenues0912 },
+        { key: 'revenues1314', data: revenues1314 },
+        { key: 'revenues1516', data: revenues1516 },
+        { key: 'revenues1720', data: revenues1720 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
     }
 
     return groupedRevenues;
   }
 
-  async municipalBasicEducationMinimalPotentialRevenue(filters?: object) {
+  async municipalBasicEducationMinimalPotentialRevenue(
+    groupType: GroupType,
+    filters?: object,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -4837,6 +4337,7 @@ export class ResearchesService {
       let receitaLiquidaImpostosMDE = 0;
       let total = 0;
       let totalDeductions = 0;
+      let totalAdditions = 0;
 
       item.receita.forEach((r) => {
         if (r.tipo === ItemReceitaTipos06.RECEITA_RESULTANTE_DE_IMPOSTOS) {
@@ -4844,23 +4345,28 @@ export class ResearchesService {
         } else if (
           [
             ItemReceitaTipos06.PARCELA_TRANSFERENCIAS_DESTINADAS_A_FORMACAO_DO_FUNDEF,
+          ].includes(r.tipo as any)
+        ) {
+          totalDeductions += r.receitasRealizadasNoAno;
+        } else if (
+          [
             ItemReceitaTipos06.TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEF,
             ItemReceitaTipos06.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEF,
             ItemReceitaTipos06.TRANSFERENCIAS_DO_SALARIO_EDUCACAO,
             ItemReceitaTipos06.OUTRAS_TRANSFERENCIAS_DO_FNDE,
           ].includes(r.tipo as any)
         ) {
-          totalDeductions += r.receitasRealizadasNoAno;
+          totalAdditions += r.receitasRealizadasNoAno;
         }
       });
 
-      total = receitaLiquidaImpostosMDE - totalDeductions;
+      total = receitaLiquidaImpostosMDE - totalDeductions + totalAdditions;
 
       // Arredondar os valores para duas casas decimais
       receitaLiquidaImpostosMDE = parseFloat(
-        receitaLiquidaImpostosMDE.toFixed(2),
+        receitaLiquidaImpostosMDE.toFixed(4),
       );
-      total = parseFloat(total.toFixed(2));
+      total = parseFloat(total.toFixed(4));
 
       // Filtrar para remover o tipo RECEITA_RESULTANTE_DE_IMPOSTOS
       const filteredReceita = item.receita.filter(
@@ -4915,6 +4421,7 @@ export class ResearchesService {
     const modifiedRevenues0708 = revenues0708.map((item) => {
       let impostosETransferenciasMDE = 0;
       let totalDeductions = 0;
+      let totalAdditions = 0;
       let total = 0;
 
       item.receita.forEach((r) => {
@@ -4924,21 +4431,26 @@ export class ResearchesService {
         ) {
           impostosETransferenciasMDE = r.receitasRealizadasNoAno;
         } else if (
+          [ItemReceitaTipos0708.RECEITAS_DESTINADAS_AO_FUNDEB].includes(
+            r.tipo as any,
+          )
+        ) {
+          totalDeductions += r.receitasRealizadasNoAno;
+        } else if (
           [
-            ItemReceitaTipos0708.RECEITAS_DESTINADAS_AO_FUNDEB,
             ItemReceitaTipos0708.TRANSFERENCIAS_RECURSOS_FUNDEB,
             ItemReceitaTipos0708.COMPLEMENTACAO_UNIAO_FUNDEB,
             ItemReceitaTipos0708.TRANSFERENCIAS_SALARIO_EDUCACAO,
             ItemReceitaTipos0708.OUTRAS_TRANSFERENCIAS_FNDE,
           ].includes(r.tipo as any)
         ) {
-          totalDeductions += r.receitasRealizadasNoAno;
+          totalAdditions += r.receitasRealizadasNoAno;
         }
       });
 
-      total = impostosETransferenciasMDE - totalDeductions;
+      total = impostosETransferenciasMDE - totalDeductions + totalAdditions;
 
-      total = parseFloat(total.toFixed(2));
+      total = parseFloat(total.toFixed(4));
 
       const modifiedReceita = [
         ...item.receita,
@@ -4985,6 +4497,7 @@ export class ResearchesService {
 
     const modifiedRevenues0912 = revenues0912.map((item) => {
       let totalDeductions = 0;
+      let totalAdditions = 0;
       let total = 0;
       let impostosETransferenciasMDE = 0;
 
@@ -4992,24 +4505,29 @@ export class ResearchesService {
         if (r.tipo === ItemReceitaTipos0912.TOTAL_RECEITA_IMPOSTOS) {
           impostosETransferenciasMDE = 0.25 * r.receitasRealizadaAteBimestre;
         } else if (
+          [ItemReceitaTipos0912.RECEITAS_DESTINADAS_AO_FUNDEB].includes(
+            r.tipo as any,
+          )
+        ) {
+          totalDeductions += r.receitasRealizadaAteBimestre;
+        } else if (
           [
-            ItemReceitaTipos0912.RECEITAS_DESTINADAS_AO_FUNDEB,
             ItemReceitaTipos0912.TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB,
             ItemReceitaTipos0912.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB,
             ItemReceitaTipos0912.TRANSFERENCIAS_SALARIO_EDUCACAO,
             ItemReceitaTipos0912.OUTRAS_TRANSFERENCIAS_FNDE,
           ].includes(r.tipo as any)
         ) {
-          totalDeductions += r.receitasRealizadaAteBimestre;
+          totalAdditions += r.receitasRealizadaAteBimestre;
         }
       });
 
-      total = impostosETransferenciasMDE - totalDeductions;
+      total = impostosETransferenciasMDE - totalDeductions + totalAdditions;
 
       impostosETransferenciasMDE = parseFloat(
-        impostosETransferenciasMDE.toFixed(2),
+        impostosETransferenciasMDE.toFixed(4),
       );
-      total = parseFloat(total.toFixed(2));
+      total = parseFloat(total.toFixed(4));
 
       const filteredReceitas = item.receita.filter(
         (r) => r.tipo !== ItemReceitaTipos0912.TOTAL_RECEITA_IMPOSTOS,
@@ -5066,6 +4584,7 @@ export class ResearchesService {
 
     const modifiedRevenues1314 = revenues1314.map((item) => {
       let totalDeductions = 0;
+      let totalAdditions = 0;
       let outrasTransferenciasFNDE = 0;
       let total = 0;
       let impostosETransferenciasMDE = 0;
@@ -5074,14 +4593,19 @@ export class ResearchesService {
         if (r.tipo === ItemReceitaTipos1314.TOTAL_RECEITA_IMPOSTOS) {
           impostosETransferenciasMDE = 0.25 * r.receitasRealizadaAteBimestre;
         } else if (
+          [ItemReceitaTipos1314.RECEITAS_DESTINADAS_AO_FUNDEB].includes(
+            r.tipo as any,
+          )
+        ) {
+          totalDeductions += r.receitasRealizadaAteBimestre;
+        } else if (
           [
-            ItemReceitaTipos1314.RECEITAS_DESTINADAS_AO_FUNDEB,
             ItemReceitaTipos1314.TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB,
             ItemReceitaTipos1314.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB,
             ItemReceitaTipos1314.TRANSFERENCIAS_SALARIO_EDUCACAO,
           ].includes(r.tipo as any)
         ) {
-          totalDeductions += r.receitasRealizadaAteBimestre;
+          totalAdditions += r.receitasRealizadaAteBimestre;
         } else if (
           [
             ItemReceitaTipos1314.TRANSFERENCIAS_DIRETAS_PDDE,
@@ -5090,19 +4614,19 @@ export class ResearchesService {
           ].includes(r.tipo as any)
         ) {
           outrasTransferenciasFNDE += r.receitasRealizadaAteBimestre;
-          totalDeductions += r.receitasRealizadaAteBimestre;
+          totalAdditions += r.receitasRealizadaAteBimestre;
         }
       });
 
-      total = impostosETransferenciasMDE - totalDeductions;
+      total = impostosETransferenciasMDE - totalDeductions + totalAdditions;
 
       impostosETransferenciasMDE = parseFloat(
-        impostosETransferenciasMDE.toFixed(2),
+        impostosETransferenciasMDE.toFixed(4),
       );
       outrasTransferenciasFNDE = parseFloat(
-        outrasTransferenciasFNDE.toFixed(2),
+        outrasTransferenciasFNDE.toFixed(4),
       );
-      total = parseFloat(total.toFixed(2));
+      total = parseFloat(total.toFixed(4));
 
       const filteredReceitas = item.receita.filter(
         (r) =>
@@ -5169,6 +4693,7 @@ export class ResearchesService {
 
     const modifiedRevenues1516 = revenues1516.map((item) => {
       let totalDeductions = 0;
+      let totalAdditions = 0;
       let outrasTransferenciasFNDE = 0;
       let total = 0;
       let impostosETransferenciasMDE = 0;
@@ -5177,14 +4702,19 @@ export class ResearchesService {
         if (r.tipo === ItemReceitaTipos1516.TOTAL_RECEITA_IMPOSTOS) {
           impostosETransferenciasMDE = 0.25 * r.receitasRealizadaAteBimestre;
         } else if (
+          [ItemReceitaTipos1516.RECEITAS_DESTINADAS_AO_FUNDEB].includes(
+            r.tipo as any,
+          )
+        ) {
+          totalDeductions += r.receitasRealizadaAteBimestre;
+        } else if (
           [
-            ItemReceitaTipos1516.RECEITAS_DESTINADAS_AO_FUNDEB,
             ItemReceitaTipos1516.TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB,
             ItemReceitaTipos1516.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB,
             ItemReceitaTipos1516.TRANSFERENCIAS_SALARIO_EDUCACAO,
           ].includes(r.tipo as any)
         ) {
-          totalDeductions += r.receitasRealizadaAteBimestre;
+          totalAdditions += r.receitasRealizadaAteBimestre;
         } else if (
           [
             ItemReceitaTipos1516.TRANSFERENCIAS_DIRETAS_PDDE,
@@ -5193,19 +4723,19 @@ export class ResearchesService {
           ].includes(r.tipo as any)
         ) {
           outrasTransferenciasFNDE += r.receitasRealizadaAteBimestre;
-          totalDeductions += r.receitasRealizadaAteBimestre;
+          totalAdditions += r.receitasRealizadaAteBimestre;
         }
       });
 
-      total = impostosETransferenciasMDE - totalDeductions;
+      total = impostosETransferenciasMDE - totalDeductions + totalAdditions;
 
       impostosETransferenciasMDE = parseFloat(
-        impostosETransferenciasMDE.toFixed(2),
+        impostosETransferenciasMDE.toFixed(4),
       );
       outrasTransferenciasFNDE = parseFloat(
-        outrasTransferenciasFNDE.toFixed(2),
+        outrasTransferenciasFNDE.toFixed(4),
       );
-      total = parseFloat(total.toFixed(2));
+      total = parseFloat(total.toFixed(4));
 
       const filteredReceitas = item.receita.filter(
         (r) =>
@@ -5272,6 +4802,7 @@ export class ResearchesService {
 
     const modifiedRevenues1718 = revenues1718.map((item) => {
       let totalDeductions = 0;
+      let totalAdditions = 0;
       let outrasTransferenciasFNDE = 0;
       let total = 0;
       let impostosETransferenciasMDE = 0;
@@ -5280,14 +4811,19 @@ export class ResearchesService {
         if (r.tipo === ItemReceitaTipos1718.TOTAL_RECEITA_IMPOSTOS) {
           impostosETransferenciasMDE = 0.25 * r.receitasRealizadaAteBimestre;
         } else if (
+          [ItemReceitaTipos1718.RECEITAS_DESTINADAS_AO_FUNDEB].includes(
+            r.tipo as any,
+          )
+        ) {
+          totalDeductions += r.receitasRealizadaAteBimestre;
+        } else if (
           [
-            ItemReceitaTipos1718.RECEITAS_DESTINADAS_AO_FUNDEB,
             ItemReceitaTipos1718.TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB,
             ItemReceitaTipos1718.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB,
             ItemReceitaTipos1718.TRANSFERENCIAS_SALARIO_EDUCACAO,
           ].includes(r.tipo as any)
         ) {
-          totalDeductions += r.receitasRealizadaAteBimestre;
+          totalAdditions += r.receitasRealizadaAteBimestre;
         } else if (
           [
             ItemReceitaTipos1718.TRANSFERENCIAS_DIRETAS_PDDE,
@@ -5296,19 +4832,19 @@ export class ResearchesService {
           ].includes(r.tipo as any)
         ) {
           outrasTransferenciasFNDE += r.receitasRealizadaAteBimestre;
-          totalDeductions += r.receitasRealizadaAteBimestre;
+          totalAdditions += r.receitasRealizadaAteBimestre;
         }
       });
 
-      total = impostosETransferenciasMDE - totalDeductions;
+      total = impostosETransferenciasMDE - totalDeductions + totalAdditions;
 
       impostosETransferenciasMDE = parseFloat(
-        impostosETransferenciasMDE.toFixed(2),
+        impostosETransferenciasMDE.toFixed(4),
       );
       outrasTransferenciasFNDE = parseFloat(
-        outrasTransferenciasFNDE.toFixed(2),
+        outrasTransferenciasFNDE.toFixed(4),
       );
-      total = parseFloat(total.toFixed(2));
+      total = parseFloat(total.toFixed(4));
 
       const filteredReceitas = item.receita.filter(
         (r) =>
@@ -5375,6 +4911,7 @@ export class ResearchesService {
 
     const modifiedRevenues1920 = revenues1920.map((item) => {
       let totalDeductions = 0;
+      let totalAdditions = 0;
       let outrasTransferenciasFNDE = 0;
       let total = 0;
       let impostosETransferenciasMDE = 0;
@@ -5383,14 +4920,19 @@ export class ResearchesService {
         if (r.tipo === ItemReceitaTipos1920.TOTAL_RECEITA_IMPOSTOS) {
           impostosETransferenciasMDE = 0.25 * r.receitasRealizadaAteBimestre;
         } else if (
+          [ItemReceitaTipos1920.RECEITAS_DESTINADAS_AO_FUNDEB].includes(
+            r.tipo as any,
+          )
+        ) {
+          totalDeductions += r.receitasRealizadaAteBimestre;
+        } else if (
           [
-            ItemReceitaTipos1920.RECEITAS_DESTINADAS_AO_FUNDEB,
             ItemReceitaTipos1920.TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB,
             ItemReceitaTipos1920.COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB,
             ItemReceitaTipos1920.TRANSFERENCIAS_SALARIO_EDUCACAO,
           ].includes(r.tipo as any)
         ) {
-          totalDeductions += r.receitasRealizadaAteBimestre;
+          totalAdditions += r.receitasRealizadaAteBimestre;
         } else if (
           [
             ItemReceitaTipos1920.TRANSFERENCIAS_DIRETAS_PDDE,
@@ -5399,19 +4941,19 @@ export class ResearchesService {
           ].includes(r.tipo as any)
         ) {
           outrasTransferenciasFNDE += r.receitasRealizadaAteBimestre;
-          totalDeductions += r.receitasRealizadaAteBimestre;
+          totalAdditions += r.receitasRealizadaAteBimestre;
         }
       });
 
-      total = impostosETransferenciasMDE - totalDeductions;
+      total = impostosETransferenciasMDE - totalDeductions + totalAdditions;
 
       impostosETransferenciasMDE = parseFloat(
-        impostosETransferenciasMDE.toFixed(2),
+        impostosETransferenciasMDE.toFixed(4),
       );
       outrasTransferenciasFNDE = parseFloat(
-        outrasTransferenciasFNDE.toFixed(2),
+        outrasTransferenciasFNDE.toFixed(4),
       );
-      total = parseFloat(total.toFixed(2));
+      total = parseFloat(total.toFixed(4));
 
       const filteredReceitas = item.receita.filter(
         (r) =>
@@ -5531,16 +5073,23 @@ export class ResearchesService {
             ApuracaoLimiteMinimoConstitucionalTipos21.APLICACAO_EM_MDE_SOBRE_RECEITA_DE_IMPOSTOS,
         )?.valorExigido || 0;
 
-      // Calculando TOTAL
+      // Calculando o valor que deve ser subtraído (Total destinado ao Fundeb)
+      const totalDestinadoFundeb = item.receita
+        .filter((r) =>
+          [ItemReceitaTipos21.TOTAL_DESTINADO_FUNDEB].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Calculando o valor total final com a fórmula (I - II) + (III + IV + V + VI + VII)
       total =
         valorExigido -
+        totalDestinadoFundeb +
+        complementacaoUniaoFundef +
+        outrasTransferenciasFnde +
         item.receita
           .filter((r) =>
             [
-              ItemReceitaTipos21.TOTAL_DESTINADO_FUNDEB,
               ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_1_1,
-              complementacaoUniaoFundef,
-              outrasTransferenciasFnde,
               ItemReceitaTipos21.FIN_ENSINO_SALARIO_EDUCACAO,
               ItemReceitaTipos21.FIN_ENSINO_RECEITA_ROYALTIES_DESTINADOS_EDUCACAO,
             ].includes(r.tipo as any),
@@ -5548,12 +5097,12 @@ export class ResearchesService {
           .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
 
       complementacaoUniaoFundef = parseFloat(
-        complementacaoUniaoFundef.toFixed(2),
+        complementacaoUniaoFundef.toFixed(4),
       );
       outrasTransferenciasFnde = parseFloat(
-        outrasTransferenciasFnde.toFixed(2),
+        outrasTransferenciasFnde.toFixed(4),
       );
-      total = parseFloat(total.toFixed(2));
+      total = parseFloat(total.toFixed(4));
 
       // Filtrando para remover os tipos usados no cálculo
       const filteredReceitas = item.receita.filter(
@@ -5667,29 +5216,37 @@ export class ResearchesService {
             ApuracaoLimiteMinimoConstitucionalTipos23.APLICACAO_EM_MDE_SOBRE_RECEITA_LIQUIDA_DE_IMPOSTOS,
         )?.valorExigido || 0;
 
+      const totalDestinadoFundeb = item.receita
+        .filter((r) =>
+          [ItemReceitaTipos23.TOTAL_DESTINADO_AO_FUNDEB].includes(
+            r.tipo as any,
+          ),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadasAteBimestre, 0);
+
       // Calculando TOTAL
       total =
         valorExigido -
-        item.receita
-          .filter((r) =>
-            [
-              ItemReceitaTipos23.TOTAL_DESTINADO_AO_FUNDEB,
-              ItemReceitaTipos23.FUNDEB_PRINCIPAL,
-              complementacaoUniaoFundef,
-              outrasTransferenciasFnde,
-              ItemReceitaTipos23.RECEITA_DE_TRANSFERENCIAS_DO_FNDE_SALARIO_EDUCACAO,
-              ItemReceitaTipos23.RECEITA_DE_ROYALTIES_DESTINADOS_A_EDUCACAO,
-            ].includes(r.tipo as any),
-          )
-          .reduce((sum, r) => sum + r.receitasRealizadasAteBimestre, 0);
+        totalDestinadoFundeb +
+        complementacaoUniaoFundef +
+        outrasTransferenciasFnde;
+      item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos23.FUNDEB_PRINCIPAL,
+            ItemReceitaTipos23.RECEITA_DE_TRANSFERENCIAS_DO_FNDE_SALARIO_EDUCACAO,
+            ItemReceitaTipos23.RECEITA_DE_ROYALTIES_DESTINADOS_A_EDUCACAO,
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadasAteBimestre, 0);
 
       complementacaoUniaoFundef = parseFloat(
-        complementacaoUniaoFundef.toFixed(2),
+        complementacaoUniaoFundef.toFixed(4),
       );
       outrasTransferenciasFnde = parseFloat(
-        outrasTransferenciasFnde.toFixed(2),
+        outrasTransferenciasFnde.toFixed(4),
       );
-      total = parseFloat(total.toFixed(2));
+      total = parseFloat(total.toFixed(4));
 
       // Filtrando para remover os tipos usados no cálculo
       const filteredReceitas = item.receita.filter(
@@ -5724,98 +5281,71 @@ export class ResearchesService {
       };
     });
 
+    let groupedRevenues = {};
+
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'modifiedRevenues0708', data: modifiedRevenues0708 },
+        { key: 'modifiedRevenues0912', data: modifiedRevenues0912 },
+        { key: 'modifiedRevenues1314', data: modifiedRevenues1314 },
+        { key: 'modifiedRevenues1520', data: modifiedRevenues1520 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByAno([
+        { key: 'modifiedRevenues06', data: modifiedRevenues06 },
+        { key: 'modifiedRevenues0708', data: modifiedRevenues0708 },
+        { key: 'modifiedRevenues0912', data: modifiedRevenues0912 },
+        { key: 'modifiedRevenues1314', data: modifiedRevenues1314 },
+        { key: 'modifiedRevenues1520', data: modifiedRevenues1520 },
+        { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
+        { key: 'modifiedRevenues23', data: modifiedRevenues23 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
+    }
+
+    return groupedRevenues;
+  }
+
+  private groupByMunicipio(
+    revenueDataSets: { key: string; data: any[] }[],
+  ): object {
     const groupedRevenues = {};
 
-    if (modifiedRevenues06) {
-      modifiedRevenues06.forEach((revenue) => {
+    revenueDataSets.forEach(({ key, data }) => {
+      data.forEach((revenue) => {
         const { codigoMunicipio } = revenue;
         if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues06: [] };
+          groupedRevenues[codigoMunicipio] = {};
         }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues06) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues06 = [];
+        if (!groupedRevenues[codigoMunicipio][key]) {
+          groupedRevenues[codigoMunicipio][key] = [];
         }
-        groupedRevenues[codigoMunicipio].modifiedRevenues06.push(revenue);
+        groupedRevenues[codigoMunicipio][key].push(revenue);
       });
-    }
+    });
 
-    if (modifiedRevenues0708) {
-      modifiedRevenues0708.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues0708: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues0708) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues0708 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues0708.push(revenue);
-      });
-    }
+    return groupedRevenues;
+  }
 
-    if (modifiedRevenues0912) {
-      modifiedRevenues0912.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues0912: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues0912) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues0912 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues0912.push(revenue);
-      });
-    }
+  private groupByAno(revenueDataSets: { key: string; data: any[] }[]): object {
+    const groupedRevenues: { [ano: string]: { [key: string]: any[] } } = {};
 
-    if (modifiedRevenues1314) {
-      modifiedRevenues1314.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues1314: [] };
+    revenueDataSets.forEach(({ key, data }) => {
+      data.forEach((revenue) => {
+        const { ano } = revenue;
+        if (!groupedRevenues[ano]) {
+          groupedRevenues[ano] = {};
         }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues1314) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues1314 = [];
+        if (!groupedRevenues[ano][key]) {
+          groupedRevenues[ano][key] = [];
         }
-        groupedRevenues[codigoMunicipio].modifiedRevenues1314.push(revenue);
+        groupedRevenues[ano][key].push(revenue);
       });
-    }
-
-    if (modifiedRevenues1520) {
-      modifiedRevenues1520.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues1520: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues1520) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues1520 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues1520.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues2122) {
-      modifiedRevenues2122.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues2122: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues2122) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues2122 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues2122.push(revenue);
-      });
-    }
-
-    if (modifiedRevenues23) {
-      modifiedRevenues23.forEach((revenue) => {
-        const { codigoMunicipio } = revenue;
-        if (!groupedRevenues[codigoMunicipio]) {
-          groupedRevenues[codigoMunicipio] = { modifiedRevenues23: [] };
-        }
-        if (!groupedRevenues[codigoMunicipio].modifiedRevenues23) {
-          groupedRevenues[codigoMunicipio].modifiedRevenues23 = [];
-        }
-        groupedRevenues[codigoMunicipio].modifiedRevenues23.push(revenue);
-      });
-    }
+    });
 
     return groupedRevenues;
   }
