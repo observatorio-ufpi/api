@@ -1087,6 +1087,7 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
+                  ItemReceitaTipos0912.RECEITA_APLICACAO_FINANCEIRA,
                   ItemReceitaTipos0912.TRANSFERENCIAS_SALARIO_EDUCACAO,
                   ItemReceitaTipos0912.OUTRAS_TRANSFERENCIAS_FNDE,
                   ItemReceitaTipos0912.APLICACAO_FINANCEIRA_FNDE,
@@ -1117,6 +1118,7 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
+                  ItemReceitaTipos1314.RECEITA_APLICACAO_FINANCEIRA,
                   ItemReceitaTipos1314.TRANSFERENCIAS_SALARIO_EDUCACAO,
                   ItemReceitaTipos1314.OUTRAS_TRANSFERENCIAS_FNDE,
                   ItemReceitaTipos1314.APLICACAO_FINANCEIRA_FNDE,
@@ -1150,6 +1152,7 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
+                  ItemReceitaTipos1516.RECEITA_APLICACAO_FINANCEIRA,
                   ItemReceitaTipos1516.TRANSFERENCIAS_SALARIO_EDUCACAO,
                   ItemReceitaTipos1516.OUTRAS_TRANSFERENCIAS_FNDE,
                   ItemReceitaTipos1516.APLICACAO_FINANCEIRA_FNDE,
@@ -1183,6 +1186,7 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
+                  ItemReceitaTipos1718.RECEITA_APLICACAO_FINANCEIRA,
                   ItemReceitaTipos1718.TRANSFERENCIAS_SALARIO_EDUCACAO,
                   ItemReceitaTipos1718.OUTRAS_TRANSFERENCIAS_FNDE,
                   ItemReceitaTipos1718.APLICACAO_FINANCEIRA_FNDE,
@@ -1216,6 +1220,7 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
+                  ItemReceitaTipos1920.RECEITA_APLICACAO_FINANCEIRA,
                   ItemReceitaTipos1920.TRANSFERENCIAS_SALARIO_EDUCACAO,
                   ItemReceitaTipos1920.OUTRAS_TRANSFERENCIAS_FNDE,
                   ItemReceitaTipos1920.APLICACAO_FINANCEIRA_FNDE,
@@ -1321,7 +1326,7 @@ export class ResearchesService {
         { key: 'revenues23', data: revenues23 },
       ]);
     } else if (groupType == GroupType.ANO) {
-      groupedRevenues = this.groupByMunicipio([
+      groupedRevenues = this.groupByAno([
         { key: 'modifiedRevenues06', data: modifiedRevenues06 },
         { key: 'revenues0708', data: revenues0708 },
         { key: 'revenues0912', data: revenues0912 },
@@ -2325,11 +2330,13 @@ export class ResearchesService {
 
     const modifiedRevenues06 = revenues06.map((item) => {
       let receitaResultanteDeImpostos = 0;
+      let valorExigidoMde = 0;
       let minimo25PorcentoDasReceitasResultantesDeImpostos = 0;
 
       item.receita.forEach((r) => {
         if (r.tipo === ItemReceitaTipos06.RECEITA_RESULTANTE_DE_IMPOSTOS) {
-          receitaResultanteDeImpostos = r.receitasRealizadasNoAno * 0.25;
+          valorExigidoMde = r.receitasRealizadasNoAno * 0.25;
+          receitaResultanteDeImpostos = r.receitasRealizadasNoAno;
         }
       });
 
@@ -2342,9 +2349,7 @@ export class ResearchesService {
         }
       });
 
-      const valorExigidoMde = parseFloat(
-        receitaResultanteDeImpostos.toFixed(4),
-      );
+      valorExigidoMde = parseFloat(valorExigidoMde.toFixed(4));
       const valorAplicadoMde = parseFloat(
         (
           (receitaResultanteDeImpostos / 100) *
@@ -5208,21 +5213,23 @@ export class ResearchesService {
         )
         .reduce((sum, r) => sum + r.receitasRealizadasAteBimestre, 0);
 
+      console;
+
       // Calculando TOTAL
       total =
         valorExigido -
         totalDestinadoFundeb +
         complementacaoUniaoFundef +
-        outrasTransferenciasFnde;
-      item.receita
-        .filter((r) =>
-          [
-            ItemReceitaTipos23.FUNDEB_PRINCIPAL,
-            ItemReceitaTipos23.RECEITA_DE_TRANSFERENCIAS_DO_FNDE_SALARIO_EDUCACAO,
-            ItemReceitaTipos23.RECEITA_DE_ROYALTIES_DESTINADOS_A_EDUCACAO,
-          ].includes(r.tipo as any),
-        )
-        .reduce((sum, r) => sum + r.receitasRealizadasAteBimestre, 0);
+        outrasTransferenciasFnde +
+        item.receita
+          .filter((r) =>
+            [
+              ItemReceitaTipos23.FUNDEB_PRINCIPAL,
+              ItemReceitaTipos23.RECEITA_DE_TRANSFERENCIAS_DO_FNDE_SALARIO_EDUCACAO,
+              ItemReceitaTipos23.RECEITA_DE_ROYALTIES_DESTINADOS_A_EDUCACAO,
+            ].includes(r.tipo as any),
+          )
+          .reduce((sum, r) => sum + r.receitasRealizadasAteBimestre, 0);
 
       complementacaoUniaoFundef = parseFloat(
         complementacaoUniaoFundef.toFixed(4),

@@ -306,10 +306,10 @@ export class ResearchesController {
 
     // Usando Promise.all para buscar todos os registros de forma paralela
     const [
-      additionalEducationRevenue,
       municipalOwnTaxesRevenue,
       constitutionalTransfersRevenue,
       municipalTaxesRevenue,
+      additionalEducationRevenue,
       fundebFundefComposition,
       fundebComplementation,
       constitutionalLimitMde,
@@ -317,14 +317,14 @@ export class ResearchesController {
       activityExpenses,
       minimalPotentialRevenue,
     ] = await Promise.all([
-      this.researchesService.additionalMunicipalEducationRevenue(
-        groupType,
-        filters,
-      ),
       this.researchesService.municipalOwnTaxesRevenue(groupType, filters),
       this.researchesService.constitutionalTransfersRevenue(groupType, filters),
       this.researchesService.municipalTaxesRevenue(groupType, filters),
       this.researchesService.municipalFundebFundefComposition(
+        groupType,
+        filters,
+      ),
+      this.researchesService.additionalMunicipalEducationRevenue(
         groupType,
         filters,
       ),
