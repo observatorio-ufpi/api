@@ -282,6 +282,34 @@ export class ResearchesController {
     );
   }
 
+  @Get('/complementary-protocol/:groupType')
+  municipalComplementaryProtocol(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: ResearchesFiltersDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.researchesService.municipalComplementaryProtocol(
+      groupType,
+      filters,
+    );
+  }
+
   @Get('/all-revenues-expenses/:groupType')
   async allRevenuesAndExpenses(
     @Param('groupType') groupType: GroupType,

@@ -5301,6 +5301,279 @@ export class ResearchesService {
     return groupedRevenues;
   }
 
+  async municipalComplementaryProtocol(groupType: GroupType, filters?: object) {
+    const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
+      select: {
+        ano: true,
+        codigoMunicipio: true,
+        despesa: {
+          where: {
+            tipo: {
+              in: [
+                ItemDespesaTipos06.TOTAL_DAS_DESPESAS_COM_ENSINO_POR_SUBFUNCAO,
+              ],
+            },
+          },
+          select: {
+            despesasLiquidadasNoAno: true,
+            tipo: true,
+          },
+        },
+      },
+      where: {
+        ...filters,
+      },
+    });
+
+    const revenues0708 =
+      await this.prismaService.relatorioMunicipal0708.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          despesa: {
+            where: {
+              tipo: {
+                in: [ItemDespesaTipos0708.TOTAL_DESPESAS_COM_ENSINO],
+              },
+            },
+            select: {
+              despesasEmpenhadasNoAno: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      });
+
+    const revenues0912 =
+      await this.prismaService.relatorioMunicipal0912.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          despesa: {
+            where: {
+              tipo: {
+                in: [ItemDespesaTipos0912.TOTAL_GERAL_DESPESAS_MDE],
+              },
+            },
+            select: {
+              despesasLiquidadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      });
+
+    const revenues1314 =
+      await this.prismaService.relatorioMunicipal1314.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          despesa: {
+            where: {
+              tipo: {
+                in: [ItemDespesaTipos1314.TOTAL_GERAL_DESPESAS_MDE],
+              },
+            },
+            select: {
+              despesasLiquidadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      });
+
+    const revenues1516 =
+      await this.prismaService.relatorioMunicipal1516.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          despesa: {
+            where: {
+              tipo: {
+                in: [ItemDespesaTipos1516.TOTAL_GERAL_DESPESAS_MDE],
+              },
+            },
+            select: {
+              despesasLiquidadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      });
+
+    const revenues1718 =
+      await this.prismaService.relatorioMunicipal1718.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          despesa: {
+            where: {
+              tipo: {
+                in: [ItemDespesaTipos1718.TOTAL_GERAL_DESPESAS_MDE],
+              },
+            },
+            select: {
+              despesasLiquidadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      });
+
+    const revenues1920 =
+      await this.prismaService.relatorioMunicipal1920.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          despesa: {
+            where: {
+              tipo: {
+                in: [ItemDespesaTipos1920.TOTAL_GERAL_DESPESAS_MDE],
+              },
+            },
+            select: {
+              despesasLiquidadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      });
+
+    const revenues2122 = await this.prismaService.relatorioMunicipal21.findMany(
+      {
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          despesa: {
+            where: {
+              tipo: {
+                in: [
+                  ItemDespesasTipos21.TOTAL_GERAL_DESPESAS_EDUCACAO,
+                  ItemDespesasTipos21.PESSOAL_ATIVO,
+                  ItemDespesasTipos21.PESSOAL_INATIVO,
+                  ItemDespesasTipos21.TRANSFERENCIAS_INSTITUICOES_47_1_3,
+                  ItemDespesasTipos21.DESPESAS_DE_CAPITAL,
+                ],
+              },
+            },
+            select: {
+              despesasLiquidadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+          indicadoresArt212: {
+            where: {
+              tipo: {
+                in: [
+                  IndicadoresTipos21Art212.PERCENTUAL_50_COMPLEMENTACAO_UNIAO_VAAT_EDUCACAO_INFANTIL,
+                  IndicadoresTipos21Art212.MINIMO_15_COMPLEMENTACAO_UNIAO_VAAT_DESPESAS_CAPITAL,
+                ],
+              },
+            },
+            select: {
+              percentualAplicado: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      },
+    );
+
+    const revenues23 = await this.prismaService.relatorioMunicipal23.findMany({
+      select: {
+        ano: true,
+        codigoMunicipio: true,
+        despesa: {
+          where: {
+            tipo: {
+              in: [
+                ItemDespesaTipos23.TOTAL_GERAL_DAS_DESPESAS_COM_EDUCACAO,
+                ItemDespesaTipos23.DESPESAS_CORRENTES_PESSOAL_ATIVO,
+                ItemDespesaTipos23.DESPESAS_CORRENTES_PESSOAL_INATIVO,
+                ItemDespesaTipos23.DESPESAS_CORRENTES_TRANSFERENCIAS_INSTITUICOES_COMUNITARIAS,
+                ItemDespesaTipos23.DESPESAS_DE_CAPITAL,
+              ],
+            },
+          },
+          select: {
+            despesasLiquidadasAteBimestre: true,
+            tipo: true,
+          },
+        },
+        indicadoresArt212: {
+          where: {
+            tipo: {
+              in: [
+                IndicadoresArt212Tipos23.PROPORCAO_50_PORCENTO_FUNDEB_VAAT_EDUCACAO_INFANTIL,
+                IndicadoresArt212Tipos23.MINIMO_15_PORCENTO_FUNDEB_VAAT_DESPESAS_CAPITAL,
+              ],
+            },
+          },
+          select: {
+            percentualAplicado: true,
+            tipo: true,
+          },
+        },
+      },
+      where: {
+        ...filters,
+      },
+    });
+
+    let groupedRevenues = {};
+
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedRevenues = this.groupByMunicipio([
+        { key: 'revenues06', data: revenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'revenues09', data: revenues0912 },
+        { key: 'revenues1314', data: revenues1314 },
+        { key: 'revenues1516', data: revenues1516 },
+        { key: 'revenues1718', data: revenues1718 },
+        { key: 'revenues1920', data: revenues1920 },
+        { key: 'revenues2122', data: revenues2122 },
+        { key: 'revenues23', data: revenues23 },
+      ]);
+    } else if (groupType == GroupType.ANO) {
+      groupedRevenues = this.groupByAno([
+        { key: 'revenues06', data: revenues06 },
+        { key: 'revenues0708', data: revenues0708 },
+        { key: 'revenues09', data: revenues0912 },
+        { key: 'revenues1314', data: revenues1314 },
+        { key: 'revenues1516', data: revenues1516 },
+        { key: 'revenues1718', data: revenues1718 },
+        { key: 'revenues1920', data: revenues1920 },
+        { key: 'revenues2122', data: revenues2122 },
+        { key: 'revenues23', data: revenues23 },
+      ]);
+    } else {
+      console.log('tipo de agrupamento não corresponde');
+    }
+
+    return groupedRevenues;
+  }
+
   private groupByMunicipio(
     revenueDataSets: { key: string; data: any[] }[],
   ): object {
