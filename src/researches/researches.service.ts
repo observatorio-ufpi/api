@@ -43,11 +43,20 @@ import {
 import { PrismaService } from 'src/prisma/prisma.service';
 import { GroupType } from './dto/researches.dto';
 
+interface PaginationParams {
+  page: number;
+  limit: number;
+}
+
 @Injectable()
 export class ResearchesService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async municipalOwnTaxesRevenue(groupType: GroupType, filters?: object) {
+  async municipalOwnTaxesRevenue(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -359,10 +368,61 @@ export class ResearchesService {
       console.log('tipo de agrupamento não corresponde');
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedRevenues;
   }
 
-  async constitutionalTransfersRevenue(groupType: GroupType, filters?: object) {
+  async constitutionalTransfersRevenue(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -721,10 +781,61 @@ export class ResearchesService {
       console.log('tipo de agrupamento não corresponde');
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedRevenues;
   }
 
-  async municipalTaxesRevenue(groupType: GroupType, filters?: object) {
+  async municipalTaxesRevenue(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -984,12 +1095,60 @@ export class ResearchesService {
       console.log('tipo de agrupamento não corresponde');
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedRevenues;
   }
 
   async additionalMunicipalEducationRevenue(
     groupType: GroupType,
     filters?: object,
+    pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
@@ -1339,12 +1498,60 @@ export class ResearchesService {
       console.log('tipo de agrupamento não corresponde');
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedRevenues;
   }
 
   async municipalFundebFundefComposition(
     groupType: GroupType,
     filters?: object,
+    pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
@@ -1822,10 +2029,61 @@ export class ResearchesService {
       console.log('tipo de agrupamento não corresponde');
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedRevenues;
   }
 
-  async complementationFundebFundef(groupType: GroupType, filters?: object) {
+  async complementationFundebFundef(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -2287,12 +2545,60 @@ export class ResearchesService {
       console.log('tipo de agrupamento não corresponde');
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedRevenues;
   }
 
   async municipalConstitutionalLimitMde(
     groupType: GroupType,
     filters?: object,
+    pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
@@ -2968,10 +3274,61 @@ export class ResearchesService {
       console.log('tipo de agrupamento não corresponde');
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedRevenues;
   }
 
-  async expensesBasicEducationFundeb(groupType: GroupType, filters?: object) {
+  async expensesBasicEducationFundeb(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -3763,10 +4120,61 @@ export class ResearchesService {
       console.log('tipo de agrupamento não corresponde');
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedRevenues;
   }
 
-  async expensesAreasOfActivityMde(groupType: GroupType, filters?: object) {
+  async expensesAreasOfActivityMde(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -4287,12 +4695,60 @@ export class ResearchesService {
       console.log('tipo de agrupamento não corresponde');
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedRevenues;
   }
 
   async municipalBasicEducationMinimalPotentialRevenue(
     groupType: GroupType,
     filters?: object,
+    pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
@@ -5298,10 +5754,61 @@ export class ResearchesService {
       console.log('tipo de agrupamento não corresponde');
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedRevenues;
   }
 
-  async municipalComplementaryProtocol(groupType: GroupType, filters?: object) {
+  async municipalComplementaryProtocol(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
       select: {
         ano: true,
@@ -5462,6 +5969,17 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [ItemReceitaTipos21.VALOR_MINIMO_APLICADO_MDE],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
           despesa: {
             where: {
               tipo: {
@@ -5504,6 +6022,19 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
+        receita: {
+          where: {
+            tipo: {
+              in: [
+                ItemReceitaTipos23.VALOR_MINIMO_A_SER_APLICADO_ALEM_DO_VALOR_DESTINADO_AO_FUNDEB,
+              ],
+            },
+          },
+          select: {
+            receitasRealizadasAteBimestre: true,
+            tipo: true,
+          },
+        },
         despesa: {
           where: {
             tipo: {
@@ -5569,6 +6100,53 @@ export class ResearchesService {
       ]);
     } else {
       console.log('tipo de agrupamento não corresponde');
+    }
+
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedRevenues);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedRevenues[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedRevenues);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedRevenues[ano];
+        });
+
+        return paginatedResults;
+      }
     }
 
     return groupedRevenues;
