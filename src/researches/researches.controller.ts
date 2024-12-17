@@ -19,9 +19,9 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
@@ -49,9 +49,9 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
@@ -80,9 +80,9 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
@@ -110,9 +110,9 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
@@ -141,9 +141,9 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
@@ -172,9 +172,9 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
@@ -203,9 +203,9 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
@@ -234,9 +234,9 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
@@ -265,9 +265,9 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
@@ -296,9 +296,9 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
