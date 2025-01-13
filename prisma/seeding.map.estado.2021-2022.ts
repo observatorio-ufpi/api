@@ -12,7 +12,7 @@ import {
   RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebTipos21,
 } from '@prisma/client';
 
-export const mapeamentoReceitasEstadual2122: {
+export const mapeamentoReceitasEstadual21: {
   [key: string]: ItemReceitaEstadualTipos21;
 } = {
   '1- RECEITA DE IMPOSTOS': ItemReceitaEstadualTipos21.RECEITA_DE_IMPOSTOS,
@@ -95,7 +95,7 @@ export const mapeamentoReceitasEstadual2122: {
     ItemReceitaEstadualTipos21.RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
 };
 
-export const mapeamentoDespesasEstadual2122: {
+export const mapeamentoDespesasEstadual21: {
   [key: string]: ItemDespesasEstadualTipos21;
 } = {
   '11- PROFISSIONAIS DA EDUCAÇÃO BÁSICA':
@@ -156,7 +156,7 @@ export const mapeamentoDespesasEstadual2122: {
     ItemDespesasEstadualTipos21.TOTAL_DESPESAS_EDUCACAO_DESPESAS_CAPITAL_OUTRAS,
 };
 
-export const mapeamentoDespesasCusteadasFundebExercicioEstadual2122: {
+export const mapeamentoDespesasCusteadasFundebExercicioEstadual21: {
   [key: string]: DespesasCusteadasFundebExercicioEstadualTipos21;
 } = {
   '14- Total das Despesas do FUNDEB com Profissionais da Educação Básica':
@@ -171,7 +171,7 @@ export const mapeamentoDespesasCusteadasFundebExercicioEstadual2122: {
     DespesasCusteadasFundebExercicioEstadualTipos21.TOTAL_DESPESAS_FUNDEB_UNIAO_VAAT_DESPESA_CAPITAL,
 };
 
-export const mapeamentoRecursosRecebidosNaoUtilizadosEstadual2122: {
+export const mapeamentoRecursosRecebidosNaoUtilizadosEstadual21: {
   [key: string]: RecursosRecebidosNaoUtilizadosEstadualTipos21;
 } = {
   '9- TOTAL DOS RECURSOS DE SUPERÁVIT':
@@ -184,7 +184,7 @@ export const mapeamentoRecursosRecebidosNaoUtilizadosEstadual2122: {
     RecursosRecebidosNaoUtilizadosEstadualTipos21.TOTAL_RECURSOS_FUNDEB_DISPONIVEIS_UTILIZACAO,
 };
 
-export const mapeamentoIndicadoresArt212Estadual2122: {
+export const mapeamentoIndicadoresArt212Estadual21: {
   [key: string]: IndicadoresTipos21Art212Estadual;
 } = {
   '19- Mínimo de 70% do FUNDEB na Remuneração dos Profissionais da Educação Básica':
@@ -193,14 +193,14 @@ export const mapeamentoIndicadoresArt212Estadual2122: {
     IndicadoresTipos21Art212Estadual.MINIMO_15_COMPLEMENTACAO_UNIAO_VAAT_DESPESAS_CAPITAL,
 };
 
-export const mapeamentoIndicadorArt25MaximoDeSuperavitEstadual2122: {
+export const mapeamentoIndicadorArt25MaximoDeSuperavitEstadual21: {
   [key: string]: IndicadorTipos21Art25MaximoDeSuperavitEstadual;
 } = {
   '21- Total da Receita Recebida e não Aplicada no Exercício':
     IndicadorTipos21Art25MaximoDeSuperavitEstadual.TOTAL_RECEITA_RECEBIDA_NAO_APLICADA_EXERCICIO,
 };
 
-export const mapeamentoIndicadorArt25AplicacaoSuperavitEstadual2122: {
+export const mapeamentoIndicadorArt25AplicacaoSuperavitEstadual21: {
   [key: string]: IndicadorTipos21Art25AplicacaoSuperavitEstadual;
 } = {
   '22- Total das Despesas custeadas com Superávit do FUNDEB':
@@ -211,7 +211,7 @@ export const mapeamentoIndicadorArt25AplicacaoSuperavitEstadual2122: {
     IndicadorTipos21Art25AplicacaoSuperavitEstadual.TOTAL_DESPESAS_CUSTEADAS_COM_FUNDEB_COMPLEMENTACAO_UNIAO,
 };
 
-export const mapeamentoAplicacaoDespesasFinsLimiteMinimoConstitucionalEstadual2122: {
+export const mapeamentoAplicacaoDespesasFinsLimiteMinimoConstitucionalEstadual21: {
   [key: string]: AplicacaoDespesasFinsLimiteMinimoConstitucionalEstadualTipos21;
 } = {
   '29- TOTAL DAS DESPESAS DE MDE CUSTEADAS COM RECURSOS DE IMPOSTOS (FUNDEB E RECEITA DE IMPOSTOS) = (L15(d ou e) + L28(d ou e) + L22.1(t))':
@@ -228,14 +228,14 @@ export const mapeamentoAplicacaoDespesasFinsLimiteMinimoConstitucionalEstadual21
     AplicacaoDespesasFinsLimiteMinimoConstitucionalEstadualTipos21.TOTAL_DESPESAS_PARA_FINS_LIMITE,
 };
 
-export const mapeamentoApuracaoLimiteMinimoConstitucionalEstadual2122: {
+export const mapeamentoApuracaoLimiteMinimoConstitucionalEstadual21: {
   [key: string]: ApuracaoLimiteMinimoConstitucionalEstadualTipos21;
 } = {
   '35- APLICAÇÃO EM MDE SOBRE A RECEITA LÍQUIDA DE IMPOSTOS':
     ApuracaoLimiteMinimoConstitucionalEstadualTipos21.APLICACAO_EM_MDE_SOBRE_RECEITA_DE_IMPOSTOS,
 };
 
-export const mapeamentoControleDisponibilidadeFinanceiraEstadual2122: {
+export const mapeamentoControleDisponibilidadeFinanceiraEstadual21: {
   [key: string]: ControleDisponibilidadeFinanceiraEstadualEstadualTipos21;
 } = {
   '50- DISPONIBILIDADE FINANCEIRA EM 31 DE DEZEMBRO DE 2021':
@@ -254,7 +254,7 @@ export const mapeamentoControleDisponibilidadeFinanceiraEstadual2122: {
     ControleDisponibilidadeFinanceiraEstadualEstadualTipos21.SALDO_FINANCEIRO_CONCILIADO_SALDO_BANCARIO,
 };
 
-export const mapeamentoRestosAPagarParaCumprimentoDoLimiteEstadual2122: {
+export const mapeamentoRestosAPagarParaCumprimentoDoLimiteEstadual21: {
   [
     key: string
   ]: RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebTipos21;

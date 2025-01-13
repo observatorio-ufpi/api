@@ -1,12 +1,15 @@
 import {
+  AplicacaoDespesasFinsLimiteMinimoConstitucionalEstadualTipos21,
   AplicacaoDespesasFinsLimiteMinimoConstitucionalTipos21,
   ApuracaoDespesasLimiteMinimoConstitucionalTipos23,
+  ApuracaoLimiteMinimoConstitucionalEstadualTipos21,
   ApuracaoLimiteMinimoConstitucionalTipos21,
   ApuracaoLimiteMinimoConstitucionalTipos23,
   CompensacaoRestosAPagarEstadoTipo06,
   CompensacaoRestosAPagarTipo06,
   ControleDisponibildadeFinanceiraConciliacaoBancariaTipos21,
   ControleDisponibilidadeFinanceiraEConciliacaoBancariaTipos23,
+  ControleDisponibilidadeFinanceiraEstadualEstadualTipos21,
   ControleDisponibilidadeFinanceiraTipo1718,
   ControleDisponibilidadeFinanceiraTipo1920,
   ControleRecursosNoExercicioSubsequenteEstadoTipo1516,
@@ -45,6 +48,7 @@ import {
   DeducoesParaFinsDeLimitesConstitucionalTipo1516,
   DeducoesParaFinsDeLimitesConstitucionalTipo1718,
   DeducoesParaFinsDeLimitesConstitucionalTipo1920,
+  DespesasCusteadasFundebExercicioEstadualTipos21,
   DespesasCusteadasFundebExercicioTipos21,
   DespesasCusteadasFundebExercicioTipos23,
   EmendaConstitucionalExclusivoSiopeTipos23,
@@ -61,7 +65,9 @@ import {
   IndicadorArt25AplicacaoSuperavitTipos23,
   IndicadorArt25Maximo10PorCentoDeSuperavitTipos23,
   IndicadorTipos21Art25AplicacaoSuperavit,
+  IndicadorTipos21Art25AplicacaoSuperavitEstadual,
   IndicadorTipos21Art25MaximoDeSuperavit,
+  IndicadorTipos21Art25MaximoDeSuperavitEstadual,
   IndicadoresArt212Tipos23,
   IndicadoresFundebEstadoTipo1314,
   IndicadoresFundebEstadoTipo1516,
@@ -72,6 +78,7 @@ import {
   IndicadoresFundebTipo1718,
   IndicadoresFundebTipo1920,
   IndicadoresTipos21Art212,
+  IndicadoresTipos21Art212Estadual,
   InformacoesControleFinanceiroEstadoTipo0708,
   InformacoesControleFinanceiroTipo0708,
   ItemDespesaEstadoTipos06,
@@ -88,6 +95,7 @@ import {
   ItemDespesaTipos1718,
   ItemDespesaTipos1920,
   ItemDespesaTipos23,
+  ItemDespesasEstadualTipos21,
   ItemDespesasTipos21,
   ItemReceitaEstadoTipos06,
   ItemReceitaEstadoTipos0708,
@@ -95,6 +103,7 @@ import {
   ItemReceitaEstadoTipos1314,
   ItemReceitaEstadualTipos1718,
   ItemReceitaEstadualTipos1920,
+  ItemReceitaEstadualTipos21,
   ItemReceitaTipos06,
   ItemReceitaTipos0708,
   ItemReceitaTipos0912,
@@ -108,6 +117,7 @@ import {
   Minimo60PorCentoFundebTipo0708,
   PerdaGanhoTransferenciasFundebEstadoTipo06,
   PerdaGanhoTransferenciasFundebTipo06,
+  RecursosRecebidosNaoUtilizadosEstadualTipos21,
   RecursosRecebidosNaoUtilizadosTipos21,
   RecursosRecebidosNaoUtilizadosTipos23,
   RelatorioEstadual06,
@@ -117,6 +127,7 @@ import {
   RelatorioEstadual1516,
   RelatorioEstadual1718,
   RelatorioEstadual1920,
+  RelatorioEstadual21,
   RelatorioMunicipal06,
   RelatorioMunicipal0708,
   RelatorioMunicipal0912,
@@ -311,6 +322,19 @@ import {
   mapeamentoReceitasEstadual1920,
   mapeamentoRestosAPagarInscritosDisponibilidadesFinanceiraEstadual1920,
 } from './seeding.map.estado.2019-2020';
+import {
+  mapeamentoAplicacaoDespesasFinsLimiteMinimoConstitucionalEstadual21,
+  mapeamentoApuracaoLimiteMinimoConstitucionalEstadual21,
+  mapeamentoControleDisponibilidadeFinanceiraEstadual21,
+  mapeamentoDespesasCusteadasFundebExercicioEstadual21,
+  mapeamentoDespesasEstadual21,
+  mapeamentoIndicadorArt25AplicacaoSuperavitEstadual21,
+  mapeamentoIndicadorArt25MaximoDeSuperavitEstadual21,
+  mapeamentoIndicadoresArt212Estadual21,
+  mapeamentoReceitasEstadual21,
+  mapeamentoRecursosRecebidosNaoUtilizadosEstadual21,
+  mapeamentoRestosAPagarParaCumprimentoDoLimiteEstadual21,
+} from './seeding.map.estado.2021-2022';
 const prisma = new PrismaClient();
 
 // const codMunicipio = '221100';
@@ -2682,158 +2706,185 @@ async function seedDatabase2122(
   }
 }
 
-// async function seedDatabaseEstadual21(
-//   caminhoArquivo: string,
-//   ano: string,
-//   codigo: string,
-// ) {
-//   try {
-//     const anosValidos = ['2021', '2022'];
+/*
+async function seedDatabaseEstadual21(
+  caminhoArquivo: string,
+  ano: string,
+  codigo: string,
+) {
+  try {
+    const anosValidos = ['2021', '2022'];
 
-//     const workbook = new ExcelJS.Workbook();
-//     await workbook.csv.readFile(caminhoArquivo);
+    const workbook = new ExcelJS.Workbook();
+    await workbook.csv.readFile(caminhoArquivo);
 
-//     if (!anosValidos.includes(ano)) {
-//       console.log(`Ano inválido para seedDatabaseEstadual21: ${ano}`);
-//       return;
-//     }
+    if (!anosValidos.includes(ano)) {
+      console.log(`Ano inválido para seedDatabaseEstadual21: ${ano}`);
+      return;
+    }
 
-//     console.log('Ano:', ano);
-//     console.log('Código:', codigo);
+    console.log('Ano:', ano);
+    console.log('Código:', codigo);
 
-//     const worksheet = workbook.getWorksheet(1);
+    const worksheet = workbook.getWorksheet(1);
 
-//     const relatorio = await prisma.relatorioEstadual21.create({
-//       data: {
-//         ano,
-//         codigoEstado: codigo,
-//       },
-//     });
+    const relatorio = await prisma.relatorioEstadual21.create({
+      data: {
+        ano,
+        codigoEstado: codigo,
+      },
+    });
 
-//     for (let i = 2; i <= worksheet.actualRowCount; i++) {
-//       const row = worksheet.getRow(i);
+    for (let i = 2; i <= worksheet.actualRowCount; i++) {
+      const row = worksheet.getRow(i);
 
-//       const tipoReceitaDespesaExcel = row.getCell(1).value as string;
-//       if (tipoReceitaDespesaExcel === null) {
-//         continue;
-//       }
-//       const tipoReceitaDespesaLimpo = tipoReceitaDespesaExcel.replace(
-//         /\r?\n|\r/g,
-//         ' ',
-//       );
+      const tipoReceitaDespesaExcel = row.getCell(1).value as string;
+      if (tipoReceitaDespesaExcel === null) {
+        continue;
+      }
+      const tipoReceitaDespesaLimpo = tipoReceitaDespesaExcel.replace(
+        /\r?\n|\r/g,
+        ' ',
+      );
 
-//       console.log(tipoReceitaDespesaLimpo);
+      console.log(tipoReceitaDespesaLimpo);
 
-//       const {
-//         tipoReceitaEnum,
-//         tipoDespesaEnum,
-//         tipoDeducoesParaFinsLimiteFundebEnum,
-//         tipoIndicadoresFundebEnum,
-//         tipoControleRecursosNoExercicioSubsequenteEnum,
-//         tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
-//         tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum,
-//         tipoFluxoFinanceiroRecursosEstadualEnum,
-//       } = await findTypesEstadual21(relatorio, tipoReceitaDespesaLimpo);
+      const {
+        tipoReceitaEnum,
+        tipoDespesaEnum,
+        tipoDespesaCusteadaFundebEnum,
+        tipoIndicadores21Art212Enum,
+        tipoIndicador21Art25MaximoDeSuperavitEnum,
+        tipoIndicador21Art25AplicacaoSuperavitEnum,
+        tipoAplicacaoDespesasFinsLimiteMinimoConstitucionalEnum,
+        tipoApuracaoLimiteMinimoConstitucionalEnum,
+        tipoRestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebEnum,
+        tipoControleDisponibilidadeFinanceiraConciliacaoBancariaEnum,
+        tipoFluxoFinanceiroRecursosEstadualEnum,
+      } = await findTypesEstadual21(relatorio, tipoReceitaDespesaLimpo);
 
-//       const {
-//         secondCellNumericValue,
-//         thirdCellNumericValue,
-//         fourthCellNumericValue,
-//         fifthCellNumericValue,
-//         sixthCellNumericValue,
-//         seventhCellNumericValue,
-//         eighthCellNumericValue,
-//       } = await getCellsNumericValues(row);
+      const {
+        secondCellNumericValue,
+        thirdCellNumericValue,
+        fourthCellNumericValue,
+        fifthCellNumericValue,
+        sixthCellNumericValue,
+        seventhCellNumericValue,
+        eighthCellNumericValue,
+      } = await getCellsNumericValues(row);
 
-//       if (tipoReceitaEnum) {
-//         await prisma.receitaEstadual21.create({
-//           data: {
-//             tipo: tipoReceitaEnum,
-//             previsaoInicial: secondCellNumericValue,
-//             previsaoAtualizada: thirdCellNumericValue,
-//             receitasRealizadaAteBimestre: fourthCellNumericValue,
-//             percentual: fifthCellNumericValue,
-//             relatorioEstadualId: relatorio.id,
-//           },
-//         });
-//       } else if (tipoDespesaEnum) {
-//         await prisma.despesaEstadual21.create({
-//           data: {
-//             tipo: tipoDespesaEnum,
-//             dotacaoInicial: secondCellNumericValue,
-//             dotacaoAtualizada: thirdCellNumericValue,
-//             despesasEmpenhadasAteBimestre: fourthCellNumericValue,
-//             despesasEmpenhadasPercentual: fifthCellNumericValue,
-//             despesasLiquidadasAteBimestre: sixthCellNumericValue,
-//             despesasLiquidadasPercentual: seventhCellNumericValue,
-//             inscritasRestosPagar: eighthCellNumericValue,
-//             relatorioEstadualId: relatorio.id,
-//           },
-//         });
-//       } else if (tipoDeducoesParaFinsLimiteFundebEnum) {
-//         await prisma.deducoesFinsLimiteFundebEstadual21.create({
-//           data: {
-//             tipo: tipoDeducoesParaFinsLimiteFundebEnum,
-//             valor: secondCellNumericValue,
-//             relatorioEstadualId: relatorio.id,
-//           },
-//         });
-//       } else if (tipoIndicadoresFundebEnum) {
-//         await prisma.indicadoresFundebEstadual21.create({
-//           data: {
-//             tipo: tipoIndicadoresFundebEnum,
-//             valor: secondCellNumericValue,
-//             relatorioEstadualId: relatorio.id,
-//           },
-//         });
-//       } else if (tipoControleRecursosNoExercicioSubsequenteEnum) {
-//         await prisma.controleRecursosNoExercicioSubsequenteEstadual21.create({
-//           data: {
-//             tipo: tipoControleRecursosNoExercicioSubsequenteEnum,
-//             valor: secondCellNumericValue,
-//             relatorioEstadualId: relatorio.id,
-//           },
-//         });
-//       } else if (tipoDeducoesParaFinsDeLimitesConstitucionalEnum) {
-//         await prisma.deducoesParaFinsDeLimitesConstitucionalEstadual21.create(
-//           {
-//             data: {
-//               tipo: tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
-//               valor: secondCellNumericValue,
-//               relatorioEstadualId: relatorio.id,
-//             },
-//           },
-//         );
-//       } else if (tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum) {
-//         await prisma.restosAPagarInscritosDisponibilidadesFinanceiraEstadual21.create(
-//           {
-//             data: {
-//               tipo: tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum,
-//               saldoAteBimestre: secondCellNumericValue,
-//               canceladoNoAno: thirdCellNumericValue,
-//               relatorioEstadualId: relatorio.id,
-//             },
-//           },
-//         );
-//       } else if (tipoFluxoFinanceiroRecursosEstadualEnum) {
-//         await prisma.fluxoFinanceiroRecursosEstadual21.create({
-//           data: {
-//             tipo: tipoFluxoFinanceiroRecursosEstadualEnum,
-//             fundeb: secondCellNumericValue,
-//             salarioEducacao: thirdCellNumericValue,
-//             relatorioEstadualId: relatorio.id,
-//           },
-//         });
-//       } else {
-//         console.log(
-//           `Tipo de receita ou despesa desconhecido: ${tipoReceitaDespesaExcel}\n`,
-//         );
-//       }
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+      if (tipoReceitaEnum) {
+        await prisma.receitaEstadual21.create({
+          data: {
+            tipo: tipoReceitaEnum,
+            previsaoAtualizada: secondCellNumericValue,
+            receitasRealizadaAteBimestre: thirdCellNumericValue,
+            relatorioEstadualId: relatorio.id,
+          },
+        });
+      } else if (tipoDespesaEnum) {
+        await prisma.despesaEstadual21.create({
+          data: {
+            tipo: tipoDespesaEnum,
+            dotacaoAtualizada: secondCellNumericValue,
+            despesasEmpenhadasAteBimestre: thirdCellNumericValue,
+            despesasLiquidadasAteBimestre: fourthCellNumericValue,
+            despesasPagasAteBimestre: fifthCellNumericValue,
+            inscritosEmRestosAPagarNaoProcessados: sixthCellNumericValue,
+            relatorioEstadualId: relatorio.id,
+          },
+        });
+      } else if (tipoDespesaCusteadaFundebEnum) {
+        await prisma.despesasCusteadasFundebExercicioEstadual21.create({
+          data: {
+            tipo: tipoDespesaCusteadaFundebEnum,
+            despesasEmpenhadasAteBimestre: secondCellNumericValue,
+            despesasLiquidadasAteBimestre: thirdCellNumericValue,
+            despesasPagasAteBimestre: fourthCellNumericValue,
+            inscritosEmRestosAPagarNaoProcessados: fifthCellNumericValue,
+            inscritosEmRestosAPagarNaoProcessadosSemCaixa:
+              sixthCellNumericValue,
+            relatorioEstadualId: relatorio.id,
+          },
+        });
+      } else if (tipoDespesaCusteadaFundebEnum) {
+        await prisma.despesasCusteadasFundebExercicioEstadual21.create({
+          data: {
+            tipo: tipoDespesaCusteadaFundebEnum,
+            despesasEmpenhadasAteBimestre: secondCellNumericValue,
+            despesasLiquidadasAteBimestre: thirdCellNumericValue,
+            despesasPagasAteBimestre: fourthCellNumericValue,
+            inscritosEmRestosAPagarNaoProcessados: fifthCellNumericValue,
+            inscritosEmRestosAPagarNaoProcessadosSemCaixa:
+              sixthCellNumericValue,
+            relatorioEstadualId: relatorio.id,
+          },
+        });
+      } else if (tipoIndicadores21Art212Enum) {
+        await prisma.indicadores21Art212.create({
+          data: {
+            tipo: tipoIndicadores21Art212Enum,
+            valorExigido: secondCellNumericValue,
+            valorAplicado: thirdCellNumericValue,
+            valorConsideradoAposDeducoes: fourthCellNumericValue,
+            percentualAplicado: fifthCellNumericValue,
+            relatorioEstadualId: relatorio.id,
+          },
+        });
+      } else if (tipoIndicador21Art25MaximoDeSuperavitEnum) {
+        await prisma.indicador21Art25MaximoDeSuperavit.create({
+          data: {
+            tipo: tipoIndicador21Art25MaximoDeSuperavitEnum,
+            valor: secondCellNumericValue,
+            relatorioEstadualId: relatorio.id,
+          },
+        });
+      } else if (tipoIndicador21Art25AplicacaoSuperavitEnum) {
+        await prisma.indicador21Art25AplicacaoSuperavit.create({
+          data: {
+            tipo: tipoIndicador21Art25AplicacaoSuperavitEnum,
+            valor: secondCellNumericValue,
+            relatorioEstadualId: relatorio.id,
+          },
+        });
+      } else if (
+        tipoRestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebEnum
+      ) {
+        await prisma.restosAPagarExerciciosAntDisponibilidadeFinanceiraFundeb21.create(
+          {
+            data: {
+              tipo: tipoRestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebEnum,
+              saldoInicial: secondCellNumericValue,
+              rpLiquidados: thirdCellNumericValue,
+              rpPagos: fourthCellNumericValue,
+              rpCancelados: fifthCellNumericValue,
+              saldoFinal: sixthCellNumericValue,
+              relatorioEstadualId: relatorio.id,
+            },
+          },
+        );
+      } else if (tipoControleDisponibilidadeFinanceiraConciliacaoBancariaEnum) {
+        await prisma.controleDisponibilidadeFinanceiraConciliacaoBancaria21.create(
+          {
+            data: {
+              tipo: tipoControleDisponibilidadeFinanceiraConciliacaoBancariaEnum,
+              fundeb: secondCellNumericValue,
+              salarioEducacao: thirdCellNumericValue,
+              relatorioEstadualId: relatorio.id,
+            },
+          },
+        );
+      } else {
+        console.log(
+          `Tipo de receita ou despesa desconhecido: ${tipoReceitaDespesaExcel}\n`,
+        );
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+*/
 
 async function seedDatabase23(
   caminhoArquivo: string,
@@ -5849,215 +5900,291 @@ async function findTypesEstadual1920(
   };
 }
 
-// async function findTypesEstadual21(
-//   relatorio: RelatorioEstadual21,
-//   tipoReceitaDespesaLimpo: string,
-// ) {
-//   let tipoReceitaEnum: ItemReceitaEstadualTipos21;
-//   let tipoDespesaEnum: ItemDespesaEstadualTipos21;
-//   let tipoDeducoesParaFinsLimiteFundebEnum: DeducoesFinsLimiteFundebEstadualTipo21;
-//   let tipoIndicadoresFundebEnum: IndicadoresFundebEstadualTipo21;
-//   let tipoControleRecursosNoExercicioSubsequenteEnum: ControleRecursosNoExercicioSubsequenteEstadualTipo21;
-//   let tipoDeducoesParaFinsDeLimitesConstitucionalEnum: DeducoesParaFinsDeLimitesConstitucionalEstadualTipo21;
-//   let tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum: RestosAPagarInscritosDisponibilidadesFinanceiraEstadualTipo21;
-//   let tipoFluxoFinanceiroRecursosEstadualEnum: FluxoFinanceiroRecursosEstadualTipos21;
-//   let tipoJaDefinido = false;
+async function findTypesEstadual21(
+  relatorio: RelatorioEstadual21,
+  tipoReceitaDespesaLimpo: string,
+) {
+  let tipoReceitaEnum: ItemReceitaEstadualTipos21;
+  let tipoDespesaEnum: ItemDespesasEstadualTipos21;
+  let tipoDespesaCusteadaFundebEnum: DespesasCusteadasFundebExercicioEstadualTipos21;
+  let tipoIndicadoresTipos21Art212Enum: IndicadoresTipos21Art212Estadual;
+  let tipoRecursosRecebidosNaoUtilizadosEnum: RecursosRecebidosNaoUtilizadosEstadualTipos21;
+  let tipoIndicadorTipos21Art25MaximoDeSuperavitEnum: IndicadorTipos21Art25MaximoDeSuperavitEstadual;
+  let tipoIndicadorTipos21Art25AplicacaoSuperavitEnum: IndicadorTipos21Art25AplicacaoSuperavitEstadual;
+  let tipoAplicacaoDespesasFinsLimiteMinimoConstitucionalEnum: AplicacaoDespesasFinsLimiteMinimoConstitucionalEstadualTipos21;
+  let tipoApuracaoLimiteMinimoConstitucionalEnum: ApuracaoLimiteMinimoConstitucionalEstadualTipos21;
+  let tipoRestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebEnum: RestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebTipos21;
+  let tipoControleDisponibilidadeFinanceiraEnum: ControleDisponibilidadeFinanceiraEstadualEstadualTipos21;
+  let tipoJaDefinido = false;
 
-//   for (const key in mapeamentoReceitasEstadual2122) {
-//     const receitaExiste = await prisma.receitaEstadual21.findUnique({
-//       where: {
-//         relatorioEstadualId_tipo: {
-//           relatorioEstadualId: relatorio.id,
-//           tipo: mapeamentoReceitasEstadual21[key],
-//         },
-//       },
-//     });
+  for (const key in mapeamentoReceitasEstadual21) {
+    const receitaExiste = await prisma.receitaEstadual21.findUnique({
+      where: {
+        relatorioEstadualId_tipo: {
+          relatorioEstadualId: relatorio.id,
+          tipo: mapeamentoReceitasEstadual21[key],
+        },
+      },
+    });
 
-//     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !receitaExiste) {
-//       tipoReceitaEnum = mapeamentoReceitasEstadual2122[key];
-//       tipoJaDefinido = true;
-//       break;
-//     }
-//   }
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !receitaExiste) {
+      tipoReceitaEnum = mapeamentoReceitasEstadual21[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
 
-//   for (const key in mapeamentoDespesasEstadual2122) {
-//     if (tipoJaDefinido) {
-//       break;
-//     }
-//     const despesaExiste = await prisma.despesaEstadual21.findUnique({
-//       where: {
-//         relatorioEstadualId_tipo: {
-//           relatorioEstadualId: relatorio.id,
-//           tipo: mapeamentoDespesasEstadual2122[key],
-//         },
-//       },
-//     });
+  for (const key in mapeamentoDespesasEstadual21) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const despesaExiste = await prisma.despesaEstadual21.findUnique({
+      where: {
+        relatorioEstadualId_tipo: {
+          relatorioEstadualId: relatorio.id,
+          tipo: mapeamentoDespesasEstadual21[key],
+        },
+      },
+    });
 
-//     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !despesaExiste) {
-//       tipoDespesaEnum = mapeamentoDespesasEstadual2122[key];
-//       tipoJaDefinido = true;
-//       break;
-//     }
-//   }
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !despesaExiste) {
+      tipoDespesaEnum = mapeamentoDespesasEstadual21[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
 
-//   for (const key in mapeamentoDeducoesParaFinsLimiteFundebEstadual21) {
-//     if (tipoJaDefinido) {
-//       break;
-//     }
-//     const deducaoExiste =
-//       await prisma.deducoesFinsLimiteFundebEstadual21.findUnique({
-//         where: {
-//           relatorioEstadualId_tipo: {
-//             relatorioEstadualId: relatorio.id,
-//             tipo: mapeamentoDeducoesParaFinsLimiteFundebEstadual21[key],
-//           },
-//         },
-//       });
+  for (const key in mapeamentoDespesasCusteadasFundebExercicioEstadual21) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const deducaoExiste =
+      await prisma.despesasCusteadasFundebExercicioEstadual21.findUnique({
+        where: {
+          relatorioEstadualId_tipo: {
+            relatorioEstadualId: relatorio.id,
+            tipo: mapeamentoDespesasCusteadasFundebExercicioEstadual21[key],
+          },
+        },
+      });
 
-//     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !deducaoExiste) {
-//       tipoDeducoesParaFinsLimiteFundebEnum =
-//         mapeamentoDeducoesParaFinsLimiteFundebEstadual21[key];
-//       tipoJaDefinido = true;
-//       break;
-//     }
-//   }
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !deducaoExiste) {
+      tipoDespesaCusteadaFundebEnum =
+        mapeamentoDespesasCusteadasFundebExercicioEstadual21[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
 
-//   for (const key in mapeamentoIndicadoresFundebEstadual21) {
-//     if (tipoJaDefinido) {
-//       break;
-//     }
-//     const indicadorExiste =
-//       await prisma.indicadoresFundebEstadual21.findUnique({
-//         where: {
-//           relatorioEstadualId_tipo: {
-//             relatorioEstadualId: relatorio.id,
-//             tipo: mapeamentoIndicadoresFundebEstadual21[key],
-//           },
-//         },
-//       });
+  for (const key in mapeamentoIndicadoresArt212Estadual21) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste = await prisma.indicadores21Art212Estadual.findUnique(
+      {
+        where: {
+          relatorioEstadualId_tipo: {
+            relatorioEstadualId: relatorio.id,
+            tipo: mapeamentoIndicadoresArt212Estadual21[key],
+          },
+        },
+      },
+    );
 
-//     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
-//       tipoIndicadoresFundebEnum = mapeamentoIndicadoresFundebEstadual21[key];
-//       tipoJaDefinido = true;
-//       break;
-//     }
-//   }
-//   for (const key in mapeamentoControleRecursosNoExercicioSubsequenteEstadual21) {
-//     if (tipoJaDefinido) {
-//       break;
-//     }
-//     const controleExiste =
-//       await prisma.controleRecursosNoExercicioSubsequenteEstadual21.findUnique(
-//         {
-//           where: {
-//             relatorioEstadualId_tipo: {
-//               relatorioEstadualId: relatorio.id,
-//               tipo: mapeamentoControleRecursosNoExercicioSubsequenteEstadual21[
-//                 key
-//               ],
-//             },
-//           },
-//         },
-//       );
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoIndicadoresTipos21Art212Enum =
+        mapeamentoIndicadoresArt212Estadual21[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
 
-//     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !controleExiste) {
-//       tipoControleRecursosNoExercicioSubsequenteEnum =
-//         mapeamentoControleRecursosNoExercicioSubsequenteEstadual21[key];
-//       tipoJaDefinido = true;
-//       break;
-//     }
-//   }
+  for (const key in mapeamentoRecursosRecebidosNaoUtilizadosEstadual21) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const recursosRecebidosExiste =
+      await prisma.recursosRecebidosNaoUtilizadosEstadual21.findUnique({
+        where: {
+          relatorioEstadualId_tipo: {
+            relatorioEstadualId: relatorio.id,
+            tipo: mapeamentoRecursosRecebidosNaoUtilizadosEstadual21[key],
+          },
+        },
+      });
 
-//   for (const key in mapeamentoDeducoesParaFinsDeLimitesConstitucionalEstadual21) {
-//     if (tipoJaDefinido) {
-//       break;
-//     }
-//     const deducaoConstitucionalExiste =
-//       await prisma.deducoesParaFinsDeLimitesConstitucionalEstadual21.findUnique(
-//         {
-//           where: {
-//             relatorioEstadualId_tipo: {
-//               relatorioEstadualId: relatorio.id,
-//               tipo: mapeamentoDeducoesParaFinsDeLimitesConstitucionalEstadual21[
-//                 key
-//               ],
-//             },
-//           },
-//         },
-//       );
+    if (
+      isSimilar(tipoReceitaDespesaLimpo, key, 5) &&
+      !recursosRecebidosExiste
+    ) {
+      tipoRecursosRecebidosNaoUtilizadosEnum =
+        mapeamentoRecursosRecebidosNaoUtilizadosEstadual21[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
 
-//     if (
-//       isSimilar(tipoReceitaDespesaLimpo, key, 5) &&
-//       !deducaoConstitucionalExiste
-//     ) {
-//       tipoDeducoesParaFinsDeLimitesConstitucionalEnum =
-//         mapeamentoDeducoesParaFinsDeLimitesConstitucionalEstadual21[key];
-//       tipoJaDefinido = true;
-//       break;
-//     }
-//   }
+  for (const key in mapeamentoIndicadorArt25MaximoDeSuperavitEstadual21) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const deducaoConstitucionalExiste =
+      await prisma.indicador21Art25MaximoDeSuperavitEstadual.findUnique({
+        where: {
+          relatorioEstadualId_tipo: {
+            relatorioEstadualId: relatorio.id,
+            tipo: mapeamentoIndicadorArt25MaximoDeSuperavitEstadual21[key],
+          },
+        },
+      });
 
-//   for (const key in mapeamentoFluxoFinanceiroRecursosEstadual21) {
-//     if (tipoJaDefinido) {
-//       break;
-//     }
-//     const fluxoExiste =
-//       await prisma.fluxoFinanceiroRecursosEstadual21.findUnique({
-//         where: {
-//           relatorioEstadualId_tipo: {
-//             relatorioEstadualId: relatorio.id,
-//             tipo: mapeamentoFluxoFinanceiroRecursosEstadual21[key],
-//           },
-//         },
-//       });
+    if (
+      isSimilar(tipoReceitaDespesaLimpo, key, 5) &&
+      !deducaoConstitucionalExiste
+    ) {
+      tipoIndicadorTipos21Art25MaximoDeSuperavitEnum =
+        mapeamentoIndicadorArt25MaximoDeSuperavitEstadual21[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
 
-//     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !fluxoExiste) {
-//       tipoFluxoFinanceiroRecursosEstadualEnum =
-//         mapeamentoFluxoFinanceiroRecursosEstadual21[key];
-//       tipoJaDefinido = true;
-//       break;
-//     }
-//   }
+  for (const key in mapeamentoIndicadorArt25AplicacaoSuperavitEstadual21) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const indicadorExiste =
+      await prisma.indicador21Art25AplicacaoSuperavitEstadual.findUnique({
+        where: {
+          relatorioEstadualId_tipo: {
+            relatorioEstadualId: relatorio.id,
+            tipo: mapeamentoIndicadorArt25AplicacaoSuperavitEstadual21[key],
+          },
+        },
+      });
 
-//   for (const key in mapeamentoRestosAPagarInscritosDisponibilidadesFinanceiraEstadual21) {
-//     if (tipoJaDefinido) {
-//       break;
-//     }
-//     const restoAPagarExiste =
-//       await prisma.restosAPagarInscritosDisponibilidadesFinanceiraEstadual21.findUnique(
-//         {
-//           where: {
-//             relatorioEstadualId_tipo: {
-//               relatorioEstadualId: relatorio.id,
-//               tipo: mapeamentoRestosAPagarInscritosDisponibilidadesFinanceiraEstadual21[
-//                 key
-//               ],
-//             },
-//           },
-//         },
-//       );
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !indicadorExiste) {
+      tipoIndicadorTipos21Art25AplicacaoSuperavitEnum =
+        mapeamentoIndicadorArt25AplicacaoSuperavitEstadual21[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
 
-//     if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !restoAPagarExiste) {
-//       tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum =
-//         mapeamentoRestosAPagarInscritosDisponibilidadesFinanceiraEstadual21[
-//           key
-//         ];
-//       tipoJaDefinido = true;
-//       break;
-//     }
-//   }
+  for (const key in mapeamentoApuracaoLimiteMinimoConstitucionalEstadual21) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const apuracaoExiste =
+      await prisma.apuracaoLimiteMinimoConstitucionalEstadual21.findUnique({
+        where: {
+          relatorioEstadualId_tipo: {
+            relatorioEstadualId: relatorio.id,
+            tipo: mapeamentoApuracaoLimiteMinimoConstitucionalEstadual21[key],
+          },
+        },
+      });
 
-//   return {
-//     tipoReceitaEnum,
-//     tipoDespesaEnum,
-//     tipoDeducoesParaFinsLimiteFundebEnum,
-//     tipoIndicadoresFundebEnum,
-//     tipoControleRecursosNoExercicioSubsequenteEnum,
-//     tipoDeducoesParaFinsDeLimitesConstitucionalEnum,
-//     tipoRestosAPagarInscritosDisponibilidadesFinanceiraEnum,
-//     tipoFluxoFinanceiroRecursosEstadualEnum,
-//   };
-// }
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !apuracaoExiste) {
+      tipoApuracaoLimiteMinimoConstitucionalEnum =
+        mapeamentoApuracaoLimiteMinimoConstitucionalEstadual21[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoAplicacaoDespesasFinsLimiteMinimoConstitucionalEstadual21) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const aplicacaoExiste =
+      await prisma.aplicacaoDespesasFinsLimiteMinimoConstitucionalEstadual21.findUnique(
+        {
+          where: {
+            relatorioEstadualId_tipo: {
+              relatorioEstadualId: relatorio.id,
+              tipo: mapeamentoAplicacaoDespesasFinsLimiteMinimoConstitucionalEstadual21[
+                key
+              ],
+            },
+          },
+        },
+      );
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !aplicacaoExiste) {
+      tipoAplicacaoDespesasFinsLimiteMinimoConstitucionalEnum =
+        mapeamentoAplicacaoDespesasFinsLimiteMinimoConstitucionalEstadual21[
+          key
+        ];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoControleDisponibilidadeFinanceiraEstadual21) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const controleExiste =
+      await prisma.controleDisponibilidadeFinanceiraConciliacaoBancariaEstadual21.findUnique(
+        {
+          where: {
+            relatorioEstadualId_tipo: {
+              relatorioEstadualId: relatorio.id,
+              tipo: mapeamentoControleDisponibilidadeFinanceiraEstadual21[key],
+            },
+          },
+        },
+      );
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !controleExiste) {
+      tipoControleDisponibilidadeFinanceiraEnum =
+        mapeamentoControleDisponibilidadeFinanceiraEstadual21[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  for (const key in mapeamentoRestosAPagarParaCumprimentoDoLimiteEstadual21) {
+    if (tipoJaDefinido) {
+      break;
+    }
+    const restosAPagarExiste =
+      await prisma.restosAPagarExerciciosAntDisponibilidadeFinanceiraFundebEstadual21.findUnique(
+        {
+          where: {
+            relatorioEstadualId_tipo: {
+              relatorioEstadualId: relatorio.id,
+              tipo: mapeamentoRestosAPagarParaCumprimentoDoLimiteEstadual21[
+                key
+              ],
+            },
+          },
+        },
+      );
+
+    if (isSimilar(tipoReceitaDespesaLimpo, key, 5) && !restosAPagarExiste) {
+      tipoRestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebEnum =
+        mapeamentoRestosAPagarParaCumprimentoDoLimiteEstadual21[key];
+      tipoJaDefinido = true;
+      break;
+    }
+  }
+
+  return {
+    tipoReceitaEnum,
+    tipoDespesaEnum,
+    tipoDespesaCusteadaFundebEnum,
+    tipoIndicadoresTipos21Art212Enum,
+    tipoRecursosRecebidosNaoUtilizadosEnum,
+    tipoIndicadorTipos21Art25MaximoDeSuperavitEnum,
+    tipoIndicadorTipos21Art25AplicacaoSuperavitEnum,
+    tipoAplicacaoDespesasFinsLimiteMinimoConstitucionalEnum,
+    tipoApuracaoLimiteMinimoConstitucionalEnum,
+    tipoRestosAPagarExerciciosAntDisponibilidadeFinanceiraFundebEnum,
+    tipoControleDisponibilidadeFinanceiraEnum,
+  };
+}
 
 async function findTypes21(
   relatorio: RelatorioMunicipal21,

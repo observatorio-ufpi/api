@@ -1249,10 +1249,10 @@ model ReceitaEstadual21 {
   tipo                         ItemReceitaEstadualTipos21
   previsaoAtualizada           Float
   receitasRealizadaAteBimestre Float
-  relatorioMunicipalId         Int
-  relatorioMunicipal           RelatorioEstadual21        @relation(fields: [relatorioMunicipalId], references: [id], onDelete: Cascade)
+  relatorioEstadualId         Int
+  relatorioEstadual           RelatorioEstadual21        @relation(fields: [relatorioEstadualId], references: [id], onDelete: Cascade)
 
-  @@unique([relatorioMunicipalId, tipo])
+  @@unique([relatorioEstadualId, tipo])
 }
 
 model DespesaEstadual21 {
@@ -1277,20 +1277,20 @@ model DespesasCusteadasFundebExercicioEstadual21 {
   despesasPagasAteBimestre                      Float
   inscritosEmRestosAPagarNaoProcessados         Float
   inscritosEmRestosAPagarNaoProcessadosSemCaixa Float
-  relatorioMunicialId                           Int
-  relatorioMunicial                             RelatorioEstadual21                             @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioEstadualId                           Int
+  relatorioEstadual                             RelatorioEstadual21                             @relation(fields: [relatorioEstadualId], references: [id], onDelete: Cascade)
 
-  @@unique([relatorioMunicialId, tipo])
+  @@unique([relatorioEstadualId, tipo])
 }
 
 model RecursosRecebidosNaoUtilizadosEstadual21 {
   id                  Int                                           @id @default(autoincrement())
   tipo                RecursosRecebidosNaoUtilizadosEstadualTipos21
   valor               Float
-  relatorioMunicialId Int
-  relatorioMunicial   RelatorioEstadual21                           @relation(fields: [relatorioMunicialId], references: [id], onDelete: Cascade)
+  relatorioEstadualId Int
+  relatorioEstadual   RelatorioEstadual21                           @relation(fields: [relatorioEstadualId], references: [id], onDelete: Cascade)
 
-  @@unique([relatorioMunicialId, tipo])
+  @@unique([relatorioEstadualId, tipo])
 }
 
 model Indicadores21Art212Estadual {
