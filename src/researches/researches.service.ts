@@ -41,12 +41,7 @@ import {
   TabelaCumprimentoLimitesConstitucionaisTipo06,
 } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { GroupType } from './dto/researches.dto';
-
-interface PaginationParams {
-  page: number;
-  limit: number;
-}
+import { GroupType, PaginationParams } from 'src/utils/constants';
 
 @Injectable()
 export class ResearchesService {
