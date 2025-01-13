@@ -35,4 +35,29 @@ export class RevenueCompositionController {
 
     return this.revenueCompositionService.iptuComposition(groupType, filters);
   }
+
+  @Get('itbi/:groupType')
+  async itbiComposition(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: IndicatorsFiltersDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.revenueCompositionService.itbiComposition(groupType, filters);
+  }
 }
