@@ -4420,6 +4420,7 @@ export class RevenueCompositionService {
   async participacaoReceitaImpostosProprios(
     groupType: GroupType,
     filters?: object,
+    pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
     const revenues0708 =
@@ -4761,12 +4762,60 @@ export class RevenueCompositionService {
       ]);
     }
 
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedData);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedData[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedData);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedData[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
     return groupedData;
   }
 
   async participacaoTransferenciasComposition(
     groupType: GroupType,
     filters?: object,
+    pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
     const revenues0708 =
@@ -5116,6 +5165,1256 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
+
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedData);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedData[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedData);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedData[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
+    return groupedData;
+  }
+
+  async razaoImpostosTransferenciasComposition(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
+    // Buscar dados 2007-2008
+    const revenues0708 =
+      await this.prismaService.relatorioMunicipal0708.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos0708.RECEITAS_DE_IMPOSTO,
+                  ItemReceitaTipos0708.RECEITAS_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAL,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadasNoAno: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      });
+
+    // Buscar dados 2009-2014
+    const revenues0914 = [
+      ...(await this.prismaService.relatorioMunicipal0912.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos0912.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos0912.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1314.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1314.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos1314.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Buscar dados 2015-2020
+    const revenues1520 = [
+      ...(await this.prismaService.relatorioMunicipal1516.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1516.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos1516.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1718.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1718.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos1718.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1920.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1920.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos1920.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Buscar dados 2021-2023
+    const revenues2123 = [
+      ...(await this.prismaService.relatorioMunicipal21.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos21.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos21.RECEITA_TRANSFERENCIAS_CONSTITUCIONAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal23.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos23.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos23.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Processar os dados
+    const modifiedRevenues0708 = revenues0708.map((item) => {
+      const impostosRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos0708.RECEITAS_DE_IMPOSTO,
+        )?.receitasRealizadasNoAno || 0;
+
+      const transferenciasRevenue =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos0708.RECEITAS_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAL,
+        )?.receitasRealizadasNoAno || 0;
+
+      const percentage = transferenciasRevenue
+        ? (impostosRevenue / transferenciasRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'RAZAO_IMPOSTOS_TRANSFERENCIAS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues0914 = revenues0914.map((item) => {
+      const impostosRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos0912.RECEITA_DE_IMPOSTOS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const transferenciasRevenue =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos0912.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const percentage = transferenciasRevenue
+        ? (impostosRevenue / transferenciasRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'RAZAO_IMPOSTOS_TRANSFERENCIAS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues1520 = revenues1520.map((item) => {
+      const impostosRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos1516.RECEITA_DE_IMPOSTOS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const transferenciasRevenue =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos1516.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const percentage = transferenciasRevenue
+        ? (impostosRevenue / transferenciasRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'RAZAO_IMPOSTOS_TRANSFERENCIAS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues2123 = revenues2123.map((item) => {
+      const impostosRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos21.RECEITA_DE_IMPOSTOS,
+        )?.['receitasRealizadaAteBimestre'] ||
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos21.RECEITA_DE_IMPOSTOS,
+        )?.['receitasRealizadasAteBimestre'] ||
+        0;
+
+      const transferenciasRevenue =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+              ItemReceitaTipos21.RECEITA_TRANSFERENCIAS_CONSTITUCIONAIS ||
+            r.tipo ===
+              ItemReceitaTipos23.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+        )?.['receitasRealizadaAteBimestre'] ||
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+              ItemReceitaTipos21.RECEITA_TRANSFERENCIAS_CONSTITUCIONAIS ||
+            r.tipo ===
+              ItemReceitaTipos23.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+        )?.['receitasRealizadasAteBimestre'] ||
+        0;
+
+      const percentage = transferenciasRevenue
+        ? (impostosRevenue / transferenciasRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'RAZAO_IMPOSTOS_TRANSFERENCIAS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    let groupedData = {};
+
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedData = this.groupByMunicipio([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+    }
+
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedData);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedData[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedData);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedData[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
+    return groupedData;
+  }
+
+  async razaoTransferenciasImpostosComposition(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
+    // Buscar dados 2007-2008
+    const revenues0708 =
+      await this.prismaService.relatorioMunicipal0708.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos0708.RECEITAS_DE_IMPOSTO,
+                  ItemReceitaTipos0708.RECEITAS_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAL,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadasNoAno: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      });
+
+    // Buscar dados 2009-2014
+    const revenues0914 = [
+      ...(await this.prismaService.relatorioMunicipal0912.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos0912.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos0912.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1314.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1314.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos1314.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Buscar dados 2015-2020
+    const revenues1520 = [
+      ...(await this.prismaService.relatorioMunicipal1516.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1516.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos1516.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1718.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1718.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos1718.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1920.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1920.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos1920.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Buscar dados 2021-2023
+    const revenues2123 = [
+      ...(await this.prismaService.relatorioMunicipal21.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos21.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos21.RECEITA_TRANSFERENCIAS_CONSTITUCIONAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal23.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos23.RECEITA_DE_IMPOSTOS,
+                  ItemReceitaTipos23.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Processar os dados
+    const modifiedRevenues0708 = revenues0708.map((item) => {
+      const impostosRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos0708.RECEITAS_DE_IMPOSTO,
+        )?.receitasRealizadasNoAno || 0;
+
+      const transferenciasRevenue =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos0708.RECEITAS_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAL,
+        )?.receitasRealizadasNoAno || 0;
+
+      const percentage = impostosRevenue
+        ? (transferenciasRevenue / impostosRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'RAZAO_TRANSFERENCIAS_IMPOSTOS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues0914 = revenues0914.map((item) => {
+      const impostosRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos0912.RECEITA_DE_IMPOSTOS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const transferenciasRevenue =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos0912.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const percentage = impostosRevenue
+        ? (transferenciasRevenue / impostosRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'RAZAO_TRANSFERENCIAS_IMPOSTOS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues1520 = revenues1520.map((item) => {
+      const impostosRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos1516.RECEITA_DE_IMPOSTOS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const transferenciasRevenue =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos1516.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const percentage = impostosRevenue
+        ? (transferenciasRevenue / impostosRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'RAZAO_TRANSFERENCIAS_IMPOSTOS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues2123 = revenues2123.map((item) => {
+      const impostosRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos21.RECEITA_DE_IMPOSTOS,
+        )?.['receitasRealizadaAteBimestre'] ||
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos23.RECEITA_DE_IMPOSTOS,
+        )?.['receitasRealizadasAteBimestre'] ||
+        0;
+
+      const transferenciasRevenue =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+              ItemReceitaTipos21.RECEITA_TRANSFERENCIAS_CONSTITUCIONAIS ||
+            r.tipo ===
+              ItemReceitaTipos23.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+        )?.['receitasRealizadaAteBimestre'] ||
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+              ItemReceitaTipos21.RECEITA_TRANSFERENCIAS_CONSTITUCIONAIS ||
+            r.tipo ===
+              ItemReceitaTipos23.RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS,
+        )?.['receitasRealizadasAteBimestre'] ||
+        0;
+
+      const percentage = impostosRevenue
+        ? (transferenciasRevenue / impostosRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'RAZAO_TRANSFERENCIAS_IMPOSTOS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    let groupedData = {};
+
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedData = this.groupByMunicipio([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+    }
+
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedData);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedData[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedData);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedData[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
+    return groupedData;
+  }
+
+  async participacaoFundebComposition(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
+    // Buscar dados 2007-2008
+    const revenues0708 =
+      await this.prismaService.relatorioMunicipal0708.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos0708.RECEITAS_RECEBIDAS_DO_FUNDEB,
+                  ItemReceitaTipos0708.TOTAL_RECEITA_BRUTA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadasNoAno: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      });
+
+    // Buscar dados 2009-2014
+    const revenues0914 = [
+      ...(await this.prismaService.relatorioMunicipal0912.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos0912.RECEITAS_RECEBIDAS_DO_FUNDEB,
+                  ItemReceitaTipos0912.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1314.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1314.RECEITAS_RECEBIDAS_DO_FUNDEB,
+                  ItemReceitaTipos1314.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Buscar dados 2015-2020
+    const revenues1520 = [
+      ...(await this.prismaService.relatorioMunicipal1516.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1516.RECEITAS_RECEBIDAS_DO_FUNDEB,
+                  ItemReceitaTipos1516.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1718.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1718.RECEITAS_RECEBIDAS_DO_FUNDEB,
+                  ItemReceitaTipos1718.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1920.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1920.RECEITAS_RECEBIDAS_DO_FUNDEB,
+                  ItemReceitaTipos1920.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Buscar dados 2021-2023
+    const revenues2123 = [
+      ...(await this.prismaService.relatorioMunicipal21.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos21.RECEITAS_RECEBIDAS_FUNDEB,
+                  ItemReceitaTipos21.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal23.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos23.TOTAL_DAS_RECEITAS_DO_FUNDEB_RECEBIDAS,
+                  ItemReceitaTipos23.TOTAL_DA_RECEITA_RESULTANTE_DE_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Processar os dados
+    const modifiedRevenues0708 = revenues0708.map((item) => {
+      const fundebRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos0708.RECEITAS_DESTINADAS_AO_FUNDEB,
+        )?.receitasRealizadasNoAno || 0;
+
+      const totalRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos0708.TOTAL_RECEITA_BRUTA_IMPOSTOS,
+        )?.receitasRealizadasNoAno || 0;
+
+      const percentage = totalRevenue
+        ? (fundebRevenue / totalRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'PARTICIPACAO_FUNDEB',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues0914 = revenues0914.map((item) => {
+      const fundebRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos0912.RECEITAS_RECEBIDAS_DO_FUNDEB,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const totalRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos0912.TOTAL_RECEITA_IMPOSTOS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const percentage = totalRevenue
+        ? (fundebRevenue / totalRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'PARTICIPACAO_FUNDEB',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues1520 = revenues1520.map((item) => {
+      const fundebRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos1516.RECEITAS_RECEBIDAS_DO_FUNDEB,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const totalRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos1516.TOTAL_RECEITA_IMPOSTOS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const percentage = totalRevenue
+        ? (fundebRevenue / totalRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'PARTICIPACAO_FUNDEB',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues2123 = revenues2123.map((item) => {
+      const fundebRevenue =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos21.RECEITAS_RECEBIDAS_FUNDEB,
+        )?.['receitasRealizadaAteBimestre'] ||
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos23.TOTAL_DAS_RECEITAS_DO_FUNDEB_RECEBIDAS,
+        )?.['receitasRealizadasAteBimestre'] ||
+        0;
+
+      const totalRevenue =
+        item.receita.find(
+          (r) =>
+            r.tipo === ItemReceitaTipos21.TOTAL_RECEITA_IMPOSTOS ||
+            r.tipo ===
+              ItemReceitaTipos23.TOTAL_DA_RECEITA_RESULTANTE_DE_IMPOSTOS,
+        )?.['receitasRealizadaAteBimestre'] ||
+        item.receita.find(
+          (r) =>
+            r.tipo === ItemReceitaTipos21.TOTAL_RECEITA_IMPOSTOS ||
+            r.tipo ===
+              ItemReceitaTipos23.TOTAL_DA_RECEITA_RESULTANTE_DE_IMPOSTOS,
+        )?.['receitasRealizadasAteBimestre'] ||
+        0;
+
+      const percentage = totalRevenue
+        ? (fundebRevenue / totalRevenue) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'PARTICIPACAO_FUNDEB',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    let groupedData = {};
+
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedData = this.groupByMunicipio([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+    }
+
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      // Apply pagination to the grouped results
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedData);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedData[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedData);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedData[ano];
+        });
+
+        return paginatedResults;
+      }
     }
 
     return groupedData;

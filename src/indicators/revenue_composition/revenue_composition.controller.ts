@@ -399,4 +399,174 @@ export class RevenueCompositionController {
       },
     );
   }
+
+  @Get('participacao-receita-impostos-proprios/:groupType')
+  async participacaoReceitaImpostosProprios(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: IndicatorsFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.revenueCompositionService.participacaoReceitaImpostosProprios(
+      groupType,
+      filters,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
+  }
+
+  @Get('participacao-transferencias/:groupType')
+  async participacaoTransferenciasComposition(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: IndicatorsFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.revenueCompositionService.participacaoTransferenciasComposition(
+      groupType,
+      filters,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
+  }
+
+  @Get('razao-impostos-transferencias/:groupType')
+  async razaoImpostosTransferenciasComposition(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: IndicatorsFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.revenueCompositionService.razaoImpostosTransferenciasComposition(
+      groupType,
+      filters,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
+  }
+
+  @Get('razao-transferencias-impostos/:groupType')
+  async razaoTransferenciasImpostosComposition(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: IndicatorsFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.revenueCompositionService.razaoTransferenciasImpostosComposition(
+      groupType,
+      filters,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
+  }
+
+  @Get('participacao-fundeb/:groupType')
+  async participacaoFundebComposition(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: IndicatorsFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.revenueCompositionService.participacaoFundebComposition(
+      groupType,
+      filters,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
+  }
 }
