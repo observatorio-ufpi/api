@@ -1,4 +1,114 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
+import { RpebCompositionService } from './rpeb_composition.service';
+import { GroupType } from 'src/utils/constants';
+import { IndicatorsFiltersDto } from '../dto/indicators.dto';
+import { PaginationDto } from 'src/dtos/pagination.dto';
 
 @Controller('rpeb-composition')
-export class RpebCompositionController {}
+export class RpebCompositionController {
+  constructor(
+    private readonly rpebCompositionService: RpebCompositionService,
+  ) {}
+
+  @Get('fundeb_participation_mde/:groupType')
+  async fundebParticipationMde(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: IndicatorsFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.rpebCompositionService.fundebParticipationMde(
+      groupType,
+      filters,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
+  }
+
+  @Get('resultado_liquido_fundeb/:groupType')
+  async resultadoLiquidoFundeb(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: IndicatorsFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.rpebCompositionService.resultadoLiquidoFundeb(
+      groupType,
+      filters,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
+  }
+
+  @Get('participacao_complementacao_uniao/:groupType')
+  async participacaoComplementacaoUniao(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: IndicatorsFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.rpebCompositionService.participacaoComplementacaoUniao(
+      groupType,
+      filters,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
+  }
+}
