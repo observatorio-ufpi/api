@@ -1371,4 +1371,431 @@ export class RpebCompositionService {
 
     return groupedData;
   }
+
+  async participacaoReceitasAdicionaisComposition(
+    groupType: GroupType,
+    filters?: object,
+    pagination?: PaginationParams,
+  ) {
+    // Buscar dados 2007-2008
+    const revenues0708 =
+      await this.prismaService.relatorioMunicipal0708.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos0708.TOTAL_OUTRAS_RECEITAS_DESTINADAS_ENSINO,
+                  ItemReceitaTipos0708.IMPOSTOS_E_TRANSFERENCIAS_DESTINADAS_MDE,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadasNoAno: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      });
+
+    // Buscar dados 2009-2014
+    const revenues0914 = [
+      ...(await this.prismaService.relatorioMunicipal0912.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos0912.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
+                  ItemReceitaTipos0912.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1314.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1314.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
+                  ItemReceitaTipos1314.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Buscar dados 2015-2020
+    const revenues1520 = [
+      ...(await this.prismaService.relatorioMunicipal1516.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1516.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
+                  ItemReceitaTipos1516.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1718.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1718.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
+                  ItemReceitaTipos1718.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal1920.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1920.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
+                  ItemReceitaTipos1920.TOTAL_RECEITA_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Buscar dados 2021-2023
+    const revenues2123 = [
+      ...(await this.prismaService.relatorioMunicipal21.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [ItemReceitaTipos21.FIN_ENSINO_TOTAL_RECEITAS_ADICIONAIS],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
+          apuracaoLimiteMinimoConstitucional: {
+            where: {
+              tipo: {
+                in: [
+                  ApuracaoLimiteMinimoConstitucionalTipos21.APLICACAO_EM_MDE_SOBRE_RECEITA_DE_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              valorAplicado: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+      ...(await this.prismaService.relatorioMunicipal23.findMany({
+        select: {
+          ano: true,
+          codigoMunicipio: true,
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos23.TOTAL_DAS_RECEITAS_ADICIONAIS_PARA_FINANCIAMENTO_DO_ENSINO,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+          apuracaoLimiteMinimoConstitucional: {
+            where: {
+              tipo: {
+                in: [
+                  ApuracaoLimiteMinimoConstitucionalTipos23.APLICACAO_EM_MDE_SOBRE_RECEITA_LIQUIDA_DE_IMPOSTOS,
+                ],
+              },
+            },
+            select: {
+              valorAplicado: true,
+              tipo: true,
+            },
+          },
+        },
+        where: {
+          ...filters,
+        },
+      })),
+    ];
+
+    // Processar os dados
+    const modifiedRevenues0708 = revenues0708.map((item) => {
+      const receitasAdicionais =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos0708.TOTAL_OUTRAS_RECEITAS_DESTINADAS_ENSINO,
+        )?.receitasRealizadasNoAno || 0;
+
+      const vinculacaoMinima =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos0708.IMPOSTOS_E_TRANSFERENCIAS_DESTINADAS_MDE,
+        )?.receitasRealizadasNoAno || 0;
+
+      const percentage = vinculacaoMinima
+        ? (receitasAdicionais / vinculacaoMinima) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'PARTICIPACAO_RECEITAS_ADICIONAIS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues0914 = revenues0914.map((item) => {
+      const receitasAdicionais =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos0912.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const totalReceita =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos0912.TOTAL_RECEITA_IMPOSTOS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const vinculacaoMinima = totalReceita * 0.25; // 25% do total
+      const percentage = vinculacaoMinima
+        ? (receitasAdicionais / vinculacaoMinima) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'PARTICIPACAO_RECEITAS_ADICIONAIS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues1520 = revenues1520.map((item) => {
+      const receitasAdicionais =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos1516.TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const totalReceita =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos1516.TOTAL_RECEITA_IMPOSTOS,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const vinculacaoMinima = totalReceita * 0.25; // 25% do total
+      const percentage = vinculacaoMinima
+        ? (receitasAdicionais / vinculacaoMinima) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'PARTICIPACAO_RECEITAS_ADICIONAIS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues2123 = revenues2123.map((item) => {
+      const receitasAdicionais =
+        item.receita.find(
+          (r) =>
+            r.tipo === ItemReceitaTipos21.FIN_ENSINO_TOTAL_RECEITAS_ADICIONAIS,
+        )?.['receitasRealizadaAteBimestre'] ||
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos23.TOTAL_DAS_RECEITAS_ADICIONAIS_PARA_FINANCIAMENTO_DO_ENSINO,
+        )?.['receitasRealizadasAteBimestre'] ||
+        0;
+
+      const vinculacaoMinima =
+        item.apuracaoLimiteMinimoConstitucional.find(
+          (r) =>
+            r.tipo ===
+            ApuracaoLimiteMinimoConstitucionalTipos21.APLICACAO_EM_MDE_SOBRE_RECEITA_DE_IMPOSTOS,
+        )?.['valorAplicado'] ||
+        item.apuracaoLimiteMinimoConstitucional.find(
+          (r) =>
+            r.tipo ===
+            ApuracaoLimiteMinimoConstitucionalTipos23.APLICACAO_EM_MDE_SOBRE_RECEITA_LIQUIDA_DE_IMPOSTOS,
+        )?.['valorAplicado'] ||
+        0;
+
+      const percentage = vinculacaoMinima
+        ? (receitasAdicionais / vinculacaoMinima) * 100
+        : 0;
+
+      return {
+        ano: item.ano,
+        codigoMunicipio: item.codigoMunicipio,
+        indicador: [
+          {
+            tipo: 'PARTICIPACAO_RECEITAS_ADICIONAIS',
+            valor: parseFloat(percentage.toFixed(2)),
+          },
+        ],
+      };
+    });
+
+    let groupedData = {};
+
+    if (groupType === GroupType.MUNICIPIO) {
+      groupedData = groupByMunicipio([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+    } else if (groupType === GroupType.ANO) {
+      groupedData = groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+    }
+
+    if (pagination) {
+      const { page, limit } = pagination;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      if (groupType === GroupType.MUNICIPIO) {
+        const municipios = Object.keys(groupedData);
+        const paginatedMunicipios = municipios.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: municipios.length,
+            page,
+            limit,
+            totalPages: Math.ceil(municipios.length / limit),
+          },
+        };
+
+        paginatedMunicipios.forEach((municipio) => {
+          paginatedResults.data[municipio] = groupedData[municipio];
+        });
+
+        return paginatedResults;
+      } else if (groupType === GroupType.ANO) {
+        const anos = Object.keys(groupedData);
+        const paginatedAnos = anos.slice(startIndex, endIndex);
+
+        const paginatedResults = {
+          data: {},
+          pagination: {
+            total: anos.length,
+            page,
+            limit,
+            totalPages: Math.ceil(anos.length / limit),
+          },
+        };
+
+        paginatedAnos.forEach((ano) => {
+          paginatedResults.data[ano] = groupedData[ano];
+        });
+
+        return paginatedResults;
+      }
+    }
+
+    return groupedData;
+  }
 }
