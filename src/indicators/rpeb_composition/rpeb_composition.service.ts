@@ -1552,7 +1552,7 @@ export class RpebCompositionService {
               },
             },
             select: {
-              valorAplicado: true,
+              valorExigido: true,
               tipo: true,
             },
           },
@@ -1587,7 +1587,7 @@ export class RpebCompositionService {
               },
             },
             select: {
-              valorAplicado: true,
+              valorExigido: true,
               tipo: true,
             },
           },
@@ -1597,6 +1597,8 @@ export class RpebCompositionService {
         },
       })),
     ];
+
+    console.log(revenues2123);
 
     // Processar os dados
     const modifiedRevenues0708 = revenues0708.map((item) => {
@@ -1708,17 +1710,24 @@ export class RpebCompositionService {
           (r) =>
             r.tipo ===
             ApuracaoLimiteMinimoConstitucionalTipos21.APLICACAO_EM_MDE_SOBRE_RECEITA_DE_IMPOSTOS,
-        )?.['valorAplicado'] ||
+        )?.['valorExigido'] ||
         item.apuracaoLimiteMinimoConstitucional.find(
           (r) =>
             r.tipo ===
             ApuracaoLimiteMinimoConstitucionalTipos23.APLICACAO_EM_MDE_SOBRE_RECEITA_LIQUIDA_DE_IMPOSTOS,
-        )?.['valorAplicado'] ||
+        )?.['valorExigido'] ||
         0;
 
       const percentage = vinculacaoMinima
         ? (receitasAdicionais / vinculacaoMinima) * 100
         : 0;
+
+      console.log(
+        item.codigoMunicipio,
+        receitasAdicionais,
+        vinculacaoMinima,
+        percentage,
+      );
 
       return {
         ano: item.ano,

@@ -366,7 +366,7 @@ export class EducationExpenseCompositionService {
               },
             },
             select: {
-              despesasLiquidadasAteBimestre: true,
+              despesasPagasAteBimestre: true,
               tipo: true,
             },
           },
@@ -399,7 +399,7 @@ export class EducationExpenseCompositionService {
               },
             },
             select: {
-              despesasLiquidadasAteBimestre: true,
+              despesasPagasAteBimestre: true,
               tipo: true,
             },
           },
@@ -430,7 +430,7 @@ export class EducationExpenseCompositionService {
           (d) =>
             d.tipo === ItemDespesasTipos21.PESSOAL_ATIVO ||
             d.tipo === ItemDespesaTipos23.DESPESAS_CORRENTES_PESSOAL_ATIVO,
-        )?.despesasLiquidadasAteBimestre || 0;
+        )?.despesasPagasAteBimestre || 0;
 
       const totalMde =
         item.apuracaoLimiteMinimoConstitucional.find(
@@ -441,7 +441,11 @@ export class EducationExpenseCompositionService {
               ApuracaoLimiteMinimoConstitucionalTipos23.APLICACAO_EM_MDE_SOBRE_RECEITA_LIQUIDA_DE_IMPOSTOS,
         )?.valorAplicado || 0;
 
+      console.log(item.codigoMunicipio, despesaPessoal, totalMde);
+
       const percentage = totalMde ? (despesaPessoal / totalMde) * 100 : 0;
+
+      console.log(percentage);
 
       return {
         ano: item.ano,
@@ -535,7 +539,7 @@ export class EducationExpenseCompositionService {
               },
             },
             select: {
-              despesasLiquidadasAteBimestre: true,
+              despesasPagasAteBimestre: true,
               tipo: true,
             },
           },
@@ -568,7 +572,7 @@ export class EducationExpenseCompositionService {
               },
             },
             select: {
-              despesasLiquidadasAteBimestre: true,
+              despesasPagasAteBimestre: true,
               tipo: true,
             },
           },
@@ -599,7 +603,7 @@ export class EducationExpenseCompositionService {
           (d) =>
             d.tipo === ItemDespesasTipos21.PESSOAL_INATIVO ||
             d.tipo === ItemDespesaTipos23.DESPESAS_CORRENTES_PESSOAL_INATIVO,
-        )?.despesasLiquidadasAteBimestre || 0;
+        )?.despesasPagasAteBimestre || 0;
 
       const totalMde =
         item.apuracaoLimiteMinimoConstitucional.find(
@@ -704,7 +708,7 @@ export class EducationExpenseCompositionService {
               },
             },
             select: {
-              despesasLiquidadasAteBimestre: true,
+              despesasPagasAteBimestre: true,
               tipo: true,
             },
           },
@@ -737,7 +741,7 @@ export class EducationExpenseCompositionService {
               },
             },
             select: {
-              despesasLiquidadasAteBimestre: true,
+              despesasPagasAteBimestre: true,
               tipo: true,
             },
           },
@@ -766,7 +770,7 @@ export class EducationExpenseCompositionService {
       const despesaCapital =
         item.despesa.find(
           (d) => d.tipo === ItemDespesasTipos21.DESPESAS_DE_CAPITAL,
-        )?.despesasLiquidadasAteBimestre || 0;
+        )?.despesasPagasAteBimestre || 0;
 
       const totalMde =
         item.apuracaoLimiteMinimoConstitucional.find(
