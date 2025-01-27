@@ -368,7 +368,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação em MDE',
+              tipo: 'APLICACAO_MDE',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -400,7 +400,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação em MDE',
+              tipo: 'APLICACAO_MDE',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -432,7 +432,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação em MDE',
+              tipo: 'APLICACAO_MDE',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -464,7 +464,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação em MDE',
+              tipo: 'APLICACAO_MDE',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -496,7 +496,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação em MDE',
+              tipo: 'APLICACAO_MDE',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -528,7 +528,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação em MDE',
+              tipo: 'APLICACAO_MDE',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -560,7 +560,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação em MDE',
+              tipo: 'APLICACAO_MDE',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -593,7 +593,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação em MDE',
+              tipo: 'APLICACAO_MDE',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -724,6 +724,7 @@ export class ResourcesApplicationControlService {
 
     return groupedData;
   }
+
   async fundebApplicationControl(
     groupType: GroupType,
     filters?: object,
@@ -1103,7 +1104,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do Fundeb no pagamento dos profissionais da educação',
+              tipo: 'APLICACAO_FUNDEB_PAG_PROFISSIONAIS_EDUCACAO',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1144,7 +1145,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do Fundeb no pagamento dos profissionais da educação',
+              tipo: 'APLICACAO_FUNDEB_PAG_PROFISSIONAIS_EDUCACAO',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1193,7 +1194,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do Fundeb no pagamento dos profissionais da educação',
+              tipo: 'APLICACAO_FUNDEB_PAG_PROFISSIONAIS_EDUCACAO',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1242,7 +1243,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do Fundeb no pagamento dos profissionais da educação',
+              tipo: 'APLICACAO_FUNDEB_PAG_PROFISSIONAIS_EDUCACAO',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1291,7 +1292,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do Fundeb no pagamento dos profissionais da educação',
+              tipo: 'APLICACAO_FUNDEB_PAG_PROFISSIONAIS_EDUCACAO',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1340,7 +1341,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do Fundeb no pagamento dos profissionais da educação',
+              tipo: 'APLICACAO_FUNDEB_PAG_PROFISSIONAIS_EDUCACAO',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1371,7 +1372,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do Fundeb no pagamento dos profissionais da educação',
+              tipo: 'APLICACAO_FUNDEB_PAG_PROFISSIONAIS_EDUCACAO',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1402,7 +1403,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do Fundeb no pagamento dos profissionais da educação',
+              tipo: 'APLICACAO_FUNDEB_PAG_PROFISSIONAIS_EDUCACAO',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1634,7 +1635,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do VAAT na Educação Infantil',
+              tipo: 'APLICACAO_VAAT_EDUCACAO_INFANTIL',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1666,7 +1667,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do VAAT na Educação Infantil',
+              tipo: 'APLICACAO_VAAT_EDUCACAO_INFANTIL',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1848,7 +1849,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do VAAT em Despesa de Capital',
+              tipo: 'APLICACAO_VAAT_DESPESA_CAPITAL',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
@@ -1880,7 +1881,7 @@ export class ResourcesApplicationControlService {
           codigoMunicipio: item.codigoMunicipio,
           indicador: [
             {
-              tipo: 'Aplicação do VAAT em Despesa de Capital',
+              tipo: 'APLICACAO_VAAT_DESPESA_CAPITAL',
               valor: parseFloat(percentage.toFixed(2)),
             },
           ],
