@@ -1184,7 +1184,7 @@ export class ResourcesApplicationControlService {
         // Calcular a porcentagem 13E - (16.1B + 17.1B)/11E * 100
         const percentage =
           receitaItem !== 0
-            ? (despesaItem - (deducao16Item + deducao17Item) / receitaItem) *
+            ? ((despesaItem - (deducao16Item + deducao17Item)) / receitaItem) *
               100
             : 0;
 
@@ -1233,7 +1233,7 @@ export class ResourcesApplicationControlService {
         // Calcular a porcentagem 13F - (16.1B + 17.1B)/11D * 100
         const percentage =
           receitaItem !== 0
-            ? (despesaItem - (deducao16Item + deducao17Item) / receitaItem) *
+            ? ((despesaItem - (deducao16Item + deducao17Item)) / receitaItem) *
               100
             : 0;
 
@@ -1282,7 +1282,7 @@ export class ResourcesApplicationControlService {
         // Calcular a porcentagem 13F - (16.1B + 17.1B)/11D * 100
         const percentage =
           receitaItem !== 0
-            ? (despesaItem - (deducao16Item + deducao17Item) / receitaItem) *
+            ? ((despesaItem - (deducao16Item + deducao17Item)) / receitaItem) *
               100
             : 0;
 
@@ -1331,7 +1331,7 @@ export class ResourcesApplicationControlService {
         // Calcular a porcentagem 13F - (16.1B + 17.1B)/11D * 100
         const percentage =
           receitaItem !== 0
-            ? (despesaItem - (deducao16Item + deducao17Item) / receitaItem) *
+            ? ((despesaItem - (deducao16Item + deducao17Item)) / receitaItem) *
               100
             : 0;
 
