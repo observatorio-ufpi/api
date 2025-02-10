@@ -43,4 +43,38 @@ export class FinancingCapacityController {
       },
     );
   }
+
+  @Get('fundeb/:groupType')
+  async fundebFinancingCapacity(
+    @Param('groupType') groupType: GroupType,
+    @Query()
+    {
+      nomeMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    }: IndicatorsFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
+  ) {
+    const filters = {
+      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
+      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
+      ...(territorioDeDesenvolvimentoMunicipio && {
+        territorioDeDesenvolvimentoMunicipio,
+      }),
+      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+    };
+
+    return this.financingCapacityService.fundebFinancingCapacity(
+      groupType,
+      filters,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
+  }
 }

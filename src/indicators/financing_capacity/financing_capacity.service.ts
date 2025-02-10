@@ -11,11 +11,10 @@ import {
   ItemReceitaTipos21,
   ItemReceitaTipos23,
 } from '@prisma/client';
-import { GroupType } from 'src/utils/constants';
-import { IndicatorsFiltersDto } from '../dto/indicators.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { PaginationParams } from 'src/utils/constants';
+import { GroupType, PaginationParams } from 'src/utils/constants';
 import { groupByAno, groupByMunicipio } from 'src/utils/groupFunctions';
+import { IndicatorsFiltersDto } from '../dto/indicators.dto';
 
 @Injectable()
 export class FinancingCapacityService {
@@ -752,7 +751,7 @@ export class FinancingCapacityService {
     return groupedData;
   }
 
-  async participacaoFundebComposicao(
+  async fundebFinancingCapacity(
     groupType: GroupType,
     filters: IndicatorsFiltersDto,
     pagination: PaginationParams,
@@ -1046,7 +1045,7 @@ export class FinancingCapacityService {
 
       const deducoesFundeb =
         item.receita.find(
-          (r) => r.tipo === ItemReceitaTipos0708.DEDUCOES_FUNDEB,
+          (r) => r.tipo === ItemReceitaTipos0708.RECEITAS_DESTINADAS_AO_FUNDEB,
         )?.receitasRealizadasNoAno || 0;
 
       const transferenciasRecursosFundeb =
@@ -1256,21 +1255,9 @@ export class FinancingCapacityService {
             r.tipo === ItemReceitaTipos1516.TRANSFERENCIAS_SALARIO_EDUCACAO,
         )?.receitasRealizadaAteBimestre || 0;
 
-      const outrasTransferenciasFnde =
+      const pdde =
         item.receita.find(
-          (r) => r.tipo === ItemReceitaTipos1516.OUTRAS_TRANSFERENCIAS_FNDE,
-        )?.receitasRealizadaAteBimestre || 0;
-
-      const royalties =
-        item.receita.find(
-          (r) =>
-            r.tipo === ItemReceitaTipos1516.ROYALTIES_DESTINADOS_A_EDUCACAO,
-        )?.receitasRealizadaAteBimestre || 0;
-
-      const operacoesCredito =
-        item.receita.find(
-          (r) =>
-            r.tipo === ItemReceitaTipos1516.RECEITAS_DE_OPERACOES_DE_CREDITO,
+          (r) => r.tipo === ItemReceitaTipos1516.TRANSFERENCIAS_DIRETAS_PDDE,
         )?.receitasRealizadaAteBimestre || 0;
 
       const denominador =
@@ -1279,9 +1266,7 @@ export class FinancingCapacityService {
         transferenciasRecursosFundeb +
         complementacaoUniao +
         salarioEducacao +
-        outrasTransferenciasFnde +
-        royalties +
-        operacoesCredito;
+        pdde;
 
       const percentage =
         denominador !== 0 ? (receitasFundeb / denominador) * 100 : 0;
@@ -1300,9 +1285,20 @@ export class FinancingCapacityService {
 
     // Períodos 2021-2022
     const modifiedRevenues2122 = revenues2122.map((item) => {
-      const fundebPrincipal =
-        item.receita.find((r) => r.tipo === ItemReceitaTipos21.FUNDEB_PRINCIPAL)
-          ?.receitasRealizadaAteBimestre || 0;
+      const fundebPrincipal611 =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_1_1,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const fundebPrincipal621 =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_2_1,
+        )?.receitasRealizadaAteBimestre || 0;
+
+      const fundebPrincipal631 =
+        item.receita.find(
+          (r) => r.tipo === ItemReceitaTipos21.FUNDEB_PRINCIPAL_6_3_1,
+        )?.receitasRealizadaAteBimestre || 0;
 
       const valorMinimo =
         item.apuracaoLimiteMinimoConstitucional.find(
@@ -1311,18 +1307,14 @@ export class FinancingCapacityService {
             ApuracaoLimiteMinimoConstitucionalTipos21.APLICACAO_EM_MDE_SOBRE_RECEITA_DE_IMPOSTOS,
         )?.valorExigido || 0;
 
-      const deducoesFundeb =
-        item.receita.find((r) => r.tipo === ItemReceitaTipos21.FUNDEB_DEDUCOES)
-          ?.receitasRealizadaAteBimestre || 0;
-
-      const complementacaoVaaf =
+      const receitasRecebidasFundeb =
         item.receita.find(
-          (r) => r.tipo === ItemReceitaTipos21.FUNDEB_COMPLEMENTACAO_UNIAO_VAAF,
+          (r) => r.tipo === ItemReceitaTipos21.RECEITAS_RECEBIDAS_FUNDEB,
         )?.receitasRealizadaAteBimestre || 0;
 
-      const complementacaoVaat =
+      const deducoesFundeb =
         item.receita.find(
-          (r) => r.tipo === ItemReceitaTipos21.FUNDEB_COMPLEMENTACAO_UNIAO_VAAT,
+          (r) => r.tipo === ItemReceitaTipos21.TOTAL_DESTINADO_FUNDEB,
         )?.receitasRealizadaAteBimestre || 0;
 
       const salarioEducacao =
@@ -1345,16 +1337,16 @@ export class FinancingCapacityService {
       const denominador =
         valorMinimo -
         deducoesFundeb +
-        fundebPrincipal +
-        complementacaoVaaf +
-        complementacaoVaat +
+        fundebPrincipal611 +
+        fundebPrincipal621 +
+        fundebPrincipal631 +
         salarioEducacao +
         pdde +
         pnae +
         pnate;
 
       const percentage =
-        denominador !== 0 ? (fundebPrincipal / denominador) * 100 : 0;
+        denominador !== 0 ? (receitasRecebidasFundeb / denominador) * 100 : 0;
 
       return {
         ano: item.ano,
@@ -1370,9 +1362,12 @@ export class FinancingCapacityService {
 
     // Período 2023
     const modifiedRevenues23 = revenues23.map((item) => {
-      const fundebPrincipal =
-        item.receita.find((r) => r.tipo === ItemReceitaTipos23.FUNDEB_PRINCIPAL)
-          ?.receitasRealizadasAteBimestre || 0;
+      const receitasRecebidasFundeb =
+        item.receita.find(
+          (r) =>
+            r.tipo ===
+            ItemReceitaTipos23.TOTAL_DAS_RECEITAS_DO_FUNDEB_RECEBIDAS,
+        )?.receitasRealizadasAteBimestre || 0;
 
       const valorMinimo =
         item.apuracaoLimiteMinimoConstitucional.find(
@@ -1385,6 +1380,10 @@ export class FinancingCapacityService {
         item.receita.find(
           (r) => r.tipo === ItemReceitaTipos23.TOTAL_DESTINADO_AO_FUNDEB,
         )?.receitasRealizadasAteBimestre || 0;
+
+      const fundebPrincipal =
+        item.receita.find((r) => r.tipo === ItemReceitaTipos23.FUNDEB_PRINCIPAL)
+          ?.receitasRealizadasAteBimestre || 0;
 
       const complementacaoVaaf =
         item.receita.find(
@@ -1442,7 +1441,7 @@ export class FinancingCapacityService {
         pnate;
 
       const percentage =
-        denominador !== 0 ? (fundebPrincipal / denominador) * 100 : 0;
+        denominador !== 0 ? (receitasRecebidasFundeb / denominador) * 100 : 0;
 
       return {
         ano: item.ano,
