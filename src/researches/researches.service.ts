@@ -5843,6 +5843,29 @@ export class ResearchesService {
               tipo: true,
             },
           },
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos0708.COTA_PARTE_FPM,
+                  ItemReceitaTipos0708.COTA_PARTE_ICMS,
+                  ItemReceitaTipos0708.ICMS_DESONERACAO,
+                  ItemReceitaTipos0708.COTA_PARTE_IPI_EXPORTACAO,
+                  ItemReceitaTipos0708.COTA_PARTE_ITR,
+                  ItemReceitaTipos0708.COTA_PARTE_IPVA,
+                  ItemReceitaTipos0708.COTA_PARTE_IOF_OURO,
+                  ItemReceitaTipos0708.RECEITA_RESULTANTE_IMPOSTO_IPTU,
+                  ItemReceitaTipos0708.RECEITA_RESULTANTE_ITBI,
+                  ItemReceitaTipos0708.RECEITA_RESULTANTE_ISS,
+                  ItemReceitaTipos0708.RECEITA_RESULTANTE_IRRF,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadasNoAno: true,
+              tipo: true,
+            },
+          },
         },
         where: {
           ...filters,
@@ -5862,6 +5885,31 @@ export class ResearchesService {
             },
             select: {
               despesasLiquidadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos0912.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B,
+                  ItemReceitaTipos0912.COTA_PARTE_ICMS,
+                  ItemReceitaTipos0912.ICMS_DESONERACAO_LC_87_1996,
+                  ItemReceitaTipos0912.COTA_PARTE_IPI_EXPORTACAO,
+                  ItemReceitaTipos0912.COTA_PARTE_ITR,
+                  ItemReceitaTipos0912.COTA_PARTE_IPVA,
+                  ItemReceitaTipos0912.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D,
+                  ItemReceitaTipos0912.COTA_PARTE_IOF_OURO,
+                  ItemReceitaTipos0912.IPTU_RECEITA_RESULTANTE,
+                  ItemReceitaTipos0912.ITBI_RECEITA_RESULTANTE,
+                  ItemReceitaTipos0912.ISS_RECEITA_RESULTANTE,
+                  ItemReceitaTipos0912.IRRF_RECEITA_RESULTANTE,
+                  ItemReceitaTipos0912.ITR_RECEITA_RESULTANTE,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
               tipo: true,
             },
           },
@@ -5887,6 +5935,31 @@ export class ResearchesService {
               tipo: true,
             },
           },
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1314.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B,
+                  ItemReceitaTipos1314.COTA_PARTE_ICMS,
+                  ItemReceitaTipos1314.ICMS_DESONERACAO_LC_87_1996,
+                  ItemReceitaTipos1314.COTA_PARTE_IPI_EXPORTACAO,
+                  ItemReceitaTipos1314.COTA_PARTE_ITR,
+                  ItemReceitaTipos1314.COTA_PARTE_IPVA,
+                  ItemReceitaTipos1314.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D,
+                  ItemReceitaTipos1314.COTA_PARTE_IOF_OURO,
+                  ItemReceitaTipos1314.IPTU_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1314.ITBI_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1314.ISS_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1314.IRRF_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1314.ITR_RECEITA_RESULTANTE,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
         },
         where: {
           ...filters,
@@ -5906,6 +5979,32 @@ export class ResearchesService {
             },
             select: {
               despesasLiquidadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1516.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B,
+                  ItemReceitaTipos1516.COTA_PARTE_ICMS,
+                  ItemReceitaTipos1516.ICMS_DESONERACAO_LC_87_1996,
+                  ItemReceitaTipos1516.COTA_PARTE_IPI_EXPORTACAO,
+                  ItemReceitaTipos1516.COTA_PARTE_ITR,
+                  ItemReceitaTipos1516.COTA_PARTE_IPVA,
+                  ItemReceitaTipos1516.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D,
+                  ItemReceitaTipos1516.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_E,
+                  ItemReceitaTipos1516.COTA_PARTE_IOF_OURO,
+                  ItemReceitaTipos1516.IPTU_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1516.ITBI_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1516.ISS_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1516.IRRF_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1516.ITR_RECEITA_RESULTANTE,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
               tipo: true,
             },
           },
@@ -5931,6 +6030,32 @@ export class ResearchesService {
               tipo: true,
             },
           },
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1718.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B,
+                  ItemReceitaTipos1718.COTA_PARTE_ICMS,
+                  ItemReceitaTipos1718.ICMS_DESONERACAO_LC_87_1996,
+                  ItemReceitaTipos1718.COTA_PARTE_IPI_EXPORTACAO,
+                  ItemReceitaTipos1718.COTA_PARTE_ITR,
+                  ItemReceitaTipos1718.COTA_PARTE_IPVA,
+                  ItemReceitaTipos1718.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D,
+                  ItemReceitaTipos1718.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_E,
+                  ItemReceitaTipos1718.COTA_PARTE_IOF_OURO,
+                  ItemReceitaTipos1718.IPTU_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1718.ITBI_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1718.ISS_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1718.IRRF_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1718.ITR_RECEITA_RESULTANTE,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
+              tipo: true,
+            },
+          },
         },
         where: {
           ...filters,
@@ -5950,6 +6075,31 @@ export class ResearchesService {
             },
             select: {
               despesasLiquidadasAteBimestre: true,
+              tipo: true,
+            },
+          },
+          receita: {
+            where: {
+              tipo: {
+                in: [
+                  ItemReceitaTipos1920.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B,
+                  ItemReceitaTipos1920.COTA_PARTE_ICMS,
+                  ItemReceitaTipos1920.ICMS_DESONERACAO_LC_87_1996,
+                  ItemReceitaTipos1920.COTA_PARTE_IPI_EXPORTACAO,
+                  ItemReceitaTipos1920.COTA_PARTE_ITR,
+                  ItemReceitaTipos1920.COTA_PARTE_IPVA,
+                  ItemReceitaTipos1920.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D,
+                  ItemReceitaTipos1920.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_E,
+                  ItemReceitaTipos1920.COTA_PARTE_IOF_OURO,
+                  ItemReceitaTipos1920.IPTU_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1920.ITBI_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1920.ISS_RECEITA_RESULTANTE,
+                  ItemReceitaTipos1920.IRRF_RECEITA_RESULTANTE,
+                ],
+              },
+            },
+            select: {
+              receitasRealizadaAteBimestre: true,
               tipo: true,
             },
           },
@@ -6067,29 +6217,317 @@ export class ResearchesService {
       },
     });
 
+    const modifiedRevenues0708 = revenues0708.map((item) => {
+      // First group (5%): 2.1E through 2.6E
+      const firstGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos0708.COTA_PARTE_FPM, // 2.1E
+            ItemReceitaTipos0708.COTA_PARTE_ICMS, // 2.2E
+            ItemReceitaTipos0708.ICMS_DESONERACAO, // 2.3E
+            ItemReceitaTipos0708.COTA_PARTE_IPI_EXPORTACAO, // 2.4E
+            ItemReceitaTipos0708.COTA_PARTE_ITR, // 2.5E
+            ItemReceitaTipos0708.COTA_PARTE_IPVA, // 2.6E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadasNoAno, 0);
+
+      // Second group (25%): 2.7E and 1.1E through 1.4E
+      const secondGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos0708.COTA_PARTE_IOF_OURO, // 2.7E
+            ItemReceitaTipos0708.RECEITA_RESULTANTE_IMPOSTO_IPTU, // 1.1E
+            ItemReceitaTipos0708.RECEITA_RESULTANTE_ITBI, // 1.2E
+            ItemReceitaTipos0708.RECEITA_RESULTANTE_ISS, // 1.3E
+            ItemReceitaTipos0708.RECEITA_RESULTANTE_IRRF, // 1.4E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadasNoAno, 0);
+
+      // Calculate final value: 5% of first group + 25% of second group
+      const recursosMDEForaFundeb =
+        firstGroupSum * 0.05 + secondGroupSum * 0.25;
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'RECURSOS_MDE_FORA_DO_FUNDEB',
+            receitasRealizadasNoAno: parseFloat(
+              recursosMDEForaFundeb.toFixed(4),
+            ),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues0912 = revenues0912.map((item) => {
+      // First group (5%): 2.1.1E through 2.6E
+      const firstGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos0912.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B, // 2.1.1E
+            ItemReceitaTipos0912.COTA_PARTE_ICMS, // 2.2E
+            ItemReceitaTipos0912.ICMS_DESONERACAO_LC_87_1996, // 2.3E
+            ItemReceitaTipos0912.COTA_PARTE_IPI_EXPORTACAO, // 2.4E
+            ItemReceitaTipos0912.COTA_PARTE_ITR, // 2.5E
+            ItemReceitaTipos0912.COTA_PARTE_IPVA, // 2.6E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Second group (25%): 2.1.2E, 2.7E, and 1.1E through 1.5E
+      const secondGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos0912.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D, // 2.1.2E
+            ItemReceitaTipos0912.COTA_PARTE_IOF_OURO, // 2.7E
+            ItemReceitaTipos0912.IPTU_RECEITA_RESULTANTE, // 1.1E
+            ItemReceitaTipos0912.ITBI_RECEITA_RESULTANTE, // 1.2E
+            ItemReceitaTipos0912.ISS_RECEITA_RESULTANTE, // 1.3E
+            ItemReceitaTipos0912.IRRF_RECEITA_RESULTANTE, // 1.4E
+            ItemReceitaTipos0912.ITR_RECEITA_RESULTANTE, // 1.5E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Calculate final value: 5% of first group + 25% of second group
+      const recursosMDEForaFundeb =
+        firstGroupSum * 0.05 + secondGroupSum * 0.25;
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'RECURSOS_MDE_FORA_DO_FUNDEB',
+            receitasRealizadaAteBimestre: parseFloat(
+              recursosMDEForaFundeb.toFixed(4),
+            ),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues1314 = revenues1314.map((item) => {
+      // First group (5%): 2.1.1E through 2.6E
+      const firstGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos1314.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B, // 2.1.1E
+            ItemReceitaTipos1314.COTA_PARTE_ICMS, // 2.2E
+            ItemReceitaTipos1314.ICMS_DESONERACAO_LC_87_1996, // 2.3E
+            ItemReceitaTipos1314.COTA_PARTE_IPI_EXPORTACAO, // 2.4E
+            ItemReceitaTipos1314.COTA_PARTE_ITR, // 2.5E
+            ItemReceitaTipos1314.COTA_PARTE_IPVA, // 2.6E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Second group (25%): 2.1.2E, 2.7E, and 1.1E through 1.5E
+      const secondGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos1314.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D, // 2.1.2E
+            ItemReceitaTipos1314.COTA_PARTE_IOF_OURO, // 2.7E
+            ItemReceitaTipos1314.IPTU_RECEITA_RESULTANTE, // 1.1E
+            ItemReceitaTipos1314.ITBI_RECEITA_RESULTANTE, // 1.2E
+            ItemReceitaTipos1314.ISS_RECEITA_RESULTANTE, // 1.3E
+            ItemReceitaTipos1314.IRRF_RECEITA_RESULTANTE, // 1.4E
+            ItemReceitaTipos1314.ITR_RECEITA_RESULTANTE, // 1.5E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Calculate final value: 5% of first group + 25% of second group
+      const recursosMDEForaFundeb =
+        firstGroupSum * 0.05 + secondGroupSum * 0.25;
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'RECURSOS_MDE_FORA_DO_FUNDEB',
+            receitasRealizadaAteBimestre: parseFloat(
+              recursosMDEForaFundeb.toFixed(4),
+            ),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues1516 = revenues1516.map((item) => {
+      // First group (5%): 2.1.1E through 2.6E
+      const firstGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos1516.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B, // 2.1.1E
+            ItemReceitaTipos1516.COTA_PARTE_ICMS, // 2.2E
+            ItemReceitaTipos1516.ICMS_DESONERACAO_LC_87_1996, // 2.3E
+            ItemReceitaTipos1516.COTA_PARTE_IPI_EXPORTACAO, // 2.4E
+            ItemReceitaTipos1516.COTA_PARTE_ITR, // 2.5E
+            ItemReceitaTipos1516.COTA_PARTE_IPVA, // 2.6E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Second group (25%): 2.1.2E, 2.7E, and 1.1E through 1.5E
+      const secondGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos1516.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D, // 2.1.2E
+            ItemReceitaTipos1516.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_E, // 2.1.3E
+            ItemReceitaTipos1516.COTA_PARTE_IOF_OURO, // 2.7E
+            ItemReceitaTipos1516.IPTU_RECEITA_RESULTANTE, // 1.1E
+            ItemReceitaTipos1516.ITBI_RECEITA_RESULTANTE, // 1.2E
+            ItemReceitaTipos1516.ISS_RECEITA_RESULTANTE, // 1.3E
+            ItemReceitaTipos1516.IRRF_RECEITA_RESULTANTE, // 1.4E
+            ItemReceitaTipos1516.ITR_RECEITA_RESULTANTE, // 1.5E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Calculate final value: 5% of first group + 25% of second group
+      const recursosMDEForaFundeb =
+        firstGroupSum * 0.05 + secondGroupSum * 0.25;
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'RECURSOS_MDE_FORA_DO_FUNDEB',
+            receitasRealizadaAteBimestre: parseFloat(
+              recursosMDEForaFundeb.toFixed(4),
+            ),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues1718 = revenues1718.map((item) => {
+      // First group (5%): 2.1.1E through 2.6E
+      const firstGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos1718.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B, // 2.1.1E
+            ItemReceitaTipos1718.COTA_PARTE_ICMS, // 2.2E
+            ItemReceitaTipos1718.ICMS_DESONERACAO_LC_87_1996, // 2.3E
+            ItemReceitaTipos1718.COTA_PARTE_IPI_EXPORTACAO, // 2.4E
+            ItemReceitaTipos1718.COTA_PARTE_ITR, // 2.5E
+            ItemReceitaTipos1718.COTA_PARTE_IPVA, // 2.6E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Second group (25%): 2.1.2E, 2.7E, and 1.1E through 1.5E
+      const secondGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos1718.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D, // 2.1.2E
+            ItemReceitaTipos1718.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_E, // 2.1.3E
+            ItemReceitaTipos1718.COTA_PARTE_IOF_OURO, // 2.7E
+            ItemReceitaTipos1718.IPTU_RECEITA_RESULTANTE, // 1.1E
+            ItemReceitaTipos1718.ITBI_RECEITA_RESULTANTE, // 1.2E
+            ItemReceitaTipos1718.ISS_RECEITA_RESULTANTE, // 1.3E
+            ItemReceitaTipos1718.IRRF_RECEITA_RESULTANTE, // 1.4E
+            ItemReceitaTipos1718.ITR_RECEITA_RESULTANTE, // 1.5E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Calculate final value: 5% of first group + 25% of second group
+      const recursosMDEForaFundeb =
+        firstGroupSum * 0.05 + secondGroupSum * 0.25;
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'RECURSOS_MDE_FORA_DO_FUNDEB',
+            receitasRealizadaAteBimestre: parseFloat(
+              recursosMDEForaFundeb.toFixed(4),
+            ),
+          },
+        ],
+      };
+    });
+
+    const modifiedRevenues1920 = revenues1920.map((item) => {
+      // First group (5%): 2.1.1E through 2.6E
+      const firstGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos1920.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B, // 2.1.1E
+            ItemReceitaTipos1920.COTA_PARTE_ICMS, // 2.2E
+            ItemReceitaTipos1920.ICMS_DESONERACAO_LC_87_1996, // 2.3E
+            ItemReceitaTipos1920.COTA_PARTE_IPI_EXPORTACAO, // 2.4E
+            ItemReceitaTipos1920.COTA_PARTE_ITR, // 2.5E
+            ItemReceitaTipos1920.COTA_PARTE_IPVA, // 2.6E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Second group (25%): 2.1.2E, 2.7E, and 1.1E through 1.5E
+      const secondGroupSum = item.receita
+        .filter((r) =>
+          [
+            ItemReceitaTipos1920.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D, // 2.1.2E
+            ItemReceitaTipos1920.COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_E, // 2.1.3E
+            ItemReceitaTipos1920.COTA_PARTE_IOF_OURO, // 2.7E
+            ItemReceitaTipos1920.IPTU_RECEITA_RESULTANTE, // 1.1E
+            ItemReceitaTipos1920.ITBI_RECEITA_RESULTANTE, // 1.2E
+            ItemReceitaTipos1920.ISS_RECEITA_RESULTANTE, // 1.3E
+            ItemReceitaTipos1920.IRRF_RECEITA_RESULTANTE, // 1.4E
+          ].includes(r.tipo as any),
+        )
+        .reduce((sum, r) => sum + r.receitasRealizadaAteBimestre, 0);
+
+      // Calculate final value: 5% of first group + 25% of second group
+      const recursosMDEForaFundeb =
+        firstGroupSum * 0.05 + secondGroupSum * 0.25;
+
+      return {
+        ...item,
+        receita: [
+          ...item.receita,
+          {
+            tipo: 'RECURSOS_MDE_FORA_DO_FUNDEB',
+            receitasRealizadaAteBimestre: parseFloat(
+              recursosMDEForaFundeb.toFixed(4),
+            ),
+          },
+        ],
+      };
+    });
+
     let groupedRevenues = {};
 
     if (groupType === GroupType.MUNICIPIO) {
       groupedRevenues = this.groupByMunicipio([
         { key: 'revenues06', data: revenues06 },
-        { key: 'revenues0708', data: revenues0708 },
-        { key: 'revenues09', data: revenues0912 },
-        { key: 'revenues1314', data: revenues1314 },
-        { key: 'revenues1516', data: revenues1516 },
-        { key: 'revenues1718', data: revenues1718 },
-        { key: 'revenues1920', data: revenues1920 },
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues09', data: modifiedRevenues0912 },
+        { key: 'revenues1314', data: modifiedRevenues1314 },
+        { key: 'revenues1516', data: modifiedRevenues1516 },
+        { key: 'revenues1718', data: modifiedRevenues1718 },
+        { key: 'revenues1920', data: modifiedRevenues1920 },
         { key: 'revenues2122', data: revenues2122 },
         { key: 'revenues23', data: revenues23 },
       ]);
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'revenues06', data: revenues06 },
-        { key: 'revenues0708', data: revenues0708 },
-        { key: 'revenues09', data: revenues0912 },
-        { key: 'revenues1314', data: revenues1314 },
-        { key: 'revenues1516', data: revenues1516 },
-        { key: 'revenues1718', data: revenues1718 },
-        { key: 'revenues1920', data: revenues1920 },
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues09', data: modifiedRevenues0912 },
+        { key: 'revenues1314', data: modifiedRevenues1314 },
+        { key: 'revenues1516', data: modifiedRevenues1516 },
+        { key: 'revenues1718', data: modifiedRevenues1718 },
+        { key: 'revenues1920', data: modifiedRevenues1920 },
         { key: 'revenues2122', data: revenues2122 },
         { key: 'revenues23', data: revenues23 },
       ]);
