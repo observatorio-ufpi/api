@@ -1902,6 +1902,7 @@ export class ResearchesService {
                 ItemReceitaTipos23.FUNDEB_VAAF_RENDIMENTOS_APLICACAO_FINANCEIRA,
                 ItemReceitaTipos23.FUNDEB_VAAT_RENDIMENTOS_APLICACAO_FINANCEIRA,
                 ItemReceitaTipos23.FUNDEB_VAAR_RENDIMENTO_APLICACAO_FINANCEIRA,
+                ItemReceitaTipos23.FUNDEB_RESSARCIMENTO_DE_RECURSOS_DO_FUNDEB,
                 ItemReceitaTipos23.FUNDEB__VAAF_RESSARCIMENTO_FUNDEB,
                 ItemReceitaTipos23.FUNDEB_VAAT_RESSARCIMENTO_FUNDEB,
                 ItemReceitaTipos23.FUNDEB_VAAR_RESSARCIMENTO_FUNDEB,
@@ -1946,6 +1947,7 @@ export class ResearchesService {
           receitaAplicacaoFinanceira += r.receitasRealizadasAteBimestre;
         }
         if (
+          r.tipo === ItemReceitaTipos23.FUNDEB_RESSARCIMENTO_DE_RECURSOS_DO_FUNDEB ||
           r.tipo === ItemReceitaTipos23.FUNDEB__VAAF_RESSARCIMENTO_FUNDEB ||
           r.tipo === ItemReceitaTipos23.FUNDEB_VAAT_RESSARCIMENTO_FUNDEB ||
           r.tipo === ItemReceitaTipos23.FUNDEB_VAAR_RESSARCIMENTO_FUNDEB
@@ -1974,6 +1976,7 @@ export class ResearchesService {
             ItemReceitaTipos23.FUNDEB_VAAF_RENDIMENTOS_APLICACAO_FINANCEIRA,
             ItemReceitaTipos23.FUNDEB_VAAT_RENDIMENTOS_APLICACAO_FINANCEIRA,
             ItemReceitaTipos23.FUNDEB_VAAR_RENDIMENTO_APLICACAO_FINANCEIRA,
+            ItemReceitaTipos23.FUNDEB_RESSARCIMENTO_DE_RECURSOS_DO_FUNDEB
             ItemReceitaTipos23.FUNDEB__VAAF_RESSARCIMENTO_FUNDEB,
             ItemReceitaTipos23.FUNDEB_VAAT_RESSARCIMENTO_FUNDEB,
             ItemReceitaTipos23.FUNDEB_VAAR_RESSARCIMENTO_FUNDEB,
