@@ -2564,14 +2564,14 @@ async function seedDatabase2122(
         tipoControleDisponibilidadeFinanceiraConciliacaoBancariaEnum,
       } = await findTypes21(relatorio, tipoReceitaDespesaLimpo);
 
-      const [
+      const {
         secondCellNumericValue,
         thirdCellNumericValue,
         fourthCellNumericValue,
         fifthCellNumericValue,
         sixthCellNumericValue,
         seventhCellNumericValue,
-      ] = await getCellsNumericValues2(row, 7);
+      } = await getCellsNumericValues(row);
 
       if (tipoReceitaEnum) {
         await prisma.receita21.create({
@@ -2960,14 +2960,14 @@ async function seedDatabase23(
         tipoEmendaConstitucionalExclusivoSiopeEnum,
       } = await findTypes23(relatorio, tipoReceitaDespesaLimpo);
 
-      const [
+      const {
         secondCellNumericValue,
         thirdCellNumericValue,
         fourthCellNumericValue,
         fifthCellNumericValue,
         sixthCellNumericValue,
         seventhCellNumericValue,
-      ] = await getCellsNumericValues2(row, 7);
+      } = await getCellsNumericValues(row);
 
       if (tipoReceitaEnum) {
         await prisma.receita23.create({
@@ -6786,10 +6786,16 @@ function extractNumericValue(cellValue) {
 
   const stringValue = cellValue.toString();
 
-  const match = stringValue.match(/-?\d+(?:,\d+)?(?=[^0-9,]*$)/);
+  // Remove caracteres ruidosos do início (+, espaços, etc)
+  const cleanValue = stringValue.replace(/^[^0-9-]+/, '');
+
+  // Procura por um número no formato brasileiro (com pontos de milhar opcionais e vírgula decimal)
+  const match = cleanValue.match(/^-?\d+(?:\.\d{3})*(?:,\d+)?/);
 
   if (match) {
-    const numericValue = parseFloat(match[0].replace(',', '.'));
+    // Remove pontos e substitui vírgula por ponto para converter para float
+    const numericString = match[0].replace(/\./g, '').replace(',', '.');
+    const numericValue = parseFloat(numericString);
     return isNaN(numericValue) ? 0 : numericValue;
   }
 
