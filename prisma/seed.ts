@@ -6859,9 +6859,7 @@ async function main() {
           const codigo = match[1];
           const ano = match[3];
 
-          if (['2006'].includes(ano)) {
-            await seedDatabase06(caminhoArquivo, ano, codigo);
-          } else if (['2007', '2008'].includes(ano)) {
+          if (['2007', '2008'].includes(ano)) {
             await seedDatabase0708(caminhoArquivo, ano, codigo);
           } else if (['2009', '2010', '2011', '2012'].includes(ano)) {
             await seedDatabase0912(caminhoArquivo, ano, codigo);
