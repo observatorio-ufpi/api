@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PrismaModule } from './prisma/prisma.module';
-import { ResearchesModule } from './researches/researches.module';
-import { RevenueCompositionModule } from './indicators/revenue_composition/revenue_composition.module';
-import { RpebCompositionModule } from './indicators/rpeb_composition/rpeb_composition.module';
+import { BasicModule } from './education/basic/basic.module';
+import { EducationExpenseCompositionModule } from './indicators/education_expense_composition/education_expense_composition.module';
 import { FinancingCapacityModule } from './indicators/financing_capacity/financing_capacity.module';
 import { ResourcesApplicationControlModule } from './indicators/resources_application_control/resources_application_control.module';
-import { EducationExpenseCompositionModule } from './indicators/education_expense_composition/education_expense_composition.module';
+import { RevenueCompositionModule } from './indicators/revenue_composition/revenue_composition.module';
+import { RpebCompositionModule } from './indicators/rpeb_composition/rpeb_composition.module';
+import { PrismaModule } from './prisma/prisma.module';
+import { ResearchesModule } from './researches/researches.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { EducationExpenseCompositionModule } from './indicators/education_expens
     FinancingCapacityModule,
     ResourcesApplicationControlModule,
     EducationExpenseCompositionModule,
+    BasicModule,
   ],
   controllers: [AppController],
   providers: [AppService],

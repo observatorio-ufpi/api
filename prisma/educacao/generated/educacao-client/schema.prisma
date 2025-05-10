@@ -1,0 +1,136 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "./generated/educacao-client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL_EDUCACAO")
+}
+
+// Dimensões compartilhadas
+model Localidade {
+    id          Int     @id
+    nome        String
+    tipo        String // "estado" ou "municipio"
+    uf          String? @db.Char(2)
+    codigo_ibge String?
+
+    // Relações
+    dados_basica DadoEducacaoBasica[]
+}
+
+// Dimensões específicas da educação básica
+model DependenciaAdministrativaBasica {
+    id   Int     @id
+    nome String
+    tipo String? // "federal", "estadual", "municipal", "privada"
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
+model EtapaEnsinoBasica {
+    id         Int     @id
+    nome       String
+    nome_curto String?
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
+model EtapaEnsinoBasicaSchool {
+    id   Int    @id
+    nome String
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
+model Localizacao {
+    id   Int    @id
+    nome String // "Urbana" ou "Rural"
+
+    // Relações
+    dados_basica DadoEducacaoBasica[]
+}
+
+model VinculoFuncional {
+    id   Int    @id
+    nome String
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
+model FormacaoDocente {
+    id   Int    @id
+    nome String
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
+model FaixaEtaria {
+    id            Int    @id
+    nome          String
+    idade_inicial Int?
+    idade_final   Int?
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
+// Tabela de fatos
+model DadoEducacaoBasica {
+    id               Int      @id @default(autoincrement())
+    tipo             String // "enrollment", "school/count", "class", "teacher", "auxiliar", "employees", "out_of_school", "liquid_enrollment_ratio", "gloss_enrollment_ratio", "rate_school_new"
+    ano              Int
+    total            Decimal  @db.Decimal(15, 2)
+    data_atualizacao DateTime @default(now())
+
+    // Dimensões (todas opcionais)
+    localidade_id Int?
+    localidade    Localidade? @relation(fields: [localidade_id], references: [id])
+
+    dependencia_id Int?
+    dependencia    DependenciaAdministrativaBasica? @relation(fields: [dependencia_id], references: [id])
+
+    etapa_id Int?
+    etapa    EtapaEnsinoBasica? @relation(fields: [etapa_id], references: [id])
+
+    etapa_school_id Int?
+    etapa_school    EtapaEnsinoBasicaSchool? @relation(fields: [etapa_school_id], references: [id])
+
+    localizacao_id Int?
+    localizacao    Localizacao? @relation(fields: [localizacao_id], references: [id])
+
+    vinculo_id Int?
+    vinculo    VinculoFuncional? @relation(fields: [vinculo_id], references: [id])
+
+    formacao_id Int?
+    formacao    FormacaoDocente? @relation(fields: [formacao_id], references: [id])
+
+    faixa_etaria_id Int?
+    faixa_etaria    FaixaEtaria? @relation(fields: [faixa_etaria_id], references: [id])
+
+    // Índices e chaves únicas
+    @@index([tipo, ano, localidade_id])
+    @@index([ano])
+    @@index([localidade_id])
+    @@index([dependencia_id])
+    @@index([etapa_id])
+    @@index([localizacao_id])
+}
+
+// Controle de importações
+model ImportacaoAPI {
+    id                Int      @id @default(autoincrement())
+    data_importacao   DateTime @default(now())
+    tipo_dado         String
+    anos_importados   Int[]
+    filtros_aplicados Json?
+    total_registros   Int
+    status            String // "sucesso", "erro", "parcial"
+    mensagem_erro     String?
+}
