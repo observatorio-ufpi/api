@@ -70,16 +70,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -107,16 +98,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -145,16 +127,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -184,16 +157,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -222,16 +186,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -262,16 +217,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -300,16 +246,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -339,16 +276,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -376,16 +304,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -413,16 +332,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -440,6 +350,20 @@ export class ResearchesService {
         { key: 'revenues1920', data: revenues1920 },
         { key: 'revenues2123', data: revenues2123 },
       ]);
+
+      if (filters?.anoInicial || filters?.anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          groupedRevenues[municipio] = groupedRevenues[municipio].filter(
+            (item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!filters.anoInicial || ano >= filters.anoInicial) &&
+                (!filters.anoFinal || ano <= filters.anoFinal)
+              );
+            },
+          );
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'revenues06', data: revenues06 },
@@ -450,6 +374,20 @@ export class ResearchesService {
         { key: 'revenues1920', data: revenues1920 },
         { key: 'revenues2123', data: revenues2123 },
       ]);
+
+      if (filters?.anoInicial || filters?.anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          groupedRevenues[municipio] = groupedRevenues[municipio].filter(
+            (item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!filters.anoInicial || ano >= filters.anoInicial) &&
+                (!filters.anoFinal || ano <= filters.anoFinal)
+              );
+            },
+          );
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }
@@ -7021,6 +6959,7 @@ export class ResearchesService {
                   ItemDespesasTipos21.PESSOAL_INATIVO,
                   ItemDespesasTipos21.TRANSFERENCIAS_INSTITUICOES_47_1_3,
                   ItemDespesasTipos21.DESPESAS_DE_CAPITAL,
+                  ItemDespesasTipos21.TRANSFERENCIAS_INSTITUICOES_47_2_1,
                 ],
               },
             },
@@ -7085,6 +7024,7 @@ export class ResearchesService {
                 ItemDespesaTipos23.DESPESAS_CORRENTES_PESSOAL_INATIVO,
                 ItemDespesaTipos23.DESPESAS_CORRENTES_TRANSFERENCIAS_INSTITUICOES_COMUNITARIAS,
                 ItemDespesaTipos23.DESPESAS_DE_CAPITAL,
+                ItemDespesaTipos23.DESPESAS_DE_CAPITAL_TRANSFERENCIAS_INSTITUICOES_COMUNITARIAS,
               ],
             },
           },
@@ -7409,6 +7349,8 @@ export class ResearchesService {
         ],
       };
     });
+
+    // const modifiedRevenues2122 = revenues2122.map((item) => {
 
     let groupedRevenues = {};
 

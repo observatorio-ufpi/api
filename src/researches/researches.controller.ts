@@ -1,9 +1,9 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { GroupType } from 'src/utils/constants';
 import { PaginationDto } from '../dtos/pagination.dto';
 import { ResearchesFiltersDto } from './dto/researches.dto';
 import { ResearchesService } from './researches.service';
-import { GroupType } from 'src/utils/constants';
 
 @ApiTags('researches')
 @Controller('researches')
@@ -20,10 +20,13 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
+    console.log(anoInicial, anoFinal);
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
@@ -32,7 +35,11 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
+
+    console.log(filters);
 
     return this.researchesService.municipalOwnTaxesRevenue(groupType, filters, {
       page: Number(page),
@@ -50,6 +57,8 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -62,6 +71,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.constitutionalTransfersRevenue(
@@ -81,6 +92,8 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -93,6 +106,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.municipalTaxesRevenue(groupType, filters, {
@@ -111,6 +126,8 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -123,6 +140,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.additionalMunicipalEducationRevenue(
@@ -142,6 +161,8 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -154,6 +175,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.municipalFundebFundefComposition(
@@ -173,6 +196,8 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -185,6 +210,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.complementationFundebFundef(
@@ -204,6 +231,8 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -216,6 +245,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.municipalConstitutionalLimitMde(
@@ -235,6 +266,8 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -247,6 +280,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.expensesBasicEducationFundeb(
@@ -266,6 +301,8 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -278,6 +315,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.expensesAreasOfActivityMde(
@@ -297,6 +336,8 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -309,6 +350,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.municipalBasicEducationMinimalPotentialRevenue(
@@ -328,9 +371,11 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      page = 1,
-      limit = 10,
-    }: ResearchesFiltersDto & PaginationDto,
+      anoInicial,
+      anoFinal,
+    }: ResearchesFiltersDto,
+    @Query()
+    { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
@@ -340,6 +385,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.municipalComplementaryProtocol(
@@ -359,6 +406,8 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: ResearchesFiltersDto,
   ) {
     const filters = {
@@ -369,6 +418,8 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
+      ...(anoInicial && { anoInicial }),
+      ...(anoFinal && { anoFinal }),
     };
 
     // Usando Promise.all para buscar todos os registros de forma paralela
