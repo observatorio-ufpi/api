@@ -24,6 +24,11 @@ export type Localidade = $Result.DefaultSelection<Prisma.$LocalidadePayload>
  */
 export type DependenciaAdministrativaBasica = $Result.DefaultSelection<Prisma.$DependenciaAdministrativaBasicaPayload>
 /**
+ * Model DependenciaAdministrativaBasicaTeacher
+ * 
+ */
+export type DependenciaAdministrativaBasicaTeacher = $Result.DefaultSelection<Prisma.$DependenciaAdministrativaBasicaTeacherPayload>
+/**
  * Model EtapaEnsinoBasica
  * 
  */
@@ -33,6 +38,11 @@ export type EtapaEnsinoBasica = $Result.DefaultSelection<Prisma.$EtapaEnsinoBasi
  * 
  */
 export type EtapaEnsinoBasicaSchool = $Result.DefaultSelection<Prisma.$EtapaEnsinoBasicaSchoolPayload>
+/**
+ * Model EtapaEnsinoBasicaTeacher21
+ * 
+ */
+export type EtapaEnsinoBasicaTeacher21 = $Result.DefaultSelection<Prisma.$EtapaEnsinoBasicaTeacher21Payload>
 /**
  * Model Localizacao
  * 
@@ -207,6 +217,16 @@ export class PrismaClient<
   get dependenciaAdministrativaBasica(): Prisma.DependenciaAdministrativaBasicaDelegate<ExtArgs>;
 
   /**
+   * `prisma.dependenciaAdministrativaBasicaTeacher`: Exposes CRUD operations for the **DependenciaAdministrativaBasicaTeacher** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DependenciaAdministrativaBasicaTeachers
+    * const dependenciaAdministrativaBasicaTeachers = await prisma.dependenciaAdministrativaBasicaTeacher.findMany()
+    * ```
+    */
+  get dependenciaAdministrativaBasicaTeacher(): Prisma.DependenciaAdministrativaBasicaTeacherDelegate<ExtArgs>;
+
+  /**
    * `prisma.etapaEnsinoBasica`: Exposes CRUD operations for the **EtapaEnsinoBasica** model.
     * Example usage:
     * ```ts
@@ -225,6 +245,16 @@ export class PrismaClient<
     * ```
     */
   get etapaEnsinoBasicaSchool(): Prisma.EtapaEnsinoBasicaSchoolDelegate<ExtArgs>;
+
+  /**
+   * `prisma.etapaEnsinoBasicaTeacher21`: Exposes CRUD operations for the **EtapaEnsinoBasicaTeacher21** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EtapaEnsinoBasicaTeacher21s
+    * const etapaEnsinoBasicaTeacher21s = await prisma.etapaEnsinoBasicaTeacher21.findMany()
+    * ```
+    */
+  get etapaEnsinoBasicaTeacher21(): Prisma.EtapaEnsinoBasicaTeacher21Delegate<ExtArgs>;
 
   /**
    * `prisma.localizacao`: Exposes CRUD operations for the **Localizacao** model.
@@ -757,8 +787,10 @@ export namespace Prisma {
   export const ModelName: {
     Localidade: 'Localidade',
     DependenciaAdministrativaBasica: 'DependenciaAdministrativaBasica',
+    DependenciaAdministrativaBasicaTeacher: 'DependenciaAdministrativaBasicaTeacher',
     EtapaEnsinoBasica: 'EtapaEnsinoBasica',
     EtapaEnsinoBasicaSchool: 'EtapaEnsinoBasicaSchool',
+    EtapaEnsinoBasicaTeacher21: 'EtapaEnsinoBasicaTeacher21',
     Localizacao: 'Localizacao',
     VinculoFuncional: 'VinculoFuncional',
     FormacaoDocente: 'FormacaoDocente',
@@ -781,7 +813,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'localidade' | 'dependenciaAdministrativaBasica' | 'etapaEnsinoBasica' | 'etapaEnsinoBasicaSchool' | 'localizacao' | 'vinculoFuncional' | 'formacaoDocente' | 'faixaEtaria' | 'dadoEducacaoBasica' | 'importacaoAPI'
+      modelProps: 'localidade' | 'dependenciaAdministrativaBasica' | 'dependenciaAdministrativaBasicaTeacher' | 'etapaEnsinoBasica' | 'etapaEnsinoBasicaSchool' | 'etapaEnsinoBasicaTeacher21' | 'localizacao' | 'vinculoFuncional' | 'formacaoDocente' | 'faixaEtaria' | 'dadoEducacaoBasica' | 'importacaoAPI'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -917,6 +949,72 @@ export namespace Prisma {
           }
         }
       }
+      DependenciaAdministrativaBasicaTeacher: {
+        payload: Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>
+        fields: Prisma.DependenciaAdministrativaBasicaTeacherFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload>
+          }
+          findFirst: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload>
+          }
+          findMany: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload>[]
+          }
+          create: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload>
+          }
+          createMany: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload>
+          }
+          update: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload>
+          }
+          deleteMany: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload>
+          }
+          aggregate: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateDependenciaAdministrativaBasicaTeacher>
+          }
+          groupBy: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<DependenciaAdministrativaBasicaTeacherGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DependenciaAdministrativaBasicaTeacherCountArgs<ExtArgs>,
+            result: $Utils.Optional<DependenciaAdministrativaBasicaTeacherCountAggregateOutputType> | number
+          }
+        }
+      }
       EtapaEnsinoBasica: {
         payload: Prisma.$EtapaEnsinoBasicaPayload<ExtArgs>
         fields: Prisma.EtapaEnsinoBasicaFieldRefs
@@ -1046,6 +1144,72 @@ export namespace Prisma {
           count: {
             args: Prisma.EtapaEnsinoBasicaSchoolCountArgs<ExtArgs>,
             result: $Utils.Optional<EtapaEnsinoBasicaSchoolCountAggregateOutputType> | number
+          }
+        }
+      }
+      EtapaEnsinoBasicaTeacher21: {
+        payload: Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>
+        fields: Prisma.EtapaEnsinoBasicaTeacher21FieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21FindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21FindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload>
+          }
+          findFirst: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21FindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21FindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload>
+          }
+          findMany: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21FindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload>[]
+          }
+          create: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21CreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload>
+          }
+          createMany: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21CreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21DeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload>
+          }
+          update: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21UpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload>
+          }
+          deleteMany: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21DeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21UpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21UpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload>
+          }
+          aggregate: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21AggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateEtapaEnsinoBasicaTeacher21>
+          }
+          groupBy: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21GroupByArgs<ExtArgs>,
+            result: $Utils.Optional<EtapaEnsinoBasicaTeacher21GroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EtapaEnsinoBasicaTeacher21CountArgs<ExtArgs>,
+            result: $Utils.Optional<EtapaEnsinoBasicaTeacher21CountAggregateOutputType> | number
           }
         }
       }
@@ -1668,6 +1832,40 @@ export namespace Prisma {
 
 
   /**
+   * Count Type DependenciaAdministrativaBasicaTeacherCountOutputType
+   */
+
+  export type DependenciaAdministrativaBasicaTeacherCountOutputType = {
+    dados: number
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dados?: boolean | DependenciaAdministrativaBasicaTeacherCountOutputTypeCountDadosArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * DependenciaAdministrativaBasicaTeacherCountOutputType without action
+   */
+  export type DependenciaAdministrativaBasicaTeacherCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacherCountOutputType
+     */
+    select?: DependenciaAdministrativaBasicaTeacherCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacherCountOutputType without action
+   */
+  export type DependenciaAdministrativaBasicaTeacherCountOutputTypeCountDadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DadoEducacaoBasicaWhereInput
+  }
+
+
+
+  /**
    * Count Type EtapaEnsinoBasicaCountOutputType
    */
 
@@ -1730,6 +1928,40 @@ export namespace Prisma {
    * EtapaEnsinoBasicaSchoolCountOutputType without action
    */
   export type EtapaEnsinoBasicaSchoolCountOutputTypeCountDadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DadoEducacaoBasicaWhereInput
+  }
+
+
+
+  /**
+   * Count Type EtapaEnsinoBasicaTeacher21CountOutputType
+   */
+
+  export type EtapaEnsinoBasicaTeacher21CountOutputType = {
+    dados: number
+  }
+
+  export type EtapaEnsinoBasicaTeacher21CountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dados?: boolean | EtapaEnsinoBasicaTeacher21CountOutputTypeCountDadosArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * EtapaEnsinoBasicaTeacher21CountOutputType without action
+   */
+  export type EtapaEnsinoBasicaTeacher21CountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21CountOutputType
+     */
+    select?: EtapaEnsinoBasicaTeacher21CountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21CountOutputType without action
+   */
+  export type EtapaEnsinoBasicaTeacher21CountOutputTypeCountDadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DadoEducacaoBasicaWhereInput
   }
 
@@ -3804,6 +4036,959 @@ export namespace Prisma {
 
 
   /**
+   * Model DependenciaAdministrativaBasicaTeacher
+   */
+
+  export type AggregateDependenciaAdministrativaBasicaTeacher = {
+    _count: DependenciaAdministrativaBasicaTeacherCountAggregateOutputType | null
+    _avg: DependenciaAdministrativaBasicaTeacherAvgAggregateOutputType | null
+    _sum: DependenciaAdministrativaBasicaTeacherSumAggregateOutputType | null
+    _min: DependenciaAdministrativaBasicaTeacherMinAggregateOutputType | null
+    _max: DependenciaAdministrativaBasicaTeacherMaxAggregateOutputType | null
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherMinAggregateOutputType = {
+    id: number | null
+    nome: string | null
+    tipo: string | null
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherMaxAggregateOutputType = {
+    id: number | null
+    nome: string | null
+    tipo: string | null
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherCountAggregateOutputType = {
+    id: number
+    nome: number
+    tipo: number
+    _all: number
+  }
+
+
+  export type DependenciaAdministrativaBasicaTeacherAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherSumAggregateInputType = {
+    id?: true
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherMinAggregateInputType = {
+    id?: true
+    nome?: true
+    tipo?: true
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherMaxAggregateInputType = {
+    id?: true
+    nome?: true
+    tipo?: true
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherCountAggregateInputType = {
+    id?: true
+    nome?: true
+    tipo?: true
+    _all?: true
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DependenciaAdministrativaBasicaTeacher to aggregate.
+     */
+    where?: DependenciaAdministrativaBasicaTeacherWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DependenciaAdministrativaBasicaTeachers to fetch.
+     */
+    orderBy?: DependenciaAdministrativaBasicaTeacherOrderByWithRelationInput | DependenciaAdministrativaBasicaTeacherOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DependenciaAdministrativaBasicaTeachers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DependenciaAdministrativaBasicaTeachers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DependenciaAdministrativaBasicaTeachers
+    **/
+    _count?: true | DependenciaAdministrativaBasicaTeacherCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DependenciaAdministrativaBasicaTeacherAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DependenciaAdministrativaBasicaTeacherSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DependenciaAdministrativaBasicaTeacherMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DependenciaAdministrativaBasicaTeacherMaxAggregateInputType
+  }
+
+  export type GetDependenciaAdministrativaBasicaTeacherAggregateType<T extends DependenciaAdministrativaBasicaTeacherAggregateArgs> = {
+        [P in keyof T & keyof AggregateDependenciaAdministrativaBasicaTeacher]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDependenciaAdministrativaBasicaTeacher[P]>
+      : GetScalarType<T[P], AggregateDependenciaAdministrativaBasicaTeacher[P]>
+  }
+
+
+
+
+  export type DependenciaAdministrativaBasicaTeacherGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DependenciaAdministrativaBasicaTeacherWhereInput
+    orderBy?: DependenciaAdministrativaBasicaTeacherOrderByWithAggregationInput | DependenciaAdministrativaBasicaTeacherOrderByWithAggregationInput[]
+    by: DependenciaAdministrativaBasicaTeacherScalarFieldEnum[] | DependenciaAdministrativaBasicaTeacherScalarFieldEnum
+    having?: DependenciaAdministrativaBasicaTeacherScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DependenciaAdministrativaBasicaTeacherCountAggregateInputType | true
+    _avg?: DependenciaAdministrativaBasicaTeacherAvgAggregateInputType
+    _sum?: DependenciaAdministrativaBasicaTeacherSumAggregateInputType
+    _min?: DependenciaAdministrativaBasicaTeacherMinAggregateInputType
+    _max?: DependenciaAdministrativaBasicaTeacherMaxAggregateInputType
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherGroupByOutputType = {
+    id: number
+    nome: string
+    tipo: string | null
+    _count: DependenciaAdministrativaBasicaTeacherCountAggregateOutputType | null
+    _avg: DependenciaAdministrativaBasicaTeacherAvgAggregateOutputType | null
+    _sum: DependenciaAdministrativaBasicaTeacherSumAggregateOutputType | null
+    _min: DependenciaAdministrativaBasicaTeacherMinAggregateOutputType | null
+    _max: DependenciaAdministrativaBasicaTeacherMaxAggregateOutputType | null
+  }
+
+  type GetDependenciaAdministrativaBasicaTeacherGroupByPayload<T extends DependenciaAdministrativaBasicaTeacherGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DependenciaAdministrativaBasicaTeacherGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DependenciaAdministrativaBasicaTeacherGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DependenciaAdministrativaBasicaTeacherGroupByOutputType[P]>
+            : GetScalarType<T[P], DependenciaAdministrativaBasicaTeacherGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DependenciaAdministrativaBasicaTeacherSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+    tipo?: boolean
+    dados?: boolean | DependenciaAdministrativaBasicaTeacher$dadosArgs<ExtArgs>
+    _count?: boolean | DependenciaAdministrativaBasicaTeacherCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dependenciaAdministrativaBasicaTeacher"]>
+
+  export type DependenciaAdministrativaBasicaTeacherSelectScalar = {
+    id?: boolean
+    nome?: boolean
+    tipo?: boolean
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dados?: boolean | DependenciaAdministrativaBasicaTeacher$dadosArgs<ExtArgs>
+    _count?: boolean | DependenciaAdministrativaBasicaTeacherCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $DependenciaAdministrativaBasicaTeacherPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DependenciaAdministrativaBasicaTeacher"
+    objects: {
+      dados: Prisma.$DadoEducacaoBasicaPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nome: string
+      tipo: string | null
+    }, ExtArgs["result"]["dependenciaAdministrativaBasicaTeacher"]>
+    composites: {}
+  }
+
+
+  type DependenciaAdministrativaBasicaTeacherGetPayload<S extends boolean | null | undefined | DependenciaAdministrativaBasicaTeacherDefaultArgs> = $Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload, S>
+
+  type DependenciaAdministrativaBasicaTeacherCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<DependenciaAdministrativaBasicaTeacherFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: DependenciaAdministrativaBasicaTeacherCountAggregateInputType | true
+    }
+
+  export interface DependenciaAdministrativaBasicaTeacherDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DependenciaAdministrativaBasicaTeacher'], meta: { name: 'DependenciaAdministrativaBasicaTeacher' } }
+    /**
+     * Find zero or one DependenciaAdministrativaBasicaTeacher that matches the filter.
+     * @param {DependenciaAdministrativaBasicaTeacherFindUniqueArgs} args - Arguments to find a DependenciaAdministrativaBasicaTeacher
+     * @example
+     * // Get one DependenciaAdministrativaBasicaTeacher
+     * const dependenciaAdministrativaBasicaTeacher = await prisma.dependenciaAdministrativaBasicaTeacher.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends DependenciaAdministrativaBasicaTeacherFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, DependenciaAdministrativaBasicaTeacherFindUniqueArgs<ExtArgs>>
+    ): Prisma__DependenciaAdministrativaBasicaTeacherClient<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one DependenciaAdministrativaBasicaTeacher that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {DependenciaAdministrativaBasicaTeacherFindUniqueOrThrowArgs} args - Arguments to find a DependenciaAdministrativaBasicaTeacher
+     * @example
+     * // Get one DependenciaAdministrativaBasicaTeacher
+     * const dependenciaAdministrativaBasicaTeacher = await prisma.dependenciaAdministrativaBasicaTeacher.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends DependenciaAdministrativaBasicaTeacherFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DependenciaAdministrativaBasicaTeacherFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__DependenciaAdministrativaBasicaTeacherClient<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first DependenciaAdministrativaBasicaTeacher that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DependenciaAdministrativaBasicaTeacherFindFirstArgs} args - Arguments to find a DependenciaAdministrativaBasicaTeacher
+     * @example
+     * // Get one DependenciaAdministrativaBasicaTeacher
+     * const dependenciaAdministrativaBasicaTeacher = await prisma.dependenciaAdministrativaBasicaTeacher.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends DependenciaAdministrativaBasicaTeacherFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, DependenciaAdministrativaBasicaTeacherFindFirstArgs<ExtArgs>>
+    ): Prisma__DependenciaAdministrativaBasicaTeacherClient<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first DependenciaAdministrativaBasicaTeacher that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DependenciaAdministrativaBasicaTeacherFindFirstOrThrowArgs} args - Arguments to find a DependenciaAdministrativaBasicaTeacher
+     * @example
+     * // Get one DependenciaAdministrativaBasicaTeacher
+     * const dependenciaAdministrativaBasicaTeacher = await prisma.dependenciaAdministrativaBasicaTeacher.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends DependenciaAdministrativaBasicaTeacherFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DependenciaAdministrativaBasicaTeacherFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__DependenciaAdministrativaBasicaTeacherClient<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more DependenciaAdministrativaBasicaTeachers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DependenciaAdministrativaBasicaTeacherFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DependenciaAdministrativaBasicaTeachers
+     * const dependenciaAdministrativaBasicaTeachers = await prisma.dependenciaAdministrativaBasicaTeacher.findMany()
+     * 
+     * // Get first 10 DependenciaAdministrativaBasicaTeachers
+     * const dependenciaAdministrativaBasicaTeachers = await prisma.dependenciaAdministrativaBasicaTeacher.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const dependenciaAdministrativaBasicaTeacherWithIdOnly = await prisma.dependenciaAdministrativaBasicaTeacher.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends DependenciaAdministrativaBasicaTeacherFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DependenciaAdministrativaBasicaTeacherFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a DependenciaAdministrativaBasicaTeacher.
+     * @param {DependenciaAdministrativaBasicaTeacherCreateArgs} args - Arguments to create a DependenciaAdministrativaBasicaTeacher.
+     * @example
+     * // Create one DependenciaAdministrativaBasicaTeacher
+     * const DependenciaAdministrativaBasicaTeacher = await prisma.dependenciaAdministrativaBasicaTeacher.create({
+     *   data: {
+     *     // ... data to create a DependenciaAdministrativaBasicaTeacher
+     *   }
+     * })
+     * 
+    **/
+    create<T extends DependenciaAdministrativaBasicaTeacherCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, DependenciaAdministrativaBasicaTeacherCreateArgs<ExtArgs>>
+    ): Prisma__DependenciaAdministrativaBasicaTeacherClient<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many DependenciaAdministrativaBasicaTeachers.
+     *     @param {DependenciaAdministrativaBasicaTeacherCreateManyArgs} args - Arguments to create many DependenciaAdministrativaBasicaTeachers.
+     *     @example
+     *     // Create many DependenciaAdministrativaBasicaTeachers
+     *     const dependenciaAdministrativaBasicaTeacher = await prisma.dependenciaAdministrativaBasicaTeacher.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends DependenciaAdministrativaBasicaTeacherCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DependenciaAdministrativaBasicaTeacherCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a DependenciaAdministrativaBasicaTeacher.
+     * @param {DependenciaAdministrativaBasicaTeacherDeleteArgs} args - Arguments to delete one DependenciaAdministrativaBasicaTeacher.
+     * @example
+     * // Delete one DependenciaAdministrativaBasicaTeacher
+     * const DependenciaAdministrativaBasicaTeacher = await prisma.dependenciaAdministrativaBasicaTeacher.delete({
+     *   where: {
+     *     // ... filter to delete one DependenciaAdministrativaBasicaTeacher
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends DependenciaAdministrativaBasicaTeacherDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, DependenciaAdministrativaBasicaTeacherDeleteArgs<ExtArgs>>
+    ): Prisma__DependenciaAdministrativaBasicaTeacherClient<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one DependenciaAdministrativaBasicaTeacher.
+     * @param {DependenciaAdministrativaBasicaTeacherUpdateArgs} args - Arguments to update one DependenciaAdministrativaBasicaTeacher.
+     * @example
+     * // Update one DependenciaAdministrativaBasicaTeacher
+     * const dependenciaAdministrativaBasicaTeacher = await prisma.dependenciaAdministrativaBasicaTeacher.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends DependenciaAdministrativaBasicaTeacherUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, DependenciaAdministrativaBasicaTeacherUpdateArgs<ExtArgs>>
+    ): Prisma__DependenciaAdministrativaBasicaTeacherClient<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more DependenciaAdministrativaBasicaTeachers.
+     * @param {DependenciaAdministrativaBasicaTeacherDeleteManyArgs} args - Arguments to filter DependenciaAdministrativaBasicaTeachers to delete.
+     * @example
+     * // Delete a few DependenciaAdministrativaBasicaTeachers
+     * const { count } = await prisma.dependenciaAdministrativaBasicaTeacher.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends DependenciaAdministrativaBasicaTeacherDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DependenciaAdministrativaBasicaTeacherDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DependenciaAdministrativaBasicaTeachers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DependenciaAdministrativaBasicaTeacherUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DependenciaAdministrativaBasicaTeachers
+     * const dependenciaAdministrativaBasicaTeacher = await prisma.dependenciaAdministrativaBasicaTeacher.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends DependenciaAdministrativaBasicaTeacherUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, DependenciaAdministrativaBasicaTeacherUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one DependenciaAdministrativaBasicaTeacher.
+     * @param {DependenciaAdministrativaBasicaTeacherUpsertArgs} args - Arguments to update or create a DependenciaAdministrativaBasicaTeacher.
+     * @example
+     * // Update or create a DependenciaAdministrativaBasicaTeacher
+     * const dependenciaAdministrativaBasicaTeacher = await prisma.dependenciaAdministrativaBasicaTeacher.upsert({
+     *   create: {
+     *     // ... data to create a DependenciaAdministrativaBasicaTeacher
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DependenciaAdministrativaBasicaTeacher we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends DependenciaAdministrativaBasicaTeacherUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, DependenciaAdministrativaBasicaTeacherUpsertArgs<ExtArgs>>
+    ): Prisma__DependenciaAdministrativaBasicaTeacherClient<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of DependenciaAdministrativaBasicaTeachers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DependenciaAdministrativaBasicaTeacherCountArgs} args - Arguments to filter DependenciaAdministrativaBasicaTeachers to count.
+     * @example
+     * // Count the number of DependenciaAdministrativaBasicaTeachers
+     * const count = await prisma.dependenciaAdministrativaBasicaTeacher.count({
+     *   where: {
+     *     // ... the filter for the DependenciaAdministrativaBasicaTeachers we want to count
+     *   }
+     * })
+    **/
+    count<T extends DependenciaAdministrativaBasicaTeacherCountArgs>(
+      args?: Subset<T, DependenciaAdministrativaBasicaTeacherCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DependenciaAdministrativaBasicaTeacherCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DependenciaAdministrativaBasicaTeacher.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DependenciaAdministrativaBasicaTeacherAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DependenciaAdministrativaBasicaTeacherAggregateArgs>(args: Subset<T, DependenciaAdministrativaBasicaTeacherAggregateArgs>): Prisma.PrismaPromise<GetDependenciaAdministrativaBasicaTeacherAggregateType<T>>
+
+    /**
+     * Group by DependenciaAdministrativaBasicaTeacher.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DependenciaAdministrativaBasicaTeacherGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DependenciaAdministrativaBasicaTeacherGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DependenciaAdministrativaBasicaTeacherGroupByArgs['orderBy'] }
+        : { orderBy?: DependenciaAdministrativaBasicaTeacherGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DependenciaAdministrativaBasicaTeacherGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDependenciaAdministrativaBasicaTeacherGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DependenciaAdministrativaBasicaTeacher model
+   */
+  readonly fields: DependenciaAdministrativaBasicaTeacherFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DependenciaAdministrativaBasicaTeacher.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DependenciaAdministrativaBasicaTeacherClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    dados<T extends DependenciaAdministrativaBasicaTeacher$dadosArgs<ExtArgs> = {}>(args?: Subset<T, DependenciaAdministrativaBasicaTeacher$dadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DadoEducacaoBasicaPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the DependenciaAdministrativaBasicaTeacher model
+   */ 
+  interface DependenciaAdministrativaBasicaTeacherFieldRefs {
+    readonly id: FieldRef<"DependenciaAdministrativaBasicaTeacher", 'Int'>
+    readonly nome: FieldRef<"DependenciaAdministrativaBasicaTeacher", 'String'>
+    readonly tipo: FieldRef<"DependenciaAdministrativaBasicaTeacher", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher findUnique
+   */
+  export type DependenciaAdministrativaBasicaTeacherFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+    /**
+     * Filter, which DependenciaAdministrativaBasicaTeacher to fetch.
+     */
+    where: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher findUniqueOrThrow
+   */
+  export type DependenciaAdministrativaBasicaTeacherFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+    /**
+     * Filter, which DependenciaAdministrativaBasicaTeacher to fetch.
+     */
+    where: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher findFirst
+   */
+  export type DependenciaAdministrativaBasicaTeacherFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+    /**
+     * Filter, which DependenciaAdministrativaBasicaTeacher to fetch.
+     */
+    where?: DependenciaAdministrativaBasicaTeacherWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DependenciaAdministrativaBasicaTeachers to fetch.
+     */
+    orderBy?: DependenciaAdministrativaBasicaTeacherOrderByWithRelationInput | DependenciaAdministrativaBasicaTeacherOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DependenciaAdministrativaBasicaTeachers.
+     */
+    cursor?: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DependenciaAdministrativaBasicaTeachers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DependenciaAdministrativaBasicaTeachers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DependenciaAdministrativaBasicaTeachers.
+     */
+    distinct?: DependenciaAdministrativaBasicaTeacherScalarFieldEnum | DependenciaAdministrativaBasicaTeacherScalarFieldEnum[]
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher findFirstOrThrow
+   */
+  export type DependenciaAdministrativaBasicaTeacherFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+    /**
+     * Filter, which DependenciaAdministrativaBasicaTeacher to fetch.
+     */
+    where?: DependenciaAdministrativaBasicaTeacherWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DependenciaAdministrativaBasicaTeachers to fetch.
+     */
+    orderBy?: DependenciaAdministrativaBasicaTeacherOrderByWithRelationInput | DependenciaAdministrativaBasicaTeacherOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DependenciaAdministrativaBasicaTeachers.
+     */
+    cursor?: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DependenciaAdministrativaBasicaTeachers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DependenciaAdministrativaBasicaTeachers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DependenciaAdministrativaBasicaTeachers.
+     */
+    distinct?: DependenciaAdministrativaBasicaTeacherScalarFieldEnum | DependenciaAdministrativaBasicaTeacherScalarFieldEnum[]
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher findMany
+   */
+  export type DependenciaAdministrativaBasicaTeacherFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+    /**
+     * Filter, which DependenciaAdministrativaBasicaTeachers to fetch.
+     */
+    where?: DependenciaAdministrativaBasicaTeacherWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DependenciaAdministrativaBasicaTeachers to fetch.
+     */
+    orderBy?: DependenciaAdministrativaBasicaTeacherOrderByWithRelationInput | DependenciaAdministrativaBasicaTeacherOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DependenciaAdministrativaBasicaTeachers.
+     */
+    cursor?: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DependenciaAdministrativaBasicaTeachers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DependenciaAdministrativaBasicaTeachers.
+     */
+    skip?: number
+    distinct?: DependenciaAdministrativaBasicaTeacherScalarFieldEnum | DependenciaAdministrativaBasicaTeacherScalarFieldEnum[]
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher create
+   */
+  export type DependenciaAdministrativaBasicaTeacherCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DependenciaAdministrativaBasicaTeacher.
+     */
+    data: XOR<DependenciaAdministrativaBasicaTeacherCreateInput, DependenciaAdministrativaBasicaTeacherUncheckedCreateInput>
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher createMany
+   */
+  export type DependenciaAdministrativaBasicaTeacherCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DependenciaAdministrativaBasicaTeachers.
+     */
+    data: DependenciaAdministrativaBasicaTeacherCreateManyInput | DependenciaAdministrativaBasicaTeacherCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher update
+   */
+  export type DependenciaAdministrativaBasicaTeacherUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DependenciaAdministrativaBasicaTeacher.
+     */
+    data: XOR<DependenciaAdministrativaBasicaTeacherUpdateInput, DependenciaAdministrativaBasicaTeacherUncheckedUpdateInput>
+    /**
+     * Choose, which DependenciaAdministrativaBasicaTeacher to update.
+     */
+    where: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher updateMany
+   */
+  export type DependenciaAdministrativaBasicaTeacherUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DependenciaAdministrativaBasicaTeachers.
+     */
+    data: XOR<DependenciaAdministrativaBasicaTeacherUpdateManyMutationInput, DependenciaAdministrativaBasicaTeacherUncheckedUpdateManyInput>
+    /**
+     * Filter which DependenciaAdministrativaBasicaTeachers to update
+     */
+    where?: DependenciaAdministrativaBasicaTeacherWhereInput
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher upsert
+   */
+  export type DependenciaAdministrativaBasicaTeacherUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DependenciaAdministrativaBasicaTeacher to update in case it exists.
+     */
+    where: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+    /**
+     * In case the DependenciaAdministrativaBasicaTeacher found by the `where` argument doesn't exist, create a new DependenciaAdministrativaBasicaTeacher with this data.
+     */
+    create: XOR<DependenciaAdministrativaBasicaTeacherCreateInput, DependenciaAdministrativaBasicaTeacherUncheckedCreateInput>
+    /**
+     * In case the DependenciaAdministrativaBasicaTeacher was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DependenciaAdministrativaBasicaTeacherUpdateInput, DependenciaAdministrativaBasicaTeacherUncheckedUpdateInput>
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher delete
+   */
+  export type DependenciaAdministrativaBasicaTeacherDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+    /**
+     * Filter which DependenciaAdministrativaBasicaTeacher to delete.
+     */
+    where: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher deleteMany
+   */
+  export type DependenciaAdministrativaBasicaTeacherDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DependenciaAdministrativaBasicaTeachers to delete
+     */
+    where?: DependenciaAdministrativaBasicaTeacherWhereInput
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher.dados
+   */
+  export type DependenciaAdministrativaBasicaTeacher$dadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DadoEducacaoBasica
+     */
+    select?: DadoEducacaoBasicaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DadoEducacaoBasicaInclude<ExtArgs> | null
+    where?: DadoEducacaoBasicaWhereInput
+    orderBy?: DadoEducacaoBasicaOrderByWithRelationInput | DadoEducacaoBasicaOrderByWithRelationInput[]
+    cursor?: DadoEducacaoBasicaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DadoEducacaoBasicaScalarFieldEnum | DadoEducacaoBasicaScalarFieldEnum[]
+  }
+
+
+  /**
+   * DependenciaAdministrativaBasicaTeacher without action
+   */
+  export type DependenciaAdministrativaBasicaTeacherDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+  }
+
+
+
+  /**
    * Model EtapaEnsinoBasica
    */
 
@@ -5694,6 +6879,948 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well.
      */
     include?: EtapaEnsinoBasicaSchoolInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model EtapaEnsinoBasicaTeacher21
+   */
+
+  export type AggregateEtapaEnsinoBasicaTeacher21 = {
+    _count: EtapaEnsinoBasicaTeacher21CountAggregateOutputType | null
+    _avg: EtapaEnsinoBasicaTeacher21AvgAggregateOutputType | null
+    _sum: EtapaEnsinoBasicaTeacher21SumAggregateOutputType | null
+    _min: EtapaEnsinoBasicaTeacher21MinAggregateOutputType | null
+    _max: EtapaEnsinoBasicaTeacher21MaxAggregateOutputType | null
+  }
+
+  export type EtapaEnsinoBasicaTeacher21AvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type EtapaEnsinoBasicaTeacher21SumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type EtapaEnsinoBasicaTeacher21MinAggregateOutputType = {
+    id: number | null
+    nome: string | null
+  }
+
+  export type EtapaEnsinoBasicaTeacher21MaxAggregateOutputType = {
+    id: number | null
+    nome: string | null
+  }
+
+  export type EtapaEnsinoBasicaTeacher21CountAggregateOutputType = {
+    id: number
+    nome: number
+    _all: number
+  }
+
+
+  export type EtapaEnsinoBasicaTeacher21AvgAggregateInputType = {
+    id?: true
+  }
+
+  export type EtapaEnsinoBasicaTeacher21SumAggregateInputType = {
+    id?: true
+  }
+
+  export type EtapaEnsinoBasicaTeacher21MinAggregateInputType = {
+    id?: true
+    nome?: true
+  }
+
+  export type EtapaEnsinoBasicaTeacher21MaxAggregateInputType = {
+    id?: true
+    nome?: true
+  }
+
+  export type EtapaEnsinoBasicaTeacher21CountAggregateInputType = {
+    id?: true
+    nome?: true
+    _all?: true
+  }
+
+  export type EtapaEnsinoBasicaTeacher21AggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EtapaEnsinoBasicaTeacher21 to aggregate.
+     */
+    where?: EtapaEnsinoBasicaTeacher21WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaEnsinoBasicaTeacher21s to fetch.
+     */
+    orderBy?: EtapaEnsinoBasicaTeacher21OrderByWithRelationInput | EtapaEnsinoBasicaTeacher21OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaEnsinoBasicaTeacher21s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaEnsinoBasicaTeacher21s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EtapaEnsinoBasicaTeacher21s
+    **/
+    _count?: true | EtapaEnsinoBasicaTeacher21CountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EtapaEnsinoBasicaTeacher21AvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EtapaEnsinoBasicaTeacher21SumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EtapaEnsinoBasicaTeacher21MinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EtapaEnsinoBasicaTeacher21MaxAggregateInputType
+  }
+
+  export type GetEtapaEnsinoBasicaTeacher21AggregateType<T extends EtapaEnsinoBasicaTeacher21AggregateArgs> = {
+        [P in keyof T & keyof AggregateEtapaEnsinoBasicaTeacher21]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEtapaEnsinoBasicaTeacher21[P]>
+      : GetScalarType<T[P], AggregateEtapaEnsinoBasicaTeacher21[P]>
+  }
+
+
+
+
+  export type EtapaEnsinoBasicaTeacher21GroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EtapaEnsinoBasicaTeacher21WhereInput
+    orderBy?: EtapaEnsinoBasicaTeacher21OrderByWithAggregationInput | EtapaEnsinoBasicaTeacher21OrderByWithAggregationInput[]
+    by: EtapaEnsinoBasicaTeacher21ScalarFieldEnum[] | EtapaEnsinoBasicaTeacher21ScalarFieldEnum
+    having?: EtapaEnsinoBasicaTeacher21ScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EtapaEnsinoBasicaTeacher21CountAggregateInputType | true
+    _avg?: EtapaEnsinoBasicaTeacher21AvgAggregateInputType
+    _sum?: EtapaEnsinoBasicaTeacher21SumAggregateInputType
+    _min?: EtapaEnsinoBasicaTeacher21MinAggregateInputType
+    _max?: EtapaEnsinoBasicaTeacher21MaxAggregateInputType
+  }
+
+  export type EtapaEnsinoBasicaTeacher21GroupByOutputType = {
+    id: number
+    nome: string
+    _count: EtapaEnsinoBasicaTeacher21CountAggregateOutputType | null
+    _avg: EtapaEnsinoBasicaTeacher21AvgAggregateOutputType | null
+    _sum: EtapaEnsinoBasicaTeacher21SumAggregateOutputType | null
+    _min: EtapaEnsinoBasicaTeacher21MinAggregateOutputType | null
+    _max: EtapaEnsinoBasicaTeacher21MaxAggregateOutputType | null
+  }
+
+  type GetEtapaEnsinoBasicaTeacher21GroupByPayload<T extends EtapaEnsinoBasicaTeacher21GroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EtapaEnsinoBasicaTeacher21GroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EtapaEnsinoBasicaTeacher21GroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EtapaEnsinoBasicaTeacher21GroupByOutputType[P]>
+            : GetScalarType<T[P], EtapaEnsinoBasicaTeacher21GroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EtapaEnsinoBasicaTeacher21Select<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+    dados?: boolean | EtapaEnsinoBasicaTeacher21$dadosArgs<ExtArgs>
+    _count?: boolean | EtapaEnsinoBasicaTeacher21CountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["etapaEnsinoBasicaTeacher21"]>
+
+  export type EtapaEnsinoBasicaTeacher21SelectScalar = {
+    id?: boolean
+    nome?: boolean
+  }
+
+  export type EtapaEnsinoBasicaTeacher21Include<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dados?: boolean | EtapaEnsinoBasicaTeacher21$dadosArgs<ExtArgs>
+    _count?: boolean | EtapaEnsinoBasicaTeacher21CountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $EtapaEnsinoBasicaTeacher21Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EtapaEnsinoBasicaTeacher21"
+    objects: {
+      dados: Prisma.$DadoEducacaoBasicaPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nome: string
+    }, ExtArgs["result"]["etapaEnsinoBasicaTeacher21"]>
+    composites: {}
+  }
+
+
+  type EtapaEnsinoBasicaTeacher21GetPayload<S extends boolean | null | undefined | EtapaEnsinoBasicaTeacher21DefaultArgs> = $Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload, S>
+
+  type EtapaEnsinoBasicaTeacher21CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<EtapaEnsinoBasicaTeacher21FindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: EtapaEnsinoBasicaTeacher21CountAggregateInputType | true
+    }
+
+  export interface EtapaEnsinoBasicaTeacher21Delegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EtapaEnsinoBasicaTeacher21'], meta: { name: 'EtapaEnsinoBasicaTeacher21' } }
+    /**
+     * Find zero or one EtapaEnsinoBasicaTeacher21 that matches the filter.
+     * @param {EtapaEnsinoBasicaTeacher21FindUniqueArgs} args - Arguments to find a EtapaEnsinoBasicaTeacher21
+     * @example
+     * // Get one EtapaEnsinoBasicaTeacher21
+     * const etapaEnsinoBasicaTeacher21 = await prisma.etapaEnsinoBasicaTeacher21.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends EtapaEnsinoBasicaTeacher21FindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaEnsinoBasicaTeacher21FindUniqueArgs<ExtArgs>>
+    ): Prisma__EtapaEnsinoBasicaTeacher21Client<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one EtapaEnsinoBasicaTeacher21 that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {EtapaEnsinoBasicaTeacher21FindUniqueOrThrowArgs} args - Arguments to find a EtapaEnsinoBasicaTeacher21
+     * @example
+     * // Get one EtapaEnsinoBasicaTeacher21
+     * const etapaEnsinoBasicaTeacher21 = await prisma.etapaEnsinoBasicaTeacher21.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends EtapaEnsinoBasicaTeacher21FindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaEnsinoBasicaTeacher21FindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__EtapaEnsinoBasicaTeacher21Client<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first EtapaEnsinoBasicaTeacher21 that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaEnsinoBasicaTeacher21FindFirstArgs} args - Arguments to find a EtapaEnsinoBasicaTeacher21
+     * @example
+     * // Get one EtapaEnsinoBasicaTeacher21
+     * const etapaEnsinoBasicaTeacher21 = await prisma.etapaEnsinoBasicaTeacher21.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends EtapaEnsinoBasicaTeacher21FindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaEnsinoBasicaTeacher21FindFirstArgs<ExtArgs>>
+    ): Prisma__EtapaEnsinoBasicaTeacher21Client<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first EtapaEnsinoBasicaTeacher21 that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaEnsinoBasicaTeacher21FindFirstOrThrowArgs} args - Arguments to find a EtapaEnsinoBasicaTeacher21
+     * @example
+     * // Get one EtapaEnsinoBasicaTeacher21
+     * const etapaEnsinoBasicaTeacher21 = await prisma.etapaEnsinoBasicaTeacher21.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends EtapaEnsinoBasicaTeacher21FindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaEnsinoBasicaTeacher21FindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__EtapaEnsinoBasicaTeacher21Client<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more EtapaEnsinoBasicaTeacher21s that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaEnsinoBasicaTeacher21FindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EtapaEnsinoBasicaTeacher21s
+     * const etapaEnsinoBasicaTeacher21s = await prisma.etapaEnsinoBasicaTeacher21.findMany()
+     * 
+     * // Get first 10 EtapaEnsinoBasicaTeacher21s
+     * const etapaEnsinoBasicaTeacher21s = await prisma.etapaEnsinoBasicaTeacher21.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const etapaEnsinoBasicaTeacher21WithIdOnly = await prisma.etapaEnsinoBasicaTeacher21.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends EtapaEnsinoBasicaTeacher21FindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaEnsinoBasicaTeacher21FindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a EtapaEnsinoBasicaTeacher21.
+     * @param {EtapaEnsinoBasicaTeacher21CreateArgs} args - Arguments to create a EtapaEnsinoBasicaTeacher21.
+     * @example
+     * // Create one EtapaEnsinoBasicaTeacher21
+     * const EtapaEnsinoBasicaTeacher21 = await prisma.etapaEnsinoBasicaTeacher21.create({
+     *   data: {
+     *     // ... data to create a EtapaEnsinoBasicaTeacher21
+     *   }
+     * })
+     * 
+    **/
+    create<T extends EtapaEnsinoBasicaTeacher21CreateArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaEnsinoBasicaTeacher21CreateArgs<ExtArgs>>
+    ): Prisma__EtapaEnsinoBasicaTeacher21Client<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many EtapaEnsinoBasicaTeacher21s.
+     *     @param {EtapaEnsinoBasicaTeacher21CreateManyArgs} args - Arguments to create many EtapaEnsinoBasicaTeacher21s.
+     *     @example
+     *     // Create many EtapaEnsinoBasicaTeacher21s
+     *     const etapaEnsinoBasicaTeacher21 = await prisma.etapaEnsinoBasicaTeacher21.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends EtapaEnsinoBasicaTeacher21CreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaEnsinoBasicaTeacher21CreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a EtapaEnsinoBasicaTeacher21.
+     * @param {EtapaEnsinoBasicaTeacher21DeleteArgs} args - Arguments to delete one EtapaEnsinoBasicaTeacher21.
+     * @example
+     * // Delete one EtapaEnsinoBasicaTeacher21
+     * const EtapaEnsinoBasicaTeacher21 = await prisma.etapaEnsinoBasicaTeacher21.delete({
+     *   where: {
+     *     // ... filter to delete one EtapaEnsinoBasicaTeacher21
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends EtapaEnsinoBasicaTeacher21DeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaEnsinoBasicaTeacher21DeleteArgs<ExtArgs>>
+    ): Prisma__EtapaEnsinoBasicaTeacher21Client<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one EtapaEnsinoBasicaTeacher21.
+     * @param {EtapaEnsinoBasicaTeacher21UpdateArgs} args - Arguments to update one EtapaEnsinoBasicaTeacher21.
+     * @example
+     * // Update one EtapaEnsinoBasicaTeacher21
+     * const etapaEnsinoBasicaTeacher21 = await prisma.etapaEnsinoBasicaTeacher21.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends EtapaEnsinoBasicaTeacher21UpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaEnsinoBasicaTeacher21UpdateArgs<ExtArgs>>
+    ): Prisma__EtapaEnsinoBasicaTeacher21Client<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more EtapaEnsinoBasicaTeacher21s.
+     * @param {EtapaEnsinoBasicaTeacher21DeleteManyArgs} args - Arguments to filter EtapaEnsinoBasicaTeacher21s to delete.
+     * @example
+     * // Delete a few EtapaEnsinoBasicaTeacher21s
+     * const { count } = await prisma.etapaEnsinoBasicaTeacher21.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends EtapaEnsinoBasicaTeacher21DeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaEnsinoBasicaTeacher21DeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EtapaEnsinoBasicaTeacher21s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaEnsinoBasicaTeacher21UpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EtapaEnsinoBasicaTeacher21s
+     * const etapaEnsinoBasicaTeacher21 = await prisma.etapaEnsinoBasicaTeacher21.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends EtapaEnsinoBasicaTeacher21UpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaEnsinoBasicaTeacher21UpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one EtapaEnsinoBasicaTeacher21.
+     * @param {EtapaEnsinoBasicaTeacher21UpsertArgs} args - Arguments to update or create a EtapaEnsinoBasicaTeacher21.
+     * @example
+     * // Update or create a EtapaEnsinoBasicaTeacher21
+     * const etapaEnsinoBasicaTeacher21 = await prisma.etapaEnsinoBasicaTeacher21.upsert({
+     *   create: {
+     *     // ... data to create a EtapaEnsinoBasicaTeacher21
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EtapaEnsinoBasicaTeacher21 we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends EtapaEnsinoBasicaTeacher21UpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaEnsinoBasicaTeacher21UpsertArgs<ExtArgs>>
+    ): Prisma__EtapaEnsinoBasicaTeacher21Client<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of EtapaEnsinoBasicaTeacher21s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaEnsinoBasicaTeacher21CountArgs} args - Arguments to filter EtapaEnsinoBasicaTeacher21s to count.
+     * @example
+     * // Count the number of EtapaEnsinoBasicaTeacher21s
+     * const count = await prisma.etapaEnsinoBasicaTeacher21.count({
+     *   where: {
+     *     // ... the filter for the EtapaEnsinoBasicaTeacher21s we want to count
+     *   }
+     * })
+    **/
+    count<T extends EtapaEnsinoBasicaTeacher21CountArgs>(
+      args?: Subset<T, EtapaEnsinoBasicaTeacher21CountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EtapaEnsinoBasicaTeacher21CountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EtapaEnsinoBasicaTeacher21.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaEnsinoBasicaTeacher21AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EtapaEnsinoBasicaTeacher21AggregateArgs>(args: Subset<T, EtapaEnsinoBasicaTeacher21AggregateArgs>): Prisma.PrismaPromise<GetEtapaEnsinoBasicaTeacher21AggregateType<T>>
+
+    /**
+     * Group by EtapaEnsinoBasicaTeacher21.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaEnsinoBasicaTeacher21GroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EtapaEnsinoBasicaTeacher21GroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EtapaEnsinoBasicaTeacher21GroupByArgs['orderBy'] }
+        : { orderBy?: EtapaEnsinoBasicaTeacher21GroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EtapaEnsinoBasicaTeacher21GroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEtapaEnsinoBasicaTeacher21GroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EtapaEnsinoBasicaTeacher21 model
+   */
+  readonly fields: EtapaEnsinoBasicaTeacher21FieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EtapaEnsinoBasicaTeacher21.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EtapaEnsinoBasicaTeacher21Client<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    dados<T extends EtapaEnsinoBasicaTeacher21$dadosArgs<ExtArgs> = {}>(args?: Subset<T, EtapaEnsinoBasicaTeacher21$dadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DadoEducacaoBasicaPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the EtapaEnsinoBasicaTeacher21 model
+   */ 
+  interface EtapaEnsinoBasicaTeacher21FieldRefs {
+    readonly id: FieldRef<"EtapaEnsinoBasicaTeacher21", 'Int'>
+    readonly nome: FieldRef<"EtapaEnsinoBasicaTeacher21", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 findUnique
+   */
+  export type EtapaEnsinoBasicaTeacher21FindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
+    /**
+     * Filter, which EtapaEnsinoBasicaTeacher21 to fetch.
+     */
+    where: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 findUniqueOrThrow
+   */
+  export type EtapaEnsinoBasicaTeacher21FindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
+    /**
+     * Filter, which EtapaEnsinoBasicaTeacher21 to fetch.
+     */
+    where: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 findFirst
+   */
+  export type EtapaEnsinoBasicaTeacher21FindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
+    /**
+     * Filter, which EtapaEnsinoBasicaTeacher21 to fetch.
+     */
+    where?: EtapaEnsinoBasicaTeacher21WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaEnsinoBasicaTeacher21s to fetch.
+     */
+    orderBy?: EtapaEnsinoBasicaTeacher21OrderByWithRelationInput | EtapaEnsinoBasicaTeacher21OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EtapaEnsinoBasicaTeacher21s.
+     */
+    cursor?: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaEnsinoBasicaTeacher21s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaEnsinoBasicaTeacher21s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EtapaEnsinoBasicaTeacher21s.
+     */
+    distinct?: EtapaEnsinoBasicaTeacher21ScalarFieldEnum | EtapaEnsinoBasicaTeacher21ScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 findFirstOrThrow
+   */
+  export type EtapaEnsinoBasicaTeacher21FindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
+    /**
+     * Filter, which EtapaEnsinoBasicaTeacher21 to fetch.
+     */
+    where?: EtapaEnsinoBasicaTeacher21WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaEnsinoBasicaTeacher21s to fetch.
+     */
+    orderBy?: EtapaEnsinoBasicaTeacher21OrderByWithRelationInput | EtapaEnsinoBasicaTeacher21OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EtapaEnsinoBasicaTeacher21s.
+     */
+    cursor?: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaEnsinoBasicaTeacher21s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaEnsinoBasicaTeacher21s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EtapaEnsinoBasicaTeacher21s.
+     */
+    distinct?: EtapaEnsinoBasicaTeacher21ScalarFieldEnum | EtapaEnsinoBasicaTeacher21ScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 findMany
+   */
+  export type EtapaEnsinoBasicaTeacher21FindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
+    /**
+     * Filter, which EtapaEnsinoBasicaTeacher21s to fetch.
+     */
+    where?: EtapaEnsinoBasicaTeacher21WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaEnsinoBasicaTeacher21s to fetch.
+     */
+    orderBy?: EtapaEnsinoBasicaTeacher21OrderByWithRelationInput | EtapaEnsinoBasicaTeacher21OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EtapaEnsinoBasicaTeacher21s.
+     */
+    cursor?: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaEnsinoBasicaTeacher21s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaEnsinoBasicaTeacher21s.
+     */
+    skip?: number
+    distinct?: EtapaEnsinoBasicaTeacher21ScalarFieldEnum | EtapaEnsinoBasicaTeacher21ScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 create
+   */
+  export type EtapaEnsinoBasicaTeacher21CreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
+    /**
+     * The data needed to create a EtapaEnsinoBasicaTeacher21.
+     */
+    data: XOR<EtapaEnsinoBasicaTeacher21CreateInput, EtapaEnsinoBasicaTeacher21UncheckedCreateInput>
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 createMany
+   */
+  export type EtapaEnsinoBasicaTeacher21CreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EtapaEnsinoBasicaTeacher21s.
+     */
+    data: EtapaEnsinoBasicaTeacher21CreateManyInput | EtapaEnsinoBasicaTeacher21CreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 update
+   */
+  export type EtapaEnsinoBasicaTeacher21UpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
+    /**
+     * The data needed to update a EtapaEnsinoBasicaTeacher21.
+     */
+    data: XOR<EtapaEnsinoBasicaTeacher21UpdateInput, EtapaEnsinoBasicaTeacher21UncheckedUpdateInput>
+    /**
+     * Choose, which EtapaEnsinoBasicaTeacher21 to update.
+     */
+    where: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 updateMany
+   */
+  export type EtapaEnsinoBasicaTeacher21UpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EtapaEnsinoBasicaTeacher21s.
+     */
+    data: XOR<EtapaEnsinoBasicaTeacher21UpdateManyMutationInput, EtapaEnsinoBasicaTeacher21UncheckedUpdateManyInput>
+    /**
+     * Filter which EtapaEnsinoBasicaTeacher21s to update
+     */
+    where?: EtapaEnsinoBasicaTeacher21WhereInput
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 upsert
+   */
+  export type EtapaEnsinoBasicaTeacher21UpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
+    /**
+     * The filter to search for the EtapaEnsinoBasicaTeacher21 to update in case it exists.
+     */
+    where: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+    /**
+     * In case the EtapaEnsinoBasicaTeacher21 found by the `where` argument doesn't exist, create a new EtapaEnsinoBasicaTeacher21 with this data.
+     */
+    create: XOR<EtapaEnsinoBasicaTeacher21CreateInput, EtapaEnsinoBasicaTeacher21UncheckedCreateInput>
+    /**
+     * In case the EtapaEnsinoBasicaTeacher21 was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EtapaEnsinoBasicaTeacher21UpdateInput, EtapaEnsinoBasicaTeacher21UncheckedUpdateInput>
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 delete
+   */
+  export type EtapaEnsinoBasicaTeacher21DeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
+    /**
+     * Filter which EtapaEnsinoBasicaTeacher21 to delete.
+     */
+    where: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 deleteMany
+   */
+  export type EtapaEnsinoBasicaTeacher21DeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EtapaEnsinoBasicaTeacher21s to delete
+     */
+    where?: EtapaEnsinoBasicaTeacher21WhereInput
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21.dados
+   */
+  export type EtapaEnsinoBasicaTeacher21$dadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DadoEducacaoBasica
+     */
+    select?: DadoEducacaoBasicaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DadoEducacaoBasicaInclude<ExtArgs> | null
+    where?: DadoEducacaoBasicaWhereInput
+    orderBy?: DadoEducacaoBasicaOrderByWithRelationInput | DadoEducacaoBasicaOrderByWithRelationInput[]
+    cursor?: DadoEducacaoBasicaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DadoEducacaoBasicaScalarFieldEnum | DadoEducacaoBasicaScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaEnsinoBasicaTeacher21 without action
+   */
+  export type EtapaEnsinoBasicaTeacher21DefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
   }
 
 
@@ -9514,8 +11641,10 @@ export namespace Prisma {
     total: Decimal | null
     localidade_id: number | null
     dependencia_id: number | null
+    dependencia_teacher_id: number | null
     etapa_id: number | null
     etapa_school_id: number | null
+    etapa_teacher_id: number | null
     localizacao_id: number | null
     vinculo_id: number | null
     formacao_id: number | null
@@ -9528,8 +11657,10 @@ export namespace Prisma {
     total: Decimal | null
     localidade_id: number | null
     dependencia_id: number | null
+    dependencia_teacher_id: number | null
     etapa_id: number | null
     etapa_school_id: number | null
+    etapa_teacher_id: number | null
     localizacao_id: number | null
     vinculo_id: number | null
     formacao_id: number | null
@@ -9544,8 +11675,10 @@ export namespace Prisma {
     data_atualizacao: Date | null
     localidade_id: number | null
     dependencia_id: number | null
+    dependencia_teacher_id: number | null
     etapa_id: number | null
     etapa_school_id: number | null
+    etapa_teacher_id: number | null
     localizacao_id: number | null
     vinculo_id: number | null
     formacao_id: number | null
@@ -9560,8 +11693,10 @@ export namespace Prisma {
     data_atualizacao: Date | null
     localidade_id: number | null
     dependencia_id: number | null
+    dependencia_teacher_id: number | null
     etapa_id: number | null
     etapa_school_id: number | null
+    etapa_teacher_id: number | null
     localizacao_id: number | null
     vinculo_id: number | null
     formacao_id: number | null
@@ -9576,8 +11711,10 @@ export namespace Prisma {
     data_atualizacao: number
     localidade_id: number
     dependencia_id: number
+    dependencia_teacher_id: number
     etapa_id: number
     etapa_school_id: number
+    etapa_teacher_id: number
     localizacao_id: number
     vinculo_id: number
     formacao_id: number
@@ -9592,8 +11729,10 @@ export namespace Prisma {
     total?: true
     localidade_id?: true
     dependencia_id?: true
+    dependencia_teacher_id?: true
     etapa_id?: true
     etapa_school_id?: true
+    etapa_teacher_id?: true
     localizacao_id?: true
     vinculo_id?: true
     formacao_id?: true
@@ -9606,8 +11745,10 @@ export namespace Prisma {
     total?: true
     localidade_id?: true
     dependencia_id?: true
+    dependencia_teacher_id?: true
     etapa_id?: true
     etapa_school_id?: true
+    etapa_teacher_id?: true
     localizacao_id?: true
     vinculo_id?: true
     formacao_id?: true
@@ -9622,8 +11763,10 @@ export namespace Prisma {
     data_atualizacao?: true
     localidade_id?: true
     dependencia_id?: true
+    dependencia_teacher_id?: true
     etapa_id?: true
     etapa_school_id?: true
+    etapa_teacher_id?: true
     localizacao_id?: true
     vinculo_id?: true
     formacao_id?: true
@@ -9638,8 +11781,10 @@ export namespace Prisma {
     data_atualizacao?: true
     localidade_id?: true
     dependencia_id?: true
+    dependencia_teacher_id?: true
     etapa_id?: true
     etapa_school_id?: true
+    etapa_teacher_id?: true
     localizacao_id?: true
     vinculo_id?: true
     formacao_id?: true
@@ -9654,8 +11799,10 @@ export namespace Prisma {
     data_atualizacao?: true
     localidade_id?: true
     dependencia_id?: true
+    dependencia_teacher_id?: true
     etapa_id?: true
     etapa_school_id?: true
+    etapa_teacher_id?: true
     localizacao_id?: true
     vinculo_id?: true
     formacao_id?: true
@@ -9757,8 +11904,10 @@ export namespace Prisma {
     data_atualizacao: Date
     localidade_id: number | null
     dependencia_id: number | null
+    dependencia_teacher_id: number | null
     etapa_id: number | null
     etapa_school_id: number | null
+    etapa_teacher_id: number | null
     localizacao_id: number | null
     vinculo_id: number | null
     formacao_id: number | null
@@ -9792,16 +11941,20 @@ export namespace Prisma {
     data_atualizacao?: boolean
     localidade_id?: boolean
     dependencia_id?: boolean
+    dependencia_teacher_id?: boolean
     etapa_id?: boolean
     etapa_school_id?: boolean
+    etapa_teacher_id?: boolean
     localizacao_id?: boolean
     vinculo_id?: boolean
     formacao_id?: boolean
     faixa_etaria_id?: boolean
     localidade?: boolean | DadoEducacaoBasica$localidadeArgs<ExtArgs>
     dependencia?: boolean | DadoEducacaoBasica$dependenciaArgs<ExtArgs>
+    dependencia_teacher?: boolean | DadoEducacaoBasica$dependencia_teacherArgs<ExtArgs>
     etapa?: boolean | DadoEducacaoBasica$etapaArgs<ExtArgs>
     etapa_school?: boolean | DadoEducacaoBasica$etapa_schoolArgs<ExtArgs>
+    etapa_teacher?: boolean | DadoEducacaoBasica$etapa_teacherArgs<ExtArgs>
     localizacao?: boolean | DadoEducacaoBasica$localizacaoArgs<ExtArgs>
     vinculo?: boolean | DadoEducacaoBasica$vinculoArgs<ExtArgs>
     formacao?: boolean | DadoEducacaoBasica$formacaoArgs<ExtArgs>
@@ -9816,8 +11969,10 @@ export namespace Prisma {
     data_atualizacao?: boolean
     localidade_id?: boolean
     dependencia_id?: boolean
+    dependencia_teacher_id?: boolean
     etapa_id?: boolean
     etapa_school_id?: boolean
+    etapa_teacher_id?: boolean
     localizacao_id?: boolean
     vinculo_id?: boolean
     formacao_id?: boolean
@@ -9827,8 +11982,10 @@ export namespace Prisma {
   export type DadoEducacaoBasicaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     localidade?: boolean | DadoEducacaoBasica$localidadeArgs<ExtArgs>
     dependencia?: boolean | DadoEducacaoBasica$dependenciaArgs<ExtArgs>
+    dependencia_teacher?: boolean | DadoEducacaoBasica$dependencia_teacherArgs<ExtArgs>
     etapa?: boolean | DadoEducacaoBasica$etapaArgs<ExtArgs>
     etapa_school?: boolean | DadoEducacaoBasica$etapa_schoolArgs<ExtArgs>
+    etapa_teacher?: boolean | DadoEducacaoBasica$etapa_teacherArgs<ExtArgs>
     localizacao?: boolean | DadoEducacaoBasica$localizacaoArgs<ExtArgs>
     vinculo?: boolean | DadoEducacaoBasica$vinculoArgs<ExtArgs>
     formacao?: boolean | DadoEducacaoBasica$formacaoArgs<ExtArgs>
@@ -9841,8 +11998,10 @@ export namespace Prisma {
     objects: {
       localidade: Prisma.$LocalidadePayload<ExtArgs> | null
       dependencia: Prisma.$DependenciaAdministrativaBasicaPayload<ExtArgs> | null
+      dependencia_teacher: Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs> | null
       etapa: Prisma.$EtapaEnsinoBasicaPayload<ExtArgs> | null
       etapa_school: Prisma.$EtapaEnsinoBasicaSchoolPayload<ExtArgs> | null
+      etapa_teacher: Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs> | null
       localizacao: Prisma.$LocalizacaoPayload<ExtArgs> | null
       vinculo: Prisma.$VinculoFuncionalPayload<ExtArgs> | null
       formacao: Prisma.$FormacaoDocentePayload<ExtArgs> | null
@@ -9856,8 +12015,10 @@ export namespace Prisma {
       data_atualizacao: Date
       localidade_id: number | null
       dependencia_id: number | null
+      dependencia_teacher_id: number | null
       etapa_id: number | null
       etapa_school_id: number | null
+      etapa_teacher_id: number | null
       localizacao_id: number | null
       vinculo_id: number | null
       formacao_id: number | null
@@ -10231,9 +12392,13 @@ export namespace Prisma {
 
     dependencia<T extends DadoEducacaoBasica$dependenciaArgs<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$dependenciaArgs<ExtArgs>>): Prisma__DependenciaAdministrativaBasicaClient<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
+    dependencia_teacher<T extends DadoEducacaoBasica$dependencia_teacherArgs<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$dependencia_teacherArgs<ExtArgs>>): Prisma__DependenciaAdministrativaBasicaTeacherClient<$Result.GetResult<Prisma.$DependenciaAdministrativaBasicaTeacherPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
     etapa<T extends DadoEducacaoBasica$etapaArgs<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$etapaArgs<ExtArgs>>): Prisma__EtapaEnsinoBasicaClient<$Result.GetResult<Prisma.$EtapaEnsinoBasicaPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
     etapa_school<T extends DadoEducacaoBasica$etapa_schoolArgs<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$etapa_schoolArgs<ExtArgs>>): Prisma__EtapaEnsinoBasicaSchoolClient<$Result.GetResult<Prisma.$EtapaEnsinoBasicaSchoolPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
+    etapa_teacher<T extends DadoEducacaoBasica$etapa_teacherArgs<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$etapa_teacherArgs<ExtArgs>>): Prisma__EtapaEnsinoBasicaTeacher21Client<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
     localizacao<T extends DadoEducacaoBasica$localizacaoArgs<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$localizacaoArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
@@ -10278,8 +12443,10 @@ export namespace Prisma {
     readonly data_atualizacao: FieldRef<"DadoEducacaoBasica", 'DateTime'>
     readonly localidade_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly dependencia_id: FieldRef<"DadoEducacaoBasica", 'Int'>
+    readonly dependencia_teacher_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly etapa_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly etapa_school_id: FieldRef<"DadoEducacaoBasica", 'Int'>
+    readonly etapa_teacher_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly localizacao_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly vinculo_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly formacao_id: FieldRef<"DadoEducacaoBasica", 'Int'>
@@ -10628,6 +12795,22 @@ export namespace Prisma {
 
 
   /**
+   * DadoEducacaoBasica.dependencia_teacher
+   */
+  export type DadoEducacaoBasica$dependencia_teacherArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DependenciaAdministrativaBasicaTeacher
+     */
+    select?: DependenciaAdministrativaBasicaTeacherSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DependenciaAdministrativaBasicaTeacherInclude<ExtArgs> | null
+    where?: DependenciaAdministrativaBasicaTeacherWhereInput
+  }
+
+
+  /**
    * DadoEducacaoBasica.etapa
    */
   export type DadoEducacaoBasica$etapaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10656,6 +12839,22 @@ export namespace Prisma {
      */
     include?: EtapaEnsinoBasicaSchoolInclude<ExtArgs> | null
     where?: EtapaEnsinoBasicaSchoolWhereInput
+  }
+
+
+  /**
+   * DadoEducacaoBasica.etapa_teacher
+   */
+  export type DadoEducacaoBasica$etapa_teacherArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaEnsinoBasicaTeacher21
+     */
+    select?: EtapaEnsinoBasicaTeacher21Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
+    where?: EtapaEnsinoBasicaTeacher21WhereInput
   }
 
 
@@ -11710,6 +13909,15 @@ export namespace Prisma {
   export type DependenciaAdministrativaBasicaScalarFieldEnum = (typeof DependenciaAdministrativaBasicaScalarFieldEnum)[keyof typeof DependenciaAdministrativaBasicaScalarFieldEnum]
 
 
+  export const DependenciaAdministrativaBasicaTeacherScalarFieldEnum: {
+    id: 'id',
+    nome: 'nome',
+    tipo: 'tipo'
+  };
+
+  export type DependenciaAdministrativaBasicaTeacherScalarFieldEnum = (typeof DependenciaAdministrativaBasicaTeacherScalarFieldEnum)[keyof typeof DependenciaAdministrativaBasicaTeacherScalarFieldEnum]
+
+
   export const EtapaEnsinoBasicaScalarFieldEnum: {
     id: 'id',
     nome: 'nome',
@@ -11725,6 +13933,14 @@ export namespace Prisma {
   };
 
   export type EtapaEnsinoBasicaSchoolScalarFieldEnum = (typeof EtapaEnsinoBasicaSchoolScalarFieldEnum)[keyof typeof EtapaEnsinoBasicaSchoolScalarFieldEnum]
+
+
+  export const EtapaEnsinoBasicaTeacher21ScalarFieldEnum: {
+    id: 'id',
+    nome: 'nome'
+  };
+
+  export type EtapaEnsinoBasicaTeacher21ScalarFieldEnum = (typeof EtapaEnsinoBasicaTeacher21ScalarFieldEnum)[keyof typeof EtapaEnsinoBasicaTeacher21ScalarFieldEnum]
 
 
   export const LocalizacaoScalarFieldEnum: {
@@ -11769,8 +13985,10 @@ export namespace Prisma {
     data_atualizacao: 'data_atualizacao',
     localidade_id: 'localidade_id',
     dependencia_id: 'dependencia_id',
+    dependencia_teacher_id: 'dependencia_teacher_id',
     etapa_id: 'etapa_id',
     etapa_school_id: 'etapa_school_id',
+    etapa_teacher_id: 'etapa_teacher_id',
     localizacao_id: 'localizacao_id',
     vinculo_id: 'vinculo_id',
     formacao_id: 'formacao_id',
@@ -12024,6 +14242,53 @@ export namespace Prisma {
     tipo?: StringNullableWithAggregatesFilter<"DependenciaAdministrativaBasica"> | string | null
   }
 
+  export type DependenciaAdministrativaBasicaTeacherWhereInput = {
+    AND?: DependenciaAdministrativaBasicaTeacherWhereInput | DependenciaAdministrativaBasicaTeacherWhereInput[]
+    OR?: DependenciaAdministrativaBasicaTeacherWhereInput[]
+    NOT?: DependenciaAdministrativaBasicaTeacherWhereInput | DependenciaAdministrativaBasicaTeacherWhereInput[]
+    id?: IntFilter<"DependenciaAdministrativaBasicaTeacher"> | number
+    nome?: StringFilter<"DependenciaAdministrativaBasicaTeacher"> | string
+    tipo?: StringNullableFilter<"DependenciaAdministrativaBasicaTeacher"> | string | null
+    dados?: DadoEducacaoBasicaListRelationFilter
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherOrderByWithRelationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    tipo?: SortOrderInput | SortOrder
+    dados?: DadoEducacaoBasicaOrderByRelationAggregateInput
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: DependenciaAdministrativaBasicaTeacherWhereInput | DependenciaAdministrativaBasicaTeacherWhereInput[]
+    OR?: DependenciaAdministrativaBasicaTeacherWhereInput[]
+    NOT?: DependenciaAdministrativaBasicaTeacherWhereInput | DependenciaAdministrativaBasicaTeacherWhereInput[]
+    nome?: StringFilter<"DependenciaAdministrativaBasicaTeacher"> | string
+    tipo?: StringNullableFilter<"DependenciaAdministrativaBasicaTeacher"> | string | null
+    dados?: DadoEducacaoBasicaListRelationFilter
+  }, "id">
+
+  export type DependenciaAdministrativaBasicaTeacherOrderByWithAggregationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    tipo?: SortOrderInput | SortOrder
+    _count?: DependenciaAdministrativaBasicaTeacherCountOrderByAggregateInput
+    _avg?: DependenciaAdministrativaBasicaTeacherAvgOrderByAggregateInput
+    _max?: DependenciaAdministrativaBasicaTeacherMaxOrderByAggregateInput
+    _min?: DependenciaAdministrativaBasicaTeacherMinOrderByAggregateInput
+    _sum?: DependenciaAdministrativaBasicaTeacherSumOrderByAggregateInput
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherScalarWhereWithAggregatesInput = {
+    AND?: DependenciaAdministrativaBasicaTeacherScalarWhereWithAggregatesInput | DependenciaAdministrativaBasicaTeacherScalarWhereWithAggregatesInput[]
+    OR?: DependenciaAdministrativaBasicaTeacherScalarWhereWithAggregatesInput[]
+    NOT?: DependenciaAdministrativaBasicaTeacherScalarWhereWithAggregatesInput | DependenciaAdministrativaBasicaTeacherScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"DependenciaAdministrativaBasicaTeacher"> | number
+    nome?: StringWithAggregatesFilter<"DependenciaAdministrativaBasicaTeacher"> | string
+    tipo?: StringNullableWithAggregatesFilter<"DependenciaAdministrativaBasicaTeacher"> | string | null
+  }
+
   export type EtapaEnsinoBasicaWhereInput = {
     AND?: EtapaEnsinoBasicaWhereInput | EtapaEnsinoBasicaWhereInput[]
     OR?: EtapaEnsinoBasicaWhereInput[]
@@ -12111,6 +14376,48 @@ export namespace Prisma {
     NOT?: EtapaEnsinoBasicaSchoolScalarWhereWithAggregatesInput | EtapaEnsinoBasicaSchoolScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"EtapaEnsinoBasicaSchool"> | number
     nome?: StringWithAggregatesFilter<"EtapaEnsinoBasicaSchool"> | string
+  }
+
+  export type EtapaEnsinoBasicaTeacher21WhereInput = {
+    AND?: EtapaEnsinoBasicaTeacher21WhereInput | EtapaEnsinoBasicaTeacher21WhereInput[]
+    OR?: EtapaEnsinoBasicaTeacher21WhereInput[]
+    NOT?: EtapaEnsinoBasicaTeacher21WhereInput | EtapaEnsinoBasicaTeacher21WhereInput[]
+    id?: IntFilter<"EtapaEnsinoBasicaTeacher21"> | number
+    nome?: StringFilter<"EtapaEnsinoBasicaTeacher21"> | string
+    dados?: DadoEducacaoBasicaListRelationFilter
+  }
+
+  export type EtapaEnsinoBasicaTeacher21OrderByWithRelationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    dados?: DadoEducacaoBasicaOrderByRelationAggregateInput
+  }
+
+  export type EtapaEnsinoBasicaTeacher21WhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: EtapaEnsinoBasicaTeacher21WhereInput | EtapaEnsinoBasicaTeacher21WhereInput[]
+    OR?: EtapaEnsinoBasicaTeacher21WhereInput[]
+    NOT?: EtapaEnsinoBasicaTeacher21WhereInput | EtapaEnsinoBasicaTeacher21WhereInput[]
+    nome?: StringFilter<"EtapaEnsinoBasicaTeacher21"> | string
+    dados?: DadoEducacaoBasicaListRelationFilter
+  }, "id">
+
+  export type EtapaEnsinoBasicaTeacher21OrderByWithAggregationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    _count?: EtapaEnsinoBasicaTeacher21CountOrderByAggregateInput
+    _avg?: EtapaEnsinoBasicaTeacher21AvgOrderByAggregateInput
+    _max?: EtapaEnsinoBasicaTeacher21MaxOrderByAggregateInput
+    _min?: EtapaEnsinoBasicaTeacher21MinOrderByAggregateInput
+    _sum?: EtapaEnsinoBasicaTeacher21SumOrderByAggregateInput
+  }
+
+  export type EtapaEnsinoBasicaTeacher21ScalarWhereWithAggregatesInput = {
+    AND?: EtapaEnsinoBasicaTeacher21ScalarWhereWithAggregatesInput | EtapaEnsinoBasicaTeacher21ScalarWhereWithAggregatesInput[]
+    OR?: EtapaEnsinoBasicaTeacher21ScalarWhereWithAggregatesInput[]
+    NOT?: EtapaEnsinoBasicaTeacher21ScalarWhereWithAggregatesInput | EtapaEnsinoBasicaTeacher21ScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"EtapaEnsinoBasicaTeacher21"> | number
+    nome?: StringWithAggregatesFilter<"EtapaEnsinoBasicaTeacher21"> | string
   }
 
   export type LocalizacaoWhereInput = {
@@ -12302,16 +14609,20 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFilter<"DadoEducacaoBasica"> | Date | string
     localidade_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     dependencia_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    dependencia_teacher_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_school_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    etapa_teacher_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     localizacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     vinculo_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     formacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     faixa_etaria_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     localidade?: XOR<LocalidadeNullableRelationFilter, LocalidadeWhereInput> | null
     dependencia?: XOR<DependenciaAdministrativaBasicaNullableRelationFilter, DependenciaAdministrativaBasicaWhereInput> | null
+    dependencia_teacher?: XOR<DependenciaAdministrativaBasicaTeacherNullableRelationFilter, DependenciaAdministrativaBasicaTeacherWhereInput> | null
     etapa?: XOR<EtapaEnsinoBasicaNullableRelationFilter, EtapaEnsinoBasicaWhereInput> | null
     etapa_school?: XOR<EtapaEnsinoBasicaSchoolNullableRelationFilter, EtapaEnsinoBasicaSchoolWhereInput> | null
+    etapa_teacher?: XOR<EtapaEnsinoBasicaTeacher21NullableRelationFilter, EtapaEnsinoBasicaTeacher21WhereInput> | null
     localizacao?: XOR<LocalizacaoNullableRelationFilter, LocalizacaoWhereInput> | null
     vinculo?: XOR<VinculoFuncionalNullableRelationFilter, VinculoFuncionalWhereInput> | null
     formacao?: XOR<FormacaoDocenteNullableRelationFilter, FormacaoDocenteWhereInput> | null
@@ -12326,16 +14637,20 @@ export namespace Prisma {
     data_atualizacao?: SortOrder
     localidade_id?: SortOrderInput | SortOrder
     dependencia_id?: SortOrderInput | SortOrder
+    dependencia_teacher_id?: SortOrderInput | SortOrder
     etapa_id?: SortOrderInput | SortOrder
     etapa_school_id?: SortOrderInput | SortOrder
+    etapa_teacher_id?: SortOrderInput | SortOrder
     localizacao_id?: SortOrderInput | SortOrder
     vinculo_id?: SortOrderInput | SortOrder
     formacao_id?: SortOrderInput | SortOrder
     faixa_etaria_id?: SortOrderInput | SortOrder
     localidade?: LocalidadeOrderByWithRelationInput
     dependencia?: DependenciaAdministrativaBasicaOrderByWithRelationInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherOrderByWithRelationInput
     etapa?: EtapaEnsinoBasicaOrderByWithRelationInput
     etapa_school?: EtapaEnsinoBasicaSchoolOrderByWithRelationInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21OrderByWithRelationInput
     localizacao?: LocalizacaoOrderByWithRelationInput
     vinculo?: VinculoFuncionalOrderByWithRelationInput
     formacao?: FormacaoDocenteOrderByWithRelationInput
@@ -12353,16 +14668,20 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFilter<"DadoEducacaoBasica"> | Date | string
     localidade_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     dependencia_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    dependencia_teacher_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_school_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    etapa_teacher_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     localizacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     vinculo_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     formacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     faixa_etaria_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     localidade?: XOR<LocalidadeNullableRelationFilter, LocalidadeWhereInput> | null
     dependencia?: XOR<DependenciaAdministrativaBasicaNullableRelationFilter, DependenciaAdministrativaBasicaWhereInput> | null
+    dependencia_teacher?: XOR<DependenciaAdministrativaBasicaTeacherNullableRelationFilter, DependenciaAdministrativaBasicaTeacherWhereInput> | null
     etapa?: XOR<EtapaEnsinoBasicaNullableRelationFilter, EtapaEnsinoBasicaWhereInput> | null
     etapa_school?: XOR<EtapaEnsinoBasicaSchoolNullableRelationFilter, EtapaEnsinoBasicaSchoolWhereInput> | null
+    etapa_teacher?: XOR<EtapaEnsinoBasicaTeacher21NullableRelationFilter, EtapaEnsinoBasicaTeacher21WhereInput> | null
     localizacao?: XOR<LocalizacaoNullableRelationFilter, LocalizacaoWhereInput> | null
     vinculo?: XOR<VinculoFuncionalNullableRelationFilter, VinculoFuncionalWhereInput> | null
     formacao?: XOR<FormacaoDocenteNullableRelationFilter, FormacaoDocenteWhereInput> | null
@@ -12377,8 +14696,10 @@ export namespace Prisma {
     data_atualizacao?: SortOrder
     localidade_id?: SortOrderInput | SortOrder
     dependencia_id?: SortOrderInput | SortOrder
+    dependencia_teacher_id?: SortOrderInput | SortOrder
     etapa_id?: SortOrderInput | SortOrder
     etapa_school_id?: SortOrderInput | SortOrder
+    etapa_teacher_id?: SortOrderInput | SortOrder
     localizacao_id?: SortOrderInput | SortOrder
     vinculo_id?: SortOrderInput | SortOrder
     formacao_id?: SortOrderInput | SortOrder
@@ -12401,8 +14722,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeWithAggregatesFilter<"DadoEducacaoBasica"> | Date | string
     localidade_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     dependencia_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
+    dependencia_teacher_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     etapa_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     etapa_school_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
+    etapa_teacher_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     localizacao_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     vinculo_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     formacao_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
@@ -12584,6 +14907,52 @@ export namespace Prisma {
     tipo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type DependenciaAdministrativaBasicaTeacherCreateInput = {
+    id: number
+    nome: string
+    tipo?: string | null
+    dados?: DadoEducacaoBasicaCreateNestedManyWithoutDependencia_teacherInput
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherUncheckedCreateInput = {
+    id: number
+    nome: string
+    tipo?: string | null
+    dados?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutDependencia_teacherInput
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+    dados?: DadoEducacaoBasicaUpdateManyWithoutDependencia_teacherNestedInput
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+    dados?: DadoEducacaoBasicaUncheckedUpdateManyWithoutDependencia_teacherNestedInput
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherCreateManyInput = {
+    id: number
+    nome: string
+    tipo?: string | null
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherUpdateManyMutationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type EtapaEnsinoBasicaCreateInput = {
     id: number
     nome: string
@@ -12665,6 +15034,45 @@ export namespace Prisma {
   }
 
   export type EtapaEnsinoBasicaSchoolUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaEnsinoBasicaTeacher21CreateInput = {
+    id: number
+    nome: string
+    dados?: DadoEducacaoBasicaCreateNestedManyWithoutEtapa_teacherInput
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UncheckedCreateInput = {
+    id: number
+    nome: string
+    dados?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutEtapa_teacherInput
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    dados?: DadoEducacaoBasicaUpdateManyWithoutEtapa_teacherNestedInput
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    dados?: DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_teacherNestedInput
+  }
+
+  export type EtapaEnsinoBasicaTeacher21CreateManyInput = {
+    id: number
+    nome: string
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UpdateManyMutationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
   }
@@ -12846,8 +15254,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
     dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -12862,8 +15272,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -12877,8 +15289,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
     dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -12893,8 +15307,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -12909,8 +15325,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -12932,8 +15350,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -13180,6 +15600,32 @@ export namespace Prisma {
     id?: SortOrder
   }
 
+  export type DependenciaAdministrativaBasicaTeacherCountOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    tipo?: SortOrder
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    tipo?: SortOrder
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherMinOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    tipo?: SortOrder
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type EtapaEnsinoBasicaCountOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
@@ -13226,6 +15672,29 @@ export namespace Prisma {
   }
 
   export type EtapaEnsinoBasicaSchoolSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type EtapaEnsinoBasicaTeacher21CountOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type EtapaEnsinoBasicaTeacher21AvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type EtapaEnsinoBasicaTeacher21MaxOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type EtapaEnsinoBasicaTeacher21MinOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type EtapaEnsinoBasicaTeacher21SumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -13390,6 +15859,11 @@ export namespace Prisma {
     isNot?: DependenciaAdministrativaBasicaWhereInput | null
   }
 
+  export type DependenciaAdministrativaBasicaTeacherNullableRelationFilter = {
+    is?: DependenciaAdministrativaBasicaTeacherWhereInput | null
+    isNot?: DependenciaAdministrativaBasicaTeacherWhereInput | null
+  }
+
   export type EtapaEnsinoBasicaNullableRelationFilter = {
     is?: EtapaEnsinoBasicaWhereInput | null
     isNot?: EtapaEnsinoBasicaWhereInput | null
@@ -13398,6 +15872,11 @@ export namespace Prisma {
   export type EtapaEnsinoBasicaSchoolNullableRelationFilter = {
     is?: EtapaEnsinoBasicaSchoolWhereInput | null
     isNot?: EtapaEnsinoBasicaSchoolWhereInput | null
+  }
+
+  export type EtapaEnsinoBasicaTeacher21NullableRelationFilter = {
+    is?: EtapaEnsinoBasicaTeacher21WhereInput | null
+    isNot?: EtapaEnsinoBasicaTeacher21WhereInput | null
   }
 
   export type LocalizacaoNullableRelationFilter = {
@@ -13428,8 +15907,10 @@ export namespace Prisma {
     data_atualizacao?: SortOrder
     localidade_id?: SortOrder
     dependencia_id?: SortOrder
+    dependencia_teacher_id?: SortOrder
     etapa_id?: SortOrder
     etapa_school_id?: SortOrder
+    etapa_teacher_id?: SortOrder
     localizacao_id?: SortOrder
     vinculo_id?: SortOrder
     formacao_id?: SortOrder
@@ -13442,8 +15923,10 @@ export namespace Prisma {
     total?: SortOrder
     localidade_id?: SortOrder
     dependencia_id?: SortOrder
+    dependencia_teacher_id?: SortOrder
     etapa_id?: SortOrder
     etapa_school_id?: SortOrder
+    etapa_teacher_id?: SortOrder
     localizacao_id?: SortOrder
     vinculo_id?: SortOrder
     formacao_id?: SortOrder
@@ -13458,8 +15941,10 @@ export namespace Prisma {
     data_atualizacao?: SortOrder
     localidade_id?: SortOrder
     dependencia_id?: SortOrder
+    dependencia_teacher_id?: SortOrder
     etapa_id?: SortOrder
     etapa_school_id?: SortOrder
+    etapa_teacher_id?: SortOrder
     localizacao_id?: SortOrder
     vinculo_id?: SortOrder
     formacao_id?: SortOrder
@@ -13474,8 +15959,10 @@ export namespace Prisma {
     data_atualizacao?: SortOrder
     localidade_id?: SortOrder
     dependencia_id?: SortOrder
+    dependencia_teacher_id?: SortOrder
     etapa_id?: SortOrder
     etapa_school_id?: SortOrder
+    etapa_teacher_id?: SortOrder
     localizacao_id?: SortOrder
     vinculo_id?: SortOrder
     formacao_id?: SortOrder
@@ -13488,8 +15975,10 @@ export namespace Prisma {
     total?: SortOrder
     localidade_id?: SortOrder
     dependencia_id?: SortOrder
+    dependencia_teacher_id?: SortOrder
     etapa_id?: SortOrder
     etapa_school_id?: SortOrder
+    etapa_teacher_id?: SortOrder
     localizacao_id?: SortOrder
     vinculo_id?: SortOrder
     formacao_id?: SortOrder
@@ -13722,6 +16211,48 @@ export namespace Prisma {
     deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
   }
 
+  export type DadoEducacaoBasicaCreateNestedManyWithoutDependencia_teacherInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutDependencia_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput> | DadoEducacaoBasicaCreateWithoutDependencia_teacherInput[] | DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutDependencia_teacherInput | DadoEducacaoBasicaCreateOrConnectWithoutDependencia_teacherInput[]
+    createMany?: DadoEducacaoBasicaCreateManyDependencia_teacherInputEnvelope
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+  }
+
+  export type DadoEducacaoBasicaUncheckedCreateNestedManyWithoutDependencia_teacherInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutDependencia_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput> | DadoEducacaoBasicaCreateWithoutDependencia_teacherInput[] | DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutDependencia_teacherInput | DadoEducacaoBasicaCreateOrConnectWithoutDependencia_teacherInput[]
+    createMany?: DadoEducacaoBasicaCreateManyDependencia_teacherInputEnvelope
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+  }
+
+  export type DadoEducacaoBasicaUpdateManyWithoutDependencia_teacherNestedInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutDependencia_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput> | DadoEducacaoBasicaCreateWithoutDependencia_teacherInput[] | DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutDependencia_teacherInput | DadoEducacaoBasicaCreateOrConnectWithoutDependencia_teacherInput[]
+    upsert?: DadoEducacaoBasicaUpsertWithWhereUniqueWithoutDependencia_teacherInput | DadoEducacaoBasicaUpsertWithWhereUniqueWithoutDependencia_teacherInput[]
+    createMany?: DadoEducacaoBasicaCreateManyDependencia_teacherInputEnvelope
+    set?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    disconnect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    delete?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    update?: DadoEducacaoBasicaUpdateWithWhereUniqueWithoutDependencia_teacherInput | DadoEducacaoBasicaUpdateWithWhereUniqueWithoutDependencia_teacherInput[]
+    updateMany?: DadoEducacaoBasicaUpdateManyWithWhereWithoutDependencia_teacherInput | DadoEducacaoBasicaUpdateManyWithWhereWithoutDependencia_teacherInput[]
+    deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateManyWithoutDependencia_teacherNestedInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutDependencia_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput> | DadoEducacaoBasicaCreateWithoutDependencia_teacherInput[] | DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutDependencia_teacherInput | DadoEducacaoBasicaCreateOrConnectWithoutDependencia_teacherInput[]
+    upsert?: DadoEducacaoBasicaUpsertWithWhereUniqueWithoutDependencia_teacherInput | DadoEducacaoBasicaUpsertWithWhereUniqueWithoutDependencia_teacherInput[]
+    createMany?: DadoEducacaoBasicaCreateManyDependencia_teacherInputEnvelope
+    set?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    disconnect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    delete?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    update?: DadoEducacaoBasicaUpdateWithWhereUniqueWithoutDependencia_teacherInput | DadoEducacaoBasicaUpdateWithWhereUniqueWithoutDependencia_teacherInput[]
+    updateMany?: DadoEducacaoBasicaUpdateManyWithWhereWithoutDependencia_teacherInput | DadoEducacaoBasicaUpdateManyWithWhereWithoutDependencia_teacherInput[]
+    deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
+  }
+
   export type DadoEducacaoBasicaCreateNestedManyWithoutEtapaInput = {
     create?: XOR<DadoEducacaoBasicaCreateWithoutEtapaInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapaInput> | DadoEducacaoBasicaCreateWithoutEtapaInput[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapaInput[]
     connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapaInput | DadoEducacaoBasicaCreateOrConnectWithoutEtapaInput[]
@@ -13803,6 +16334,48 @@ export namespace Prisma {
     connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
     update?: DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_schoolInput | DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_schoolInput[]
     updateMany?: DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_schoolInput | DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_schoolInput[]
+    deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
+  }
+
+  export type DadoEducacaoBasicaCreateNestedManyWithoutEtapa_teacherInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput> | DadoEducacaoBasicaCreateWithoutEtapa_teacherInput[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_teacherInput | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_teacherInput[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_teacherInputEnvelope
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+  }
+
+  export type DadoEducacaoBasicaUncheckedCreateNestedManyWithoutEtapa_teacherInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput> | DadoEducacaoBasicaCreateWithoutEtapa_teacherInput[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_teacherInput | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_teacherInput[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_teacherInputEnvelope
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+  }
+
+  export type DadoEducacaoBasicaUpdateManyWithoutEtapa_teacherNestedInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput> | DadoEducacaoBasicaCreateWithoutEtapa_teacherInput[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_teacherInput | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_teacherInput[]
+    upsert?: DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_teacherInput | DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_teacherInput[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_teacherInputEnvelope
+    set?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    disconnect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    delete?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    update?: DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_teacherInput | DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_teacherInput[]
+    updateMany?: DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_teacherInput | DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_teacherInput[]
+    deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_teacherNestedInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput> | DadoEducacaoBasicaCreateWithoutEtapa_teacherInput[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_teacherInput | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_teacherInput[]
+    upsert?: DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_teacherInput | DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_teacherInput[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_teacherInputEnvelope
+    set?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    disconnect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    delete?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    update?: DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_teacherInput | DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_teacherInput[]
+    updateMany?: DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_teacherInput | DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_teacherInput[]
     deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
   }
 
@@ -13994,6 +16567,12 @@ export namespace Prisma {
     connect?: DependenciaAdministrativaBasicaWhereUniqueInput
   }
 
+  export type DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput = {
+    create?: XOR<DependenciaAdministrativaBasicaTeacherCreateWithoutDadosInput, DependenciaAdministrativaBasicaTeacherUncheckedCreateWithoutDadosInput>
+    connectOrCreate?: DependenciaAdministrativaBasicaTeacherCreateOrConnectWithoutDadosInput
+    connect?: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+  }
+
   export type EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput = {
     create?: XOR<EtapaEnsinoBasicaCreateWithoutDadosInput, EtapaEnsinoBasicaUncheckedCreateWithoutDadosInput>
     connectOrCreate?: EtapaEnsinoBasicaCreateOrConnectWithoutDadosInput
@@ -14004,6 +16583,12 @@ export namespace Prisma {
     create?: XOR<EtapaEnsinoBasicaSchoolCreateWithoutDadosInput, EtapaEnsinoBasicaSchoolUncheckedCreateWithoutDadosInput>
     connectOrCreate?: EtapaEnsinoBasicaSchoolCreateOrConnectWithoutDadosInput
     connect?: EtapaEnsinoBasicaSchoolWhereUniqueInput
+  }
+
+  export type EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput = {
+    create?: XOR<EtapaEnsinoBasicaTeacher21CreateWithoutDadosInput, EtapaEnsinoBasicaTeacher21UncheckedCreateWithoutDadosInput>
+    connectOrCreate?: EtapaEnsinoBasicaTeacher21CreateOrConnectWithoutDadosInput
+    connect?: EtapaEnsinoBasicaTeacher21WhereUniqueInput
   }
 
   export type LocalizacaoCreateNestedOneWithoutDados_basicaInput = {
@@ -14062,6 +16647,16 @@ export namespace Prisma {
     update?: XOR<XOR<DependenciaAdministrativaBasicaUpdateToOneWithWhereWithoutDadosInput, DependenciaAdministrativaBasicaUpdateWithoutDadosInput>, DependenciaAdministrativaBasicaUncheckedUpdateWithoutDadosInput>
   }
 
+  export type DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput = {
+    create?: XOR<DependenciaAdministrativaBasicaTeacherCreateWithoutDadosInput, DependenciaAdministrativaBasicaTeacherUncheckedCreateWithoutDadosInput>
+    connectOrCreate?: DependenciaAdministrativaBasicaTeacherCreateOrConnectWithoutDadosInput
+    upsert?: DependenciaAdministrativaBasicaTeacherUpsertWithoutDadosInput
+    disconnect?: DependenciaAdministrativaBasicaTeacherWhereInput | boolean
+    delete?: DependenciaAdministrativaBasicaTeacherWhereInput | boolean
+    connect?: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+    update?: XOR<XOR<DependenciaAdministrativaBasicaTeacherUpdateToOneWithWhereWithoutDadosInput, DependenciaAdministrativaBasicaTeacherUpdateWithoutDadosInput>, DependenciaAdministrativaBasicaTeacherUncheckedUpdateWithoutDadosInput>
+  }
+
   export type EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput = {
     create?: XOR<EtapaEnsinoBasicaCreateWithoutDadosInput, EtapaEnsinoBasicaUncheckedCreateWithoutDadosInput>
     connectOrCreate?: EtapaEnsinoBasicaCreateOrConnectWithoutDadosInput
@@ -14080,6 +16675,16 @@ export namespace Prisma {
     delete?: EtapaEnsinoBasicaSchoolWhereInput | boolean
     connect?: EtapaEnsinoBasicaSchoolWhereUniqueInput
     update?: XOR<XOR<EtapaEnsinoBasicaSchoolUpdateToOneWithWhereWithoutDadosInput, EtapaEnsinoBasicaSchoolUpdateWithoutDadosInput>, EtapaEnsinoBasicaSchoolUncheckedUpdateWithoutDadosInput>
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput = {
+    create?: XOR<EtapaEnsinoBasicaTeacher21CreateWithoutDadosInput, EtapaEnsinoBasicaTeacher21UncheckedCreateWithoutDadosInput>
+    connectOrCreate?: EtapaEnsinoBasicaTeacher21CreateOrConnectWithoutDadosInput
+    upsert?: EtapaEnsinoBasicaTeacher21UpsertWithoutDadosInput
+    disconnect?: EtapaEnsinoBasicaTeacher21WhereInput | boolean
+    delete?: EtapaEnsinoBasicaTeacher21WhereInput | boolean
+    connect?: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+    update?: XOR<XOR<EtapaEnsinoBasicaTeacher21UpdateToOneWithWhereWithoutDadosInput, EtapaEnsinoBasicaTeacher21UpdateWithoutDadosInput>, EtapaEnsinoBasicaTeacher21UncheckedUpdateWithoutDadosInput>
   }
 
   export type LocalizacaoUpdateOneWithoutDados_basicaNestedInput = {
@@ -14349,8 +16954,10 @@ export namespace Prisma {
     total: Decimal | DecimalJsLike | number | string
     data_atualizacao?: Date | string
     dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -14364,8 +16971,10 @@ export namespace Prisma {
     total: Decimal | DecimalJsLike | number | string
     data_atualizacao?: Date | string
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -14409,8 +17018,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFilter<"DadoEducacaoBasica"> | Date | string
     localidade_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     dependencia_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    dependencia_teacher_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_school_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    etapa_teacher_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     localizacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     vinculo_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     formacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
@@ -14423,8 +17034,10 @@ export namespace Prisma {
     total: Decimal | DecimalJsLike | number | string
     data_atualizacao?: Date | string
     localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -14438,8 +17051,10 @@ export namespace Prisma {
     total: Decimal | DecimalJsLike | number | string
     data_atualizacao?: Date | string
     localidade_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -14472,6 +17087,65 @@ export namespace Prisma {
     data: XOR<DadoEducacaoBasicaUpdateManyMutationInput, DadoEducacaoBasicaUncheckedUpdateManyWithoutDependenciaInput>
   }
 
+  export type DadoEducacaoBasicaCreateWithoutDependencia_teacherInput = {
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
+    dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
+    etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
+    vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
+    formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
+    faixa_etaria?: FaixaEtariaCreateNestedOneWithoutDadosInput
+  }
+
+  export type DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput = {
+    id?: number
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+    dependencia_id?: number | null
+    etapa_id?: number | null
+    etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
+    localizacao_id?: number | null
+    vinculo_id?: number | null
+    formacao_id?: number | null
+    faixa_etaria_id?: number | null
+  }
+
+  export type DadoEducacaoBasicaCreateOrConnectWithoutDependencia_teacherInput = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    create: XOR<DadoEducacaoBasicaCreateWithoutDependencia_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput>
+  }
+
+  export type DadoEducacaoBasicaCreateManyDependencia_teacherInputEnvelope = {
+    data: DadoEducacaoBasicaCreateManyDependencia_teacherInput | DadoEducacaoBasicaCreateManyDependencia_teacherInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DadoEducacaoBasicaUpsertWithWhereUniqueWithoutDependencia_teacherInput = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    update: XOR<DadoEducacaoBasicaUpdateWithoutDependencia_teacherInput, DadoEducacaoBasicaUncheckedUpdateWithoutDependencia_teacherInput>
+    create: XOR<DadoEducacaoBasicaCreateWithoutDependencia_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutDependencia_teacherInput>
+  }
+
+  export type DadoEducacaoBasicaUpdateWithWhereUniqueWithoutDependencia_teacherInput = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    data: XOR<DadoEducacaoBasicaUpdateWithoutDependencia_teacherInput, DadoEducacaoBasicaUncheckedUpdateWithoutDependencia_teacherInput>
+  }
+
+  export type DadoEducacaoBasicaUpdateManyWithWhereWithoutDependencia_teacherInput = {
+    where: DadoEducacaoBasicaScalarWhereInput
+    data: XOR<DadoEducacaoBasicaUpdateManyMutationInput, DadoEducacaoBasicaUncheckedUpdateManyWithoutDependencia_teacherInput>
+  }
+
   export type DadoEducacaoBasicaCreateWithoutEtapaInput = {
     tipo: string
     ano: number
@@ -14479,7 +17153,9 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
     dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -14494,7 +17170,9 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -14534,7 +17212,9 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
     dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -14549,7 +17229,9 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -14582,6 +17264,65 @@ export namespace Prisma {
     data: XOR<DadoEducacaoBasicaUpdateManyMutationInput, DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_schoolInput>
   }
 
+  export type DadoEducacaoBasicaCreateWithoutEtapa_teacherInput = {
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
+    dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
+    etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
+    etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
+    vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
+    formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
+    faixa_etaria?: FaixaEtariaCreateNestedOneWithoutDadosInput
+  }
+
+  export type DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput = {
+    id?: number
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+    dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
+    etapa_id?: number | null
+    etapa_school_id?: number | null
+    localizacao_id?: number | null
+    vinculo_id?: number | null
+    formacao_id?: number | null
+    faixa_etaria_id?: number | null
+  }
+
+  export type DadoEducacaoBasicaCreateOrConnectWithoutEtapa_teacherInput = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    create: XOR<DadoEducacaoBasicaCreateWithoutEtapa_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput>
+  }
+
+  export type DadoEducacaoBasicaCreateManyEtapa_teacherInputEnvelope = {
+    data: DadoEducacaoBasicaCreateManyEtapa_teacherInput | DadoEducacaoBasicaCreateManyEtapa_teacherInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_teacherInput = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    update: XOR<DadoEducacaoBasicaUpdateWithoutEtapa_teacherInput, DadoEducacaoBasicaUncheckedUpdateWithoutEtapa_teacherInput>
+    create: XOR<DadoEducacaoBasicaCreateWithoutEtapa_teacherInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_teacherInput>
+  }
+
+  export type DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_teacherInput = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    data: XOR<DadoEducacaoBasicaUpdateWithoutEtapa_teacherInput, DadoEducacaoBasicaUncheckedUpdateWithoutEtapa_teacherInput>
+  }
+
+  export type DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_teacherInput = {
+    where: DadoEducacaoBasicaScalarWhereInput
+    data: XOR<DadoEducacaoBasicaUpdateManyMutationInput, DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_teacherInput>
+  }
+
   export type DadoEducacaoBasicaCreateWithoutLocalizacaoInput = {
     tipo: string
     ano: number
@@ -14589,8 +17330,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
     dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
     faixa_etaria?: FaixaEtariaCreateNestedOneWithoutDadosInput
@@ -14604,8 +17347,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
     faixa_etaria_id?: number | null
@@ -14644,8 +17389,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
     dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
     faixa_etaria?: FaixaEtariaCreateNestedOneWithoutDadosInput
@@ -14659,8 +17406,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     formacao_id?: number | null
     faixa_etaria_id?: number | null
@@ -14699,8 +17448,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
     dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     faixa_etaria?: FaixaEtariaCreateNestedOneWithoutDadosInput
@@ -14714,8 +17465,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     faixa_etaria_id?: number | null
@@ -14754,8 +17507,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
     dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -14769,8 +17524,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -14840,6 +17597,23 @@ export namespace Prisma {
     create: XOR<DependenciaAdministrativaBasicaCreateWithoutDadosInput, DependenciaAdministrativaBasicaUncheckedCreateWithoutDadosInput>
   }
 
+  export type DependenciaAdministrativaBasicaTeacherCreateWithoutDadosInput = {
+    id: number
+    nome: string
+    tipo?: string | null
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherUncheckedCreateWithoutDadosInput = {
+    id: number
+    nome: string
+    tipo?: string | null
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherCreateOrConnectWithoutDadosInput = {
+    where: DependenciaAdministrativaBasicaTeacherWhereUniqueInput
+    create: XOR<DependenciaAdministrativaBasicaTeacherCreateWithoutDadosInput, DependenciaAdministrativaBasicaTeacherUncheckedCreateWithoutDadosInput>
+  }
+
   export type EtapaEnsinoBasicaCreateWithoutDadosInput = {
     id: number
     nome: string
@@ -14870,6 +17644,21 @@ export namespace Prisma {
   export type EtapaEnsinoBasicaSchoolCreateOrConnectWithoutDadosInput = {
     where: EtapaEnsinoBasicaSchoolWhereUniqueInput
     create: XOR<EtapaEnsinoBasicaSchoolCreateWithoutDadosInput, EtapaEnsinoBasicaSchoolUncheckedCreateWithoutDadosInput>
+  }
+
+  export type EtapaEnsinoBasicaTeacher21CreateWithoutDadosInput = {
+    id: number
+    nome: string
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UncheckedCreateWithoutDadosInput = {
+    id: number
+    nome: string
+  }
+
+  export type EtapaEnsinoBasicaTeacher21CreateOrConnectWithoutDadosInput = {
+    where: EtapaEnsinoBasicaTeacher21WhereUniqueInput
+    create: XOR<EtapaEnsinoBasicaTeacher21CreateWithoutDadosInput, EtapaEnsinoBasicaTeacher21UncheckedCreateWithoutDadosInput>
   }
 
   export type LocalizacaoCreateWithoutDados_basicaInput = {
@@ -14986,6 +17775,29 @@ export namespace Prisma {
     tipo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type DependenciaAdministrativaBasicaTeacherUpsertWithoutDadosInput = {
+    update: XOR<DependenciaAdministrativaBasicaTeacherUpdateWithoutDadosInput, DependenciaAdministrativaBasicaTeacherUncheckedUpdateWithoutDadosInput>
+    create: XOR<DependenciaAdministrativaBasicaTeacherCreateWithoutDadosInput, DependenciaAdministrativaBasicaTeacherUncheckedCreateWithoutDadosInput>
+    where?: DependenciaAdministrativaBasicaTeacherWhereInput
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherUpdateToOneWithWhereWithoutDadosInput = {
+    where?: DependenciaAdministrativaBasicaTeacherWhereInput
+    data: XOR<DependenciaAdministrativaBasicaTeacherUpdateWithoutDadosInput, DependenciaAdministrativaBasicaTeacherUncheckedUpdateWithoutDadosInput>
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherUpdateWithoutDadosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type DependenciaAdministrativaBasicaTeacherUncheckedUpdateWithoutDadosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type EtapaEnsinoBasicaUpsertWithoutDadosInput = {
     update: XOR<EtapaEnsinoBasicaUpdateWithoutDadosInput, EtapaEnsinoBasicaUncheckedUpdateWithoutDadosInput>
     create: XOR<EtapaEnsinoBasicaCreateWithoutDadosInput, EtapaEnsinoBasicaUncheckedCreateWithoutDadosInput>
@@ -15026,6 +17838,27 @@ export namespace Prisma {
   }
 
   export type EtapaEnsinoBasicaSchoolUncheckedUpdateWithoutDadosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UpsertWithoutDadosInput = {
+    update: XOR<EtapaEnsinoBasicaTeacher21UpdateWithoutDadosInput, EtapaEnsinoBasicaTeacher21UncheckedUpdateWithoutDadosInput>
+    create: XOR<EtapaEnsinoBasicaTeacher21CreateWithoutDadosInput, EtapaEnsinoBasicaTeacher21UncheckedCreateWithoutDadosInput>
+    where?: EtapaEnsinoBasicaTeacher21WhereInput
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UpdateToOneWithWhereWithoutDadosInput = {
+    where?: EtapaEnsinoBasicaTeacher21WhereInput
+    data: XOR<EtapaEnsinoBasicaTeacher21UpdateWithoutDadosInput, EtapaEnsinoBasicaTeacher21UncheckedUpdateWithoutDadosInput>
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UpdateWithoutDadosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaEnsinoBasicaTeacher21UncheckedUpdateWithoutDadosInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
   }
@@ -15125,8 +17958,10 @@ export namespace Prisma {
     total: Decimal | DecimalJsLike | number | string
     data_atualizacao?: Date | string
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -15139,8 +17974,10 @@ export namespace Prisma {
     total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -15154,8 +17991,10 @@ export namespace Prisma {
     total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15169,8 +18008,10 @@ export namespace Prisma {
     total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15184,8 +18025,10 @@ export namespace Prisma {
     total: Decimal | DecimalJsLike | number | string
     data_atualizacao?: Date | string
     localidade_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -15198,8 +18041,10 @@ export namespace Prisma {
     total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -15213,8 +18058,10 @@ export namespace Prisma {
     total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15228,8 +18075,77 @@ export namespace Prisma {
     total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
+    formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DadoEducacaoBasicaCreateManyDependencia_teacherInput = {
+    id?: number
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+    dependencia_id?: number | null
+    etapa_id?: number | null
+    etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
+    localizacao_id?: number | null
+    vinculo_id?: number | null
+    formacao_id?: number | null
+    faixa_etaria_id?: number | null
+  }
+
+  export type DadoEducacaoBasicaUpdateWithoutDependencia_teacherInput = {
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
+    dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
+    etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
+    vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
+    formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
+    faixa_etaria?: FaixaEtariaUpdateOneWithoutDadosNestedInput
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateWithoutDependencia_teacherInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
+    formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateManyWithoutDependencia_teacherInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15244,7 +18160,9 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -15258,7 +18176,9 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
     dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -15273,7 +18193,9 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15288,7 +18210,9 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15303,7 +18227,9 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -15317,7 +18243,9 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
     dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -15332,7 +18260,9 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15347,7 +18277,76 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
+    formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DadoEducacaoBasicaCreateManyEtapa_teacherInput = {
+    id?: number
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+    dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
+    etapa_id?: number | null
+    etapa_school_id?: number | null
+    localizacao_id?: number | null
+    vinculo_id?: number | null
+    formacao_id?: number | null
+    faixa_etaria_id?: number | null
+  }
+
+  export type DadoEducacaoBasicaUpdateWithoutEtapa_teacherInput = {
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
+    dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
+    etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
+    etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
+    vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
+    formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
+    faixa_etaria?: FaixaEtariaUpdateOneWithoutDadosNestedInput
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateWithoutEtapa_teacherInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
+    formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_teacherInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15362,8 +18361,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
     faixa_etaria_id?: number | null
@@ -15376,8 +18377,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
     dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
     faixa_etaria?: FaixaEtariaUpdateOneWithoutDadosNestedInput
@@ -15391,8 +18394,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15406,8 +18411,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15421,8 +18428,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     formacao_id?: number | null
     faixa_etaria_id?: number | null
@@ -15435,8 +18444,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
     dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
     faixa_etaria?: FaixaEtariaUpdateOneWithoutDadosNestedInput
@@ -15450,8 +18461,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15465,8 +18478,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15480,8 +18495,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     faixa_etaria_id?: number | null
@@ -15494,8 +18511,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
     dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     faixa_etaria?: FaixaEtariaUpdateOneWithoutDadosNestedInput
@@ -15509,8 +18528,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15524,8 +18545,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15539,8 +18562,10 @@ export namespace Prisma {
     data_atualizacao?: Date | string
     localidade_id?: number | null
     dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -15553,8 +18578,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
     dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -15568,8 +18595,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15583,8 +18612,10 @@ export namespace Prisma {
     data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
     localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
     dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -15604,6 +18635,10 @@ export namespace Prisma {
      */
     export type DependenciaAdministrativaBasicaCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DependenciaAdministrativaBasicaCountOutputTypeDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use DependenciaAdministrativaBasicaTeacherCountOutputTypeDefaultArgs instead
+     */
+    export type DependenciaAdministrativaBasicaTeacherCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DependenciaAdministrativaBasicaTeacherCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use EtapaEnsinoBasicaCountOutputTypeDefaultArgs instead
      */
     export type EtapaEnsinoBasicaCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaEnsinoBasicaCountOutputTypeDefaultArgs<ExtArgs>
@@ -15611,6 +18646,10 @@ export namespace Prisma {
      * @deprecated Use EtapaEnsinoBasicaSchoolCountOutputTypeDefaultArgs instead
      */
     export type EtapaEnsinoBasicaSchoolCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaEnsinoBasicaSchoolCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use EtapaEnsinoBasicaTeacher21CountOutputTypeDefaultArgs instead
+     */
+    export type EtapaEnsinoBasicaTeacher21CountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaEnsinoBasicaTeacher21CountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use LocalizacaoCountOutputTypeDefaultArgs instead
      */
@@ -15636,6 +18675,10 @@ export namespace Prisma {
      */
     export type DependenciaAdministrativaBasicaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DependenciaAdministrativaBasicaDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use DependenciaAdministrativaBasicaTeacherDefaultArgs instead
+     */
+    export type DependenciaAdministrativaBasicaTeacherArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DependenciaAdministrativaBasicaTeacherDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use EtapaEnsinoBasicaDefaultArgs instead
      */
     export type EtapaEnsinoBasicaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaEnsinoBasicaDefaultArgs<ExtArgs>
@@ -15643,6 +18686,10 @@ export namespace Prisma {
      * @deprecated Use EtapaEnsinoBasicaSchoolDefaultArgs instead
      */
     export type EtapaEnsinoBasicaSchoolArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaEnsinoBasicaSchoolDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use EtapaEnsinoBasicaTeacher21DefaultArgs instead
+     */
+    export type EtapaEnsinoBasicaTeacher21Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaEnsinoBasicaTeacher21DefaultArgs<ExtArgs>
     /**
      * @deprecated Use LocalizacaoDefaultArgs instead
      */

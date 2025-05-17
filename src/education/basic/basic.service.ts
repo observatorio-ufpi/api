@@ -10,11 +10,11 @@ export class BasicService {
   }
 
   async getEnrollmentAggregate(dims: string, filter: string) {
-    return this.queryData('enrollment', dims, filter);
+    return this.queryDataTwoDimensions('enrollmentAggregate', dims, filter);
   }
 
   async getSchoolCount(dims: string, filter: string) {
-    return this.queryData('school/count', dims, filter);
+    return this.queryDataTwoDimensions('school/count', dims, filter);
   }
 
   async getClass(dims: string, filter: string) {
@@ -22,7 +22,7 @@ export class BasicService {
   }
 
   async getTeacher(dims: string, filter: string) {
-    return this.queryData('teacher', dims, filter);
+    return this.queryDataTwoDimensions('teacher', dims, filter);
   }
 
   async getAuxiliar(dims: string, filter: string) {
@@ -61,14 +61,23 @@ export class BasicService {
     const filterParams = this.parseFilter(filter);
     const dimensions = this.parseDims(dims); // array com 0, 1 ou 2 dimensões
 
+    if (filterParams.isHistorical) {
+      return this.serieHistoricaTwoDimensions(tipo, dims, filter);
+    }
+
     // Definir quais relacionamentos incluir com base nas dimensões passadas
     const include: any = {
       dependencia: true,
+      dependencia_teacher: true,
       etapa: true,
+      etapa_school: true,
+      etapa_teacher: true,
       localizacao: true,
     };
 
     try {
+      if (tipo === 'teacher' && filterParams.years.some((y) => y >= 2021))
+        tipo = 'federativeEntity';
       // Buscar todos os registros do tipo/ano/localidade
       const results = await this.prisma.dadoEducacaoBasica.findMany({
         where: {
@@ -82,28 +91,110 @@ export class BasicService {
       });
 
       // Mapear os dados
-      const mappedResults = results.map((item) => ({
-        year: item.ano,
-        total: Number(item.total),
-        adm_dependency_detailed_id: item.dependencia?.id ?? null,
-        adm_dependency_detailed_name: item.dependencia?.nome ?? null,
-        education_level_mod_id: item.etapa?.id ?? null,
-        education_level_mod_name: item.etapa?.nome ?? null,
-        location_id: item.localizacao?.id ?? null,
-        location_name: item.localizacao?.nome ?? null,
-      }));
+      let mappedResults = results.map((item) => {
+        if (
+          tipo === 'federativeEntity' &&
+          filterParams.years.some((y) => y >= 2021)
+        ) {
+          return {
+            year: item.ano,
+            total: Number(item.total),
+            education_level_mod_id: item.etapa_teacher?.id ?? null,
+            education_level_mod_name: item.etapa_teacher?.nome ?? null,
+            adm_dependency_detailed_id: item.dependencia_teacher?.id ?? null,
+            adm_dependency_detailed_name:
+              item.dependencia_teacher?.nome ?? null,
+            location_id: item.localizacao?.id ?? null,
+            location_name: item.localizacao?.nome ?? null,
+            contract_type_id: item.contrato?.id ?? null,
+            contract_type_name: item.contrato?.nome ?? null,
+          };
+        } else if (tipo === 'enrollmentAggregate') {
+          return {
+            year: item.ano,
+            total: Number(item.total),
+            education_level_mod_agg_id: item.etapa?.id ?? null,
+            education_level_mod_agg_name: item.etapa?.nome ?? null,
+            location_id: item.localizacao?.id ?? null,
+            location_name: item.localizacao?.nome ?? null,
+            adm_dependency_detailed_id: item.dependencia?.id ?? null,
+            adm_dependency_detailed_name: item.dependencia?.nome ?? null,
+          };
+        } else if (tipo === 'school/count') {
+          return {
+            year: item.ano,
+            total: Number(item.total),
+            arrangement_id: item.etapa_school?.id ?? null,
+            arrangement_name: item.etapa_school?.nome ?? null,
+            adm_dependency_detailed_id: item.dependencia?.id ?? null,
+            adm_dependency_detailed_name: item.dependencia?.nome ?? null,
+            location_id: item.localizacao?.id ?? null,
+            location_name: item.localizacao?.nome ?? null,
+          };
+        }
+        return {
+          year: item.ano,
+          total: Number(item.total),
+          adm_dependency_detailed_id: item.dependencia?.id ?? null,
+          adm_dependency_detailed_name: item.dependencia?.nome ?? null,
+          education_level_mod_id: item.etapa?.id ?? null,
+          education_level_mod_name: item.etapa?.nome ?? null,
+          location_id: item.localizacao?.id ?? null,
+          location_name: item.localizacao?.nome ?? null,
+        };
+      });
+
+      // Remove etapa com id 11
+      mappedResults = mappedResults.filter(
+        (item) => item.education_level_mod_agg_id !== 11,
+      );
 
       // --- Sem nenhuma dimensão ---
       if (dimensions.length === 0) {
+        if (
+          (tipo === 'teacher' || tipo === 'federativeEntity') &&
+          filterParams.years.some((y) => y >= 2021)
+        ) {
+          // escolher uma dimensão para agrupar
+          const totalPorAno = {};
+          for (const item of mappedResults) {
+            if (item.location_id !== null) {
+              totalPorAno[item.year] =
+                (totalPorAno[item.year] || 0) + item.total;
+            }
+          }
+          return {
+            result: Object.entries(totalPorAno).map(([year, total]) => ({
+              year: Number(year),
+              total,
+            })),
+          };
+        }
         // Escolher uma combinação fixa (ex: a primeira encontrada)
-        // Aqui, por exemplo, education_level_mod_id + adm_dependency_detailed_id
-        // Você pode escolher qualquer combinação, mas deve ser consistente!
-        // Vamos escolher education_level_mod_id + adm_dependency_detailed_id
-        const filtered = mappedResults.filter(
-          (item) =>
-            item.education_level_mod_id !== null &&
-            item.adm_dependency_detailed_id !== null,
-        );
+        // Aqui, por exemplo, arrangement_id + adm_dependency_detailed_id para school/count
+        // ou education_level_mod_id + adm_dependency_detailed_id para os demais
+
+        // Lógica padrão para os outros tipos
+        let filtered;
+        if (tipo === 'school/count') {
+          filtered = mappedResults.filter(
+            (item) =>
+              item.arrangement_id !== null &&
+              item.adm_dependency_detailed_id !== null,
+          );
+        } else if (tipo === 'enrollmentAggregate') {
+          filtered = mappedResults.filter(
+            (item) =>
+              item.adm_dependency_detailed_id !== null &&
+              item.location_id !== null,
+          );
+        } else {
+          filtered = mappedResults.filter(
+            (item) =>
+              item.education_level_mod_id !== null &&
+              item.adm_dependency_detailed_id !== null,
+          );
+        }
         // Agrupar por ano
         const totalPorAno = {};
         for (const item of filtered) {
@@ -121,56 +212,157 @@ export class BasicService {
       if (dimensions.length === 1) {
         const dim = dimensions[0];
 
-        // Escolha uma segunda dimensão fixa para a combinação
-        let fixedCombo: [string, string];
-        if (dim === 'education_level_mod') {
-          fixedCombo = ['education_level_mod_id', 'adm_dependency_detailed_id'];
-        } else if (dim === 'adm_dependency_detailed') {
-          fixedCombo = ['adm_dependency_detailed_id', 'education_level_mod_id'];
-        } else {
-          fixedCombo = ['location_id', 'education_level_mod_id'];
-        }
-
-        const [mainDim, otherDim] = fixedCombo;
-        const mainName = mainDim.replace('_id', '_name');
-
-        // Filtrar registros onde ambas as dimensões da combinação estão presentes
-        const filtered = mappedResults.filter(
-          (item) => item[mainDim] !== null && item[otherDim] !== null,
-        );
-
-        // Agrupar por ano + valor da dimensão desejada
-        const groupMap = new Map();
-        for (const item of filtered) {
-          const key = `${item.year}|${item[mainDim]}`;
-          if (!groupMap.has(key)) {
-            groupMap.set(key, {
-              year: item.year,
-              [mainDim]: item[mainDim],
-              [mainName]: item[mainName],
-              total: 0,
-            });
+        // Escolha a dimensão principal
+        let mainDim, mainName;
+        if (
+          tipo === 'federativeEntity' &&
+          filterParams.years.some((y) => y >= 2021)
+        ) {
+          // Para teacher >= 2021, só existe uma dimensão por linha
+          if (dim === 'education_level_mod') {
+            mainDim = 'education_level_mod_id';
+            mainName = 'education_level_mod_name';
+          } else if (dim === 'adm_dependency_detailed') {
+            mainDim = 'adm_dependency_detailed_id';
+            mainName = 'adm_dependency_detailed_name';
+          } else if (dim === 'location') {
+            mainDim = 'location_id';
+            mainName = 'location_name';
+          } else if (dim === 'contract_type') {
+            mainDim = 'contract_type_id';
+            mainName = 'contract_type_name';
           }
-          groupMap.get(key).total += item.total;
+          // Filtrar apenas pela dimensão principal
+          const filtered = mappedResults.filter(
+            (item) => item[mainDim] !== null,
+          );
+          // Agrupar por ano + valor da dimensão
+          const groupMap = new Map();
+          for (const item of filtered) {
+            const key = `${item.year}|${item[mainDim]}`;
+            if (!groupMap.has(key)) {
+              groupMap.set(key, {
+                year: item.year,
+                [mainDim]: item[mainDim],
+                [mainName]: item[mainName],
+                total: 0,
+              });
+            }
+            groupMap.get(key).total += item.total;
+          }
+          return { result: Array.from(groupMap.values()) };
+        } else {
+          // ... lógica padrão para os outros tipos ...
+          // (mantém o filtro com mainDim && otherDim)
+          let fixedCombo: [string, string];
+          if (tipo === 'school/count') {
+            if (dim === 'arrangement') {
+              fixedCombo = ['arrangement_id', 'adm_dependency_detailed_id'];
+            } else if (dim === 'adm_dependency_detailed') {
+              fixedCombo = ['adm_dependency_detailed_id', 'arrangement_id'];
+            } else {
+              fixedCombo = ['location_id', 'arrangement_id'];
+            }
+          } else if (tipo === 'enrollmentAggregate') {
+            if (dim === 'education_level_mod_agg') {
+              fixedCombo = [
+                'education_level_mod_agg_id',
+                'adm_dependency_detailed_id',
+              ];
+            } else if (dim === 'adm_dependency_detailed') {
+              fixedCombo = [
+                'adm_dependency_detailed_id',
+                'education_level_mod_agg_id',
+              ];
+            } else {
+              fixedCombo = ['location_id', 'education_level_mod_agg_id'];
+            }
+          } else {
+            if (dim === 'education_level_mod') {
+              fixedCombo = [
+                'education_level_mod_id',
+                'adm_dependency_detailed_id',
+              ];
+            } else if (dim === 'adm_dependency_detailed') {
+              fixedCombo = [
+                'adm_dependency_detailed_id',
+                'education_level_mod_id',
+              ];
+            } else {
+              fixedCombo = ['location_id', 'education_level_mod_id'];
+            }
+          }
+
+          const [mainDim, otherDim] = fixedCombo;
+          const mainName = mainDim.replace('_id', '_name');
+
+          // Filtrar registros onde ambas as dimensões da combinação estão presentes
+          const filtered = mappedResults.filter(
+            (item) => item[mainDim] !== null && item[otherDim] !== null,
+          );
+
+          // Agrupar por ano + valor da dimensão desejada
+          const groupMap = new Map();
+          for (const item of filtered) {
+            const key = `${item.year}|${item[mainDim]}`;
+            if (!groupMap.has(key)) {
+              groupMap.set(key, {
+                year: item.year,
+                [mainDim]: item[mainDim],
+                [mainName]: item[mainName],
+                total: 0,
+              });
+            }
+            groupMap.get(key).total += item.total;
+          }
+          return { result: Array.from(groupMap.values()) };
         }
-        return { result: Array.from(groupMap.values()) };
       }
 
       // --- Com duas dimensões ---
       if (dimensions.length === 2) {
         const [dim1, dim2] = dimensions;
-        const dimField1 =
-          dim1 === 'adm_dependency_detailed'
-            ? 'adm_dependency_detailed_id'
-            : dim1 === 'education_level_mod'
-              ? 'education_level_mod_id'
-              : 'location_id';
-        const dimField2 =
-          dim2 === 'adm_dependency_detailed'
-            ? 'adm_dependency_detailed_id'
-            : dim2 === 'education_level_mod'
-              ? 'education_level_mod_id'
-              : 'location_id';
+        let dimField1, dimField2;
+        if (tipo === 'school/count') {
+          dimField1 =
+            dim1 === 'adm_dependency_detailed'
+              ? 'adm_dependency_detailed_id'
+              : dim1 === 'arrangement'
+                ? 'arrangement_id'
+                : 'location_id';
+          dimField2 =
+            dim2 === 'adm_dependency_detailed'
+              ? 'adm_dependency_detailed_id'
+              : dim2 === 'arrangement'
+                ? 'arrangement_id'
+                : 'location_id';
+        } else if (tipo === 'enrollmentAggregate') {
+          dimField1 =
+            dim1 === 'adm_dependency_detailed'
+              ? 'adm_dependency_detailed_id'
+              : dim1 === 'education_level_mod_agg'
+                ? 'education_level_mod_agg_id'
+                : 'location_id';
+          dimField2 =
+            dim2 === 'adm_dependency_detailed'
+              ? 'adm_dependency_detailed_id'
+              : dim2 === 'education_level_mod_agg'
+                ? 'education_level_mod_agg_id'
+                : 'location_id';
+        } else {
+          dimField1 =
+            dim1 === 'adm_dependency_detailed'
+              ? 'adm_dependency_detailed_id'
+              : dim1 === 'education_level_mod'
+                ? 'education_level_mod_id'
+                : 'location_id';
+          dimField2 =
+            dim2 === 'adm_dependency_detailed'
+              ? 'adm_dependency_detailed_id'
+              : dim2 === 'education_level_mod'
+                ? 'education_level_mod_id'
+                : 'location_id';
+        }
         const dimName1 = dimField1.replace('_id', '_name');
         const dimName2 = dimField2.replace('_id', '_name');
 
@@ -306,11 +498,42 @@ export class BasicService {
         }
       });
 
+      // Antes de retornar, fazer um segundo agrupamento por ano + dimensão primária
+      const finalAggregation = new Map();
+
+      for (const [, value] of aggregatedData.entries()) {
+        const year = value.year;
+        const dimField =
+          dimension === 'arrangement' && tipo === 'school/count'
+            ? 'arrangement'
+            : dimension;
+        const dimId = value[`${dimField}_id`];
+
+        // Chave para agrupamento final: ano + id da dimensão primária
+        const finalKey = `${year}|${dimId}`;
+
+        if (!finalAggregation.has(finalKey)) {
+          // Primeira ocorrência para esta combinação de ano + dimensão
+          finalAggregation.set(finalKey, { ...value });
+        } else {
+          // Somar ao registro existente
+          const existing = finalAggregation.get(finalKey);
+          existing.total = (
+            Number(existing.total) + Number(value.total)
+          ).toString();
+        }
+      }
+
       // Converter o mapa para array e ordenar por ano e depois por dimensão
       return {
-        result: Array.from(aggregatedData.values()).sort((a, b) =>
+        result: Array.from(finalAggregation.values()).sort((a, b) =>
           a.year === b.year
-            ? a[`${dimension}_id`] - b[`${dimension}_id`]
+            ? a[
+                `${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_id`
+              ] -
+              b[
+                `${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_id`
+              ]
             : a.year - b.year,
         ),
       };
@@ -334,6 +557,8 @@ export class BasicService {
       throw new Error('Série histórica suporta no máximo uma dimensão');
     }
 
+    if (tipo === 'teacher') tipo = 'federativeEntity';
+
     try {
       // Buscar os dados
       const results = await this.prisma.dadoEducacaoBasica.findMany({
@@ -347,29 +572,62 @@ export class BasicService {
         include: {
           dependencia: true,
           etapa: true,
+          etapa_school: true,
+          etapa_teacher: true,
           localizacao: true,
+          vinculo: true,
+          dependencia_teacher: true,
           localidade: true, // Sempre incluir a localidade
         },
       });
 
       // Se não há dimensão adicional, agregar apenas por ano
       if (dimensions.length === 0) {
-        // Agrupar por ano
+        // Agrupar por ano, mas considerar apenas uma combinação específica de dimensões
+        // para evitar qualquer risco de dupla contagem
         const aggregatedByYear = new Map();
 
         results.forEach((item) => {
           const year = item.ano;
-          if (!aggregatedByYear.has(year)) {
-            aggregatedByYear.set(year, {
-              total: Number(item.total),
-              name: item.localidade?.nome || 'Brasil',
-              year,
-            });
+
+          // Escolher uma combinação específica com base no tipo
+          let shouldConsider = false;
+
+          if (tipo === 'school/count') {
+            // Para school/count, considerar APENAS quando arrangement E adm_dependency estão preenchidos
+            shouldConsider =
+              item.etapa_school?.id != null && item.dependencia?.id != null;
+          } else if (tipo === 'teacher' || tipo === 'federativeEntity') {
+            // Para teacher >= 2021, considerar APENAS quando etapa_teacher E dependencia estão preenchidos
+            if (filterParams.years.some((y) => y >= 2021)) {
+              shouldConsider = item.etapa_teacher?.id != null;
+            } else {
+              // Para teacher < 2021, considerar APENAS quando etapa E dependencia estão preenchidos
+              shouldConsider =
+                item.etapa?.id != null && item.dependencia_teacher?.id != null;
+            }
+          } else if (tipo === 'enrollmentAggregate') {
+            shouldConsider =
+              item.localizacao?.id != null && item.dependencia?.id != null;
           } else {
-            const existing = aggregatedByYear.get(year);
-            existing.total = (
-              Number(existing.total) + Number(item.total)
-            ).toString();
+            // Para outros tipos, considerar APENAS quando etapa E dependencia estão preenchidos
+            shouldConsider =
+              item.etapa?.id != null && item.dependencia?.id != null;
+          }
+
+          if (shouldConsider) {
+            if (!aggregatedByYear.has(year)) {
+              aggregatedByYear.set(year, {
+                total: Number(item.total),
+                name: item.localidade?.nome || 'Brasil',
+                year,
+              });
+            } else {
+              const existing = aggregatedByYear.get(year);
+              existing.total = (
+                Number(existing.total) + Number(item.total)
+              ).toString();
+            }
           }
         });
 
@@ -385,62 +643,109 @@ export class BasicService {
       const dimension = dimensions[0];
       const aggregatedData = new Map();
 
-      // Definir a combinação fixa baseada na dimensão escolhida
-      let fixedCombo: [string, string];
-      if (dimension === 'education_level_mod') {
-        fixedCombo = ['education_level_mod_id', 'adm_dependency_detailed_id'];
-      } else if (dimension === 'adm_dependency_detailed') {
-        fixedCombo = ['adm_dependency_detailed_id', 'education_level_mod_id'];
-      } else {
-        fixedCombo = ['location_id', 'education_level_mod_id'];
-      }
-
       results.forEach((item) => {
         const year = item.ano;
         let dimensionId = null;
         let dimensionName = null;
         let otherDimensionId = null;
-        let otherDimensionName = null;
 
         // Determinar os valores das dimensões
-        if (dimension === 'adm_dependency_detailed' && item.dependencia) {
-          dimensionId = item.dependencia.id;
-          dimensionName = item.dependencia.nome;
-          if (item.etapa) {
-            otherDimensionId = item.etapa.id;
-            otherDimensionName = item.etapa.nome;
+        if (tipo === 'school/count') {
+          if (dimension === 'arrangement') {
+            dimensionId = item.etapa_school?.id ?? null;
+            dimensionName = item.etapa_school?.nome ?? null;
+            otherDimensionId = item.dependencia?.id ?? null;
+          } else if (
+            dimension === 'adm_dependency_detailed' &&
+            item.dependencia
+          ) {
+            dimensionId = item.dependencia.id;
+            dimensionName = item.dependencia.nome;
+            otherDimensionId = item.etapa_school?.id ?? null;
+          } else if (dimension === 'location' && item.localizacao) {
+            dimensionId = item.localizacao.id;
+            dimensionName = item.localizacao.nome;
+            otherDimensionId = item.etapa_school?.id ?? null;
           }
-        } else if (dimension === 'education_level_mod' && item.etapa) {
-          dimensionId = item.etapa.id;
-          dimensionName = item.etapa.nome;
-          if (item.dependencia) {
-            otherDimensionId = item.dependencia.id;
-            otherDimensionName = item.dependencia.nome;
+        } else if (tipo === 'enrollmentAggregate') {
+          if (
+            dimension === 'education_level_mod_agg' &&
+            item.etapa &&
+            item.etapa.id !== 11
+          ) {
+            dimensionId = item.etapa.id;
+            dimensionName = item.etapa.nome;
+            otherDimensionId = item.dependencia?.id ?? null;
+          } else if (
+            dimension === 'adm_dependency_detailed' &&
+            item.dependencia
+          ) {
+            dimensionId = item.dependencia.id;
+            dimensionName = item.dependencia.nome;
+            otherDimensionId = item.localizacao?.id ?? null;
+          } else if (dimension === 'location' && item.localizacao) {
+            dimensionId = item.localizacao.id;
+            dimensionName = item.localizacao.nome;
+            otherDimensionId = item.dependencia?.id ?? null;
           }
-        } else if (dimension === 'location' && item.localizacao) {
-          dimensionId = item.localizacao.id;
-          dimensionName = item.localizacao.nome;
-          if (item.etapa) {
-            otherDimensionId = item.etapa.id;
-            otherDimensionName = item.etapa.nome;
+        } else {
+          if (dimension === 'adm_dependency_detailed' && item.dependencia) {
+            dimensionId = item.dependencia.id;
+            dimensionName = item.dependencia.nome;
+            otherDimensionId = item.etapa?.id ?? null;
+          }
+
+          if (dimension === 'education_level_mod' && item.etapa) {
+            dimensionId = item.etapa.id;
+            dimensionName = item.etapa.nome;
+            otherDimensionId = item.dependencia?.id ?? null;
+          }
+
+          if (dimension === 'location' && item.localizacao) {
+            dimensionId = item.localizacao.id;
+            dimensionName = item.localizacao.nome;
+            otherDimensionId = item.etapa?.id ?? null;
+          }
+
+          // Casos específicos de federativeEntity
+          if (tipo === 'federativeEntity') {
+            if (
+              dimension === 'adm_dependency_detailed' &&
+              item.dependencia_teacher
+            ) {
+              dimensionId = item.dependencia_teacher.id;
+              dimensionName = item.dependencia_teacher.nome;
+            } else if (
+              dimension === 'education_level_mod' &&
+              item.etapa_teacher
+            ) {
+              dimensionId = item.etapa_teacher.id;
+              dimensionName = item.etapa_teacher.nome;
+            } else if (dimension === 'contract_type' && item.vinculo) {
+              dimensionId = item.vinculo.id;
+              dimensionName = item.vinculo.nome;
+            }
           }
         }
 
         // Se não tiver valor para a dimensão principal, ignorar este item
         if (dimensionId === null) return;
 
-        // Criar chave para o mapa: ano + dimensão principal
-        const key = `${year}|${dimensionId}`;
+        // Se não tiver valor para a dimensão secundária, ignorar este item
+        if (tipo != 'federativeEntity') if (otherDimensionId === null) return;
+
+        // Criar chave para o mapa: ano + dimensão principal + dimensão secundária
+        const key = `${year}|${dimensionId}|${otherDimensionId}`;
 
         if (!aggregatedData.has(key)) {
           aggregatedData.set(key, {
             total: Number(item.total).toString(),
             name: item.localidade?.nome || 'Brasil',
             year,
-            [`${dimension}_id`]: dimensionId,
-            [`${dimension}_name`]: dimensionName,
-            [`${fixedCombo[1]}`]: otherDimensionId,
-            [`${fixedCombo[1].replace('_id', '_name')}`]: otherDimensionName,
+            [`${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_id`]:
+              dimensionId,
+            [`${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_name`]:
+              dimensionName,
           });
         } else {
           const existing = aggregatedData.get(key);
@@ -450,11 +755,42 @@ export class BasicService {
         }
       });
 
+      // Antes de retornar, fazer um segundo agrupamento por ano + dimensão primária
+      const finalAggregation = new Map();
+
+      for (const [, value] of aggregatedData.entries()) {
+        const year = value.year;
+        const dimField =
+          dimension === 'arrangement' && tipo === 'school/count'
+            ? 'arrangement'
+            : dimension;
+        const dimId = value[`${dimField}_id`];
+
+        // Chave para agrupamento final: ano + id da dimensão primária
+        const finalKey = `${year}|${dimId}`;
+
+        if (!finalAggregation.has(finalKey)) {
+          // Primeira ocorrência para esta combinação de ano + dimensão
+          finalAggregation.set(finalKey, { ...value });
+        } else {
+          // Somar ao registro existente
+          const existing = finalAggregation.get(finalKey);
+          existing.total = (
+            Number(existing.total) + Number(value.total)
+          ).toString();
+        }
+      }
+
       // Converter o mapa para array e ordenar por ano e depois por dimensão
       return {
-        result: Array.from(aggregatedData.values()).sort((a, b) =>
+        result: Array.from(finalAggregation.values()).sort((a, b) =>
           a.year === b.year
-            ? a[`${dimension}_id`] - b[`${dimension}_id`]
+            ? a[
+                `${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_id`
+              ] -
+              b[
+                `${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_id`
+              ]
             : a.year - b.year,
         ),
       };
@@ -471,11 +807,6 @@ export class BasicService {
 
     // Se for uma série histórica, usar o método específico
     if (filterParams.isHistorical) {
-      // Verificar se é um tipo que usa duas dimensões
-      const twoDimensionsTypes = ['class'];
-      if (twoDimensionsTypes.includes(tipo)) {
-        return this.serieHistoricaTwoDimensions(tipo, dims, filter);
-      }
       return this.serieHistorica(tipo, dims, filter);
     }
 

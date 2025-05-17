@@ -34,6 +34,12 @@ const TIPOS_DADOS = {
       return { ...item, total: Number(item.total) };
     },
   },
+  enrollmentAggregate: {
+    min: 2021,
+    max: 2023,
+    dims: ['education_level_mod_agg', 'location', 'adm_dependency_detailed'],
+    mapearCampos: (item) => ({ ...item, total: Number(item.total) }),
+  },
   'school/count': {
     min: 2007,
     max: 2023,
@@ -55,6 +61,17 @@ const TIPOS_DADOS = {
       'adm_dependency_detailed',
       'contract_type',
       'initial_training',
+    ],
+    mapearCampos: (item) => ({ ...item, total: Number(item.total) }),
+  },
+  federativeEntity: {
+    min: 2021,
+    max: 2023,
+    dims: [
+      'education_level_mod_entity_agg',
+      'contract_type_entity',
+      'location_entity',
+      'adm_dependency_entity',
     ],
     mapearCampos: (item) => ({ ...item, total: Number(item.total) }),
   },
@@ -125,9 +142,13 @@ async function garantirEstadoPiaui() {
   console.log('Estado do Piauí cadastrado no banco de dados.');
 }
 
-function gerarCombinacoesDimensoes(dimensoes) {
+function gerarCombinacoesDimensoes(dimensoes, tipo) {
+  if (tipo === 'federativeEntity') {
+    // Retorna cada dimensão individualmente
+    return dimensoes.map((dim) => [dim]);
+  }
+  // Para os outros tipos, mantém pares
   const combinacoes = [];
-  // Gera todas as combinações possíveis de 2 dimensões
   for (let i = 0; i < dimensoes.length; i++) {
     for (let j = i + 1; j < dimensoes.length; j++) {
       combinacoes.push([dimensoes[i], dimensoes[j]]);
@@ -278,6 +299,37 @@ async function inserirDados(tipo, dados, ano) {
         );
         dadoParaInserir.etapa_id = dadoProcessado.education_level_mod_id;
         dimensoesSalvas.etapas++;
+      } else if (
+        tipo === 'federativeEntity' &&
+        dadoProcessado.education_level_mod_entity_agg_id
+      ) {
+        await salvarDimensao(
+          'etapaEnsinoBasicaTeacher21',
+          dadoProcessado.education_level_mod_entity_agg_id,
+          {
+            id: dadoProcessado.education_level_mod_entity_agg_id,
+            nome:
+              dadoProcessado.education_level_mod_entity_agg_name ||
+              'Desconhecido',
+          },
+        );
+        dadoParaInserir.etapa_teacher_id =
+          dadoProcessado.education_level_mod_entity_agg_id;
+        dimensoesSalvas.etapas++;
+      } else if (
+        tipo === 'enrollmentAggregate' &&
+        dadoProcessado.education_level_mod_agg_id
+      ) {
+        await salvarDimensao(
+          'etapaEnsinoBasica',
+          dadoProcessado.education_level_mod_agg_id,
+          {
+            id: dadoProcessado.education_level_mod_agg_id,
+            nome: dadoProcessado.education_level_mod_agg_name || 'Desconhecido',
+          },
+        );
+        dadoParaInserir.etapa_id = dadoProcessado.education_level_mod_agg_id;
+        dimensoesSalvas.etapas++;
       }
 
       if (dadoProcessado.location_id) {
@@ -336,6 +388,53 @@ async function inserirDados(tipo, dados, ano) {
         dimensoesSalvas.faixas++;
       }
 
+      // Tratamento para location_entity
+      if (tipo === 'federativeEntity' && dadoProcessado.location_entity_id) {
+        await salvarDimensao('localizacao', dadoProcessado.location_entity_id, {
+          id: dadoProcessado.location_entity_id,
+          nome: dadoProcessado.location_entity_name || 'Desconhecido',
+        });
+        dadoParaInserir.localizacao_id = dadoProcessado.location_entity_id;
+        dimensoesSalvas.localizacoes++;
+      }
+
+      // Tratamento para contract_type_entity
+      if (
+        tipo === 'federativeEntity' &&
+        dadoProcessado.contract_type_entity_id
+      ) {
+        await salvarDimensao(
+          'vinculoFuncional',
+          dadoProcessado.contract_type_entity_id,
+          {
+            id: dadoProcessado.contract_type_entity_id,
+            nome: dadoProcessado.contract_type_entity_name || 'Desconhecido',
+          },
+        );
+        dadoParaInserir.vinculo_id = dadoProcessado.contract_type_entity_id;
+        dimensoesSalvas.vinculos++;
+      }
+
+      // Tratamento para adm_dependency_entity
+      if (
+        tipo === 'federativeEntity' &&
+        dadoProcessado.adm_dependency_entity_id
+      ) {
+        await salvarDimensao(
+          'dependenciaAdministrativaBasicaTeacher',
+          dadoProcessado.adm_dependency_entity_id,
+          {
+            id: dadoProcessado.adm_dependency_entity_id,
+            nome: dadoProcessado.adm_dependency_entity_name || 'Desconhecido',
+            tipo:
+              dadoProcessado.adm_dependency_entity_name?.toLowerCase() || null,
+          },
+        );
+        dadoParaInserir.dependencia_teacher_id =
+          dadoProcessado.adm_dependency_entity_id;
+        dimensoesSalvas.dependencias++;
+      }
+
       // Em vez de usar upsert, primeiro procuramos o registro
       const registroExistente = await prisma.DadoEducacaoBasica.findFirst({
         where: {
@@ -345,11 +444,17 @@ async function inserirDados(tipo, dados, ano) {
           ...(dadoParaInserir.dependencia_id
             ? { dependencia_id: dadoParaInserir.dependencia_id }
             : {}),
+          ...(dadoParaInserir.dependencia_teacher_id
+            ? { dependencia_teacher_id: dadoParaInserir.dependencia_teacher_id }
+            : {}),
           ...(dadoParaInserir.etapa_id
             ? { etapa_id: dadoParaInserir.etapa_id }
             : {}),
           ...(dadoParaInserir.etapa_school_id
             ? { etapa_school_id: dadoParaInserir.etapa_school_id }
+            : {}),
+          ...(dadoParaInserir.etapa_teacher_id
+            ? { etapa_teacher_id: dadoParaInserir.etapa_teacher_id }
             : {}),
           ...(dadoParaInserir.localizacao_id
             ? { localizacao_id: dadoParaInserir.localizacao_id }
@@ -401,11 +506,15 @@ async function combinarDados(dadosCombinacoes) {
         item.education_level_mod_id ||
           item.education_level_mod_agg_id ||
           item.arrangement_id ||
+          item.education_level_mod_entity_agg_id ||
           'null',
         item.location_id || 'null',
+        item.location_entity_id || 'null',
         item.contract_type_id || 'null',
+        item.contract_type_entity_id || 'null',
         item.initial_training_id || 'null',
         item.age_range_id || 'null',
+        item.adm_dependency_entity_id || 'null',
       ].join('|');
 
       if (!dadosCombinados.has(chave)) {
@@ -501,7 +610,10 @@ async function importarDados(options = {}) {
 
       // Importar dados do estado usando combinações de dimensões
       log(`    Importando dados para o estado do Piauí...`);
-      const combinacoesDimensoes = gerarCombinacoesDimensoes(tipoInfo.dims);
+      const combinacoesDimensoes = gerarCombinacoesDimensoes(
+        tipoInfo.dims,
+        tipoAtual,
+      );
 
       // Paralelismo controlado para as consultas
       const promises = combinacoesDimensoes.map((dimensoes) =>
@@ -682,8 +794,8 @@ console.log('executedPath normalizado:', executedPath);
 if (scriptPath === executedPath) {
   console.log('Iniciando importação...');
   importarDados({
-    tipo: 'school/count',
-    anos: [2022, 2023],
+    tipo: 'enrollmentAggregate',
+    anos: [2023],
   })
     .then((resultado) => {
       console.log('Importação finalizada com sucesso!');

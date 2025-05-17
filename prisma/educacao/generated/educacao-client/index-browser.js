@@ -133,6 +133,12 @@ exports.Prisma.DependenciaAdministrativaBasicaScalarFieldEnum = {
   tipo: 'tipo'
 };
 
+exports.Prisma.DependenciaAdministrativaBasicaTeacherScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  tipo: 'tipo'
+};
+
 exports.Prisma.EtapaEnsinoBasicaScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
@@ -140,6 +146,11 @@ exports.Prisma.EtapaEnsinoBasicaScalarFieldEnum = {
 };
 
 exports.Prisma.EtapaEnsinoBasicaSchoolScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome'
+};
+
+exports.Prisma.EtapaEnsinoBasicaTeacher21ScalarFieldEnum = {
   id: 'id',
   nome: 'nome'
 };
@@ -174,8 +185,10 @@ exports.Prisma.DadoEducacaoBasicaScalarFieldEnum = {
   data_atualizacao: 'data_atualizacao',
   localidade_id: 'localidade_id',
   dependencia_id: 'dependencia_id',
+  dependencia_teacher_id: 'dependencia_teacher_id',
   etapa_id: 'etapa_id',
   etapa_school_id: 'etapa_school_id',
+  etapa_teacher_id: 'etapa_teacher_id',
   localizacao_id: 'localizacao_id',
   vinculo_id: 'vinculo_id',
   formacao_id: 'formacao_id',
@@ -223,8 +236,10 @@ exports.Prisma.JsonNullValueFilter = {
 exports.Prisma.ModelName = {
   Localidade: 'Localidade',
   DependenciaAdministrativaBasica: 'DependenciaAdministrativaBasica',
+  DependenciaAdministrativaBasicaTeacher: 'DependenciaAdministrativaBasicaTeacher',
   EtapaEnsinoBasica: 'EtapaEnsinoBasica',
   EtapaEnsinoBasicaSchool: 'EtapaEnsinoBasicaSchool',
+  EtapaEnsinoBasicaTeacher21: 'EtapaEnsinoBasicaTeacher21',
   Localizacao: 'Localizacao',
   VinculoFuncional: 'VinculoFuncional',
   FormacaoDocente: 'FormacaoDocente',
