@@ -51,6 +51,8 @@ export class ResearchesService {
   async municipalOwnTaxesRevenue(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -351,17 +353,19 @@ export class ResearchesService {
         { key: 'revenues2123', data: revenues2123 },
       ]);
 
-      if (filters?.anoInicial || filters?.anoFinal) {
+      if (anoInicial || anoFinal) {
         Object.keys(groupedRevenues).forEach((municipio) => {
-          groupedRevenues[municipio] = groupedRevenues[municipio].filter(
-            (item) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
               const ano = parseInt(item.ano);
               return (
-                (!filters.anoInicial || ano >= filters.anoInicial) &&
-                (!filters.anoFinal || ano <= filters.anoFinal)
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
               );
-            },
-          );
+            });
+          });
         });
       }
     } else if (groupType == GroupType.ANO) {
@@ -375,17 +379,19 @@ export class ResearchesService {
         { key: 'revenues2123', data: revenues2123 },
       ]);
 
-      if (filters?.anoInicial || filters?.anoFinal) {
+      if (anoInicial || anoFinal) {
         Object.keys(groupedRevenues).forEach((municipio) => {
-          groupedRevenues[municipio] = groupedRevenues[municipio].filter(
-            (item) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
               const ano = parseInt(item.ano);
               return (
-                (!filters.anoInicial || ano >= filters.anoInicial) &&
-                (!filters.anoFinal || ano <= filters.anoFinal)
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
               );
-            },
-          );
+            });
+          });
         });
       }
     } else {
@@ -445,6 +451,8 @@ export class ResearchesService {
   async constitutionalTransfersRevenue(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -473,16 +481,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -567,16 +566,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -607,16 +597,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -647,16 +628,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -689,16 +661,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -729,16 +692,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -769,16 +723,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -811,16 +756,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -851,16 +787,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -875,6 +802,22 @@ export class ResearchesService {
         { key: 'revenues1520', data: revenues1520 },
         { key: 'revenues2123', data: revenues2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'modifiedRevenues06', data: modifiedRevenues06 },
@@ -882,6 +825,22 @@ export class ResearchesService {
         { key: 'revenues1520', data: revenues1520 },
         { key: 'revenues2123', data: revenues2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }
@@ -939,6 +898,8 @@ export class ResearchesService {
   async municipalTaxesRevenue(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -962,16 +923,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -997,16 +949,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1032,16 +975,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1067,16 +1001,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1104,16 +1029,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1139,16 +1055,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1174,16 +1081,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1211,16 +1109,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -1246,16 +1135,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -1270,6 +1150,22 @@ export class ResearchesService {
         { key: 'revenues1520', data: revenues1520 },
         { key: 'revenues2123', data: revenues2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'revenues06', data: revenues06 },
@@ -1277,6 +1173,22 @@ export class ResearchesService {
         { key: 'revenues1520', data: revenues1520 },
         { key: 'revenues2123', data: revenues2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }
@@ -1334,6 +1246,8 @@ export class ResearchesService {
   async additionalMunicipalEducationRevenue(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -1360,16 +1274,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -1428,16 +1333,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1468,16 +1364,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1511,16 +1398,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1554,16 +1432,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1597,16 +1466,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1640,16 +1500,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1684,16 +1535,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -1726,16 +1568,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -1751,6 +1584,22 @@ export class ResearchesService {
         { key: 'revenues2122', data: revenues2122 },
         { key: 'revenues23', data: revenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'modifiedRevenues06', data: modifiedRevenues06 },
@@ -1761,6 +1610,22 @@ export class ResearchesService {
         { key: 'revenues2122', data: revenues2122 },
         { key: 'revenues23', data: revenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }
@@ -1818,6 +1683,8 @@ export class ResearchesService {
   async municipalFundebFundefComposition(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -1841,16 +1708,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -1922,16 +1780,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1960,16 +1809,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -1998,16 +1838,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -2038,16 +1869,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -2076,16 +1898,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -2114,16 +1927,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -2157,16 +1961,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -2261,16 +2056,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -2368,6 +2154,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'modifiedRevenues06', data: modifiedRevenues06 },
@@ -2377,6 +2179,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }
@@ -2434,6 +2252,8 @@ export class ResearchesService {
   async complementationFundebFundef(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -2453,16 +2273,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -2508,16 +2319,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -2563,16 +2365,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -2618,16 +2411,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -2678,16 +2462,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -2733,16 +2508,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -2788,16 +2554,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -2852,16 +2609,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -2914,16 +2662,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -2965,6 +2704,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'modifiedRevenues06', data: modifiedRevenues06 },
@@ -2974,6 +2729,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }
@@ -3031,6 +2802,8 @@ export class ResearchesService {
   async municipalConstitutionalLimitMde(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -3063,16 +2836,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -3170,16 +2934,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -3267,16 +3022,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -3339,16 +3085,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -3411,16 +3148,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -3489,16 +3217,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -3561,16 +3280,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -3623,16 +3333,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -3704,16 +3405,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -3774,6 +3466,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'modifiedRevenues06', data: modifiedRevenues06 },
@@ -3784,6 +3492,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }
@@ -3841,6 +3565,8 @@ export class ResearchesService {
   async expensesBasicEducationFundeb(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -3875,16 +3601,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -3921,16 +3638,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -3968,16 +3676,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -4083,16 +3782,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -4204,16 +3894,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -4328,16 +4009,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -4452,16 +4124,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -4556,16 +4219,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -4633,16 +4287,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -4701,6 +4346,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'revenues06', data: revenues06 },
@@ -4711,6 +4372,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }
@@ -4768,6 +4445,8 @@ export class ResearchesService {
   async expensesAreasOfActivityMde(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -4797,16 +4476,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -4836,16 +4506,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -4875,16 +4536,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -4916,16 +4568,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -4957,16 +4600,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -4998,16 +4632,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -5039,16 +4664,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -5095,16 +4711,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -5260,16 +4867,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -5356,6 +4954,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'revenues06', data: revenues06 },
@@ -5367,6 +4981,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }
@@ -5424,6 +5054,8 @@ export class ResearchesService {
   async municipalBasicEducationMinimalPotentialRevenue(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -5450,16 +5082,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -5544,16 +5167,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -5630,16 +5244,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -5726,16 +5331,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -5844,16 +5440,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -5962,16 +5549,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -6080,16 +5658,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -6218,16 +5787,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -6370,16 +5930,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -6497,6 +6048,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'modifiedRevenues06', data: modifiedRevenues06 },
@@ -6507,6 +6074,22 @@ export class ResearchesService {
         { key: 'modifiedRevenues2122', data: modifiedRevenues2122 },
         { key: 'modifiedRevenues23', data: modifiedRevenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }
@@ -6564,6 +6147,8 @@ export class ResearchesService {
   async municipalComplementaryProtocol(
     groupType: GroupType,
     filters?: ResearchesFiltersDto,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues06 = await this.prismaService.relatorioMunicipal06.findMany({
@@ -6585,16 +6170,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -6639,16 +6215,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -6695,16 +6262,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -6751,16 +6309,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -6808,16 +6357,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -6865,16 +6405,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -6921,16 +6452,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       });
 
@@ -6984,16 +6506,7 @@ export class ResearchesService {
           },
         },
         where: {
-          OR: [
-            { nomeMunicipio: filters.nomeMunicipio },
-            { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-            { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-            {
-              territorioDeDesenvolvimentoMunicipio:
-                filters.territorioDeDesenvolvimentoMunicipio,
-            },
-            { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-          ],
+          ...filters,
         },
       },
     );
@@ -7049,16 +6562,7 @@ export class ResearchesService {
         },
       },
       where: {
-        OR: [
-          { nomeMunicipio: filters.nomeMunicipio },
-          { aglomeradoMunicipio: filters.aglomeradoMunicipio },
-          { faixaPopulacionalMunicipio: filters.faixaPopulacionalMunicipio },
-          {
-            territorioDeDesenvolvimentoMunicipio:
-              filters.territorioDeDesenvolvimentoMunicipio,
-          },
-          { gerenciaRegionalMunicipio: filters.gerenciaRegionalMunicipio },
-        ],
+        ...filters,
       },
     });
 
@@ -7366,6 +6870,22 @@ export class ResearchesService {
         { key: 'revenues2122', data: revenues2122 },
         { key: 'revenues23', data: revenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType == GroupType.ANO) {
       groupedRevenues = this.groupByAno([
         { key: 'revenues06', data: revenues06 },
@@ -7378,6 +6898,22 @@ export class ResearchesService {
         { key: 'revenues2122', data: revenues2122 },
         { key: 'revenues23', data: revenues23 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedRevenues).forEach((municipio) => {
+          Object.keys(groupedRevenues[municipio]).forEach((revenueKey) => {
+            groupedRevenues[municipio][revenueKey] = groupedRevenues[municipio][
+              revenueKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else {
       console.log('tipo de agrupamento não corresponde');
     }

@@ -26,7 +26,6 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    console.log(anoInicial, anoFinal);
     const filters = {
       ...(nomeMunicipio && { nomeMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
@@ -35,16 +34,18 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
-    console.log(filters);
-
-    return this.researchesService.municipalOwnTaxesRevenue(groupType, filters, {
-      page: Number(page),
-      limit: Number(limit),
-    });
+    return this.researchesService.municipalOwnTaxesRevenue(
+      groupType,
+      filters,
+      anoInicial,
+      anoFinal,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
   }
 
   @Get('/ct-revenue/:groupType')
@@ -71,13 +72,13 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.constitutionalTransfersRevenue(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       { page: Number(page), limit: Number(limit) },
     );
   }
@@ -106,14 +107,15 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
-    return this.researchesService.municipalTaxesRevenue(groupType, filters, {
-      page: Number(page),
-      limit: Number(limit),
-    });
+    return this.researchesService.municipalTaxesRevenue(
+      groupType,
+      filters,
+      anoInicial,
+      anoFinal,
+      { page: Number(page), limit: Number(limit) },
+    );
   }
 
   @Get('/addtional-education-revenue/:groupType')
@@ -140,13 +142,13 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.additionalMunicipalEducationRevenue(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       { page: Number(page), limit: Number(limit) },
     );
   }
@@ -175,13 +177,13 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.municipalFundebFundefComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       { page: Number(page), limit: Number(limit) },
     );
   }
@@ -210,13 +212,13 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.complementationFundebFundef(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       { page: Number(page), limit: Number(limit) },
     );
   }
@@ -245,13 +247,13 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.municipalConstitutionalLimitMde(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       { page: Number(page), limit: Number(limit) },
     );
   }
@@ -280,13 +282,13 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.expensesBasicEducationFundeb(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       { page: Number(page), limit: Number(limit) },
     );
   }
@@ -315,13 +317,13 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.expensesAreasOfActivityMde(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       { page: Number(page), limit: Number(limit) },
     );
   }
@@ -350,13 +352,13 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.municipalBasicEducationMinimalPotentialRevenue(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       { page: Number(page), limit: Number(limit) },
     );
   }
@@ -385,13 +387,13 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
     return this.researchesService.municipalComplementaryProtocol(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       { page: Number(page), limit: Number(limit) },
     );
   }
@@ -406,8 +408,6 @@ export class ResearchesController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
-      anoInicial,
-      anoFinal,
     }: ResearchesFiltersDto,
   ) {
     const filters = {
@@ -418,8 +418,6 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-      ...(anoInicial && { anoInicial }),
-      ...(anoFinal && { anoFinal }),
     };
 
     // Usando Promise.all para buscar todos os registros de forma paralela
