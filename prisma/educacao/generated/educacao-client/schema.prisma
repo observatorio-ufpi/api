@@ -17,7 +17,8 @@ model Localidade {
     codigo_ibge String?
 
     // Relações
-    dados_basica DadoEducacaoBasica[]
+    dados_basica        DadoEducacaoBasica[]
+    dados_basica_apos23 DadoEducacaoBasicaApos23[]
 }
 
 // Dimensões específicas da educação básica
@@ -28,6 +29,24 @@ model DependenciaAdministrativaBasica {
 
     // Relações
     dados DadoEducacaoBasica[]
+}
+
+model DependenciaAdministrativaBasicaTeacher {
+    id   Int     @id
+    nome String
+    tipo String? // "federal", "estadual", "municipal", "privada"
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
+model DependenciaAdministrativaBasicaApos23 {
+    id   Int     @id
+    nome String
+    tipo String? // "federal", "estadual", "municipal", "privada"
+
+    // Relações
+    dados DadoEducacaoBasicaApos23[]
 }
 
 model EtapaEnsinoBasica {
@@ -47,12 +66,29 @@ model EtapaEnsinoBasicaSchool {
     dados DadoEducacaoBasica[]
 }
 
+model EtapaEnsinoBasicaTeacher21 {
+    id   Int    @id
+    nome String
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
+model EtapaEnsinoBasicaApos23 {
+    id   Int    @id
+    nome String @unique
+
+    // Relações
+    dados DadoEducacaoBasicaApos23[]
+}
+
 model Localizacao {
     id   Int    @id
     nome String // "Urbana" ou "Rural"
 
     // Relações
-    dados_basica DadoEducacaoBasica[]
+    dados_basica        DadoEducacaoBasica[]
+    dados_basica_apos23 DadoEducacaoBasicaApos23[]
 }
 
 model VinculoFuncional {
@@ -96,11 +132,17 @@ model DadoEducacaoBasica {
     dependencia_id Int?
     dependencia    DependenciaAdministrativaBasica? @relation(fields: [dependencia_id], references: [id])
 
+    dependencia_teacher_id Int?
+    dependencia_teacher    DependenciaAdministrativaBasicaTeacher? @relation(fields: [dependencia_teacher_id], references: [id])
+
     etapa_id Int?
     etapa    EtapaEnsinoBasica? @relation(fields: [etapa_id], references: [id])
 
     etapa_school_id Int?
     etapa_school    EtapaEnsinoBasicaSchool? @relation(fields: [etapa_school_id], references: [id])
+
+    etapa_teacher_id Int?
+    etapa_teacher    EtapaEnsinoBasicaTeacher21? @relation(fields: [etapa_teacher_id], references: [id])
 
     localizacao_id Int?
     localizacao    Localizacao? @relation(fields: [localizacao_id], references: [id])
@@ -121,6 +163,27 @@ model DadoEducacaoBasica {
     @@index([dependencia_id])
     @@index([etapa_id])
     @@index([localizacao_id])
+}
+
+model DadoEducacaoBasicaApos23 {
+    id               Int      @id @default(autoincrement())
+    ano              Int
+    tipo             String // "enrollment", "school/count", "class", "teacher", "auxiliar", "employees", "out_of_school", "liquid_enrollment_ratio", "gloss_enrollment_ratio", "rate_school_new"
+    total            Decimal  @db.Decimal(15, 2)
+    data_atualizacao DateTime @default(now())
+
+    localidade_id Int?
+    localidade    Localidade? @relation(fields: [localidade_id], references: [id])
+
+    dependencia_id Int?
+    dependencia    DependenciaAdministrativaBasicaApos23? @relation(fields: [dependencia_id], references: [id])
+
+    etapa_id Int?
+    etapa    EtapaEnsinoBasicaApos23? @relation(fields: [etapa_id], references: [id])
+
+    // pode ser a mesma tabela pos so tem urbana e rural
+    localizacao_id Int?
+    localizacao    Localizacao? @relation(fields: [localizacao_id], references: [id])
 }
 
 // Controle de importações

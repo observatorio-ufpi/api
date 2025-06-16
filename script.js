@@ -795,7 +795,7 @@ if (scriptPath === executedPath) {
   console.log('Iniciando importação...');
   importarDados({
     tipo: 'enrollmentAggregate',
-    anos: [2023],
+    anos: [2021, 2022, 2023],
   })
     .then((resultado) => {
       console.log('Importação finalizada com sucesso!');

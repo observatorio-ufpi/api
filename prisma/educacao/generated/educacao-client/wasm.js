@@ -139,6 +139,12 @@ exports.Prisma.DependenciaAdministrativaBasicaTeacherScalarFieldEnum = {
   tipo: 'tipo'
 };
 
+exports.Prisma.DependenciaAdministrativaBasicaApos23ScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  tipo: 'tipo'
+};
+
 exports.Prisma.EtapaEnsinoBasicaScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
@@ -151,6 +157,16 @@ exports.Prisma.EtapaEnsinoBasicaSchoolScalarFieldEnum = {
 };
 
 exports.Prisma.EtapaEnsinoBasicaTeacher21ScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome'
+};
+
+exports.Prisma.EtapaEnsinoBasicaApos23ScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome'
+};
+
+exports.Prisma.EtapaEnsinoBasicaApos23TeacherClassScalarFieldEnum = {
   id: 'id',
   nome: 'nome'
 };
@@ -177,6 +193,12 @@ exports.Prisma.FaixaEtariaScalarFieldEnum = {
   idade_final: 'idade_final'
 };
 
+exports.Prisma.EntidadeScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  nome: 'nome'
+};
+
 exports.Prisma.DadoEducacaoBasicaScalarFieldEnum = {
   id: 'id',
   tipo: 'tipo',
@@ -193,6 +215,20 @@ exports.Prisma.DadoEducacaoBasicaScalarFieldEnum = {
   vinculo_id: 'vinculo_id',
   formacao_id: 'formacao_id',
   faixa_etaria_id: 'faixa_etaria_id'
+};
+
+exports.Prisma.DadoEducacaoBasicaApos23ScalarFieldEnum = {
+  id: 'id',
+  ano: 'ano',
+  tipo: 'tipo',
+  total: 'total',
+  data_atualizacao: 'data_atualizacao',
+  localidade_id: 'localidade_id',
+  dependencia_id: 'dependencia_id',
+  etapa_id: 'etapa_id',
+  etapa_teacher_class_id: 'etapa_teacher_class_id',
+  localizacao_id: 'localizacao_id',
+  entidade_id: 'entidade_id'
 };
 
 exports.Prisma.ImportacaoAPIScalarFieldEnum = {
@@ -237,14 +273,19 @@ exports.Prisma.ModelName = {
   Localidade: 'Localidade',
   DependenciaAdministrativaBasica: 'DependenciaAdministrativaBasica',
   DependenciaAdministrativaBasicaTeacher: 'DependenciaAdministrativaBasicaTeacher',
+  DependenciaAdministrativaBasicaApos23: 'DependenciaAdministrativaBasicaApos23',
   EtapaEnsinoBasica: 'EtapaEnsinoBasica',
   EtapaEnsinoBasicaSchool: 'EtapaEnsinoBasicaSchool',
   EtapaEnsinoBasicaTeacher21: 'EtapaEnsinoBasicaTeacher21',
+  EtapaEnsinoBasicaApos23: 'EtapaEnsinoBasicaApos23',
+  EtapaEnsinoBasicaApos23TeacherClass: 'EtapaEnsinoBasicaApos23TeacherClass',
   Localizacao: 'Localizacao',
   VinculoFuncional: 'VinculoFuncional',
   FormacaoDocente: 'FormacaoDocente',
   FaixaEtaria: 'FaixaEtaria',
+  Entidade: 'Entidade',
   DadoEducacaoBasica: 'DadoEducacaoBasica',
+  DadoEducacaoBasicaApos23: 'DadoEducacaoBasicaApos23',
   ImportacaoAPI: 'ImportacaoAPI'
 };
 

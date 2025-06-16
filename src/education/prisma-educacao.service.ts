@@ -55,5 +55,17 @@ export class PrismaEducacaoService implements OnModuleInit, OnModuleDestroy {
     return this.prismaClient?.dadoEducacaoBasica;
   }
 
+  get dadoEducacaoBasicaApos23() {
+    return this.prismaClient?.dadoEducacaoBasicaApos23;
+  }
+
+  get localidade() {
+    return this.prismaClient?.localidade;
+  }
+
+  get entidade() {
+    return this.prismaClient?.entidade;
+  }
+
   // Add other needed properties/methods here
 }
