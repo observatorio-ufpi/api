@@ -207,6 +207,15 @@ model DadoEducacaoBasicaApos23 {
 
     entidade_id Int?
     entidade    Entidade? @relation(fields: [entidade_id], references: [id])
+
+    // Índices para otimização de consultas
+    @@index([tipo, ano, localidade_id])
+    @@index([ano])
+    @@index([localidade_id])
+    @@index([dependencia_id])
+    @@index([etapa_id])
+    @@index([localizacao_id])
+    @@index([entidade_id])
 }
 
 // Controle de importações
