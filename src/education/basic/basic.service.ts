@@ -10,10 +10,6 @@ import { EducationResponseMapper } from './mappers/education-response.mapper';
 
 @Injectable()
 export class BasicService {
-  // Cache para melhorar performance das consultas de estado
-  private piauiCitiesCache: number[] | null = null;
-  private cacheExpiry: Date | null = null;
-
   constructor(
     private prisma: PrismaEducacaoService,
     private mapper: EducationResponseMapper,
@@ -367,6 +363,110 @@ export class BasicService {
     filter: string,
   ): Promise<EducationResponse> {
     const filterParams = this.parseFilter(filter);
+
+    // Verificar se precisa consultar dados de ambos os períodos
+    const hasYearsUntil2023 = filterParams.years.some((y) => y <= 2023);
+    const hasYearsAfter2023 = filterParams.years.some((y) => y > 2023);
+
+    // Se tem anos de ambos os períodos, usar método unificado
+    if (hasYearsUntil2023 && hasYearsAfter2023) {
+      return this.serieHistoricaUnificada(tipo, dims, filter);
+    }
+
+    // Se só tem anos até 2023, usar lógica original
+    if (hasYearsUntil2023) {
+      return this.serieHistoricaAte2023(tipo, dims, filter);
+    }
+
+    // Se só tem anos após 2023, usar método específico
+    if (hasYearsAfter2023) {
+      return this.serieHistoricaApos2023(tipo, dims, filter);
+    }
+
+    // Fallback para lógica original
+    return this.serieHistoricaAte2023(tipo, dims, filter);
+  }
+
+  // Método unificado para série histórica que combina dados até 2023 e após 2023
+  private async serieHistoricaUnificada(
+    tipo: string,
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
+    const filterParams = this.parseFilter(filter);
+    const dimensions = this.parseDims(dims);
+
+    try {
+      // Separar anos em dois grupos
+      const yearsUntil2023 = filterParams.years.filter((y) => y <= 2023);
+      const yearsAfter2023 = filterParams.years.filter((y) => y > 2023);
+
+      let allResults: any[] = [];
+
+      // Consulta para dados até 2023
+      if (yearsUntil2023.length > 0) {
+        const filterUntil2023 = this.buildFilterString({
+          ...filterParams,
+          years: yearsUntil2023,
+        });
+        const resultsUntil2023 = await this.serieHistoricaAte2023(
+          tipo,
+          dims,
+          filterUntil2023,
+        );
+        allResults = allResults.concat(resultsUntil2023.result || []);
+      }
+
+      // Consulta para dados após 2023
+      if (yearsAfter2023.length > 0) {
+        const filterAfter2023 = this.buildFilterString({
+          ...filterParams,
+          years: yearsAfter2023,
+        });
+        const resultsAfter2023 = await this.serieHistoricaApos2023(
+          tipo,
+          dims,
+          filterAfter2023,
+        );
+        allResults = allResults.concat(resultsAfter2023.result || []);
+      }
+
+      // Ordenar resultados por ano
+      allResults.sort((a, b) => a.year - b.year);
+
+      return {
+        result: allResults,
+        metadata: {
+          filters: this.mapper['extractFilters'](filterParams),
+          dimensions,
+          source: DataSourceType.DADOS_EDUCACAO_BASICA,
+          lastUpdated: new Date(),
+        },
+      };
+    } catch (error) {
+      console.error(
+        `Erro ao consultar série histórica unificada de ${tipo}:`,
+        error,
+      );
+      return {
+        result: [],
+        metadata: {
+          filters: this.mapper['extractFilters'](filterParams),
+          dimensions,
+          source: DataSourceType.DADOS_EDUCACAO_BASICA,
+          lastUpdated: new Date(),
+        },
+      };
+    }
+  }
+
+  // Método específico para série histórica até 2023 (lógica original)
+  private async serieHistoricaAte2023(
+    tipo: string,
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
+    const filterParams = this.parseFilter(filter);
     const dimensions = this.parseDims(dims);
 
     // Definir quais relacionamentos incluir com base nas dimensões passadas
@@ -497,7 +597,10 @@ export class BasicService {
 
       return standardResponse;
     } catch (error) {
-      console.error(`Erro ao consultar série histórica de ${tipo}:`, error);
+      console.error(
+        `Erro ao consultar série histórica até 2023 de ${tipo}:`,
+        error,
+      );
       return {
         result: [],
         metadata: {
@@ -510,19 +613,49 @@ export class BasicService {
     }
   }
 
+  // Método específico para série histórica após 2023
+  private async serieHistoricaApos2023(
+    tipo: string,
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
+    const filterParams = this.parseFilter(filter);
+
+    try {
+      // Usar o método queryDataApos23 existente
+      const results = await this.queryDataApos23(tipo, dims, filter);
+
+      return {
+        result: results.result || [],
+        metadata: {
+          filters: this.mapper['extractFilters'](filterParams),
+          dimensions: this.parseDims(dims),
+          source: DataSourceType.DADOS_EDUCACAO_BASICA,
+          lastUpdated: new Date(),
+        },
+      };
+    } catch (error) {
+      console.error(
+        `Erro ao consultar série histórica após 2023 de ${tipo}:`,
+        error,
+      );
+      return {
+        result: [],
+        metadata: {
+          filters: this.mapper['extractFilters'](filterParams),
+          dimensions: this.parseDims(dims),
+          source: DataSourceType.DADOS_EDUCACAO_BASICA,
+          lastUpdated: new Date(),
+        },
+      };
+    }
+  }
+
   // Método auxiliar para verificar se precisa fazer consultas separadas
   private needsSeparateQueries(years: number[]): boolean {
     const hasYearsUntil2020 = years.some((y) => y <= 2020);
     const hasYearsFrom2021 = years.some((y) => y >= 2021);
     return hasYearsUntil2020 && hasYearsFrom2021;
-  }
-
-  /**
-   * Limpa o cache de cidades (útil para testes ou quando há mudanças nas localidades)
-   */
-  public clearCitiesCache(): void {
-    this.piauiCitiesCache = null;
-    this.cacheExpiry = null;
   }
 
   /**
@@ -540,6 +673,7 @@ export class BasicService {
     const filterParams = this.parseFilter(filter);
 
     if (tipo === 'enrollmentAggregate') tipo = 'enrollment';
+
     const dimensions = this.parseDims(dims);
 
     const whereClause: any = {
@@ -580,13 +714,8 @@ export class BasicService {
       where: whereClause,
       include: {
         dependencia: dimensions.includes('adm_dependency_detailed'),
-        etapa:
-          dimensions.includes('arrangement') ||
-          (tipo === 'enrollment' &&
-            dimensions.includes('education_level_mod_agg')),
-        etapa_teacher_class:
-          (tipo === 'teacher' || tipo === 'class') &&
-          dimensions.includes('education_level_mod'),
+        etapa: dimensions.includes('education_level_mod'),
+        etapa_teacher_class: dimensions.includes('education_level_mod'),
         localizacao: dimensions.includes('location'),
         entidade: tipo === 'school/count',
         localidade: !filterParams.city, // Só incluir se não for cidade específica
@@ -600,12 +729,12 @@ export class BasicService {
 
       results.forEach((item) => {
         if (!item.entidade?.id) return;
-        if (dimensions.includes('arrangement') && item.total <= 0) return;
-
+        if (dimensions.includes('education_level_mod') && item.total <= 0)
+          return;
         // Validar se todas as dimensões requeridas têm valores válidos
         if (dimensions.includes('adm_dependency_detailed') && !item.dependencia)
           return;
-        if (dimensions.includes('arrangement') && !item.etapa) return;
+        if (dimensions.includes('education_level_mod') && !item.etapa) return;
         if (dimensions.includes('location') && !item.localizacao) return;
 
         const obj: any = {
@@ -616,9 +745,9 @@ export class BasicService {
           obj.adm_dependency_detailed_id = item.dependencia.id;
           obj.adm_dependency_detailed_name = item.dependencia.nome;
         }
-        if (dimensions.includes('arrangement')) {
-          obj.arrangement_id = item.etapa.id;
-          obj.arrangement_name = item.etapa.nome;
+        if (dimensions.includes('education_level_mod')) {
+          obj.education_level_mod_id = item.etapa.id;
+          obj.education_level_mod_name = item.etapa.nome;
         }
         if (dimensions.includes('location')) {
           obj.location_id = item.localizacao.id;
@@ -629,7 +758,8 @@ export class BasicService {
         const keys = ['year'];
         if (dimensions.includes('adm_dependency_detailed'))
           keys.push('adm_dependency_detailed_id');
-        if (dimensions.includes('arrangement')) keys.push('arrangement_id');
+        if (dimensions.includes('education_level_mod'))
+          keys.push('education_level_mod_id');
         if (dimensions.includes('location')) keys.push('location_id');
 
         const key = keys.map((k) => `${k}:${obj[k]}`).join('|');
@@ -667,13 +797,9 @@ export class BasicService {
         obj.adm_dependency_detailed_id = item.dependencia.id;
         obj.adm_dependency_detailed_name = item.dependencia.nome;
       }
-      if (
-        tipo === 'enrollment' &&
-        dimensions.includes('education_level_mod_agg') &&
-        item.etapa
-      ) {
-        obj.education_level_mod_agg_id = item.etapa.id;
-        obj.education_level_mod_agg_name = item.etapa.nome;
+      if (dimensions.includes('education_level_mod') && item.etapa) {
+        obj.education_level_mod_id = item.etapa.id;
+        obj.education_level_mod_name = item.etapa.nome;
       }
       if (
         (tipo === 'teacher' || tipo === 'class') &&
@@ -699,15 +825,7 @@ export class BasicService {
       const keys = ['year'];
       if (dimensions.includes('adm_dependency_detailed'))
         keys.push('adm_dependency_detailed_id');
-      if (
-        tipo === 'enrollment' &&
-        dimensions.includes('education_level_mod_agg')
-      )
-        keys.push('education_level_mod_agg_id');
-      if (
-        (tipo === 'teacher' || tipo === 'class') &&
-        dimensions.includes('education_level_mod')
-      )
+      if (dimensions.includes('education_level_mod'))
         keys.push('education_level_mod_id');
       if (dimensions.includes('location')) keys.push('location_id');
       if (dimensions.includes('localidade')) keys.push('localidade_id');
@@ -721,6 +839,7 @@ export class BasicService {
     const groupedResults = Array.from(groupedMap.values());
     return { result: groupedResults };
   }
+
   // Função auxiliar para analisar o filtro no formato específico
   private parseFilter(filter: string): {
     years: number[];
@@ -772,5 +891,24 @@ export class BasicService {
       .split(',')
       .map((dim) => dim.trim())
       .filter((dim) => dim.length > 0);
+  }
+
+  // Função auxiliar para construir string de filtro
+  private buildFilterString(filterParams: {
+    years: number[];
+    state: string;
+    city?: string;
+    isHistorical?: boolean;
+  }): string {
+    const minYear = Math.min(...filterParams.years);
+    const maxYear = Math.max(...filterParams.years);
+
+    let filter = `min_year:"${minYear}",max_year:"${maxYear}",state:"${filterParams.state}"`;
+
+    if (filterParams.city) {
+      filter += `,city:"${filterParams.city}"`;
+    }
+
+    return filter;
   }
 }
