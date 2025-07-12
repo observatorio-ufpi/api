@@ -58,6 +58,22 @@ model EtapaEnsinoBasica {
     dados DadoEducacaoBasica[]
 }
 
+model EtapaTurma {
+    id   Int    @id
+    nome String
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
+model EtapaMatriculaAte2020 {
+    id   Int    @id
+    nome String
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
 model EtapaEnsinoBasicaSchool {
     id   Int    @id
     nome String
@@ -161,6 +177,12 @@ model DadoEducacaoBasica {
     etapa_teacher_id Int?
     etapa_teacher    EtapaEnsinoBasicaTeacher21? @relation(fields: [etapa_teacher_id], references: [id])
 
+    etapa_turma_id Int?
+    etapa_turma    EtapaTurma? @relation(fields: [etapa_turma_id], references: [id])
+
+    etapa_matricula_ate2020_id Int?
+    etapa_matricula_ate2020    EtapaMatriculaAte2020? @relation(fields: [etapa_matricula_ate2020_id], references: [id])
+
     localizacao_id Int?
     localizacao    Localizacao? @relation(fields: [localizacao_id], references: [id])
 
@@ -179,6 +201,8 @@ model DadoEducacaoBasica {
     @@index([localidade_id])
     @@index([dependencia_id])
     @@index([etapa_id])
+    @@index([etapa_turma_id])
+    @@index([etapa_matricula_ate2020_id])
     @@index([localizacao_id])
 }
 

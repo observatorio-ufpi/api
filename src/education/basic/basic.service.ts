@@ -1,5 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import {
+  DataSourceType,
+  EducationResponse,
+  FilterParams,
+  MappingContext,
+} from '../../interfaces/education.interface';
 import { PrismaEducacaoService } from '../prisma-educacao.service';
+import { EducationResponseMapper } from './mappers/education-response.mapper';
 
 @Injectable()
 export class BasicService {
@@ -7,14 +14,13 @@ export class BasicService {
   private piauiCitiesCache: number[] | null = null;
   private cacheExpiry: Date | null = null;
 
-  constructor(private prisma: PrismaEducacaoService) {}
+  constructor(
+    private prisma: PrismaEducacaoService,
+    private mapper: EducationResponseMapper,
+  ) {}
 
   async getEnrollment(dims: string, filter: string) {
-    return this.queryData('enrollment', dims, filter);
-  }
-
-  async getEnrollmentAggregate(dims: string, filter: string) {
-    return this.queryDataTwoDimensions('enrollmentAggregate', dims, filter);
+    return this.queryDataTwoDimensions('enrollment', dims, filter);
   }
 
   async getSchoolCount(dims: string, filter: string) {
@@ -29,45 +35,38 @@ export class BasicService {
     return this.queryDataTwoDimensions('teacher', dims, filter);
   }
 
-  async getAuxiliar(dims: string, filter: string) {
-    return this.queryData('auxiliar', dims, filter);
-  }
-
   async getEmployees(dims: string, filter: string) {
-    return this.queryData('employees', dims, filter);
+    return this.queryDataTwoDimensions('employees', dims, filter);
   }
 
-  async getOutOfSchool(dims: string, filter: string) {
-    return this.queryData('out_of_school', dims, filter);
+  // Métodos públicos para série histórica
+  async getEnrollmentTimeSeries(dims: string, filter: string) {
+    return this.serieHistoricaTwoDimensions('enrollment', dims, filter);
   }
 
-  async getLiquidEnrollmentRatio(dims: string, filter: string) {
-    return this.queryData('liquid_enrollment_ratio', dims, filter);
+  async getSchoolCountTimeSeries(dims: string, filter: string) {
+    return this.serieHistoricaTwoDimensions('school/count', dims, filter);
   }
 
-  async getGlossEnrollmentRatio(dims: string, filter: string) {
-    return this.queryData('gloss_enrollment_ratio', dims, filter);
+  async getClassTimeSeries(dims: string, filter: string) {
+    return this.serieHistoricaTwoDimensions('class', dims, filter);
   }
 
-  async getRateSchoolNew(dims: string, filter: string) {
-    return this.queryData('rate_school_new', dims, filter);
+  async getTeacherTimeSeries(dims: string, filter: string) {
+    return this.serieHistoricaTwoDimensions('teacher', dims, filter);
   }
 
-  async getHistoricalSeries(tipo: string, dims: string, filter: string) {
-    return this.serieHistorica(tipo, dims, filter);
+  async getEmployeesTimeSeries(dims: string, filter: string) {
+    return this.serieHistoricaTwoDimensions('employees', dims, filter);
   }
 
   private async queryDataTwoDimensions(
     tipo: string,
     dims: string,
     filter: string,
-  ) {
+  ): Promise<EducationResponse> {
     const filterParams = this.parseFilter(filter);
-    const dimensions = this.parseDims(dims); // array com 0, 1 ou 2 dimensões
-
-    if (filterParams.isHistorical) {
-      return this.serieHistoricaTwoDimensions(tipo, dims, filter);
-    }
+    const dimensions = this.parseDims(dims);
 
     // Definir quais relacionamentos incluir com base nas dimensões passadas
     const include: any = {
@@ -76,13 +75,20 @@ export class BasicService {
       etapa: true,
       etapa_school: true,
       etapa_teacher: true,
+      etapa_turma: true,
+      etapa_matricula_ate2020: true,
       localizacao: true,
     };
 
+    if (tipo === 'enrollment' && filterParams.years.some((y) => y >= 2021))
+      tipo = 'enrollmentAggregate';
+
     if (filterParams.years.some((y) => y <= 2023)) {
       try {
+        // Tipo teacher >= 2021 está com nome federativeEntity no banco de dados
         if (tipo === 'teacher' && filterParams.years.some((y) => y >= 2021))
           tipo = 'federativeEntity';
+
         // Buscar todos os registros do tipo/ano/localidade
         const results = await this.prisma.dadoEducacaoBasica.findMany({
           where: {
@@ -95,460 +101,263 @@ export class BasicService {
           include,
         });
 
-        // Mapear os dados
-        let mappedResults = results.map((item) => {
-          if (
-            tipo === 'federativeEntity' &&
-            filterParams.years.some((y) => y >= 2021)
-          ) {
-            return {
-              year: item.ano,
-              total: Number(item.total),
-              education_level_mod_id: item.etapa_teacher?.id ?? null,
-              education_level_mod_name: item.etapa_teacher?.nome ?? null,
-              adm_dependency_detailed_id: item.dependencia_teacher?.id ?? null,
-              adm_dependency_detailed_name:
-                item.dependencia_teacher?.nome ?? null,
-              location_id: item.localizacao?.id ?? null,
-              location_name: item.localizacao?.nome ?? null,
-              contract_type_id: item.contrato?.id ?? null,
-              contract_type_name: item.contrato?.nome ?? null,
-            };
-          } else if (tipo === 'enrollmentAggregate') {
-            return {
-              year: item.ano,
-              total: Number(item.total),
-              education_level_mod_agg_id: item.etapa?.id ?? null,
-              education_level_mod_agg_name: item.etapa?.nome ?? null,
-              location_id: item.localizacao?.id ?? null,
-              location_name: item.localizacao?.nome ?? null,
-              adm_dependency_detailed_id: item.dependencia?.id ?? null,
-              adm_dependency_detailed_name: item.dependencia?.nome ?? null,
-            };
-          } else if (tipo === 'school/count') {
-            return {
-              year: item.ano,
-              total: Number(item.total),
-              arrangement_id: item.etapa_school?.id ?? null,
-              arrangement_name: item.etapa_school?.nome ?? null,
-              adm_dependency_detailed_id: item.dependencia?.id ?? null,
-              adm_dependency_detailed_name: item.dependencia?.nome ?? null,
-              location_id: item.localizacao?.id ?? null,
-              location_name: item.localizacao?.nome ?? null,
-            };
-          }
-          return {
-            year: item.ano,
-            total: Number(item.total),
-            adm_dependency_detailed_id: item.dependencia?.id ?? null,
-            adm_dependency_detailed_name: item.dependencia?.nome ?? null,
-            education_level_mod_id: item.etapa?.id ?? null,
-            education_level_mod_name: item.etapa?.nome ?? null,
-            location_id: item.localizacao?.id ?? null,
-            location_name: item.localizacao?.nome ?? null,
-          };
-        });
+        // Criar contexto para o mapper
+        const mappingContext: MappingContext = {
+          tipo,
+          filterParams,
+          dimensions,
+          dataSource: DataSourceType.DADOS_EDUCACAO_BASICA,
+        };
 
-        // Remove etapa com id 11
-        mappedResults = mappedResults.filter(
-          (item) => item.education_level_mod_agg_id !== 11,
+        // Usar o mapper para padronizar a resposta
+        const standardResponse = this.mapper.mapToStandardFormat(
+          results,
+          mappingContext,
         );
 
-        // --- Sem nenhuma dimensão ---
+        // Remover itens excluídos
+        const filteredResults = this.mapper.removeExcludedItems(
+          standardResponse.result,
+          mappingContext,
+        );
+        standardResponse.result = filteredResults;
+
+        // Lógica de agrupamento baseada nas dimensões
         if (dimensions.length === 0) {
-          if (
-            (tipo === 'teacher' || tipo === 'federativeEntity') &&
-            filterParams.years.some((y) => y >= 2021)
-          ) {
-            // escolher uma dimensão para agrupar
-            const totalPorAno = {};
-            for (const item of mappedResults) {
-              if (item.location_id !== null) {
-                totalPorAno[item.year] =
-                  (totalPorAno[item.year] || 0) + item.total;
-              }
-            }
-            return {
-              result: Object.entries(totalPorAno).map(([year, total]) => ({
-                year: Number(year),
-                total,
-              })),
-            };
-          }
-          // Escolher uma combinação fixa (ex: a primeira encontrada)
-          // Aqui, por exemplo, arrangement_id + adm_dependency_detailed_id para school/count
-          // ou education_level_mod_id + adm_dependency_detailed_id para os demais
-
-          // Lógica padrão para os outros tipos
-          let filtered;
-          if (tipo === 'school/count') {
-            filtered = mappedResults.filter(
-              (item) =>
-                item.arrangement_id !== null &&
-                item.adm_dependency_detailed_id !== null,
-            );
-          } else if (tipo === 'enrollmentAggregate') {
-            filtered = mappedResults.filter(
-              (item) =>
-                item.adm_dependency_detailed_id !== null &&
-                item.location_id !== null,
-            );
-          } else {
-            filtered = mappedResults.filter(
-              (item) =>
-                item.education_level_mod_id !== null &&
-                item.adm_dependency_detailed_id !== null,
-            );
-          }
-          // Agrupar por ano
-          const totalPorAno = {};
-          for (const item of filtered) {
-            totalPorAno[item.year] = (totalPorAno[item.year] || 0) + item.total;
-          }
-          return {
-            result: Object.entries(totalPorAno).map(([year, total]) => ({
-              year: Number(year),
-              total,
-            })),
-          };
-        }
-
-        // --- Com uma dimensão ---
-        if (dimensions.length === 1) {
-          const dim = dimensions[0];
-
-          // Escolha a dimensão principal
-          let mainDim, mainName;
-          if (
-            tipo === 'federativeEntity' &&
-            filterParams.years.some((y) => y >= 2021)
-          ) {
-            // Para teacher >= 2021, só existe uma dimensão por linha
-            if (dim === 'education_level_mod') {
-              mainDim = 'education_level_mod_id';
-              mainName = 'education_level_mod_name';
-            } else if (dim === 'adm_dependency_detailed') {
-              mainDim = 'adm_dependency_detailed_id';
-              mainName = 'adm_dependency_detailed_name';
-            } else if (dim === 'location') {
-              mainDim = 'location_id';
-              mainName = 'location_name';
-            } else if (dim === 'contract_type') {
-              mainDim = 'contract_type_id';
-              mainName = 'contract_type_name';
-            }
-            // Filtrar apenas pela dimensão principal
-            const filtered = mappedResults.filter(
-              (item) => item[mainDim] !== null,
-            );
-            // Agrupar por ano + valor da dimensão
-            const groupMap = new Map();
-            for (const item of filtered) {
-              const key = `${item.year}|${item[mainDim]}`;
-              if (!groupMap.has(key)) {
-                groupMap.set(key, {
-                  year: item.year,
-                  [mainDim]: item[mainDim],
-                  [mainName]: item[mainName],
-                  total: 0,
-                });
-              }
-              groupMap.get(key).total += item.total;
-            }
-            return { result: Array.from(groupMap.values()) };
-          } else {
-            // ... lógica padrão para os outros tipos ...
-            // (mantém o filtro com mainDim && otherDim)
-            let fixedCombo: [string, string];
-            if (tipo === 'school/count') {
-              if (dim === 'arrangement') {
-                fixedCombo = ['arrangement_id', 'adm_dependency_detailed_id'];
-              } else if (dim === 'adm_dependency_detailed') {
-                fixedCombo = ['adm_dependency_detailed_id', 'arrangement_id'];
-              } else {
-                fixedCombo = ['location_id', 'arrangement_id'];
-              }
-            } else if (tipo === 'enrollmentAggregate') {
-              if (dim === 'education_level_mod_agg') {
-                fixedCombo = [
-                  'education_level_mod_agg_id',
-                  'adm_dependency_detailed_id',
-                ];
-              } else if (dim === 'adm_dependency_detailed') {
-                fixedCombo = [
-                  'adm_dependency_detailed_id',
-                  'education_level_mod_agg_id',
-                ];
-              } else {
-                fixedCombo = ['location_id', 'education_level_mod_agg_id'];
-              }
-            } else {
-              if (dim === 'education_level_mod') {
-                fixedCombo = [
-                  'education_level_mod_id',
-                  'adm_dependency_detailed_id',
-                ];
-              } else if (dim === 'adm_dependency_detailed') {
-                fixedCombo = [
-                  'adm_dependency_detailed_id',
-                  'education_level_mod_id',
-                ];
-              } else {
-                fixedCombo = ['location_id', 'education_level_mod_id'];
-              }
-            }
-
-            const [mainDim, otherDim] = fixedCombo;
-            const mainName = mainDim.replace('_id', '_name');
-
-            // Filtrar registros onde ambas as dimensões da combinação estão presentes
-            const filtered = mappedResults.filter(
-              (item) => item[mainDim] !== null && item[otherDim] !== null,
-            );
-
-            // Agrupar por ano + valor da dimensão desejada
-            const groupMap = new Map();
-            for (const item of filtered) {
-              const key = `${item.year}|${item[mainDim]}`;
-              if (!groupMap.has(key)) {
-                groupMap.set(key, {
-                  year: item.year,
-                  [mainDim]: item[mainDim],
-                  [mainName]: item[mainName],
-                  total: 0,
-                });
-              }
-              groupMap.get(key).total += item.total;
-            }
-            return { result: Array.from(groupMap.values()) };
-          }
-        }
-
-        // --- Com duas dimensões ---
-        if (dimensions.length === 2) {
-          const [dim1, dim2] = dimensions;
-          let dimField1, dimField2;
-          if (tipo === 'school/count') {
-            dimField1 =
-              dim1 === 'adm_dependency_detailed'
-                ? 'adm_dependency_detailed_id'
-                : dim1 === 'arrangement'
-                  ? 'arrangement_id'
-                  : 'location_id';
-            dimField2 =
-              dim2 === 'adm_dependency_detailed'
-                ? 'adm_dependency_detailed_id'
-                : dim2 === 'arrangement'
-                  ? 'arrangement_id'
-                  : 'location_id';
-          } else if (tipo === 'enrollmentAggregate') {
-            dimField1 =
-              dim1 === 'adm_dependency_detailed'
-                ? 'adm_dependency_detailed_id'
-                : dim1 === 'education_level_mod_agg'
-                  ? 'education_level_mod_agg_id'
-                  : 'location_id';
-            dimField2 =
-              dim2 === 'adm_dependency_detailed'
-                ? 'adm_dependency_detailed_id'
-                : dim2 === 'education_level_mod_agg'
-                  ? 'education_level_mod_agg_id'
-                  : 'location_id';
-          } else {
-            dimField1 =
-              dim1 === 'adm_dependency_detailed'
-                ? 'adm_dependency_detailed_id'
-                : dim1 === 'education_level_mod'
-                  ? 'education_level_mod_id'
-                  : 'location_id';
-            dimField2 =
-              dim2 === 'adm_dependency_detailed'
-                ? 'adm_dependency_detailed_id'
-                : dim2 === 'education_level_mod'
-                  ? 'education_level_mod_id'
-                  : 'location_id';
-          }
-          const dimName1 = dimField1.replace('_id', '_name');
-          const dimName2 = dimField2.replace('_id', '_name');
-
-          // Filtrar registros onde ambas as dimensões estão presentes
-          const filtered = mappedResults.filter(
-            (item) => item[dimField1] !== null && item[dimField2] !== null,
+          // Sem dimensões - usar combinação fixa para evitar dupla contagem
+          standardResponse.result = this.processNoDimensions(
+            standardResponse.result,
+            tipo,
+            filterParams,
           );
-
-          // Agrupar por ano + valor das duas dimensões
-          const groupMap = new Map();
-          for (const item of filtered) {
-            const key = `${item.year}|${item[dimField1]}|${item[dimField2]}`;
-            if (!groupMap.has(key)) {
-              groupMap.set(key, {
-                year: item.year,
-                [dimField1]: item[dimField1],
-                [dimName1]: item[dimName1],
-                [dimField2]: item[dimField2],
-                [dimName2]: item[dimName2],
-                total: 0,
-              });
-            }
-            groupMap.get(key).total += item.total;
-          }
-          return { result: Array.from(groupMap.values()) };
+        } else if (dimensions.length === 1) {
+          // Com uma dimensão - aplicar lógica específica baseada no tipo
+          standardResponse.result = this.processSingleDimension(
+            standardResponse.result,
+            dimensions[0],
+            tipo,
+            filterParams,
+          );
+        } else if (dimensions.length === 2) {
+          // Com duas dimensões - manter todos os dados detalhados
+          standardResponse.result = this.processTwoDimensions(
+            standardResponse.result,
+            dimensions,
+          );
         }
 
-        // Caso não caia em nenhum caso acima
-        return { result: [] };
+        return standardResponse;
       } catch (error) {
-        console.error(`Erro ao consultar dados de ${tipo}:`, error);
-        return { result: [] };
+        console.error('Erro ao buscar dados da educação básica:', error);
+        throw new Error('Falha ao recuperar dados da educação básica');
       }
+    }
+
+    // Fallback para dados após 2023
+    return this.queryDataApos23(tipo, dims, filter);
+  }
+
+  private processNoDimensions(
+    data: any[],
+    tipo: string,
+    filterParams: FilterParams,
+  ): any[] {
+    // CORREÇÃO: Usar a mesma lógica do queryDataTwoDimensions para 0 dimensões
+    // Escolher uma combinação fixa para evitar dupla contagem
+
+    if (
+      (tipo === 'teacher' || tipo === 'federativeEntity') &&
+      filterParams.years.some((y) => y >= 2021)
+    ) {
+      // Para teacher >= 2021, escolher uma dimensão para agrupar
+      const filtered = data.filter((item) => item.location_id !== null);
+
+      // console.log('Dados filtrados (federativeEntity 0 dims):', filtered);
+
+      const totalPorAno = {};
+      for (const item of filtered) {
+        totalPorAno[item.year] = (totalPorAno[item.year] || 0) + item.total;
+      }
+      return Object.entries(totalPorAno).map(([year, total]) => ({
+        year: Number(year),
+        total,
+      }));
+    }
+
+    // Lógica padrão para os outros tipos
+    const filtered = data.filter(
+      (item) =>
+        item.location_id !== null && item.education_level_mod_id !== null,
+    );
+
+    // console.log('Dados filtrados (0 dimensões):', filtered);
+
+    // Agrupar por ano
+    const totalPorAno = {};
+    for (const item of filtered) {
+      totalPorAno[item.year] = (totalPorAno[item.year] || 0) + item.total;
+    }
+    // console.log(totalPorAno);
+
+    const result = Object.entries(totalPorAno).map(([year, total]) => ({
+      year: Number(year),
+      total,
+    }));
+
+    // console.log('Resultado final (0 dimensões):', result);
+
+    return result;
+  }
+
+  private processSingleDimension(
+    data: any[],
+    dimension: string,
+    tipo: string,
+    filterParams: FilterParams,
+  ): any[] {
+    let mainDim: string, mainName: string;
+
+    // Mapear dimensão para campos correspondentes padronizados
+    if (
+      tipo === 'federativeEntity' &&
+      filterParams.years.some((y) => y >= 2021)
+    ) {
+      const dimensionMap = {
+        education_level_mod: [
+          'education_level_mod_id',
+          'education_level_mod_name',
+        ],
+        adm_dependency_detailed: [
+          'adm_dependency_detailed_id',
+          'adm_dependency_detailed_name',
+        ],
+        location: ['location_id', 'location_name'],
+        contract_type: ['contract_type_id', 'contract_type_name'],
+      };
+      [mainDim, mainName] = dimensionMap[dimension] || ['', ''];
     } else {
-      return this.queryDataApos23(tipo, dims, filter);
+      const dimensionMap = {
+        education_level_mod: [
+          'education_level_mod_id',
+          'education_level_mod_name',
+        ],
+        adm_dependency_detailed: [
+          'adm_dependency_detailed_id',
+          'adm_dependency_detailed_name',
+        ],
+        location: ['location_id', 'location_name'],
+      };
+      [mainDim, mainName] = dimensionMap[dimension] || ['', ''];
+    }
+
+    // CORREÇÃO: Usar a mesma lógica do queryDataTwoDimensions
+    // Escolher uma combinação fixa de dimensões para evitar dupla contagem
+
+    if (
+      tipo === 'federativeEntity' &&
+      filterParams.years.some((y) => y >= 2021)
+    ) {
+      // Para teacher >= 2021, filtrar apenas pela dimensão principal
+      const filtered = data.filter((item) => item[mainDim] !== null);
+
+      // console.log('Dados filtrados (federativeEntity):', filtered);
+
+      // Agrupar por ano + valor da dimensão
+      const groupMap = new Map();
+      for (const item of filtered) {
+        const key = `${item.year}|${item[mainDim]}`;
+        if (!groupMap.has(key)) {
+          groupMap.set(key, {
+            year: item.year,
+            [mainDim]: item[mainDim],
+            [mainName]: item[mainName],
+            total: 0,
+          });
+        }
+        groupMap.get(key).total += item.total;
+      }
+
+      // console.log('Mapa agrupado (federativeEntity):', groupMap);
+
+      return Array.from(groupMap.values()).sort((a, b) => {
+        if (a.year !== b.year) return a.year - b.year;
+        return a[mainDim] - b[mainDim];
+      });
+    } else {
+      // Para outros tipos, usar combinação fixa de dimensões
+      let fixedCombo: [string, string];
+
+      if (dimension === 'education_level_mod') {
+        fixedCombo = ['education_level_mod_id', 'adm_dependency_detailed_id'];
+      } else if (dimension === 'adm_dependency_detailed') {
+        fixedCombo = ['adm_dependency_detailed_id', 'education_level_mod_id'];
+      } else {
+        fixedCombo = ['location_id', 'education_level_mod_id'];
+      }
+
+      const [mainDimFixed, otherDim] = fixedCombo;
+      const mainNameFixed = mainDimFixed.replace('_id', '_name');
+
+      // Filtrar registros onde ambas as dimensões da combinação estão presentes
+      const filtered = data.filter(
+        (item) => item[mainDimFixed] !== null && item[otherDim] !== null,
+      );
+
+      // console.log('Dados filtrados com combinação fixa:', filtered);
+
+      // Agrupar por ano + valor da dimensão desejada
+      const groupMap = new Map();
+      for (const item of filtered) {
+        const key = `${item.year}|${item[mainDimFixed]}`;
+        if (!groupMap.has(key)) {
+          groupMap.set(key, {
+            year: item.year,
+            [mainDimFixed]: item[mainDimFixed],
+            [mainNameFixed]: item[mainNameFixed],
+            total: 0,
+          });
+        }
+        groupMap.get(key).total += item.total;
+      }
+
+      // console.log('Mapa de agrupamento final:', groupMap);
+
+      return Array.from(groupMap.values()).sort((a, b) => {
+        if (a.year !== b.year) return a.year - b.year;
+        return a[mainDimFixed] - b[mainDimFixed];
+      });
     }
   }
 
-  //Método para retornar serie historica
-  private async serieHistorica(tipo: string, dims: string, filter: string) {
-    const filterParams = this.parseFilter(filter);
-    const dimensions = this.parseDims(dims);
+  private processTwoDimensions(data: any[], dimensions: string[]): any[] {
+    // Para duas dimensões, retornar dados detalhados agrupados
+    const groupMap = new Map();
 
-    // Verificar se há no máximo uma dimensão
-    if (dimensions.length > 1) {
-      throw new Error('Série histórica suporta no máximo uma dimensão');
-    }
-
-    try {
-      // Buscar os dados
-      const results = await this.prisma.dadoEducacaoBasica.findMany({
-        where: {
-          tipo,
-          ano: { in: filterParams.years },
-          localidade_id: filterParams.city
-            ? Number(filterParams.city)
-            : Number(filterParams.state),
-        },
-        include: {
-          dependencia: dimensions.includes('adm_dependency_detailed'),
-          etapa: dimensions.includes('education_level_mod'),
-          localizacao: dimensions.includes('location'),
-          localidade: true, // Sempre incluir a localidade
-        },
+    for (const item of data) {
+      // Criar chave única baseada no ano e valores das dimensões
+      const keys = dimensions.map((dim) => {
+        if (dim === 'education_level_mod') return item.education_level_mod_id;
+        if (dim === 'adm_dependency_detailed')
+          return item.adm_dependency_detailed_id;
+        if (dim === 'location') return item.location_id;
+        if (dim === 'contract_type') return item.contract_type_id;
+        return null;
       });
 
-      // Se não há dimensão adicional, agregar apenas por ano
-      if (dimensions.length === 0) {
-        // Agrupar por ano
-        const aggregatedByYear = new Map();
-
-        results.forEach((item) => {
-          const year = item.ano;
-          if (!aggregatedByYear.has(year)) {
-            aggregatedByYear.set(year, {
-              total: Number(item.total),
-              name: item.localidade?.nome || 'Brasil',
-              year,
-            });
-          } else {
-            const existing = aggregatedByYear.get(year);
-            existing.total = (
-              Number(existing.total) + Number(item.total)
-            ).toString();
-          }
-        });
-
-        // Converter o mapa para array e ordenar por ano
-        return {
-          result: Array.from(aggregatedByYear.values()).sort(
-            (a, b) => a.year - b.year,
-          ),
-        };
-      }
-
-      // Se há uma dimensão, agregar por ano e dimensão
-      const dimension = dimensions[0];
-      const aggregatedData = new Map();
-
-      results.forEach((item) => {
-        const year = item.ano;
-        let dimensionId = null;
-        let dimensionName = null;
-
-        // Determinar os valores da dimensão
-        if (dimension === 'adm_dependency_detailed' && item.dependencia) {
-          dimensionId = item.dependencia.id;
-          dimensionName = item.dependencia.nome;
-        } else if (dimension === 'education_level_mod' && item.etapa) {
-          dimensionId = item.etapa.id;
-          dimensionName = item.etapa.nome;
-        } else if (dimension === 'location' && item.localizacao) {
-          dimensionId = item.localizacao.id;
-          dimensionName = item.localizacao.nome;
-        }
-
-        // Se não tiver valor para a dimensão, ignorar este item
-        if (dimensionId === null) return;
-
-        // Criar chave para o mapa: ano + dimensão
-        const key = `${year}|${dimensionId}`;
-
-        if (!aggregatedData.has(key)) {
-          aggregatedData.set(key, {
-            total: Number(item.total).toString(),
-            name: item.localidade?.nome || 'Brasil',
-            year,
-            [`${dimension}_id`]: dimensionId,
-            [`${dimension}_name`]: dimensionName,
-          });
+      if (keys.every((k) => k !== null)) {
+        const key = `${item.year}|${keys.join('|')}`;
+        if (!groupMap.has(key)) {
+          groupMap.set(key, { ...item });
         } else {
-          const existing = aggregatedData.get(key);
-          existing.total = (
-            Number(existing.total) + Number(item.total)
-          ).toString();
-        }
-      });
-
-      // Antes de retornar, fazer um segundo agrupamento por ano + dimensão primária
-      const finalAggregation = new Map();
-
-      for (const [, value] of aggregatedData.entries()) {
-        const year = value.year;
-        const dimField =
-          dimension === 'arrangement' && tipo === 'school/count'
-            ? 'arrangement'
-            : dimension;
-        const dimId = value[`${dimField}_id`];
-
-        // Chave para agrupamento final: ano + id da dimensão primária
-        const finalKey = `${year}|${dimId}`;
-
-        if (!finalAggregation.has(finalKey)) {
-          // Primeira ocorrência para esta combinação de ano + dimensão
-          finalAggregation.set(finalKey, { ...value });
-        } else {
-          // Somar ao registro existente
-          const existing = finalAggregation.get(finalKey);
-          existing.total = (
-            Number(existing.total) + Number(value.total)
-          ).toString();
+          groupMap.get(key).total += item.total;
         }
       }
-
-      // Converter o mapa para array e ordenar por ano e depois por dimensão
-      return {
-        result: Array.from(finalAggregation.values()).sort((a, b) =>
-          a.year === b.year
-            ? a[
-                `${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_id`
-              ] -
-              b[
-                `${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_id`
-              ]
-            : a.year - b.year,
-        ),
-      };
-    } catch (error) {
-      console.error(`Erro ao consultar série histórica de ${tipo}:`, error);
-      return { result: [] };
     }
+
+    return Array.from(groupMap.values()).sort((a, b) => {
+      if (a.year !== b.year) return a.year - b.year;
+      return 0; // Manter ordem original para outras dimensões
+    });
   }
 
   // Método para retornar série histórica com duas dimensões
@@ -556,377 +365,156 @@ export class BasicService {
     tipo: string,
     dims: string,
     filter: string,
-  ) {
+  ): Promise<EducationResponse> {
     const filterParams = this.parseFilter(filter);
     const dimensions = this.parseDims(dims);
 
-    // Verificar se há no máximo uma dimensão
-    if (dimensions.length > 1) {
-      throw new Error('Série histórica suporta no máximo uma dimensão');
-    }
-
-    if (tipo === 'teacher') tipo = 'federativeEntity';
+    // Definir quais relacionamentos incluir com base nas dimensões passadas
+    const include: any = {
+      dependencia: true,
+      dependencia_teacher: true,
+      etapa: true,
+      etapa_school: true,
+      etapa_teacher: true,
+      etapa_turma: true,
+      etapa_matricula_ate2020: true,
+      localizacao: true,
+    };
 
     try {
-      // Buscar os dados
-      const results = await this.prisma.dadoEducacaoBasica.findMany({
-        where: {
-          tipo,
-          ano: { in: filterParams.years },
-          localidade_id: filterParams.city
-            ? Number(filterParams.city)
-            : Number(filterParams.state),
-        },
-        include: {
-          dependencia: true,
-          etapa: true,
-          etapa_school: true,
-          etapa_teacher: true,
-          localizacao: true,
-          vinculo: true,
-          dependencia_teacher: true,
-          localidade: true, // Sempre incluir a localidade
-        },
-      });
+      let allResults: any[] = [];
 
-      // Se não há dimensão adicional, agregar apenas por ano
-      if (dimensions.length === 0) {
-        // Agrupar por ano, mas considerar apenas uma combinação específica de dimensões
-        // para evitar qualquer risco de dupla contagem
-        const aggregatedByYear = new Map();
+      // Verificar se precisa fazer consultas separadas para enrollment
+      if (
+        tipo === 'enrollment' &&
+        this.needsSeparateQueries(filterParams.years)
+      ) {
+        // Separar anos em dois grupos
+        const yearsUntil2020 = filterParams.years.filter((y) => y <= 2020);
+        const yearsFrom2021 = filterParams.years.filter((y) => y >= 2021);
 
-        results.forEach((item) => {
-          const year = item.ano;
-
-          // Escolher uma combinação específica com base no tipo
-          let shouldConsider = false;
-
-          if (tipo === 'school/count') {
-            // Para school/count, considerar APENAS quando arrangement E adm_dependency estão preenchidos
-            shouldConsider =
-              item.etapa_school?.id != null && item.dependencia?.id != null;
-          } else if (tipo === 'teacher' || tipo === 'federativeEntity') {
-            // Para teacher >= 2021, considerar APENAS quando etapa_teacher E dependencia estão preenchidos
-            if (filterParams.years.some((y) => y >= 2021)) {
-              shouldConsider = item.etapa_teacher?.id != null;
-            } else {
-              // Para teacher < 2021, considerar APENAS quando etapa E dependencia estão preenchidos
-              shouldConsider =
-                item.etapa?.id != null && item.dependencia_teacher?.id != null;
-            }
-          } else if (tipo === 'enrollmentAggregate') {
-            shouldConsider =
-              item.localizacao?.id != null && item.dependencia?.id != null;
-          } else {
-            // Para outros tipos, considerar APENAS quando etapa E dependencia estão preenchidos
-            shouldConsider =
-              item.etapa?.id != null && item.dependencia?.id != null;
-          }
-
-          if (shouldConsider) {
-            if (!aggregatedByYear.has(year)) {
-              aggregatedByYear.set(year, {
-                total: Number(item.total),
-                name: item.localidade?.nome || 'Brasil',
-                year,
-              });
-            } else {
-              const existing = aggregatedByYear.get(year);
-              existing.total = (
-                Number(existing.total) + Number(item.total)
-              ).toString();
-            }
-          }
-        });
-
-        // Converter o mapa para array e ordenar por ano
-        return {
-          result: Array.from(aggregatedByYear.values()).sort(
-            (a, b) => a.year - b.year,
-          ),
-        };
-      }
-
-      // Se há uma dimensão, precisamos escolher uma combinação fixa
-      const dimension = dimensions[0];
-      const aggregatedData = new Map();
-
-      results.forEach((item) => {
-        const year = item.ano;
-        let dimensionId = null;
-        let dimensionName = null;
-        let otherDimensionId = null;
-
-        // Determinar os valores das dimensões
-        if (tipo === 'school/count') {
-          if (dimension === 'arrangement') {
-            dimensionId = item.etapa_school?.id ?? null;
-            dimensionName = item.etapa_school?.nome ?? null;
-            otherDimensionId = item.dependencia?.id ?? null;
-          } else if (
-            dimension === 'adm_dependency_detailed' &&
-            item.dependencia
-          ) {
-            dimensionId = item.dependencia.id;
-            dimensionName = item.dependencia.nome;
-            otherDimensionId = item.etapa_school?.id ?? null;
-          } else if (dimension === 'location' && item.localizacao) {
-            dimensionId = item.localizacao.id;
-            dimensionName = item.localizacao.nome;
-            otherDimensionId = item.etapa_school?.id ?? null;
-          }
-        } else if (tipo === 'enrollmentAggregate') {
-          if (
-            dimension === 'education_level_mod_agg' &&
-            item.etapa &&
-            item.etapa.id !== 11
-          ) {
-            dimensionId = item.etapa.id;
-            dimensionName = item.etapa.nome;
-            otherDimensionId = item.dependencia?.id ?? null;
-          } else if (
-            dimension === 'adm_dependency_detailed' &&
-            item.dependencia
-          ) {
-            dimensionId = item.dependencia.id;
-            dimensionName = item.dependencia.nome;
-            otherDimensionId = item.localizacao?.id ?? null;
-          } else if (dimension === 'location' && item.localizacao) {
-            dimensionId = item.localizacao.id;
-            dimensionName = item.localizacao.nome;
-            otherDimensionId = item.dependencia?.id ?? null;
-          }
-        } else {
-          if (dimension === 'adm_dependency_detailed' && item.dependencia) {
-            dimensionId = item.dependencia.id;
-            dimensionName = item.dependencia.nome;
-            otherDimensionId = item.etapa?.id ?? null;
-          }
-
-          if (dimension === 'education_level_mod' && item.etapa) {
-            dimensionId = item.etapa.id;
-            dimensionName = item.etapa.nome;
-            otherDimensionId = item.dependencia?.id ?? null;
-          }
-
-          if (dimension === 'location' && item.localizacao) {
-            dimensionId = item.localizacao.id;
-            dimensionName = item.localizacao.nome;
-            otherDimensionId = item.etapa?.id ?? null;
-          }
-
-          // Casos específicos de federativeEntity
-          if (tipo === 'federativeEntity') {
-            if (
-              dimension === 'adm_dependency_detailed' &&
-              item.dependencia_teacher
-            ) {
-              dimensionId = item.dependencia_teacher.id;
-              dimensionName = item.dependencia_teacher.nome;
-            } else if (
-              dimension === 'education_level_mod' &&
-              item.etapa_teacher
-            ) {
-              dimensionId = item.etapa_teacher.id;
-              dimensionName = item.etapa_teacher.nome;
-            } else if (dimension === 'contract_type' && item.vinculo) {
-              dimensionId = item.vinculo.id;
-              dimensionName = item.vinculo.nome;
-            }
-          }
+        // Consulta para dados até 2020 (tipo = 'enrollment')
+        if (yearsUntil2020.length > 0) {
+          console.log('entrou aqui 1');
+          const resultsUntil2020 =
+            await this.prisma.dadoEducacaoBasica.findMany({
+              where: {
+                tipo: 'enrollment',
+                ano: { in: yearsUntil2020 },
+                localidade_id: filterParams.city
+                  ? Number(filterParams.city)
+                  : Number(filterParams.state),
+              },
+              include,
+            });
+          allResults = allResults.concat(resultsUntil2020);
         }
 
-        // Se não tiver valor para a dimensão principal, ignorar este item
-        if (dimensionId === null) return;
-
-        // Se não tiver valor para a dimensão secundária, ignorar este item
-        if (tipo != 'federativeEntity') if (otherDimensionId === null) return;
-
-        // Criar chave para o mapa: ano + dimensão principal + dimensão secundária
-        const key = `${year}|${dimensionId}|${otherDimensionId}`;
-
-        if (!aggregatedData.has(key)) {
-          aggregatedData.set(key, {
-            total: Number(item.total).toString(),
-            name: item.localidade?.nome || 'Brasil',
-            year,
-            [`${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_id`]:
-              dimensionId,
-            [`${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_name`]:
-              dimensionName,
-          });
-        } else {
-          const existing = aggregatedData.get(key);
-          existing.total = (
-            Number(existing.total) + Number(item.total)
-          ).toString();
-        }
-      });
-
-      // Antes de retornar, fazer um segundo agrupamento por ano + dimensão primária
-      const finalAggregation = new Map();
-
-      for (const [, value] of aggregatedData.entries()) {
-        const year = value.year;
-        const dimField =
-          dimension === 'arrangement' && tipo === 'school/count'
-            ? 'arrangement'
-            : dimension;
-        const dimId = value[`${dimField}_id`];
-
-        // Chave para agrupamento final: ano + id da dimensão primária
-        const finalKey = `${year}|${dimId}`;
-
-        if (!finalAggregation.has(finalKey)) {
-          // Primeira ocorrência para esta combinação de ano + dimensão
-          finalAggregation.set(finalKey, { ...value });
-        } else {
-          // Somar ao registro existente
-          const existing = finalAggregation.get(finalKey);
-          existing.total = (
-            Number(existing.total) + Number(value.total)
-          ).toString();
+        // Consulta para dados de 2021 em diante (tipo = 'enrollmentAggregate')
+        if (yearsFrom2021.length > 0) {
+          console.log('entrou aqui 2');
+          const resultsFrom2021 = await this.prisma.dadoEducacaoBasica.findMany(
+            {
+              where: {
+                tipo: 'enrollmentAggregate',
+                ano: { in: yearsFrom2021 },
+                localidade_id: filterParams.city
+                  ? Number(filterParams.city)
+                  : Number(filterParams.state),
+              },
+              include,
+            },
+          );
+          allResults = allResults.concat(resultsFrom2021);
         }
       }
+      // Consulta normal para outros tipos ou quando não há necessidade de separar
+      else {
+        // Lógica original para determinar o tipo
+        let queryType = tipo;
+        if (tipo === 'teacher' && filterParams.years.some((y) => y >= 2021))
+          queryType = 'federativeEntity';
 
-      // Converter o mapa para array e ordenar por ano e depois por dimensão
-      return {
-        result: Array.from(finalAggregation.values()).sort((a, b) =>
-          a.year === b.year
-            ? a[
-                `${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_id`
-              ] -
-              b[
-                `${dimension === 'arrangement' && tipo === 'school/count' ? 'arrangement' : dimension}_id`
-              ]
-            : a.year - b.year,
-        ),
-      };
-    } catch (error) {
-      console.error(`Erro ao consultar série histórica de ${tipo}:`, error);
-      return { result: [] };
-    }
-  }
+        if (tipo === 'enrollment' && filterParams.years.some((y) => y >= 2021))
+          queryType = 'enrollmentAggregate';
 
-  // Método genérico para consultar os dados com base no tipo
-  private async queryData(tipo: string, dims: string, filter: string) {
-    // Analisar o filtro usando uma função personalizada
-    const filterParams = this.parseFilter(filter);
-
-    // Se for uma série histórica, usar o método específico
-    if (filterParams.isHistorical) {
-      return this.serieHistorica(tipo, dims, filter);
-    }
-
-    const dimensions = this.parseDims(dims);
-
-    if (filterParams.years.some((y) => y <= 2023)) {
-      try {
-        const results = await this.prisma.dadoEducacaoBasica.findMany({
+        allResults = await this.prisma.dadoEducacaoBasica.findMany({
           where: {
-            tipo,
+            tipo: queryType,
             ano: { in: filterParams.years },
             localidade_id: filterParams.city
               ? Number(filterParams.city)
               : Number(filterParams.state),
           },
-          include: {
-            dependencia: dimensions.includes('adm_dependency_detailed'),
-            etapa: dimensions.includes('education_level_mod'),
-            localizacao: dimensions.includes('location'),
-          },
+          include,
         });
-
-        // Mapear os resultados para o formato esperado pelo frontend
-        const mappedResults = results.map((item) => ({
-          year: item.ano,
-          total: Number(item.total),
-          ...(item.dependencia
-            ? {
-                adm_dependency_detailed_id: item.dependencia.id,
-                adm_dependency_detailed_name: item.dependencia.nome,
-              }
-            : {}),
-          ...(item.etapa
-            ? {
-                education_level_mod_id: item.etapa.id,
-                education_level_mod_name: item.etapa.nome,
-              }
-            : {}),
-          ...(item.localizacao
-            ? {
-                location_id: item.localizacao.id,
-                location_name: item.localizacao.nome,
-              }
-            : {}),
-        }));
-
-        // Agrupar resultados por combinações únicas de dimensões selecionadas
-        const aggregatedMap = new Map();
-
-        mappedResults.forEach((item) => {
-          // Criar uma chave única com base nas dimensões selecionadas
-          const keys = ['year'];
-          if (dimensions.includes('adm_dependency_detailed'))
-            keys.push('adm_dependency_detailed_id');
-          if (dimensions.includes('location')) keys.push('location_id');
-          if (dimensions.includes('education_level_mod')) {
-            keys.push('education_level_mod_id');
-          }
-          // Se não há dimensões selecionadas, usar apenas o ano como chave
-          const mapKey = keys.map((key) => `${key}:${item[key]}`).join('|');
-
-          // Agregar os totais
-          if (!aggregatedMap.has(mapKey)) {
-            aggregatedMap.set(mapKey, { ...item });
-          } else {
-            const existingItem = aggregatedMap.get(mapKey);
-            existingItem.total += item.total;
-          }
-        });
-
-        // Converter o mapa de volta para um array
-        const aggregatedResults = Array.from(aggregatedMap.values());
-
-        return {
-          result: aggregatedResults,
-        };
-      } catch (error) {
-        console.error(`Erro ao consultar dados de ${tipo}:`, error);
-        return { result: [] };
       }
-    } else {
-      return this.queryDataApos23(tipo, dims, filter);
+
+      // Criar contexto para o mapper
+      const mappingContext: MappingContext = {
+        tipo,
+        filterParams,
+        dimensions,
+        dataSource: DataSourceType.DADOS_EDUCACAO_BASICA,
+      };
+
+      // Usar o mapper para padronizar a resposta
+      const standardResponse = this.mapper.mapToStandardFormat(
+        allResults,
+        mappingContext,
+      );
+
+      // Remover itens excluídos
+      const filteredResults = this.mapper.removeExcludedItems(
+        standardResponse.result,
+        mappingContext,
+      );
+      standardResponse.result = filteredResults;
+
+      // Lógica de agrupamento baseada nas dimensões
+      if (dimensions.length === 0) {
+        // Sem dimensões - usar combinação fixa para evitar dupla contagem
+        standardResponse.result = this.processNoDimensions(
+          standardResponse.result,
+          tipo,
+          filterParams,
+        );
+      } else if (dimensions.length === 1) {
+        // Com uma dimensão - aplicar lógica específica baseada no tipo
+        standardResponse.result = this.processSingleDimension(
+          standardResponse.result,
+          dimensions[0],
+          tipo,
+          filterParams,
+        );
+      } else if (dimensions.length === 2) {
+        // Com duas dimensões - manter todos os dados detalhados
+        standardResponse.result = this.processTwoDimensions(
+          standardResponse.result,
+          dimensions,
+        );
+      }
+
+      return standardResponse;
+    } catch (error) {
+      console.error(`Erro ao consultar série histórica de ${tipo}:`, error);
+      return {
+        result: [],
+        metadata: {
+          filters: this.mapper['extractFilters'](filterParams),
+          dimensions,
+          source: DataSourceType.DADOS_EDUCACAO_BASICA,
+          lastUpdated: new Date(),
+        },
+      };
     }
   }
 
-  /**
-   * Método auxiliar para obter IDs das cidades do Piauí com cache
-   * Cache expira em 24 horas para não consumir muita memória
-   * Use este método quando houver múltiplas consultas consecutivas para o estado
-   */
-  private async getPiauiCitiesIds(): Promise<number[]> {
-    const now = new Date();
-
-    // Verificar se o cache está válido (24 horas)
-    if (this.piauiCitiesCache && this.cacheExpiry && now < this.cacheExpiry) {
-      return this.piauiCitiesCache;
-    }
-
-    // Buscar cidades do Piauí
-    const piauiCities = await this.prisma.localidade.findMany({
-      where: {
-        tipo: 'municipio',
-        uf: 'PI',
-      },
-      select: { id: true },
-    });
-
-    // Atualizar cache
-    this.piauiCitiesCache = piauiCities.map((city) => city.id);
-    this.cacheExpiry = new Date(now.getTime() + 24 * 60 * 60 * 1000); // 24 horas
-
-    return this.piauiCitiesCache;
+  // Método auxiliar para verificar se precisa fazer consultas separadas
+  private needsSeparateQueries(years: number[]): boolean {
+    const hasYearsUntil2020 = years.some((y) => y <= 2020);
+    const hasYearsFrom2021 = years.some((y) => y >= 2021);
+    return hasYearsUntil2020 && hasYearsFrom2021;
   }
 
   /**
@@ -1141,6 +729,12 @@ export class BasicService {
     isHistorical?: boolean;
   } {
     try {
+      // CORREÇÃO: Verificar se filter existe e não é undefined/null
+      if (!filter || typeof filter !== 'string') {
+        console.warn('Filter is undefined or not a string, using defaults');
+        return { years: [2022], state: '22', isHistorical: false };
+      }
+
       const yearPattern = /min_year:"(\d+)",max_year:"(\d+)"/;
       const statePattern = /state:"(\d+)"/;
       const cityPattern = /city:"(\d+)"/;
@@ -1170,6 +764,13 @@ export class BasicService {
 
   // Função auxiliar para analisar as dimensões
   private parseDims(dims: string): string[] {
-    return dims ? dims.split(',') : [];
+    if (!dims || typeof dims !== 'string') {
+      return [];
+    }
+    // CORREÇÃO: Remover espaços em branco das dimensões após split
+    return dims
+      .split(',')
+      .map((dim) => dim.trim())
+      .filter((dim) => dim.length > 0);
   }
 }

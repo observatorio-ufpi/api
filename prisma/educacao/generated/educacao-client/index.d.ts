@@ -39,6 +39,16 @@ export type DependenciaAdministrativaBasicaApos23 = $Result.DefaultSelection<Pri
  */
 export type EtapaEnsinoBasica = $Result.DefaultSelection<Prisma.$EtapaEnsinoBasicaPayload>
 /**
+ * Model EtapaTurma
+ * 
+ */
+export type EtapaTurma = $Result.DefaultSelection<Prisma.$EtapaTurmaPayload>
+/**
+ * Model EtapaMatriculaAte2020
+ * 
+ */
+export type EtapaMatriculaAte2020 = $Result.DefaultSelection<Prisma.$EtapaMatriculaAte2020Payload>
+/**
  * Model EtapaEnsinoBasicaSchool
  * 
  */
@@ -270,6 +280,26 @@ export class PrismaClient<
     * ```
     */
   get etapaEnsinoBasica(): Prisma.EtapaEnsinoBasicaDelegate<ExtArgs>;
+
+  /**
+   * `prisma.etapaTurma`: Exposes CRUD operations for the **EtapaTurma** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EtapaTurmas
+    * const etapaTurmas = await prisma.etapaTurma.findMany()
+    * ```
+    */
+  get etapaTurma(): Prisma.EtapaTurmaDelegate<ExtArgs>;
+
+  /**
+   * `prisma.etapaMatriculaAte2020`: Exposes CRUD operations for the **EtapaMatriculaAte2020** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EtapaMatriculaAte2020s
+    * const etapaMatriculaAte2020s = await prisma.etapaMatriculaAte2020.findMany()
+    * ```
+    */
+  get etapaMatriculaAte2020(): Prisma.EtapaMatriculaAte2020Delegate<ExtArgs>;
 
   /**
    * `prisma.etapaEnsinoBasicaSchool`: Exposes CRUD operations for the **EtapaEnsinoBasicaSchool** model.
@@ -865,6 +895,8 @@ export namespace Prisma {
     DependenciaAdministrativaBasicaTeacher: 'DependenciaAdministrativaBasicaTeacher',
     DependenciaAdministrativaBasicaApos23: 'DependenciaAdministrativaBasicaApos23',
     EtapaEnsinoBasica: 'EtapaEnsinoBasica',
+    EtapaTurma: 'EtapaTurma',
+    EtapaMatriculaAte2020: 'EtapaMatriculaAte2020',
     EtapaEnsinoBasicaSchool: 'EtapaEnsinoBasicaSchool',
     EtapaEnsinoBasicaTeacher21: 'EtapaEnsinoBasicaTeacher21',
     EtapaEnsinoBasicaApos23: 'EtapaEnsinoBasicaApos23',
@@ -893,7 +925,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'localidade' | 'dependenciaAdministrativaBasica' | 'dependenciaAdministrativaBasicaTeacher' | 'dependenciaAdministrativaBasicaApos23' | 'etapaEnsinoBasica' | 'etapaEnsinoBasicaSchool' | 'etapaEnsinoBasicaTeacher21' | 'etapaEnsinoBasicaApos23' | 'etapaEnsinoBasicaApos23TeacherClass' | 'localizacao' | 'vinculoFuncional' | 'formacaoDocente' | 'faixaEtaria' | 'entidade' | 'dadoEducacaoBasica' | 'dadoEducacaoBasicaApos23' | 'importacaoAPI'
+      modelProps: 'localidade' | 'dependenciaAdministrativaBasica' | 'dependenciaAdministrativaBasicaTeacher' | 'dependenciaAdministrativaBasicaApos23' | 'etapaEnsinoBasica' | 'etapaTurma' | 'etapaMatriculaAte2020' | 'etapaEnsinoBasicaSchool' | 'etapaEnsinoBasicaTeacher21' | 'etapaEnsinoBasicaApos23' | 'etapaEnsinoBasicaApos23TeacherClass' | 'localizacao' | 'vinculoFuncional' | 'formacaoDocente' | 'faixaEtaria' | 'entidade' | 'dadoEducacaoBasica' | 'dadoEducacaoBasicaApos23' | 'importacaoAPI'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -1224,6 +1256,138 @@ export namespace Prisma {
           count: {
             args: Prisma.EtapaEnsinoBasicaCountArgs<ExtArgs>,
             result: $Utils.Optional<EtapaEnsinoBasicaCountAggregateOutputType> | number
+          }
+        }
+      }
+      EtapaTurma: {
+        payload: Prisma.$EtapaTurmaPayload<ExtArgs>
+        fields: Prisma.EtapaTurmaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EtapaTurmaFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaTurmaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EtapaTurmaFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaTurmaPayload>
+          }
+          findFirst: {
+            args: Prisma.EtapaTurmaFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaTurmaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EtapaTurmaFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaTurmaPayload>
+          }
+          findMany: {
+            args: Prisma.EtapaTurmaFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaTurmaPayload>[]
+          }
+          create: {
+            args: Prisma.EtapaTurmaCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaTurmaPayload>
+          }
+          createMany: {
+            args: Prisma.EtapaTurmaCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.EtapaTurmaDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaTurmaPayload>
+          }
+          update: {
+            args: Prisma.EtapaTurmaUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaTurmaPayload>
+          }
+          deleteMany: {
+            args: Prisma.EtapaTurmaDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EtapaTurmaUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.EtapaTurmaUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaTurmaPayload>
+          }
+          aggregate: {
+            args: Prisma.EtapaTurmaAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateEtapaTurma>
+          }
+          groupBy: {
+            args: Prisma.EtapaTurmaGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<EtapaTurmaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EtapaTurmaCountArgs<ExtArgs>,
+            result: $Utils.Optional<EtapaTurmaCountAggregateOutputType> | number
+          }
+        }
+      }
+      EtapaMatriculaAte2020: {
+        payload: Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>
+        fields: Prisma.EtapaMatriculaAte2020FieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EtapaMatriculaAte2020FindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaMatriculaAte2020Payload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EtapaMatriculaAte2020FindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaMatriculaAte2020Payload>
+          }
+          findFirst: {
+            args: Prisma.EtapaMatriculaAte2020FindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaMatriculaAte2020Payload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EtapaMatriculaAte2020FindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaMatriculaAte2020Payload>
+          }
+          findMany: {
+            args: Prisma.EtapaMatriculaAte2020FindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaMatriculaAte2020Payload>[]
+          }
+          create: {
+            args: Prisma.EtapaMatriculaAte2020CreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaMatriculaAte2020Payload>
+          }
+          createMany: {
+            args: Prisma.EtapaMatriculaAte2020CreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.EtapaMatriculaAte2020DeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaMatriculaAte2020Payload>
+          }
+          update: {
+            args: Prisma.EtapaMatriculaAte2020UpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaMatriculaAte2020Payload>
+          }
+          deleteMany: {
+            args: Prisma.EtapaMatriculaAte2020DeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EtapaMatriculaAte2020UpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.EtapaMatriculaAte2020UpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$EtapaMatriculaAte2020Payload>
+          }
+          aggregate: {
+            args: Prisma.EtapaMatriculaAte2020AggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateEtapaMatriculaAte2020>
+          }
+          groupBy: {
+            args: Prisma.EtapaMatriculaAte2020GroupByArgs<ExtArgs>,
+            result: $Utils.Optional<EtapaMatriculaAte2020GroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EtapaMatriculaAte2020CountArgs<ExtArgs>,
+            result: $Utils.Optional<EtapaMatriculaAte2020CountAggregateOutputType> | number
           }
         }
       }
@@ -2348,6 +2512,74 @@ export namespace Prisma {
    * EtapaEnsinoBasicaCountOutputType without action
    */
   export type EtapaEnsinoBasicaCountOutputTypeCountDadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DadoEducacaoBasicaWhereInput
+  }
+
+
+
+  /**
+   * Count Type EtapaTurmaCountOutputType
+   */
+
+  export type EtapaTurmaCountOutputType = {
+    dados: number
+  }
+
+  export type EtapaTurmaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dados?: boolean | EtapaTurmaCountOutputTypeCountDadosArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * EtapaTurmaCountOutputType without action
+   */
+  export type EtapaTurmaCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurmaCountOutputType
+     */
+    select?: EtapaTurmaCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * EtapaTurmaCountOutputType without action
+   */
+  export type EtapaTurmaCountOutputTypeCountDadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DadoEducacaoBasicaWhereInput
+  }
+
+
+
+  /**
+   * Count Type EtapaMatriculaAte2020CountOutputType
+   */
+
+  export type EtapaMatriculaAte2020CountOutputType = {
+    dados: number
+  }
+
+  export type EtapaMatriculaAte2020CountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dados?: boolean | EtapaMatriculaAte2020CountOutputTypeCountDadosArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * EtapaMatriculaAte2020CountOutputType without action
+   */
+  export type EtapaMatriculaAte2020CountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020CountOutputType
+     */
+    select?: EtapaMatriculaAte2020CountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020CountOutputType without action
+   */
+  export type EtapaMatriculaAte2020CountOutputTypeCountDadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DadoEducacaoBasicaWhereInput
   }
 
@@ -7482,6 +7714,1890 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well.
      */
     include?: EtapaEnsinoBasicaInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model EtapaTurma
+   */
+
+  export type AggregateEtapaTurma = {
+    _count: EtapaTurmaCountAggregateOutputType | null
+    _avg: EtapaTurmaAvgAggregateOutputType | null
+    _sum: EtapaTurmaSumAggregateOutputType | null
+    _min: EtapaTurmaMinAggregateOutputType | null
+    _max: EtapaTurmaMaxAggregateOutputType | null
+  }
+
+  export type EtapaTurmaAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type EtapaTurmaSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type EtapaTurmaMinAggregateOutputType = {
+    id: number | null
+    nome: string | null
+  }
+
+  export type EtapaTurmaMaxAggregateOutputType = {
+    id: number | null
+    nome: string | null
+  }
+
+  export type EtapaTurmaCountAggregateOutputType = {
+    id: number
+    nome: number
+    _all: number
+  }
+
+
+  export type EtapaTurmaAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type EtapaTurmaSumAggregateInputType = {
+    id?: true
+  }
+
+  export type EtapaTurmaMinAggregateInputType = {
+    id?: true
+    nome?: true
+  }
+
+  export type EtapaTurmaMaxAggregateInputType = {
+    id?: true
+    nome?: true
+  }
+
+  export type EtapaTurmaCountAggregateInputType = {
+    id?: true
+    nome?: true
+    _all?: true
+  }
+
+  export type EtapaTurmaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EtapaTurma to aggregate.
+     */
+    where?: EtapaTurmaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaTurmas to fetch.
+     */
+    orderBy?: EtapaTurmaOrderByWithRelationInput | EtapaTurmaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EtapaTurmaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaTurmas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaTurmas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EtapaTurmas
+    **/
+    _count?: true | EtapaTurmaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EtapaTurmaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EtapaTurmaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EtapaTurmaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EtapaTurmaMaxAggregateInputType
+  }
+
+  export type GetEtapaTurmaAggregateType<T extends EtapaTurmaAggregateArgs> = {
+        [P in keyof T & keyof AggregateEtapaTurma]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEtapaTurma[P]>
+      : GetScalarType<T[P], AggregateEtapaTurma[P]>
+  }
+
+
+
+
+  export type EtapaTurmaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EtapaTurmaWhereInput
+    orderBy?: EtapaTurmaOrderByWithAggregationInput | EtapaTurmaOrderByWithAggregationInput[]
+    by: EtapaTurmaScalarFieldEnum[] | EtapaTurmaScalarFieldEnum
+    having?: EtapaTurmaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EtapaTurmaCountAggregateInputType | true
+    _avg?: EtapaTurmaAvgAggregateInputType
+    _sum?: EtapaTurmaSumAggregateInputType
+    _min?: EtapaTurmaMinAggregateInputType
+    _max?: EtapaTurmaMaxAggregateInputType
+  }
+
+  export type EtapaTurmaGroupByOutputType = {
+    id: number
+    nome: string
+    _count: EtapaTurmaCountAggregateOutputType | null
+    _avg: EtapaTurmaAvgAggregateOutputType | null
+    _sum: EtapaTurmaSumAggregateOutputType | null
+    _min: EtapaTurmaMinAggregateOutputType | null
+    _max: EtapaTurmaMaxAggregateOutputType | null
+  }
+
+  type GetEtapaTurmaGroupByPayload<T extends EtapaTurmaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EtapaTurmaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EtapaTurmaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EtapaTurmaGroupByOutputType[P]>
+            : GetScalarType<T[P], EtapaTurmaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EtapaTurmaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+    dados?: boolean | EtapaTurma$dadosArgs<ExtArgs>
+    _count?: boolean | EtapaTurmaCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["etapaTurma"]>
+
+  export type EtapaTurmaSelectScalar = {
+    id?: boolean
+    nome?: boolean
+  }
+
+  export type EtapaTurmaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dados?: boolean | EtapaTurma$dadosArgs<ExtArgs>
+    _count?: boolean | EtapaTurmaCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $EtapaTurmaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EtapaTurma"
+    objects: {
+      dados: Prisma.$DadoEducacaoBasicaPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nome: string
+    }, ExtArgs["result"]["etapaTurma"]>
+    composites: {}
+  }
+
+
+  type EtapaTurmaGetPayload<S extends boolean | null | undefined | EtapaTurmaDefaultArgs> = $Result.GetResult<Prisma.$EtapaTurmaPayload, S>
+
+  type EtapaTurmaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<EtapaTurmaFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: EtapaTurmaCountAggregateInputType | true
+    }
+
+  export interface EtapaTurmaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EtapaTurma'], meta: { name: 'EtapaTurma' } }
+    /**
+     * Find zero or one EtapaTurma that matches the filter.
+     * @param {EtapaTurmaFindUniqueArgs} args - Arguments to find a EtapaTurma
+     * @example
+     * // Get one EtapaTurma
+     * const etapaTurma = await prisma.etapaTurma.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends EtapaTurmaFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaTurmaFindUniqueArgs<ExtArgs>>
+    ): Prisma__EtapaTurmaClient<$Result.GetResult<Prisma.$EtapaTurmaPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one EtapaTurma that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {EtapaTurmaFindUniqueOrThrowArgs} args - Arguments to find a EtapaTurma
+     * @example
+     * // Get one EtapaTurma
+     * const etapaTurma = await prisma.etapaTurma.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends EtapaTurmaFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaTurmaFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__EtapaTurmaClient<$Result.GetResult<Prisma.$EtapaTurmaPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first EtapaTurma that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaTurmaFindFirstArgs} args - Arguments to find a EtapaTurma
+     * @example
+     * // Get one EtapaTurma
+     * const etapaTurma = await prisma.etapaTurma.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends EtapaTurmaFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaTurmaFindFirstArgs<ExtArgs>>
+    ): Prisma__EtapaTurmaClient<$Result.GetResult<Prisma.$EtapaTurmaPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first EtapaTurma that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaTurmaFindFirstOrThrowArgs} args - Arguments to find a EtapaTurma
+     * @example
+     * // Get one EtapaTurma
+     * const etapaTurma = await prisma.etapaTurma.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends EtapaTurmaFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaTurmaFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__EtapaTurmaClient<$Result.GetResult<Prisma.$EtapaTurmaPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more EtapaTurmas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaTurmaFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EtapaTurmas
+     * const etapaTurmas = await prisma.etapaTurma.findMany()
+     * 
+     * // Get first 10 EtapaTurmas
+     * const etapaTurmas = await prisma.etapaTurma.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const etapaTurmaWithIdOnly = await prisma.etapaTurma.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends EtapaTurmaFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaTurmaFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EtapaTurmaPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a EtapaTurma.
+     * @param {EtapaTurmaCreateArgs} args - Arguments to create a EtapaTurma.
+     * @example
+     * // Create one EtapaTurma
+     * const EtapaTurma = await prisma.etapaTurma.create({
+     *   data: {
+     *     // ... data to create a EtapaTurma
+     *   }
+     * })
+     * 
+    **/
+    create<T extends EtapaTurmaCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaTurmaCreateArgs<ExtArgs>>
+    ): Prisma__EtapaTurmaClient<$Result.GetResult<Prisma.$EtapaTurmaPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many EtapaTurmas.
+     *     @param {EtapaTurmaCreateManyArgs} args - Arguments to create many EtapaTurmas.
+     *     @example
+     *     // Create many EtapaTurmas
+     *     const etapaTurma = await prisma.etapaTurma.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends EtapaTurmaCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaTurmaCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a EtapaTurma.
+     * @param {EtapaTurmaDeleteArgs} args - Arguments to delete one EtapaTurma.
+     * @example
+     * // Delete one EtapaTurma
+     * const EtapaTurma = await prisma.etapaTurma.delete({
+     *   where: {
+     *     // ... filter to delete one EtapaTurma
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends EtapaTurmaDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaTurmaDeleteArgs<ExtArgs>>
+    ): Prisma__EtapaTurmaClient<$Result.GetResult<Prisma.$EtapaTurmaPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one EtapaTurma.
+     * @param {EtapaTurmaUpdateArgs} args - Arguments to update one EtapaTurma.
+     * @example
+     * // Update one EtapaTurma
+     * const etapaTurma = await prisma.etapaTurma.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends EtapaTurmaUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaTurmaUpdateArgs<ExtArgs>>
+    ): Prisma__EtapaTurmaClient<$Result.GetResult<Prisma.$EtapaTurmaPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more EtapaTurmas.
+     * @param {EtapaTurmaDeleteManyArgs} args - Arguments to filter EtapaTurmas to delete.
+     * @example
+     * // Delete a few EtapaTurmas
+     * const { count } = await prisma.etapaTurma.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends EtapaTurmaDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaTurmaDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EtapaTurmas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaTurmaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EtapaTurmas
+     * const etapaTurma = await prisma.etapaTurma.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends EtapaTurmaUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaTurmaUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one EtapaTurma.
+     * @param {EtapaTurmaUpsertArgs} args - Arguments to update or create a EtapaTurma.
+     * @example
+     * // Update or create a EtapaTurma
+     * const etapaTurma = await prisma.etapaTurma.upsert({
+     *   create: {
+     *     // ... data to create a EtapaTurma
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EtapaTurma we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends EtapaTurmaUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaTurmaUpsertArgs<ExtArgs>>
+    ): Prisma__EtapaTurmaClient<$Result.GetResult<Prisma.$EtapaTurmaPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of EtapaTurmas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaTurmaCountArgs} args - Arguments to filter EtapaTurmas to count.
+     * @example
+     * // Count the number of EtapaTurmas
+     * const count = await prisma.etapaTurma.count({
+     *   where: {
+     *     // ... the filter for the EtapaTurmas we want to count
+     *   }
+     * })
+    **/
+    count<T extends EtapaTurmaCountArgs>(
+      args?: Subset<T, EtapaTurmaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EtapaTurmaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EtapaTurma.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaTurmaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EtapaTurmaAggregateArgs>(args: Subset<T, EtapaTurmaAggregateArgs>): Prisma.PrismaPromise<GetEtapaTurmaAggregateType<T>>
+
+    /**
+     * Group by EtapaTurma.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaTurmaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EtapaTurmaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EtapaTurmaGroupByArgs['orderBy'] }
+        : { orderBy?: EtapaTurmaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EtapaTurmaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEtapaTurmaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EtapaTurma model
+   */
+  readonly fields: EtapaTurmaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EtapaTurma.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EtapaTurmaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    dados<T extends EtapaTurma$dadosArgs<ExtArgs> = {}>(args?: Subset<T, EtapaTurma$dadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DadoEducacaoBasicaPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the EtapaTurma model
+   */ 
+  interface EtapaTurmaFieldRefs {
+    readonly id: FieldRef<"EtapaTurma", 'Int'>
+    readonly nome: FieldRef<"EtapaTurma", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * EtapaTurma findUnique
+   */
+  export type EtapaTurmaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+    /**
+     * Filter, which EtapaTurma to fetch.
+     */
+    where: EtapaTurmaWhereUniqueInput
+  }
+
+
+  /**
+   * EtapaTurma findUniqueOrThrow
+   */
+  export type EtapaTurmaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+    /**
+     * Filter, which EtapaTurma to fetch.
+     */
+    where: EtapaTurmaWhereUniqueInput
+  }
+
+
+  /**
+   * EtapaTurma findFirst
+   */
+  export type EtapaTurmaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+    /**
+     * Filter, which EtapaTurma to fetch.
+     */
+    where?: EtapaTurmaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaTurmas to fetch.
+     */
+    orderBy?: EtapaTurmaOrderByWithRelationInput | EtapaTurmaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EtapaTurmas.
+     */
+    cursor?: EtapaTurmaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaTurmas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaTurmas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EtapaTurmas.
+     */
+    distinct?: EtapaTurmaScalarFieldEnum | EtapaTurmaScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaTurma findFirstOrThrow
+   */
+  export type EtapaTurmaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+    /**
+     * Filter, which EtapaTurma to fetch.
+     */
+    where?: EtapaTurmaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaTurmas to fetch.
+     */
+    orderBy?: EtapaTurmaOrderByWithRelationInput | EtapaTurmaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EtapaTurmas.
+     */
+    cursor?: EtapaTurmaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaTurmas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaTurmas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EtapaTurmas.
+     */
+    distinct?: EtapaTurmaScalarFieldEnum | EtapaTurmaScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaTurma findMany
+   */
+  export type EtapaTurmaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+    /**
+     * Filter, which EtapaTurmas to fetch.
+     */
+    where?: EtapaTurmaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaTurmas to fetch.
+     */
+    orderBy?: EtapaTurmaOrderByWithRelationInput | EtapaTurmaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EtapaTurmas.
+     */
+    cursor?: EtapaTurmaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaTurmas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaTurmas.
+     */
+    skip?: number
+    distinct?: EtapaTurmaScalarFieldEnum | EtapaTurmaScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaTurma create
+   */
+  export type EtapaTurmaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EtapaTurma.
+     */
+    data: XOR<EtapaTurmaCreateInput, EtapaTurmaUncheckedCreateInput>
+  }
+
+
+  /**
+   * EtapaTurma createMany
+   */
+  export type EtapaTurmaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EtapaTurmas.
+     */
+    data: EtapaTurmaCreateManyInput | EtapaTurmaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * EtapaTurma update
+   */
+  export type EtapaTurmaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EtapaTurma.
+     */
+    data: XOR<EtapaTurmaUpdateInput, EtapaTurmaUncheckedUpdateInput>
+    /**
+     * Choose, which EtapaTurma to update.
+     */
+    where: EtapaTurmaWhereUniqueInput
+  }
+
+
+  /**
+   * EtapaTurma updateMany
+   */
+  export type EtapaTurmaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EtapaTurmas.
+     */
+    data: XOR<EtapaTurmaUpdateManyMutationInput, EtapaTurmaUncheckedUpdateManyInput>
+    /**
+     * Filter which EtapaTurmas to update
+     */
+    where?: EtapaTurmaWhereInput
+  }
+
+
+  /**
+   * EtapaTurma upsert
+   */
+  export type EtapaTurmaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EtapaTurma to update in case it exists.
+     */
+    where: EtapaTurmaWhereUniqueInput
+    /**
+     * In case the EtapaTurma found by the `where` argument doesn't exist, create a new EtapaTurma with this data.
+     */
+    create: XOR<EtapaTurmaCreateInput, EtapaTurmaUncheckedCreateInput>
+    /**
+     * In case the EtapaTurma was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EtapaTurmaUpdateInput, EtapaTurmaUncheckedUpdateInput>
+  }
+
+
+  /**
+   * EtapaTurma delete
+   */
+  export type EtapaTurmaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+    /**
+     * Filter which EtapaTurma to delete.
+     */
+    where: EtapaTurmaWhereUniqueInput
+  }
+
+
+  /**
+   * EtapaTurma deleteMany
+   */
+  export type EtapaTurmaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EtapaTurmas to delete
+     */
+    where?: EtapaTurmaWhereInput
+  }
+
+
+  /**
+   * EtapaTurma.dados
+   */
+  export type EtapaTurma$dadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DadoEducacaoBasica
+     */
+    select?: DadoEducacaoBasicaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DadoEducacaoBasicaInclude<ExtArgs> | null
+    where?: DadoEducacaoBasicaWhereInput
+    orderBy?: DadoEducacaoBasicaOrderByWithRelationInput | DadoEducacaoBasicaOrderByWithRelationInput[]
+    cursor?: DadoEducacaoBasicaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DadoEducacaoBasicaScalarFieldEnum | DadoEducacaoBasicaScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaTurma without action
+   */
+  export type EtapaTurmaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model EtapaMatriculaAte2020
+   */
+
+  export type AggregateEtapaMatriculaAte2020 = {
+    _count: EtapaMatriculaAte2020CountAggregateOutputType | null
+    _avg: EtapaMatriculaAte2020AvgAggregateOutputType | null
+    _sum: EtapaMatriculaAte2020SumAggregateOutputType | null
+    _min: EtapaMatriculaAte2020MinAggregateOutputType | null
+    _max: EtapaMatriculaAte2020MaxAggregateOutputType | null
+  }
+
+  export type EtapaMatriculaAte2020AvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type EtapaMatriculaAte2020SumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type EtapaMatriculaAte2020MinAggregateOutputType = {
+    id: number | null
+    nome: string | null
+  }
+
+  export type EtapaMatriculaAte2020MaxAggregateOutputType = {
+    id: number | null
+    nome: string | null
+  }
+
+  export type EtapaMatriculaAte2020CountAggregateOutputType = {
+    id: number
+    nome: number
+    _all: number
+  }
+
+
+  export type EtapaMatriculaAte2020AvgAggregateInputType = {
+    id?: true
+  }
+
+  export type EtapaMatriculaAte2020SumAggregateInputType = {
+    id?: true
+  }
+
+  export type EtapaMatriculaAte2020MinAggregateInputType = {
+    id?: true
+    nome?: true
+  }
+
+  export type EtapaMatriculaAte2020MaxAggregateInputType = {
+    id?: true
+    nome?: true
+  }
+
+  export type EtapaMatriculaAte2020CountAggregateInputType = {
+    id?: true
+    nome?: true
+    _all?: true
+  }
+
+  export type EtapaMatriculaAte2020AggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EtapaMatriculaAte2020 to aggregate.
+     */
+    where?: EtapaMatriculaAte2020WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaMatriculaAte2020s to fetch.
+     */
+    orderBy?: EtapaMatriculaAte2020OrderByWithRelationInput | EtapaMatriculaAte2020OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EtapaMatriculaAte2020WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaMatriculaAte2020s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaMatriculaAte2020s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EtapaMatriculaAte2020s
+    **/
+    _count?: true | EtapaMatriculaAte2020CountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EtapaMatriculaAte2020AvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EtapaMatriculaAte2020SumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EtapaMatriculaAte2020MinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EtapaMatriculaAte2020MaxAggregateInputType
+  }
+
+  export type GetEtapaMatriculaAte2020AggregateType<T extends EtapaMatriculaAte2020AggregateArgs> = {
+        [P in keyof T & keyof AggregateEtapaMatriculaAte2020]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEtapaMatriculaAte2020[P]>
+      : GetScalarType<T[P], AggregateEtapaMatriculaAte2020[P]>
+  }
+
+
+
+
+  export type EtapaMatriculaAte2020GroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EtapaMatriculaAte2020WhereInput
+    orderBy?: EtapaMatriculaAte2020OrderByWithAggregationInput | EtapaMatriculaAte2020OrderByWithAggregationInput[]
+    by: EtapaMatriculaAte2020ScalarFieldEnum[] | EtapaMatriculaAte2020ScalarFieldEnum
+    having?: EtapaMatriculaAte2020ScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EtapaMatriculaAte2020CountAggregateInputType | true
+    _avg?: EtapaMatriculaAte2020AvgAggregateInputType
+    _sum?: EtapaMatriculaAte2020SumAggregateInputType
+    _min?: EtapaMatriculaAte2020MinAggregateInputType
+    _max?: EtapaMatriculaAte2020MaxAggregateInputType
+  }
+
+  export type EtapaMatriculaAte2020GroupByOutputType = {
+    id: number
+    nome: string
+    _count: EtapaMatriculaAte2020CountAggregateOutputType | null
+    _avg: EtapaMatriculaAte2020AvgAggregateOutputType | null
+    _sum: EtapaMatriculaAte2020SumAggregateOutputType | null
+    _min: EtapaMatriculaAte2020MinAggregateOutputType | null
+    _max: EtapaMatriculaAte2020MaxAggregateOutputType | null
+  }
+
+  type GetEtapaMatriculaAte2020GroupByPayload<T extends EtapaMatriculaAte2020GroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EtapaMatriculaAte2020GroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EtapaMatriculaAte2020GroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EtapaMatriculaAte2020GroupByOutputType[P]>
+            : GetScalarType<T[P], EtapaMatriculaAte2020GroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EtapaMatriculaAte2020Select<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+    dados?: boolean | EtapaMatriculaAte2020$dadosArgs<ExtArgs>
+    _count?: boolean | EtapaMatriculaAte2020CountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["etapaMatriculaAte2020"]>
+
+  export type EtapaMatriculaAte2020SelectScalar = {
+    id?: boolean
+    nome?: boolean
+  }
+
+  export type EtapaMatriculaAte2020Include<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dados?: boolean | EtapaMatriculaAte2020$dadosArgs<ExtArgs>
+    _count?: boolean | EtapaMatriculaAte2020CountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $EtapaMatriculaAte2020Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EtapaMatriculaAte2020"
+    objects: {
+      dados: Prisma.$DadoEducacaoBasicaPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nome: string
+    }, ExtArgs["result"]["etapaMatriculaAte2020"]>
+    composites: {}
+  }
+
+
+  type EtapaMatriculaAte2020GetPayload<S extends boolean | null | undefined | EtapaMatriculaAte2020DefaultArgs> = $Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload, S>
+
+  type EtapaMatriculaAte2020CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<EtapaMatriculaAte2020FindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: EtapaMatriculaAte2020CountAggregateInputType | true
+    }
+
+  export interface EtapaMatriculaAte2020Delegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EtapaMatriculaAte2020'], meta: { name: 'EtapaMatriculaAte2020' } }
+    /**
+     * Find zero or one EtapaMatriculaAte2020 that matches the filter.
+     * @param {EtapaMatriculaAte2020FindUniqueArgs} args - Arguments to find a EtapaMatriculaAte2020
+     * @example
+     * // Get one EtapaMatriculaAte2020
+     * const etapaMatriculaAte2020 = await prisma.etapaMatriculaAte2020.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends EtapaMatriculaAte2020FindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaMatriculaAte2020FindUniqueArgs<ExtArgs>>
+    ): Prisma__EtapaMatriculaAte2020Client<$Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one EtapaMatriculaAte2020 that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {EtapaMatriculaAte2020FindUniqueOrThrowArgs} args - Arguments to find a EtapaMatriculaAte2020
+     * @example
+     * // Get one EtapaMatriculaAte2020
+     * const etapaMatriculaAte2020 = await prisma.etapaMatriculaAte2020.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends EtapaMatriculaAte2020FindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaMatriculaAte2020FindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__EtapaMatriculaAte2020Client<$Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first EtapaMatriculaAte2020 that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaMatriculaAte2020FindFirstArgs} args - Arguments to find a EtapaMatriculaAte2020
+     * @example
+     * // Get one EtapaMatriculaAte2020
+     * const etapaMatriculaAte2020 = await prisma.etapaMatriculaAte2020.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends EtapaMatriculaAte2020FindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaMatriculaAte2020FindFirstArgs<ExtArgs>>
+    ): Prisma__EtapaMatriculaAte2020Client<$Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first EtapaMatriculaAte2020 that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaMatriculaAte2020FindFirstOrThrowArgs} args - Arguments to find a EtapaMatriculaAte2020
+     * @example
+     * // Get one EtapaMatriculaAte2020
+     * const etapaMatriculaAte2020 = await prisma.etapaMatriculaAte2020.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends EtapaMatriculaAte2020FindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaMatriculaAte2020FindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__EtapaMatriculaAte2020Client<$Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more EtapaMatriculaAte2020s that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaMatriculaAte2020FindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EtapaMatriculaAte2020s
+     * const etapaMatriculaAte2020s = await prisma.etapaMatriculaAte2020.findMany()
+     * 
+     * // Get first 10 EtapaMatriculaAte2020s
+     * const etapaMatriculaAte2020s = await prisma.etapaMatriculaAte2020.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const etapaMatriculaAte2020WithIdOnly = await prisma.etapaMatriculaAte2020.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends EtapaMatriculaAte2020FindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaMatriculaAte2020FindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a EtapaMatriculaAte2020.
+     * @param {EtapaMatriculaAte2020CreateArgs} args - Arguments to create a EtapaMatriculaAte2020.
+     * @example
+     * // Create one EtapaMatriculaAte2020
+     * const EtapaMatriculaAte2020 = await prisma.etapaMatriculaAte2020.create({
+     *   data: {
+     *     // ... data to create a EtapaMatriculaAte2020
+     *   }
+     * })
+     * 
+    **/
+    create<T extends EtapaMatriculaAte2020CreateArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaMatriculaAte2020CreateArgs<ExtArgs>>
+    ): Prisma__EtapaMatriculaAte2020Client<$Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many EtapaMatriculaAte2020s.
+     *     @param {EtapaMatriculaAte2020CreateManyArgs} args - Arguments to create many EtapaMatriculaAte2020s.
+     *     @example
+     *     // Create many EtapaMatriculaAte2020s
+     *     const etapaMatriculaAte2020 = await prisma.etapaMatriculaAte2020.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends EtapaMatriculaAte2020CreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaMatriculaAte2020CreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a EtapaMatriculaAte2020.
+     * @param {EtapaMatriculaAte2020DeleteArgs} args - Arguments to delete one EtapaMatriculaAte2020.
+     * @example
+     * // Delete one EtapaMatriculaAte2020
+     * const EtapaMatriculaAte2020 = await prisma.etapaMatriculaAte2020.delete({
+     *   where: {
+     *     // ... filter to delete one EtapaMatriculaAte2020
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends EtapaMatriculaAte2020DeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaMatriculaAte2020DeleteArgs<ExtArgs>>
+    ): Prisma__EtapaMatriculaAte2020Client<$Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one EtapaMatriculaAte2020.
+     * @param {EtapaMatriculaAte2020UpdateArgs} args - Arguments to update one EtapaMatriculaAte2020.
+     * @example
+     * // Update one EtapaMatriculaAte2020
+     * const etapaMatriculaAte2020 = await prisma.etapaMatriculaAte2020.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends EtapaMatriculaAte2020UpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaMatriculaAte2020UpdateArgs<ExtArgs>>
+    ): Prisma__EtapaMatriculaAte2020Client<$Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more EtapaMatriculaAte2020s.
+     * @param {EtapaMatriculaAte2020DeleteManyArgs} args - Arguments to filter EtapaMatriculaAte2020s to delete.
+     * @example
+     * // Delete a few EtapaMatriculaAte2020s
+     * const { count } = await prisma.etapaMatriculaAte2020.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends EtapaMatriculaAte2020DeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, EtapaMatriculaAte2020DeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EtapaMatriculaAte2020s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaMatriculaAte2020UpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EtapaMatriculaAte2020s
+     * const etapaMatriculaAte2020 = await prisma.etapaMatriculaAte2020.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends EtapaMatriculaAte2020UpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaMatriculaAte2020UpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one EtapaMatriculaAte2020.
+     * @param {EtapaMatriculaAte2020UpsertArgs} args - Arguments to update or create a EtapaMatriculaAte2020.
+     * @example
+     * // Update or create a EtapaMatriculaAte2020
+     * const etapaMatriculaAte2020 = await prisma.etapaMatriculaAte2020.upsert({
+     *   create: {
+     *     // ... data to create a EtapaMatriculaAte2020
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EtapaMatriculaAte2020 we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends EtapaMatriculaAte2020UpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, EtapaMatriculaAte2020UpsertArgs<ExtArgs>>
+    ): Prisma__EtapaMatriculaAte2020Client<$Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of EtapaMatriculaAte2020s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaMatriculaAte2020CountArgs} args - Arguments to filter EtapaMatriculaAte2020s to count.
+     * @example
+     * // Count the number of EtapaMatriculaAte2020s
+     * const count = await prisma.etapaMatriculaAte2020.count({
+     *   where: {
+     *     // ... the filter for the EtapaMatriculaAte2020s we want to count
+     *   }
+     * })
+    **/
+    count<T extends EtapaMatriculaAte2020CountArgs>(
+      args?: Subset<T, EtapaMatriculaAte2020CountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EtapaMatriculaAte2020CountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EtapaMatriculaAte2020.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaMatriculaAte2020AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EtapaMatriculaAte2020AggregateArgs>(args: Subset<T, EtapaMatriculaAte2020AggregateArgs>): Prisma.PrismaPromise<GetEtapaMatriculaAte2020AggregateType<T>>
+
+    /**
+     * Group by EtapaMatriculaAte2020.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EtapaMatriculaAte2020GroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EtapaMatriculaAte2020GroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EtapaMatriculaAte2020GroupByArgs['orderBy'] }
+        : { orderBy?: EtapaMatriculaAte2020GroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EtapaMatriculaAte2020GroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEtapaMatriculaAte2020GroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EtapaMatriculaAte2020 model
+   */
+  readonly fields: EtapaMatriculaAte2020FieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EtapaMatriculaAte2020.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EtapaMatriculaAte2020Client<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    dados<T extends EtapaMatriculaAte2020$dadosArgs<ExtArgs> = {}>(args?: Subset<T, EtapaMatriculaAte2020$dadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DadoEducacaoBasicaPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the EtapaMatriculaAte2020 model
+   */ 
+  interface EtapaMatriculaAte2020FieldRefs {
+    readonly id: FieldRef<"EtapaMatriculaAte2020", 'Int'>
+    readonly nome: FieldRef<"EtapaMatriculaAte2020", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * EtapaMatriculaAte2020 findUnique
+   */
+  export type EtapaMatriculaAte2020FindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
+    /**
+     * Filter, which EtapaMatriculaAte2020 to fetch.
+     */
+    where: EtapaMatriculaAte2020WhereUniqueInput
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 findUniqueOrThrow
+   */
+  export type EtapaMatriculaAte2020FindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
+    /**
+     * Filter, which EtapaMatriculaAte2020 to fetch.
+     */
+    where: EtapaMatriculaAte2020WhereUniqueInput
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 findFirst
+   */
+  export type EtapaMatriculaAte2020FindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
+    /**
+     * Filter, which EtapaMatriculaAte2020 to fetch.
+     */
+    where?: EtapaMatriculaAte2020WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaMatriculaAte2020s to fetch.
+     */
+    orderBy?: EtapaMatriculaAte2020OrderByWithRelationInput | EtapaMatriculaAte2020OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EtapaMatriculaAte2020s.
+     */
+    cursor?: EtapaMatriculaAte2020WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaMatriculaAte2020s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaMatriculaAte2020s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EtapaMatriculaAte2020s.
+     */
+    distinct?: EtapaMatriculaAte2020ScalarFieldEnum | EtapaMatriculaAte2020ScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 findFirstOrThrow
+   */
+  export type EtapaMatriculaAte2020FindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
+    /**
+     * Filter, which EtapaMatriculaAte2020 to fetch.
+     */
+    where?: EtapaMatriculaAte2020WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaMatriculaAte2020s to fetch.
+     */
+    orderBy?: EtapaMatriculaAte2020OrderByWithRelationInput | EtapaMatriculaAte2020OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EtapaMatriculaAte2020s.
+     */
+    cursor?: EtapaMatriculaAte2020WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaMatriculaAte2020s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaMatriculaAte2020s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EtapaMatriculaAte2020s.
+     */
+    distinct?: EtapaMatriculaAte2020ScalarFieldEnum | EtapaMatriculaAte2020ScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 findMany
+   */
+  export type EtapaMatriculaAte2020FindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
+    /**
+     * Filter, which EtapaMatriculaAte2020s to fetch.
+     */
+    where?: EtapaMatriculaAte2020WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EtapaMatriculaAte2020s to fetch.
+     */
+    orderBy?: EtapaMatriculaAte2020OrderByWithRelationInput | EtapaMatriculaAte2020OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EtapaMatriculaAte2020s.
+     */
+    cursor?: EtapaMatriculaAte2020WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EtapaMatriculaAte2020s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EtapaMatriculaAte2020s.
+     */
+    skip?: number
+    distinct?: EtapaMatriculaAte2020ScalarFieldEnum | EtapaMatriculaAte2020ScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 create
+   */
+  export type EtapaMatriculaAte2020CreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
+    /**
+     * The data needed to create a EtapaMatriculaAte2020.
+     */
+    data: XOR<EtapaMatriculaAte2020CreateInput, EtapaMatriculaAte2020UncheckedCreateInput>
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 createMany
+   */
+  export type EtapaMatriculaAte2020CreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EtapaMatriculaAte2020s.
+     */
+    data: EtapaMatriculaAte2020CreateManyInput | EtapaMatriculaAte2020CreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 update
+   */
+  export type EtapaMatriculaAte2020UpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
+    /**
+     * The data needed to update a EtapaMatriculaAte2020.
+     */
+    data: XOR<EtapaMatriculaAte2020UpdateInput, EtapaMatriculaAte2020UncheckedUpdateInput>
+    /**
+     * Choose, which EtapaMatriculaAte2020 to update.
+     */
+    where: EtapaMatriculaAte2020WhereUniqueInput
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 updateMany
+   */
+  export type EtapaMatriculaAte2020UpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EtapaMatriculaAte2020s.
+     */
+    data: XOR<EtapaMatriculaAte2020UpdateManyMutationInput, EtapaMatriculaAte2020UncheckedUpdateManyInput>
+    /**
+     * Filter which EtapaMatriculaAte2020s to update
+     */
+    where?: EtapaMatriculaAte2020WhereInput
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 upsert
+   */
+  export type EtapaMatriculaAte2020UpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
+    /**
+     * The filter to search for the EtapaMatriculaAte2020 to update in case it exists.
+     */
+    where: EtapaMatriculaAte2020WhereUniqueInput
+    /**
+     * In case the EtapaMatriculaAte2020 found by the `where` argument doesn't exist, create a new EtapaMatriculaAte2020 with this data.
+     */
+    create: XOR<EtapaMatriculaAte2020CreateInput, EtapaMatriculaAte2020UncheckedCreateInput>
+    /**
+     * In case the EtapaMatriculaAte2020 was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EtapaMatriculaAte2020UpdateInput, EtapaMatriculaAte2020UncheckedUpdateInput>
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 delete
+   */
+  export type EtapaMatriculaAte2020DeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
+    /**
+     * Filter which EtapaMatriculaAte2020 to delete.
+     */
+    where: EtapaMatriculaAte2020WhereUniqueInput
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 deleteMany
+   */
+  export type EtapaMatriculaAte2020DeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EtapaMatriculaAte2020s to delete
+     */
+    where?: EtapaMatriculaAte2020WhereInput
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020.dados
+   */
+  export type EtapaMatriculaAte2020$dadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DadoEducacaoBasica
+     */
+    select?: DadoEducacaoBasicaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DadoEducacaoBasicaInclude<ExtArgs> | null
+    where?: DadoEducacaoBasicaWhereInput
+    orderBy?: DadoEducacaoBasicaOrderByWithRelationInput | DadoEducacaoBasicaOrderByWithRelationInput[]
+    cursor?: DadoEducacaoBasicaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DadoEducacaoBasicaScalarFieldEnum | DadoEducacaoBasicaScalarFieldEnum[]
+  }
+
+
+  /**
+   * EtapaMatriculaAte2020 without action
+   */
+  export type EtapaMatriculaAte2020DefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
   }
 
 
@@ -16053,6 +18169,8 @@ export namespace Prisma {
     etapa_id: number | null
     etapa_school_id: number | null
     etapa_teacher_id: number | null
+    etapa_turma_id: number | null
+    etapa_matricula_ate2020_id: number | null
     localizacao_id: number | null
     vinculo_id: number | null
     formacao_id: number | null
@@ -16069,6 +18187,8 @@ export namespace Prisma {
     etapa_id: number | null
     etapa_school_id: number | null
     etapa_teacher_id: number | null
+    etapa_turma_id: number | null
+    etapa_matricula_ate2020_id: number | null
     localizacao_id: number | null
     vinculo_id: number | null
     formacao_id: number | null
@@ -16087,6 +18207,8 @@ export namespace Prisma {
     etapa_id: number | null
     etapa_school_id: number | null
     etapa_teacher_id: number | null
+    etapa_turma_id: number | null
+    etapa_matricula_ate2020_id: number | null
     localizacao_id: number | null
     vinculo_id: number | null
     formacao_id: number | null
@@ -16105,6 +18227,8 @@ export namespace Prisma {
     etapa_id: number | null
     etapa_school_id: number | null
     etapa_teacher_id: number | null
+    etapa_turma_id: number | null
+    etapa_matricula_ate2020_id: number | null
     localizacao_id: number | null
     vinculo_id: number | null
     formacao_id: number | null
@@ -16123,6 +18247,8 @@ export namespace Prisma {
     etapa_id: number
     etapa_school_id: number
     etapa_teacher_id: number
+    etapa_turma_id: number
+    etapa_matricula_ate2020_id: number
     localizacao_id: number
     vinculo_id: number
     formacao_id: number
@@ -16141,6 +18267,8 @@ export namespace Prisma {
     etapa_id?: true
     etapa_school_id?: true
     etapa_teacher_id?: true
+    etapa_turma_id?: true
+    etapa_matricula_ate2020_id?: true
     localizacao_id?: true
     vinculo_id?: true
     formacao_id?: true
@@ -16157,6 +18285,8 @@ export namespace Prisma {
     etapa_id?: true
     etapa_school_id?: true
     etapa_teacher_id?: true
+    etapa_turma_id?: true
+    etapa_matricula_ate2020_id?: true
     localizacao_id?: true
     vinculo_id?: true
     formacao_id?: true
@@ -16175,6 +18305,8 @@ export namespace Prisma {
     etapa_id?: true
     etapa_school_id?: true
     etapa_teacher_id?: true
+    etapa_turma_id?: true
+    etapa_matricula_ate2020_id?: true
     localizacao_id?: true
     vinculo_id?: true
     formacao_id?: true
@@ -16193,6 +18325,8 @@ export namespace Prisma {
     etapa_id?: true
     etapa_school_id?: true
     etapa_teacher_id?: true
+    etapa_turma_id?: true
+    etapa_matricula_ate2020_id?: true
     localizacao_id?: true
     vinculo_id?: true
     formacao_id?: true
@@ -16211,6 +18345,8 @@ export namespace Prisma {
     etapa_id?: true
     etapa_school_id?: true
     etapa_teacher_id?: true
+    etapa_turma_id?: true
+    etapa_matricula_ate2020_id?: true
     localizacao_id?: true
     vinculo_id?: true
     formacao_id?: true
@@ -16316,6 +18452,8 @@ export namespace Prisma {
     etapa_id: number | null
     etapa_school_id: number | null
     etapa_teacher_id: number | null
+    etapa_turma_id: number | null
+    etapa_matricula_ate2020_id: number | null
     localizacao_id: number | null
     vinculo_id: number | null
     formacao_id: number | null
@@ -16353,6 +18491,8 @@ export namespace Prisma {
     etapa_id?: boolean
     etapa_school_id?: boolean
     etapa_teacher_id?: boolean
+    etapa_turma_id?: boolean
+    etapa_matricula_ate2020_id?: boolean
     localizacao_id?: boolean
     vinculo_id?: boolean
     formacao_id?: boolean
@@ -16363,6 +18503,8 @@ export namespace Prisma {
     etapa?: boolean | DadoEducacaoBasica$etapaArgs<ExtArgs>
     etapa_school?: boolean | DadoEducacaoBasica$etapa_schoolArgs<ExtArgs>
     etapa_teacher?: boolean | DadoEducacaoBasica$etapa_teacherArgs<ExtArgs>
+    etapa_turma?: boolean | DadoEducacaoBasica$etapa_turmaArgs<ExtArgs>
+    etapa_matricula_ate2020?: boolean | DadoEducacaoBasica$etapa_matricula_ate2020Args<ExtArgs>
     localizacao?: boolean | DadoEducacaoBasica$localizacaoArgs<ExtArgs>
     vinculo?: boolean | DadoEducacaoBasica$vinculoArgs<ExtArgs>
     formacao?: boolean | DadoEducacaoBasica$formacaoArgs<ExtArgs>
@@ -16381,6 +18523,8 @@ export namespace Prisma {
     etapa_id?: boolean
     etapa_school_id?: boolean
     etapa_teacher_id?: boolean
+    etapa_turma_id?: boolean
+    etapa_matricula_ate2020_id?: boolean
     localizacao_id?: boolean
     vinculo_id?: boolean
     formacao_id?: boolean
@@ -16394,6 +18538,8 @@ export namespace Prisma {
     etapa?: boolean | DadoEducacaoBasica$etapaArgs<ExtArgs>
     etapa_school?: boolean | DadoEducacaoBasica$etapa_schoolArgs<ExtArgs>
     etapa_teacher?: boolean | DadoEducacaoBasica$etapa_teacherArgs<ExtArgs>
+    etapa_turma?: boolean | DadoEducacaoBasica$etapa_turmaArgs<ExtArgs>
+    etapa_matricula_ate2020?: boolean | DadoEducacaoBasica$etapa_matricula_ate2020Args<ExtArgs>
     localizacao?: boolean | DadoEducacaoBasica$localizacaoArgs<ExtArgs>
     vinculo?: boolean | DadoEducacaoBasica$vinculoArgs<ExtArgs>
     formacao?: boolean | DadoEducacaoBasica$formacaoArgs<ExtArgs>
@@ -16410,6 +18556,8 @@ export namespace Prisma {
       etapa: Prisma.$EtapaEnsinoBasicaPayload<ExtArgs> | null
       etapa_school: Prisma.$EtapaEnsinoBasicaSchoolPayload<ExtArgs> | null
       etapa_teacher: Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs> | null
+      etapa_turma: Prisma.$EtapaTurmaPayload<ExtArgs> | null
+      etapa_matricula_ate2020: Prisma.$EtapaMatriculaAte2020Payload<ExtArgs> | null
       localizacao: Prisma.$LocalizacaoPayload<ExtArgs> | null
       vinculo: Prisma.$VinculoFuncionalPayload<ExtArgs> | null
       formacao: Prisma.$FormacaoDocentePayload<ExtArgs> | null
@@ -16427,6 +18575,8 @@ export namespace Prisma {
       etapa_id: number | null
       etapa_school_id: number | null
       etapa_teacher_id: number | null
+      etapa_turma_id: number | null
+      etapa_matricula_ate2020_id: number | null
       localizacao_id: number | null
       vinculo_id: number | null
       formacao_id: number | null
@@ -16808,6 +18958,10 @@ export namespace Prisma {
 
     etapa_teacher<T extends DadoEducacaoBasica$etapa_teacherArgs<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$etapa_teacherArgs<ExtArgs>>): Prisma__EtapaEnsinoBasicaTeacher21Client<$Result.GetResult<Prisma.$EtapaEnsinoBasicaTeacher21Payload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
+    etapa_turma<T extends DadoEducacaoBasica$etapa_turmaArgs<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$etapa_turmaArgs<ExtArgs>>): Prisma__EtapaTurmaClient<$Result.GetResult<Prisma.$EtapaTurmaPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
+    etapa_matricula_ate2020<T extends DadoEducacaoBasica$etapa_matricula_ate2020Args<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$etapa_matricula_ate2020Args<ExtArgs>>): Prisma__EtapaMatriculaAte2020Client<$Result.GetResult<Prisma.$EtapaMatriculaAte2020Payload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
     localizacao<T extends DadoEducacaoBasica$localizacaoArgs<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$localizacaoArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
     vinculo<T extends DadoEducacaoBasica$vinculoArgs<ExtArgs> = {}>(args?: Subset<T, DadoEducacaoBasica$vinculoArgs<ExtArgs>>): Prisma__VinculoFuncionalClient<$Result.GetResult<Prisma.$VinculoFuncionalPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
@@ -16855,6 +19009,8 @@ export namespace Prisma {
     readonly etapa_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly etapa_school_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly etapa_teacher_id: FieldRef<"DadoEducacaoBasica", 'Int'>
+    readonly etapa_turma_id: FieldRef<"DadoEducacaoBasica", 'Int'>
+    readonly etapa_matricula_ate2020_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly localizacao_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly vinculo_id: FieldRef<"DadoEducacaoBasica", 'Int'>
     readonly formacao_id: FieldRef<"DadoEducacaoBasica", 'Int'>
@@ -17263,6 +19419,38 @@ export namespace Prisma {
      */
     include?: EtapaEnsinoBasicaTeacher21Include<ExtArgs> | null
     where?: EtapaEnsinoBasicaTeacher21WhereInput
+  }
+
+
+  /**
+   * DadoEducacaoBasica.etapa_turma
+   */
+  export type DadoEducacaoBasica$etapa_turmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaTurma
+     */
+    select?: EtapaTurmaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaTurmaInclude<ExtArgs> | null
+    where?: EtapaTurmaWhereInput
+  }
+
+
+  /**
+   * DadoEducacaoBasica.etapa_matricula_ate2020
+   */
+  export type DadoEducacaoBasica$etapa_matricula_ate2020Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EtapaMatriculaAte2020
+     */
+    select?: EtapaMatriculaAte2020Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: EtapaMatriculaAte2020Include<ExtArgs> | null
+    where?: EtapaMatriculaAte2020WhereInput
   }
 
 
@@ -19515,6 +21703,22 @@ export namespace Prisma {
   export type EtapaEnsinoBasicaScalarFieldEnum = (typeof EtapaEnsinoBasicaScalarFieldEnum)[keyof typeof EtapaEnsinoBasicaScalarFieldEnum]
 
 
+  export const EtapaTurmaScalarFieldEnum: {
+    id: 'id',
+    nome: 'nome'
+  };
+
+  export type EtapaTurmaScalarFieldEnum = (typeof EtapaTurmaScalarFieldEnum)[keyof typeof EtapaTurmaScalarFieldEnum]
+
+
+  export const EtapaMatriculaAte2020ScalarFieldEnum: {
+    id: 'id',
+    nome: 'nome'
+  };
+
+  export type EtapaMatriculaAte2020ScalarFieldEnum = (typeof EtapaMatriculaAte2020ScalarFieldEnum)[keyof typeof EtapaMatriculaAte2020ScalarFieldEnum]
+
+
   export const EtapaEnsinoBasicaSchoolScalarFieldEnum: {
     id: 'id',
     nome: 'nome'
@@ -19602,6 +21806,8 @@ export namespace Prisma {
     etapa_id: 'etapa_id',
     etapa_school_id: 'etapa_school_id',
     etapa_teacher_id: 'etapa_teacher_id',
+    etapa_turma_id: 'etapa_turma_id',
+    etapa_matricula_ate2020_id: 'etapa_matricula_ate2020_id',
     localizacao_id: 'localizacao_id',
     vinculo_id: 'vinculo_id',
     formacao_id: 'formacao_id',
@@ -20016,6 +22222,90 @@ export namespace Prisma {
     nome_curto?: StringNullableWithAggregatesFilter<"EtapaEnsinoBasica"> | string | null
   }
 
+  export type EtapaTurmaWhereInput = {
+    AND?: EtapaTurmaWhereInput | EtapaTurmaWhereInput[]
+    OR?: EtapaTurmaWhereInput[]
+    NOT?: EtapaTurmaWhereInput | EtapaTurmaWhereInput[]
+    id?: IntFilter<"EtapaTurma"> | number
+    nome?: StringFilter<"EtapaTurma"> | string
+    dados?: DadoEducacaoBasicaListRelationFilter
+  }
+
+  export type EtapaTurmaOrderByWithRelationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    dados?: DadoEducacaoBasicaOrderByRelationAggregateInput
+  }
+
+  export type EtapaTurmaWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: EtapaTurmaWhereInput | EtapaTurmaWhereInput[]
+    OR?: EtapaTurmaWhereInput[]
+    NOT?: EtapaTurmaWhereInput | EtapaTurmaWhereInput[]
+    nome?: StringFilter<"EtapaTurma"> | string
+    dados?: DadoEducacaoBasicaListRelationFilter
+  }, "id">
+
+  export type EtapaTurmaOrderByWithAggregationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    _count?: EtapaTurmaCountOrderByAggregateInput
+    _avg?: EtapaTurmaAvgOrderByAggregateInput
+    _max?: EtapaTurmaMaxOrderByAggregateInput
+    _min?: EtapaTurmaMinOrderByAggregateInput
+    _sum?: EtapaTurmaSumOrderByAggregateInput
+  }
+
+  export type EtapaTurmaScalarWhereWithAggregatesInput = {
+    AND?: EtapaTurmaScalarWhereWithAggregatesInput | EtapaTurmaScalarWhereWithAggregatesInput[]
+    OR?: EtapaTurmaScalarWhereWithAggregatesInput[]
+    NOT?: EtapaTurmaScalarWhereWithAggregatesInput | EtapaTurmaScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"EtapaTurma"> | number
+    nome?: StringWithAggregatesFilter<"EtapaTurma"> | string
+  }
+
+  export type EtapaMatriculaAte2020WhereInput = {
+    AND?: EtapaMatriculaAte2020WhereInput | EtapaMatriculaAte2020WhereInput[]
+    OR?: EtapaMatriculaAte2020WhereInput[]
+    NOT?: EtapaMatriculaAte2020WhereInput | EtapaMatriculaAte2020WhereInput[]
+    id?: IntFilter<"EtapaMatriculaAte2020"> | number
+    nome?: StringFilter<"EtapaMatriculaAte2020"> | string
+    dados?: DadoEducacaoBasicaListRelationFilter
+  }
+
+  export type EtapaMatriculaAte2020OrderByWithRelationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    dados?: DadoEducacaoBasicaOrderByRelationAggregateInput
+  }
+
+  export type EtapaMatriculaAte2020WhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: EtapaMatriculaAte2020WhereInput | EtapaMatriculaAte2020WhereInput[]
+    OR?: EtapaMatriculaAte2020WhereInput[]
+    NOT?: EtapaMatriculaAte2020WhereInput | EtapaMatriculaAte2020WhereInput[]
+    nome?: StringFilter<"EtapaMatriculaAte2020"> | string
+    dados?: DadoEducacaoBasicaListRelationFilter
+  }, "id">
+
+  export type EtapaMatriculaAte2020OrderByWithAggregationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    _count?: EtapaMatriculaAte2020CountOrderByAggregateInput
+    _avg?: EtapaMatriculaAte2020AvgOrderByAggregateInput
+    _max?: EtapaMatriculaAte2020MaxOrderByAggregateInput
+    _min?: EtapaMatriculaAte2020MinOrderByAggregateInput
+    _sum?: EtapaMatriculaAte2020SumOrderByAggregateInput
+  }
+
+  export type EtapaMatriculaAte2020ScalarWhereWithAggregatesInput = {
+    AND?: EtapaMatriculaAte2020ScalarWhereWithAggregatesInput | EtapaMatriculaAte2020ScalarWhereWithAggregatesInput[]
+    OR?: EtapaMatriculaAte2020ScalarWhereWithAggregatesInput[]
+    NOT?: EtapaMatriculaAte2020ScalarWhereWithAggregatesInput | EtapaMatriculaAte2020ScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"EtapaMatriculaAte2020"> | number
+    nome?: StringWithAggregatesFilter<"EtapaMatriculaAte2020"> | string
+  }
+
   export type EtapaEnsinoBasicaSchoolWhereInput = {
     AND?: EtapaEnsinoBasicaSchoolWhereInput | EtapaEnsinoBasicaSchoolWhereInput[]
     OR?: EtapaEnsinoBasicaSchoolWhereInput[]
@@ -20427,6 +22717,8 @@ export namespace Prisma {
     etapa_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_school_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_teacher_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    etapa_turma_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    etapa_matricula_ate2020_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     localizacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     vinculo_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     formacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
@@ -20437,6 +22729,8 @@ export namespace Prisma {
     etapa?: XOR<EtapaEnsinoBasicaNullableRelationFilter, EtapaEnsinoBasicaWhereInput> | null
     etapa_school?: XOR<EtapaEnsinoBasicaSchoolNullableRelationFilter, EtapaEnsinoBasicaSchoolWhereInput> | null
     etapa_teacher?: XOR<EtapaEnsinoBasicaTeacher21NullableRelationFilter, EtapaEnsinoBasicaTeacher21WhereInput> | null
+    etapa_turma?: XOR<EtapaTurmaNullableRelationFilter, EtapaTurmaWhereInput> | null
+    etapa_matricula_ate2020?: XOR<EtapaMatriculaAte2020NullableRelationFilter, EtapaMatriculaAte2020WhereInput> | null
     localizacao?: XOR<LocalizacaoNullableRelationFilter, LocalizacaoWhereInput> | null
     vinculo?: XOR<VinculoFuncionalNullableRelationFilter, VinculoFuncionalWhereInput> | null
     formacao?: XOR<FormacaoDocenteNullableRelationFilter, FormacaoDocenteWhereInput> | null
@@ -20455,6 +22749,8 @@ export namespace Prisma {
     etapa_id?: SortOrderInput | SortOrder
     etapa_school_id?: SortOrderInput | SortOrder
     etapa_teacher_id?: SortOrderInput | SortOrder
+    etapa_turma_id?: SortOrderInput | SortOrder
+    etapa_matricula_ate2020_id?: SortOrderInput | SortOrder
     localizacao_id?: SortOrderInput | SortOrder
     vinculo_id?: SortOrderInput | SortOrder
     formacao_id?: SortOrderInput | SortOrder
@@ -20465,6 +22761,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaOrderByWithRelationInput
     etapa_school?: EtapaEnsinoBasicaSchoolOrderByWithRelationInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21OrderByWithRelationInput
+    etapa_turma?: EtapaTurmaOrderByWithRelationInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020OrderByWithRelationInput
     localizacao?: LocalizacaoOrderByWithRelationInput
     vinculo?: VinculoFuncionalOrderByWithRelationInput
     formacao?: FormacaoDocenteOrderByWithRelationInput
@@ -20486,6 +22784,8 @@ export namespace Prisma {
     etapa_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_school_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_teacher_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    etapa_turma_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    etapa_matricula_ate2020_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     localizacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     vinculo_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     formacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
@@ -20496,6 +22796,8 @@ export namespace Prisma {
     etapa?: XOR<EtapaEnsinoBasicaNullableRelationFilter, EtapaEnsinoBasicaWhereInput> | null
     etapa_school?: XOR<EtapaEnsinoBasicaSchoolNullableRelationFilter, EtapaEnsinoBasicaSchoolWhereInput> | null
     etapa_teacher?: XOR<EtapaEnsinoBasicaTeacher21NullableRelationFilter, EtapaEnsinoBasicaTeacher21WhereInput> | null
+    etapa_turma?: XOR<EtapaTurmaNullableRelationFilter, EtapaTurmaWhereInput> | null
+    etapa_matricula_ate2020?: XOR<EtapaMatriculaAte2020NullableRelationFilter, EtapaMatriculaAte2020WhereInput> | null
     localizacao?: XOR<LocalizacaoNullableRelationFilter, LocalizacaoWhereInput> | null
     vinculo?: XOR<VinculoFuncionalNullableRelationFilter, VinculoFuncionalWhereInput> | null
     formacao?: XOR<FormacaoDocenteNullableRelationFilter, FormacaoDocenteWhereInput> | null
@@ -20514,6 +22816,8 @@ export namespace Prisma {
     etapa_id?: SortOrderInput | SortOrder
     etapa_school_id?: SortOrderInput | SortOrder
     etapa_teacher_id?: SortOrderInput | SortOrder
+    etapa_turma_id?: SortOrderInput | SortOrder
+    etapa_matricula_ate2020_id?: SortOrderInput | SortOrder
     localizacao_id?: SortOrderInput | SortOrder
     vinculo_id?: SortOrderInput | SortOrder
     formacao_id?: SortOrderInput | SortOrder
@@ -20540,6 +22844,8 @@ export namespace Prisma {
     etapa_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     etapa_school_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     etapa_teacher_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
+    etapa_turma_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
+    etapa_matricula_ate2020_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     localizacao_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     vinculo_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
     formacao_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasica"> | number | null
@@ -20965,6 +23271,84 @@ export namespace Prisma {
     nome_curto?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type EtapaTurmaCreateInput = {
+    id: number
+    nome: string
+    dados?: DadoEducacaoBasicaCreateNestedManyWithoutEtapa_turmaInput
+  }
+
+  export type EtapaTurmaUncheckedCreateInput = {
+    id: number
+    nome: string
+    dados?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutEtapa_turmaInput
+  }
+
+  export type EtapaTurmaUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    dados?: DadoEducacaoBasicaUpdateManyWithoutEtapa_turmaNestedInput
+  }
+
+  export type EtapaTurmaUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    dados?: DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_turmaNestedInput
+  }
+
+  export type EtapaTurmaCreateManyInput = {
+    id: number
+    nome: string
+  }
+
+  export type EtapaTurmaUpdateManyMutationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaTurmaUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaMatriculaAte2020CreateInput = {
+    id: number
+    nome: string
+    dados?: DadoEducacaoBasicaCreateNestedManyWithoutEtapa_matricula_ate2020Input
+  }
+
+  export type EtapaMatriculaAte2020UncheckedCreateInput = {
+    id: number
+    nome: string
+    dados?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutEtapa_matricula_ate2020Input
+  }
+
+  export type EtapaMatriculaAte2020UpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    dados?: DadoEducacaoBasicaUpdateManyWithoutEtapa_matricula_ate2020NestedInput
+  }
+
+  export type EtapaMatriculaAte2020UncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    dados?: DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_matricula_ate2020NestedInput
+  }
+
+  export type EtapaMatriculaAte2020CreateManyInput = {
+    id: number
+    nome: string
+  }
+
+  export type EtapaMatriculaAte2020UpdateManyMutationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaMatriculaAte2020UncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
   export type EtapaEnsinoBasicaSchoolCreateInput = {
     id: number
     nome: string
@@ -21349,6 +23733,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -21367,6 +23753,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -21384,6 +23772,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -21402,6 +23792,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -21420,6 +23812,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -21445,6 +23839,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -21868,6 +24264,52 @@ export namespace Prisma {
     id?: SortOrder
   }
 
+  export type EtapaTurmaCountOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type EtapaTurmaAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type EtapaTurmaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type EtapaTurmaMinOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type EtapaTurmaSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type EtapaMatriculaAte2020CountOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type EtapaMatriculaAte2020AvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type EtapaMatriculaAte2020MaxOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type EtapaMatriculaAte2020MinOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type EtapaMatriculaAte2020SumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type EtapaEnsinoBasicaSchoolCountOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
@@ -22167,6 +24609,16 @@ export namespace Prisma {
     isNot?: EtapaEnsinoBasicaTeacher21WhereInput | null
   }
 
+  export type EtapaTurmaNullableRelationFilter = {
+    is?: EtapaTurmaWhereInput | null
+    isNot?: EtapaTurmaWhereInput | null
+  }
+
+  export type EtapaMatriculaAte2020NullableRelationFilter = {
+    is?: EtapaMatriculaAte2020WhereInput | null
+    isNot?: EtapaMatriculaAte2020WhereInput | null
+  }
+
   export type LocalizacaoNullableRelationFilter = {
     is?: LocalizacaoWhereInput | null
     isNot?: LocalizacaoWhereInput | null
@@ -22199,6 +24651,8 @@ export namespace Prisma {
     etapa_id?: SortOrder
     etapa_school_id?: SortOrder
     etapa_teacher_id?: SortOrder
+    etapa_turma_id?: SortOrder
+    etapa_matricula_ate2020_id?: SortOrder
     localizacao_id?: SortOrder
     vinculo_id?: SortOrder
     formacao_id?: SortOrder
@@ -22215,6 +24669,8 @@ export namespace Prisma {
     etapa_id?: SortOrder
     etapa_school_id?: SortOrder
     etapa_teacher_id?: SortOrder
+    etapa_turma_id?: SortOrder
+    etapa_matricula_ate2020_id?: SortOrder
     localizacao_id?: SortOrder
     vinculo_id?: SortOrder
     formacao_id?: SortOrder
@@ -22233,6 +24689,8 @@ export namespace Prisma {
     etapa_id?: SortOrder
     etapa_school_id?: SortOrder
     etapa_teacher_id?: SortOrder
+    etapa_turma_id?: SortOrder
+    etapa_matricula_ate2020_id?: SortOrder
     localizacao_id?: SortOrder
     vinculo_id?: SortOrder
     formacao_id?: SortOrder
@@ -22251,6 +24709,8 @@ export namespace Prisma {
     etapa_id?: SortOrder
     etapa_school_id?: SortOrder
     etapa_teacher_id?: SortOrder
+    etapa_turma_id?: SortOrder
+    etapa_matricula_ate2020_id?: SortOrder
     localizacao_id?: SortOrder
     vinculo_id?: SortOrder
     formacao_id?: SortOrder
@@ -22267,6 +24727,8 @@ export namespace Prisma {
     etapa_id?: SortOrder
     etapa_school_id?: SortOrder
     etapa_teacher_id?: SortOrder
+    etapa_turma_id?: SortOrder
+    etapa_matricula_ate2020_id?: SortOrder
     localizacao_id?: SortOrder
     vinculo_id?: SortOrder
     formacao_id?: SortOrder
@@ -22753,6 +25215,90 @@ export namespace Prisma {
     deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
   }
 
+  export type DadoEducacaoBasicaCreateNestedManyWithoutEtapa_turmaInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_turmaInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput> | DadoEducacaoBasicaCreateWithoutEtapa_turmaInput[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_turmaInput | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_turmaInput[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_turmaInputEnvelope
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+  }
+
+  export type DadoEducacaoBasicaUncheckedCreateNestedManyWithoutEtapa_turmaInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_turmaInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput> | DadoEducacaoBasicaCreateWithoutEtapa_turmaInput[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_turmaInput | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_turmaInput[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_turmaInputEnvelope
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+  }
+
+  export type DadoEducacaoBasicaUpdateManyWithoutEtapa_turmaNestedInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_turmaInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput> | DadoEducacaoBasicaCreateWithoutEtapa_turmaInput[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_turmaInput | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_turmaInput[]
+    upsert?: DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_turmaInput | DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_turmaInput[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_turmaInputEnvelope
+    set?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    disconnect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    delete?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    update?: DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_turmaInput | DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_turmaInput[]
+    updateMany?: DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_turmaInput | DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_turmaInput[]
+    deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_turmaNestedInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_turmaInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput> | DadoEducacaoBasicaCreateWithoutEtapa_turmaInput[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_turmaInput | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_turmaInput[]
+    upsert?: DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_turmaInput | DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_turmaInput[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_turmaInputEnvelope
+    set?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    disconnect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    delete?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    update?: DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_turmaInput | DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_turmaInput[]
+    updateMany?: DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_turmaInput | DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_turmaInput[]
+    deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
+  }
+
+  export type DadoEducacaoBasicaCreateNestedManyWithoutEtapa_matricula_ate2020Input = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input> | DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_matricula_ate2020Input | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_matricula_ate2020Input[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_matricula_ate2020InputEnvelope
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+  }
+
+  export type DadoEducacaoBasicaUncheckedCreateNestedManyWithoutEtapa_matricula_ate2020Input = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input> | DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_matricula_ate2020Input | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_matricula_ate2020Input[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_matricula_ate2020InputEnvelope
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+  }
+
+  export type DadoEducacaoBasicaUpdateManyWithoutEtapa_matricula_ate2020NestedInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input> | DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_matricula_ate2020Input | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_matricula_ate2020Input[]
+    upsert?: DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_matricula_ate2020Input | DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_matricula_ate2020Input[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_matricula_ate2020InputEnvelope
+    set?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    disconnect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    delete?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    update?: DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_matricula_ate2020Input | DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_matricula_ate2020Input[]
+    updateMany?: DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_matricula_ate2020Input | DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_matricula_ate2020Input[]
+    deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_matricula_ate2020NestedInput = {
+    create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input> | DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input[]
+    connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_matricula_ate2020Input | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_matricula_ate2020Input[]
+    upsert?: DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_matricula_ate2020Input | DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_matricula_ate2020Input[]
+    createMany?: DadoEducacaoBasicaCreateManyEtapa_matricula_ate2020InputEnvelope
+    set?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    disconnect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    delete?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
+    update?: DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_matricula_ate2020Input | DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_matricula_ate2020Input[]
+    updateMany?: DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_matricula_ate2020Input | DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_matricula_ate2020Input[]
+    deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
+  }
+
   export type DadoEducacaoBasicaCreateNestedManyWithoutEtapa_schoolInput = {
     create?: XOR<DadoEducacaoBasicaCreateWithoutEtapa_schoolInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_schoolInput> | DadoEducacaoBasicaCreateWithoutEtapa_schoolInput[] | DadoEducacaoBasicaUncheckedCreateWithoutEtapa_schoolInput[]
     connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutEtapa_schoolInput | DadoEducacaoBasicaCreateOrConnectWithoutEtapa_schoolInput[]
@@ -23217,6 +25763,18 @@ export namespace Prisma {
     connect?: EtapaEnsinoBasicaTeacher21WhereUniqueInput
   }
 
+  export type EtapaTurmaCreateNestedOneWithoutDadosInput = {
+    create?: XOR<EtapaTurmaCreateWithoutDadosInput, EtapaTurmaUncheckedCreateWithoutDadosInput>
+    connectOrCreate?: EtapaTurmaCreateOrConnectWithoutDadosInput
+    connect?: EtapaTurmaWhereUniqueInput
+  }
+
+  export type EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput = {
+    create?: XOR<EtapaMatriculaAte2020CreateWithoutDadosInput, EtapaMatriculaAte2020UncheckedCreateWithoutDadosInput>
+    connectOrCreate?: EtapaMatriculaAte2020CreateOrConnectWithoutDadosInput
+    connect?: EtapaMatriculaAte2020WhereUniqueInput
+  }
+
   export type LocalizacaoCreateNestedOneWithoutDados_basicaInput = {
     create?: XOR<LocalizacaoCreateWithoutDados_basicaInput, LocalizacaoUncheckedCreateWithoutDados_basicaInput>
     connectOrCreate?: LocalizacaoCreateOrConnectWithoutDados_basicaInput
@@ -23311,6 +25869,26 @@ export namespace Prisma {
     delete?: EtapaEnsinoBasicaTeacher21WhereInput | boolean
     connect?: EtapaEnsinoBasicaTeacher21WhereUniqueInput
     update?: XOR<XOR<EtapaEnsinoBasicaTeacher21UpdateToOneWithWhereWithoutDadosInput, EtapaEnsinoBasicaTeacher21UpdateWithoutDadosInput>, EtapaEnsinoBasicaTeacher21UncheckedUpdateWithoutDadosInput>
+  }
+
+  export type EtapaTurmaUpdateOneWithoutDadosNestedInput = {
+    create?: XOR<EtapaTurmaCreateWithoutDadosInput, EtapaTurmaUncheckedCreateWithoutDadosInput>
+    connectOrCreate?: EtapaTurmaCreateOrConnectWithoutDadosInput
+    upsert?: EtapaTurmaUpsertWithoutDadosInput
+    disconnect?: EtapaTurmaWhereInput | boolean
+    delete?: EtapaTurmaWhereInput | boolean
+    connect?: EtapaTurmaWhereUniqueInput
+    update?: XOR<XOR<EtapaTurmaUpdateToOneWithWhereWithoutDadosInput, EtapaTurmaUpdateWithoutDadosInput>, EtapaTurmaUncheckedUpdateWithoutDadosInput>
+  }
+
+  export type EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput = {
+    create?: XOR<EtapaMatriculaAte2020CreateWithoutDadosInput, EtapaMatriculaAte2020UncheckedCreateWithoutDadosInput>
+    connectOrCreate?: EtapaMatriculaAte2020CreateOrConnectWithoutDadosInput
+    upsert?: EtapaMatriculaAte2020UpsertWithoutDadosInput
+    disconnect?: EtapaMatriculaAte2020WhereInput | boolean
+    delete?: EtapaMatriculaAte2020WhereInput | boolean
+    connect?: EtapaMatriculaAte2020WhereUniqueInput
+    update?: XOR<XOR<EtapaMatriculaAte2020UpdateToOneWithWhereWithoutDadosInput, EtapaMatriculaAte2020UpdateWithoutDadosInput>, EtapaMatriculaAte2020UncheckedUpdateWithoutDadosInput>
   }
 
   export type LocalizacaoUpdateOneWithoutDados_basicaNestedInput = {
@@ -23680,6 +26258,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -23697,6 +26277,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -23779,6 +26361,8 @@ export namespace Prisma {
     etapa_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_school_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     etapa_teacher_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    etapa_turma_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
+    etapa_matricula_ate2020_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     localizacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     vinculo_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
     formacao_id?: IntNullableFilter<"DadoEducacaoBasica"> | number | null
@@ -23828,6 +26412,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -23845,6 +26431,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -23887,6 +26475,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -23904,6 +26494,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -23997,6 +26589,8 @@ export namespace Prisma {
     dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -24014,6 +26608,8 @@ export namespace Prisma {
     dependencia_teacher_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -24046,6 +26642,132 @@ export namespace Prisma {
     data: XOR<DadoEducacaoBasicaUpdateManyMutationInput, DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapaInput>
   }
 
+  export type DadoEducacaoBasicaCreateWithoutEtapa_turmaInput = {
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
+    dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
+    etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
+    etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
+    localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
+    vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
+    formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
+    faixa_etaria?: FaixaEtariaCreateNestedOneWithoutDadosInput
+  }
+
+  export type DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput = {
+    id?: number
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+    dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
+    etapa_id?: number | null
+    etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
+    localizacao_id?: number | null
+    vinculo_id?: number | null
+    formacao_id?: number | null
+    faixa_etaria_id?: number | null
+  }
+
+  export type DadoEducacaoBasicaCreateOrConnectWithoutEtapa_turmaInput = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    create: XOR<DadoEducacaoBasicaCreateWithoutEtapa_turmaInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput>
+  }
+
+  export type DadoEducacaoBasicaCreateManyEtapa_turmaInputEnvelope = {
+    data: DadoEducacaoBasicaCreateManyEtapa_turmaInput | DadoEducacaoBasicaCreateManyEtapa_turmaInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_turmaInput = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    update: XOR<DadoEducacaoBasicaUpdateWithoutEtapa_turmaInput, DadoEducacaoBasicaUncheckedUpdateWithoutEtapa_turmaInput>
+    create: XOR<DadoEducacaoBasicaCreateWithoutEtapa_turmaInput, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_turmaInput>
+  }
+
+  export type DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_turmaInput = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    data: XOR<DadoEducacaoBasicaUpdateWithoutEtapa_turmaInput, DadoEducacaoBasicaUncheckedUpdateWithoutEtapa_turmaInput>
+  }
+
+  export type DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_turmaInput = {
+    where: DadoEducacaoBasicaScalarWhereInput
+    data: XOR<DadoEducacaoBasicaUpdateManyMutationInput, DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_turmaInput>
+  }
+
+  export type DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input = {
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade?: LocalidadeCreateNestedOneWithoutDados_basicaInput
+    dependencia?: DependenciaAdministrativaBasicaCreateNestedOneWithoutDadosInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
+    etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
+    etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
+    vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
+    formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
+    faixa_etaria?: FaixaEtariaCreateNestedOneWithoutDadosInput
+  }
+
+  export type DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input = {
+    id?: number
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+    dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
+    etapa_id?: number | null
+    etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    localizacao_id?: number | null
+    vinculo_id?: number | null
+    formacao_id?: number | null
+    faixa_etaria_id?: number | null
+  }
+
+  export type DadoEducacaoBasicaCreateOrConnectWithoutEtapa_matricula_ate2020Input = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    create: XOR<DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input>
+  }
+
+  export type DadoEducacaoBasicaCreateManyEtapa_matricula_ate2020InputEnvelope = {
+    data: DadoEducacaoBasicaCreateManyEtapa_matricula_ate2020Input | DadoEducacaoBasicaCreateManyEtapa_matricula_ate2020Input[]
+    skipDuplicates?: boolean
+  }
+
+  export type DadoEducacaoBasicaUpsertWithWhereUniqueWithoutEtapa_matricula_ate2020Input = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    update: XOR<DadoEducacaoBasicaUpdateWithoutEtapa_matricula_ate2020Input, DadoEducacaoBasicaUncheckedUpdateWithoutEtapa_matricula_ate2020Input>
+    create: XOR<DadoEducacaoBasicaCreateWithoutEtapa_matricula_ate2020Input, DadoEducacaoBasicaUncheckedCreateWithoutEtapa_matricula_ate2020Input>
+  }
+
+  export type DadoEducacaoBasicaUpdateWithWhereUniqueWithoutEtapa_matricula_ate2020Input = {
+    where: DadoEducacaoBasicaWhereUniqueInput
+    data: XOR<DadoEducacaoBasicaUpdateWithoutEtapa_matricula_ate2020Input, DadoEducacaoBasicaUncheckedUpdateWithoutEtapa_matricula_ate2020Input>
+  }
+
+  export type DadoEducacaoBasicaUpdateManyWithWhereWithoutEtapa_matricula_ate2020Input = {
+    where: DadoEducacaoBasicaScalarWhereInput
+    data: XOR<DadoEducacaoBasicaUpdateManyMutationInput, DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_matricula_ate2020Input>
+  }
+
   export type DadoEducacaoBasicaCreateWithoutEtapa_schoolInput = {
     tipo: string
     ano: number
@@ -24056,6 +26778,8 @@ export namespace Prisma {
     dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -24073,6 +26797,8 @@ export namespace Prisma {
     dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -24115,6 +26841,8 @@ export namespace Prisma {
     dependencia_teacher?: DependenciaAdministrativaBasicaTeacherCreateNestedOneWithoutDadosInput
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -24132,6 +26860,8 @@ export namespace Prisma {
     dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -24277,6 +27007,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
     faixa_etaria?: FaixaEtariaCreateNestedOneWithoutDadosInput
@@ -24294,6 +27026,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
     faixa_etaria_id?: number | null
@@ -24387,6 +27121,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
     faixa_etaria?: FaixaEtariaCreateNestedOneWithoutDadosInput
@@ -24404,6 +27140,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     formacao_id?: number | null
     faixa_etaria_id?: number | null
@@ -24446,6 +27184,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     faixa_etaria?: FaixaEtariaCreateNestedOneWithoutDadosInput
@@ -24463,6 +27203,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     faixa_etaria_id?: number | null
@@ -24505,6 +27247,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaCreateNestedOneWithoutDadosInput
     etapa_school?: EtapaEnsinoBasicaSchoolCreateNestedOneWithoutDadosInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21CreateNestedOneWithoutDadosInput
+    etapa_turma?: EtapaTurmaCreateNestedOneWithoutDadosInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020CreateNestedOneWithoutDadosInput
     localizacao?: LocalizacaoCreateNestedOneWithoutDados_basicaInput
     vinculo?: VinculoFuncionalCreateNestedOneWithoutDadosInput
     formacao?: FormacaoDocenteCreateNestedOneWithoutDadosInput
@@ -24522,6 +27266,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -24706,6 +27452,36 @@ export namespace Prisma {
   export type EtapaEnsinoBasicaTeacher21CreateOrConnectWithoutDadosInput = {
     where: EtapaEnsinoBasicaTeacher21WhereUniqueInput
     create: XOR<EtapaEnsinoBasicaTeacher21CreateWithoutDadosInput, EtapaEnsinoBasicaTeacher21UncheckedCreateWithoutDadosInput>
+  }
+
+  export type EtapaTurmaCreateWithoutDadosInput = {
+    id: number
+    nome: string
+  }
+
+  export type EtapaTurmaUncheckedCreateWithoutDadosInput = {
+    id: number
+    nome: string
+  }
+
+  export type EtapaTurmaCreateOrConnectWithoutDadosInput = {
+    where: EtapaTurmaWhereUniqueInput
+    create: XOR<EtapaTurmaCreateWithoutDadosInput, EtapaTurmaUncheckedCreateWithoutDadosInput>
+  }
+
+  export type EtapaMatriculaAte2020CreateWithoutDadosInput = {
+    id: number
+    nome: string
+  }
+
+  export type EtapaMatriculaAte2020UncheckedCreateWithoutDadosInput = {
+    id: number
+    nome: string
+  }
+
+  export type EtapaMatriculaAte2020CreateOrConnectWithoutDadosInput = {
+    where: EtapaMatriculaAte2020WhereUniqueInput
+    create: XOR<EtapaMatriculaAte2020CreateWithoutDadosInput, EtapaMatriculaAte2020UncheckedCreateWithoutDadosInput>
   }
 
   export type LocalizacaoCreateWithoutDados_basicaInput = {
@@ -24910,6 +27686,48 @@ export namespace Prisma {
   }
 
   export type EtapaEnsinoBasicaTeacher21UncheckedUpdateWithoutDadosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaTurmaUpsertWithoutDadosInput = {
+    update: XOR<EtapaTurmaUpdateWithoutDadosInput, EtapaTurmaUncheckedUpdateWithoutDadosInput>
+    create: XOR<EtapaTurmaCreateWithoutDadosInput, EtapaTurmaUncheckedCreateWithoutDadosInput>
+    where?: EtapaTurmaWhereInput
+  }
+
+  export type EtapaTurmaUpdateToOneWithWhereWithoutDadosInput = {
+    where?: EtapaTurmaWhereInput
+    data: XOR<EtapaTurmaUpdateWithoutDadosInput, EtapaTurmaUncheckedUpdateWithoutDadosInput>
+  }
+
+  export type EtapaTurmaUpdateWithoutDadosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaTurmaUncheckedUpdateWithoutDadosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaMatriculaAte2020UpsertWithoutDadosInput = {
+    update: XOR<EtapaMatriculaAte2020UpdateWithoutDadosInput, EtapaMatriculaAte2020UncheckedUpdateWithoutDadosInput>
+    create: XOR<EtapaMatriculaAte2020CreateWithoutDadosInput, EtapaMatriculaAte2020UncheckedCreateWithoutDadosInput>
+    where?: EtapaMatriculaAte2020WhereInput
+  }
+
+  export type EtapaMatriculaAte2020UpdateToOneWithWhereWithoutDadosInput = {
+    where?: EtapaMatriculaAte2020WhereInput
+    data: XOR<EtapaMatriculaAte2020UpdateWithoutDadosInput, EtapaMatriculaAte2020UncheckedUpdateWithoutDadosInput>
+  }
+
+  export type EtapaMatriculaAte2020UpdateWithoutDadosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EtapaMatriculaAte2020UncheckedUpdateWithoutDadosInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
   }
@@ -25257,6 +28075,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -25286,6 +28106,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -25303,6 +28125,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25320,6 +28144,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25375,6 +28201,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -25391,6 +28219,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -25408,6 +28238,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25425,6 +28257,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25442,6 +28276,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -25458,6 +28294,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -25475,6 +28313,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25492,6 +28332,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25560,6 +28402,8 @@ export namespace Prisma {
     dependencia_teacher_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -25576,6 +28420,8 @@ export namespace Prisma {
     dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -25593,6 +28439,8 @@ export namespace Prisma {
     dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25610,6 +28458,158 @@ export namespace Prisma {
     dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
+    localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
+    formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DadoEducacaoBasicaCreateManyEtapa_turmaInput = {
+    id?: number
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+    dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
+    etapa_id?: number | null
+    etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
+    localizacao_id?: number | null
+    vinculo_id?: number | null
+    formacao_id?: number | null
+    faixa_etaria_id?: number | null
+  }
+
+  export type DadoEducacaoBasicaUpdateWithoutEtapa_turmaInput = {
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
+    dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
+    etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
+    etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
+    localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
+    vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
+    formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
+    faixa_etaria?: FaixaEtariaUpdateOneWithoutDadosNestedInput
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateWithoutEtapa_turmaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
+    localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
+    formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_turmaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
+    localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
+    formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DadoEducacaoBasicaCreateManyEtapa_matricula_ate2020Input = {
+    id?: number
+    tipo: string
+    ano: number
+    total: Decimal | DecimalJsLike | number | string
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+    dependencia_id?: number | null
+    dependencia_teacher_id?: number | null
+    etapa_id?: number | null
+    etapa_school_id?: number | null
+    etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    localizacao_id?: number | null
+    vinculo_id?: number | null
+    formacao_id?: number | null
+    faixa_etaria_id?: number | null
+  }
+
+  export type DadoEducacaoBasicaUpdateWithoutEtapa_matricula_ate2020Input = {
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade?: LocalidadeUpdateOneWithoutDados_basicaNestedInput
+    dependencia?: DependenciaAdministrativaBasicaUpdateOneWithoutDadosNestedInput
+    dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
+    etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
+    etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
+    vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
+    formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
+    faixa_etaria?: FaixaEtariaUpdateOneWithoutDadosNestedInput
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateWithoutEtapa_matricula_ate2020Input = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
+    formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DadoEducacaoBasicaUncheckedUpdateManyWithoutEtapa_matricula_ate2020Input = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    ano?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_id?: NullableIntFieldUpdateOperationsInput | number | null
+    dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25627,6 +28627,8 @@ export namespace Prisma {
     dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -25643,6 +28645,8 @@ export namespace Prisma {
     dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -25660,6 +28664,8 @@ export namespace Prisma {
     dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25677,6 +28683,8 @@ export namespace Prisma {
     dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25694,6 +28702,8 @@ export namespace Prisma {
     dependencia_teacher_id?: number | null
     etapa_id?: number | null
     etapa_school_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -25710,6 +28720,8 @@ export namespace Prisma {
     dependencia_teacher?: DependenciaAdministrativaBasicaTeacherUpdateOneWithoutDadosNestedInput
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -25727,6 +28739,8 @@ export namespace Prisma {
     dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25744,6 +28758,8 @@ export namespace Prisma {
     dependencia_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25864,6 +28880,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
     faixa_etaria_id?: number | null
@@ -25893,6 +28911,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
     faixa_etaria?: FaixaEtariaUpdateOneWithoutDadosNestedInput
@@ -25910,6 +28930,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25927,6 +28949,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -25982,6 +29006,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     formacao_id?: number | null
     faixa_etaria_id?: number | null
@@ -25998,6 +29024,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
     faixa_etaria?: FaixaEtariaUpdateOneWithoutDadosNestedInput
@@ -26015,6 +29043,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -26032,6 +29062,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -26049,6 +29081,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     faixa_etaria_id?: number | null
@@ -26065,6 +29099,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     faixa_etaria?: FaixaEtariaUpdateOneWithoutDadosNestedInput
@@ -26082,6 +29118,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -26099,6 +29137,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     faixa_etaria_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -26116,6 +29156,8 @@ export namespace Prisma {
     etapa_id?: number | null
     etapa_school_id?: number | null
     etapa_teacher_id?: number | null
+    etapa_turma_id?: number | null
+    etapa_matricula_ate2020_id?: number | null
     localizacao_id?: number | null
     vinculo_id?: number | null
     formacao_id?: number | null
@@ -26132,6 +29174,8 @@ export namespace Prisma {
     etapa?: EtapaEnsinoBasicaUpdateOneWithoutDadosNestedInput
     etapa_school?: EtapaEnsinoBasicaSchoolUpdateOneWithoutDadosNestedInput
     etapa_teacher?: EtapaEnsinoBasicaTeacher21UpdateOneWithoutDadosNestedInput
+    etapa_turma?: EtapaTurmaUpdateOneWithoutDadosNestedInput
+    etapa_matricula_ate2020?: EtapaMatriculaAte2020UpdateOneWithoutDadosNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutDados_basicaNestedInput
     vinculo?: VinculoFuncionalUpdateOneWithoutDadosNestedInput
     formacao?: FormacaoDocenteUpdateOneWithoutDadosNestedInput
@@ -26149,6 +29193,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -26166,6 +29212,8 @@ export namespace Prisma {
     etapa_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_school_id?: NullableIntFieldUpdateOperationsInput | number | null
     etapa_teacher_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_turma_id?: NullableIntFieldUpdateOperationsInput | number | null
+    etapa_matricula_ate2020_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     vinculo_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -26248,6 +29296,14 @@ export namespace Prisma {
      */
     export type EtapaEnsinoBasicaCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaEnsinoBasicaCountOutputTypeDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use EtapaTurmaCountOutputTypeDefaultArgs instead
+     */
+    export type EtapaTurmaCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaTurmaCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use EtapaMatriculaAte2020CountOutputTypeDefaultArgs instead
+     */
+    export type EtapaMatriculaAte2020CountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaMatriculaAte2020CountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use EtapaEnsinoBasicaSchoolCountOutputTypeDefaultArgs instead
      */
     export type EtapaEnsinoBasicaSchoolCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaEnsinoBasicaSchoolCountOutputTypeDefaultArgs<ExtArgs>
@@ -26303,6 +29359,14 @@ export namespace Prisma {
      * @deprecated Use EtapaEnsinoBasicaDefaultArgs instead
      */
     export type EtapaEnsinoBasicaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaEnsinoBasicaDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use EtapaTurmaDefaultArgs instead
+     */
+    export type EtapaTurmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaTurmaDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use EtapaMatriculaAte2020DefaultArgs instead
+     */
+    export type EtapaMatriculaAte2020Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EtapaMatriculaAte2020DefaultArgs<ExtArgs>
     /**
      * @deprecated Use EtapaEnsinoBasicaSchoolDefaultArgs instead
      */

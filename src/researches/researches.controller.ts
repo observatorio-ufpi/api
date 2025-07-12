@@ -1,9 +1,9 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { GroupType } from 'src/utils/constants';
 import { PaginationDto } from '../dtos/pagination.dto';
 import { ResearchesFiltersDto } from './dto/researches.dto';
 import { ResearchesService } from './researches.service';
-import { GroupType } from 'src/utils/constants';
 
 @ApiTags('researches')
 @Controller('researches')

@@ -58,6 +58,22 @@ model EtapaEnsinoBasica {
     dados DadoEducacaoBasica[]
 }
 
+model EtapaTurma {
+    id   Int    @id
+    nome String
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
+model EtapaMatriculaAte2020 {
+    id   Int    @id
+    nome String
+
+    // Relações
+    dados DadoEducacaoBasica[]
+}
+
 model EtapaEnsinoBasicaSchool {
     id   Int    @id
     nome String
@@ -75,6 +91,14 @@ model EtapaEnsinoBasicaTeacher21 {
 }
 
 model EtapaEnsinoBasicaApos23 {
+    id   Int    @id
+    nome String @unique
+
+    // Relações
+    dados DadoEducacaoBasicaApos23[]
+}
+
+model EtapaEnsinoBasicaApos23TeacherClass {
     id   Int    @id
     nome String @unique
 
@@ -117,6 +141,15 @@ model FaixaEtaria {
     dados DadoEducacaoBasica[]
 }
 
+model Entidade {
+    id     Int    @id @default(autoincrement())
+    codigo String @unique
+    nome   String
+
+    // Relação com os fatos
+    dados DadoEducacaoBasicaApos23[]
+}
+
 // Tabela de fatos
 model DadoEducacaoBasica {
     id               Int      @id @default(autoincrement())
@@ -144,6 +177,12 @@ model DadoEducacaoBasica {
     etapa_teacher_id Int?
     etapa_teacher    EtapaEnsinoBasicaTeacher21? @relation(fields: [etapa_teacher_id], references: [id])
 
+    etapa_turma_id Int?
+    etapa_turma    EtapaTurma? @relation(fields: [etapa_turma_id], references: [id])
+
+    etapa_matricula_ate2020_id Int?
+    etapa_matricula_ate2020    EtapaMatriculaAte2020? @relation(fields: [etapa_matricula_ate2020_id], references: [id])
+
     localizacao_id Int?
     localizacao    Localizacao? @relation(fields: [localizacao_id], references: [id])
 
@@ -162,6 +201,8 @@ model DadoEducacaoBasica {
     @@index([localidade_id])
     @@index([dependencia_id])
     @@index([etapa_id])
+    @@index([etapa_turma_id])
+    @@index([etapa_matricula_ate2020_id])
     @@index([localizacao_id])
 }
 
@@ -181,9 +222,24 @@ model DadoEducacaoBasicaApos23 {
     etapa_id Int?
     etapa    EtapaEnsinoBasicaApos23? @relation(fields: [etapa_id], references: [id])
 
+    etapa_teacher_class_id Int?
+    etapa_teacher_class    EtapaEnsinoBasicaApos23TeacherClass? @relation(fields: [etapa_teacher_class_id], references: [id])
+
     // pode ser a mesma tabela pos so tem urbana e rural
     localizacao_id Int?
     localizacao    Localizacao? @relation(fields: [localizacao_id], references: [id])
+
+    entidade_id Int?
+    entidade    Entidade? @relation(fields: [entidade_id], references: [id])
+
+    // Índices para otimização de consultas
+    @@index([tipo, ano, localidade_id])
+    @@index([ano])
+    @@index([localidade_id])
+    @@index([dependencia_id])
+    @@index([etapa_id])
+    @@index([localizacao_id])
+    @@index([entidade_id])
 }
 
 // Controle de importações

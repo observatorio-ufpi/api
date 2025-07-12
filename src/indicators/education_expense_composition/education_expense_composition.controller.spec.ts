@@ -9,7 +9,9 @@ describe('EducationExpenseCompositionController', () => {
       controllers: [EducationExpenseCompositionController],
     }).compile();
 
-    controller = module.get<EducationExpenseCompositionController>(EducationExpenseCompositionController);
+    controller = module.get<EducationExpenseCompositionController>(
+      EducationExpenseCompositionController,
+    );
   });
 
   it('should be defined', () => {

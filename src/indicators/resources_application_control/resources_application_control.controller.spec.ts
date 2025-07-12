@@ -9,7 +9,9 @@ describe('ResourcesApplicationControlController', () => {
       controllers: [ResourcesApplicationControlController],
     }).compile();
 
-    controller = module.get<ResourcesApplicationControlController>(ResourcesApplicationControlController);
+    controller = module.get<ResourcesApplicationControlController>(
+      ResourcesApplicationControlController,
+    );
   });
 
   it('should be defined', () => {

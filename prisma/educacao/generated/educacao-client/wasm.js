@@ -151,6 +151,16 @@ exports.Prisma.EtapaEnsinoBasicaScalarFieldEnum = {
   nome_curto: 'nome_curto'
 };
 
+exports.Prisma.EtapaTurmaScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome'
+};
+
+exports.Prisma.EtapaMatriculaAte2020ScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome'
+};
+
 exports.Prisma.EtapaEnsinoBasicaSchoolScalarFieldEnum = {
   id: 'id',
   nome: 'nome'
@@ -211,6 +221,8 @@ exports.Prisma.DadoEducacaoBasicaScalarFieldEnum = {
   etapa_id: 'etapa_id',
   etapa_school_id: 'etapa_school_id',
   etapa_teacher_id: 'etapa_teacher_id',
+  etapa_turma_id: 'etapa_turma_id',
+  etapa_matricula_ate2020_id: 'etapa_matricula_ate2020_id',
   localizacao_id: 'localizacao_id',
   vinculo_id: 'vinculo_id',
   formacao_id: 'formacao_id',
@@ -275,6 +287,8 @@ exports.Prisma.ModelName = {
   DependenciaAdministrativaBasicaTeacher: 'DependenciaAdministrativaBasicaTeacher',
   DependenciaAdministrativaBasicaApos23: 'DependenciaAdministrativaBasicaApos23',
   EtapaEnsinoBasica: 'EtapaEnsinoBasica',
+  EtapaTurma: 'EtapaTurma',
+  EtapaMatriculaAte2020: 'EtapaMatriculaAte2020',
   EtapaEnsinoBasicaSchool: 'EtapaEnsinoBasicaSchool',
   EtapaEnsinoBasicaTeacher21: 'EtapaEnsinoBasicaTeacher21',
   EtapaEnsinoBasicaApos23: 'EtapaEnsinoBasicaApos23',

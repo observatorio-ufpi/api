@@ -289,15 +289,30 @@ async function inserirDados(tipo, dados, ano) {
         dadoParaInserir.etapa_id = dadoProcessado.education_level_short_id;
         dimensoesSalvas.etapas++;
       } else if (dadoProcessado.education_level_mod_id) {
-        await salvarDimensao(
-          'etapaEnsinoBasica',
-          dadoProcessado.education_level_mod_id,
-          {
-            id: dadoProcessado.education_level_mod_id,
-            nome: dadoProcessado.education_level_mod_name || 'Desconhecido',
-          },
-        );
-        dadoParaInserir.etapa_id = dadoProcessado.education_level_mod_id;
+        // Para enrollment até 2020, usar EtapaMatriculaAte2020
+        if (tipo === 'enrollment' && ano <= 2020) {
+          await salvarDimensao(
+            'etapaMatriculaAte2020',
+            dadoProcessado.education_level_mod_id,
+            {
+              id: dadoProcessado.education_level_mod_id,
+              nome: dadoProcessado.education_level_mod_name || 'Desconhecido',
+            },
+          );
+          dadoParaInserir.etapa_matricula_ate2020_id =
+            dadoProcessado.education_level_mod_id;
+        } else {
+          // Para outros casos, usar etapaEnsinoBasica
+          await salvarDimensao(
+            'etapaEnsinoBasica',
+            dadoProcessado.education_level_mod_id,
+            {
+              id: dadoProcessado.education_level_mod_id,
+              nome: dadoProcessado.education_level_mod_name || 'Desconhecido',
+            },
+          );
+          dadoParaInserir.etapa_id = dadoProcessado.education_level_mod_id;
+        }
         dimensoesSalvas.etapas++;
       } else if (
         tipo === 'federativeEntity' &&
@@ -455,6 +470,12 @@ async function inserirDados(tipo, dados, ano) {
             : {}),
           ...(dadoParaInserir.etapa_teacher_id
             ? { etapa_teacher_id: dadoParaInserir.etapa_teacher_id }
+            : {}),
+          ...(dadoParaInserir.etapa_matricula_ate2020_id
+            ? {
+                etapa_matricula_ate2020_id:
+                  dadoParaInserir.etapa_matricula_ate2020_id,
+              }
             : {}),
           ...(dadoParaInserir.localizacao_id
             ? { localizacao_id: dadoParaInserir.localizacao_id }
@@ -794,8 +815,8 @@ console.log('executedPath normalizado:', executedPath);
 if (scriptPath === executedPath) {
   console.log('Iniciando importação...');
   importarDados({
-    tipo: 'enrollmentAggregate',
-    anos: [2021, 2022, 2023],
+    tipo: 'enrollment',
+    anos: [2007, 2008, 2009, 2010, 2011, 2012],
   })
     .then((resultado) => {
       console.log('Importação finalizada com sucesso!');
