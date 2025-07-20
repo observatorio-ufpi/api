@@ -89,6 +89,11 @@ export type FormacaoDocente = $Result.DefaultSelection<Prisma.$FormacaoDocentePa
  */
 export type FaixaEtaria = $Result.DefaultSelection<Prisma.$FaixaEtariaPayload>
 /**
+ * Model FaixaEtariaTaxas
+ * 
+ */
+export type FaixaEtariaTaxas = $Result.DefaultSelection<Prisma.$FaixaEtariaTaxasPayload>
+/**
  * Model Entidade
  * 
  */
@@ -103,6 +108,11 @@ export type DadoEducacaoBasica = $Result.DefaultSelection<Prisma.$DadoEducacaoBa
  * 
  */
 export type DadoEducacaoBasicaApos23 = $Result.DefaultSelection<Prisma.$DadoEducacaoBasicaApos23Payload>
+/**
+ * Model TaxasPorFaixaEtaria
+ * 
+ */
+export type TaxasPorFaixaEtaria = $Result.DefaultSelection<Prisma.$TaxasPorFaixaEtariaPayload>
 /**
  * Model ImportacaoAPI
  * 
@@ -382,6 +392,16 @@ export class PrismaClient<
   get faixaEtaria(): Prisma.FaixaEtariaDelegate<ExtArgs>;
 
   /**
+   * `prisma.faixaEtariaTaxas`: Exposes CRUD operations for the **FaixaEtariaTaxas** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FaixaEtariaTaxas
+    * const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.findMany()
+    * ```
+    */
+  get faixaEtariaTaxas(): Prisma.FaixaEtariaTaxasDelegate<ExtArgs>;
+
+  /**
    * `prisma.entidade`: Exposes CRUD operations for the **Entidade** model.
     * Example usage:
     * ```ts
@@ -410,6 +430,16 @@ export class PrismaClient<
     * ```
     */
   get dadoEducacaoBasicaApos23(): Prisma.DadoEducacaoBasicaApos23Delegate<ExtArgs>;
+
+  /**
+   * `prisma.taxasPorFaixaEtaria`: Exposes CRUD operations for the **TaxasPorFaixaEtaria** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TaxasPorFaixaEtarias
+    * const taxasPorFaixaEtarias = await prisma.taxasPorFaixaEtaria.findMany()
+    * ```
+    */
+  get taxasPorFaixaEtaria(): Prisma.TaxasPorFaixaEtariaDelegate<ExtArgs>;
 
   /**
    * `prisma.importacaoAPI`: Exposes CRUD operations for the **ImportacaoAPI** model.
@@ -905,9 +935,11 @@ export namespace Prisma {
     VinculoFuncional: 'VinculoFuncional',
     FormacaoDocente: 'FormacaoDocente',
     FaixaEtaria: 'FaixaEtaria',
+    FaixaEtariaTaxas: 'FaixaEtariaTaxas',
     Entidade: 'Entidade',
     DadoEducacaoBasica: 'DadoEducacaoBasica',
     DadoEducacaoBasicaApos23: 'DadoEducacaoBasicaApos23',
+    TaxasPorFaixaEtaria: 'TaxasPorFaixaEtaria',
     ImportacaoAPI: 'ImportacaoAPI'
   };
 
@@ -925,7 +957,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'localidade' | 'dependenciaAdministrativaBasica' | 'dependenciaAdministrativaBasicaTeacher' | 'dependenciaAdministrativaBasicaApos23' | 'etapaEnsinoBasica' | 'etapaTurma' | 'etapaMatriculaAte2020' | 'etapaEnsinoBasicaSchool' | 'etapaEnsinoBasicaTeacher21' | 'etapaEnsinoBasicaApos23' | 'etapaEnsinoBasicaApos23TeacherClass' | 'localizacao' | 'vinculoFuncional' | 'formacaoDocente' | 'faixaEtaria' | 'entidade' | 'dadoEducacaoBasica' | 'dadoEducacaoBasicaApos23' | 'importacaoAPI'
+      modelProps: 'localidade' | 'dependenciaAdministrativaBasica' | 'dependenciaAdministrativaBasicaTeacher' | 'dependenciaAdministrativaBasicaApos23' | 'etapaEnsinoBasica' | 'etapaTurma' | 'etapaMatriculaAte2020' | 'etapaEnsinoBasicaSchool' | 'etapaEnsinoBasicaTeacher21' | 'etapaEnsinoBasicaApos23' | 'etapaEnsinoBasicaApos23TeacherClass' | 'localizacao' | 'vinculoFuncional' | 'formacaoDocente' | 'faixaEtaria' | 'faixaEtariaTaxas' | 'entidade' | 'dadoEducacaoBasica' | 'dadoEducacaoBasicaApos23' | 'taxasPorFaixaEtaria' | 'importacaoAPI'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -1919,6 +1951,72 @@ export namespace Prisma {
           }
         }
       }
+      FaixaEtariaTaxas: {
+        payload: Prisma.$FaixaEtariaTaxasPayload<ExtArgs>
+        fields: Prisma.FaixaEtariaTaxasFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FaixaEtariaTaxasFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FaixaEtariaTaxasPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FaixaEtariaTaxasFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FaixaEtariaTaxasPayload>
+          }
+          findFirst: {
+            args: Prisma.FaixaEtariaTaxasFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FaixaEtariaTaxasPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FaixaEtariaTaxasFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FaixaEtariaTaxasPayload>
+          }
+          findMany: {
+            args: Prisma.FaixaEtariaTaxasFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FaixaEtariaTaxasPayload>[]
+          }
+          create: {
+            args: Prisma.FaixaEtariaTaxasCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FaixaEtariaTaxasPayload>
+          }
+          createMany: {
+            args: Prisma.FaixaEtariaTaxasCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.FaixaEtariaTaxasDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FaixaEtariaTaxasPayload>
+          }
+          update: {
+            args: Prisma.FaixaEtariaTaxasUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FaixaEtariaTaxasPayload>
+          }
+          deleteMany: {
+            args: Prisma.FaixaEtariaTaxasDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FaixaEtariaTaxasUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.FaixaEtariaTaxasUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FaixaEtariaTaxasPayload>
+          }
+          aggregate: {
+            args: Prisma.FaixaEtariaTaxasAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateFaixaEtariaTaxas>
+          }
+          groupBy: {
+            args: Prisma.FaixaEtariaTaxasGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<FaixaEtariaTaxasGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FaixaEtariaTaxasCountArgs<ExtArgs>,
+            result: $Utils.Optional<FaixaEtariaTaxasCountAggregateOutputType> | number
+          }
+        }
+      }
       Entidade: {
         payload: Prisma.$EntidadePayload<ExtArgs>
         fields: Prisma.EntidadeFieldRefs
@@ -2114,6 +2212,72 @@ export namespace Prisma {
           count: {
             args: Prisma.DadoEducacaoBasicaApos23CountArgs<ExtArgs>,
             result: $Utils.Optional<DadoEducacaoBasicaApos23CountAggregateOutputType> | number
+          }
+        }
+      }
+      TaxasPorFaixaEtaria: {
+        payload: Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>
+        fields: Prisma.TaxasPorFaixaEtariaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TaxasPorFaixaEtariaFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TaxasPorFaixaEtariaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TaxasPorFaixaEtariaFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TaxasPorFaixaEtariaPayload>
+          }
+          findFirst: {
+            args: Prisma.TaxasPorFaixaEtariaFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TaxasPorFaixaEtariaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TaxasPorFaixaEtariaFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TaxasPorFaixaEtariaPayload>
+          }
+          findMany: {
+            args: Prisma.TaxasPorFaixaEtariaFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TaxasPorFaixaEtariaPayload>[]
+          }
+          create: {
+            args: Prisma.TaxasPorFaixaEtariaCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TaxasPorFaixaEtariaPayload>
+          }
+          createMany: {
+            args: Prisma.TaxasPorFaixaEtariaCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.TaxasPorFaixaEtariaDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TaxasPorFaixaEtariaPayload>
+          }
+          update: {
+            args: Prisma.TaxasPorFaixaEtariaUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TaxasPorFaixaEtariaPayload>
+          }
+          deleteMany: {
+            args: Prisma.TaxasPorFaixaEtariaDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TaxasPorFaixaEtariaUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.TaxasPorFaixaEtariaUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TaxasPorFaixaEtariaPayload>
+          }
+          aggregate: {
+            args: Prisma.TaxasPorFaixaEtariaAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateTaxasPorFaixaEtaria>
+          }
+          groupBy: {
+            args: Prisma.TaxasPorFaixaEtariaGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<TaxasPorFaixaEtariaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TaxasPorFaixaEtariaCountArgs<ExtArgs>,
+            result: $Utils.Optional<TaxasPorFaixaEtariaCountAggregateOutputType> | number
           }
         }
       }
@@ -2344,11 +2508,13 @@ export namespace Prisma {
   export type LocalidadeCountOutputType = {
     dados_basica: number
     dados_basica_apos23: number
+    taxas_por_faixa_etaria: number
   }
 
   export type LocalidadeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     dados_basica?: boolean | LocalidadeCountOutputTypeCountDados_basicaArgs
     dados_basica_apos23?: boolean | LocalidadeCountOutputTypeCountDados_basica_apos23Args
+    taxas_por_faixa_etaria?: boolean | LocalidadeCountOutputTypeCountTaxas_por_faixa_etariaArgs
   }
 
   // Custom InputTypes
@@ -2377,6 +2543,14 @@ export namespace Prisma {
    */
   export type LocalidadeCountOutputTypeCountDados_basica_apos23Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DadoEducacaoBasicaApos23WhereInput
+  }
+
+
+  /**
+   * LocalidadeCountOutputType without action
+   */
+  export type LocalidadeCountOutputTypeCountTaxas_por_faixa_etariaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TaxasPorFaixaEtariaWhereInput
   }
 
 
@@ -2868,6 +3042,40 @@ export namespace Prisma {
 
 
   /**
+   * Count Type FaixaEtariaTaxasCountOutputType
+   */
+
+  export type FaixaEtariaTaxasCountOutputType = {
+    taxas: number
+  }
+
+  export type FaixaEtariaTaxasCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    taxas?: boolean | FaixaEtariaTaxasCountOutputTypeCountTaxasArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * FaixaEtariaTaxasCountOutputType without action
+   */
+  export type FaixaEtariaTaxasCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxasCountOutputType
+     */
+    select?: FaixaEtariaTaxasCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * FaixaEtariaTaxasCountOutputType without action
+   */
+  export type FaixaEtariaTaxasCountOutputTypeCountTaxasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TaxasPorFaixaEtariaWhereInput
+  }
+
+
+
+  /**
    * Count Type EntidadeCountOutputType
    */
 
@@ -3105,6 +3313,7 @@ export namespace Prisma {
     codigo_ibge?: boolean
     dados_basica?: boolean | Localidade$dados_basicaArgs<ExtArgs>
     dados_basica_apos23?: boolean | Localidade$dados_basica_apos23Args<ExtArgs>
+    taxas_por_faixa_etaria?: boolean | Localidade$taxas_por_faixa_etariaArgs<ExtArgs>
     _count?: boolean | LocalidadeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["localidade"]>
 
@@ -3119,6 +3328,7 @@ export namespace Prisma {
   export type LocalidadeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     dados_basica?: boolean | Localidade$dados_basicaArgs<ExtArgs>
     dados_basica_apos23?: boolean | Localidade$dados_basica_apos23Args<ExtArgs>
+    taxas_por_faixa_etaria?: boolean | Localidade$taxas_por_faixa_etariaArgs<ExtArgs>
     _count?: boolean | LocalidadeCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -3128,6 +3338,7 @@ export namespace Prisma {
     objects: {
       dados_basica: Prisma.$DadoEducacaoBasicaPayload<ExtArgs>[]
       dados_basica_apos23: Prisma.$DadoEducacaoBasicaApos23Payload<ExtArgs>[]
+      taxas_por_faixa_etaria: Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3503,6 +3714,8 @@ export namespace Prisma {
     dados_basica<T extends Localidade$dados_basicaArgs<ExtArgs> = {}>(args?: Subset<T, Localidade$dados_basicaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DadoEducacaoBasicaPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     dados_basica_apos23<T extends Localidade$dados_basica_apos23Args<ExtArgs> = {}>(args?: Subset<T, Localidade$dados_basica_apos23Args<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DadoEducacaoBasicaApos23Payload<ExtArgs>, T, 'findMany'> | Null>;
+
+    taxas_por_faixa_etaria<T extends Localidade$taxas_por_faixa_etariaArgs<ExtArgs> = {}>(args?: Subset<T, Localidade$taxas_por_faixa_etariaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3887,6 +4100,27 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: DadoEducacaoBasicaApos23ScalarFieldEnum | DadoEducacaoBasicaApos23ScalarFieldEnum[]
+  }
+
+
+  /**
+   * Localidade.taxas_por_faixa_etaria
+   */
+  export type Localidade$taxas_por_faixa_etariaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    where?: TaxasPorFaixaEtariaWhereInput
+    orderBy?: TaxasPorFaixaEtariaOrderByWithRelationInput | TaxasPorFaixaEtariaOrderByWithRelationInput[]
+    cursor?: TaxasPorFaixaEtariaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TaxasPorFaixaEtariaScalarFieldEnum | TaxasPorFaixaEtariaScalarFieldEnum[]
   }
 
 
@@ -17195,6 +17429,978 @@ export namespace Prisma {
 
 
   /**
+   * Model FaixaEtariaTaxas
+   */
+
+  export type AggregateFaixaEtariaTaxas = {
+    _count: FaixaEtariaTaxasCountAggregateOutputType | null
+    _avg: FaixaEtariaTaxasAvgAggregateOutputType | null
+    _sum: FaixaEtariaTaxasSumAggregateOutputType | null
+    _min: FaixaEtariaTaxasMinAggregateOutputType | null
+    _max: FaixaEtariaTaxasMaxAggregateOutputType | null
+  }
+
+  export type FaixaEtariaTaxasAvgAggregateOutputType = {
+    id: number | null
+    idade_inicial: number | null
+    idade_final: number | null
+  }
+
+  export type FaixaEtariaTaxasSumAggregateOutputType = {
+    id: number | null
+    idade_inicial: number | null
+    idade_final: number | null
+  }
+
+  export type FaixaEtariaTaxasMinAggregateOutputType = {
+    id: number | null
+    nome: string | null
+    idade_inicial: number | null
+    idade_final: number | null
+  }
+
+  export type FaixaEtariaTaxasMaxAggregateOutputType = {
+    id: number | null
+    nome: string | null
+    idade_inicial: number | null
+    idade_final: number | null
+  }
+
+  export type FaixaEtariaTaxasCountAggregateOutputType = {
+    id: number
+    nome: number
+    idade_inicial: number
+    idade_final: number
+    _all: number
+  }
+
+
+  export type FaixaEtariaTaxasAvgAggregateInputType = {
+    id?: true
+    idade_inicial?: true
+    idade_final?: true
+  }
+
+  export type FaixaEtariaTaxasSumAggregateInputType = {
+    id?: true
+    idade_inicial?: true
+    idade_final?: true
+  }
+
+  export type FaixaEtariaTaxasMinAggregateInputType = {
+    id?: true
+    nome?: true
+    idade_inicial?: true
+    idade_final?: true
+  }
+
+  export type FaixaEtariaTaxasMaxAggregateInputType = {
+    id?: true
+    nome?: true
+    idade_inicial?: true
+    idade_final?: true
+  }
+
+  export type FaixaEtariaTaxasCountAggregateInputType = {
+    id?: true
+    nome?: true
+    idade_inicial?: true
+    idade_final?: true
+    _all?: true
+  }
+
+  export type FaixaEtariaTaxasAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FaixaEtariaTaxas to aggregate.
+     */
+    where?: FaixaEtariaTaxasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FaixaEtariaTaxas to fetch.
+     */
+    orderBy?: FaixaEtariaTaxasOrderByWithRelationInput | FaixaEtariaTaxasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FaixaEtariaTaxasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FaixaEtariaTaxas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FaixaEtariaTaxas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FaixaEtariaTaxas
+    **/
+    _count?: true | FaixaEtariaTaxasCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FaixaEtariaTaxasAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FaixaEtariaTaxasSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FaixaEtariaTaxasMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FaixaEtariaTaxasMaxAggregateInputType
+  }
+
+  export type GetFaixaEtariaTaxasAggregateType<T extends FaixaEtariaTaxasAggregateArgs> = {
+        [P in keyof T & keyof AggregateFaixaEtariaTaxas]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFaixaEtariaTaxas[P]>
+      : GetScalarType<T[P], AggregateFaixaEtariaTaxas[P]>
+  }
+
+
+
+
+  export type FaixaEtariaTaxasGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FaixaEtariaTaxasWhereInput
+    orderBy?: FaixaEtariaTaxasOrderByWithAggregationInput | FaixaEtariaTaxasOrderByWithAggregationInput[]
+    by: FaixaEtariaTaxasScalarFieldEnum[] | FaixaEtariaTaxasScalarFieldEnum
+    having?: FaixaEtariaTaxasScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FaixaEtariaTaxasCountAggregateInputType | true
+    _avg?: FaixaEtariaTaxasAvgAggregateInputType
+    _sum?: FaixaEtariaTaxasSumAggregateInputType
+    _min?: FaixaEtariaTaxasMinAggregateInputType
+    _max?: FaixaEtariaTaxasMaxAggregateInputType
+  }
+
+  export type FaixaEtariaTaxasGroupByOutputType = {
+    id: number
+    nome: string
+    idade_inicial: number | null
+    idade_final: number | null
+    _count: FaixaEtariaTaxasCountAggregateOutputType | null
+    _avg: FaixaEtariaTaxasAvgAggregateOutputType | null
+    _sum: FaixaEtariaTaxasSumAggregateOutputType | null
+    _min: FaixaEtariaTaxasMinAggregateOutputType | null
+    _max: FaixaEtariaTaxasMaxAggregateOutputType | null
+  }
+
+  type GetFaixaEtariaTaxasGroupByPayload<T extends FaixaEtariaTaxasGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FaixaEtariaTaxasGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FaixaEtariaTaxasGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FaixaEtariaTaxasGroupByOutputType[P]>
+            : GetScalarType<T[P], FaixaEtariaTaxasGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FaixaEtariaTaxasSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+    idade_inicial?: boolean
+    idade_final?: boolean
+    taxas?: boolean | FaixaEtariaTaxas$taxasArgs<ExtArgs>
+    _count?: boolean | FaixaEtariaTaxasCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["faixaEtariaTaxas"]>
+
+  export type FaixaEtariaTaxasSelectScalar = {
+    id?: boolean
+    nome?: boolean
+    idade_inicial?: boolean
+    idade_final?: boolean
+  }
+
+  export type FaixaEtariaTaxasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    taxas?: boolean | FaixaEtariaTaxas$taxasArgs<ExtArgs>
+    _count?: boolean | FaixaEtariaTaxasCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $FaixaEtariaTaxasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FaixaEtariaTaxas"
+    objects: {
+      taxas: Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nome: string
+      idade_inicial: number | null
+      idade_final: number | null
+    }, ExtArgs["result"]["faixaEtariaTaxas"]>
+    composites: {}
+  }
+
+
+  type FaixaEtariaTaxasGetPayload<S extends boolean | null | undefined | FaixaEtariaTaxasDefaultArgs> = $Result.GetResult<Prisma.$FaixaEtariaTaxasPayload, S>
+
+  type FaixaEtariaTaxasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<FaixaEtariaTaxasFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: FaixaEtariaTaxasCountAggregateInputType | true
+    }
+
+  export interface FaixaEtariaTaxasDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FaixaEtariaTaxas'], meta: { name: 'FaixaEtariaTaxas' } }
+    /**
+     * Find zero or one FaixaEtariaTaxas that matches the filter.
+     * @param {FaixaEtariaTaxasFindUniqueArgs} args - Arguments to find a FaixaEtariaTaxas
+     * @example
+     * // Get one FaixaEtariaTaxas
+     * const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends FaixaEtariaTaxasFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, FaixaEtariaTaxasFindUniqueArgs<ExtArgs>>
+    ): Prisma__FaixaEtariaTaxasClient<$Result.GetResult<Prisma.$FaixaEtariaTaxasPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one FaixaEtariaTaxas that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {FaixaEtariaTaxasFindUniqueOrThrowArgs} args - Arguments to find a FaixaEtariaTaxas
+     * @example
+     * // Get one FaixaEtariaTaxas
+     * const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends FaixaEtariaTaxasFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, FaixaEtariaTaxasFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__FaixaEtariaTaxasClient<$Result.GetResult<Prisma.$FaixaEtariaTaxasPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first FaixaEtariaTaxas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FaixaEtariaTaxasFindFirstArgs} args - Arguments to find a FaixaEtariaTaxas
+     * @example
+     * // Get one FaixaEtariaTaxas
+     * const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends FaixaEtariaTaxasFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, FaixaEtariaTaxasFindFirstArgs<ExtArgs>>
+    ): Prisma__FaixaEtariaTaxasClient<$Result.GetResult<Prisma.$FaixaEtariaTaxasPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first FaixaEtariaTaxas that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FaixaEtariaTaxasFindFirstOrThrowArgs} args - Arguments to find a FaixaEtariaTaxas
+     * @example
+     * // Get one FaixaEtariaTaxas
+     * const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends FaixaEtariaTaxasFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, FaixaEtariaTaxasFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__FaixaEtariaTaxasClient<$Result.GetResult<Prisma.$FaixaEtariaTaxasPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more FaixaEtariaTaxas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FaixaEtariaTaxasFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FaixaEtariaTaxas
+     * const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.findMany()
+     * 
+     * // Get first 10 FaixaEtariaTaxas
+     * const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const faixaEtariaTaxasWithIdOnly = await prisma.faixaEtariaTaxas.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends FaixaEtariaTaxasFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, FaixaEtariaTaxasFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FaixaEtariaTaxasPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a FaixaEtariaTaxas.
+     * @param {FaixaEtariaTaxasCreateArgs} args - Arguments to create a FaixaEtariaTaxas.
+     * @example
+     * // Create one FaixaEtariaTaxas
+     * const FaixaEtariaTaxas = await prisma.faixaEtariaTaxas.create({
+     *   data: {
+     *     // ... data to create a FaixaEtariaTaxas
+     *   }
+     * })
+     * 
+    **/
+    create<T extends FaixaEtariaTaxasCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, FaixaEtariaTaxasCreateArgs<ExtArgs>>
+    ): Prisma__FaixaEtariaTaxasClient<$Result.GetResult<Prisma.$FaixaEtariaTaxasPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many FaixaEtariaTaxas.
+     *     @param {FaixaEtariaTaxasCreateManyArgs} args - Arguments to create many FaixaEtariaTaxas.
+     *     @example
+     *     // Create many FaixaEtariaTaxas
+     *     const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends FaixaEtariaTaxasCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, FaixaEtariaTaxasCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a FaixaEtariaTaxas.
+     * @param {FaixaEtariaTaxasDeleteArgs} args - Arguments to delete one FaixaEtariaTaxas.
+     * @example
+     * // Delete one FaixaEtariaTaxas
+     * const FaixaEtariaTaxas = await prisma.faixaEtariaTaxas.delete({
+     *   where: {
+     *     // ... filter to delete one FaixaEtariaTaxas
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends FaixaEtariaTaxasDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, FaixaEtariaTaxasDeleteArgs<ExtArgs>>
+    ): Prisma__FaixaEtariaTaxasClient<$Result.GetResult<Prisma.$FaixaEtariaTaxasPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one FaixaEtariaTaxas.
+     * @param {FaixaEtariaTaxasUpdateArgs} args - Arguments to update one FaixaEtariaTaxas.
+     * @example
+     * // Update one FaixaEtariaTaxas
+     * const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends FaixaEtariaTaxasUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, FaixaEtariaTaxasUpdateArgs<ExtArgs>>
+    ): Prisma__FaixaEtariaTaxasClient<$Result.GetResult<Prisma.$FaixaEtariaTaxasPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more FaixaEtariaTaxas.
+     * @param {FaixaEtariaTaxasDeleteManyArgs} args - Arguments to filter FaixaEtariaTaxas to delete.
+     * @example
+     * // Delete a few FaixaEtariaTaxas
+     * const { count } = await prisma.faixaEtariaTaxas.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends FaixaEtariaTaxasDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, FaixaEtariaTaxasDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FaixaEtariaTaxas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FaixaEtariaTaxasUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FaixaEtariaTaxas
+     * const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends FaixaEtariaTaxasUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, FaixaEtariaTaxasUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one FaixaEtariaTaxas.
+     * @param {FaixaEtariaTaxasUpsertArgs} args - Arguments to update or create a FaixaEtariaTaxas.
+     * @example
+     * // Update or create a FaixaEtariaTaxas
+     * const faixaEtariaTaxas = await prisma.faixaEtariaTaxas.upsert({
+     *   create: {
+     *     // ... data to create a FaixaEtariaTaxas
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FaixaEtariaTaxas we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends FaixaEtariaTaxasUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, FaixaEtariaTaxasUpsertArgs<ExtArgs>>
+    ): Prisma__FaixaEtariaTaxasClient<$Result.GetResult<Prisma.$FaixaEtariaTaxasPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of FaixaEtariaTaxas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FaixaEtariaTaxasCountArgs} args - Arguments to filter FaixaEtariaTaxas to count.
+     * @example
+     * // Count the number of FaixaEtariaTaxas
+     * const count = await prisma.faixaEtariaTaxas.count({
+     *   where: {
+     *     // ... the filter for the FaixaEtariaTaxas we want to count
+     *   }
+     * })
+    **/
+    count<T extends FaixaEtariaTaxasCountArgs>(
+      args?: Subset<T, FaixaEtariaTaxasCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FaixaEtariaTaxasCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FaixaEtariaTaxas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FaixaEtariaTaxasAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FaixaEtariaTaxasAggregateArgs>(args: Subset<T, FaixaEtariaTaxasAggregateArgs>): Prisma.PrismaPromise<GetFaixaEtariaTaxasAggregateType<T>>
+
+    /**
+     * Group by FaixaEtariaTaxas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FaixaEtariaTaxasGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FaixaEtariaTaxasGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FaixaEtariaTaxasGroupByArgs['orderBy'] }
+        : { orderBy?: FaixaEtariaTaxasGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FaixaEtariaTaxasGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFaixaEtariaTaxasGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FaixaEtariaTaxas model
+   */
+  readonly fields: FaixaEtariaTaxasFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FaixaEtariaTaxas.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FaixaEtariaTaxasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    taxas<T extends FaixaEtariaTaxas$taxasArgs<ExtArgs> = {}>(args?: Subset<T, FaixaEtariaTaxas$taxasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the FaixaEtariaTaxas model
+   */ 
+  interface FaixaEtariaTaxasFieldRefs {
+    readonly id: FieldRef<"FaixaEtariaTaxas", 'Int'>
+    readonly nome: FieldRef<"FaixaEtariaTaxas", 'String'>
+    readonly idade_inicial: FieldRef<"FaixaEtariaTaxas", 'Int'>
+    readonly idade_final: FieldRef<"FaixaEtariaTaxas", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * FaixaEtariaTaxas findUnique
+   */
+  export type FaixaEtariaTaxasFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+    /**
+     * Filter, which FaixaEtariaTaxas to fetch.
+     */
+    where: FaixaEtariaTaxasWhereUniqueInput
+  }
+
+
+  /**
+   * FaixaEtariaTaxas findUniqueOrThrow
+   */
+  export type FaixaEtariaTaxasFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+    /**
+     * Filter, which FaixaEtariaTaxas to fetch.
+     */
+    where: FaixaEtariaTaxasWhereUniqueInput
+  }
+
+
+  /**
+   * FaixaEtariaTaxas findFirst
+   */
+  export type FaixaEtariaTaxasFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+    /**
+     * Filter, which FaixaEtariaTaxas to fetch.
+     */
+    where?: FaixaEtariaTaxasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FaixaEtariaTaxas to fetch.
+     */
+    orderBy?: FaixaEtariaTaxasOrderByWithRelationInput | FaixaEtariaTaxasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FaixaEtariaTaxas.
+     */
+    cursor?: FaixaEtariaTaxasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FaixaEtariaTaxas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FaixaEtariaTaxas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FaixaEtariaTaxas.
+     */
+    distinct?: FaixaEtariaTaxasScalarFieldEnum | FaixaEtariaTaxasScalarFieldEnum[]
+  }
+
+
+  /**
+   * FaixaEtariaTaxas findFirstOrThrow
+   */
+  export type FaixaEtariaTaxasFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+    /**
+     * Filter, which FaixaEtariaTaxas to fetch.
+     */
+    where?: FaixaEtariaTaxasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FaixaEtariaTaxas to fetch.
+     */
+    orderBy?: FaixaEtariaTaxasOrderByWithRelationInput | FaixaEtariaTaxasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FaixaEtariaTaxas.
+     */
+    cursor?: FaixaEtariaTaxasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FaixaEtariaTaxas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FaixaEtariaTaxas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FaixaEtariaTaxas.
+     */
+    distinct?: FaixaEtariaTaxasScalarFieldEnum | FaixaEtariaTaxasScalarFieldEnum[]
+  }
+
+
+  /**
+   * FaixaEtariaTaxas findMany
+   */
+  export type FaixaEtariaTaxasFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+    /**
+     * Filter, which FaixaEtariaTaxas to fetch.
+     */
+    where?: FaixaEtariaTaxasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FaixaEtariaTaxas to fetch.
+     */
+    orderBy?: FaixaEtariaTaxasOrderByWithRelationInput | FaixaEtariaTaxasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FaixaEtariaTaxas.
+     */
+    cursor?: FaixaEtariaTaxasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FaixaEtariaTaxas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FaixaEtariaTaxas.
+     */
+    skip?: number
+    distinct?: FaixaEtariaTaxasScalarFieldEnum | FaixaEtariaTaxasScalarFieldEnum[]
+  }
+
+
+  /**
+   * FaixaEtariaTaxas create
+   */
+  export type FaixaEtariaTaxasCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FaixaEtariaTaxas.
+     */
+    data: XOR<FaixaEtariaTaxasCreateInput, FaixaEtariaTaxasUncheckedCreateInput>
+  }
+
+
+  /**
+   * FaixaEtariaTaxas createMany
+   */
+  export type FaixaEtariaTaxasCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FaixaEtariaTaxas.
+     */
+    data: FaixaEtariaTaxasCreateManyInput | FaixaEtariaTaxasCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * FaixaEtariaTaxas update
+   */
+  export type FaixaEtariaTaxasUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FaixaEtariaTaxas.
+     */
+    data: XOR<FaixaEtariaTaxasUpdateInput, FaixaEtariaTaxasUncheckedUpdateInput>
+    /**
+     * Choose, which FaixaEtariaTaxas to update.
+     */
+    where: FaixaEtariaTaxasWhereUniqueInput
+  }
+
+
+  /**
+   * FaixaEtariaTaxas updateMany
+   */
+  export type FaixaEtariaTaxasUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FaixaEtariaTaxas.
+     */
+    data: XOR<FaixaEtariaTaxasUpdateManyMutationInput, FaixaEtariaTaxasUncheckedUpdateManyInput>
+    /**
+     * Filter which FaixaEtariaTaxas to update
+     */
+    where?: FaixaEtariaTaxasWhereInput
+  }
+
+
+  /**
+   * FaixaEtariaTaxas upsert
+   */
+  export type FaixaEtariaTaxasUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FaixaEtariaTaxas to update in case it exists.
+     */
+    where: FaixaEtariaTaxasWhereUniqueInput
+    /**
+     * In case the FaixaEtariaTaxas found by the `where` argument doesn't exist, create a new FaixaEtariaTaxas with this data.
+     */
+    create: XOR<FaixaEtariaTaxasCreateInput, FaixaEtariaTaxasUncheckedCreateInput>
+    /**
+     * In case the FaixaEtariaTaxas was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FaixaEtariaTaxasUpdateInput, FaixaEtariaTaxasUncheckedUpdateInput>
+  }
+
+
+  /**
+   * FaixaEtariaTaxas delete
+   */
+  export type FaixaEtariaTaxasDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+    /**
+     * Filter which FaixaEtariaTaxas to delete.
+     */
+    where: FaixaEtariaTaxasWhereUniqueInput
+  }
+
+
+  /**
+   * FaixaEtariaTaxas deleteMany
+   */
+  export type FaixaEtariaTaxasDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FaixaEtariaTaxas to delete
+     */
+    where?: FaixaEtariaTaxasWhereInput
+  }
+
+
+  /**
+   * FaixaEtariaTaxas.taxas
+   */
+  export type FaixaEtariaTaxas$taxasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    where?: TaxasPorFaixaEtariaWhereInput
+    orderBy?: TaxasPorFaixaEtariaOrderByWithRelationInput | TaxasPorFaixaEtariaOrderByWithRelationInput[]
+    cursor?: TaxasPorFaixaEtariaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TaxasPorFaixaEtariaScalarFieldEnum | TaxasPorFaixaEtariaScalarFieldEnum[]
+  }
+
+
+  /**
+   * FaixaEtariaTaxas without action
+   */
+  export type FaixaEtariaTaxasDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+  }
+
+
+
+  /**
    * Model Entidade
    */
 
@@ -20706,6 +21912,1063 @@ export namespace Prisma {
 
 
   /**
+   * Model TaxasPorFaixaEtaria
+   */
+
+  export type AggregateTaxasPorFaixaEtaria = {
+    _count: TaxasPorFaixaEtariaCountAggregateOutputType | null
+    _avg: TaxasPorFaixaEtariaAvgAggregateOutputType | null
+    _sum: TaxasPorFaixaEtariaSumAggregateOutputType | null
+    _min: TaxasPorFaixaEtariaMinAggregateOutputType | null
+    _max: TaxasPorFaixaEtariaMaxAggregateOutputType | null
+  }
+
+  export type TaxasPorFaixaEtariaAvgAggregateOutputType = {
+    id: number | null
+    ano: number | null
+    total: Decimal | null
+    denominador: number | null
+    numerador: number | null
+    localidade_id: number | null
+    faixa_etaria_taxas_id: number | null
+  }
+
+  export type TaxasPorFaixaEtariaSumAggregateOutputType = {
+    id: number | null
+    ano: number | null
+    total: Decimal | null
+    denominador: number | null
+    numerador: number | null
+    localidade_id: number | null
+    faixa_etaria_taxas_id: number | null
+  }
+
+  export type TaxasPorFaixaEtariaMinAggregateOutputType = {
+    id: number | null
+    ano: number | null
+    tipo: string | null
+    total: Decimal | null
+    denominador: number | null
+    numerador: number | null
+    data_atualizacao: Date | null
+    localidade_id: number | null
+    faixa_etaria_taxas_id: number | null
+  }
+
+  export type TaxasPorFaixaEtariaMaxAggregateOutputType = {
+    id: number | null
+    ano: number | null
+    tipo: string | null
+    total: Decimal | null
+    denominador: number | null
+    numerador: number | null
+    data_atualizacao: Date | null
+    localidade_id: number | null
+    faixa_etaria_taxas_id: number | null
+  }
+
+  export type TaxasPorFaixaEtariaCountAggregateOutputType = {
+    id: number
+    ano: number
+    tipo: number
+    total: number
+    denominador: number
+    numerador: number
+    data_atualizacao: number
+    localidade_id: number
+    faixa_etaria_taxas_id: number
+    _all: number
+  }
+
+
+  export type TaxasPorFaixaEtariaAvgAggregateInputType = {
+    id?: true
+    ano?: true
+    total?: true
+    denominador?: true
+    numerador?: true
+    localidade_id?: true
+    faixa_etaria_taxas_id?: true
+  }
+
+  export type TaxasPorFaixaEtariaSumAggregateInputType = {
+    id?: true
+    ano?: true
+    total?: true
+    denominador?: true
+    numerador?: true
+    localidade_id?: true
+    faixa_etaria_taxas_id?: true
+  }
+
+  export type TaxasPorFaixaEtariaMinAggregateInputType = {
+    id?: true
+    ano?: true
+    tipo?: true
+    total?: true
+    denominador?: true
+    numerador?: true
+    data_atualizacao?: true
+    localidade_id?: true
+    faixa_etaria_taxas_id?: true
+  }
+
+  export type TaxasPorFaixaEtariaMaxAggregateInputType = {
+    id?: true
+    ano?: true
+    tipo?: true
+    total?: true
+    denominador?: true
+    numerador?: true
+    data_atualizacao?: true
+    localidade_id?: true
+    faixa_etaria_taxas_id?: true
+  }
+
+  export type TaxasPorFaixaEtariaCountAggregateInputType = {
+    id?: true
+    ano?: true
+    tipo?: true
+    total?: true
+    denominador?: true
+    numerador?: true
+    data_atualizacao?: true
+    localidade_id?: true
+    faixa_etaria_taxas_id?: true
+    _all?: true
+  }
+
+  export type TaxasPorFaixaEtariaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TaxasPorFaixaEtaria to aggregate.
+     */
+    where?: TaxasPorFaixaEtariaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TaxasPorFaixaEtarias to fetch.
+     */
+    orderBy?: TaxasPorFaixaEtariaOrderByWithRelationInput | TaxasPorFaixaEtariaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TaxasPorFaixaEtariaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TaxasPorFaixaEtarias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TaxasPorFaixaEtarias.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TaxasPorFaixaEtarias
+    **/
+    _count?: true | TaxasPorFaixaEtariaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TaxasPorFaixaEtariaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TaxasPorFaixaEtariaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TaxasPorFaixaEtariaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TaxasPorFaixaEtariaMaxAggregateInputType
+  }
+
+  export type GetTaxasPorFaixaEtariaAggregateType<T extends TaxasPorFaixaEtariaAggregateArgs> = {
+        [P in keyof T & keyof AggregateTaxasPorFaixaEtaria]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTaxasPorFaixaEtaria[P]>
+      : GetScalarType<T[P], AggregateTaxasPorFaixaEtaria[P]>
+  }
+
+
+
+
+  export type TaxasPorFaixaEtariaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TaxasPorFaixaEtariaWhereInput
+    orderBy?: TaxasPorFaixaEtariaOrderByWithAggregationInput | TaxasPorFaixaEtariaOrderByWithAggregationInput[]
+    by: TaxasPorFaixaEtariaScalarFieldEnum[] | TaxasPorFaixaEtariaScalarFieldEnum
+    having?: TaxasPorFaixaEtariaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TaxasPorFaixaEtariaCountAggregateInputType | true
+    _avg?: TaxasPorFaixaEtariaAvgAggregateInputType
+    _sum?: TaxasPorFaixaEtariaSumAggregateInputType
+    _min?: TaxasPorFaixaEtariaMinAggregateInputType
+    _max?: TaxasPorFaixaEtariaMaxAggregateInputType
+  }
+
+  export type TaxasPorFaixaEtariaGroupByOutputType = {
+    id: number
+    ano: number
+    tipo: string
+    total: Decimal
+    denominador: number | null
+    numerador: number | null
+    data_atualizacao: Date
+    localidade_id: number | null
+    faixa_etaria_taxas_id: number | null
+    _count: TaxasPorFaixaEtariaCountAggregateOutputType | null
+    _avg: TaxasPorFaixaEtariaAvgAggregateOutputType | null
+    _sum: TaxasPorFaixaEtariaSumAggregateOutputType | null
+    _min: TaxasPorFaixaEtariaMinAggregateOutputType | null
+    _max: TaxasPorFaixaEtariaMaxAggregateOutputType | null
+  }
+
+  type GetTaxasPorFaixaEtariaGroupByPayload<T extends TaxasPorFaixaEtariaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TaxasPorFaixaEtariaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TaxasPorFaixaEtariaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TaxasPorFaixaEtariaGroupByOutputType[P]>
+            : GetScalarType<T[P], TaxasPorFaixaEtariaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TaxasPorFaixaEtariaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ano?: boolean
+    tipo?: boolean
+    total?: boolean
+    denominador?: boolean
+    numerador?: boolean
+    data_atualizacao?: boolean
+    localidade_id?: boolean
+    faixa_etaria_taxas_id?: boolean
+    localidade?: boolean | TaxasPorFaixaEtaria$localidadeArgs<ExtArgs>
+    faixa_etaria_taxas?: boolean | TaxasPorFaixaEtaria$faixa_etaria_taxasArgs<ExtArgs>
+  }, ExtArgs["result"]["taxasPorFaixaEtaria"]>
+
+  export type TaxasPorFaixaEtariaSelectScalar = {
+    id?: boolean
+    ano?: boolean
+    tipo?: boolean
+    total?: boolean
+    denominador?: boolean
+    numerador?: boolean
+    data_atualizacao?: boolean
+    localidade_id?: boolean
+    faixa_etaria_taxas_id?: boolean
+  }
+
+  export type TaxasPorFaixaEtariaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    localidade?: boolean | TaxasPorFaixaEtaria$localidadeArgs<ExtArgs>
+    faixa_etaria_taxas?: boolean | TaxasPorFaixaEtaria$faixa_etaria_taxasArgs<ExtArgs>
+  }
+
+
+  export type $TaxasPorFaixaEtariaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TaxasPorFaixaEtaria"
+    objects: {
+      localidade: Prisma.$LocalidadePayload<ExtArgs> | null
+      faixa_etaria_taxas: Prisma.$FaixaEtariaTaxasPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      ano: number
+      tipo: string
+      total: Prisma.Decimal
+      denominador: number | null
+      numerador: number | null
+      data_atualizacao: Date
+      localidade_id: number | null
+      faixa_etaria_taxas_id: number | null
+    }, ExtArgs["result"]["taxasPorFaixaEtaria"]>
+    composites: {}
+  }
+
+
+  type TaxasPorFaixaEtariaGetPayload<S extends boolean | null | undefined | TaxasPorFaixaEtariaDefaultArgs> = $Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload, S>
+
+  type TaxasPorFaixaEtariaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<TaxasPorFaixaEtariaFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TaxasPorFaixaEtariaCountAggregateInputType | true
+    }
+
+  export interface TaxasPorFaixaEtariaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TaxasPorFaixaEtaria'], meta: { name: 'TaxasPorFaixaEtaria' } }
+    /**
+     * Find zero or one TaxasPorFaixaEtaria that matches the filter.
+     * @param {TaxasPorFaixaEtariaFindUniqueArgs} args - Arguments to find a TaxasPorFaixaEtaria
+     * @example
+     * // Get one TaxasPorFaixaEtaria
+     * const taxasPorFaixaEtaria = await prisma.taxasPorFaixaEtaria.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends TaxasPorFaixaEtariaFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, TaxasPorFaixaEtariaFindUniqueArgs<ExtArgs>>
+    ): Prisma__TaxasPorFaixaEtariaClient<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one TaxasPorFaixaEtaria that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {TaxasPorFaixaEtariaFindUniqueOrThrowArgs} args - Arguments to find a TaxasPorFaixaEtaria
+     * @example
+     * // Get one TaxasPorFaixaEtaria
+     * const taxasPorFaixaEtaria = await prisma.taxasPorFaixaEtaria.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends TaxasPorFaixaEtariaFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, TaxasPorFaixaEtariaFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__TaxasPorFaixaEtariaClient<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first TaxasPorFaixaEtaria that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TaxasPorFaixaEtariaFindFirstArgs} args - Arguments to find a TaxasPorFaixaEtaria
+     * @example
+     * // Get one TaxasPorFaixaEtaria
+     * const taxasPorFaixaEtaria = await prisma.taxasPorFaixaEtaria.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends TaxasPorFaixaEtariaFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, TaxasPorFaixaEtariaFindFirstArgs<ExtArgs>>
+    ): Prisma__TaxasPorFaixaEtariaClient<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first TaxasPorFaixaEtaria that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TaxasPorFaixaEtariaFindFirstOrThrowArgs} args - Arguments to find a TaxasPorFaixaEtaria
+     * @example
+     * // Get one TaxasPorFaixaEtaria
+     * const taxasPorFaixaEtaria = await prisma.taxasPorFaixaEtaria.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends TaxasPorFaixaEtariaFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, TaxasPorFaixaEtariaFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__TaxasPorFaixaEtariaClient<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more TaxasPorFaixaEtarias that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TaxasPorFaixaEtariaFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TaxasPorFaixaEtarias
+     * const taxasPorFaixaEtarias = await prisma.taxasPorFaixaEtaria.findMany()
+     * 
+     * // Get first 10 TaxasPorFaixaEtarias
+     * const taxasPorFaixaEtarias = await prisma.taxasPorFaixaEtaria.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const taxasPorFaixaEtariaWithIdOnly = await prisma.taxasPorFaixaEtaria.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends TaxasPorFaixaEtariaFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, TaxasPorFaixaEtariaFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a TaxasPorFaixaEtaria.
+     * @param {TaxasPorFaixaEtariaCreateArgs} args - Arguments to create a TaxasPorFaixaEtaria.
+     * @example
+     * // Create one TaxasPorFaixaEtaria
+     * const TaxasPorFaixaEtaria = await prisma.taxasPorFaixaEtaria.create({
+     *   data: {
+     *     // ... data to create a TaxasPorFaixaEtaria
+     *   }
+     * })
+     * 
+    **/
+    create<T extends TaxasPorFaixaEtariaCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, TaxasPorFaixaEtariaCreateArgs<ExtArgs>>
+    ): Prisma__TaxasPorFaixaEtariaClient<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many TaxasPorFaixaEtarias.
+     *     @param {TaxasPorFaixaEtariaCreateManyArgs} args - Arguments to create many TaxasPorFaixaEtarias.
+     *     @example
+     *     // Create many TaxasPorFaixaEtarias
+     *     const taxasPorFaixaEtaria = await prisma.taxasPorFaixaEtaria.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends TaxasPorFaixaEtariaCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, TaxasPorFaixaEtariaCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a TaxasPorFaixaEtaria.
+     * @param {TaxasPorFaixaEtariaDeleteArgs} args - Arguments to delete one TaxasPorFaixaEtaria.
+     * @example
+     * // Delete one TaxasPorFaixaEtaria
+     * const TaxasPorFaixaEtaria = await prisma.taxasPorFaixaEtaria.delete({
+     *   where: {
+     *     // ... filter to delete one TaxasPorFaixaEtaria
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends TaxasPorFaixaEtariaDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, TaxasPorFaixaEtariaDeleteArgs<ExtArgs>>
+    ): Prisma__TaxasPorFaixaEtariaClient<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one TaxasPorFaixaEtaria.
+     * @param {TaxasPorFaixaEtariaUpdateArgs} args - Arguments to update one TaxasPorFaixaEtaria.
+     * @example
+     * // Update one TaxasPorFaixaEtaria
+     * const taxasPorFaixaEtaria = await prisma.taxasPorFaixaEtaria.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends TaxasPorFaixaEtariaUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, TaxasPorFaixaEtariaUpdateArgs<ExtArgs>>
+    ): Prisma__TaxasPorFaixaEtariaClient<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more TaxasPorFaixaEtarias.
+     * @param {TaxasPorFaixaEtariaDeleteManyArgs} args - Arguments to filter TaxasPorFaixaEtarias to delete.
+     * @example
+     * // Delete a few TaxasPorFaixaEtarias
+     * const { count } = await prisma.taxasPorFaixaEtaria.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends TaxasPorFaixaEtariaDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, TaxasPorFaixaEtariaDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TaxasPorFaixaEtarias.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TaxasPorFaixaEtariaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TaxasPorFaixaEtarias
+     * const taxasPorFaixaEtaria = await prisma.taxasPorFaixaEtaria.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends TaxasPorFaixaEtariaUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, TaxasPorFaixaEtariaUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one TaxasPorFaixaEtaria.
+     * @param {TaxasPorFaixaEtariaUpsertArgs} args - Arguments to update or create a TaxasPorFaixaEtaria.
+     * @example
+     * // Update or create a TaxasPorFaixaEtaria
+     * const taxasPorFaixaEtaria = await prisma.taxasPorFaixaEtaria.upsert({
+     *   create: {
+     *     // ... data to create a TaxasPorFaixaEtaria
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TaxasPorFaixaEtaria we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends TaxasPorFaixaEtariaUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, TaxasPorFaixaEtariaUpsertArgs<ExtArgs>>
+    ): Prisma__TaxasPorFaixaEtariaClient<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of TaxasPorFaixaEtarias.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TaxasPorFaixaEtariaCountArgs} args - Arguments to filter TaxasPorFaixaEtarias to count.
+     * @example
+     * // Count the number of TaxasPorFaixaEtarias
+     * const count = await prisma.taxasPorFaixaEtaria.count({
+     *   where: {
+     *     // ... the filter for the TaxasPorFaixaEtarias we want to count
+     *   }
+     * })
+    **/
+    count<T extends TaxasPorFaixaEtariaCountArgs>(
+      args?: Subset<T, TaxasPorFaixaEtariaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TaxasPorFaixaEtariaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TaxasPorFaixaEtaria.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TaxasPorFaixaEtariaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TaxasPorFaixaEtariaAggregateArgs>(args: Subset<T, TaxasPorFaixaEtariaAggregateArgs>): Prisma.PrismaPromise<GetTaxasPorFaixaEtariaAggregateType<T>>
+
+    /**
+     * Group by TaxasPorFaixaEtaria.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TaxasPorFaixaEtariaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TaxasPorFaixaEtariaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TaxasPorFaixaEtariaGroupByArgs['orderBy'] }
+        : { orderBy?: TaxasPorFaixaEtariaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TaxasPorFaixaEtariaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTaxasPorFaixaEtariaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TaxasPorFaixaEtaria model
+   */
+  readonly fields: TaxasPorFaixaEtariaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TaxasPorFaixaEtaria.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TaxasPorFaixaEtariaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    localidade<T extends TaxasPorFaixaEtaria$localidadeArgs<ExtArgs> = {}>(args?: Subset<T, TaxasPorFaixaEtaria$localidadeArgs<ExtArgs>>): Prisma__LocalidadeClient<$Result.GetResult<Prisma.$LocalidadePayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
+    faixa_etaria_taxas<T extends TaxasPorFaixaEtaria$faixa_etaria_taxasArgs<ExtArgs> = {}>(args?: Subset<T, TaxasPorFaixaEtaria$faixa_etaria_taxasArgs<ExtArgs>>): Prisma__FaixaEtariaTaxasClient<$Result.GetResult<Prisma.$FaixaEtariaTaxasPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the TaxasPorFaixaEtaria model
+   */ 
+  interface TaxasPorFaixaEtariaFieldRefs {
+    readonly id: FieldRef<"TaxasPorFaixaEtaria", 'Int'>
+    readonly ano: FieldRef<"TaxasPorFaixaEtaria", 'Int'>
+    readonly tipo: FieldRef<"TaxasPorFaixaEtaria", 'String'>
+    readonly total: FieldRef<"TaxasPorFaixaEtaria", 'Decimal'>
+    readonly denominador: FieldRef<"TaxasPorFaixaEtaria", 'Int'>
+    readonly numerador: FieldRef<"TaxasPorFaixaEtaria", 'Int'>
+    readonly data_atualizacao: FieldRef<"TaxasPorFaixaEtaria", 'DateTime'>
+    readonly localidade_id: FieldRef<"TaxasPorFaixaEtaria", 'Int'>
+    readonly faixa_etaria_taxas_id: FieldRef<"TaxasPorFaixaEtaria", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * TaxasPorFaixaEtaria findUnique
+   */
+  export type TaxasPorFaixaEtariaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    /**
+     * Filter, which TaxasPorFaixaEtaria to fetch.
+     */
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria findUniqueOrThrow
+   */
+  export type TaxasPorFaixaEtariaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    /**
+     * Filter, which TaxasPorFaixaEtaria to fetch.
+     */
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria findFirst
+   */
+  export type TaxasPorFaixaEtariaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    /**
+     * Filter, which TaxasPorFaixaEtaria to fetch.
+     */
+    where?: TaxasPorFaixaEtariaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TaxasPorFaixaEtarias to fetch.
+     */
+    orderBy?: TaxasPorFaixaEtariaOrderByWithRelationInput | TaxasPorFaixaEtariaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TaxasPorFaixaEtarias.
+     */
+    cursor?: TaxasPorFaixaEtariaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TaxasPorFaixaEtarias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TaxasPorFaixaEtarias.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TaxasPorFaixaEtarias.
+     */
+    distinct?: TaxasPorFaixaEtariaScalarFieldEnum | TaxasPorFaixaEtariaScalarFieldEnum[]
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria findFirstOrThrow
+   */
+  export type TaxasPorFaixaEtariaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    /**
+     * Filter, which TaxasPorFaixaEtaria to fetch.
+     */
+    where?: TaxasPorFaixaEtariaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TaxasPorFaixaEtarias to fetch.
+     */
+    orderBy?: TaxasPorFaixaEtariaOrderByWithRelationInput | TaxasPorFaixaEtariaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TaxasPorFaixaEtarias.
+     */
+    cursor?: TaxasPorFaixaEtariaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TaxasPorFaixaEtarias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TaxasPorFaixaEtarias.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TaxasPorFaixaEtarias.
+     */
+    distinct?: TaxasPorFaixaEtariaScalarFieldEnum | TaxasPorFaixaEtariaScalarFieldEnum[]
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria findMany
+   */
+  export type TaxasPorFaixaEtariaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    /**
+     * Filter, which TaxasPorFaixaEtarias to fetch.
+     */
+    where?: TaxasPorFaixaEtariaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TaxasPorFaixaEtarias to fetch.
+     */
+    orderBy?: TaxasPorFaixaEtariaOrderByWithRelationInput | TaxasPorFaixaEtariaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TaxasPorFaixaEtarias.
+     */
+    cursor?: TaxasPorFaixaEtariaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TaxasPorFaixaEtarias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TaxasPorFaixaEtarias.
+     */
+    skip?: number
+    distinct?: TaxasPorFaixaEtariaScalarFieldEnum | TaxasPorFaixaEtariaScalarFieldEnum[]
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria create
+   */
+  export type TaxasPorFaixaEtariaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TaxasPorFaixaEtaria.
+     */
+    data: XOR<TaxasPorFaixaEtariaCreateInput, TaxasPorFaixaEtariaUncheckedCreateInput>
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria createMany
+   */
+  export type TaxasPorFaixaEtariaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TaxasPorFaixaEtarias.
+     */
+    data: TaxasPorFaixaEtariaCreateManyInput | TaxasPorFaixaEtariaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria update
+   */
+  export type TaxasPorFaixaEtariaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TaxasPorFaixaEtaria.
+     */
+    data: XOR<TaxasPorFaixaEtariaUpdateInput, TaxasPorFaixaEtariaUncheckedUpdateInput>
+    /**
+     * Choose, which TaxasPorFaixaEtaria to update.
+     */
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria updateMany
+   */
+  export type TaxasPorFaixaEtariaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TaxasPorFaixaEtarias.
+     */
+    data: XOR<TaxasPorFaixaEtariaUpdateManyMutationInput, TaxasPorFaixaEtariaUncheckedUpdateManyInput>
+    /**
+     * Filter which TaxasPorFaixaEtarias to update
+     */
+    where?: TaxasPorFaixaEtariaWhereInput
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria upsert
+   */
+  export type TaxasPorFaixaEtariaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TaxasPorFaixaEtaria to update in case it exists.
+     */
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+    /**
+     * In case the TaxasPorFaixaEtaria found by the `where` argument doesn't exist, create a new TaxasPorFaixaEtaria with this data.
+     */
+    create: XOR<TaxasPorFaixaEtariaCreateInput, TaxasPorFaixaEtariaUncheckedCreateInput>
+    /**
+     * In case the TaxasPorFaixaEtaria was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TaxasPorFaixaEtariaUpdateInput, TaxasPorFaixaEtariaUncheckedUpdateInput>
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria delete
+   */
+  export type TaxasPorFaixaEtariaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+    /**
+     * Filter which TaxasPorFaixaEtaria to delete.
+     */
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria deleteMany
+   */
+  export type TaxasPorFaixaEtariaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TaxasPorFaixaEtarias to delete
+     */
+    where?: TaxasPorFaixaEtariaWhereInput
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria.localidade
+   */
+  export type TaxasPorFaixaEtaria$localidadeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Localidade
+     */
+    select?: LocalidadeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: LocalidadeInclude<ExtArgs> | null
+    where?: LocalidadeWhereInput
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria.faixa_etaria_taxas
+   */
+  export type TaxasPorFaixaEtaria$faixa_etaria_taxasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FaixaEtariaTaxas
+     */
+    select?: FaixaEtariaTaxasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: FaixaEtariaTaxasInclude<ExtArgs> | null
+    where?: FaixaEtariaTaxasWhereInput
+  }
+
+
+  /**
+   * TaxasPorFaixaEtaria without action
+   */
+  export type TaxasPorFaixaEtariaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TaxasPorFaixaEtaria
+     */
+    select?: TaxasPorFaixaEtariaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TaxasPorFaixaEtariaInclude<ExtArgs> | null
+  }
+
+
+
+  /**
    * Model ImportacaoAPI
    */
 
@@ -21785,6 +24048,16 @@ export namespace Prisma {
   export type FaixaEtariaScalarFieldEnum = (typeof FaixaEtariaScalarFieldEnum)[keyof typeof FaixaEtariaScalarFieldEnum]
 
 
+  export const FaixaEtariaTaxasScalarFieldEnum: {
+    id: 'id',
+    nome: 'nome',
+    idade_inicial: 'idade_inicial',
+    idade_final: 'idade_final'
+  };
+
+  export type FaixaEtariaTaxasScalarFieldEnum = (typeof FaixaEtariaTaxasScalarFieldEnum)[keyof typeof FaixaEtariaTaxasScalarFieldEnum]
+
+
   export const EntidadeScalarFieldEnum: {
     id: 'id',
     codigo: 'codigo',
@@ -21832,6 +24105,21 @@ export namespace Prisma {
   };
 
   export type DadoEducacaoBasicaApos23ScalarFieldEnum = (typeof DadoEducacaoBasicaApos23ScalarFieldEnum)[keyof typeof DadoEducacaoBasicaApos23ScalarFieldEnum]
+
+
+  export const TaxasPorFaixaEtariaScalarFieldEnum: {
+    id: 'id',
+    ano: 'ano',
+    tipo: 'tipo',
+    total: 'total',
+    denominador: 'denominador',
+    numerador: 'numerador',
+    data_atualizacao: 'data_atualizacao',
+    localidade_id: 'localidade_id',
+    faixa_etaria_taxas_id: 'faixa_etaria_taxas_id'
+  };
+
+  export type TaxasPorFaixaEtariaScalarFieldEnum = (typeof TaxasPorFaixaEtariaScalarFieldEnum)[keyof typeof TaxasPorFaixaEtariaScalarFieldEnum]
 
 
   export const ImportacaoAPIScalarFieldEnum: {
@@ -21985,6 +24273,7 @@ export namespace Prisma {
     codigo_ibge?: StringNullableFilter<"Localidade"> | string | null
     dados_basica?: DadoEducacaoBasicaListRelationFilter
     dados_basica_apos23?: DadoEducacaoBasicaApos23ListRelationFilter
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaListRelationFilter
   }
 
   export type LocalidadeOrderByWithRelationInput = {
@@ -21995,6 +24284,7 @@ export namespace Prisma {
     codigo_ibge?: SortOrderInput | SortOrder
     dados_basica?: DadoEducacaoBasicaOrderByRelationAggregateInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23OrderByRelationAggregateInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaOrderByRelationAggregateInput
   }
 
   export type LocalidadeWhereUniqueInput = Prisma.AtLeast<{
@@ -22008,6 +24298,7 @@ export namespace Prisma {
     codigo_ibge?: StringNullableFilter<"Localidade"> | string | null
     dados_basica?: DadoEducacaoBasicaListRelationFilter
     dados_basica_apos23?: DadoEducacaoBasicaApos23ListRelationFilter
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaListRelationFilter
   }, "id">
 
   export type LocalidadeOrderByWithAggregationInput = {
@@ -22655,6 +24946,58 @@ export namespace Prisma {
     idade_final?: IntNullableWithAggregatesFilter<"FaixaEtaria"> | number | null
   }
 
+  export type FaixaEtariaTaxasWhereInput = {
+    AND?: FaixaEtariaTaxasWhereInput | FaixaEtariaTaxasWhereInput[]
+    OR?: FaixaEtariaTaxasWhereInput[]
+    NOT?: FaixaEtariaTaxasWhereInput | FaixaEtariaTaxasWhereInput[]
+    id?: IntFilter<"FaixaEtariaTaxas"> | number
+    nome?: StringFilter<"FaixaEtariaTaxas"> | string
+    idade_inicial?: IntNullableFilter<"FaixaEtariaTaxas"> | number | null
+    idade_final?: IntNullableFilter<"FaixaEtariaTaxas"> | number | null
+    taxas?: TaxasPorFaixaEtariaListRelationFilter
+  }
+
+  export type FaixaEtariaTaxasOrderByWithRelationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    idade_inicial?: SortOrderInput | SortOrder
+    idade_final?: SortOrderInput | SortOrder
+    taxas?: TaxasPorFaixaEtariaOrderByRelationAggregateInput
+  }
+
+  export type FaixaEtariaTaxasWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: FaixaEtariaTaxasWhereInput | FaixaEtariaTaxasWhereInput[]
+    OR?: FaixaEtariaTaxasWhereInput[]
+    NOT?: FaixaEtariaTaxasWhereInput | FaixaEtariaTaxasWhereInput[]
+    nome?: StringFilter<"FaixaEtariaTaxas"> | string
+    idade_inicial?: IntNullableFilter<"FaixaEtariaTaxas"> | number | null
+    idade_final?: IntNullableFilter<"FaixaEtariaTaxas"> | number | null
+    taxas?: TaxasPorFaixaEtariaListRelationFilter
+  }, "id">
+
+  export type FaixaEtariaTaxasOrderByWithAggregationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    idade_inicial?: SortOrderInput | SortOrder
+    idade_final?: SortOrderInput | SortOrder
+    _count?: FaixaEtariaTaxasCountOrderByAggregateInput
+    _avg?: FaixaEtariaTaxasAvgOrderByAggregateInput
+    _max?: FaixaEtariaTaxasMaxOrderByAggregateInput
+    _min?: FaixaEtariaTaxasMinOrderByAggregateInput
+    _sum?: FaixaEtariaTaxasSumOrderByAggregateInput
+  }
+
+  export type FaixaEtariaTaxasScalarWhereWithAggregatesInput = {
+    AND?: FaixaEtariaTaxasScalarWhereWithAggregatesInput | FaixaEtariaTaxasScalarWhereWithAggregatesInput[]
+    OR?: FaixaEtariaTaxasScalarWhereWithAggregatesInput[]
+    NOT?: FaixaEtariaTaxasScalarWhereWithAggregatesInput | FaixaEtariaTaxasScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"FaixaEtariaTaxas"> | number
+    nome?: StringWithAggregatesFilter<"FaixaEtariaTaxas"> | string
+    idade_inicial?: IntNullableWithAggregatesFilter<"FaixaEtariaTaxas"> | number | null
+    idade_final?: IntNullableWithAggregatesFilter<"FaixaEtariaTaxas"> | number | null
+  }
+
   export type EntidadeWhereInput = {
     AND?: EntidadeWhereInput | EntidadeWhereInput[]
     OR?: EntidadeWhereInput[]
@@ -22954,6 +25297,86 @@ export namespace Prisma {
     entidade_id?: IntNullableWithAggregatesFilter<"DadoEducacaoBasicaApos23"> | number | null
   }
 
+  export type TaxasPorFaixaEtariaWhereInput = {
+    AND?: TaxasPorFaixaEtariaWhereInput | TaxasPorFaixaEtariaWhereInput[]
+    OR?: TaxasPorFaixaEtariaWhereInput[]
+    NOT?: TaxasPorFaixaEtariaWhereInput | TaxasPorFaixaEtariaWhereInput[]
+    id?: IntFilter<"TaxasPorFaixaEtaria"> | number
+    ano?: IntFilter<"TaxasPorFaixaEtaria"> | number
+    tipo?: StringFilter<"TaxasPorFaixaEtaria"> | string
+    total?: DecimalFilter<"TaxasPorFaixaEtaria"> | Decimal | DecimalJsLike | number | string
+    denominador?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    numerador?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    data_atualizacao?: DateTimeFilter<"TaxasPorFaixaEtaria"> | Date | string
+    localidade_id?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    faixa_etaria_taxas_id?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    localidade?: XOR<LocalidadeNullableRelationFilter, LocalidadeWhereInput> | null
+    faixa_etaria_taxas?: XOR<FaixaEtariaTaxasNullableRelationFilter, FaixaEtariaTaxasWhereInput> | null
+  }
+
+  export type TaxasPorFaixaEtariaOrderByWithRelationInput = {
+    id?: SortOrder
+    ano?: SortOrder
+    tipo?: SortOrder
+    total?: SortOrder
+    denominador?: SortOrderInput | SortOrder
+    numerador?: SortOrderInput | SortOrder
+    data_atualizacao?: SortOrder
+    localidade_id?: SortOrderInput | SortOrder
+    faixa_etaria_taxas_id?: SortOrderInput | SortOrder
+    localidade?: LocalidadeOrderByWithRelationInput
+    faixa_etaria_taxas?: FaixaEtariaTaxasOrderByWithRelationInput
+  }
+
+  export type TaxasPorFaixaEtariaWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TaxasPorFaixaEtariaWhereInput | TaxasPorFaixaEtariaWhereInput[]
+    OR?: TaxasPorFaixaEtariaWhereInput[]
+    NOT?: TaxasPorFaixaEtariaWhereInput | TaxasPorFaixaEtariaWhereInput[]
+    ano?: IntFilter<"TaxasPorFaixaEtaria"> | number
+    tipo?: StringFilter<"TaxasPorFaixaEtaria"> | string
+    total?: DecimalFilter<"TaxasPorFaixaEtaria"> | Decimal | DecimalJsLike | number | string
+    denominador?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    numerador?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    data_atualizacao?: DateTimeFilter<"TaxasPorFaixaEtaria"> | Date | string
+    localidade_id?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    faixa_etaria_taxas_id?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    localidade?: XOR<LocalidadeNullableRelationFilter, LocalidadeWhereInput> | null
+    faixa_etaria_taxas?: XOR<FaixaEtariaTaxasNullableRelationFilter, FaixaEtariaTaxasWhereInput> | null
+  }, "id">
+
+  export type TaxasPorFaixaEtariaOrderByWithAggregationInput = {
+    id?: SortOrder
+    ano?: SortOrder
+    tipo?: SortOrder
+    total?: SortOrder
+    denominador?: SortOrderInput | SortOrder
+    numerador?: SortOrderInput | SortOrder
+    data_atualizacao?: SortOrder
+    localidade_id?: SortOrderInput | SortOrder
+    faixa_etaria_taxas_id?: SortOrderInput | SortOrder
+    _count?: TaxasPorFaixaEtariaCountOrderByAggregateInput
+    _avg?: TaxasPorFaixaEtariaAvgOrderByAggregateInput
+    _max?: TaxasPorFaixaEtariaMaxOrderByAggregateInput
+    _min?: TaxasPorFaixaEtariaMinOrderByAggregateInput
+    _sum?: TaxasPorFaixaEtariaSumOrderByAggregateInput
+  }
+
+  export type TaxasPorFaixaEtariaScalarWhereWithAggregatesInput = {
+    AND?: TaxasPorFaixaEtariaScalarWhereWithAggregatesInput | TaxasPorFaixaEtariaScalarWhereWithAggregatesInput[]
+    OR?: TaxasPorFaixaEtariaScalarWhereWithAggregatesInput[]
+    NOT?: TaxasPorFaixaEtariaScalarWhereWithAggregatesInput | TaxasPorFaixaEtariaScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"TaxasPorFaixaEtaria"> | number
+    ano?: IntWithAggregatesFilter<"TaxasPorFaixaEtaria"> | number
+    tipo?: StringWithAggregatesFilter<"TaxasPorFaixaEtaria"> | string
+    total?: DecimalWithAggregatesFilter<"TaxasPorFaixaEtaria"> | Decimal | DecimalJsLike | number | string
+    denominador?: IntNullableWithAggregatesFilter<"TaxasPorFaixaEtaria"> | number | null
+    numerador?: IntNullableWithAggregatesFilter<"TaxasPorFaixaEtaria"> | number | null
+    data_atualizacao?: DateTimeWithAggregatesFilter<"TaxasPorFaixaEtaria"> | Date | string
+    localidade_id?: IntNullableWithAggregatesFilter<"TaxasPorFaixaEtaria"> | number | null
+    faixa_etaria_taxas_id?: IntNullableWithAggregatesFilter<"TaxasPorFaixaEtaria"> | number | null
+  }
+
   export type ImportacaoAPIWhereInput = {
     AND?: ImportacaoAPIWhereInput | ImportacaoAPIWhereInput[]
     OR?: ImportacaoAPIWhereInput[]
@@ -23031,6 +25454,7 @@ export namespace Prisma {
     codigo_ibge?: string | null
     dados_basica?: DadoEducacaoBasicaCreateNestedManyWithoutLocalidadeInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23CreateNestedManyWithoutLocalidadeInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUncheckedCreateInput = {
@@ -23041,6 +25465,7 @@ export namespace Prisma {
     codigo_ibge?: string | null
     dados_basica?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedCreateNestedManyWithoutLocalidadeInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUpdateInput = {
@@ -23051,6 +25476,7 @@ export namespace Prisma {
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUpdateManyWithoutLocalidadeNestedInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UpdateManyWithoutLocalidadeNestedInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeUncheckedUpdateInput = {
@@ -23061,6 +25487,7 @@ export namespace Prisma {
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedUpdateManyWithoutLocalidadeNestedInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeCreateManyInput = {
@@ -23679,6 +26106,59 @@ export namespace Prisma {
     idade_final?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type FaixaEtariaTaxasCreateInput = {
+    id: number
+    nome: string
+    idade_inicial?: number | null
+    idade_final?: number | null
+    taxas?: TaxasPorFaixaEtariaCreateNestedManyWithoutFaixa_etaria_taxasInput
+  }
+
+  export type FaixaEtariaTaxasUncheckedCreateInput = {
+    id: number
+    nome: string
+    idade_inicial?: number | null
+    idade_final?: number | null
+    taxas?: TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutFaixa_etaria_taxasInput
+  }
+
+  export type FaixaEtariaTaxasUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    idade_inicial?: NullableIntFieldUpdateOperationsInput | number | null
+    idade_final?: NullableIntFieldUpdateOperationsInput | number | null
+    taxas?: TaxasPorFaixaEtariaUpdateManyWithoutFaixa_etaria_taxasNestedInput
+  }
+
+  export type FaixaEtariaTaxasUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    idade_inicial?: NullableIntFieldUpdateOperationsInput | number | null
+    idade_final?: NullableIntFieldUpdateOperationsInput | number | null
+    taxas?: TaxasPorFaixaEtariaUncheckedUpdateManyWithoutFaixa_etaria_taxasNestedInput
+  }
+
+  export type FaixaEtariaTaxasCreateManyInput = {
+    id: number
+    nome: string
+    idade_inicial?: number | null
+    idade_final?: number | null
+  }
+
+  export type FaixaEtariaTaxasUpdateManyMutationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    idade_inicial?: NullableIntFieldUpdateOperationsInput | number | null
+    idade_final?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type FaixaEtariaTaxasUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    idade_inicial?: NullableIntFieldUpdateOperationsInput | number | null
+    idade_final?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
   export type EntidadeCreateInput = {
     codigo: string
     nome: string
@@ -23936,6 +26416,85 @@ export namespace Prisma {
     entidade_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type TaxasPorFaixaEtariaCreateInput = {
+    ano: number
+    tipo: string
+    total: Decimal | DecimalJsLike | number | string
+    denominador?: number | null
+    numerador?: number | null
+    data_atualizacao?: Date | string
+    localidade?: LocalidadeCreateNestedOneWithoutTaxas_por_faixa_etariaInput
+    faixa_etaria_taxas?: FaixaEtariaTaxasCreateNestedOneWithoutTaxasInput
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedCreateInput = {
+    id?: number
+    ano: number
+    tipo: string
+    total: Decimal | DecimalJsLike | number | string
+    denominador?: number | null
+    numerador?: number | null
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+    faixa_etaria_taxas_id?: number | null
+  }
+
+  export type TaxasPorFaixaEtariaUpdateInput = {
+    ano?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    denominador?: NullableIntFieldUpdateOperationsInput | number | null
+    numerador?: NullableIntFieldUpdateOperationsInput | number | null
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade?: LocalidadeUpdateOneWithoutTaxas_por_faixa_etariaNestedInput
+    faixa_etaria_taxas?: FaixaEtariaTaxasUpdateOneWithoutTaxasNestedInput
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ano?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    denominador?: NullableIntFieldUpdateOperationsInput | number | null
+    numerador?: NullableIntFieldUpdateOperationsInput | number | null
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_etaria_taxas_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type TaxasPorFaixaEtariaCreateManyInput = {
+    id?: number
+    ano: number
+    tipo: string
+    total: Decimal | DecimalJsLike | number | string
+    denominador?: number | null
+    numerador?: number | null
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+    faixa_etaria_taxas_id?: number | null
+  }
+
+  export type TaxasPorFaixaEtariaUpdateManyMutationInput = {
+    ano?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    denominador?: NullableIntFieldUpdateOperationsInput | number | null
+    numerador?: NullableIntFieldUpdateOperationsInput | number | null
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ano?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    denominador?: NullableIntFieldUpdateOperationsInput | number | null
+    numerador?: NullableIntFieldUpdateOperationsInput | number | null
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_etaria_taxas_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
   export type ImportacaoAPICreateInput = {
     data_importacao?: Date | string
     tipo_dado: string
@@ -24063,6 +26622,12 @@ export namespace Prisma {
     none?: DadoEducacaoBasicaApos23WhereInput
   }
 
+  export type TaxasPorFaixaEtariaListRelationFilter = {
+    every?: TaxasPorFaixaEtariaWhereInput
+    some?: TaxasPorFaixaEtariaWhereInput
+    none?: TaxasPorFaixaEtariaWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -24073,6 +26638,10 @@ export namespace Prisma {
   }
 
   export type DadoEducacaoBasicaApos23OrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TaxasPorFaixaEtariaOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -24531,6 +27100,39 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type FaixaEtariaTaxasCountOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    idade_inicial?: SortOrder
+    idade_final?: SortOrder
+  }
+
+  export type FaixaEtariaTaxasAvgOrderByAggregateInput = {
+    id?: SortOrder
+    idade_inicial?: SortOrder
+    idade_final?: SortOrder
+  }
+
+  export type FaixaEtariaTaxasMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    idade_inicial?: SortOrder
+    idade_final?: SortOrder
+  }
+
+  export type FaixaEtariaTaxasMinOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    idade_inicial?: SortOrder
+    idade_final?: SortOrder
+  }
+
+  export type FaixaEtariaTaxasSumOrderByAggregateInput = {
+    id?: SortOrder
+    idade_inicial?: SortOrder
+    idade_final?: SortOrder
+  }
+
   export type EntidadeCountOrderByAggregateInput = {
     id?: SortOrder
     codigo?: SortOrder
@@ -24851,6 +27453,67 @@ export namespace Prisma {
     entidade_id?: SortOrder
   }
 
+  export type FaixaEtariaTaxasNullableRelationFilter = {
+    is?: FaixaEtariaTaxasWhereInput | null
+    isNot?: FaixaEtariaTaxasWhereInput | null
+  }
+
+  export type TaxasPorFaixaEtariaCountOrderByAggregateInput = {
+    id?: SortOrder
+    ano?: SortOrder
+    tipo?: SortOrder
+    total?: SortOrder
+    denominador?: SortOrder
+    numerador?: SortOrder
+    data_atualizacao?: SortOrder
+    localidade_id?: SortOrder
+    faixa_etaria_taxas_id?: SortOrder
+  }
+
+  export type TaxasPorFaixaEtariaAvgOrderByAggregateInput = {
+    id?: SortOrder
+    ano?: SortOrder
+    total?: SortOrder
+    denominador?: SortOrder
+    numerador?: SortOrder
+    localidade_id?: SortOrder
+    faixa_etaria_taxas_id?: SortOrder
+  }
+
+  export type TaxasPorFaixaEtariaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    ano?: SortOrder
+    tipo?: SortOrder
+    total?: SortOrder
+    denominador?: SortOrder
+    numerador?: SortOrder
+    data_atualizacao?: SortOrder
+    localidade_id?: SortOrder
+    faixa_etaria_taxas_id?: SortOrder
+  }
+
+  export type TaxasPorFaixaEtariaMinOrderByAggregateInput = {
+    id?: SortOrder
+    ano?: SortOrder
+    tipo?: SortOrder
+    total?: SortOrder
+    denominador?: SortOrder
+    numerador?: SortOrder
+    data_atualizacao?: SortOrder
+    localidade_id?: SortOrder
+    faixa_etaria_taxas_id?: SortOrder
+  }
+
+  export type TaxasPorFaixaEtariaSumOrderByAggregateInput = {
+    id?: SortOrder
+    ano?: SortOrder
+    total?: SortOrder
+    denominador?: SortOrder
+    numerador?: SortOrder
+    localidade_id?: SortOrder
+    faixa_etaria_taxas_id?: SortOrder
+  }
+
   export type IntNullableListFilter<$PrismaModel = never> = {
     equals?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     has?: number | IntFieldRefInput<$PrismaModel> | null
@@ -24961,6 +27624,13 @@ export namespace Prisma {
     connect?: DadoEducacaoBasicaApos23WhereUniqueInput | DadoEducacaoBasicaApos23WhereUniqueInput[]
   }
 
+  export type TaxasPorFaixaEtariaCreateNestedManyWithoutLocalidadeInput = {
+    create?: XOR<TaxasPorFaixaEtariaCreateWithoutLocalidadeInput, TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput> | TaxasPorFaixaEtariaCreateWithoutLocalidadeInput[] | TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput[]
+    connectOrCreate?: TaxasPorFaixaEtariaCreateOrConnectWithoutLocalidadeInput | TaxasPorFaixaEtariaCreateOrConnectWithoutLocalidadeInput[]
+    createMany?: TaxasPorFaixaEtariaCreateManyLocalidadeInputEnvelope
+    connect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+  }
+
   export type DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput = {
     create?: XOR<DadoEducacaoBasicaCreateWithoutLocalidadeInput, DadoEducacaoBasicaUncheckedCreateWithoutLocalidadeInput> | DadoEducacaoBasicaCreateWithoutLocalidadeInput[] | DadoEducacaoBasicaUncheckedCreateWithoutLocalidadeInput[]
     connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutLocalidadeInput | DadoEducacaoBasicaCreateOrConnectWithoutLocalidadeInput[]
@@ -24973,6 +27643,13 @@ export namespace Prisma {
     connectOrCreate?: DadoEducacaoBasicaApos23CreateOrConnectWithoutLocalidadeInput | DadoEducacaoBasicaApos23CreateOrConnectWithoutLocalidadeInput[]
     createMany?: DadoEducacaoBasicaApos23CreateManyLocalidadeInputEnvelope
     connect?: DadoEducacaoBasicaApos23WhereUniqueInput | DadoEducacaoBasicaApos23WhereUniqueInput[]
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutLocalidadeInput = {
+    create?: XOR<TaxasPorFaixaEtariaCreateWithoutLocalidadeInput, TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput> | TaxasPorFaixaEtariaCreateWithoutLocalidadeInput[] | TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput[]
+    connectOrCreate?: TaxasPorFaixaEtariaCreateOrConnectWithoutLocalidadeInput | TaxasPorFaixaEtariaCreateOrConnectWithoutLocalidadeInput[]
+    createMany?: TaxasPorFaixaEtariaCreateManyLocalidadeInputEnvelope
+    connect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -25019,6 +27696,20 @@ export namespace Prisma {
     deleteMany?: DadoEducacaoBasicaApos23ScalarWhereInput | DadoEducacaoBasicaApos23ScalarWhereInput[]
   }
 
+  export type TaxasPorFaixaEtariaUpdateManyWithoutLocalidadeNestedInput = {
+    create?: XOR<TaxasPorFaixaEtariaCreateWithoutLocalidadeInput, TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput> | TaxasPorFaixaEtariaCreateWithoutLocalidadeInput[] | TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput[]
+    connectOrCreate?: TaxasPorFaixaEtariaCreateOrConnectWithoutLocalidadeInput | TaxasPorFaixaEtariaCreateOrConnectWithoutLocalidadeInput[]
+    upsert?: TaxasPorFaixaEtariaUpsertWithWhereUniqueWithoutLocalidadeInput | TaxasPorFaixaEtariaUpsertWithWhereUniqueWithoutLocalidadeInput[]
+    createMany?: TaxasPorFaixaEtariaCreateManyLocalidadeInputEnvelope
+    set?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    disconnect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    delete?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    connect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    update?: TaxasPorFaixaEtariaUpdateWithWhereUniqueWithoutLocalidadeInput | TaxasPorFaixaEtariaUpdateWithWhereUniqueWithoutLocalidadeInput[]
+    updateMany?: TaxasPorFaixaEtariaUpdateManyWithWhereWithoutLocalidadeInput | TaxasPorFaixaEtariaUpdateManyWithWhereWithoutLocalidadeInput[]
+    deleteMany?: TaxasPorFaixaEtariaScalarWhereInput | TaxasPorFaixaEtariaScalarWhereInput[]
+  }
+
   export type DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput = {
     create?: XOR<DadoEducacaoBasicaCreateWithoutLocalidadeInput, DadoEducacaoBasicaUncheckedCreateWithoutLocalidadeInput> | DadoEducacaoBasicaCreateWithoutLocalidadeInput[] | DadoEducacaoBasicaUncheckedCreateWithoutLocalidadeInput[]
     connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutLocalidadeInput | DadoEducacaoBasicaCreateOrConnectWithoutLocalidadeInput[]
@@ -25045,6 +27736,20 @@ export namespace Prisma {
     update?: DadoEducacaoBasicaApos23UpdateWithWhereUniqueWithoutLocalidadeInput | DadoEducacaoBasicaApos23UpdateWithWhereUniqueWithoutLocalidadeInput[]
     updateMany?: DadoEducacaoBasicaApos23UpdateManyWithWhereWithoutLocalidadeInput | DadoEducacaoBasicaApos23UpdateManyWithWhereWithoutLocalidadeInput[]
     deleteMany?: DadoEducacaoBasicaApos23ScalarWhereInput | DadoEducacaoBasicaApos23ScalarWhereInput[]
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeNestedInput = {
+    create?: XOR<TaxasPorFaixaEtariaCreateWithoutLocalidadeInput, TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput> | TaxasPorFaixaEtariaCreateWithoutLocalidadeInput[] | TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput[]
+    connectOrCreate?: TaxasPorFaixaEtariaCreateOrConnectWithoutLocalidadeInput | TaxasPorFaixaEtariaCreateOrConnectWithoutLocalidadeInput[]
+    upsert?: TaxasPorFaixaEtariaUpsertWithWhereUniqueWithoutLocalidadeInput | TaxasPorFaixaEtariaUpsertWithWhereUniqueWithoutLocalidadeInput[]
+    createMany?: TaxasPorFaixaEtariaCreateManyLocalidadeInputEnvelope
+    set?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    disconnect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    delete?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    connect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    update?: TaxasPorFaixaEtariaUpdateWithWhereUniqueWithoutLocalidadeInput | TaxasPorFaixaEtariaUpdateWithWhereUniqueWithoutLocalidadeInput[]
+    updateMany?: TaxasPorFaixaEtariaUpdateManyWithWhereWithoutLocalidadeInput | TaxasPorFaixaEtariaUpdateManyWithWhereWithoutLocalidadeInput[]
+    deleteMany?: TaxasPorFaixaEtariaScalarWhereInput | TaxasPorFaixaEtariaScalarWhereInput[]
   }
 
   export type DadoEducacaoBasicaCreateNestedManyWithoutDependenciaInput = {
@@ -25685,6 +28390,48 @@ export namespace Prisma {
     deleteMany?: DadoEducacaoBasicaScalarWhereInput | DadoEducacaoBasicaScalarWhereInput[]
   }
 
+  export type TaxasPorFaixaEtariaCreateNestedManyWithoutFaixa_etaria_taxasInput = {
+    create?: XOR<TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput, TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput> | TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput[] | TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput[]
+    connectOrCreate?: TaxasPorFaixaEtariaCreateOrConnectWithoutFaixa_etaria_taxasInput | TaxasPorFaixaEtariaCreateOrConnectWithoutFaixa_etaria_taxasInput[]
+    createMany?: TaxasPorFaixaEtariaCreateManyFaixa_etaria_taxasInputEnvelope
+    connect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutFaixa_etaria_taxasInput = {
+    create?: XOR<TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput, TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput> | TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput[] | TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput[]
+    connectOrCreate?: TaxasPorFaixaEtariaCreateOrConnectWithoutFaixa_etaria_taxasInput | TaxasPorFaixaEtariaCreateOrConnectWithoutFaixa_etaria_taxasInput[]
+    createMany?: TaxasPorFaixaEtariaCreateManyFaixa_etaria_taxasInputEnvelope
+    connect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+  }
+
+  export type TaxasPorFaixaEtariaUpdateManyWithoutFaixa_etaria_taxasNestedInput = {
+    create?: XOR<TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput, TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput> | TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput[] | TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput[]
+    connectOrCreate?: TaxasPorFaixaEtariaCreateOrConnectWithoutFaixa_etaria_taxasInput | TaxasPorFaixaEtariaCreateOrConnectWithoutFaixa_etaria_taxasInput[]
+    upsert?: TaxasPorFaixaEtariaUpsertWithWhereUniqueWithoutFaixa_etaria_taxasInput | TaxasPorFaixaEtariaUpsertWithWhereUniqueWithoutFaixa_etaria_taxasInput[]
+    createMany?: TaxasPorFaixaEtariaCreateManyFaixa_etaria_taxasInputEnvelope
+    set?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    disconnect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    delete?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    connect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    update?: TaxasPorFaixaEtariaUpdateWithWhereUniqueWithoutFaixa_etaria_taxasInput | TaxasPorFaixaEtariaUpdateWithWhereUniqueWithoutFaixa_etaria_taxasInput[]
+    updateMany?: TaxasPorFaixaEtariaUpdateManyWithWhereWithoutFaixa_etaria_taxasInput | TaxasPorFaixaEtariaUpdateManyWithWhereWithoutFaixa_etaria_taxasInput[]
+    deleteMany?: TaxasPorFaixaEtariaScalarWhereInput | TaxasPorFaixaEtariaScalarWhereInput[]
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedUpdateManyWithoutFaixa_etaria_taxasNestedInput = {
+    create?: XOR<TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput, TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput> | TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput[] | TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput[]
+    connectOrCreate?: TaxasPorFaixaEtariaCreateOrConnectWithoutFaixa_etaria_taxasInput | TaxasPorFaixaEtariaCreateOrConnectWithoutFaixa_etaria_taxasInput[]
+    upsert?: TaxasPorFaixaEtariaUpsertWithWhereUniqueWithoutFaixa_etaria_taxasInput | TaxasPorFaixaEtariaUpsertWithWhereUniqueWithoutFaixa_etaria_taxasInput[]
+    createMany?: TaxasPorFaixaEtariaCreateManyFaixa_etaria_taxasInputEnvelope
+    set?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    disconnect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    delete?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    connect?: TaxasPorFaixaEtariaWhereUniqueInput | TaxasPorFaixaEtariaWhereUniqueInput[]
+    update?: TaxasPorFaixaEtariaUpdateWithWhereUniqueWithoutFaixa_etaria_taxasInput | TaxasPorFaixaEtariaUpdateWithWhereUniqueWithoutFaixa_etaria_taxasInput[]
+    updateMany?: TaxasPorFaixaEtariaUpdateManyWithWhereWithoutFaixa_etaria_taxasInput | TaxasPorFaixaEtariaUpdateManyWithWhereWithoutFaixa_etaria_taxasInput[]
+    deleteMany?: TaxasPorFaixaEtariaScalarWhereInput | TaxasPorFaixaEtariaScalarWhereInput[]
+  }
+
   export type DadoEducacaoBasicaApos23CreateNestedManyWithoutEntidadeInput = {
     create?: XOR<DadoEducacaoBasicaApos23CreateWithoutEntidadeInput, DadoEducacaoBasicaApos23UncheckedCreateWithoutEntidadeInput> | DadoEducacaoBasicaApos23CreateWithoutEntidadeInput[] | DadoEducacaoBasicaApos23UncheckedCreateWithoutEntidadeInput[]
     connectOrCreate?: DadoEducacaoBasicaApos23CreateOrConnectWithoutEntidadeInput | DadoEducacaoBasicaApos23CreateOrConnectWithoutEntidadeInput[]
@@ -26027,6 +28774,38 @@ export namespace Prisma {
     update?: XOR<XOR<EntidadeUpdateToOneWithWhereWithoutDadosInput, EntidadeUpdateWithoutDadosInput>, EntidadeUncheckedUpdateWithoutDadosInput>
   }
 
+  export type LocalidadeCreateNestedOneWithoutTaxas_por_faixa_etariaInput = {
+    create?: XOR<LocalidadeCreateWithoutTaxas_por_faixa_etariaInput, LocalidadeUncheckedCreateWithoutTaxas_por_faixa_etariaInput>
+    connectOrCreate?: LocalidadeCreateOrConnectWithoutTaxas_por_faixa_etariaInput
+    connect?: LocalidadeWhereUniqueInput
+  }
+
+  export type FaixaEtariaTaxasCreateNestedOneWithoutTaxasInput = {
+    create?: XOR<FaixaEtariaTaxasCreateWithoutTaxasInput, FaixaEtariaTaxasUncheckedCreateWithoutTaxasInput>
+    connectOrCreate?: FaixaEtariaTaxasCreateOrConnectWithoutTaxasInput
+    connect?: FaixaEtariaTaxasWhereUniqueInput
+  }
+
+  export type LocalidadeUpdateOneWithoutTaxas_por_faixa_etariaNestedInput = {
+    create?: XOR<LocalidadeCreateWithoutTaxas_por_faixa_etariaInput, LocalidadeUncheckedCreateWithoutTaxas_por_faixa_etariaInput>
+    connectOrCreate?: LocalidadeCreateOrConnectWithoutTaxas_por_faixa_etariaInput
+    upsert?: LocalidadeUpsertWithoutTaxas_por_faixa_etariaInput
+    disconnect?: LocalidadeWhereInput | boolean
+    delete?: LocalidadeWhereInput | boolean
+    connect?: LocalidadeWhereUniqueInput
+    update?: XOR<XOR<LocalidadeUpdateToOneWithWhereWithoutTaxas_por_faixa_etariaInput, LocalidadeUpdateWithoutTaxas_por_faixa_etariaInput>, LocalidadeUncheckedUpdateWithoutTaxas_por_faixa_etariaInput>
+  }
+
+  export type FaixaEtariaTaxasUpdateOneWithoutTaxasNestedInput = {
+    create?: XOR<FaixaEtariaTaxasCreateWithoutTaxasInput, FaixaEtariaTaxasUncheckedCreateWithoutTaxasInput>
+    connectOrCreate?: FaixaEtariaTaxasCreateOrConnectWithoutTaxasInput
+    upsert?: FaixaEtariaTaxasUpsertWithoutTaxasInput
+    disconnect?: FaixaEtariaTaxasWhereInput | boolean
+    delete?: FaixaEtariaTaxasWhereInput | boolean
+    connect?: FaixaEtariaTaxasWhereUniqueInput
+    update?: XOR<XOR<FaixaEtariaTaxasUpdateToOneWithWhereWithoutTaxasInput, FaixaEtariaTaxasUpdateWithoutTaxasInput>, FaixaEtariaTaxasUncheckedUpdateWithoutTaxasInput>
+  }
+
   export type ImportacaoAPICreateanos_importadosInput = {
     set: number[]
   }
@@ -26330,6 +29109,37 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type TaxasPorFaixaEtariaCreateWithoutLocalidadeInput = {
+    ano: number
+    tipo: string
+    total: Decimal | DecimalJsLike | number | string
+    denominador?: number | null
+    numerador?: number | null
+    data_atualizacao?: Date | string
+    faixa_etaria_taxas?: FaixaEtariaTaxasCreateNestedOneWithoutTaxasInput
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput = {
+    id?: number
+    ano: number
+    tipo: string
+    total: Decimal | DecimalJsLike | number | string
+    denominador?: number | null
+    numerador?: number | null
+    data_atualizacao?: Date | string
+    faixa_etaria_taxas_id?: number | null
+  }
+
+  export type TaxasPorFaixaEtariaCreateOrConnectWithoutLocalidadeInput = {
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+    create: XOR<TaxasPorFaixaEtariaCreateWithoutLocalidadeInput, TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput>
+  }
+
+  export type TaxasPorFaixaEtariaCreateManyLocalidadeInputEnvelope = {
+    data: TaxasPorFaixaEtariaCreateManyLocalidadeInput | TaxasPorFaixaEtariaCreateManyLocalidadeInput[]
+    skipDuplicates?: boolean
+  }
+
   export type DadoEducacaoBasicaUpsertWithWhereUniqueWithoutLocalidadeInput = {
     where: DadoEducacaoBasicaWhereUniqueInput
     update: XOR<DadoEducacaoBasicaUpdateWithoutLocalidadeInput, DadoEducacaoBasicaUncheckedUpdateWithoutLocalidadeInput>
@@ -26400,6 +29210,37 @@ export namespace Prisma {
     etapa_teacher_class_id?: IntNullableFilter<"DadoEducacaoBasicaApos23"> | number | null
     localizacao_id?: IntNullableFilter<"DadoEducacaoBasicaApos23"> | number | null
     entidade_id?: IntNullableFilter<"DadoEducacaoBasicaApos23"> | number | null
+  }
+
+  export type TaxasPorFaixaEtariaUpsertWithWhereUniqueWithoutLocalidadeInput = {
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+    update: XOR<TaxasPorFaixaEtariaUpdateWithoutLocalidadeInput, TaxasPorFaixaEtariaUncheckedUpdateWithoutLocalidadeInput>
+    create: XOR<TaxasPorFaixaEtariaCreateWithoutLocalidadeInput, TaxasPorFaixaEtariaUncheckedCreateWithoutLocalidadeInput>
+  }
+
+  export type TaxasPorFaixaEtariaUpdateWithWhereUniqueWithoutLocalidadeInput = {
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+    data: XOR<TaxasPorFaixaEtariaUpdateWithoutLocalidadeInput, TaxasPorFaixaEtariaUncheckedUpdateWithoutLocalidadeInput>
+  }
+
+  export type TaxasPorFaixaEtariaUpdateManyWithWhereWithoutLocalidadeInput = {
+    where: TaxasPorFaixaEtariaScalarWhereInput
+    data: XOR<TaxasPorFaixaEtariaUpdateManyMutationInput, TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeInput>
+  }
+
+  export type TaxasPorFaixaEtariaScalarWhereInput = {
+    AND?: TaxasPorFaixaEtariaScalarWhereInput | TaxasPorFaixaEtariaScalarWhereInput[]
+    OR?: TaxasPorFaixaEtariaScalarWhereInput[]
+    NOT?: TaxasPorFaixaEtariaScalarWhereInput | TaxasPorFaixaEtariaScalarWhereInput[]
+    id?: IntFilter<"TaxasPorFaixaEtaria"> | number
+    ano?: IntFilter<"TaxasPorFaixaEtaria"> | number
+    tipo?: StringFilter<"TaxasPorFaixaEtaria"> | string
+    total?: DecimalFilter<"TaxasPorFaixaEtaria"> | Decimal | DecimalJsLike | number | string
+    denominador?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    numerador?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    data_atualizacao?: DateTimeFilter<"TaxasPorFaixaEtaria"> | Date | string
+    localidade_id?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
+    faixa_etaria_taxas_id?: IntNullableFilter<"TaxasPorFaixaEtaria"> | number | null
   }
 
   export type DadoEducacaoBasicaCreateWithoutDependenciaInput = {
@@ -27299,6 +30140,53 @@ export namespace Prisma {
     data: XOR<DadoEducacaoBasicaUpdateManyMutationInput, DadoEducacaoBasicaUncheckedUpdateManyWithoutFaixa_etariaInput>
   }
 
+  export type TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput = {
+    ano: number
+    tipo: string
+    total: Decimal | DecimalJsLike | number | string
+    denominador?: number | null
+    numerador?: number | null
+    data_atualizacao?: Date | string
+    localidade?: LocalidadeCreateNestedOneWithoutTaxas_por_faixa_etariaInput
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput = {
+    id?: number
+    ano: number
+    tipo: string
+    total: Decimal | DecimalJsLike | number | string
+    denominador?: number | null
+    numerador?: number | null
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+  }
+
+  export type TaxasPorFaixaEtariaCreateOrConnectWithoutFaixa_etaria_taxasInput = {
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+    create: XOR<TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput, TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput>
+  }
+
+  export type TaxasPorFaixaEtariaCreateManyFaixa_etaria_taxasInputEnvelope = {
+    data: TaxasPorFaixaEtariaCreateManyFaixa_etaria_taxasInput | TaxasPorFaixaEtariaCreateManyFaixa_etaria_taxasInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TaxasPorFaixaEtariaUpsertWithWhereUniqueWithoutFaixa_etaria_taxasInput = {
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+    update: XOR<TaxasPorFaixaEtariaUpdateWithoutFaixa_etaria_taxasInput, TaxasPorFaixaEtariaUncheckedUpdateWithoutFaixa_etaria_taxasInput>
+    create: XOR<TaxasPorFaixaEtariaCreateWithoutFaixa_etaria_taxasInput, TaxasPorFaixaEtariaUncheckedCreateWithoutFaixa_etaria_taxasInput>
+  }
+
+  export type TaxasPorFaixaEtariaUpdateWithWhereUniqueWithoutFaixa_etaria_taxasInput = {
+    where: TaxasPorFaixaEtariaWhereUniqueInput
+    data: XOR<TaxasPorFaixaEtariaUpdateWithoutFaixa_etaria_taxasInput, TaxasPorFaixaEtariaUncheckedUpdateWithoutFaixa_etaria_taxasInput>
+  }
+
+  export type TaxasPorFaixaEtariaUpdateManyWithWhereWithoutFaixa_etaria_taxasInput = {
+    where: TaxasPorFaixaEtariaScalarWhereInput
+    data: XOR<TaxasPorFaixaEtariaUpdateManyMutationInput, TaxasPorFaixaEtariaUncheckedUpdateManyWithoutFaixa_etaria_taxasInput>
+  }
+
   export type DadoEducacaoBasicaApos23CreateWithoutEntidadeInput = {
     ano: number
     tipo: string
@@ -27357,6 +30245,7 @@ export namespace Prisma {
     uf?: string | null
     codigo_ibge?: string | null
     dados_basica_apos23?: DadoEducacaoBasicaApos23CreateNestedManyWithoutLocalidadeInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUncheckedCreateWithoutDados_basicaInput = {
@@ -27366,6 +30255,7 @@ export namespace Prisma {
     uf?: string | null
     codigo_ibge?: string | null
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedCreateNestedManyWithoutLocalidadeInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeCreateOrConnectWithoutDados_basicaInput = {
@@ -27568,6 +30458,7 @@ export namespace Prisma {
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica_apos23?: DadoEducacaoBasicaApos23UpdateManyWithoutLocalidadeNestedInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeUncheckedUpdateWithoutDados_basicaInput = {
@@ -27577,6 +30468,7 @@ export namespace Prisma {
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedUpdateManyWithoutLocalidadeNestedInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type DependenciaAdministrativaBasicaUpsertWithoutDadosInput = {
@@ -27829,6 +30721,7 @@ export namespace Prisma {
     uf?: string | null
     codigo_ibge?: string | null
     dados_basica?: DadoEducacaoBasicaCreateNestedManyWithoutLocalidadeInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUncheckedCreateWithoutDados_basica_apos23Input = {
@@ -27838,6 +30731,7 @@ export namespace Prisma {
     uf?: string | null
     codigo_ibge?: string | null
     dados_basica?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeCreateOrConnectWithoutDados_basica_apos23Input = {
@@ -27943,6 +30837,7 @@ export namespace Prisma {
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUpdateManyWithoutLocalidadeNestedInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeUncheckedUpdateWithoutDados_basica_apos23Input = {
@@ -27952,6 +30847,7 @@ export namespace Prisma {
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type DependenciaAdministrativaBasicaApos23UpsertWithoutDadosInput = {
@@ -28064,6 +30960,106 @@ export namespace Prisma {
     nome?: StringFieldUpdateOperationsInput | string
   }
 
+  export type LocalidadeCreateWithoutTaxas_por_faixa_etariaInput = {
+    id: number
+    nome: string
+    tipo: string
+    uf?: string | null
+    codigo_ibge?: string | null
+    dados_basica?: DadoEducacaoBasicaCreateNestedManyWithoutLocalidadeInput
+    dados_basica_apos23?: DadoEducacaoBasicaApos23CreateNestedManyWithoutLocalidadeInput
+  }
+
+  export type LocalidadeUncheckedCreateWithoutTaxas_por_faixa_etariaInput = {
+    id: number
+    nome: string
+    tipo: string
+    uf?: string | null
+    codigo_ibge?: string | null
+    dados_basica?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput
+    dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedCreateNestedManyWithoutLocalidadeInput
+  }
+
+  export type LocalidadeCreateOrConnectWithoutTaxas_por_faixa_etariaInput = {
+    where: LocalidadeWhereUniqueInput
+    create: XOR<LocalidadeCreateWithoutTaxas_por_faixa_etariaInput, LocalidadeUncheckedCreateWithoutTaxas_por_faixa_etariaInput>
+  }
+
+  export type FaixaEtariaTaxasCreateWithoutTaxasInput = {
+    id: number
+    nome: string
+    idade_inicial?: number | null
+    idade_final?: number | null
+  }
+
+  export type FaixaEtariaTaxasUncheckedCreateWithoutTaxasInput = {
+    id: number
+    nome: string
+    idade_inicial?: number | null
+    idade_final?: number | null
+  }
+
+  export type FaixaEtariaTaxasCreateOrConnectWithoutTaxasInput = {
+    where: FaixaEtariaTaxasWhereUniqueInput
+    create: XOR<FaixaEtariaTaxasCreateWithoutTaxasInput, FaixaEtariaTaxasUncheckedCreateWithoutTaxasInput>
+  }
+
+  export type LocalidadeUpsertWithoutTaxas_por_faixa_etariaInput = {
+    update: XOR<LocalidadeUpdateWithoutTaxas_por_faixa_etariaInput, LocalidadeUncheckedUpdateWithoutTaxas_por_faixa_etariaInput>
+    create: XOR<LocalidadeCreateWithoutTaxas_por_faixa_etariaInput, LocalidadeUncheckedCreateWithoutTaxas_por_faixa_etariaInput>
+    where?: LocalidadeWhereInput
+  }
+
+  export type LocalidadeUpdateToOneWithWhereWithoutTaxas_por_faixa_etariaInput = {
+    where?: LocalidadeWhereInput
+    data: XOR<LocalidadeUpdateWithoutTaxas_por_faixa_etariaInput, LocalidadeUncheckedUpdateWithoutTaxas_por_faixa_etariaInput>
+  }
+
+  export type LocalidadeUpdateWithoutTaxas_por_faixa_etariaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    uf?: NullableStringFieldUpdateOperationsInput | string | null
+    codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    dados_basica?: DadoEducacaoBasicaUpdateManyWithoutLocalidadeNestedInput
+    dados_basica_apos23?: DadoEducacaoBasicaApos23UpdateManyWithoutLocalidadeNestedInput
+  }
+
+  export type LocalidadeUncheckedUpdateWithoutTaxas_por_faixa_etariaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    uf?: NullableStringFieldUpdateOperationsInput | string | null
+    codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    dados_basica?: DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput
+    dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedUpdateManyWithoutLocalidadeNestedInput
+  }
+
+  export type FaixaEtariaTaxasUpsertWithoutTaxasInput = {
+    update: XOR<FaixaEtariaTaxasUpdateWithoutTaxasInput, FaixaEtariaTaxasUncheckedUpdateWithoutTaxasInput>
+    create: XOR<FaixaEtariaTaxasCreateWithoutTaxasInput, FaixaEtariaTaxasUncheckedCreateWithoutTaxasInput>
+    where?: FaixaEtariaTaxasWhereInput
+  }
+
+  export type FaixaEtariaTaxasUpdateToOneWithWhereWithoutTaxasInput = {
+    where?: FaixaEtariaTaxasWhereInput
+    data: XOR<FaixaEtariaTaxasUpdateWithoutTaxasInput, FaixaEtariaTaxasUncheckedUpdateWithoutTaxasInput>
+  }
+
+  export type FaixaEtariaTaxasUpdateWithoutTaxasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    idade_inicial?: NullableIntFieldUpdateOperationsInput | number | null
+    idade_final?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type FaixaEtariaTaxasUncheckedUpdateWithoutTaxasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    idade_inicial?: NullableIntFieldUpdateOperationsInput | number | null
+    idade_final?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
   export type DadoEducacaoBasicaCreateManyLocalidadeInput = {
     id?: number
     tipo: string
@@ -28094,6 +31090,17 @@ export namespace Prisma {
     etapa_teacher_class_id?: number | null
     localizacao_id?: number | null
     entidade_id?: number | null
+  }
+
+  export type TaxasPorFaixaEtariaCreateManyLocalidadeInput = {
+    id?: number
+    ano: number
+    tipo: string
+    total: Decimal | DecimalJsLike | number | string
+    denominador?: number | null
+    numerador?: number | null
+    data_atualizacao?: Date | string
+    faixa_etaria_taxas_id?: number | null
   }
 
   export type DadoEducacaoBasicaUpdateWithoutLocalidadeInput = {
@@ -28188,6 +31195,38 @@ export namespace Prisma {
     etapa_teacher_class_id?: NullableIntFieldUpdateOperationsInput | number | null
     localizacao_id?: NullableIntFieldUpdateOperationsInput | number | null
     entidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type TaxasPorFaixaEtariaUpdateWithoutLocalidadeInput = {
+    ano?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    denominador?: NullableIntFieldUpdateOperationsInput | number | null
+    numerador?: NullableIntFieldUpdateOperationsInput | number | null
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    faixa_etaria_taxas?: FaixaEtariaTaxasUpdateOneWithoutTaxasNestedInput
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedUpdateWithoutLocalidadeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ano?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    denominador?: NullableIntFieldUpdateOperationsInput | number | null
+    numerador?: NullableIntFieldUpdateOperationsInput | number | null
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    faixa_etaria_taxas_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ano?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    denominador?: NullableIntFieldUpdateOperationsInput | number | null
+    numerador?: NullableIntFieldUpdateOperationsInput | number | null
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    faixa_etaria_taxas_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type DadoEducacaoBasicaCreateManyDependenciaInput = {
@@ -29219,6 +32258,49 @@ export namespace Prisma {
     formacao_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type TaxasPorFaixaEtariaCreateManyFaixa_etaria_taxasInput = {
+    id?: number
+    ano: number
+    tipo: string
+    total: Decimal | DecimalJsLike | number | string
+    denominador?: number | null
+    numerador?: number | null
+    data_atualizacao?: Date | string
+    localidade_id?: number | null
+  }
+
+  export type TaxasPorFaixaEtariaUpdateWithoutFaixa_etaria_taxasInput = {
+    ano?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    denominador?: NullableIntFieldUpdateOperationsInput | number | null
+    numerador?: NullableIntFieldUpdateOperationsInput | number | null
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade?: LocalidadeUpdateOneWithoutTaxas_por_faixa_etariaNestedInput
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedUpdateWithoutFaixa_etaria_taxasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ano?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    denominador?: NullableIntFieldUpdateOperationsInput | number | null
+    numerador?: NullableIntFieldUpdateOperationsInput | number | null
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type TaxasPorFaixaEtariaUncheckedUpdateManyWithoutFaixa_etaria_taxasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ano?: IntFieldUpdateOperationsInput | number
+    tipo?: StringFieldUpdateOperationsInput | string
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    denominador?: NullableIntFieldUpdateOperationsInput | number | null
+    numerador?: NullableIntFieldUpdateOperationsInput | number | null
+    data_atualizacao?: DateTimeFieldUpdateOperationsInput | Date | string
+    localidade_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
   export type DadoEducacaoBasicaApos23CreateManyEntidadeInput = {
     id?: number
     ano: number
@@ -29336,6 +32418,10 @@ export namespace Prisma {
      */
     export type FaixaEtariaCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FaixaEtariaCountOutputTypeDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use FaixaEtariaTaxasCountOutputTypeDefaultArgs instead
+     */
+    export type FaixaEtariaTaxasCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FaixaEtariaTaxasCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use EntidadeCountOutputTypeDefaultArgs instead
      */
     export type EntidadeCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EntidadeCountOutputTypeDefaultArgs<ExtArgs>
@@ -29400,6 +32486,10 @@ export namespace Prisma {
      */
     export type FaixaEtariaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FaixaEtariaDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use FaixaEtariaTaxasDefaultArgs instead
+     */
+    export type FaixaEtariaTaxasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FaixaEtariaTaxasDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use EntidadeDefaultArgs instead
      */
     export type EntidadeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EntidadeDefaultArgs<ExtArgs>
@@ -29411,6 +32501,10 @@ export namespace Prisma {
      * @deprecated Use DadoEducacaoBasicaApos23DefaultArgs instead
      */
     export type DadoEducacaoBasicaApos23Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DadoEducacaoBasicaApos23DefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TaxasPorFaixaEtariaDefaultArgs instead
+     */
+    export type TaxasPorFaixaEtariaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TaxasPorFaixaEtariaDefaultArgs<ExtArgs>
     /**
      * @deprecated Use ImportacaoAPIDefaultArgs instead
      */

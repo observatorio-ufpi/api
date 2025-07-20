@@ -203,6 +203,13 @@ exports.Prisma.FaixaEtariaScalarFieldEnum = {
   idade_final: 'idade_final'
 };
 
+exports.Prisma.FaixaEtariaTaxasScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  idade_inicial: 'idade_inicial',
+  idade_final: 'idade_final'
+};
+
 exports.Prisma.EntidadeScalarFieldEnum = {
   id: 'id',
   codigo: 'codigo',
@@ -241,6 +248,18 @@ exports.Prisma.DadoEducacaoBasicaApos23ScalarFieldEnum = {
   etapa_teacher_class_id: 'etapa_teacher_class_id',
   localizacao_id: 'localizacao_id',
   entidade_id: 'entidade_id'
+};
+
+exports.Prisma.TaxasPorFaixaEtariaScalarFieldEnum = {
+  id: 'id',
+  ano: 'ano',
+  tipo: 'tipo',
+  total: 'total',
+  denominador: 'denominador',
+  numerador: 'numerador',
+  data_atualizacao: 'data_atualizacao',
+  localidade_id: 'localidade_id',
+  faixa_etaria_taxas_id: 'faixa_etaria_taxas_id'
 };
 
 exports.Prisma.ImportacaoAPIScalarFieldEnum = {
@@ -297,9 +316,11 @@ exports.Prisma.ModelName = {
   VinculoFuncional: 'VinculoFuncional',
   FormacaoDocente: 'FormacaoDocente',
   FaixaEtaria: 'FaixaEtaria',
+  FaixaEtariaTaxas: 'FaixaEtariaTaxas',
   Entidade: 'Entidade',
   DadoEducacaoBasica: 'DadoEducacaoBasica',
   DadoEducacaoBasicaApos23: 'DadoEducacaoBasicaApos23',
+  TaxasPorFaixaEtaria: 'TaxasPorFaixaEtaria',
   ImportacaoAPI: 'ImportacaoAPI'
 };
 

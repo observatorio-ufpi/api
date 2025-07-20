@@ -64,6 +64,10 @@ export class EducationResponseMapper {
         // Para enrollment até 2020, usar etapa_matricula_ate2020
         educationLevelId = item.etapa_matricula_ate2020?.id ?? null;
         educationLevelName = item.etapa_matricula_ate2020?.nome ?? null;
+      } else if (tipo === 'employees') {
+        // Para employees, não há education_level_mod, então manter como null
+        educationLevelId = null;
+        educationLevelName = null;
       } else {
         // Para outros tipos, usar o campo padrão etapa
         educationLevelId = item.etapa?.id ?? null;

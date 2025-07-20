@@ -180,6 +180,27 @@ export class BasicService {
       }));
     }
 
+    // Lógica específica para employees (que não tem education_level_mod)
+    if (tipo === 'employees') {
+      const filtered = data.filter((item) => item.location_id !== null);
+
+      // console.log('Dados filtrados (employees 0 dims):', filtered);
+
+      const totalPorAno = {};
+      for (const item of filtered) {
+        totalPorAno[item.year] = (totalPorAno[item.year] || 0) + item.total;
+      }
+
+      const result = Object.entries(totalPorAno).map(([year, total]) => ({
+        year: Number(year),
+        total,
+      }));
+
+      // console.log('Resultado final (employees 0 dimensões):', result);
+
+      return result;
+    }
+
     // Lógica padrão para os outros tipos
     const filtered = data.filter(
       (item) =>
@@ -279,6 +300,33 @@ export class BasicService {
         if (a.year !== b.year) return a.year - b.year;
         return a[mainDim] - b[mainDim];
       });
+    } else if (tipo === 'employees') {
+      // Para employees, que não tem education_level_mod, usar apenas a dimensão solicitada
+      const filtered = data.filter((item) => item[mainDim] !== null);
+
+      // console.log('Dados filtrados (employees):', filtered);
+
+      // Agrupar por ano + valor da dimensão
+      const groupMap = new Map();
+      for (const item of filtered) {
+        const key = `${item.year}|${item[mainDim]}`;
+        if (!groupMap.has(key)) {
+          groupMap.set(key, {
+            year: item.year,
+            [mainDim]: item[mainDim],
+            [mainName]: item[mainName],
+            total: 0,
+          });
+        }
+        groupMap.get(key).total += item.total;
+      }
+
+      // console.log('Mapa agrupado (employees):', groupMap);
+
+      return Array.from(groupMap.values()).sort((a, b) => {
+        if (a.year !== b.year) return a.year - b.year;
+        return a[mainDim] - b[mainDim];
+      });
     } else {
       // Para outros tipos, usar combinação fixa de dimensões
       let fixedCombo: [string, string];
@@ -340,7 +388,11 @@ export class BasicService {
         return null;
       });
 
-      if (keys.every((k) => k !== null)) {
+      // Para employees, não exigir que todas as dimensões tenham valores não nulos
+      // já que employees não tem education_level_mod
+      const shouldInclude = keys.every((k) => k !== null);
+
+      if (shouldInclude) {
         const key = `${item.year}|${keys.join('|')}`;
         if (!groupMap.has(key)) {
           groupMap.set(key, { ...item });

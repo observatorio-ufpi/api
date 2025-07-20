@@ -342,63 +342,34 @@ export class BasicController {
   //   return this.basicService.getAuxiliar(dims, filter);
   // }
 
-  // @Get('employees')
-  // @ApiOperation({
-  //   summary: 'Obter dados de funcionários',
-  //   description: 'Retorna dados sobre funcionários na educação básica',
-  // })
-  // @ApiQuery({
-  //   name: 'dims',
-  //   required: false,
-  //   description: 'Dimensões para agrupamento dos dados',
-  // })
-  // @ApiQuery({
-  //   name: 'filter',
-  //   required: false,
-  //   description: 'Filtros para os dados',
-  // })
-  // @ApiResponse({
-  //   status: 200,
-  //   description: 'Dados de funcionários retornados com sucesso',
-  //   type: EducationResponseDto,
-  // })
-  // @ApiResponse({
-  //   status: 400,
-  //   description: 'Parâmetros inválidos',
-  //   type: ErrorResponseDto,
-  // })
-  // getEmployees(@Query('dims') dims: string, @Query('filter') filter: string) {
-  //   return this.basicService.getEmployees(dims, filter);
-  // }
-
-  // @Get('out_of_school')
-  // @ApiOperation({
-  //   summary: 'Obter dados de fora da escola',
-  //   description: 'Retorna dados sobre crianças e jovens fora da escola',
-  // })
-  // @ApiQuery({
-  //   name: 'dims',
-  //   required: false,
-  //   description: 'Dimensões para agrupamento dos dados',
-  // })
-  // @ApiQuery({
-  //   name: 'filter',
-  //   required: false,
-  //   description: 'Filtros para os dados',
-  // })
-  // @ApiResponse({
-  //   status: 200,
-  //   description: 'Dados de fora da escola retornados com sucesso',
-  //   type: EducationResponseDto,
-  // })
-  // @ApiResponse({
-  //   status: 400,
-  //   description: 'Parâmetros inválidos',
-  //   type: ErrorResponseDto,
-  // })
-  // getOutOfSchool(@Query('dims') dims: string, @Query('filter') filter: string) {
-  //   return this.basicService.getOutOfSchool(dims, filter);
-  // }
+  @Get('employees')
+  @ApiOperation({
+    summary: 'Obter dados de funcionários',
+    description: 'Retorna dados sobre funcionários na educação básica',
+  })
+  @ApiQuery({
+    name: 'dims',
+    required: false,
+    description: 'Dimensões para agrupamento dos dados',
+  })
+  @ApiQuery({
+    name: 'filter',
+    required: false,
+    description: 'Filtros para os dados',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Dados de funcionários retornados com sucesso',
+    type: EducationResponseDto,
+  })
+  @ApiResponse({
+    status: 400,
+    description: 'Parâmetros inválidos',
+    type: ErrorResponseDto,
+  })
+  getEmployees(@Query('dims') dims: string, @Query('filter') filter: string) {
+    return this.basicService.getEmployees(dims, filter);
+  }
 
   // @Get('liquid_enrollment_ratio')
   // @ApiOperation({

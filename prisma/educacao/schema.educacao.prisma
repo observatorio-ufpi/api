@@ -19,6 +19,7 @@ model Localidade {
     // Relações
     dados_basica        DadoEducacaoBasica[]
     dados_basica_apos23 DadoEducacaoBasicaApos23[]
+    taxas_por_faixa_etaria TaxasPorFaixaEtaria[]
 }
 
 // Dimensões específicas da educação básica
@@ -141,6 +142,16 @@ model FaixaEtaria {
     dados DadoEducacaoBasica[]
 }
 
+model FaixaEtariaTaxas {
+    id            Int    @id
+    nome          String
+    idade_inicial Int?
+    idade_final   Int?
+
+    // Relações
+    taxas TaxasPorFaixaEtaria[]
+}
+
 model Entidade {
     id     Int    @id @default(autoincrement())
     codigo String @unique
@@ -240,6 +251,28 @@ model DadoEducacaoBasicaApos23 {
     @@index([etapa_id])
     @@index([localizacao_id])
     @@index([entidade_id])
+}
+
+model TaxasPorFaixaEtaria {
+    id               Int      @id @default(autoincrement())
+    ano              Int
+    tipo             String
+    total            Decimal  @db.Decimal(15, 2)
+    denominador      Int?
+    numerador        Int?
+    data_atualizacao DateTime @default(now())
+
+    localidade_id Int?
+    localidade    Localidade? @relation(fields: [localidade_id], references: [id])
+
+    faixa_etaria_taxas_id Int?
+    faixa_etaria_taxas    FaixaEtariaTaxas? @relation(fields: [faixa_etaria_taxas_id], references: [id])
+
+    // Índices para otimização de consultas
+    @@index([tipo, ano, localidade_id, faixa_etaria_taxas_id])
+    @@index([ano])
+    @@index([localidade_id])
+    @@index([faixa_etaria_taxas_id])
 }
 
 // Controle de importações
