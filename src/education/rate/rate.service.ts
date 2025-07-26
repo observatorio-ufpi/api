@@ -1,20 +1,48 @@
 import { Injectable } from '@nestjs/common';
 import { FilterParams } from '../../interfaces/education.interface';
-import { EducationResponseMapper } from '../basic/mappers/education-response.mapper';
 import { PrismaEducacaoService } from '../prisma-educacao.service';
 
 @Injectable()
 export class RateService {
-  constructor(
-    private prisma: PrismaEducacaoService,
-    private mapper: EducationResponseMapper,
-  ) {}
+  constructor(private prisma: PrismaEducacaoService) {}
 
   async getOutOfSchool(dims: string, filter: string) {
-    return {
-      data: [],
-      error: null,
-    };
+    return this.queryData('pop_out_school', dims, filter);
+  }
+
+  private async queryData(tipo: string, dims: string, filter: string) {
+    const filterParams = this.parseFilter(filter);
+    const dimensions = this.parseDims(dims);
+
+    // Verificar se age_range está nas dimensões
+    const hasAgeRange = dimensions.includes('age_range');
+
+    if (!hasAgeRange) {
+      // Retorna vazio quando não há dimensão age_range
+      return [];
+    }
+
+    const results = await this.prisma.taxasPorFaixaEtaria.findMany({
+      where: {
+        tipo,
+        ano: { in: filterParams.years },
+        localidade_id: filterParams.city
+          ? Number(filterParams.city)
+          : Number(filterParams.state),
+      },
+      include: {
+        localidade: true,
+        faixa_etaria_taxas: true,
+      },
+    });
+
+    // Retorna com age_range quando a dimensão está presente
+    return results.map((result) => ({
+      age_range_id: result.faixa_etaria_taxas_id,
+      age_range_name: result.faixa_etaria_taxas?.nome,
+      total: Number(result.total),
+      year: result.ano,
+    }));
   }
 
   private parseFilter(filter: string): FilterParams {

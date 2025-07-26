@@ -11,7 +11,7 @@ import { RateService } from './rate.service';
 export class RateController {
   constructor(private readonly rateService: RateService) {}
 
-  @Get('out_of_school')
+  @Get('pop_out_school')
   @ApiOperation({
     summary: 'Obter dados de fora da escola',
     description: 'Retorna dados sobre crianças e jovens fora da escola',
