@@ -17,9 +17,10 @@ model Localidade {
     codigo_ibge String?
 
     // Relações
-    dados_basica        DadoEducacaoBasica[]
-    dados_basica_apos23 DadoEducacaoBasicaApos23[]
+    dados_basica           DadoEducacaoBasica[]
+    dados_basica_apos23    DadoEducacaoBasicaApos23[]
     taxas_por_faixa_etaria TaxasPorFaixaEtaria[]
+    taxas                  Taxas[]
 }
 
 // Dimensões específicas da educação básica
@@ -114,6 +115,7 @@ model Localizacao {
     // Relações
     dados_basica        DadoEducacaoBasica[]
     dados_basica_apos23 DadoEducacaoBasicaApos23[]
+    taxas               Taxas[]
 }
 
 model VinculoFuncional {
@@ -152,6 +154,34 @@ model FaixaEtariaTaxas {
     taxas TaxasPorFaixaEtaria[]
 }
 
+model FaixaEtariaTaxaConcEdlSupEAnafal {
+    id            Int    @id
+    nome          String
+    idade_inicial Int?
+    idade_final   Int?
+
+    // Relações
+    taxas Taxas[]
+}
+
+model FaixaEtariaTaxaConclEdBasica {
+    id            Int    @id
+    nome          String
+    idade_inicial Int?
+    idade_final   Int?
+
+    // Relações
+    taxas Taxas[]
+}
+
+model NivelInstrucao {
+    id   Int    @id
+    nome String
+
+    // Relações
+    taxas Taxas[]
+}
+
 model Entidade {
     id     Int    @id @default(autoincrement())
     codigo String @unique
@@ -159,6 +189,51 @@ model Entidade {
 
     // Relação com os fatos
     dados DadoEducacaoBasicaApos23[]
+}
+
+model CursosSuperior {
+    id     Int    @id @default(autoincrement())
+    codigo String @unique
+    nome   String
+
+    // Relação com os fatos
+    dados DadoEducacaoSuperior[]
+}
+
+model FaixaEtariaSuperior {
+    id     Int    @id @default(autoincrement())
+    codigo String @unique
+    nome   String
+
+    // Relação com os fatos
+    dados DadoEducacaoSuperior[]
+}
+
+model OrganizacaoAcademicaSuperior {
+    id     Int    @id @default(autoincrement())
+    codigo String @unique
+    nome   String
+
+    // Relação com os fatos
+    dados DadoEducacaoSuperior[]
+}
+
+model CategoriaAdministrativaSuperior {
+    id     Int    @id @default(autoincrement())
+    codigo String @unique
+    nome   String
+
+    // Relação com os fatos
+    dados DadoEducacaoSuperior[]
+}
+
+model ModalidadeEnsinoSuperior {
+    id     Int    @id @default(autoincrement())
+    codigo String @unique
+    nome   String
+
+    // Relação com os fatos
+    dados DadoEducacaoSuperior[]
 }
 
 // Tabela de fatos
@@ -273,6 +348,75 @@ model TaxasPorFaixaEtaria {
     @@index([ano])
     @@index([localidade_id])
     @@index([faixa_etaria_taxas_id])
+}
+
+model Taxas {
+    id               Int      @id @default(autoincrement())
+    ano              Int
+    tipo             String
+    total            Decimal  @db.Decimal(15, 2)
+    data_atualizacao DateTime @default(now())
+
+    localidade_id Int?
+    localidade    Localidade? @relation(fields: [localidade_id], references: [id])
+
+    localizacao_id Int?
+    localizacao    Localizacao? @relation(fields: [localizacao_id], references: [id])
+
+    faixa_etaria_taxas_concl_sup_e_anafal_id Int?
+    faixa_etaria_taxas_concl_sup_e_anafal    FaixaEtariaTaxaConcEdlSupEAnafal? @relation(fields: [faixa_etaria_taxas_concl_sup_e_anafal_id], references: [id])
+
+    faixa_etaria_taxas_concl_ed_basica_id Int?
+    faixa_etaria_taxas_concl_ed_basica    FaixaEtariaTaxaConclEdBasica? @relation(fields: [faixa_etaria_taxas_concl_ed_basica_id], references: [id])
+
+    nivel_instrucao_id Int?
+    nivel_instrucao    NivelInstrucao? @relation(fields: [nivel_instrucao_id], references: [id])
+
+    // Índices para otimização de consultas
+    @@index([tipo, ano, localidade_id])
+    @@index([ano])
+    @@index([localidade_id])
+    @@index([localizacao_id])
+    @@index([faixa_etaria_taxas_concl_sup_e_anafal_id])
+    @@index([faixa_etaria_taxas_concl_ed_basica_id])
+    @@index([nivel_instrucao_id])
+}
+
+model DadoEducacaoSuperior {
+    id               Int      @id @default(autoincrement())
+    ano              Int
+    tipo             String
+    total            Decimal  @db.Decimal(15, 2)
+    data_atualizacao DateTime @default(now())
+
+    localidade_id Int?
+    localidade    Localidade? @relation(fields: [localidade_id], references: [id])
+
+    cursos_id Int?
+    cursos    CursosSuperior? @relation(fields: [cursos_id], references: [id])
+
+    faixa_etaria_id Int?
+    faixa_etaria    FaixaEtariaSuperior? @relation(fields: [faixa_etaria_id], references: [id])
+
+    organizacao_academica_id Int?
+    organizacao_academica    OrganizacaoAcademicaSuperior? @relation(fields: [organizacao_academica_id], references: [id])
+
+    categoria_administrativa_id Int?
+    categoria_administrativa    CategoriaAdministrativaSuperior? @relation(fields: [categoria_administrativa_id], references: [id])
+
+    modalidade_ensino_id Int?
+    modalidade_ensino    ModalidadeEnsinoSuperior? @relation(fields: [modalidade_ensino_id], references: [id])
+
+    // Índices para otimização de consultas
+    @@index([tipo, ano, localidade_id, cursos_id, faixa_etaria_id, organizacao_academica_id, categoria_administrativa_id, modalidade_ensino_id])
+    @@index([tipo, ano, localidade_id])
+    @@index([ano])
+    @@index([localidade_id])
+    @@index([cursos_id])
+    @@index([faixa_etaria_id])
+    @@index([organizacao_academica_id])
+    @@index([categoria_administrativa_id])
+    @@index([modalidade_ensino_id])
 }
 
 // Controle de importações

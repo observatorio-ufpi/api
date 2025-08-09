@@ -71,5 +71,9 @@ export class PrismaEducacaoService implements OnModuleInit, OnModuleDestroy {
     return this.prismaClient?.taxasPorFaixaEtaria;
   }
 
+  get taxas() {
+    return this.prismaClient?.taxas;
+  }
+
   // Add other needed properties/methods here
 }

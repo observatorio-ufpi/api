@@ -1,5 +1,5 @@
 import xlsx from 'xlsx';
-import { PrismaClient } from './prisma/educacao/generated/educacao-client/index.js';
+import { PrismaClient } from '../prisma/educacao/generated/educacao-client/index.js';
 
 const prisma = new PrismaClient();
 

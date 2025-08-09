@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PrismaClient } from './prisma/educacao/generated/educacao-client/index.js';
+import { PrismaClient } from '../prisma/educacao/generated/educacao-client/index.js';
 
 const prisma = new PrismaClient();
 const URL_BASE = 'https://simcaq.c3sl.ufpr.br/api/v1/';
@@ -27,9 +27,9 @@ async function preencherFaixaEtariaTaxas() {
 }
 
 function construirUrl(ano) {
-  const dims = 'dims=age_range_pop_school';
+  const dims = 'dims=age_range_all';
   const filter = `min_year:%22${ano}%22,max_year:%22${ano}%22,state:%22${ESTADO_PIAUI}%22`;
-  return `${URL_BASE}pop_out_school?${dims}&filter=${filter}`;
+  return `${URL_BASE}adjusted_liquid_frequency?${dims}&filter=${filter}`;
 }
 
 async function importarTaxasAno(ano) {
@@ -42,21 +42,21 @@ async function importarTaxasAno(ano) {
     // Verificar se o registro já existe
     const registroExistente = await prisma.taxasPorFaixaEtaria.findFirst({
       where: {
-        tipo: 'pop_out_school',
+        tipo: 'adjusted_liquid_frequency',
         ano: ano,
         localidade_id: ESTADO_PIAUI,
-        faixa_etaria_taxas_id: item.age_range_pop_school_id,
+        faixa_etaria_taxas_id: item.age_range_all_id,
       },
     });
 
     const dadosParaSalvar = {
-      tipo: 'pop_out_school',
+      tipo: 'adjusted_liquid_frequency',
       ano: ano,
       total: Number(item.total),
       denominador: item.denominator ? Number(item.denominator) : null,
       numerador: item.pop_total ? Number(item.pop_total) : null,
       localidade_id: ESTADO_PIAUI,
-      faixa_etaria_taxas_id: item.age_range_pop_school_id,
+      faixa_etaria_taxas_id: item.age_range_all_id,
     };
 
     if (registroExistente) {

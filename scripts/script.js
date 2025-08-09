@@ -9,7 +9,7 @@ import {
 import pLimit from 'p-limit';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { PrismaClient } from './prisma/educacao/generated/educacao-client/index.js';
+import { PrismaClient } from '../prisma/educacao/generated/educacao-client/index.js';
 
 const prisma = new PrismaClient();
 
@@ -673,7 +673,7 @@ async function importarDados(options = {}) {
         if (!municipios) {
           try {
             const citiesMappingPath = await import(
-              './src/utils/citiesMapping.js'
+              '../src/utils/citiesMapping.js'
             );
             municipiosParaImportar = Object.keys(
               citiesMappingPath.municipios || {},
