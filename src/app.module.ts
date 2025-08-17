@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BasicModule } from './education/basic/basic.module';
+import { HigherModule } from './education/higher/higher.module';
 import { RateModule } from './education/rate/rate.module';
 import { EducationExpenseCompositionModule } from './indicators/education_expense_composition/education_expense_composition.module';
 import { FinancingCapacityModule } from './indicators/financing_capacity/financing_capacity.module';
@@ -21,6 +22,7 @@ import { ResearchesModule } from './researches/researches.module';
     ResourcesApplicationControlModule,
     EducationExpenseCompositionModule,
     BasicModule,
+    HigherModule,
     RateModule,
   ],
   controllers: [AppController],

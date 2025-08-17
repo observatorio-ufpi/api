@@ -17,10 +17,11 @@ model Localidade {
     codigo_ibge String?
 
     // Relações
-    dados_basica           DadoEducacaoBasica[]
-    dados_basica_apos23    DadoEducacaoBasicaApos23[]
-    taxas_por_faixa_etaria TaxasPorFaixaEtaria[]
-    taxas                  Taxas[]
+    dados_basica            DadoEducacaoBasica[]
+    dados_basica_apos23     DadoEducacaoBasicaApos23[]
+    taxas_por_faixa_etaria  TaxasPorFaixaEtaria[]
+    taxas                   Taxas[]
+    dados_educacao_superior DadoEducacaoSuperior[]
 }
 
 // Dimensões específicas da educação básica
@@ -192,12 +193,13 @@ model Entidade {
 }
 
 model CursosSuperior {
-    id     Int    @id @default(autoincrement())
-    codigo String @unique
-    nome   String
+    id         Int                    @id @default(autoincrement())
+    codigo_ies Int // Código da instituição de ensino superior
+    codigo     String // Código do curso
+    nome       String // Nome do curso
+    dados      DadoEducacaoSuperior[]
 
-    // Relação com os fatos
-    dados DadoEducacaoSuperior[]
+    @@unique([codigo_ies, codigo]) // Chave única composta por instituição e curso
 }
 
 model FaixaEtariaSuperior {
@@ -228,6 +230,33 @@ model CategoriaAdministrativaSuperior {
 }
 
 model ModalidadeEnsinoSuperior {
+    id     Int    @id @default(autoincrement())
+    codigo String @unique
+    nome   String
+
+    // Relação com os fatos
+    dados DadoEducacaoSuperior[]
+}
+
+model RegimeDocenteEnsinoSuperior {
+    id     Int    @id @default(autoincrement())
+    codigo String @unique
+    nome   String
+
+    // Relação com os fatos
+    dados DadoEducacaoSuperior[]
+}
+
+model FormacaoDocenteEnsinoSuperior {
+    id     Int    @id @default(autoincrement())
+    codigo String @unique
+    nome   String
+
+    // Relação com os fatos
+    dados DadoEducacaoSuperior[]
+}
+
+model InstituicaoEnsinoSuperior {
     id     Int    @id @default(autoincrement())
     codigo String @unique
     nome   String
@@ -407,8 +436,17 @@ model DadoEducacaoSuperior {
     modalidade_ensino_id Int?
     modalidade_ensino    ModalidadeEnsinoSuperior? @relation(fields: [modalidade_ensino_id], references: [id])
 
+    instituicao_ensino_id Int?
+    instituicao_ensino    InstituicaoEnsinoSuperior? @relation(fields: [instituicao_ensino_id], references: [id])
+
+    formacao_docente_id Int?
+    formacao_docente    FormacaoDocenteEnsinoSuperior? @relation(fields: [formacao_docente_id], references: [id])
+
+    regime_docente_id Int?
+    regime_docente    RegimeDocenteEnsinoSuperior? @relation(fields: [regime_docente_id], references: [id])
+
     // Índices para otimização de consultas
-    @@index([tipo, ano, localidade_id, cursos_id, faixa_etaria_id, organizacao_academica_id, categoria_administrativa_id, modalidade_ensino_id])
+    @@index([tipo, ano, localidade_id, cursos_id, faixa_etaria_id, organizacao_academica_id, categoria_administrativa_id, modalidade_ensino_id, formacao_docente_id, regime_docente_id])
     @@index([tipo, ano, localidade_id])
     @@index([ano])
     @@index([localidade_id])
@@ -417,6 +455,8 @@ model DadoEducacaoSuperior {
     @@index([organizacao_academica_id])
     @@index([categoria_administrativa_id])
     @@index([modalidade_ensino_id])
+    @@index([formacao_docente_id])
+    @@index([regime_docente_id])
 }
 
 // Controle de importações
