@@ -41,24 +41,45 @@ const FAIXAS_ETARIAS = [
 ];
 
 // Mapeamento das colunas do Excel
+// const COLUNAS_EXCEL = {
+//   NOME_MUNICIPIO: 'G',
+//   CODIGO_MUNICIPIO: 'H',
+//   TP_ORGANIZACAO_ACADEMICA: 'K',
+//   TP_CATEGORIA_ADMINISTRATIVA: 'L',
+//   CODIGO_IES: 'N',
+//   NOME_CURSO: 'O',
+//   CODIGO_CURSO: 'P',
+//   TP_MODALIDADE_ENSINO: 'AA',
+//   QT_CURSOS: 'AC',
+//   QT_MAT_0_17: 'CC',
+//   QT_MAT_18_24: 'CD',
+//   QT_MAT_25_29: 'CE',
+//   QT_MAT_30_34: 'CF',
+//   QT_MAT_35_39: 'CG',
+//   QT_MAT_40_49: 'CH',
+//   QT_MAT_50_59: 'CI',
+//   QT_MAT_60_MAIS: 'CJ',
+// };
+
+//para 2023
 const COLUNAS_EXCEL = {
   NOME_MUNICIPIO: 'G',
   CODIGO_MUNICIPIO: 'H',
   TP_ORGANIZACAO_ACADEMICA: 'K',
-  TP_CATEGORIA_ADMINISTRATIVA: 'L',
-  CODIGO_IES: 'N',
-  NOME_CURSO: 'O',
-  CODIGO_CURSO: 'P',
-  TP_MODALIDADE_ENSINO: 'AA',
-  QT_CURSOS: 'AC',
-  QT_MAT_0_17: 'CC',
-  QT_MAT_18_24: 'CD',
-  QT_MAT_25_29: 'CE',
-  QT_MAT_30_34: 'CF',
-  QT_MAT_35_39: 'CG',
-  QT_MAT_40_49: 'CH',
-  QT_MAT_50_59: 'CI',
-  QT_MAT_60_MAIS: 'CJ',
+  TP_CATEGORIA_ADMINISTRATIVA: 'M',
+  CODIGO_IES: 'P',
+  NOME_CURSO: 'Q',
+  CODIGO_CURSO: 'R',
+  TP_MODALIDADE_ENSINO: 'AC',
+  QT_CURSOS: 'AE',
+  QT_MAT_0_17: 'CE',
+  QT_MAT_18_24: 'CF',
+  QT_MAT_25_29: 'CG',
+  QT_MAT_30_34: 'CH',
+  QT_MAT_35_39: 'CI',
+  QT_MAT_40_49: 'CJ',
+  QT_MAT_50_59: 'CK',
+  QT_MAT_60_MAIS: 'CL',
 };
 
 /**
@@ -335,7 +356,7 @@ async function processarLinha(linha, numeroLinha, ano = 2023) {
 async function processarArquivoExcel(
   caminhoArquivo,
   nomePlanilha = null,
-  ano = 2020,
+  ano = 2023,
 ) {
   console.log(`Lendo arquivo Excel: ${caminhoArquivo}`);
 
@@ -386,9 +407,9 @@ async function processarArquivoExcel(
 // CONFIGURAÇÕES - MODIFIQUE AQUI
 const CONFIGURACOES = {
   caminhoArquivo:
-    'C:/Users/Ramon Matheus/Desktop/educacaoSuperior/cursos2020.xlsx', // Caminho do arquivo Excel
+    'C:/Users/Ramon Matheus/Desktop/educacaoSuperior/cursos2023.xlsx', // Caminho do arquivo Excel
   nomePlanilha: null, // Nome da planilha (null = primeira planilha)
-  ano: 2020, // Ano dos dados
+  ano: 2023, // Ano dos dados
 };
 
 /**

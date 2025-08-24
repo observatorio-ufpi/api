@@ -24,17 +24,30 @@ const CATEGORIA_ADMINISTRATIVA = [
   { codigo: '9', nome: 'Privada confessional' },
 ];
 
-// Mapeamento das colunas do Excel
+// // Mapeamento das colunas do Excel
+// const COLUNAS_EXCEL = {
+//   NOME_MUNICIPIO: 'G',
+//   CODIGO_MUNICIPIO: 'H',
+//   TP_ORGANIZACAO_ACADEMICA: 'N',
+//   TP_CATEGORIA_ADMINISTRATIVA: 'O',
+//   CODIGO_IES: 'R',
+//   NOME_IES: 'S',
+
+//   // Total de docentes (célula AY)
+//   QT_DOC_EX_TOTAL: 'AY',
+// };
+
+//para 2023
 const COLUNAS_EXCEL = {
   NOME_MUNICIPIO: 'G',
   CODIGO_MUNICIPIO: 'H',
   TP_ORGANIZACAO_ACADEMICA: 'N',
-  TP_CATEGORIA_ADMINISTRATIVA: 'O',
-  CODIGO_IES: 'R',
-  NOME_IES: 'S',
+  TP_CATEGORIA_ADMINISTRATIVA: 'P',
+  CODIGO_IES: 'U',
+  NOME_IES: 'V',
 
   // Total de docentes (célula AY)
-  QT_DOC_EX_TOTAL: 'AY',
+  QT_DOC_EX_TOTAL: 'BB',
 };
 
 /**
@@ -244,7 +257,7 @@ async function processarLinha(linha, numeroLinha, ano = 2023) {
 async function processarArquivoExcel(
   caminhoArquivo,
   nomePlanilha = null,
-  ano = 2020,
+  ano = 2023,
 ) {
   console.log(`Lendo arquivo Excel: ${caminhoArquivo}`);
 
@@ -294,9 +307,10 @@ async function processarArquivoExcel(
 
 // CONFIGURAÇÕES - MODIFIQUE AQUI
 const CONFIGURACOES = {
-  caminhoArquivo: 'C:/Users/Ramon Matheus/Desktop/educacaoSuperior/ies.xlsx', // Caminho do arquivo Excel
+  caminhoArquivo:
+    'C:/Users/Ramon Matheus/Desktop/educacaoSuperior/ies2023.xlsx', // Caminho do arquivo Excel
   nomePlanilha: null, // Nome da planilha (null = primeira planilha)
-  ano: 2020, // Ano dos dados
+  ano: 2023, // Ano dos dados
 };
 
 /**

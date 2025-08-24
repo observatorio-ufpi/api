@@ -40,28 +40,53 @@ const REGIME_TRABALHO = [
   { codigo: '5', nome: 'Horista' },
 ];
 
+// // Mapeamento das colunas do Excel
+// const COLUNAS_EXCEL = {
+//   NOME_MUNICIPIO: 'G',
+//   CODIGO_MUNICIPIO: 'H',
+//   TP_ORGANIZACAO_ACADEMICA: 'N',
+//   TP_CATEGORIA_ADMINISTRATIVA: 'O',
+//   CODIGO_IES: 'R',
+//   NOME_IES: 'S',
+
+//   // Formação dos docentes
+//   QT_DOC_EX_SEM_GRAD: 'BC', // Sem graduação
+//   QT_DOC_EX_GRAD: 'BD', // Com graduação
+//   QT_DOC_EX_ESP: 'BE', // Com especialização
+//   QT_DOC_EX_MEST: 'BF', // Com mestrado
+//   QT_DOC_EX_DOUT: 'BG', // Com doutorado
+
+//   // Regime de trabalho
+//   QT_DOC_EX_INT: 'BH', // Tempo integral
+//   QT_DOC_EX_INT_DE: 'BI', // Tempo integral com dedicação exclusiva
+//   QT_DOC_EX_INT_SEM_DE: 'BJ', // Tempo integral sem dedicação exclusiva
+//   QT_DOC_EX_PARC: 'BK', // Tempo parcial
+//   QT_DOC_EX_HOR: 'BL', // Horista
+// };
+
+//para 2023
 // Mapeamento das colunas do Excel
 const COLUNAS_EXCEL = {
   NOME_MUNICIPIO: 'G',
   CODIGO_MUNICIPIO: 'H',
   TP_ORGANIZACAO_ACADEMICA: 'N',
-  TP_CATEGORIA_ADMINISTRATIVA: 'O',
-  CODIGO_IES: 'R',
-  NOME_IES: 'S',
+  TP_CATEGORIA_ADMINISTRATIVA: 'P',
+  CODIGO_IES: 'U',
+  NOME_IES: 'V',
 
   // Formação dos docentes
-  QT_DOC_EX_SEM_GRAD: 'BC', // Sem graduação
-  QT_DOC_EX_GRAD: 'BD', // Com graduação
-  QT_DOC_EX_ESP: 'BE', // Com especialização
-  QT_DOC_EX_MEST: 'BF', // Com mestrado
-  QT_DOC_EX_DOUT: 'BG', // Com doutorado
+  QT_DOC_EX_SEM_GRAD: 'BF', // Sem graduação
+  QT_DOC_EX_GRAD: 'BG', // Com graduação
+  QT_DOC_EX_ESP: 'BH', // Com especialização
+  QT_DOC_EX_MEST: 'BI', // Com mestrado
+  QT_DOC_EX_DOUT: 'BJ', // Com doutorado
 
   // Regime de trabalho
-  QT_DOC_EX_INT: 'BH', // Tempo integral
-  QT_DOC_EX_INT_DE: 'BI', // Tempo integral com dedicação exclusiva
-  QT_DOC_EX_INT_SEM_DE: 'BJ', // Tempo integral sem dedicação exclusiva
-  QT_DOC_EX_PARC: 'BK', // Tempo parcial
-  QT_DOC_EX_HOR: 'BL', // Horista
+  QT_DOC_EX_INT: 'BK', // Tempo integral
+  QT_DOC_EX_INT_DE: 'BL', // Tempo integral com dedicação exclusiva
+  QT_DOC_EX_INT_SEM_DE: 'BM', // Tempo integral sem dedicação exclusiva
+  QT_DOC_EX_PARC: 'BN', // Tempo parcial
+  QT_DOC_EX_HOR: 'BO', // Horista
 };
 
 /**
@@ -419,7 +444,7 @@ async function processarLinha(linha, numeroLinha, ano = 2023) {
 async function processarArquivoExcel(
   caminhoArquivo,
   nomePlanilha = null,
-  ano = 2020,
+  ano = 2023,
 ) {
   console.log(`Lendo arquivo Excel: ${caminhoArquivo}`);
 
@@ -469,9 +494,10 @@ async function processarArquivoExcel(
 
 // CONFIGURAÇÕES - MODIFIQUE AQUI
 const CONFIGURACOES = {
-  caminhoArquivo: 'C:/Users/Ramon Matheus/Desktop/educacaoSuperior/ies.xlsx', // Caminho do arquivo Excel
+  caminhoArquivo:
+    'C:/Users/Ramon Matheus/Desktop/educacaoSuperior/ies2023.xlsx', // Caminho do arquivo Excel
   nomePlanilha: null, // Nome da planilha (null = primeira planilha)
-  ano: 2020, // Ano dos dados
+  ano: 2023, // Ano dos dados
 };
 
 /**

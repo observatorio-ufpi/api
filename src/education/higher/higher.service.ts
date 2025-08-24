@@ -102,8 +102,8 @@ export class HigherService {
 
       // Definir condições baseadas na dimensão
       if (dimension === 'work_regime') {
-        // Para regime de trabalho: buscar onde regime_docente_id NÃO é null
-        whereConditions.regime_docente_id = { not: null };
+        // Para regime de trabalho: buscar onde regime_docente_id NÃO é null E NÃO é 1
+        whereConditions.regime_docente_id = { not: 1, gte: 2 };
         whereConditions.formacao_docente_id = null;
       } else if (dimension === 'initial_training') {
         // Para formação docente: buscar onde formacao_docente_id NÃO é null
@@ -191,8 +191,8 @@ export class HigherService {
 
       // Definir condições baseadas na dimensão
       if (dimension === 'work_regime') {
-        // Para regime de trabalho: buscar onde regime_docente_id NÃO é null
-        whereConditions.regime_docente_id = { not: null };
+        // Para regime de trabalho: buscar onde regime_docente_id NÃO é null E NÃO é 1
+        whereConditions.regime_docente_id = { not: 1, gte: 2 };
         whereConditions.formacao_docente_id = null;
       } else if (dimension === 'initial_training') {
         // Para formação docente: buscar onde formacao_docente_id NÃO é null
@@ -272,27 +272,40 @@ export class HigherService {
   }
 
   private processOneDimension(results: any[], dimension: string, tipo: string): EducationResponse {
-    const dimensionTotals = new Map();
+    const dimensionYearTotals = new Map();
 
     results.forEach(item => {
       const dimValue = this.getDimensionValue(item, dimension);
       if (dimValue) {
+        const year = item.ano;
         const key = `${dimValue.id}_${dimValue.name}`;
-        dimensionTotals.set(key, (dimensionTotals.get(key) || 0) + Number(item.total));
+
+        if (!dimensionYearTotals.has(key)) {
+          dimensionYearTotals.set(key, new Map());
+        }
+
+        const yearMap = dimensionYearTotals.get(key);
+        yearMap.set(year, (yearMap.get(year) || 0) + Number(item.total));
       }
     });
 
-    const processedResults = Array.from(dimensionTotals.entries()).map(([key, total]) => {
+    const processedResults = [];
+
+    dimensionYearTotals.forEach((yearMap, key) => {
       const [id, name] = key.split('_', 2);
-      const result: any = {
-        year: results[0]?.ano, // Para compatibilidade
-        total,
-      };
 
-      // Adicionar campos específicos da dimensão
-      this.addDimensionFields(result, dimension, Number(id), name);
+      // Para cada ano da dimensão, criar um registro separado
+      yearMap.forEach((total, year) => {
+        const result: any = {
+          year,
+          total,
+        };
 
-      return result;
+        // Adicionar campos específicos da dimensão
+        this.addDimensionFields(result, dimension, Number(id), name);
+
+        processedResults.push(result);
+      });
     });
 
     return { result: processedResults };
@@ -315,17 +328,23 @@ export class HigherService {
       const dim2Value = this.getDimensionValue(item, dim2);
 
       if (dim1Value && dim2Value) {
+        const year = item.ano;
         const key = `${dim1Value.id}-${dim2Value.id}`;
         dim1Values.add(`${dim1Value.id}_${dim1Value.name}`);
         dim2Values.add(`${dim2Value.id}_${dim2Value.name}`);
 
-        crossData.set(key, (crossData.get(key) || 0) + Number(item.total));
+        if (!crossData.has(key)) {
+          crossData.set(key, new Map());
+        }
+
+        const yearMap = crossData.get(key);
+        yearMap.set(year, (yearMap.get(year) || 0) + Number(item.total));
       }
     });
 
     // Criar dados para a tabela cruzada
     const crossTableData = [];
-    Array.from(crossData.entries()).forEach(([key, total]) => {
+    crossData.forEach((yearMap, key) => {
       const [dim1Id, dim2Id] = key.split('-');
       const dim1Info = Array.from(dim1Values).find(v => (v as string).startsWith(dim1Id + '_'));
       const dim2Info = Array.from(dim2Values).find(v => (v as string).startsWith(dim2Id + '_'));
@@ -334,15 +353,18 @@ export class HigherService {
         const dim1Name = (dim1Info as string).split('_', 2)[1];
         const dim2Name = (dim2Info as string).split('_', 2)[1];
 
-        const item: any = {
-          year: results[0]?.ano,
-          total,
-        };
+        // Para cada ano, criar um registro separado
+        yearMap.forEach((total, year) => {
+          const item: any = {
+            year,
+            total,
+          };
 
-        this.addDimensionFields(item, dim1, Number(dim1Id), dim1Name);
-        this.addDimensionFields(item, dim2, Number(dim2Id), dim2Name);
+          this.addDimensionFields(item, dim1, Number(dim1Id), dim1Name);
+          this.addDimensionFields(item, dim2, Number(dim2Id), dim2Name);
 
-        crossTableData.push(item);
+          crossTableData.push(item);
+        });
       }
     });
 
