@@ -32,6 +32,7 @@ lerna-debug.log*
 
 # Database
 /data
+**/data_educacao
 
 # IDE - VSCode
 .vscode/*

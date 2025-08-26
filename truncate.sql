@@ -1,0 +1,1 @@
+TRUNCATE TABLE "DadoEducacaoBasica", "ImportacaoAPI", "Localidade", "DependenciaAdministrativaBasica", "EtapaEnsinoBasica", "Localizacao", "VinculoFuncional", "FormacaoDocente", "FaixaEtaria" RESTART IDENTITY CASCADE;

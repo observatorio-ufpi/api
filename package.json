@@ -20,7 +20,11 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "ts-node prisma/seed.ts",
+    "schema": [
+      "prisma/educacao/schema.educacao.prisma",
+      "prisma/schema.prisma"
+    ]
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -28,12 +32,16 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^7.3.0",
     "@prisma/client": "5.11.0",
+    "axios": "^1.6.5",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "csv-parser": "^3.2.0",
     "exceljs": "^4.4.0",
+    "p-limit": "^6.2.0",
     "prisma": "^5.10.2",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
