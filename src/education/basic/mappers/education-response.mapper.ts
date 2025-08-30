@@ -165,10 +165,6 @@ export class EducationResponseMapper {
       return data.filter((item) => {
         // Remover apenas se o ano for maior que 2020 E o education_level_mod_id for 11
         if (item.year > 2020 && item.education_level_mod_id === 11) {
-          console.log(
-            'Removendo item com education_level_mod_id 11 do ano:',
-            item.year,
-          );
           return false;
         }
         return true;

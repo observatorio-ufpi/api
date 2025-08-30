@@ -49,7 +49,7 @@ export class HigherService {
     return this.serieHistoricaTwoDimensions('docentes', dims, filter);
   }
 
-  private async queryData(tipo: string, dims: string, filter: string): Promise<EducationResponse> {
+    private async queryData(tipo: string, dims: string, filter: string): Promise<EducationResponse> {
     const filterParams = this.parseFilter(filter);
     const dimensions = this.parseDims(dims);
 
@@ -252,7 +252,6 @@ export class HigherService {
         total,
       }));
 
-      console.log(aggregated);
 
       return { result: aggregated };
     }

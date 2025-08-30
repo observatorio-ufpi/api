@@ -547,7 +547,6 @@ export class BasicService {
 
         // Consulta para dados até 2020 (tipo = 'enrollment')
         if (yearsUntil2020.length > 0) {
-          console.log('entrou aqui 1');
           const resultsUntil2020 =
             await this.prisma.dadoEducacaoBasica.findMany({
               where: {
@@ -564,7 +563,6 @@ export class BasicService {
 
         // Consulta para dados de 2021 em diante (tipo = 'enrollmentAggregate')
         if (yearsFrom2021.length > 0) {
-          console.log('entrou aqui 2');
           const resultsFrom2021 = await this.prisma.dadoEducacaoBasica.findMany(
             {
               where: {
@@ -739,26 +737,32 @@ export class BasicService {
       whereClause.tipo = tipo;
     }
 
-    // Se é uma cidade específica, buscar apenas essa cidade
-    if (filterParams.city) {
-      whereClause.localidade_id = Number(filterParams.city);
-    } else {
-      // Se é o estado (localidade_id 22), buscar todas as cidades do estado
-      const stateId = Number(filterParams.state);
-      if (stateId === 22) {
-        // OTIMIZAÇÃO 1: Usar subconsulta JOIN em vez de consulta separada + IN
-        // Isso reduz o número de consultas de 2 para 1 e é mais eficiente
-        whereClause.localidade = {
-          tipo: 'municipio',
-          uf: 'PI',
-        };
-
-        // OTIMIZAÇÃO 2: Alternativa com cache para casos de múltiplas consultas
-        // Descomente as linhas abaixo se houver muitas consultas consecutivas para o estado
-        // const cityIds = await this.getPiauiCitiesIds();
-        // whereClause.localidade_id = { in: cityIds };
+    // Para school/count, sempre buscar por todas as cidades quando for estado
+    // Para outros tipos, usar filtro normal pois os totais já estão consolidados no banco
+    if (tipo === 'school/count') {
+      // Se é uma cidade específica, buscar apenas essa cidade
+      if (filterParams.city) {
+        whereClause.localidade_id = Number(filterParams.city);
       } else {
-        whereClause.localidade_id = stateId;
+        // Se é o estado (localidade_id 22), buscar todas as cidades do estado
+        const stateId = Number(filterParams.state);
+        if (stateId === 22) {
+          // OTIMIZAÇÃO: Usar subconsulta JOIN para buscar todas as cidades do Piauí
+          whereClause.localidade = {
+            tipo: 'municipio',
+            uf: 'PI',
+          };
+        } else {
+          whereClause.localidade_id = stateId;
+        }
+      }
+    } else {
+      // Para outros tipos (enrollment, teacher, class), usar filtro normal
+      // pois os totais já estão consolidados no banco
+      if (filterParams.city) {
+        whereClause.localidade_id = Number(filterParams.city);
+      } else {
+        whereClause.localidade_id = Number(filterParams.state);
       }
     }
 
@@ -839,7 +843,7 @@ export class BasicService {
       return { result: finalResults };
     }
 
-    // Para outros tipos, usar a lógica original
+    // Para outros tipos, usar diretamente os totais do banco (já consolidados)
     const mappedResults = results.map((item) => {
       const obj: any = {
         year: item.ano,
@@ -872,6 +876,7 @@ export class BasicService {
       return obj;
     });
 
+    // Para outros tipos, agrupar por dimensões mas somar os totais já consolidados
     const groupedMap = new Map();
     mappedResults.forEach((item) => {
       const keys = ['year'];
