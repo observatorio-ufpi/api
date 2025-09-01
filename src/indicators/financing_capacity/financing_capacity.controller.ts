@@ -15,7 +15,7 @@ export class FinancingCapacityController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -25,7 +25,7 @@ export class FinancingCapacityController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -49,7 +49,7 @@ export class FinancingCapacityController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -59,7 +59,7 @@ export class FinancingCapacityController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {

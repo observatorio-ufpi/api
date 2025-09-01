@@ -17,7 +17,7 @@ export class ResourcesApplicationControlController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -27,7 +27,7 @@ export class ResourcesApplicationControlController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -50,7 +50,7 @@ export class ResourcesApplicationControlController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -60,7 +60,7 @@ export class ResourcesApplicationControlController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -83,7 +83,7 @@ export class ResourcesApplicationControlController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -93,7 +93,7 @@ export class ResourcesApplicationControlController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -116,7 +116,7 @@ export class ResourcesApplicationControlController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -126,7 +126,7 @@ export class ResourcesApplicationControlController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {

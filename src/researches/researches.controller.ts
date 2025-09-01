@@ -15,7 +15,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -27,7 +27,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -53,7 +53,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -65,7 +65,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -88,7 +88,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -100,7 +100,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -123,7 +123,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -135,7 +135,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -158,7 +158,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -170,7 +170,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -193,7 +193,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -205,7 +205,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -228,7 +228,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -240,7 +240,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -263,7 +263,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -275,7 +275,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -298,7 +298,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -310,7 +310,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -333,7 +333,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -345,7 +345,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -368,7 +368,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -380,7 +380,7 @@ export class ResearchesController {
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -403,7 +403,7 @@ export class ResearchesController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
@@ -411,7 +411,7 @@ export class ResearchesController {
     }: ResearchesFiltersDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {

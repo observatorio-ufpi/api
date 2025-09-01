@@ -6,7 +6,7 @@ export class GeneralFiltersDto {
   @IsOptional()
   @ApiPropertyOptional()
   @IsString()
-  nomeMunicipio?: string;
+  codigoMunicipio?: string;
 
   @IsOptional()
   @ApiPropertyOptional({
