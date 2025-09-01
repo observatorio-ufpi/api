@@ -20,6 +20,8 @@ export class FinancingCapacityController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -37,6 +39,8 @@ export class FinancingCapacityController {
     return this.financingCapacityService.rpebFinancingCapacity(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -54,6 +58,8 @@ export class FinancingCapacityController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -71,6 +77,8 @@ export class FinancingCapacityController {
     return this.financingCapacityService.fundebFinancingCapacity(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),

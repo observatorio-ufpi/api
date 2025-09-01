@@ -20,6 +20,8 @@ export class RpebCompositionController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -37,6 +39,8 @@ export class RpebCompositionController {
     return this.rpebCompositionService.fundebParticipationMde(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -54,6 +58,8 @@ export class RpebCompositionController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -71,6 +77,8 @@ export class RpebCompositionController {
     return this.rpebCompositionService.resultadoLiquidoFundeb(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -88,6 +96,8 @@ export class RpebCompositionController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -105,6 +115,8 @@ export class RpebCompositionController {
     return this.rpebCompositionService.participacaoComplementacaoUniao(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -122,6 +134,8 @@ export class RpebCompositionController {
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
@@ -139,6 +153,8 @@ export class RpebCompositionController {
     return this.rpebCompositionService.participacaoReceitasAdicionaisComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),

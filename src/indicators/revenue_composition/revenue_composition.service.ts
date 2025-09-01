@@ -19,6 +19,8 @@ export class RevenueCompositionService {
   async iptuComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const revenues0708 =
@@ -366,6 +368,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -421,6 +458,8 @@ export class RevenueCompositionService {
   async itbiComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -752,6 +791,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRenevues1520 },
         { key: 'revenues2123', data: modifiedRenevues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRenevues0914 },
+        { key: 'revenues1520', data: modifiedRenevues1520 },
+        { key: 'revenues2123', data: modifiedRenevues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -807,6 +881,8 @@ export class RevenueCompositionService {
   async issComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -1143,6 +1219,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -1198,6 +1309,8 @@ export class RevenueCompositionService {
   async irrfComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -1534,6 +1647,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -1589,6 +1737,8 @@ export class RevenueCompositionService {
   async fpmComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -1922,6 +2072,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -1977,6 +2162,8 @@ export class RevenueCompositionService {
   async cotaParteIcmsComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -2309,6 +2496,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -2364,6 +2586,8 @@ export class RevenueCompositionService {
   async icmsDesoneracaoComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -2611,6 +2835,40 @@ export class RevenueCompositionService {
         { key: 'revenues0914', data: modifiedRevenues0914 },
         { key: 'revenues1520', data: modifiedRevenues1520 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -2666,6 +2924,8 @@ export class RevenueCompositionService {
   async cotaParteIpiComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -2998,6 +3258,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -3053,6 +3348,8 @@ export class RevenueCompositionService {
   async cotaParteItrComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -3423,6 +3720,42 @@ export class RevenueCompositionService {
         { key: 'revenues1920', data: modifiedRevenues1920 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1518', data: modifiedRevenues1518 },
+        { key: 'revenues1920', data: modifiedRevenues1920 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -3478,6 +3811,8 @@ export class RevenueCompositionService {
   async cotaParteIpvaComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -3810,6 +4145,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -3865,6 +4235,8 @@ export class RevenueCompositionService {
   async cotaParteIofOuroComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -4205,6 +4577,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -4260,6 +4667,8 @@ export class RevenueCompositionService {
   async outrasTransferenciasComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2021-2023
@@ -4365,6 +4774,38 @@ export class RevenueCompositionService {
       groupedData = this.groupByAno([
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -4420,6 +4861,8 @@ export class RevenueCompositionService {
   async participacaoReceitaImpostosProprios(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -4760,6 +5203,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -4815,6 +5293,8 @@ export class RevenueCompositionService {
   async participacaoTransferenciasComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -5165,6 +5645,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -5220,6 +5735,8 @@ export class RevenueCompositionService {
   async razaoImpostosTransferenciasComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -5568,6 +6085,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -5623,6 +6175,8 @@ export class RevenueCompositionService {
   async razaoTransferenciasImpostosComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -5971,6 +6525,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -6026,6 +6615,8 @@ export class RevenueCompositionService {
   async participacaoFundebComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -6368,6 +6959,41 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = this.groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {

@@ -22,6 +22,8 @@ export class EducationExpenseCompositionService {
   async despesaTotalMde(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -289,6 +291,22 @@ export class EducationExpenseCompositionService {
         { key: 'expenses1520', data: modifiedExpenses1520 },
         { key: 'expenses2123', data: modifiedExpenses2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((expenseKey) => {
+            groupedData[municipio][expenseKey] = groupedData[municipio][
+              expenseKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType === GroupType.ANO) {
       groupedData = groupByAno([
         { key: 'expenses0708', data: modifiedExpenses0708 },
@@ -296,6 +314,22 @@ export class EducationExpenseCompositionService {
         { key: 'expenses1520', data: modifiedExpenses1520 },
         { key: 'expenses2123', data: modifiedExpenses2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          Object.keys(groupedData[ano]).forEach((expenseKey) => {
+            groupedData[ano][expenseKey] = groupedData[ano][
+              expenseKey
+            ].filter((item) => {
+              const anoItem = parseInt(item.ano);
+              return (
+                (!anoInicial || anoItem >= anoInicial) &&
+                (!anoFinal || anoItem <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     }
 
     if (pagination) {
@@ -351,6 +385,8 @@ export class EducationExpenseCompositionService {
   async despesasPessoalAtivoMde(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2021-2023
@@ -441,11 +477,7 @@ export class EducationExpenseCompositionService {
               ApuracaoLimiteMinimoConstitucionalTipos23.APLICACAO_EM_MDE_SOBRE_RECEITA_LIQUIDA_DE_IMPOSTOS,
         )?.valorAplicado || 0;
 
-      console.log(item.codigoMunicipio, despesaPessoal, totalMde);
-
       const percentage = totalMde ? (despesaPessoal / totalMde) * 100 : 0;
-
-      console.log(percentage);
 
       return {
         ano: item.ano,
@@ -465,10 +497,42 @@ export class EducationExpenseCompositionService {
       groupedData = groupByMunicipio([
         { key: 'expenses2123', data: modifiedExpenses2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((expenseKey) => {
+            groupedData[municipio][expenseKey] = groupedData[municipio][
+              expenseKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType === GroupType.ANO) {
       groupedData = groupByAno([
         { key: 'expenses2123', data: modifiedExpenses2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          Object.keys(groupedData[ano]).forEach((expenseKey) => {
+            groupedData[ano][expenseKey] = groupedData[ano][
+              expenseKey
+            ].filter((item) => {
+              const anoItem = parseInt(item.ano);
+              return (
+                (!anoInicial || anoItem >= anoInicial) &&
+                (!anoFinal || anoItem <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     }
 
     if (pagination) {
@@ -524,6 +588,8 @@ export class EducationExpenseCompositionService {
   async despesasPessoalInativoMde(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2021-2023
@@ -634,10 +700,42 @@ export class EducationExpenseCompositionService {
       groupedData = groupByMunicipio([
         { key: 'expenses2123', data: modifiedExpenses2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((expenseKey) => {
+            groupedData[municipio][expenseKey] = groupedData[municipio][
+              expenseKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType === GroupType.ANO) {
       groupedData = groupByAno([
         { key: 'expenses2123', data: modifiedExpenses2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          Object.keys(groupedData[ano]).forEach((expenseKey) => {
+            groupedData[ano][expenseKey] = groupedData[ano][
+              expenseKey
+            ].filter((item) => {
+              const anoItem = parseInt(item.ano);
+              return (
+                (!anoInicial || anoItem >= anoInicial) &&
+                (!anoFinal || anoItem <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     }
 
     if (pagination) {
@@ -693,6 +791,8 @@ export class EducationExpenseCompositionService {
   async despesasCapitalMde(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2021-2023
@@ -801,10 +901,42 @@ export class EducationExpenseCompositionService {
       groupedData = groupByMunicipio([
         { key: 'expenses2123', data: modifiedExpenses2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((expenseKey) => {
+            groupedData[municipio][expenseKey] = groupedData[municipio][
+              expenseKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType === GroupType.ANO) {
       groupedData = groupByAno([
         { key: 'expenses2123', data: modifiedExpenses2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          Object.keys(groupedData[ano]).forEach((expenseKey) => {
+            groupedData[ano][expenseKey] = groupedData[ano][
+              expenseKey
+            ].filter((item) => {
+              const anoItem = parseInt(item.ano);
+              return (
+                (!anoInicial || anoItem >= anoInicial) &&
+                (!anoFinal || anoItem <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     }
 
     if (pagination) {
@@ -860,6 +992,8 @@ export class EducationExpenseCompositionService {
   async transferenciasInstituicoesPrivadas(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2021-2023
@@ -975,10 +1109,40 @@ export class EducationExpenseCompositionService {
       groupedData = groupByMunicipio([
         { key: 'expenses2123', data: modifiedExpenses2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((expenseKey) => {
+            groupedData[municipio][expenseKey] = groupedData[municipio][
+              expenseKey
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              return (
+                (!anoInicial || ano >= anoInicial) &&
+                (!anoFinal || ano <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     } else if (groupType === GroupType.ANO) {
       groupedData = groupByAno([
         { key: 'expenses2123', data: modifiedExpenses2123 },
       ]);
+
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          Object.keys(groupedData[ano]).forEach((expenseKey) => {
+            groupedData[ano][expenseKey] = groupedData[ano][expenseKey].filter((item) => {
+              const anoItem = parseInt(item.ano);
+              return (
+                (!anoInicial || anoItem >= anoInicial) &&
+                (!anoFinal || anoItem <= anoFinal)
+              );
+            });
+          });
+        });
+      }
     }
 
     if (pagination) {

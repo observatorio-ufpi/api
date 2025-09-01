@@ -30,7 +30,9 @@ export class RpebCompositionService {
   async fundebParticipationMde(
     groupType: GroupType,
     filters: IndicatorsFiltersDto,
-    pagination: PaginationParams,
+    anoInicial?: number,
+    anoFinal?: number,
+    pagination?: PaginationParams,
   ) {
     const revenues0708 =
       await this.prismaService.relatorioMunicipal0708.findMany({
@@ -494,6 +496,41 @@ export class RpebCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -549,7 +586,9 @@ export class RpebCompositionService {
   async resultadoLiquidoFundeb(
     groupType: GroupType,
     filters: IndicatorsFiltersDto,
-    pagination: PaginationParams,
+    anoInicial?: number,
+    anoFinal?: number,
+    pagination?: PaginationParams,
   ) {
     const revenues0708 =
       await this.prismaService.relatorioMunicipal0708.findMany({
@@ -890,6 +929,41 @@ export class RpebCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -945,7 +1019,9 @@ export class RpebCompositionService {
   async participacaoComplementacaoUniao(
     groupType: GroupType,
     filters: IndicatorsFiltersDto,
-    pagination: PaginationParams,
+    anoInicial?: number,
+    anoFinal?: number,
+    pagination?: PaginationParams,
   ) {
     const revenues0708 =
       await this.prismaService.relatorioMunicipal0708.findMany({
@@ -1321,6 +1397,42 @@ export class RpebCompositionService {
         { key: 'revenues2122', data: modifiedRevenues2122 },
         { key: 'revenues23', data: modifiedRevenues23 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2122', data: modifiedRevenues2122 },
+        { key: 'revenues23', data: modifiedRevenues23 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -1375,6 +1487,8 @@ export class RpebCompositionService {
   async participacaoReceitasAdicionaisComposition(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     // Buscar dados 2007-2008
@@ -1757,6 +1871,41 @@ export class RpebCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      }
+    } else if (groupType === GroupType.ANO) {
+      groupedData = groupByAno([
+        { key: 'revenues0708', data: modifiedRevenues0708 },
+        { key: 'revenues0914', data: modifiedRevenues0914 },
+        { key: 'revenues1520', data: modifiedRevenues1520 },
+        { key: 'revenues2123', data: modifiedRevenues2123 },
+      ]);
+
+      // Aplicar filtro por ano se especificado
+      if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
