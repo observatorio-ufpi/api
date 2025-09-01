@@ -368,9 +368,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -383,17 +385,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -791,9 +783,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRenevues1520 },
         { key: 'revenues2123', data: modifiedRenevues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -806,17 +800,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRenevues0914 },
-        { key: 'revenues1520', data: modifiedRenevues1520 },
-        { key: 'revenues2123', data: modifiedRenevues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -1219,9 +1203,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -1234,17 +1220,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -1647,9 +1623,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -1662,17 +1640,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -2072,9 +2040,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -2087,17 +2057,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -2835,9 +2795,11 @@ export class RevenueCompositionService {
         { key: 'revenues0914', data: modifiedRevenues0914 },
         { key: 'revenues1520', data: modifiedRevenues1520 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -2850,16 +2812,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -3258,9 +3211,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -3273,17 +3228,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -3720,9 +3665,11 @@ export class RevenueCompositionService {
         { key: 'revenues1920', data: modifiedRevenues1920 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -3735,18 +3682,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1518', data: modifiedRevenues1518 },
-        { key: 'revenues1920', data: modifiedRevenues1920 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -4145,9 +4081,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -4160,17 +4098,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -4577,9 +4505,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -4592,17 +4522,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -4774,9 +4694,11 @@ export class RevenueCompositionService {
       groupedData = this.groupByAno([
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -4789,14 +4711,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -5203,9 +5118,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -5218,17 +5135,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -5645,9 +5552,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -5660,17 +5569,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -6085,9 +5984,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -6100,17 +6001,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -6525,9 +6416,11 @@ export class RevenueCompositionService {
         { key: 'revenues1520', data: modifiedRevenues1520 },
         { key: 'revenues2123', data: modifiedRevenues2123 },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -6540,17 +6433,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -6962,6 +6845,20 @@ export class RevenueCompositionService {
 
       // Aplicar filtro por ano se especificado
       if (anoInicial || anoFinal) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
+    }
+
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -6974,17 +6871,7 @@ export class RevenueCompositionService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        { key: 'revenues0708', data: modifiedRevenues0708 },
-        { key: 'revenues0914', data: modifiedRevenues0914 },
-        { key: 'revenues1520', data: modifiedRevenues1520 },
-        { key: 'revenues2123', data: modifiedRevenues2123 },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {

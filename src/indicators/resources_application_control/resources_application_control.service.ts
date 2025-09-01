@@ -675,9 +675,11 @@ export class ResourcesApplicationControlService {
           data: modifiedMdeApplicationControl23,
         },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -690,45 +692,7 @@ export class ResourcesApplicationControlService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        {
-          key: 'mdeApplicationControl0708',
-          data: modifiedMdeApplicationControl0708,
-        },
-        {
-          key: 'mdeApplicationControl0912',
-          data: modifiedMdeApplicationControl0912,
-        },
-        {
-          key: 'mdeApplicationControl1314',
-          data: modifiedMdeApplicationControl1314,
-        },
-        {
-          key: 'mdeApplicationControl1516',
-          data: modifiedMdeApplicationControl1516,
-        },
-        {
-          key: 'mdeApplicationControl1718',
-          data: modifiedMdeApplicationControl1718,
-        },
-        {
-          key: 'mdeApplicationControl1920',
-          data: modifiedMdeApplicationControl1920,
-        },
-        {
-          key: 'mdeApplicationControl2122',
-          data: modifiedMdeApplicationControl2122,
-        },
-        {
-          key: 'mdeApplicationControl23',
-          data: modifiedMdeApplicationControl23,
-        },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -1550,9 +1514,11 @@ export class ResourcesApplicationControlService {
           data: modifiedFundeApplicationControl23,
         },
       ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -1565,45 +1531,7 @@ export class ResourcesApplicationControlService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        {
-          key: 'fundebApplicationControl0708',
-          data: modifiedFundeApplicationControl0708,
-        },
-        {
-          key: 'fundebApplicationControl0912',
-          data: modifiedFundeApplicationControl0912,
-        },
-        {
-          key: 'fundebApplicationControl1314',
-          data: modifiedFundeApplicationControl1314,
-        },
-        {
-          key: 'fundebApplicationControl1516',
-          data: modifiedFundeApplicationControl1516,
-        },
-        {
-          key: 'fundebApplicationControl1718',
-          data: modifiedFundeApplicationControl1718,
-        },
-        {
-          key: 'fundebApplicationControl1920',
-          data: modifiedFundeApplicationControl1920,
-        },
-        {
-          key: 'fundebApplicationControl2122',
-          data: modifiedFundeApplicationControl2122,
-        },
-        {
-          key: 'fundebApplicationControl23',
-          data: modifiedFundeApplicationControl23,
-        },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -1819,20 +1747,11 @@ export class ResourcesApplicationControlService {
           data: modifiedEdInfantilVAATApplicationControl23,
         },
       ]);
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        {
-          key: 'edInfantilVAATApplicationControl2122',
-          data: modifiedEdInfantilVAATApplicationControl2122,
-        },
-        {
-          key: 'edInfantilVAATApplicationControl23',
-          data: modifiedEdInfantilVAATApplicationControl23,
-        },
-      ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -1845,21 +1764,7 @@ export class ResourcesApplicationControlService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        {
-          key: 'edInfantilVAATApplicationControl2122',
-          data: modifiedEdInfantilVAATApplicationControl2122,
-        },
-        {
-          key: 'edInfantilVAATApplicationControl23',
-          data: modifiedEdInfantilVAATApplicationControl23,
-        },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
@@ -2074,20 +1979,11 @@ export class ResourcesApplicationControlService {
           data: modifiedDespesaCapitalVAATApplicationControl23,
         },
       ]);
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        {
-          key: 'despesaCapitalVAATApplicationControl2122',
-          data: modifiedDespesaCapitalVAATApplicationControl2122,
-        },
-        {
-          key: 'despesaCapitalVAATApplicationControl23',
-          data: modifiedDespesaCapitalVAATApplicationControl23,
-        },
-      ]);
+    }
 
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
         Object.keys(groupedData).forEach((municipio) => {
           Object.keys(groupedData[municipio]).forEach((periodo) => {
             groupedData[municipio][periodo] = groupedData[municipio][
@@ -2100,21 +1996,7 @@ export class ResourcesApplicationControlService {
             });
           });
         });
-      }
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        {
-          key: 'despesaCapitalVAATApplicationControl2122',
-          data: modifiedDespesaCapitalVAATApplicationControl2122,
-        },
-        {
-          key: 'despesaCapitalVAATApplicationControl23',
-          data: modifiedDespesaCapitalVAATApplicationControl23,
-        },
-      ]);
-
-      // Aplicar filtro por ano se especificado
-      if (anoInicial || anoFinal) {
+      } else if (groupType === GroupType.ANO) {
         Object.keys(groupedData).forEach((ano) => {
           const anoNum = parseInt(ano);
           if (anoInicial && anoNum < anoInicial) {
