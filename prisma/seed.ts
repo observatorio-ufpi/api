@@ -2892,7 +2892,7 @@ async function seedDatabase23(
   codigo: string,
 ) {
   try {
-    const anosValidos = ['2023'];
+    const anosValidos = ['2023', '2024'];
 
     const workbook = new ExcelJS.Workbook();
     await workbook.csv.readFile(caminhoArquivo);
@@ -6873,7 +6873,7 @@ async function main() {
             await seedDatabase1920(caminhoArquivo, ano, codigo);
           } else if (['2021', '2022'].includes(ano)) {
             await seedDatabase2122(caminhoArquivo, ano, codigo);
-          } else if (['2023'].includes(ano)) {
+          } else if (['2023', '2024'].includes(ano)) {
             await seedDatabase23(caminhoArquivo, ano, codigo);
           } else {
             console.log(`Ano inválido: ${ano}`);
