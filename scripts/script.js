@@ -815,8 +815,8 @@ console.log('executedPath normalizado:', executedPath);
 if (scriptPath === executedPath) {
   console.log('Iniciando importação...');
   importarDados({
-    tipo: 'enrollment',
-    anos: [2007, 2008, 2009, 2010, 2011, 2012],
+    tipo: 'federativeEntity',
+    anos: [2024],
   })
     .then((resultado) => {
       console.log('Importação finalizada com sucesso!');
