@@ -40,6 +40,8 @@ export class ResourcesApplicationControlService {
   async mdeApplicationControl(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const mdeApplicationControl0708 =
@@ -675,6 +677,33 @@ export class ResourcesApplicationControlService {
       ]);
     }
 
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      } else if (groupType === GroupType.ANO) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
+    }
+
     if (pagination) {
       const { page, limit } = pagination;
       const startIndex = (page - 1) * limit;
@@ -728,6 +757,8 @@ export class ResourcesApplicationControlService {
   async fundebApplicationControl(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const fundebApplicationControl0708 =
@@ -1485,6 +1516,33 @@ export class ResourcesApplicationControlService {
       ]);
     }
 
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      } else if (groupType === GroupType.ANO) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
+    }
+
     if (pagination) {
       const { page, limit } = pagination;
       const startIndex = (page - 1) * limit;
@@ -1538,6 +1596,8 @@ export class ResourcesApplicationControlService {
   async edInfantilVAATApplicationControl(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const edInfantilVAATApplicationControl2122 =
@@ -1687,17 +1747,33 @@ export class ResourcesApplicationControlService {
           data: modifiedEdInfantilVAATApplicationControl23,
         },
       ]);
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        {
-          key: 'edInfantilVAATApplicationControl2122',
-          data: modifiedEdInfantilVAATApplicationControl2122,
-        },
-        {
-          key: 'edInfantilVAATApplicationControl23',
-          data: modifiedEdInfantilVAATApplicationControl23,
-        },
-      ]);
+    }
+
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      } else if (groupType === GroupType.ANO) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {
@@ -1753,6 +1829,8 @@ export class ResourcesApplicationControlService {
   async despesaCapitalVAATApplicationControl(
     groupType: GroupType,
     filters?: object,
+    anoInicial?: number,
+    anoFinal?: number,
     pagination?: PaginationParams,
   ) {
     const despesaCapitalVAATApplicationControl2122 =
@@ -1901,17 +1979,33 @@ export class ResourcesApplicationControlService {
           data: modifiedDespesaCapitalVAATApplicationControl23,
         },
       ]);
-    } else if (groupType === GroupType.ANO) {
-      groupedData = this.groupByAno([
-        {
-          key: 'despesaCapitalVAATApplicationControl2122',
-          data: modifiedDespesaCapitalVAATApplicationControl2122,
-        },
-        {
-          key: 'despesaCapitalVAATApplicationControl23',
-          data: modifiedDespesaCapitalVAATApplicationControl23,
-        },
-      ]);
+    }
+
+    // Aplicar filtro por ano se especificado
+    if (anoInicial || anoFinal) {
+      if (groupType === GroupType.MUNICIPIO) {
+        Object.keys(groupedData).forEach((municipio) => {
+          Object.keys(groupedData[municipio]).forEach((periodo) => {
+            groupedData[municipio][periodo] = groupedData[municipio][
+              periodo
+            ].filter((item) => {
+              const ano = parseInt(item.ano);
+              if (anoInicial && ano < anoInicial) return false;
+              if (anoFinal && ano > anoFinal) return false;
+              return true;
+            });
+          });
+        });
+      } else if (groupType === GroupType.ANO) {
+        Object.keys(groupedData).forEach((ano) => {
+          const anoNum = parseInt(ano);
+          if (anoInicial && anoNum < anoInicial) {
+            delete groupedData[ano];
+          } else if (anoFinal && anoNum > anoFinal) {
+            delete groupedData[ano];
+          }
+        });
+      }
     }
 
     if (pagination) {

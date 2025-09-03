@@ -15,17 +15,19 @@ export class EducationExpenseCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -37,6 +39,8 @@ export class EducationExpenseCompositionController {
     return this.educationExpenseCompositionService.despesaTotalMde(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -49,17 +53,19 @@ export class EducationExpenseCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -71,6 +77,8 @@ export class EducationExpenseCompositionController {
     return this.educationExpenseCompositionService.despesasPessoalAtivoMde(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -83,17 +91,19 @@ export class EducationExpenseCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -105,6 +115,8 @@ export class EducationExpenseCompositionController {
     return this.educationExpenseCompositionService.despesasPessoalInativoMde(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -117,17 +129,19 @@ export class EducationExpenseCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -139,6 +153,8 @@ export class EducationExpenseCompositionController {
     return this.educationExpenseCompositionService.despesasCapitalMde(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -151,17 +167,19 @@ export class EducationExpenseCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -173,6 +191,8 @@ export class EducationExpenseCompositionController {
     return this.educationExpenseCompositionService.transferenciasInstituicoesPrivadas(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),

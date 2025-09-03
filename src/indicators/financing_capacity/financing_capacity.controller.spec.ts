@@ -9,7 +9,9 @@ describe('FinancingCapacityController', () => {
       controllers: [FinancingCapacityController],
     }).compile();
 
-    controller = module.get<FinancingCapacityController>(FinancingCapacityController);
+    controller = module.get<FinancingCapacityController>(
+      FinancingCapacityController,
+    );
   });
 
   it('should be defined', () => {
