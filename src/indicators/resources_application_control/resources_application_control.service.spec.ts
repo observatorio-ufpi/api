@@ -9,7 +9,9 @@ describe('ResourcesApplicationControlService', () => {
       providers: [ResourcesApplicationControlService],
     }).compile();
 
-    service = module.get<ResourcesApplicationControlService>(ResourcesApplicationControlService);
+    service = module.get<ResourcesApplicationControlService>(
+      ResourcesApplicationControlService,
+    );
   });
 
   it('should be defined', () => {

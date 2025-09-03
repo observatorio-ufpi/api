@@ -17,17 +17,19 @@ export class ResourcesApplicationControlController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -38,6 +40,8 @@ export class ResourcesApplicationControlController {
     return this.resourcesApplicationControlService.mdeApplicationControl(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -50,17 +54,19 @@ export class ResourcesApplicationControlController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -71,6 +77,8 @@ export class ResourcesApplicationControlController {
     return this.resourcesApplicationControlService.fundebApplicationControl(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -83,17 +91,19 @@ export class ResourcesApplicationControlController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -104,6 +114,8 @@ export class ResourcesApplicationControlController {
     return this.resourcesApplicationControlService.edInfantilVAATApplicationControl(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -116,17 +128,19 @@ export class ResourcesApplicationControlController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -137,6 +151,8 @@ export class ResourcesApplicationControlController {
     return this.resourcesApplicationControlService.despesaCapitalVAATApplicationControl(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),

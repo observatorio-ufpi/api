@@ -1,0 +1,12 @@
+import 'tsconfig-paths/register';
+
+// Mock global objects if needed
+global.console = {
+  ...console,
+  // Uncomment to ignore a specific log level
+  // log: jest.fn(),
+  // debug: jest.fn(),
+  // info: jest.fn(),
+  // warn: jest.fn(),
+  // error: jest.fn(),
+};

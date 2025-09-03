@@ -9,7 +9,9 @@ describe('RpebCompositionController', () => {
       controllers: [RpebCompositionController],
     }).compile();
 
-    controller = module.get<RpebCompositionController>(RpebCompositionController);
+    controller = module.get<RpebCompositionController>(
+      RpebCompositionController,
+    );
   });
 
   it('should be defined', () => {

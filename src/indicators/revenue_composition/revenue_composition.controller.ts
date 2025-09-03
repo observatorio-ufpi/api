@@ -17,17 +17,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -36,10 +38,16 @@ export class RevenueCompositionController {
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
     };
 
-    return this.revenueCompositionService.iptuComposition(groupType, filters, {
-      page: Number(page),
-      limit: Number(limit),
-    });
+    return this.revenueCompositionService.iptuComposition(
+      groupType,
+      filters,
+      anoInicial,
+      anoFinal,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
   }
 
   @Get('itbi/:groupType')
@@ -47,17 +55,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -66,10 +76,16 @@ export class RevenueCompositionController {
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
     };
 
-    return this.revenueCompositionService.itbiComposition(groupType, filters, {
-      page: Number(page),
-      limit: Number(limit),
-    });
+    return this.revenueCompositionService.itbiComposition(
+      groupType,
+      filters,
+      anoInicial,
+      anoFinal,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
   }
 
   @Get('iss/:groupType')
@@ -77,17 +93,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -96,10 +114,16 @@ export class RevenueCompositionController {
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
     };
 
-    return this.revenueCompositionService.issComposition(groupType, filters, {
-      page: Number(page),
-      limit: Number(limit),
-    });
+    return this.revenueCompositionService.issComposition(
+      groupType,
+      filters,
+      anoInicial,
+      anoFinal,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
   }
 
   @Get('irrf/:groupType')
@@ -107,17 +131,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -126,10 +152,16 @@ export class RevenueCompositionController {
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
     };
 
-    return this.revenueCompositionService.irrfComposition(groupType, filters, {
-      page: Number(page),
-      limit: Number(limit),
-    });
+    return this.revenueCompositionService.irrfComposition(
+      groupType,
+      filters,
+      anoInicial,
+      anoFinal,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
   }
 
   @Get('fpm/:groupType')
@@ -137,17 +169,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -156,10 +190,16 @@ export class RevenueCompositionController {
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
     };
 
-    return this.revenueCompositionService.fpmComposition(groupType, filters, {
-      page: Number(page),
-      limit: Number(limit),
-    });
+    return this.revenueCompositionService.fpmComposition(
+      groupType,
+      filters,
+      anoInicial,
+      anoFinal,
+      {
+        page: Number(page),
+        limit: Number(limit),
+      },
+    );
   }
 
   @Get('cota-parte-icms/:groupType')
@@ -167,17 +207,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -189,6 +231,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.cotaParteIcmsComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -201,17 +245,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -223,6 +269,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.icmsDesoneracaoComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -235,17 +283,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -257,6 +307,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.cotaParteIpiComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -269,17 +321,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -291,6 +345,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.cotaParteItrComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -303,17 +359,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -325,6 +383,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.cotaParteIpvaComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -337,17 +397,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -359,6 +421,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.cotaParteIofOuroComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -371,17 +435,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -393,6 +459,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.outrasTransferenciasComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -405,17 +473,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -427,6 +497,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.participacaoReceitaImpostosProprios(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -439,17 +511,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -461,6 +535,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.participacaoTransferenciasComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -473,17 +549,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -495,6 +573,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.razaoImpostosTransferenciasComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -507,17 +587,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -529,6 +611,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.razaoTransferenciasImpostosComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),
@@ -541,17 +625,19 @@ export class RevenueCompositionController {
     @Param('groupType') groupType: GroupType,
     @Query()
     {
-      nomeMunicipio,
+      codigoMunicipio,
       aglomeradoMunicipio,
       faixaPopulacionalMunicipio,
       territorioDeDesenvolvimentoMunicipio,
       gerenciaRegionalMunicipio,
+      anoInicial,
+      anoFinal,
     }: IndicatorsFiltersDto,
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
     const filters = {
-      ...(nomeMunicipio && { nomeMunicipio }),
+      ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
       ...(territorioDeDesenvolvimentoMunicipio && {
@@ -563,6 +649,8 @@ export class RevenueCompositionController {
     return this.revenueCompositionService.participacaoFundebComposition(
       groupType,
       filters,
+      anoInicial,
+      anoFinal,
       {
         page: Number(page),
         limit: Number(limit),

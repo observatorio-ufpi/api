@@ -17,10 +17,28 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "prisma:generate": "prisma generate && prisma generate --schema=./prisma/educacao/schema.educacao.prisma",
+    "prisma:generate:main": "prisma generate",
+    "prisma:generate:educacao": "prisma generate --schema=./prisma/educacao/schema.educacao.prisma",
+    "prisma:migrate:main": "prisma migrate deploy",
+    "prisma:migrate:educacao": "prisma migrate deploy --schema=./prisma/educacao/schema.educacao.prisma",
+    "prisma:migrate:all": "prisma migrate deploy && prisma migrate deploy --schema=./prisma/educacao/schema.educacao.prisma",
+    "prisma:studio:main": "prisma studio",
+    "prisma:studio:educacao": "prisma studio --schema=./prisma/educacao/schema.educacao.prisma",
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
+    "db:reset": "docker-compose down && docker-compose up -d",
+    "restore:educacao": "docker cp backups/backup-educacao.sql educacao_container:/tmp/ && docker exec educacao_container sh -c \"tail -c +4 /tmp/backup-educacao.sql > /tmp/backup_clean.sql && iconv -f UTF-16LE -t UTF-8 /tmp/backup_clean.sql > /tmp/backup_utf8.sql\" && docker exec educacao_container psql -U root -d educacao-database -f /tmp/backup_utf8.sql",
+    "reset:educacao": "docker exec educacao_container psql -U root -d educacao-database -c \"DROP SCHEMA public CASCADE; CREATE SCHEMA public; GRANT ALL ON SCHEMA public TO root; GRANT ALL ON SCHEMA public TO public;\"",
+    "restore:educacao:clean": "npm run reset:educacao && npm run restore:educacao",
+    "restore:main": "docker exec -i observatorio_container psql -U root -d observatorio-database < backups/backup-main.sql",
+    "backup:educacao": "docker exec educacao_container pg_dump -U root -d educacao-database > backup-educacao_$(date +%Y%m%d_%H%M%S).sql",
+    "backup:main": "docker exec observatorio_container pg_dump -U root -d observatorio-database > backup-main_$(date +%Y%m%d_%H%M%S).sql"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "ts-node prisma/seed.ts",
+    "schema": "prisma/schema.prisma"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -28,12 +46,17 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^7.3.0",
     "@prisma/client": "5.11.0",
+    "axios": "^1.6.5",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "csv-parser": "^3.2.0",
     "exceljs": "^4.4.0",
+    "p-limit": "^6.2.0",
+    "pnpm": "^10.15.0",
     "prisma": "^5.10.2",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
@@ -73,6 +96,10 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapping": {
+      "^src/(.*)$": "<rootDir>/$1"
+    },
+    "setupFilesAfterEnv": ["<rootDir>/../test/jest.setup.ts"]
   }
 }

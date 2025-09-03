@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  database_educacao:
+    env_file:
+      - .env
+    container_name: educacao_container
+    hostname: educacao_container
+    image: postgres:13-alpine
+    restart: always
+    volumes:
+      - ./data_educacao:/var/lib/postgresql/data/
+    ports:
+      - 5438:5432  # Porta diferente para não conflitar
+    environment:
+      TZ: America/Sao_Paulo
+      POSTGRES_DB: ${POSTGRES_EDUCACAO_DB}
+      POSTGRES_USER: ${POSTGRES_EDUCACAO_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_EDUCACAO_PASSWORD}
+
