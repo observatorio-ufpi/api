@@ -33,7 +33,7 @@ export interface EducationResponse {
 
 export interface FilterParams {
   years: number[];
-  state: string;
+  state?: string;
   city?: string;
   isHistorical?: boolean;
 }

@@ -79,7 +79,10 @@ export class BasicService {
     if (tipo === 'enrollment' && filterParams.years.some((y) => y >= 2021))
       tipo = 'enrollmentAggregate';
 
-    if (filterParams.years.some((y) => y <= 2023)) {
+    // Condições para usar queryDataTwoDimensions (com filtro corrigido):
+    // 1. Dados até 2023 (lógica original)
+    // 2. Teacher em qualquer ano (2024+) - sempre tratado como 2023 para aplicar filtro correto
+    if (filterParams.years.some((y) => y <= 2023) || tipo === 'teacher') {
       try {
         // Tipo teacher >= 2021 está com nome federativeEntity no banco de dados
         if (tipo === 'teacher' && filterParams.years.some((y) => y >= 2021))
@@ -97,6 +100,31 @@ export class BasicService {
           include,
         });
 
+        // Filtrar dados originais antes do mapeamento para tipos sem dimensões
+        let filteredResults = results;
+        if (
+          (tipo === 'teacher' || tipo === 'federativeEntity') &&
+          filterParams.years.some((y) => y >= 2021) &&
+          dimensions.length === 0
+        ) {
+          // Filtrar apenas registros com TODAS as dimensões null nos dados originais
+          filteredResults = results.filter((item) =>
+            !item.dependencia_id &&
+            !item.dependencia_teacher_id &&
+            !item.etapa_id &&
+            !item.etapa_school_id &&
+            !item.etapa_teacher_id &&
+            !item.etapa_turma_id &&
+            !item.etapa_matricula_ate2020_id &&
+            !item.localizacao_id &&
+            !item.vinculo_id &&
+            !item.formacao_id &&
+            !item.faixa_etaria_id &&
+            !item.contrato_id
+          );
+          console.log('Dados filtrados no banco (TODAS dimensões null):', filteredResults.length, 'de', results.length);
+        }
+
         // Criar contexto para o mapper
         const mappingContext: MappingContext = {
           tipo,
@@ -107,16 +135,16 @@ export class BasicService {
 
         // Usar o mapper para padronizar a resposta
         const standardResponse = this.mapper.mapToStandardFormat(
-          results,
+          filteredResults,
           mappingContext,
         );
 
         // Remover itens excluídos
-        const filteredResults = this.mapper.removeExcludedItems(
+        const finalFilteredResults = this.mapper.removeExcludedItems(
           standardResponse.result,
           mappingContext,
         );
-        standardResponse.result = filteredResults;
+        standardResponse.result = finalFilteredResults;
 
         // Lógica de agrupamento baseada nas dimensões
         if (dimensions.length === 0) {
@@ -149,7 +177,7 @@ export class BasicService {
       }
     }
 
-    // Fallback para dados após 2023
+    // Fallback para dados após 2023 (exceto teacher sem dimensões que já foi tratado acima)
     return this.queryDataApos23(tipo, dims, filter);
   }
 
@@ -165,10 +193,11 @@ export class BasicService {
       (tipo === 'teacher' || tipo === 'federativeEntity') &&
       filterParams.years.some((y) => y >= 2021)
     ) {
-      // Para teacher >= 2021, escolher uma dimensão para agrupar
-      const filtered = data.filter((item) => item.location_id !== null);
 
-      // console.log('Dados filtrados (federativeEntity 0 dims):', filtered);
+      // Para teacher >= 2021, escolher uma dimensão para agrupar
+      const filtered = data.filter((item) => item.location_id == null);
+
+
 
       const totalPorAno = {};
       for (const item of filtered) {
@@ -420,6 +449,11 @@ export class BasicService {
     const hasYearsUntil2023 = filterParams.years.some((y) => y <= 2023);
     const hasYearsAfter2023 = filterParams.years.some((y) => y > 2023);
 
+    // Caso especial: teacher em qualquer ano sempre usa lógica até 2023 (com filtro corrigido)
+    if (tipo === 'teacher') {
+      return this.serieHistoricaAte2023(tipo, dims, filter);
+    }
+
     // Se tem anos de ambos os períodos, usar método unificado
     if (hasYearsUntil2023 && hasYearsAfter2023) {
       return this.serieHistoricaUnificada(tipo, dims, filter);
@@ -513,6 +547,7 @@ export class BasicService {
   }
 
   // Método específico para série histórica até 2023 (lógica original)
+  // Também usado para teacher em qualquer ano (2024+) para aplicar filtro correto
   private async serieHistoricaAte2023(
     tipo: string,
     dims: string,
@@ -547,7 +582,6 @@ export class BasicService {
 
         // Consulta para dados até 2020 (tipo = 'enrollment')
         if (yearsUntil2020.length > 0) {
-          console.log('entrou aqui 1');
           const resultsUntil2020 =
             await this.prisma.dadoEducacaoBasica.findMany({
               where: {
@@ -564,7 +598,6 @@ export class BasicService {
 
         // Consulta para dados de 2021 em diante (tipo = 'enrollmentAggregate')
         if (yearsFrom2021.length > 0) {
-          console.log('entrou aqui 2');
           const resultsFrom2021 = await this.prisma.dadoEducacaoBasica.findMany(
             {
               where: {
@@ -584,8 +617,10 @@ export class BasicService {
       else {
         // Lógica original para determinar o tipo
         let queryType = tipo;
-        if (tipo === 'teacher' && filterParams.years.some((y) => y >= 2021))
+        if (tipo === 'teacher' && filterParams.years.some((y) => y >= 2021)) {
           queryType = 'federativeEntity';
+          tipo = queryType;
+        }
 
         if (tipo === 'enrollment' && filterParams.years.some((y) => y >= 2021))
           queryType = 'enrollmentAggregate';
@@ -600,6 +635,30 @@ export class BasicService {
           },
           include,
         });
+      }
+
+      // Filtrar dados originais antes do mapeamento para tipos sem dimensões (série histórica)
+      // NOTA: Só aplicar filtro quando NÃO há dimensões (dimensions.length === 0)
+      if (
+        (tipo === 'teacher' || tipo === 'federativeEntity') &&
+        filterParams.years.some((y) => y >= 2021) &&
+        dimensions.length === 0
+      ) {
+        // Filtrar apenas registros com TODAS as dimensões null nos dados originais
+        allResults = allResults.filter((item) =>
+          !item.dependencia_id &&
+          !item.dependencia_teacher_id &&
+          !item.etapa_id &&
+          !item.etapa_school_id &&
+          !item.etapa_teacher_id &&
+          !item.etapa_turma_id &&
+          !item.etapa_matricula_ate2020_id &&
+          !item.localizacao_id &&
+          !item.vinculo_id &&
+          !item.formacao_id &&
+          !item.faixa_etaria_id &&
+          !item.contrato_id
+        );
       }
 
       // Criar contexto para o mapper
@@ -739,26 +798,32 @@ export class BasicService {
       whereClause.tipo = tipo;
     }
 
-    // Se é uma cidade específica, buscar apenas essa cidade
-    if (filterParams.city) {
-      whereClause.localidade_id = Number(filterParams.city);
-    } else {
-      // Se é o estado (localidade_id 22), buscar todas as cidades do estado
-      const stateId = Number(filterParams.state);
-      if (stateId === 22) {
-        // OTIMIZAÇÃO 1: Usar subconsulta JOIN em vez de consulta separada + IN
-        // Isso reduz o número de consultas de 2 para 1 e é mais eficiente
-        whereClause.localidade = {
-          tipo: 'municipio',
-          uf: 'PI',
-        };
-
-        // OTIMIZAÇÃO 2: Alternativa com cache para casos de múltiplas consultas
-        // Descomente as linhas abaixo se houver muitas consultas consecutivas para o estado
-        // const cityIds = await this.getPiauiCitiesIds();
-        // whereClause.localidade_id = { in: cityIds };
+    // Para school/count, sempre buscar por todas as cidades quando for estado
+    // Para outros tipos, usar filtro normal pois os totais já estão consolidados no banco
+    if (tipo === 'school/count') {
+      // Se é uma cidade específica, buscar apenas essa cidade
+      if (filterParams.city) {
+        whereClause.localidade_id = Number(filterParams.city);
       } else {
-        whereClause.localidade_id = stateId;
+        // Se é o estado (localidade_id 22), buscar todas as cidades do estado
+        const stateId = Number(filterParams.state);
+        if (stateId === 22) {
+          // OTIMIZAÇÃO: Usar subconsulta JOIN para buscar todas as cidades do Piauí
+          whereClause.localidade = {
+            tipo: 'municipio',
+            uf: 'PI',
+          };
+        } else {
+          whereClause.localidade_id = stateId;
+        }
+      }
+    } else {
+      // Para outros tipos (enrollment, teacher, class), usar filtro normal
+      // pois os totais já estão consolidados no banco
+      if (filterParams.city) {
+        whereClause.localidade_id = Number(filterParams.city);
+      } else {
+        whereClause.localidade_id = Number(filterParams.state);
       }
     }
 
@@ -839,7 +904,7 @@ export class BasicService {
       return { result: finalResults };
     }
 
-    // Para outros tipos, usar a lógica original
+    // Para outros tipos, usar diretamente os totais do banco (já consolidados)
     const mappedResults = results.map((item) => {
       const obj: any = {
         year: item.ano,
@@ -872,6 +937,7 @@ export class BasicService {
       return obj;
     });
 
+    // Para outros tipos, agrupar por dimensões mas somar os totais já consolidados
     const groupedMap = new Map();
     mappedResults.forEach((item) => {
       const keys = ['year'];
