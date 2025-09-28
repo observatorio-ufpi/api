@@ -301,6 +301,18 @@ async function inserirDados(tipo, dados, ano) {
           );
           dadoParaInserir.etapa_matricula_ate2020_id =
             dadoProcessado.education_level_mod_id;
+        } else if (tipo === 'class') {
+          // Para tipo class, usar EtapaTurma
+          await salvarDimensao(
+            'etapaTurma',
+            dadoProcessado.education_level_mod_id,
+            {
+              id: dadoProcessado.education_level_mod_id,
+              nome: dadoProcessado.education_level_mod_name || 'Desconhecido',
+            },
+          );
+          dadoParaInserir.etapa_turma_id =
+            dadoProcessado.education_level_mod_id;
         } else {
           // Para outros casos, usar etapaEnsinoBasica
           await salvarDimensao(
@@ -476,6 +488,9 @@ async function inserirDados(tipo, dados, ano) {
                 etapa_matricula_ate2020_id:
                   dadoParaInserir.etapa_matricula_ate2020_id,
               }
+            : {}),
+          ...(dadoParaInserir.etapa_turma_id
+            ? { etapa_turma_id: dadoParaInserir.etapa_turma_id }
             : {}),
           ...(dadoParaInserir.localizacao_id
             ? { localizacao_id: dadoParaInserir.localizacao_id }
@@ -815,7 +830,7 @@ console.log('executedPath normalizado:', executedPath);
 if (scriptPath === executedPath) {
   console.log('Iniciando importação...');
   importarDados({
-    tipo: 'federativeEntity',
+    tipo: 'class',
     anos: [2024],
   })
     .then((resultado) => {
