@@ -10,10 +10,70 @@ import { EducationResponseMapper } from './mappers/education-response.mapper';
 
 @Injectable()
 export class BasicService {
+  // Mapeamento de IDs das etapas de matrícula (até 2020 -> 2021+)
+  private readonly etapaMatriculaMapping = {
+    1: 1,  // Creche
+    2: 2,  // Pré-Escola
+    4: 3,  // Ensino Fundamental - anos iniciais
+    5: 4,  // Ensino Fundamental - anos finais
+    7: 5,  // Ensino Médio
+    8: 6,  // Ensino Médio Integrado ou Normal - técnico
+    9: 7,  // EJA - Ensino Fundamental
+    10: 8, // EJA - Ensino Médio
+    11: 9, // EJA - EF e EM Integrado - técnico
+    12: 10, // Educação Profissional - concomitante e subsequente
+  };
+
   constructor(
     private prisma: PrismaEducacaoService,
     private mapper: EducationResponseMapper,
   ) {}
+
+  /**
+   * Normaliza o ID da etapa de matrícula baseado no ano
+   * @param etapaId ID da etapa original
+   * @param year Ano dos dados
+   * @returns ID normalizado para comparação entre períodos
+   */
+  private normalizeEtapaId(etapaId: number, year: number): number {
+    if (year <= 2020) {
+      // Para dados até 2020, mapear para o ID do período 2021+
+      return this.etapaMatriculaMapping[etapaId] || etapaId;
+    }
+    // Para dados de 2021+, retornar o ID original
+    return etapaId;
+  }
+
+  /**
+   * Normaliza os IDs das etapas em dados de matrícula para série histórica
+   * @param data Dados mapeados
+   * @param tipo Tipo dos dados
+   * @param filterParams Parâmetros do filtro
+   * @returns Dados com IDs normalizados
+   */
+  private normalizeEtapaIdsForHistoricalSeries(
+    data: any[],
+    tipo: string,
+    filterParams: FilterParams,
+  ): any[] {
+    // Só aplicar normalização para enrollment com série histórica cruzando 2020/2021
+    if (tipo !== 'enrollment' ||
+        !filterParams.years.some((y) => y <= 2020) ||
+        !filterParams.years.some((y) => y >= 2021)) {
+      return data;
+    }
+
+    return data.map(item => {
+      if (item.education_level_mod_id !== null) {
+        const normalizedId = this.normalizeEtapaId(item.education_level_mod_id, item.year);
+        return {
+          ...item,
+          education_level_mod_id: normalizedId,
+        };
+      }
+      return item;
+    });
+  }
 
   async getEnrollment(dims: string, filter: string) {
     return this.queryDataTwoDimensions('enrollment', dims, filter);
@@ -37,23 +97,23 @@ export class BasicService {
 
   // Métodos públicos para série histórica
   async getEnrollmentTimeSeries(dims: string, filter: string) {
-    return this.serieHistoricaTwoDimensions('enrollment', dims, filter);
+    return this.serieHistorica('enrollment', dims, filter);
   }
 
   async getSchoolCountTimeSeries(dims: string, filter: string) {
-    return this.serieHistoricaTwoDimensions('school/count', dims, filter);
+    return this.serieHistorica('school/count', dims, filter);
   }
 
   async getClassTimeSeries(dims: string, filter: string) {
-    return this.serieHistoricaTwoDimensions('class', dims, filter);
+    return this.serieHistorica('class', dims, filter);
   }
 
   async getTeacherTimeSeries(dims: string, filter: string) {
-    return this.serieHistoricaTwoDimensions('teacher', dims, filter);
+    return this.serieHistorica('teacher', dims, filter);
   }
 
   async getEmployeesTimeSeries(dims: string, filter: string) {
-    return this.serieHistoricaTwoDimensions('employees', dims, filter);
+    return this.serieHistorica('employees', dims, filter);
   }
 
   private async queryDataTwoDimensions(
@@ -82,7 +142,7 @@ export class BasicService {
     // Condições para usar queryDataTwoDimensions (com filtro corrigido):
     // 1. Dados até 2023 (lógica original)
     // 2. Teacher em qualquer ano (2024+) - sempre tratado como 2023 para aplicar filtro correto
-    if (filterParams.years.some((y) => y <= 2023) || tipo === 'teacher') {
+    //if (filterParams.years.some((y) => y <= 2023) || tipo === 'teacher') {
       try {
         // Tipo teacher >= 2021 está com nome federativeEntity no banco de dados
         if (tipo === 'teacher' && filterParams.years.some((y) => y >= 2021))
@@ -146,6 +206,13 @@ export class BasicService {
         );
         standardResponse.result = finalFilteredResults;
 
+        // Normalizar IDs das etapas para série histórica antes do processamento
+        standardResponse.result = this.normalizeEtapaIdsForHistoricalSeries(
+          standardResponse.result,
+          tipo,
+          filterParams,
+        );
+
         // Lógica de agrupamento baseada nas dimensões
         if (dimensions.length === 0) {
           // Sem dimensões - usar combinação fixa para evitar dupla contagem
@@ -175,10 +242,10 @@ export class BasicService {
         console.error('Erro ao buscar dados da educação básica:', error);
         throw new Error('Falha ao recuperar dados da educação básica');
       }
-    }
+    //}
 
     // Fallback para dados após 2023 (exceto teacher sem dimensões que já foi tratado acima)
-    return this.queryDataApos23(tipo, dims, filter);
+    //return this.queryDataApos23(tipo, dims, filter);
   }
 
   private processNoDimensions(
@@ -438,6 +505,7 @@ export class BasicService {
   }
 
   // Método para retornar série histórica com duas dimensões
+  /**
   private async serieHistoricaTwoDimensions(
     tipo: string,
     dims: string,
@@ -451,7 +519,7 @@ export class BasicService {
 
     // Caso especial: teacher em qualquer ano sempre usa lógica até 2023 (com filtro corrigido)
     if (tipo === 'teacher') {
-      return this.serieHistoricaAte2023(tipo, dims, filter);
+      return this.serieHistorica(tipo, dims, filter);
     }
 
     // Se tem anos de ambos os períodos, usar método unificado
@@ -461,7 +529,7 @@ export class BasicService {
 
     // Se só tem anos até 2023, usar lógica original
     if (hasYearsUntil2023) {
-      return this.serieHistoricaAte2023(tipo, dims, filter);
+      return this.serieHistorica(tipo, dims, filter);
     }
 
     // Se só tem anos após 2023, usar método específico
@@ -470,10 +538,12 @@ export class BasicService {
     }
 
     // Fallback para lógica original
-    return this.serieHistoricaAte2023(tipo, dims, filter);
+    return this.serieHistorica(tipo, dims, filter);
   }
+  */
 
   // Método unificado para série histórica que combina dados até 2023 e após 2023
+  /**
   private async serieHistoricaUnificada(
     tipo: string,
     dims: string,
@@ -495,7 +565,7 @@ export class BasicService {
           ...filterParams,
           years: yearsUntil2023,
         });
-        const resultsUntil2023 = await this.serieHistoricaAte2023(
+        const resultsUntil2023 = await this.serieHistorica(
           tipo,
           dims,
           filterUntil2023,
@@ -545,10 +615,9 @@ export class BasicService {
       };
     }
   }
-
-  // Método específico para série histórica até 2023 (lógica original)
-  // Também usado para teacher em qualquer ano (2024+) para aplicar filtro correto
-  private async serieHistoricaAte2023(
+  */
+  // Método específico para série histórica (lógica original)
+  private async serieHistorica(
     tipo: string,
     dims: string,
     filter: string,
@@ -682,6 +751,13 @@ export class BasicService {
       );
       standardResponse.result = filteredResults;
 
+      // Normalizar IDs das etapas para série histórica antes do processamento
+      standardResponse.result = this.normalizeEtapaIdsForHistoricalSeries(
+        standardResponse.result,
+        tipo,
+        filterParams,
+      );
+
       // Lógica de agrupamento baseada nas dimensões
       if (dimensions.length === 0) {
         // Sem dimensões - usar combinação fixa para evitar dupla contagem
@@ -725,6 +801,7 @@ export class BasicService {
   }
 
   // Método específico para série histórica após 2023
+  /**
   private async serieHistoricaApos2023(
     tipo: string,
     dims: string,
@@ -761,7 +838,7 @@ export class BasicService {
       };
     }
   }
-
+  */
   // Método auxiliar para verificar se precisa fazer consultas separadas
   private needsSeparateQueries(years: number[]): boolean {
     const hasYearsUntil2020 = years.some((y) => y <= 2020);
