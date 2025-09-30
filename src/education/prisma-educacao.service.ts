@@ -79,5 +79,9 @@ export class PrismaEducacaoService implements OnModuleInit, OnModuleDestroy {
     return this.prismaClient?.taxas;
   }
 
+  get censoEscolarInfraestrutura() {
+    return this.prismaClient?.censoEscolarInfraestrutura;
+  }
+
   // Add other needed properties/methods here
 }
