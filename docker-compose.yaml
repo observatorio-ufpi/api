@@ -1,4 +1,4 @@
-version: '3.9'
+# version: '3.9' # Removido - versão obsoleta
 services:
   database:
     env_file:
@@ -13,3 +13,66 @@ services:
       - 5436:5432
     environment:
       TZ: America/Sao_Paulo
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - observatorio_network
+
+  # Banco de educação
+  database_educacao:
+    env_file:
+      - .env
+    container_name: observatorio_educacao_container
+    hostname: observatorio_educacao_container
+    image: postgres:13-alpine
+    restart: always
+    volumes:
+      - ./data_educacao:/var/lib/postgresql/data/
+    ports:
+      - 5438:5432
+    environment:
+      TZ: America/Sao_Paulo
+      POSTGRES_DB: ${POSTGRES_EDUCACAO_DB}
+      POSTGRES_USER: ${POSTGRES_EDUCACAO_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_EDUCACAO_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_EDUCACAO_USER} -d ${POSTGRES_EDUCACAO_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - observatorio_network
+
+  # Backend NestJS
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: observatorio_api
+    restart: always
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=production
+      - PORT=3003
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@observatorio_container:5432/${POSTGRES_DB}
+      - DATABASE_URL_EDUCACAO=postgresql://${POSTGRES_EDUCACAO_USER}:${POSTGRES_EDUCACAO_PASSWORD}@observatorio_educacao_container:5432/${POSTGRES_EDUCACAO_DB}
+    depends_on:
+      database:
+        condition: service_healthy
+      database_educacao:
+        condition: service_healthy
+    volumes:
+      - ./backups:/app/backups
+    networks:
+      - observatorio_network
+
+networks:
+  observatorio_network:
+    driver: bridge

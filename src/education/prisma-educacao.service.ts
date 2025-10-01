@@ -19,27 +19,49 @@ export class PrismaEducacaoService implements OnModuleInit, OnModuleDestroy {
   private prismaClient: any;
 
   constructor() {
-    const importPrisma = async () => {
-      try {
-        const { PrismaClient } = await import(prismaClientPath);
-        this.prismaClient = new PrismaClient({
-          datasources: {
-            db: {
-              url: process.env.DATABASE_URL_EDUCACAO,
-            },
+    // Inicialização síncrona no construtor
+    try {
+      console.log('DATABASE_URL_EDUCACAO:', process.env.DATABASE_URL_EDUCACAO);
+      const { PrismaClient } = require(prismaClientPath);
+      this.prismaClient = new PrismaClient({
+        datasources: {
+          db: {
+            url: process.env.DATABASE_URL_EDUCACAO,
           },
-        });
-      } catch (error) {
-        console.error('Erro ao importar o Prisma Client:', error);
-        throw error;
-      }
-    };
-
-    importPrisma();
+        },
+      });
+    } catch (error) {
+      console.error('Erro ao importar o Prisma Client:', error);
+      throw error;
+    }
   }
 
   async onModuleInit() {
-    await this.prismaClient?.$connect();
+    if (this.prismaClient) {
+      // Tentar conectar com retry
+      let attempts = 0;
+      const maxAttempts = 5;
+      
+      while (attempts < maxAttempts) {
+        try {
+          console.log(`Tentando conectar no banco de educação... (tentativa ${attempts + 1}/${maxAttempts})`);
+          await this.prismaClient.$connect();
+          console.log('✅ Conectado no banco de educação com sucesso!');
+          return;
+        } catch (error) {
+          attempts++;
+          console.error(`❌ Erro ao conectar no banco de educação (tentativa ${attempts}):`, error.message);
+          
+          if (attempts < maxAttempts) {
+            console.log(`⏳ Aguardando 3 segundos antes da próxima tentativa...`);
+            await new Promise(resolve => setTimeout(resolve, 3000));
+          } else {
+            console.error('❌ Falha ao conectar no banco de educação após todas as tentativas');
+            throw error;
+          }
+        }
+      }
+    }
   }
 
   async onModuleDestroy() {

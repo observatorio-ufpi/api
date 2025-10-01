@@ -651,7 +651,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Avell\\Desktop\\Observatorio_Educacao\\api\\prisma\\educacao\\generated\\educacao-client",
+      "value": "C:\\Users\\Luís Felipe\\Documents\\Projetos\\observatorio\\api\\prisma\\educacao\\generated\\educacao-client",
       "fromEnvVar": null
     },
     "config": {
@@ -665,7 +665,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Avell\\Desktop\\Observatorio_Educacao\\api\\prisma\\educacao\\schema.educacao.prisma",
+    "sourceFilePath": "C:\\Users\\Luís Felipe\\Documents\\Projetos\\observatorio\\api\\prisma\\educacao\\schema.educacao.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

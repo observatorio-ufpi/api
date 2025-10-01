@@ -57,6 +57,8 @@ async function bootstrap() {
     },
   });
 
-  await app.listen(3003);
+  // Usar variável de ambiente para a porta
+  const port = process.env.PORT || 3003;
+  await app.listen(port);
 }
 bootstrap();
