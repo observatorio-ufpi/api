@@ -57,9 +57,9 @@ jobs:
             PORT=${{ secrets.PORT }}
             EOF
             
-            # Rebuild e restart dos containers
-            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S docker-compose down
-            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S docker-compose up --build -d
+            # Rebuild apenas a API (sem afetar bancos)
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S docker-compose restart api
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S docker-compose up --build -d api
             
             # Limpar temporários
             rm -rf /tmp/observatorio-api
