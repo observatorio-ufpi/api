@@ -3,6 +3,7 @@ import { PaginationDto } from 'src/dtos/pagination.dto';
 import { GroupType } from 'src/utils/constants';
 import { IndicatorsFiltersDto } from '../dto/indicators.dto';
 import { RpebCompositionService } from './rpeb_composition.service';
+import { buildFilters } from 'src/utils/filter-builder';
 
 @Controller('rpeb-composition')
 export class RpebCompositionController {
@@ -26,15 +27,13 @@ export class RpebCompositionController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.rpebCompositionService.fundebParticipationMde(
       groupType,
@@ -64,15 +63,13 @@ export class RpebCompositionController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.rpebCompositionService.resultadoLiquidoFundeb(
       groupType,
@@ -102,15 +99,13 @@ export class RpebCompositionController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.rpebCompositionService.participacaoComplementacaoUniao(
       groupType,
@@ -140,15 +135,13 @@ export class RpebCompositionController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.rpebCompositionService.participacaoReceitasAdicionaisComposition(
       groupType,

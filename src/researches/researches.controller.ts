@@ -4,6 +4,7 @@ import { GroupType } from 'src/utils/constants';
 import { PaginationDto } from '../dtos/pagination.dto';
 import { ResearchesFiltersDto } from './dto/researches.dto';
 import { ResearchesService } from './researches.service';
+import { buildFilters } from 'src/utils/filter-builder';
 
 @ApiTags('researches')
 @Controller('researches')
@@ -26,7 +27,7 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
+    const filters = buildFilters({
       ...(codigoMunicipio && { codigoMunicipio }),
       ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
       ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
@@ -34,7 +35,7 @@ export class ResearchesController {
         territorioDeDesenvolvimentoMunicipio,
       }),
       ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    });
 
     return this.researchesService.municipalOwnTaxesRevenue(
       groupType,
@@ -64,15 +65,13 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.researchesService.constitutionalTransfersRevenue(
       groupType,
@@ -99,15 +98,13 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.researchesService.municipalTaxesRevenue(
       groupType,
@@ -134,15 +131,13 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.researchesService.additionalMunicipalEducationRevenue(
       groupType,
@@ -169,15 +164,13 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.researchesService.municipalFundebFundefComposition(
       groupType,
@@ -204,15 +197,13 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.researchesService.complementationFundebFundef(
       groupType,
@@ -239,15 +230,13 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.researchesService.municipalConstitutionalLimitMde(
       groupType,
@@ -274,15 +263,13 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.researchesService.expensesBasicEducationFundeb(
       groupType,
@@ -309,15 +296,13 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.researchesService.expensesAreasOfActivityMde(
       groupType,
@@ -344,15 +329,13 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.researchesService.municipalBasicEducationMinimalPotentialRevenue(
       groupType,
@@ -379,15 +362,13 @@ export class ResearchesController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.researchesService.municipalComplementaryProtocol(
       groupType,
@@ -410,15 +391,13 @@ export class ResearchesController {
       gerenciaRegionalMunicipio,
     }: ResearchesFiltersDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     // Usando Promise.all para buscar todos os registros de forma paralela
     const [
