@@ -59,7 +59,8 @@ jobs:
             EOF
             
             # Rebuild apenas a API (sem afetar bancos)
-            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S docker-compose restart api
+            # Rebuild e restart dos containers
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S docker-compose down
             echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S docker-compose up --build -d api
             
             # Limpar temporários
