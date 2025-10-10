@@ -1143,7 +1143,7 @@ export namespace Prisma {
 
 
   export type Datasources = {
-    db?: Datasource
+    dbEducacao?: Datasource
   }
 
   interface TypeMapCb extends $Utils.Fn<{extArgs: $Extensions.InternalArgs, clientOptions: PrismaClientOptions }, $Utils.Record<string, any>> {
@@ -3772,6 +3772,7 @@ export namespace Prisma {
     taxas_por_faixa_etaria: number
     taxas: number
     dados_educacao_superior: number
+    infraestrutura: number
   }
 
   export type LocalidadeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3780,6 +3781,7 @@ export namespace Prisma {
     taxas_por_faixa_etaria?: boolean | LocalidadeCountOutputTypeCountTaxas_por_faixa_etariaArgs
     taxas?: boolean | LocalidadeCountOutputTypeCountTaxasArgs
     dados_educacao_superior?: boolean | LocalidadeCountOutputTypeCountDados_educacao_superiorArgs
+    infraestrutura?: boolean | LocalidadeCountOutputTypeCountInfraestruturaArgs
   }
 
   // Custom InputTypes
@@ -3826,6 +3828,13 @@ export namespace Prisma {
    */
   export type LocalidadeCountOutputTypeCountDados_educacao_superiorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DadoEducacaoSuperiorWhereInput
+  }
+
+  /**
+   * LocalidadeCountOutputType without action
+   */
+  export type LocalidadeCountOutputTypeCountInfraestruturaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CensoEscolarInfraestruturaWhereInput
   }
 
 
@@ -4702,10 +4711,12 @@ export namespace Prisma {
 
   export type LocalidadeAvgAggregateOutputType = {
     id: number | null
+    populacao_2022: number | null
   }
 
   export type LocalidadeSumAggregateOutputType = {
     id: number | null
+    populacao_2022: number | null
   }
 
   export type LocalidadeMinAggregateOutputType = {
@@ -4714,6 +4725,11 @@ export namespace Prisma {
     tipo: string | null
     uf: string | null
     codigo_ibge: string | null
+    territorio_desenvolvimento: string | null
+    aglomerado: string | null
+    gerencia_regional: string | null
+    populacao_2022: number | null
+    faixa_populacional: string | null
   }
 
   export type LocalidadeMaxAggregateOutputType = {
@@ -4722,6 +4738,11 @@ export namespace Prisma {
     tipo: string | null
     uf: string | null
     codigo_ibge: string | null
+    territorio_desenvolvimento: string | null
+    aglomerado: string | null
+    gerencia_regional: string | null
+    populacao_2022: number | null
+    faixa_populacional: string | null
   }
 
   export type LocalidadeCountAggregateOutputType = {
@@ -4730,16 +4751,23 @@ export namespace Prisma {
     tipo: number
     uf: number
     codigo_ibge: number
+    territorio_desenvolvimento: number
+    aglomerado: number
+    gerencia_regional: number
+    populacao_2022: number
+    faixa_populacional: number
     _all: number
   }
 
 
   export type LocalidadeAvgAggregateInputType = {
     id?: true
+    populacao_2022?: true
   }
 
   export type LocalidadeSumAggregateInputType = {
     id?: true
+    populacao_2022?: true
   }
 
   export type LocalidadeMinAggregateInputType = {
@@ -4748,6 +4776,11 @@ export namespace Prisma {
     tipo?: true
     uf?: true
     codigo_ibge?: true
+    territorio_desenvolvimento?: true
+    aglomerado?: true
+    gerencia_regional?: true
+    populacao_2022?: true
+    faixa_populacional?: true
   }
 
   export type LocalidadeMaxAggregateInputType = {
@@ -4756,6 +4789,11 @@ export namespace Prisma {
     tipo?: true
     uf?: true
     codigo_ibge?: true
+    territorio_desenvolvimento?: true
+    aglomerado?: true
+    gerencia_regional?: true
+    populacao_2022?: true
+    faixa_populacional?: true
   }
 
   export type LocalidadeCountAggregateInputType = {
@@ -4764,6 +4802,11 @@ export namespace Prisma {
     tipo?: true
     uf?: true
     codigo_ibge?: true
+    territorio_desenvolvimento?: true
+    aglomerado?: true
+    gerencia_regional?: true
+    populacao_2022?: true
+    faixa_populacional?: true
     _all?: true
   }
 
@@ -4859,6 +4902,11 @@ export namespace Prisma {
     tipo: string
     uf: string | null
     codigo_ibge: string | null
+    territorio_desenvolvimento: string | null
+    aglomerado: string | null
+    gerencia_regional: string | null
+    populacao_2022: number | null
+    faixa_populacional: string | null
     _count: LocalidadeCountAggregateOutputType | null
     _avg: LocalidadeAvgAggregateOutputType | null
     _sum: LocalidadeSumAggregateOutputType | null
@@ -4886,11 +4934,17 @@ export namespace Prisma {
     tipo?: boolean
     uf?: boolean
     codigo_ibge?: boolean
+    territorio_desenvolvimento?: boolean
+    aglomerado?: boolean
+    gerencia_regional?: boolean
+    populacao_2022?: boolean
+    faixa_populacional?: boolean
     dados_basica?: boolean | Localidade$dados_basicaArgs<ExtArgs>
     dados_basica_apos23?: boolean | Localidade$dados_basica_apos23Args<ExtArgs>
     taxas_por_faixa_etaria?: boolean | Localidade$taxas_por_faixa_etariaArgs<ExtArgs>
     taxas?: boolean | Localidade$taxasArgs<ExtArgs>
     dados_educacao_superior?: boolean | Localidade$dados_educacao_superiorArgs<ExtArgs>
+    infraestrutura?: boolean | Localidade$infraestruturaArgs<ExtArgs>
     _count?: boolean | LocalidadeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["localidade"]>
 
@@ -4900,6 +4954,11 @@ export namespace Prisma {
     tipo?: boolean
     uf?: boolean
     codigo_ibge?: boolean
+    territorio_desenvolvimento?: boolean
+    aglomerado?: boolean
+    gerencia_regional?: boolean
+    populacao_2022?: boolean
+    faixa_populacional?: boolean
   }, ExtArgs["result"]["localidade"]>
 
   export type LocalidadeSelectScalar = {
@@ -4908,6 +4967,11 @@ export namespace Prisma {
     tipo?: boolean
     uf?: boolean
     codigo_ibge?: boolean
+    territorio_desenvolvimento?: boolean
+    aglomerado?: boolean
+    gerencia_regional?: boolean
+    populacao_2022?: boolean
+    faixa_populacional?: boolean
   }
 
   export type LocalidadeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4916,6 +4980,7 @@ export namespace Prisma {
     taxas_por_faixa_etaria?: boolean | Localidade$taxas_por_faixa_etariaArgs<ExtArgs>
     taxas?: boolean | Localidade$taxasArgs<ExtArgs>
     dados_educacao_superior?: boolean | Localidade$dados_educacao_superiorArgs<ExtArgs>
+    infraestrutura?: boolean | Localidade$infraestruturaArgs<ExtArgs>
     _count?: boolean | LocalidadeCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LocalidadeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -4928,6 +4993,7 @@ export namespace Prisma {
       taxas_por_faixa_etaria: Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>[]
       taxas: Prisma.$TaxasPayload<ExtArgs>[]
       dados_educacao_superior: Prisma.$DadoEducacaoSuperiorPayload<ExtArgs>[]
+      infraestrutura: Prisma.$CensoEscolarInfraestruturaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4935,6 +5001,11 @@ export namespace Prisma {
       tipo: string
       uf: string | null
       codigo_ibge: string | null
+      territorio_desenvolvimento: string | null
+      aglomerado: string | null
+      gerencia_regional: string | null
+      populacao_2022: number | null
+      faixa_populacional: string | null
     }, ExtArgs["result"]["localidade"]>
     composites: {}
   }
@@ -5304,6 +5375,7 @@ export namespace Prisma {
     taxas_por_faixa_etaria<T extends Localidade$taxas_por_faixa_etariaArgs<ExtArgs> = {}>(args?: Subset<T, Localidade$taxas_por_faixa_etariaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaxasPorFaixaEtariaPayload<ExtArgs>, T, "findMany"> | Null>
     taxas<T extends Localidade$taxasArgs<ExtArgs> = {}>(args?: Subset<T, Localidade$taxasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaxasPayload<ExtArgs>, T, "findMany"> | Null>
     dados_educacao_superior<T extends Localidade$dados_educacao_superiorArgs<ExtArgs> = {}>(args?: Subset<T, Localidade$dados_educacao_superiorArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DadoEducacaoSuperiorPayload<ExtArgs>, T, "findMany"> | Null>
+    infraestrutura<T extends Localidade$infraestruturaArgs<ExtArgs> = {}>(args?: Subset<T, Localidade$infraestruturaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CensoEscolarInfraestruturaPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5338,6 +5410,11 @@ export namespace Prisma {
     readonly tipo: FieldRef<"Localidade", 'String'>
     readonly uf: FieldRef<"Localidade", 'String'>
     readonly codigo_ibge: FieldRef<"Localidade", 'String'>
+    readonly territorio_desenvolvimento: FieldRef<"Localidade", 'String'>
+    readonly aglomerado: FieldRef<"Localidade", 'String'>
+    readonly gerencia_regional: FieldRef<"Localidade", 'String'>
+    readonly populacao_2022: FieldRef<"Localidade", 'Int'>
+    readonly faixa_populacional: FieldRef<"Localidade", 'String'>
   }
     
 
@@ -5749,6 +5826,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: DadoEducacaoSuperiorScalarFieldEnum | DadoEducacaoSuperiorScalarFieldEnum[]
+  }
+
+  /**
+   * Localidade.infraestrutura
+   */
+  export type Localidade$infraestruturaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CensoEscolarInfraestrutura
+     */
+    select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
+    where?: CensoEscolarInfraestruturaWhereInput
+    orderBy?: CensoEscolarInfraestruturaOrderByWithRelationInput | CensoEscolarInfraestruturaOrderByWithRelationInput[]
+    cursor?: CensoEscolarInfraestruturaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CensoEscolarInfraestruturaScalarFieldEnum | CensoEscolarInfraestruturaScalarFieldEnum[]
   }
 
   /**
@@ -38976,7 +39073,6 @@ export namespace Prisma {
     IN_SANITARIO_CHUVEIRO: number | null
     IN_PROF_CLASSE_COMUM: number | null
     IN_PROF_CLASSE_ESP: number | null
-    CO_MUNICIPIO: number | null
     CO_UF: number | null
     TP_DEPENDENCIA: number | null
     TP_LOCALIZACAO: number | null
@@ -39207,7 +39303,6 @@ export namespace Prisma {
     IN_SANITARIO_CHUVEIRO: number | null
     IN_PROF_CLASSE_COMUM: number | null
     IN_PROF_CLASSE_ESP: number | null
-    CO_MUNICIPIO: number | null
     CO_UF: number | null
     TP_DEPENDENCIA: number | null
     TP_LOCALIZACAO: number | null
@@ -39439,7 +39534,7 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM: number | null
     IN_PROF_CLASSE_ESP: number | null
     NO_ENTIDADE: string | null
-    CO_MUNICIPIO: number | null
+    CO_MUNICIPIO: string | null
     NO_MUNICIPIO: string | null
     CO_UF: number | null
     SG_UF: string | null
@@ -39673,7 +39768,7 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM: number | null
     IN_PROF_CLASSE_ESP: number | null
     NO_ENTIDADE: string | null
-    CO_MUNICIPIO: number | null
+    CO_MUNICIPIO: string | null
     NO_MUNICIPIO: string | null
     CO_UF: number | null
     SG_UF: string | null
@@ -40142,7 +40237,6 @@ export namespace Prisma {
     IN_SANITARIO_CHUVEIRO?: true
     IN_PROF_CLASSE_COMUM?: true
     IN_PROF_CLASSE_ESP?: true
-    CO_MUNICIPIO?: true
     CO_UF?: true
     TP_DEPENDENCIA?: true
     TP_LOCALIZACAO?: true
@@ -40373,7 +40467,6 @@ export namespace Prisma {
     IN_SANITARIO_CHUVEIRO?: true
     IN_PROF_CLASSE_COMUM?: true
     IN_PROF_CLASSE_ESP?: true
-    CO_MUNICIPIO?: true
     CO_UF?: true
     TP_DEPENDENCIA?: true
     TP_LOCALIZACAO?: true
@@ -41394,7 +41487,7 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM: number | null
     IN_PROF_CLASSE_ESP: number | null
     NO_ENTIDADE: string | null
-    CO_MUNICIPIO: number | null
+    CO_MUNICIPIO: string | null
     NO_MUNICIPIO: string | null
     CO_UF: number
     SG_UF: string | null
@@ -41653,6 +41746,7 @@ export namespace Prisma {
     SG_UF?: boolean
     TP_DEPENDENCIA?: boolean
     TP_LOCALIZACAO?: boolean
+    localidade?: boolean | CensoEscolarInfraestrutura$localidadeArgs<ExtArgs>
   }, ExtArgs["result"]["censoEscolarInfraestrutura"]>
 
   export type CensoEscolarInfraestruturaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -41887,6 +41981,7 @@ export namespace Prisma {
     SG_UF?: boolean
     TP_DEPENDENCIA?: boolean
     TP_LOCALIZACAO?: boolean
+    localidade?: boolean | CensoEscolarInfraestrutura$localidadeArgs<ExtArgs>
   }, ExtArgs["result"]["censoEscolarInfraestrutura"]>
 
   export type CensoEscolarInfraestruturaSelectScalar = {
@@ -42123,10 +42218,18 @@ export namespace Prisma {
     TP_LOCALIZACAO?: boolean
   }
 
+  export type CensoEscolarInfraestruturaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    localidade?: boolean | CensoEscolarInfraestrutura$localidadeArgs<ExtArgs>
+  }
+  export type CensoEscolarInfraestruturaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    localidade?: boolean | CensoEscolarInfraestrutura$localidadeArgs<ExtArgs>
+  }
 
   export type $CensoEscolarInfraestruturaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "CensoEscolarInfraestrutura"
-    objects: {}
+    objects: {
+      localidade: Prisma.$LocalidadePayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       ANO: number
@@ -42353,7 +42456,7 @@ export namespace Prisma {
       IN_PROF_CLASSE_COMUM: number | null
       IN_PROF_CLASSE_ESP: number | null
       NO_ENTIDADE: string | null
-      CO_MUNICIPIO: number | null
+      CO_MUNICIPIO: string | null
       NO_MUNICIPIO: string | null
       CO_UF: number
       SG_UF: string | null
@@ -42723,6 +42826,7 @@ export namespace Prisma {
    */
   export interface Prisma__CensoEscolarInfraestruturaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    localidade<T extends CensoEscolarInfraestrutura$localidadeArgs<ExtArgs> = {}>(args?: Subset<T, CensoEscolarInfraestrutura$localidadeArgs<ExtArgs>>): Prisma__LocalidadeClient<$Result.GetResult<Prisma.$LocalidadePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -42977,7 +43081,7 @@ export namespace Prisma {
     readonly IN_PROF_CLASSE_COMUM: FieldRef<"CensoEscolarInfraestrutura", 'Int'>
     readonly IN_PROF_CLASSE_ESP: FieldRef<"CensoEscolarInfraestrutura", 'Int'>
     readonly NO_ENTIDADE: FieldRef<"CensoEscolarInfraestrutura", 'String'>
-    readonly CO_MUNICIPIO: FieldRef<"CensoEscolarInfraestrutura", 'Int'>
+    readonly CO_MUNICIPIO: FieldRef<"CensoEscolarInfraestrutura", 'String'>
     readonly NO_MUNICIPIO: FieldRef<"CensoEscolarInfraestrutura", 'String'>
     readonly CO_UF: FieldRef<"CensoEscolarInfraestrutura", 'Int'>
     readonly SG_UF: FieldRef<"CensoEscolarInfraestrutura", 'String'>
@@ -42996,6 +43100,10 @@ export namespace Prisma {
      */
     select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
+    /**
      * Filter, which CensoEscolarInfraestrutura to fetch.
      */
     where: CensoEscolarInfraestruturaWhereUniqueInput
@@ -43010,6 +43118,10 @@ export namespace Prisma {
      */
     select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
+    /**
      * Filter, which CensoEscolarInfraestrutura to fetch.
      */
     where: CensoEscolarInfraestruturaWhereUniqueInput
@@ -43023,6 +43135,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the CensoEscolarInfraestrutura
      */
     select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
     /**
      * Filter, which CensoEscolarInfraestrutura to fetch.
      */
@@ -43068,6 +43184,10 @@ export namespace Prisma {
      */
     select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
+    /**
      * Filter, which CensoEscolarInfraestrutura to fetch.
      */
     where?: CensoEscolarInfraestruturaWhereInput
@@ -43112,6 +43232,10 @@ export namespace Prisma {
      */
     select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
+    /**
      * Filter, which CensoEscolarInfraestruturas to fetch.
      */
     where?: CensoEscolarInfraestruturaWhereInput
@@ -43151,6 +43275,10 @@ export namespace Prisma {
      */
     select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
+    /**
      * The data needed to create a CensoEscolarInfraestrutura.
      */
     data: XOR<CensoEscolarInfraestruturaCreateInput, CensoEscolarInfraestruturaUncheckedCreateInput>
@@ -43180,6 +43308,10 @@ export namespace Prisma {
      */
     data: CensoEscolarInfraestruturaCreateManyInput | CensoEscolarInfraestruturaCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -43190,6 +43322,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the CensoEscolarInfraestrutura
      */
     select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
     /**
      * The data needed to update a CensoEscolarInfraestrutura.
      */
@@ -43223,6 +43359,10 @@ export namespace Prisma {
      */
     select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
+    /**
      * The filter to search for the CensoEscolarInfraestrutura to update in case it exists.
      */
     where: CensoEscolarInfraestruturaWhereUniqueInput
@@ -43245,6 +43385,10 @@ export namespace Prisma {
      */
     select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
+    /**
      * Filter which CensoEscolarInfraestrutura to delete.
      */
     where: CensoEscolarInfraestruturaWhereUniqueInput
@@ -43261,6 +43405,21 @@ export namespace Prisma {
   }
 
   /**
+   * CensoEscolarInfraestrutura.localidade
+   */
+  export type CensoEscolarInfraestrutura$localidadeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Localidade
+     */
+    select?: LocalidadeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocalidadeInclude<ExtArgs> | null
+    where?: LocalidadeWhereInput
+  }
+
+  /**
    * CensoEscolarInfraestrutura without action
    */
   export type CensoEscolarInfraestruturaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -43268,6 +43427,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the CensoEscolarInfraestrutura
      */
     select?: CensoEscolarInfraestruturaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CensoEscolarInfraestruturaInclude<ExtArgs> | null
   }
 
 
@@ -43290,7 +43453,12 @@ export namespace Prisma {
     nome: 'nome',
     tipo: 'tipo',
     uf: 'uf',
-    codigo_ibge: 'codigo_ibge'
+    codigo_ibge: 'codigo_ibge',
+    territorio_desenvolvimento: 'territorio_desenvolvimento',
+    aglomerado: 'aglomerado',
+    gerencia_regional: 'gerencia_regional',
+    populacao_2022: 'populacao_2022',
+    faixa_populacional: 'faixa_populacional'
   };
 
   export type LocalidadeScalarFieldEnum = (typeof LocalidadeScalarFieldEnum)[keyof typeof LocalidadeScalarFieldEnum]
@@ -44011,11 +44179,17 @@ export namespace Prisma {
     tipo?: StringFilter<"Localidade"> | string
     uf?: StringNullableFilter<"Localidade"> | string | null
     codigo_ibge?: StringNullableFilter<"Localidade"> | string | null
+    territorio_desenvolvimento?: StringNullableFilter<"Localidade"> | string | null
+    aglomerado?: StringNullableFilter<"Localidade"> | string | null
+    gerencia_regional?: StringNullableFilter<"Localidade"> | string | null
+    populacao_2022?: IntNullableFilter<"Localidade"> | number | null
+    faixa_populacional?: StringNullableFilter<"Localidade"> | string | null
     dados_basica?: DadoEducacaoBasicaListRelationFilter
     dados_basica_apos23?: DadoEducacaoBasicaApos23ListRelationFilter
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaListRelationFilter
     taxas?: TaxasListRelationFilter
     dados_educacao_superior?: DadoEducacaoSuperiorListRelationFilter
+    infraestrutura?: CensoEscolarInfraestruturaListRelationFilter
   }
 
   export type LocalidadeOrderByWithRelationInput = {
@@ -44024,28 +44198,40 @@ export namespace Prisma {
     tipo?: SortOrder
     uf?: SortOrderInput | SortOrder
     codigo_ibge?: SortOrderInput | SortOrder
+    territorio_desenvolvimento?: SortOrderInput | SortOrder
+    aglomerado?: SortOrderInput | SortOrder
+    gerencia_regional?: SortOrderInput | SortOrder
+    populacao_2022?: SortOrderInput | SortOrder
+    faixa_populacional?: SortOrderInput | SortOrder
     dados_basica?: DadoEducacaoBasicaOrderByRelationAggregateInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23OrderByRelationAggregateInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaOrderByRelationAggregateInput
     taxas?: TaxasOrderByRelationAggregateInput
     dados_educacao_superior?: DadoEducacaoSuperiorOrderByRelationAggregateInput
+    infraestrutura?: CensoEscolarInfraestruturaOrderByRelationAggregateInput
   }
 
   export type LocalidadeWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    codigo_ibge?: string
     AND?: LocalidadeWhereInput | LocalidadeWhereInput[]
     OR?: LocalidadeWhereInput[]
     NOT?: LocalidadeWhereInput | LocalidadeWhereInput[]
     nome?: StringFilter<"Localidade"> | string
     tipo?: StringFilter<"Localidade"> | string
     uf?: StringNullableFilter<"Localidade"> | string | null
-    codigo_ibge?: StringNullableFilter<"Localidade"> | string | null
+    territorio_desenvolvimento?: StringNullableFilter<"Localidade"> | string | null
+    aglomerado?: StringNullableFilter<"Localidade"> | string | null
+    gerencia_regional?: StringNullableFilter<"Localidade"> | string | null
+    populacao_2022?: IntNullableFilter<"Localidade"> | number | null
+    faixa_populacional?: StringNullableFilter<"Localidade"> | string | null
     dados_basica?: DadoEducacaoBasicaListRelationFilter
     dados_basica_apos23?: DadoEducacaoBasicaApos23ListRelationFilter
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaListRelationFilter
     taxas?: TaxasListRelationFilter
     dados_educacao_superior?: DadoEducacaoSuperiorListRelationFilter
-  }, "id">
+    infraestrutura?: CensoEscolarInfraestruturaListRelationFilter
+  }, "id" | "codigo_ibge">
 
   export type LocalidadeOrderByWithAggregationInput = {
     id?: SortOrder
@@ -44053,6 +44239,11 @@ export namespace Prisma {
     tipo?: SortOrder
     uf?: SortOrderInput | SortOrder
     codigo_ibge?: SortOrderInput | SortOrder
+    territorio_desenvolvimento?: SortOrderInput | SortOrder
+    aglomerado?: SortOrderInput | SortOrder
+    gerencia_regional?: SortOrderInput | SortOrder
+    populacao_2022?: SortOrderInput | SortOrder
+    faixa_populacional?: SortOrderInput | SortOrder
     _count?: LocalidadeCountOrderByAggregateInput
     _avg?: LocalidadeAvgOrderByAggregateInput
     _max?: LocalidadeMaxOrderByAggregateInput
@@ -44069,6 +44260,11 @@ export namespace Prisma {
     tipo?: StringWithAggregatesFilter<"Localidade"> | string
     uf?: StringNullableWithAggregatesFilter<"Localidade"> | string | null
     codigo_ibge?: StringNullableWithAggregatesFilter<"Localidade"> | string | null
+    territorio_desenvolvimento?: StringNullableWithAggregatesFilter<"Localidade"> | string | null
+    aglomerado?: StringNullableWithAggregatesFilter<"Localidade"> | string | null
+    gerencia_regional?: StringNullableWithAggregatesFilter<"Localidade"> | string | null
+    populacao_2022?: IntNullableWithAggregatesFilter<"Localidade"> | number | null
+    faixa_populacional?: StringNullableWithAggregatesFilter<"Localidade"> | string | null
   }
 
   export type DependenciaAdministrativaBasicaWhereInput = {
@@ -46172,12 +46368,13 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
     IN_PROF_CLASSE_ESP?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
     NO_ENTIDADE?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
-    CO_MUNICIPIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    CO_MUNICIPIO?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
     NO_MUNICIPIO?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
     CO_UF?: IntFilter<"CensoEscolarInfraestrutura"> | number
     SG_UF?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
     TP_DEPENDENCIA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
     TP_LOCALIZACAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    localidade?: XOR<LocalidadeNullableRelationFilter, LocalidadeWhereInput> | null
   }
 
   export type CensoEscolarInfraestruturaOrderByWithRelationInput = {
@@ -46412,6 +46609,7 @@ export namespace Prisma {
     SG_UF?: SortOrderInput | SortOrder
     TP_DEPENDENCIA?: SortOrderInput | SortOrder
     TP_LOCALIZACAO?: SortOrderInput | SortOrder
+    localidade?: LocalidadeOrderByWithRelationInput
   }
 
   export type CensoEscolarInfraestruturaWhereUniqueInput = Prisma.AtLeast<{
@@ -46643,12 +46841,13 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
     IN_PROF_CLASSE_ESP?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
     NO_ENTIDADE?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
-    CO_MUNICIPIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    CO_MUNICIPIO?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
     NO_MUNICIPIO?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
     CO_UF?: IntFilter<"CensoEscolarInfraestrutura"> | number
     SG_UF?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
     TP_DEPENDENCIA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
     TP_LOCALIZACAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    localidade?: XOR<LocalidadeNullableRelationFilter, LocalidadeWhereInput> | null
   }, "id">
 
   export type CensoEscolarInfraestruturaOrderByWithAggregationInput = {
@@ -47119,7 +47318,7 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM?: IntNullableWithAggregatesFilter<"CensoEscolarInfraestrutura"> | number | null
     IN_PROF_CLASSE_ESP?: IntNullableWithAggregatesFilter<"CensoEscolarInfraestrutura"> | number | null
     NO_ENTIDADE?: StringNullableWithAggregatesFilter<"CensoEscolarInfraestrutura"> | string | null
-    CO_MUNICIPIO?: IntNullableWithAggregatesFilter<"CensoEscolarInfraestrutura"> | number | null
+    CO_MUNICIPIO?: StringNullableWithAggregatesFilter<"CensoEscolarInfraestrutura"> | string | null
     NO_MUNICIPIO?: StringNullableWithAggregatesFilter<"CensoEscolarInfraestrutura"> | string | null
     CO_UF?: IntWithAggregatesFilter<"CensoEscolarInfraestrutura"> | number
     SG_UF?: StringNullableWithAggregatesFilter<"CensoEscolarInfraestrutura"> | string | null
@@ -47133,11 +47332,17 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica?: DadoEducacaoBasicaCreateNestedManyWithoutLocalidadeInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23CreateNestedManyWithoutLocalidadeInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaCreateNestedManyWithoutLocalidadeInput
     taxas?: TaxasCreateNestedManyWithoutLocalidadeInput
     dados_educacao_superior?: DadoEducacaoSuperiorCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUncheckedCreateInput = {
@@ -47146,11 +47351,17 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedCreateNestedManyWithoutLocalidadeInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutLocalidadeInput
     taxas?: TaxasUncheckedCreateNestedManyWithoutLocalidadeInput
     dados_educacao_superior?: DadoEducacaoSuperiorUncheckedCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUpdateInput = {
@@ -47159,11 +47370,17 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUpdateManyWithoutLocalidadeNestedInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UpdateManyWithoutLocalidadeNestedInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUpdateManyWithoutLocalidadeNestedInput
     taxas?: TaxasUpdateManyWithoutLocalidadeNestedInput
     dados_educacao_superior?: DadoEducacaoSuperiorUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeUncheckedUpdateInput = {
@@ -47172,11 +47389,17 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedUpdateManyWithoutLocalidadeNestedInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeNestedInput
     taxas?: TaxasUncheckedUpdateManyWithoutLocalidadeNestedInput
     dados_educacao_superior?: DadoEducacaoSuperiorUncheckedUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeCreateManyInput = {
@@ -47185,6 +47408,11 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
   }
 
   export type LocalidadeUpdateManyMutationInput = {
@@ -47193,6 +47421,11 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type LocalidadeUncheckedUpdateManyInput = {
@@ -47201,6 +47434,11 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DependenciaAdministrativaBasicaCreateInput = {
@@ -49173,12 +49411,12 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM?: number | null
     IN_PROF_CLASSE_ESP?: number | null
     NO_ENTIDADE?: string | null
-    CO_MUNICIPIO?: number | null
     NO_MUNICIPIO?: string | null
     CO_UF: number
     SG_UF?: string | null
     TP_DEPENDENCIA?: number | null
     TP_LOCALIZACAO?: number | null
+    localidade?: LocalidadeCreateNestedOneWithoutInfraestruturaInput
   }
 
   export type CensoEscolarInfraestruturaUncheckedCreateInput = {
@@ -49407,7 +49645,7 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM?: number | null
     IN_PROF_CLASSE_ESP?: number | null
     NO_ENTIDADE?: string | null
-    CO_MUNICIPIO?: number | null
+    CO_MUNICIPIO?: string | null
     NO_MUNICIPIO?: string | null
     CO_UF: number
     SG_UF?: string | null
@@ -49640,12 +49878,12 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
     IN_PROF_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
     NO_ENTIDADE?: NullableStringFieldUpdateOperationsInput | string | null
-    CO_MUNICIPIO?: NullableIntFieldUpdateOperationsInput | number | null
     NO_MUNICIPIO?: NullableStringFieldUpdateOperationsInput | string | null
     CO_UF?: IntFieldUpdateOperationsInput | number
     SG_UF?: NullableStringFieldUpdateOperationsInput | string | null
     TP_DEPENDENCIA?: NullableIntFieldUpdateOperationsInput | number | null
     TP_LOCALIZACAO?: NullableIntFieldUpdateOperationsInput | number | null
+    localidade?: LocalidadeUpdateOneWithoutInfraestruturaNestedInput
   }
 
   export type CensoEscolarInfraestruturaUncheckedUpdateInput = {
@@ -49874,7 +50112,7 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
     IN_PROF_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
     NO_ENTIDADE?: NullableStringFieldUpdateOperationsInput | string | null
-    CO_MUNICIPIO?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_MUNICIPIO?: NullableStringFieldUpdateOperationsInput | string | null
     NO_MUNICIPIO?: NullableStringFieldUpdateOperationsInput | string | null
     CO_UF?: IntFieldUpdateOperationsInput | number
     SG_UF?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50108,7 +50346,7 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM?: number | null
     IN_PROF_CLASSE_ESP?: number | null
     NO_ENTIDADE?: string | null
-    CO_MUNICIPIO?: number | null
+    CO_MUNICIPIO?: string | null
     NO_MUNICIPIO?: string | null
     CO_UF: number
     SG_UF?: string | null
@@ -50341,7 +50579,6 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
     IN_PROF_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
     NO_ENTIDADE?: NullableStringFieldUpdateOperationsInput | string | null
-    CO_MUNICIPIO?: NullableIntFieldUpdateOperationsInput | number | null
     NO_MUNICIPIO?: NullableStringFieldUpdateOperationsInput | string | null
     CO_UF?: IntFieldUpdateOperationsInput | number
     SG_UF?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50575,7 +50812,7 @@ export namespace Prisma {
     IN_PROF_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
     IN_PROF_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
     NO_ENTIDADE?: NullableStringFieldUpdateOperationsInput | string | null
-    CO_MUNICIPIO?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_MUNICIPIO?: NullableStringFieldUpdateOperationsInput | string | null
     NO_MUNICIPIO?: NullableStringFieldUpdateOperationsInput | string | null
     CO_UF?: IntFieldUpdateOperationsInput | number
     SG_UF?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50624,6 +50861,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type DadoEducacaoBasicaListRelationFilter = {
     every?: DadoEducacaoBasicaWhereInput
     some?: DadoEducacaoBasicaWhereInput
@@ -50654,6 +50902,12 @@ export namespace Prisma {
     none?: DadoEducacaoSuperiorWhereInput
   }
 
+  export type CensoEscolarInfraestruturaListRelationFilter = {
+    every?: CensoEscolarInfraestruturaWhereInput
+    some?: CensoEscolarInfraestruturaWhereInput
+    none?: CensoEscolarInfraestruturaWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -50679,16 +50933,26 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type CensoEscolarInfraestruturaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type LocalidadeCountOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
     tipo?: SortOrder
     uf?: SortOrder
     codigo_ibge?: SortOrder
+    territorio_desenvolvimento?: SortOrder
+    aglomerado?: SortOrder
+    gerencia_regional?: SortOrder
+    populacao_2022?: SortOrder
+    faixa_populacional?: SortOrder
   }
 
   export type LocalidadeAvgOrderByAggregateInput = {
     id?: SortOrder
+    populacao_2022?: SortOrder
   }
 
   export type LocalidadeMaxOrderByAggregateInput = {
@@ -50697,6 +50961,11 @@ export namespace Prisma {
     tipo?: SortOrder
     uf?: SortOrder
     codigo_ibge?: SortOrder
+    territorio_desenvolvimento?: SortOrder
+    aglomerado?: SortOrder
+    gerencia_regional?: SortOrder
+    populacao_2022?: SortOrder
+    faixa_populacional?: SortOrder
   }
 
   export type LocalidadeMinOrderByAggregateInput = {
@@ -50705,10 +50974,16 @@ export namespace Prisma {
     tipo?: SortOrder
     uf?: SortOrder
     codigo_ibge?: SortOrder
+    territorio_desenvolvimento?: SortOrder
+    aglomerado?: SortOrder
+    gerencia_regional?: SortOrder
+    populacao_2022?: SortOrder
+    faixa_populacional?: SortOrder
   }
 
   export type LocalidadeSumOrderByAggregateInput = {
     id?: SortOrder
+    populacao_2022?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -50761,6 +51036,22 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type DependenciaAdministrativaBasicaCountOrderByAggregateInput = {
@@ -51074,17 +51365,6 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type FaixaEtariaCountOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
@@ -51116,22 +51396,6 @@ export namespace Prisma {
     id?: SortOrder
     idade_inicial?: SortOrder
     idade_final?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type FaixaEtariaTaxasCountOrderByAggregateInput = {
@@ -52607,7 +52871,6 @@ export namespace Prisma {
     IN_SANITARIO_CHUVEIRO?: SortOrder
     IN_PROF_CLASSE_COMUM?: SortOrder
     IN_PROF_CLASSE_ESP?: SortOrder
-    CO_MUNICIPIO?: SortOrder
     CO_UF?: SortOrder
     TP_DEPENDENCIA?: SortOrder
     TP_LOCALIZACAO?: SortOrder
@@ -53306,7 +53569,6 @@ export namespace Prisma {
     IN_SANITARIO_CHUVEIRO?: SortOrder
     IN_PROF_CLASSE_COMUM?: SortOrder
     IN_PROF_CLASSE_ESP?: SortOrder
-    CO_MUNICIPIO?: SortOrder
     CO_UF?: SortOrder
     TP_DEPENDENCIA?: SortOrder
     TP_LOCALIZACAO?: SortOrder
@@ -53347,6 +53609,13 @@ export namespace Prisma {
     connect?: DadoEducacaoSuperiorWhereUniqueInput | DadoEducacaoSuperiorWhereUniqueInput[]
   }
 
+  export type CensoEscolarInfraestruturaCreateNestedManyWithoutLocalidadeInput = {
+    create?: XOR<CensoEscolarInfraestruturaCreateWithoutLocalidadeInput, CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput> | CensoEscolarInfraestruturaCreateWithoutLocalidadeInput[] | CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput[]
+    connectOrCreate?: CensoEscolarInfraestruturaCreateOrConnectWithoutLocalidadeInput | CensoEscolarInfraestruturaCreateOrConnectWithoutLocalidadeInput[]
+    createMany?: CensoEscolarInfraestruturaCreateManyLocalidadeInputEnvelope
+    connect?: CensoEscolarInfraestruturaWhereUniqueInput | CensoEscolarInfraestruturaWhereUniqueInput[]
+  }
+
   export type DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput = {
     create?: XOR<DadoEducacaoBasicaCreateWithoutLocalidadeInput, DadoEducacaoBasicaUncheckedCreateWithoutLocalidadeInput> | DadoEducacaoBasicaCreateWithoutLocalidadeInput[] | DadoEducacaoBasicaUncheckedCreateWithoutLocalidadeInput[]
     connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutLocalidadeInput | DadoEducacaoBasicaCreateOrConnectWithoutLocalidadeInput[]
@@ -53382,6 +53651,13 @@ export namespace Prisma {
     connect?: DadoEducacaoSuperiorWhereUniqueInput | DadoEducacaoSuperiorWhereUniqueInput[]
   }
 
+  export type CensoEscolarInfraestruturaUncheckedCreateNestedManyWithoutLocalidadeInput = {
+    create?: XOR<CensoEscolarInfraestruturaCreateWithoutLocalidadeInput, CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput> | CensoEscolarInfraestruturaCreateWithoutLocalidadeInput[] | CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput[]
+    connectOrCreate?: CensoEscolarInfraestruturaCreateOrConnectWithoutLocalidadeInput | CensoEscolarInfraestruturaCreateOrConnectWithoutLocalidadeInput[]
+    createMany?: CensoEscolarInfraestruturaCreateManyLocalidadeInputEnvelope
+    connect?: CensoEscolarInfraestruturaWhereUniqueInput | CensoEscolarInfraestruturaWhereUniqueInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -53396,6 +53672,14 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type DadoEducacaoBasicaUpdateManyWithoutLocalidadeNestedInput = {
@@ -53468,6 +53752,20 @@ export namespace Prisma {
     deleteMany?: DadoEducacaoSuperiorScalarWhereInput | DadoEducacaoSuperiorScalarWhereInput[]
   }
 
+  export type CensoEscolarInfraestruturaUpdateManyWithoutLocalidadeNestedInput = {
+    create?: XOR<CensoEscolarInfraestruturaCreateWithoutLocalidadeInput, CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput> | CensoEscolarInfraestruturaCreateWithoutLocalidadeInput[] | CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput[]
+    connectOrCreate?: CensoEscolarInfraestruturaCreateOrConnectWithoutLocalidadeInput | CensoEscolarInfraestruturaCreateOrConnectWithoutLocalidadeInput[]
+    upsert?: CensoEscolarInfraestruturaUpsertWithWhereUniqueWithoutLocalidadeInput | CensoEscolarInfraestruturaUpsertWithWhereUniqueWithoutLocalidadeInput[]
+    createMany?: CensoEscolarInfraestruturaCreateManyLocalidadeInputEnvelope
+    set?: CensoEscolarInfraestruturaWhereUniqueInput | CensoEscolarInfraestruturaWhereUniqueInput[]
+    disconnect?: CensoEscolarInfraestruturaWhereUniqueInput | CensoEscolarInfraestruturaWhereUniqueInput[]
+    delete?: CensoEscolarInfraestruturaWhereUniqueInput | CensoEscolarInfraestruturaWhereUniqueInput[]
+    connect?: CensoEscolarInfraestruturaWhereUniqueInput | CensoEscolarInfraestruturaWhereUniqueInput[]
+    update?: CensoEscolarInfraestruturaUpdateWithWhereUniqueWithoutLocalidadeInput | CensoEscolarInfraestruturaUpdateWithWhereUniqueWithoutLocalidadeInput[]
+    updateMany?: CensoEscolarInfraestruturaUpdateManyWithWhereWithoutLocalidadeInput | CensoEscolarInfraestruturaUpdateManyWithWhereWithoutLocalidadeInput[]
+    deleteMany?: CensoEscolarInfraestruturaScalarWhereInput | CensoEscolarInfraestruturaScalarWhereInput[]
+  }
+
   export type DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput = {
     create?: XOR<DadoEducacaoBasicaCreateWithoutLocalidadeInput, DadoEducacaoBasicaUncheckedCreateWithoutLocalidadeInput> | DadoEducacaoBasicaCreateWithoutLocalidadeInput[] | DadoEducacaoBasicaUncheckedCreateWithoutLocalidadeInput[]
     connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutLocalidadeInput | DadoEducacaoBasicaCreateOrConnectWithoutLocalidadeInput[]
@@ -53536,6 +53834,20 @@ export namespace Prisma {
     update?: DadoEducacaoSuperiorUpdateWithWhereUniqueWithoutLocalidadeInput | DadoEducacaoSuperiorUpdateWithWhereUniqueWithoutLocalidadeInput[]
     updateMany?: DadoEducacaoSuperiorUpdateManyWithWhereWithoutLocalidadeInput | DadoEducacaoSuperiorUpdateManyWithWhereWithoutLocalidadeInput[]
     deleteMany?: DadoEducacaoSuperiorScalarWhereInput | DadoEducacaoSuperiorScalarWhereInput[]
+  }
+
+  export type CensoEscolarInfraestruturaUncheckedUpdateManyWithoutLocalidadeNestedInput = {
+    create?: XOR<CensoEscolarInfraestruturaCreateWithoutLocalidadeInput, CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput> | CensoEscolarInfraestruturaCreateWithoutLocalidadeInput[] | CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput[]
+    connectOrCreate?: CensoEscolarInfraestruturaCreateOrConnectWithoutLocalidadeInput | CensoEscolarInfraestruturaCreateOrConnectWithoutLocalidadeInput[]
+    upsert?: CensoEscolarInfraestruturaUpsertWithWhereUniqueWithoutLocalidadeInput | CensoEscolarInfraestruturaUpsertWithWhereUniqueWithoutLocalidadeInput[]
+    createMany?: CensoEscolarInfraestruturaCreateManyLocalidadeInputEnvelope
+    set?: CensoEscolarInfraestruturaWhereUniqueInput | CensoEscolarInfraestruturaWhereUniqueInput[]
+    disconnect?: CensoEscolarInfraestruturaWhereUniqueInput | CensoEscolarInfraestruturaWhereUniqueInput[]
+    delete?: CensoEscolarInfraestruturaWhereUniqueInput | CensoEscolarInfraestruturaWhereUniqueInput[]
+    connect?: CensoEscolarInfraestruturaWhereUniqueInput | CensoEscolarInfraestruturaWhereUniqueInput[]
+    update?: CensoEscolarInfraestruturaUpdateWithWhereUniqueWithoutLocalidadeInput | CensoEscolarInfraestruturaUpdateWithWhereUniqueWithoutLocalidadeInput[]
+    updateMany?: CensoEscolarInfraestruturaUpdateManyWithWhereWithoutLocalidadeInput | CensoEscolarInfraestruturaUpdateManyWithWhereWithoutLocalidadeInput[]
+    deleteMany?: CensoEscolarInfraestruturaScalarWhereInput | CensoEscolarInfraestruturaScalarWhereInput[]
   }
 
   export type DadoEducacaoBasicaCreateNestedManyWithoutDependenciaInput = {
@@ -54180,14 +54492,6 @@ export namespace Prisma {
     connectOrCreate?: DadoEducacaoBasicaCreateOrConnectWithoutFaixa_etariaInput | DadoEducacaoBasicaCreateOrConnectWithoutFaixa_etariaInput[]
     createMany?: DadoEducacaoBasicaCreateManyFaixa_etariaInputEnvelope
     connect?: DadoEducacaoBasicaWhereUniqueInput | DadoEducacaoBasicaWhereUniqueInput[]
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type DadoEducacaoBasicaUpdateManyWithoutFaixa_etariaNestedInput = {
@@ -55329,6 +55633,22 @@ export namespace Prisma {
     push?: number | number[]
   }
 
+  export type LocalidadeCreateNestedOneWithoutInfraestruturaInput = {
+    create?: XOR<LocalidadeCreateWithoutInfraestruturaInput, LocalidadeUncheckedCreateWithoutInfraestruturaInput>
+    connectOrCreate?: LocalidadeCreateOrConnectWithoutInfraestruturaInput
+    connect?: LocalidadeWhereUniqueInput
+  }
+
+  export type LocalidadeUpdateOneWithoutInfraestruturaNestedInput = {
+    create?: XOR<LocalidadeCreateWithoutInfraestruturaInput, LocalidadeUncheckedCreateWithoutInfraestruturaInput>
+    connectOrCreate?: LocalidadeCreateOrConnectWithoutInfraestruturaInput
+    upsert?: LocalidadeUpsertWithoutInfraestruturaInput
+    disconnect?: LocalidadeWhereInput | boolean
+    delete?: LocalidadeWhereInput | boolean
+    connect?: LocalidadeWhereUniqueInput
+    update?: XOR<XOR<LocalidadeUpdateToOneWithWhereWithoutInfraestruturaInput, LocalidadeUpdateWithoutInfraestruturaInput>, LocalidadeUncheckedUpdateWithoutInfraestruturaInput>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -55366,6 +55686,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -55427,17 +55758,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -55728,6 +56048,481 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type CensoEscolarInfraestruturaCreateWithoutLocalidadeInput = {
+    ANO: number
+    IN_LOCAL_FUNC_PREDIO_ESCOLAR?: number | null
+    TP_OCUPACAO_PREDIO_ESCOLAR?: number | null
+    IN_LOCAL_FUNC_SALAS_EMPRESA?: number | null
+    IN_LOCAL_FUNC_SOCIOEDUCATIVO?: number | null
+    IN_LOCAL_FUNC_UNID_PRISIONAL?: number | null
+    IN_LOCAL_FUNC_PRISIONAL_SOCIO?: number | null
+    IN_LOCAL_FUNC_TEMPLO_IGREJA?: number | null
+    IN_LOCAL_FUNC_CASA_PROFESSOR?: number | null
+    IN_LOCAL_FUNC_GALPAO?: number | null
+    TP_OCUPACAO_GALPAO?: number | null
+    IN_LOCAL_FUNC_SALAS_OUTRA_ESC?: number | null
+    IN_LOCAL_FUNC_OUTROS?: number | null
+    IN_PREDIO_COMPARTILHADO?: number | null
+    IN_AGUA_POTAVEL?: number | null
+    IN_AGUA_FILTRADA?: number | null
+    IN_AGUA_REDE_PUBLICA?: number | null
+    IN_AGUA_POCO_ARTESIANO?: number | null
+    IN_AGUA_CACIMBA?: number | null
+    IN_AGUA_FONTE_RIO?: number | null
+    IN_AGUA_INEXISTENTE?: number | null
+    IN_AGUA_CARRO_PIPA?: number | null
+    IN_ENERGIA_REDE_PUBLICA?: number | null
+    IN_ENERGIA_GERADOR?: number | null
+    IN_ENERGIA_GERADOR_FOSSIL?: number | null
+    IN_ENERGIA_RENOVAVEL?: number | null
+    IN_ENERGIA_OUTROS?: number | null
+    IN_ENERGIA_INEXISTENTE?: number | null
+    IN_ESGOTO_REDE_PUBLICA?: number | null
+    IN_ESGOTO_FOSSA?: number | null
+    IN_ESGOTO_FOSSA_SEPTICA?: number | null
+    IN_ESGOTO_FOSSA_COMUM?: number | null
+    IN_ESGOTO_INEXISTENTE?: number | null
+    IN_LIXO_SERVICO_COLETA?: number | null
+    IN_LIXO_QUEIMA?: number | null
+    IN_LIXO_ENTERRA?: number | null
+    IN_LIXO_DESTINO_FINAL_PUBLICO?: number | null
+    IN_LIXO_JOGA_OUTRA_AREA?: number | null
+    IN_LIXO_DESCARTA_OUTRA_AREA?: number | null
+    IN_LIXO_RECICLA?: number | null
+    IN_LIXO_OUTROS?: number | null
+    IN_TRATAMENTO_LIXO_SEPARACAO?: number | null
+    IN_TRATAMENTO_LIXO_REUTILIZA?: number | null
+    IN_TRATAMENTO_LIXO_RECICLAGEM?: number | null
+    IN_TRATAMENTO_LIXO_INEXISTENTE?: number | null
+    IN_BANHEIRO?: number | null
+    IN_BANHEIRO_FORA_PREDIO?: number | null
+    IN_BANHEIRO_DENTRO_PREDIO?: number | null
+    IN_BANHEIRO_PNE?: number | null
+    IN_BANHEIRO_EI?: number | null
+    IN_BANHEIRO_FUNCIONARIOS?: number | null
+    IN_BANHEIRO_CHUVEIRO?: number | null
+    IN_DEPENDENCIAS_PNE?: number | null
+    IN_ACESSIBILIDADE_INEXISTENTE?: number | null
+    IN_ACESSIBILIDADE_CORRIMAO?: number | null
+    IN_ACESSIBILIDADE_ELEVADOR?: number | null
+    IN_ACESSIBILIDADE_PISOS_TATEIS?: number | null
+    IN_ACESSIBILIDADE_VAO_LIVRE?: number | null
+    IN_ACESSIBILIDADE_RAMPAS?: number | null
+    IN_ACESSIBILIDADE_SINAL_SONORO?: number | null
+    IN_ACESSIBILIDADE_SINAL_TATIL?: number | null
+    IN_ACESSIBILIDADE_SINAL_VISUAL?: number | null
+    IN_BIBLIOTECA_SALA_LEITURA?: number | null
+    IN_BIBLIOTECA?: number | null
+    IN_SALA_LEITURA?: number | null
+    IN_COZINHA?: number | null
+    IN_LABORATORIO_CIENCIAS?: number | null
+    IN_LABORATORIO_INFORMATICA?: number | null
+    IN_LABORATORIO_EDUC_PROF?: number | null
+    IN_QUADRA_ESPORTES_COBERTA?: number | null
+    IN_QUADRA_ESPORTES_DESCOBERTA?: number | null
+    IN_QUADRA_ESPORTES?: number | null
+    IN_SALA_ATENDIMENTO_ESPECIAL?: number | null
+    IN_AUDITORIO?: number | null
+    IN_PATIO_COBERTO?: number | null
+    IN_PATIO_DESCOBERTO?: number | null
+    IN_PISCINA?: number | null
+    IN_SALA_DIRETORIA?: number | null
+    IN_SALA_PROFESSOR?: number | null
+    IN_SALA_SECRETARIA?: number | null
+    IN_REFEITORIO?: number | null
+    IN_ALMOXARIFADO?: number | null
+    IN_DESPENSA?: number | null
+    IN_AREA_VERDE?: number | null
+    IN_BERCARIO?: number | null
+    IN_DORMITORIO_ALUNO?: number | null
+    IN_PARQUE_INFANTIL?: number | null
+    IN_SALA_ATELIE_ARTES?: number | null
+    IN_SALA_MUSICA_CORAL?: number | null
+    IN_SALA_ESTUDIO_DANCA?: number | null
+    IN_SALA_MULTIUSO?: number | null
+    IN_SALA_ESTUDIO_GRAVACAO?: number | null
+    IN_SALA_OFICINAS_EDUC_PROF?: number | null
+    IN_SALA_REPOUSO_ALUNO?: number | null
+    IN_TERREIRAO?: number | null
+    IN_VIVEIRO?: number | null
+    QT_SALAS_EXISTENTES?: number | null
+    QT_SALAS_UTILIZADAS?: number | null
+    QT_SALAS_UTILIZADAS_DENTRO?: number | null
+    QT_SALAS_UTILIZADAS_FORA?: number | null
+    QT_SALAS_UTILIZA_CLIMATIZADAS?: number | null
+    QT_SALAS_UTILIZADAS_ACESSIVEIS?: number | null
+    IN_EQUIP_TV?: number | null
+    IN_EQUIP_VIDEOCASSETE?: number | null
+    IN_EQUIP_DVD?: number | null
+    IN_EQUIP_PARABOLICA?: number | null
+    IN_EQUIP_COPIADORA?: number | null
+    IN_EQUIP_RETROPROJETOR?: number | null
+    IN_EQUIP_IMPRESSORA?: number | null
+    IN_EQUIP_IMPRESSORA_MULT?: number | null
+    IN_EQUIP_SOM?: number | null
+    IN_EQUIP_PROJETOR?: number | null
+    IN_EQUIP_MULTIMIDIA?: number | null
+    IN_EQUIP_FAX?: number | null
+    IN_EQUIP_FOTO?: number | null
+    IN_EQUIP_SCANNER?: number | null
+    IN_EQUIP_NENHUM?: number | null
+    IN_EQUIP_LOUSA_DIGITAL?: number | null
+    QT_EQUIP_TV?: number | null
+    QT_EQUIP_VIDEOCASSETE?: number | null
+    QT_EQUIP_DVD?: number | null
+    QT_EQUIP_PARABOLICA?: number | null
+    QT_EQUIP_COPIADORA?: number | null
+    QT_EQUIP_RETROPROJETOR?: number | null
+    QT_EQUIP_IMPRESSORA?: number | null
+    QT_EQUIP_IMPRESSORA_MULT?: number | null
+    QT_EQUIP_SOM?: number | null
+    QT_EQUIP_PROJETOR?: number | null
+    QT_EQUIP_MULTIMIDIA?: number | null
+    QT_EQUIP_FAX?: number | null
+    QT_EQUIP_FOTO?: number | null
+    QT_EQUIP_LOUSA_DIGITAL?: number | null
+    IN_COMPUTADOR?: number | null
+    QT_COMPUTADOR?: number | null
+    QT_COMP_ADMINISTRATIVO?: number | null
+    QT_COMP_ALUNO?: number | null
+    IN_DESKTOP_ALUNO?: number | null
+    QT_DESKTOP_ALUNO?: number | null
+    IN_COMP_PORTATIL_ALUNO?: number | null
+    QT_COMP_PORTATIL_ALUNO?: number | null
+    IN_TABLET_ALUNO?: number | null
+    QT_TABLET_ALUNO?: number | null
+    IN_INTERNET?: number | null
+    IN_INTERNET_APRENDIZAGEM?: number | null
+    IN_INTERNET_ADMINISTRATIVO?: number | null
+    IN_INTERNET_ALUNOS?: number | null
+    IN_INTERNET_COMUNIDADE?: number | null
+    IN_ACESSO_INTERNET_COMPUTADOR?: number | null
+    IN_ACESSO_INTERNET_DISP_PESSOAIS?: number | null
+    TP_REDE_LOCAL?: number | null
+    IN_BANDA_LARGA?: number | null
+    IN_MATERIAL_ESP_NAO_UTILIZA?: number | null
+    IN_MATERIAL_ESP_PEDAGOGICO?: number | null
+    IN_MATERIAL_ESP_ARTES?: number | null
+    IN_MATERIAL_ESP_AUDIOVISUAIS?: number | null
+    IN_MATERIAL_ESP_AUDITIVOS?: number | null
+    IN_MATERIAL_ESP_BIOLOGIA?: number | null
+    IN_MATERIAL_ESP_BRINQUEDOS?: number | null
+    IN_MATERIAL_ESP_CIENCIAS?: number | null
+    IN_MATERIAL_ESP_CINEMA?: number | null
+    IN_MATERIAL_ESP_DISCIPLINAR?: number | null
+    IN_MATERIAL_ESP_FISICA?: number | null
+    IN_MATERIAL_ESP_FOTO?: number | null
+    IN_MATERIAL_ESP_INFORMATICA?: number | null
+    IN_MATERIAL_ESP_JOGOS?: number | null
+    IN_MATERIAL_ESP_JORNAIS?: number | null
+    IN_MATERIAL_ESP_LIVROS_DIDAT?: number | null
+    IN_MATERIAL_ESP_LIVROS_LITER?: number | null
+    IN_MATERIAL_ESP_MAPAS?: number | null
+    IN_MATERIAL_ESP_MUSICA?: number | null
+    IN_MATERIAL_ESP_OUTROS?: number | null
+    IN_MATERIAL_ESP_QUIMICA?: number | null
+    IN_MATERIAL_ESP_REVISTAS?: number | null
+    IN_MATERIAL_ESP_QUILOMBOLA?: number | null
+    IN_MATERIAL_ESP_INDIGENA?: number | null
+    IN_MATERIAL_PED_MULTIMIDIA?: number | null
+    IN_MATERIAL_PED_INFANTIL?: number | null
+    IN_MATERIAL_PED_CIENTIFICO?: number | null
+    IN_MATERIAL_PED_DIFUSAO?: number | null
+    IN_MATERIAL_PED_MUSICAL?: number | null
+    IN_MATERIAL_PED_JOGOS?: number | null
+    IN_MATERIAL_PED_ARTISTICAS?: number | null
+    IN_MATERIAL_PED_PROFISSIONAL?: number | null
+    IN_MATERIAL_PED_DESPORTIVA?: number | null
+    IN_MATERIAL_PED_INDIGENA?: number | null
+    IN_MATERIAL_PED_ETNICO?: number | null
+    IN_MATERIAL_PED_CAMPO?: number | null
+    IN_MATERIAL_PED_BIL_SURDOS?: number | null
+    IN_MATERIAL_PED_QUILOMBOLA?: number | null
+    IN_MATERIAL_PED_AGRICOLA?: number | null
+    IN_MATERIAL_PED_EDU_ESP?: number | null
+    IN_MATERIAL_PED_NENHUM?: number | null
+    IN_ALIMENTACAO?: number | null
+    IN_ATIV_COMPLEMENTAR?: number | null
+    IN_FUNDEB?: number | null
+    IN_REGULAR_CLASSE_COMUM?: number | null
+    IN_REGULAR_CLASSE_ESP?: number | null
+    IN_ESP_CLASSE_COMUM?: number | null
+    IN_ESP_CLASSE_ESP?: number | null
+    IN_EJA_CLASSE_COMUM?: number | null
+    IN_EJA_CLASSE_ESP?: number | null
+    CO_LINGUA_INDIGENA_1?: number | null
+    CO_LINGUA_INDIGENA_2?: number | null
+    CO_LINGUA_INDIGENA_3?: number | null
+    IN_AREA_PLANTIO?: number | null
+    IN_DEPENDENCIAS_OUTRAS?: number | null
+    IN_DORMITORIO_PROFESSOR?: number | null
+    IN_EDUCACAO_INDIGENA?: number | null
+    IN_LAVANDERIA?: number | null
+    TP_AEE?: number | null
+    TP_ATIVIDADE_COMPLEMENTAR?: number | null
+    TP_INDIGENA_LINGUA?: number | null
+    IN_MEDIACAO_PRESENCIAL?: number | null
+    IN_MEDIACAO_SEMIPRESENCIAL?: number | null
+    IN_MEDIACAO_EAD?: number | null
+    IN_QUADRA_ESPORTES_PNE?: number | null
+    IN_SANITARIO_PNE?: number | null
+    IN_SANITARIO?: number | null
+    IN_SANITARIO_FORA_PREDIO?: number | null
+    IN_SANITARIO_DENTRO_PREDIO?: number | null
+    IN_SANITARIO_CHUVEIRO?: number | null
+    IN_PROF_CLASSE_COMUM?: number | null
+    IN_PROF_CLASSE_ESP?: number | null
+    NO_ENTIDADE?: string | null
+    NO_MUNICIPIO?: string | null
+    CO_UF: number
+    SG_UF?: string | null
+    TP_DEPENDENCIA?: number | null
+    TP_LOCALIZACAO?: number | null
+  }
+
+  export type CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput = {
+    id?: number
+    ANO: number
+    IN_LOCAL_FUNC_PREDIO_ESCOLAR?: number | null
+    TP_OCUPACAO_PREDIO_ESCOLAR?: number | null
+    IN_LOCAL_FUNC_SALAS_EMPRESA?: number | null
+    IN_LOCAL_FUNC_SOCIOEDUCATIVO?: number | null
+    IN_LOCAL_FUNC_UNID_PRISIONAL?: number | null
+    IN_LOCAL_FUNC_PRISIONAL_SOCIO?: number | null
+    IN_LOCAL_FUNC_TEMPLO_IGREJA?: number | null
+    IN_LOCAL_FUNC_CASA_PROFESSOR?: number | null
+    IN_LOCAL_FUNC_GALPAO?: number | null
+    TP_OCUPACAO_GALPAO?: number | null
+    IN_LOCAL_FUNC_SALAS_OUTRA_ESC?: number | null
+    IN_LOCAL_FUNC_OUTROS?: number | null
+    IN_PREDIO_COMPARTILHADO?: number | null
+    IN_AGUA_POTAVEL?: number | null
+    IN_AGUA_FILTRADA?: number | null
+    IN_AGUA_REDE_PUBLICA?: number | null
+    IN_AGUA_POCO_ARTESIANO?: number | null
+    IN_AGUA_CACIMBA?: number | null
+    IN_AGUA_FONTE_RIO?: number | null
+    IN_AGUA_INEXISTENTE?: number | null
+    IN_AGUA_CARRO_PIPA?: number | null
+    IN_ENERGIA_REDE_PUBLICA?: number | null
+    IN_ENERGIA_GERADOR?: number | null
+    IN_ENERGIA_GERADOR_FOSSIL?: number | null
+    IN_ENERGIA_RENOVAVEL?: number | null
+    IN_ENERGIA_OUTROS?: number | null
+    IN_ENERGIA_INEXISTENTE?: number | null
+    IN_ESGOTO_REDE_PUBLICA?: number | null
+    IN_ESGOTO_FOSSA?: number | null
+    IN_ESGOTO_FOSSA_SEPTICA?: number | null
+    IN_ESGOTO_FOSSA_COMUM?: number | null
+    IN_ESGOTO_INEXISTENTE?: number | null
+    IN_LIXO_SERVICO_COLETA?: number | null
+    IN_LIXO_QUEIMA?: number | null
+    IN_LIXO_ENTERRA?: number | null
+    IN_LIXO_DESTINO_FINAL_PUBLICO?: number | null
+    IN_LIXO_JOGA_OUTRA_AREA?: number | null
+    IN_LIXO_DESCARTA_OUTRA_AREA?: number | null
+    IN_LIXO_RECICLA?: number | null
+    IN_LIXO_OUTROS?: number | null
+    IN_TRATAMENTO_LIXO_SEPARACAO?: number | null
+    IN_TRATAMENTO_LIXO_REUTILIZA?: number | null
+    IN_TRATAMENTO_LIXO_RECICLAGEM?: number | null
+    IN_TRATAMENTO_LIXO_INEXISTENTE?: number | null
+    IN_BANHEIRO?: number | null
+    IN_BANHEIRO_FORA_PREDIO?: number | null
+    IN_BANHEIRO_DENTRO_PREDIO?: number | null
+    IN_BANHEIRO_PNE?: number | null
+    IN_BANHEIRO_EI?: number | null
+    IN_BANHEIRO_FUNCIONARIOS?: number | null
+    IN_BANHEIRO_CHUVEIRO?: number | null
+    IN_DEPENDENCIAS_PNE?: number | null
+    IN_ACESSIBILIDADE_INEXISTENTE?: number | null
+    IN_ACESSIBILIDADE_CORRIMAO?: number | null
+    IN_ACESSIBILIDADE_ELEVADOR?: number | null
+    IN_ACESSIBILIDADE_PISOS_TATEIS?: number | null
+    IN_ACESSIBILIDADE_VAO_LIVRE?: number | null
+    IN_ACESSIBILIDADE_RAMPAS?: number | null
+    IN_ACESSIBILIDADE_SINAL_SONORO?: number | null
+    IN_ACESSIBILIDADE_SINAL_TATIL?: number | null
+    IN_ACESSIBILIDADE_SINAL_VISUAL?: number | null
+    IN_BIBLIOTECA_SALA_LEITURA?: number | null
+    IN_BIBLIOTECA?: number | null
+    IN_SALA_LEITURA?: number | null
+    IN_COZINHA?: number | null
+    IN_LABORATORIO_CIENCIAS?: number | null
+    IN_LABORATORIO_INFORMATICA?: number | null
+    IN_LABORATORIO_EDUC_PROF?: number | null
+    IN_QUADRA_ESPORTES_COBERTA?: number | null
+    IN_QUADRA_ESPORTES_DESCOBERTA?: number | null
+    IN_QUADRA_ESPORTES?: number | null
+    IN_SALA_ATENDIMENTO_ESPECIAL?: number | null
+    IN_AUDITORIO?: number | null
+    IN_PATIO_COBERTO?: number | null
+    IN_PATIO_DESCOBERTO?: number | null
+    IN_PISCINA?: number | null
+    IN_SALA_DIRETORIA?: number | null
+    IN_SALA_PROFESSOR?: number | null
+    IN_SALA_SECRETARIA?: number | null
+    IN_REFEITORIO?: number | null
+    IN_ALMOXARIFADO?: number | null
+    IN_DESPENSA?: number | null
+    IN_AREA_VERDE?: number | null
+    IN_BERCARIO?: number | null
+    IN_DORMITORIO_ALUNO?: number | null
+    IN_PARQUE_INFANTIL?: number | null
+    IN_SALA_ATELIE_ARTES?: number | null
+    IN_SALA_MUSICA_CORAL?: number | null
+    IN_SALA_ESTUDIO_DANCA?: number | null
+    IN_SALA_MULTIUSO?: number | null
+    IN_SALA_ESTUDIO_GRAVACAO?: number | null
+    IN_SALA_OFICINAS_EDUC_PROF?: number | null
+    IN_SALA_REPOUSO_ALUNO?: number | null
+    IN_TERREIRAO?: number | null
+    IN_VIVEIRO?: number | null
+    QT_SALAS_EXISTENTES?: number | null
+    QT_SALAS_UTILIZADAS?: number | null
+    QT_SALAS_UTILIZADAS_DENTRO?: number | null
+    QT_SALAS_UTILIZADAS_FORA?: number | null
+    QT_SALAS_UTILIZA_CLIMATIZADAS?: number | null
+    QT_SALAS_UTILIZADAS_ACESSIVEIS?: number | null
+    IN_EQUIP_TV?: number | null
+    IN_EQUIP_VIDEOCASSETE?: number | null
+    IN_EQUIP_DVD?: number | null
+    IN_EQUIP_PARABOLICA?: number | null
+    IN_EQUIP_COPIADORA?: number | null
+    IN_EQUIP_RETROPROJETOR?: number | null
+    IN_EQUIP_IMPRESSORA?: number | null
+    IN_EQUIP_IMPRESSORA_MULT?: number | null
+    IN_EQUIP_SOM?: number | null
+    IN_EQUIP_PROJETOR?: number | null
+    IN_EQUIP_MULTIMIDIA?: number | null
+    IN_EQUIP_FAX?: number | null
+    IN_EQUIP_FOTO?: number | null
+    IN_EQUIP_SCANNER?: number | null
+    IN_EQUIP_NENHUM?: number | null
+    IN_EQUIP_LOUSA_DIGITAL?: number | null
+    QT_EQUIP_TV?: number | null
+    QT_EQUIP_VIDEOCASSETE?: number | null
+    QT_EQUIP_DVD?: number | null
+    QT_EQUIP_PARABOLICA?: number | null
+    QT_EQUIP_COPIADORA?: number | null
+    QT_EQUIP_RETROPROJETOR?: number | null
+    QT_EQUIP_IMPRESSORA?: number | null
+    QT_EQUIP_IMPRESSORA_MULT?: number | null
+    QT_EQUIP_SOM?: number | null
+    QT_EQUIP_PROJETOR?: number | null
+    QT_EQUIP_MULTIMIDIA?: number | null
+    QT_EQUIP_FAX?: number | null
+    QT_EQUIP_FOTO?: number | null
+    QT_EQUIP_LOUSA_DIGITAL?: number | null
+    IN_COMPUTADOR?: number | null
+    QT_COMPUTADOR?: number | null
+    QT_COMP_ADMINISTRATIVO?: number | null
+    QT_COMP_ALUNO?: number | null
+    IN_DESKTOP_ALUNO?: number | null
+    QT_DESKTOP_ALUNO?: number | null
+    IN_COMP_PORTATIL_ALUNO?: number | null
+    QT_COMP_PORTATIL_ALUNO?: number | null
+    IN_TABLET_ALUNO?: number | null
+    QT_TABLET_ALUNO?: number | null
+    IN_INTERNET?: number | null
+    IN_INTERNET_APRENDIZAGEM?: number | null
+    IN_INTERNET_ADMINISTRATIVO?: number | null
+    IN_INTERNET_ALUNOS?: number | null
+    IN_INTERNET_COMUNIDADE?: number | null
+    IN_ACESSO_INTERNET_COMPUTADOR?: number | null
+    IN_ACESSO_INTERNET_DISP_PESSOAIS?: number | null
+    TP_REDE_LOCAL?: number | null
+    IN_BANDA_LARGA?: number | null
+    IN_MATERIAL_ESP_NAO_UTILIZA?: number | null
+    IN_MATERIAL_ESP_PEDAGOGICO?: number | null
+    IN_MATERIAL_ESP_ARTES?: number | null
+    IN_MATERIAL_ESP_AUDIOVISUAIS?: number | null
+    IN_MATERIAL_ESP_AUDITIVOS?: number | null
+    IN_MATERIAL_ESP_BIOLOGIA?: number | null
+    IN_MATERIAL_ESP_BRINQUEDOS?: number | null
+    IN_MATERIAL_ESP_CIENCIAS?: number | null
+    IN_MATERIAL_ESP_CINEMA?: number | null
+    IN_MATERIAL_ESP_DISCIPLINAR?: number | null
+    IN_MATERIAL_ESP_FISICA?: number | null
+    IN_MATERIAL_ESP_FOTO?: number | null
+    IN_MATERIAL_ESP_INFORMATICA?: number | null
+    IN_MATERIAL_ESP_JOGOS?: number | null
+    IN_MATERIAL_ESP_JORNAIS?: number | null
+    IN_MATERIAL_ESP_LIVROS_DIDAT?: number | null
+    IN_MATERIAL_ESP_LIVROS_LITER?: number | null
+    IN_MATERIAL_ESP_MAPAS?: number | null
+    IN_MATERIAL_ESP_MUSICA?: number | null
+    IN_MATERIAL_ESP_OUTROS?: number | null
+    IN_MATERIAL_ESP_QUIMICA?: number | null
+    IN_MATERIAL_ESP_REVISTAS?: number | null
+    IN_MATERIAL_ESP_QUILOMBOLA?: number | null
+    IN_MATERIAL_ESP_INDIGENA?: number | null
+    IN_MATERIAL_PED_MULTIMIDIA?: number | null
+    IN_MATERIAL_PED_INFANTIL?: number | null
+    IN_MATERIAL_PED_CIENTIFICO?: number | null
+    IN_MATERIAL_PED_DIFUSAO?: number | null
+    IN_MATERIAL_PED_MUSICAL?: number | null
+    IN_MATERIAL_PED_JOGOS?: number | null
+    IN_MATERIAL_PED_ARTISTICAS?: number | null
+    IN_MATERIAL_PED_PROFISSIONAL?: number | null
+    IN_MATERIAL_PED_DESPORTIVA?: number | null
+    IN_MATERIAL_PED_INDIGENA?: number | null
+    IN_MATERIAL_PED_ETNICO?: number | null
+    IN_MATERIAL_PED_CAMPO?: number | null
+    IN_MATERIAL_PED_BIL_SURDOS?: number | null
+    IN_MATERIAL_PED_QUILOMBOLA?: number | null
+    IN_MATERIAL_PED_AGRICOLA?: number | null
+    IN_MATERIAL_PED_EDU_ESP?: number | null
+    IN_MATERIAL_PED_NENHUM?: number | null
+    IN_ALIMENTACAO?: number | null
+    IN_ATIV_COMPLEMENTAR?: number | null
+    IN_FUNDEB?: number | null
+    IN_REGULAR_CLASSE_COMUM?: number | null
+    IN_REGULAR_CLASSE_ESP?: number | null
+    IN_ESP_CLASSE_COMUM?: number | null
+    IN_ESP_CLASSE_ESP?: number | null
+    IN_EJA_CLASSE_COMUM?: number | null
+    IN_EJA_CLASSE_ESP?: number | null
+    CO_LINGUA_INDIGENA_1?: number | null
+    CO_LINGUA_INDIGENA_2?: number | null
+    CO_LINGUA_INDIGENA_3?: number | null
+    IN_AREA_PLANTIO?: number | null
+    IN_DEPENDENCIAS_OUTRAS?: number | null
+    IN_DORMITORIO_PROFESSOR?: number | null
+    IN_EDUCACAO_INDIGENA?: number | null
+    IN_LAVANDERIA?: number | null
+    TP_AEE?: number | null
+    TP_ATIVIDADE_COMPLEMENTAR?: number | null
+    TP_INDIGENA_LINGUA?: number | null
+    IN_MEDIACAO_PRESENCIAL?: number | null
+    IN_MEDIACAO_SEMIPRESENCIAL?: number | null
+    IN_MEDIACAO_EAD?: number | null
+    IN_QUADRA_ESPORTES_PNE?: number | null
+    IN_SANITARIO_PNE?: number | null
+    IN_SANITARIO?: number | null
+    IN_SANITARIO_FORA_PREDIO?: number | null
+    IN_SANITARIO_DENTRO_PREDIO?: number | null
+    IN_SANITARIO_CHUVEIRO?: number | null
+    IN_PROF_CLASSE_COMUM?: number | null
+    IN_PROF_CLASSE_ESP?: number | null
+    NO_ENTIDADE?: string | null
+    NO_MUNICIPIO?: string | null
+    CO_UF: number
+    SG_UF?: string | null
+    TP_DEPENDENCIA?: number | null
+    TP_LOCALIZACAO?: number | null
+  }
+
+  export type CensoEscolarInfraestruturaCreateOrConnectWithoutLocalidadeInput = {
+    where: CensoEscolarInfraestruturaWhereUniqueInput
+    create: XOR<CensoEscolarInfraestruturaCreateWithoutLocalidadeInput, CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput>
+  }
+
+  export type CensoEscolarInfraestruturaCreateManyLocalidadeInputEnvelope = {
+    data: CensoEscolarInfraestruturaCreateManyLocalidadeInput | CensoEscolarInfraestruturaCreateManyLocalidadeInput[]
+    skipDuplicates?: boolean
+  }
+
   export type DadoEducacaoBasicaUpsertWithWhereUniqueWithoutLocalidadeInput = {
     where: DadoEducacaoBasicaWhereUniqueInput
     update: XOR<DadoEducacaoBasicaUpdateWithoutLocalidadeInput, DadoEducacaoBasicaUncheckedUpdateWithoutLocalidadeInput>
@@ -55897,6 +56692,259 @@ export namespace Prisma {
     instituicao_ensino_id?: IntNullableFilter<"DadoEducacaoSuperior"> | number | null
     formacao_docente_id?: IntNullableFilter<"DadoEducacaoSuperior"> | number | null
     regime_docente_id?: IntNullableFilter<"DadoEducacaoSuperior"> | number | null
+  }
+
+  export type CensoEscolarInfraestruturaUpsertWithWhereUniqueWithoutLocalidadeInput = {
+    where: CensoEscolarInfraestruturaWhereUniqueInput
+    update: XOR<CensoEscolarInfraestruturaUpdateWithoutLocalidadeInput, CensoEscolarInfraestruturaUncheckedUpdateWithoutLocalidadeInput>
+    create: XOR<CensoEscolarInfraestruturaCreateWithoutLocalidadeInput, CensoEscolarInfraestruturaUncheckedCreateWithoutLocalidadeInput>
+  }
+
+  export type CensoEscolarInfraestruturaUpdateWithWhereUniqueWithoutLocalidadeInput = {
+    where: CensoEscolarInfraestruturaWhereUniqueInput
+    data: XOR<CensoEscolarInfraestruturaUpdateWithoutLocalidadeInput, CensoEscolarInfraestruturaUncheckedUpdateWithoutLocalidadeInput>
+  }
+
+  export type CensoEscolarInfraestruturaUpdateManyWithWhereWithoutLocalidadeInput = {
+    where: CensoEscolarInfraestruturaScalarWhereInput
+    data: XOR<CensoEscolarInfraestruturaUpdateManyMutationInput, CensoEscolarInfraestruturaUncheckedUpdateManyWithoutLocalidadeInput>
+  }
+
+  export type CensoEscolarInfraestruturaScalarWhereInput = {
+    AND?: CensoEscolarInfraestruturaScalarWhereInput | CensoEscolarInfraestruturaScalarWhereInput[]
+    OR?: CensoEscolarInfraestruturaScalarWhereInput[]
+    NOT?: CensoEscolarInfraestruturaScalarWhereInput | CensoEscolarInfraestruturaScalarWhereInput[]
+    id?: IntFilter<"CensoEscolarInfraestrutura"> | number
+    ANO?: IntFilter<"CensoEscolarInfraestrutura"> | number
+    IN_LOCAL_FUNC_PREDIO_ESCOLAR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    TP_OCUPACAO_PREDIO_ESCOLAR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LOCAL_FUNC_SALAS_EMPRESA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LOCAL_FUNC_SOCIOEDUCATIVO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LOCAL_FUNC_UNID_PRISIONAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LOCAL_FUNC_PRISIONAL_SOCIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LOCAL_FUNC_TEMPLO_IGREJA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LOCAL_FUNC_CASA_PROFESSOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LOCAL_FUNC_GALPAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    TP_OCUPACAO_GALPAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LOCAL_FUNC_SALAS_OUTRA_ESC?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LOCAL_FUNC_OUTROS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_PREDIO_COMPARTILHADO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AGUA_POTAVEL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AGUA_FILTRADA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AGUA_REDE_PUBLICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AGUA_POCO_ARTESIANO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AGUA_CACIMBA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AGUA_FONTE_RIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AGUA_INEXISTENTE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AGUA_CARRO_PIPA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ENERGIA_REDE_PUBLICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ENERGIA_GERADOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ENERGIA_GERADOR_FOSSIL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ENERGIA_RENOVAVEL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ENERGIA_OUTROS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ENERGIA_INEXISTENTE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ESGOTO_REDE_PUBLICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ESGOTO_FOSSA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ESGOTO_FOSSA_SEPTICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ESGOTO_FOSSA_COMUM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ESGOTO_INEXISTENTE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LIXO_SERVICO_COLETA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LIXO_QUEIMA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LIXO_ENTERRA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LIXO_DESTINO_FINAL_PUBLICO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LIXO_JOGA_OUTRA_AREA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LIXO_DESCARTA_OUTRA_AREA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LIXO_RECICLA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LIXO_OUTROS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_TRATAMENTO_LIXO_SEPARACAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_TRATAMENTO_LIXO_REUTILIZA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_TRATAMENTO_LIXO_RECICLAGEM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_TRATAMENTO_LIXO_INEXISTENTE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BANHEIRO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BANHEIRO_FORA_PREDIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BANHEIRO_DENTRO_PREDIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BANHEIRO_PNE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BANHEIRO_EI?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BANHEIRO_FUNCIONARIOS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BANHEIRO_CHUVEIRO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_DEPENDENCIAS_PNE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSIBILIDADE_INEXISTENTE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSIBILIDADE_CORRIMAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSIBILIDADE_ELEVADOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSIBILIDADE_PISOS_TATEIS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSIBILIDADE_VAO_LIVRE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSIBILIDADE_RAMPAS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSIBILIDADE_SINAL_SONORO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSIBILIDADE_SINAL_TATIL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSIBILIDADE_SINAL_VISUAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BIBLIOTECA_SALA_LEITURA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BIBLIOTECA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_LEITURA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_COZINHA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LABORATORIO_CIENCIAS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LABORATORIO_INFORMATICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LABORATORIO_EDUC_PROF?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_QUADRA_ESPORTES_COBERTA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_QUADRA_ESPORTES_DESCOBERTA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_QUADRA_ESPORTES?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_ATENDIMENTO_ESPECIAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AUDITORIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_PATIO_COBERTO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_PATIO_DESCOBERTO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_PISCINA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_DIRETORIA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_PROFESSOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_SECRETARIA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_REFEITORIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ALMOXARIFADO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_DESPENSA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AREA_VERDE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BERCARIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_DORMITORIO_ALUNO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_PARQUE_INFANTIL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_ATELIE_ARTES?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_MUSICA_CORAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_ESTUDIO_DANCA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_MULTIUSO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_ESTUDIO_GRAVACAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_OFICINAS_EDUC_PROF?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SALA_REPOUSO_ALUNO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_TERREIRAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_VIVEIRO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_SALAS_EXISTENTES?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_SALAS_UTILIZADAS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_SALAS_UTILIZADAS_DENTRO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_SALAS_UTILIZADAS_FORA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_SALAS_UTILIZA_CLIMATIZADAS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_SALAS_UTILIZADAS_ACESSIVEIS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_TV?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_VIDEOCASSETE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_DVD?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_PARABOLICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_COPIADORA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_RETROPROJETOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_IMPRESSORA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_IMPRESSORA_MULT?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_SOM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_PROJETOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_MULTIMIDIA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_FAX?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_FOTO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_SCANNER?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_NENHUM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EQUIP_LOUSA_DIGITAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_TV?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_VIDEOCASSETE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_DVD?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_PARABOLICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_COPIADORA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_RETROPROJETOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_IMPRESSORA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_IMPRESSORA_MULT?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_SOM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_PROJETOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_MULTIMIDIA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_FAX?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_FOTO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_EQUIP_LOUSA_DIGITAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_COMPUTADOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_COMPUTADOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_COMP_ADMINISTRATIVO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_COMP_ALUNO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_DESKTOP_ALUNO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_DESKTOP_ALUNO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_COMP_PORTATIL_ALUNO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_COMP_PORTATIL_ALUNO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_TABLET_ALUNO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    QT_TABLET_ALUNO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_INTERNET?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_INTERNET_APRENDIZAGEM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_INTERNET_ADMINISTRATIVO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_INTERNET_ALUNOS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_INTERNET_COMUNIDADE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSO_INTERNET_COMPUTADOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ACESSO_INTERNET_DISP_PESSOAIS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    TP_REDE_LOCAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_BANDA_LARGA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_NAO_UTILIZA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_PEDAGOGICO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_ARTES?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_AUDIOVISUAIS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_AUDITIVOS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_BIOLOGIA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_BRINQUEDOS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_CIENCIAS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_CINEMA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_DISCIPLINAR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_FISICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_FOTO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_INFORMATICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_JOGOS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_JORNAIS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_LIVROS_DIDAT?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_LIVROS_LITER?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_MAPAS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_MUSICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_OUTROS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_QUIMICA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_REVISTAS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_QUILOMBOLA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_ESP_INDIGENA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_MULTIMIDIA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_INFANTIL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_CIENTIFICO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_DIFUSAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_MUSICAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_JOGOS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_ARTISTICAS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_PROFISSIONAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_DESPORTIVA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_INDIGENA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_ETNICO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_CAMPO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_BIL_SURDOS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_QUILOMBOLA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_AGRICOLA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_EDU_ESP?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MATERIAL_PED_NENHUM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ALIMENTACAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ATIV_COMPLEMENTAR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_FUNDEB?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_REGULAR_CLASSE_COMUM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_REGULAR_CLASSE_ESP?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ESP_CLASSE_COMUM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_ESP_CLASSE_ESP?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EJA_CLASSE_COMUM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EJA_CLASSE_ESP?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    CO_LINGUA_INDIGENA_1?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    CO_LINGUA_INDIGENA_2?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    CO_LINGUA_INDIGENA_3?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_AREA_PLANTIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_DEPENDENCIAS_OUTRAS?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_DORMITORIO_PROFESSOR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_EDUCACAO_INDIGENA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_LAVANDERIA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    TP_AEE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    TP_ATIVIDADE_COMPLEMENTAR?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    TP_INDIGENA_LINGUA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MEDIACAO_PRESENCIAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MEDIACAO_SEMIPRESENCIAL?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_MEDIACAO_EAD?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_QUADRA_ESPORTES_PNE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SANITARIO_PNE?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SANITARIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SANITARIO_FORA_PREDIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SANITARIO_DENTRO_PREDIO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_SANITARIO_CHUVEIRO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_PROF_CLASSE_COMUM?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    IN_PROF_CLASSE_ESP?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    NO_ENTIDADE?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
+    CO_MUNICIPIO?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
+    NO_MUNICIPIO?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
+    CO_UF?: IntFilter<"CensoEscolarInfraestrutura"> | number
+    SG_UF?: StringNullableFilter<"CensoEscolarInfraestrutura"> | string | null
+    TP_DEPENDENCIA?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
+    TP_LOCALIZACAO?: IntNullableFilter<"CensoEscolarInfraestrutura"> | number | null
   }
 
   export type DadoEducacaoBasicaCreateWithoutDependenciaInput = {
@@ -57552,10 +58600,16 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica_apos23?: DadoEducacaoBasicaApos23CreateNestedManyWithoutLocalidadeInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaCreateNestedManyWithoutLocalidadeInput
     taxas?: TaxasCreateNestedManyWithoutLocalidadeInput
     dados_educacao_superior?: DadoEducacaoSuperiorCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUncheckedCreateWithoutDados_basicaInput = {
@@ -57564,10 +58618,16 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedCreateNestedManyWithoutLocalidadeInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutLocalidadeInput
     taxas?: TaxasUncheckedCreateNestedManyWithoutLocalidadeInput
     dados_educacao_superior?: DadoEducacaoSuperiorUncheckedCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeCreateOrConnectWithoutDados_basicaInput = {
@@ -57771,10 +58831,16 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica_apos23?: DadoEducacaoBasicaApos23UpdateManyWithoutLocalidadeNestedInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUpdateManyWithoutLocalidadeNestedInput
     taxas?: TaxasUpdateManyWithoutLocalidadeNestedInput
     dados_educacao_superior?: DadoEducacaoSuperiorUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeUncheckedUpdateWithoutDados_basicaInput = {
@@ -57783,10 +58849,16 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedUpdateManyWithoutLocalidadeNestedInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeNestedInput
     taxas?: TaxasUncheckedUpdateManyWithoutLocalidadeNestedInput
     dados_educacao_superior?: DadoEducacaoSuperiorUncheckedUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type DependenciaAdministrativaBasicaUpsertWithoutDadosInput = {
@@ -58040,10 +59112,16 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica?: DadoEducacaoBasicaCreateNestedManyWithoutLocalidadeInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaCreateNestedManyWithoutLocalidadeInput
     taxas?: TaxasCreateNestedManyWithoutLocalidadeInput
     dados_educacao_superior?: DadoEducacaoSuperiorCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUncheckedCreateWithoutDados_basica_apos23Input = {
@@ -58052,10 +59130,16 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutLocalidadeInput
     taxas?: TaxasUncheckedCreateNestedManyWithoutLocalidadeInput
     dados_educacao_superior?: DadoEducacaoSuperiorUncheckedCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeCreateOrConnectWithoutDados_basica_apos23Input = {
@@ -58162,10 +59246,16 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUpdateManyWithoutLocalidadeNestedInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUpdateManyWithoutLocalidadeNestedInput
     taxas?: TaxasUpdateManyWithoutLocalidadeNestedInput
     dados_educacao_superior?: DadoEducacaoSuperiorUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeUncheckedUpdateWithoutDados_basica_apos23Input = {
@@ -58174,10 +59264,16 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeNestedInput
     taxas?: TaxasUncheckedUpdateManyWithoutLocalidadeNestedInput
     dados_educacao_superior?: DadoEducacaoSuperiorUncheckedUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type DependenciaAdministrativaBasicaApos23UpsertWithoutDadosInput = {
@@ -58298,10 +59394,16 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica?: DadoEducacaoBasicaCreateNestedManyWithoutLocalidadeInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23CreateNestedManyWithoutLocalidadeInput
     taxas?: TaxasCreateNestedManyWithoutLocalidadeInput
     dados_educacao_superior?: DadoEducacaoSuperiorCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUncheckedCreateWithoutTaxas_por_faixa_etariaInput = {
@@ -58310,10 +59412,16 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedCreateNestedManyWithoutLocalidadeInput
     taxas?: TaxasUncheckedCreateNestedManyWithoutLocalidadeInput
     dados_educacao_superior?: DadoEducacaoSuperiorUncheckedCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeCreateOrConnectWithoutTaxas_por_faixa_etariaInput = {
@@ -58357,10 +59465,16 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUpdateManyWithoutLocalidadeNestedInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UpdateManyWithoutLocalidadeNestedInput
     taxas?: TaxasUpdateManyWithoutLocalidadeNestedInput
     dados_educacao_superior?: DadoEducacaoSuperiorUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeUncheckedUpdateWithoutTaxas_por_faixa_etariaInput = {
@@ -58369,10 +59483,16 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedUpdateManyWithoutLocalidadeNestedInput
     taxas?: TaxasUncheckedUpdateManyWithoutLocalidadeNestedInput
     dados_educacao_superior?: DadoEducacaoSuperiorUncheckedUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type FaixaEtariaTaxasUpsertWithoutTaxasInput = {
@@ -58406,10 +59526,16 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica?: DadoEducacaoBasicaCreateNestedManyWithoutLocalidadeInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23CreateNestedManyWithoutLocalidadeInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaCreateNestedManyWithoutLocalidadeInput
     dados_educacao_superior?: DadoEducacaoSuperiorCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUncheckedCreateWithoutTaxasInput = {
@@ -58418,10 +59544,16 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedCreateNestedManyWithoutLocalidadeInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutLocalidadeInput
     dados_educacao_superior?: DadoEducacaoSuperiorUncheckedCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeCreateOrConnectWithoutTaxasInput = {
@@ -58518,10 +59650,16 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUpdateManyWithoutLocalidadeNestedInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UpdateManyWithoutLocalidadeNestedInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUpdateManyWithoutLocalidadeNestedInput
     dados_educacao_superior?: DadoEducacaoSuperiorUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeUncheckedUpdateWithoutTaxasInput = {
@@ -58530,10 +59668,16 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedUpdateManyWithoutLocalidadeNestedInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeNestedInput
     dados_educacao_superior?: DadoEducacaoSuperiorUncheckedUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalizacaoUpsertWithoutTaxasInput = {
@@ -58638,10 +59782,16 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica?: DadoEducacaoBasicaCreateNestedManyWithoutLocalidadeInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23CreateNestedManyWithoutLocalidadeInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaCreateNestedManyWithoutLocalidadeInput
     taxas?: TaxasCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeUncheckedCreateWithoutDados_educacao_superiorInput = {
@@ -58650,10 +59800,16 @@ export namespace Prisma {
     tipo: string
     uf?: string | null
     codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
     dados_basica?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedCreateNestedManyWithoutLocalidadeInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutLocalidadeInput
     taxas?: TaxasUncheckedCreateNestedManyWithoutLocalidadeInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedCreateNestedManyWithoutLocalidadeInput
   }
 
   export type LocalidadeCreateOrConnectWithoutDados_educacao_superiorInput = {
@@ -58808,10 +59964,16 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUpdateManyWithoutLocalidadeNestedInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UpdateManyWithoutLocalidadeNestedInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUpdateManyWithoutLocalidadeNestedInput
     taxas?: TaxasUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type LocalidadeUncheckedUpdateWithoutDados_educacao_superiorInput = {
@@ -58820,10 +59982,16 @@ export namespace Prisma {
     tipo?: StringFieldUpdateOperationsInput | string
     uf?: NullableStringFieldUpdateOperationsInput | string | null
     codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
     dados_basica?: DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput
     dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedUpdateManyWithoutLocalidadeNestedInput
     taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeNestedInput
     taxas?: TaxasUncheckedUpdateManyWithoutLocalidadeNestedInput
+    infraestrutura?: CensoEscolarInfraestruturaUncheckedUpdateManyWithoutLocalidadeNestedInput
   }
 
   export type CursosSuperiorUpsertWithoutDadosInput = {
@@ -59004,6 +60172,94 @@ export namespace Prisma {
     nome?: StringFieldUpdateOperationsInput | string
   }
 
+  export type LocalidadeCreateWithoutInfraestruturaInput = {
+    id: number
+    nome: string
+    tipo: string
+    uf?: string | null
+    codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
+    dados_basica?: DadoEducacaoBasicaCreateNestedManyWithoutLocalidadeInput
+    dados_basica_apos23?: DadoEducacaoBasicaApos23CreateNestedManyWithoutLocalidadeInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaCreateNestedManyWithoutLocalidadeInput
+    taxas?: TaxasCreateNestedManyWithoutLocalidadeInput
+    dados_educacao_superior?: DadoEducacaoSuperiorCreateNestedManyWithoutLocalidadeInput
+  }
+
+  export type LocalidadeUncheckedCreateWithoutInfraestruturaInput = {
+    id: number
+    nome: string
+    tipo: string
+    uf?: string | null
+    codigo_ibge?: string | null
+    territorio_desenvolvimento?: string | null
+    aglomerado?: string | null
+    gerencia_regional?: string | null
+    populacao_2022?: number | null
+    faixa_populacional?: string | null
+    dados_basica?: DadoEducacaoBasicaUncheckedCreateNestedManyWithoutLocalidadeInput
+    dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedCreateNestedManyWithoutLocalidadeInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedCreateNestedManyWithoutLocalidadeInput
+    taxas?: TaxasUncheckedCreateNestedManyWithoutLocalidadeInput
+    dados_educacao_superior?: DadoEducacaoSuperiorUncheckedCreateNestedManyWithoutLocalidadeInput
+  }
+
+  export type LocalidadeCreateOrConnectWithoutInfraestruturaInput = {
+    where: LocalidadeWhereUniqueInput
+    create: XOR<LocalidadeCreateWithoutInfraestruturaInput, LocalidadeUncheckedCreateWithoutInfraestruturaInput>
+  }
+
+  export type LocalidadeUpsertWithoutInfraestruturaInput = {
+    update: XOR<LocalidadeUpdateWithoutInfraestruturaInput, LocalidadeUncheckedUpdateWithoutInfraestruturaInput>
+    create: XOR<LocalidadeCreateWithoutInfraestruturaInput, LocalidadeUncheckedCreateWithoutInfraestruturaInput>
+    where?: LocalidadeWhereInput
+  }
+
+  export type LocalidadeUpdateToOneWithWhereWithoutInfraestruturaInput = {
+    where?: LocalidadeWhereInput
+    data: XOR<LocalidadeUpdateWithoutInfraestruturaInput, LocalidadeUncheckedUpdateWithoutInfraestruturaInput>
+  }
+
+  export type LocalidadeUpdateWithoutInfraestruturaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    uf?: NullableStringFieldUpdateOperationsInput | string | null
+    codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
+    dados_basica?: DadoEducacaoBasicaUpdateManyWithoutLocalidadeNestedInput
+    dados_basica_apos23?: DadoEducacaoBasicaApos23UpdateManyWithoutLocalidadeNestedInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUpdateManyWithoutLocalidadeNestedInput
+    taxas?: TaxasUpdateManyWithoutLocalidadeNestedInput
+    dados_educacao_superior?: DadoEducacaoSuperiorUpdateManyWithoutLocalidadeNestedInput
+  }
+
+  export type LocalidadeUncheckedUpdateWithoutInfraestruturaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    uf?: NullableStringFieldUpdateOperationsInput | string | null
+    codigo_ibge?: NullableStringFieldUpdateOperationsInput | string | null
+    territorio_desenvolvimento?: NullableStringFieldUpdateOperationsInput | string | null
+    aglomerado?: NullableStringFieldUpdateOperationsInput | string | null
+    gerencia_regional?: NullableStringFieldUpdateOperationsInput | string | null
+    populacao_2022?: NullableIntFieldUpdateOperationsInput | number | null
+    faixa_populacional?: NullableStringFieldUpdateOperationsInput | string | null
+    dados_basica?: DadoEducacaoBasicaUncheckedUpdateManyWithoutLocalidadeNestedInput
+    dados_basica_apos23?: DadoEducacaoBasicaApos23UncheckedUpdateManyWithoutLocalidadeNestedInput
+    taxas_por_faixa_etaria?: TaxasPorFaixaEtariaUncheckedUpdateManyWithoutLocalidadeNestedInput
+    taxas?: TaxasUncheckedUpdateManyWithoutLocalidadeNestedInput
+    dados_educacao_superior?: DadoEducacaoSuperiorUncheckedUpdateManyWithoutLocalidadeNestedInput
+  }
+
   export type DadoEducacaoBasicaCreateManyLocalidadeInput = {
     id?: number
     tipo: string
@@ -59073,6 +60329,239 @@ export namespace Prisma {
     instituicao_ensino_id?: number | null
     formacao_docente_id?: number | null
     regime_docente_id?: number | null
+  }
+
+  export type CensoEscolarInfraestruturaCreateManyLocalidadeInput = {
+    id?: number
+    ANO: number
+    IN_LOCAL_FUNC_PREDIO_ESCOLAR?: number | null
+    TP_OCUPACAO_PREDIO_ESCOLAR?: number | null
+    IN_LOCAL_FUNC_SALAS_EMPRESA?: number | null
+    IN_LOCAL_FUNC_SOCIOEDUCATIVO?: number | null
+    IN_LOCAL_FUNC_UNID_PRISIONAL?: number | null
+    IN_LOCAL_FUNC_PRISIONAL_SOCIO?: number | null
+    IN_LOCAL_FUNC_TEMPLO_IGREJA?: number | null
+    IN_LOCAL_FUNC_CASA_PROFESSOR?: number | null
+    IN_LOCAL_FUNC_GALPAO?: number | null
+    TP_OCUPACAO_GALPAO?: number | null
+    IN_LOCAL_FUNC_SALAS_OUTRA_ESC?: number | null
+    IN_LOCAL_FUNC_OUTROS?: number | null
+    IN_PREDIO_COMPARTILHADO?: number | null
+    IN_AGUA_POTAVEL?: number | null
+    IN_AGUA_FILTRADA?: number | null
+    IN_AGUA_REDE_PUBLICA?: number | null
+    IN_AGUA_POCO_ARTESIANO?: number | null
+    IN_AGUA_CACIMBA?: number | null
+    IN_AGUA_FONTE_RIO?: number | null
+    IN_AGUA_INEXISTENTE?: number | null
+    IN_AGUA_CARRO_PIPA?: number | null
+    IN_ENERGIA_REDE_PUBLICA?: number | null
+    IN_ENERGIA_GERADOR?: number | null
+    IN_ENERGIA_GERADOR_FOSSIL?: number | null
+    IN_ENERGIA_RENOVAVEL?: number | null
+    IN_ENERGIA_OUTROS?: number | null
+    IN_ENERGIA_INEXISTENTE?: number | null
+    IN_ESGOTO_REDE_PUBLICA?: number | null
+    IN_ESGOTO_FOSSA?: number | null
+    IN_ESGOTO_FOSSA_SEPTICA?: number | null
+    IN_ESGOTO_FOSSA_COMUM?: number | null
+    IN_ESGOTO_INEXISTENTE?: number | null
+    IN_LIXO_SERVICO_COLETA?: number | null
+    IN_LIXO_QUEIMA?: number | null
+    IN_LIXO_ENTERRA?: number | null
+    IN_LIXO_DESTINO_FINAL_PUBLICO?: number | null
+    IN_LIXO_JOGA_OUTRA_AREA?: number | null
+    IN_LIXO_DESCARTA_OUTRA_AREA?: number | null
+    IN_LIXO_RECICLA?: number | null
+    IN_LIXO_OUTROS?: number | null
+    IN_TRATAMENTO_LIXO_SEPARACAO?: number | null
+    IN_TRATAMENTO_LIXO_REUTILIZA?: number | null
+    IN_TRATAMENTO_LIXO_RECICLAGEM?: number | null
+    IN_TRATAMENTO_LIXO_INEXISTENTE?: number | null
+    IN_BANHEIRO?: number | null
+    IN_BANHEIRO_FORA_PREDIO?: number | null
+    IN_BANHEIRO_DENTRO_PREDIO?: number | null
+    IN_BANHEIRO_PNE?: number | null
+    IN_BANHEIRO_EI?: number | null
+    IN_BANHEIRO_FUNCIONARIOS?: number | null
+    IN_BANHEIRO_CHUVEIRO?: number | null
+    IN_DEPENDENCIAS_PNE?: number | null
+    IN_ACESSIBILIDADE_INEXISTENTE?: number | null
+    IN_ACESSIBILIDADE_CORRIMAO?: number | null
+    IN_ACESSIBILIDADE_ELEVADOR?: number | null
+    IN_ACESSIBILIDADE_PISOS_TATEIS?: number | null
+    IN_ACESSIBILIDADE_VAO_LIVRE?: number | null
+    IN_ACESSIBILIDADE_RAMPAS?: number | null
+    IN_ACESSIBILIDADE_SINAL_SONORO?: number | null
+    IN_ACESSIBILIDADE_SINAL_TATIL?: number | null
+    IN_ACESSIBILIDADE_SINAL_VISUAL?: number | null
+    IN_BIBLIOTECA_SALA_LEITURA?: number | null
+    IN_BIBLIOTECA?: number | null
+    IN_SALA_LEITURA?: number | null
+    IN_COZINHA?: number | null
+    IN_LABORATORIO_CIENCIAS?: number | null
+    IN_LABORATORIO_INFORMATICA?: number | null
+    IN_LABORATORIO_EDUC_PROF?: number | null
+    IN_QUADRA_ESPORTES_COBERTA?: number | null
+    IN_QUADRA_ESPORTES_DESCOBERTA?: number | null
+    IN_QUADRA_ESPORTES?: number | null
+    IN_SALA_ATENDIMENTO_ESPECIAL?: number | null
+    IN_AUDITORIO?: number | null
+    IN_PATIO_COBERTO?: number | null
+    IN_PATIO_DESCOBERTO?: number | null
+    IN_PISCINA?: number | null
+    IN_SALA_DIRETORIA?: number | null
+    IN_SALA_PROFESSOR?: number | null
+    IN_SALA_SECRETARIA?: number | null
+    IN_REFEITORIO?: number | null
+    IN_ALMOXARIFADO?: number | null
+    IN_DESPENSA?: number | null
+    IN_AREA_VERDE?: number | null
+    IN_BERCARIO?: number | null
+    IN_DORMITORIO_ALUNO?: number | null
+    IN_PARQUE_INFANTIL?: number | null
+    IN_SALA_ATELIE_ARTES?: number | null
+    IN_SALA_MUSICA_CORAL?: number | null
+    IN_SALA_ESTUDIO_DANCA?: number | null
+    IN_SALA_MULTIUSO?: number | null
+    IN_SALA_ESTUDIO_GRAVACAO?: number | null
+    IN_SALA_OFICINAS_EDUC_PROF?: number | null
+    IN_SALA_REPOUSO_ALUNO?: number | null
+    IN_TERREIRAO?: number | null
+    IN_VIVEIRO?: number | null
+    QT_SALAS_EXISTENTES?: number | null
+    QT_SALAS_UTILIZADAS?: number | null
+    QT_SALAS_UTILIZADAS_DENTRO?: number | null
+    QT_SALAS_UTILIZADAS_FORA?: number | null
+    QT_SALAS_UTILIZA_CLIMATIZADAS?: number | null
+    QT_SALAS_UTILIZADAS_ACESSIVEIS?: number | null
+    IN_EQUIP_TV?: number | null
+    IN_EQUIP_VIDEOCASSETE?: number | null
+    IN_EQUIP_DVD?: number | null
+    IN_EQUIP_PARABOLICA?: number | null
+    IN_EQUIP_COPIADORA?: number | null
+    IN_EQUIP_RETROPROJETOR?: number | null
+    IN_EQUIP_IMPRESSORA?: number | null
+    IN_EQUIP_IMPRESSORA_MULT?: number | null
+    IN_EQUIP_SOM?: number | null
+    IN_EQUIP_PROJETOR?: number | null
+    IN_EQUIP_MULTIMIDIA?: number | null
+    IN_EQUIP_FAX?: number | null
+    IN_EQUIP_FOTO?: number | null
+    IN_EQUIP_SCANNER?: number | null
+    IN_EQUIP_NENHUM?: number | null
+    IN_EQUIP_LOUSA_DIGITAL?: number | null
+    QT_EQUIP_TV?: number | null
+    QT_EQUIP_VIDEOCASSETE?: number | null
+    QT_EQUIP_DVD?: number | null
+    QT_EQUIP_PARABOLICA?: number | null
+    QT_EQUIP_COPIADORA?: number | null
+    QT_EQUIP_RETROPROJETOR?: number | null
+    QT_EQUIP_IMPRESSORA?: number | null
+    QT_EQUIP_IMPRESSORA_MULT?: number | null
+    QT_EQUIP_SOM?: number | null
+    QT_EQUIP_PROJETOR?: number | null
+    QT_EQUIP_MULTIMIDIA?: number | null
+    QT_EQUIP_FAX?: number | null
+    QT_EQUIP_FOTO?: number | null
+    QT_EQUIP_LOUSA_DIGITAL?: number | null
+    IN_COMPUTADOR?: number | null
+    QT_COMPUTADOR?: number | null
+    QT_COMP_ADMINISTRATIVO?: number | null
+    QT_COMP_ALUNO?: number | null
+    IN_DESKTOP_ALUNO?: number | null
+    QT_DESKTOP_ALUNO?: number | null
+    IN_COMP_PORTATIL_ALUNO?: number | null
+    QT_COMP_PORTATIL_ALUNO?: number | null
+    IN_TABLET_ALUNO?: number | null
+    QT_TABLET_ALUNO?: number | null
+    IN_INTERNET?: number | null
+    IN_INTERNET_APRENDIZAGEM?: number | null
+    IN_INTERNET_ADMINISTRATIVO?: number | null
+    IN_INTERNET_ALUNOS?: number | null
+    IN_INTERNET_COMUNIDADE?: number | null
+    IN_ACESSO_INTERNET_COMPUTADOR?: number | null
+    IN_ACESSO_INTERNET_DISP_PESSOAIS?: number | null
+    TP_REDE_LOCAL?: number | null
+    IN_BANDA_LARGA?: number | null
+    IN_MATERIAL_ESP_NAO_UTILIZA?: number | null
+    IN_MATERIAL_ESP_PEDAGOGICO?: number | null
+    IN_MATERIAL_ESP_ARTES?: number | null
+    IN_MATERIAL_ESP_AUDIOVISUAIS?: number | null
+    IN_MATERIAL_ESP_AUDITIVOS?: number | null
+    IN_MATERIAL_ESP_BIOLOGIA?: number | null
+    IN_MATERIAL_ESP_BRINQUEDOS?: number | null
+    IN_MATERIAL_ESP_CIENCIAS?: number | null
+    IN_MATERIAL_ESP_CINEMA?: number | null
+    IN_MATERIAL_ESP_DISCIPLINAR?: number | null
+    IN_MATERIAL_ESP_FISICA?: number | null
+    IN_MATERIAL_ESP_FOTO?: number | null
+    IN_MATERIAL_ESP_INFORMATICA?: number | null
+    IN_MATERIAL_ESP_JOGOS?: number | null
+    IN_MATERIAL_ESP_JORNAIS?: number | null
+    IN_MATERIAL_ESP_LIVROS_DIDAT?: number | null
+    IN_MATERIAL_ESP_LIVROS_LITER?: number | null
+    IN_MATERIAL_ESP_MAPAS?: number | null
+    IN_MATERIAL_ESP_MUSICA?: number | null
+    IN_MATERIAL_ESP_OUTROS?: number | null
+    IN_MATERIAL_ESP_QUIMICA?: number | null
+    IN_MATERIAL_ESP_REVISTAS?: number | null
+    IN_MATERIAL_ESP_QUILOMBOLA?: number | null
+    IN_MATERIAL_ESP_INDIGENA?: number | null
+    IN_MATERIAL_PED_MULTIMIDIA?: number | null
+    IN_MATERIAL_PED_INFANTIL?: number | null
+    IN_MATERIAL_PED_CIENTIFICO?: number | null
+    IN_MATERIAL_PED_DIFUSAO?: number | null
+    IN_MATERIAL_PED_MUSICAL?: number | null
+    IN_MATERIAL_PED_JOGOS?: number | null
+    IN_MATERIAL_PED_ARTISTICAS?: number | null
+    IN_MATERIAL_PED_PROFISSIONAL?: number | null
+    IN_MATERIAL_PED_DESPORTIVA?: number | null
+    IN_MATERIAL_PED_INDIGENA?: number | null
+    IN_MATERIAL_PED_ETNICO?: number | null
+    IN_MATERIAL_PED_CAMPO?: number | null
+    IN_MATERIAL_PED_BIL_SURDOS?: number | null
+    IN_MATERIAL_PED_QUILOMBOLA?: number | null
+    IN_MATERIAL_PED_AGRICOLA?: number | null
+    IN_MATERIAL_PED_EDU_ESP?: number | null
+    IN_MATERIAL_PED_NENHUM?: number | null
+    IN_ALIMENTACAO?: number | null
+    IN_ATIV_COMPLEMENTAR?: number | null
+    IN_FUNDEB?: number | null
+    IN_REGULAR_CLASSE_COMUM?: number | null
+    IN_REGULAR_CLASSE_ESP?: number | null
+    IN_ESP_CLASSE_COMUM?: number | null
+    IN_ESP_CLASSE_ESP?: number | null
+    IN_EJA_CLASSE_COMUM?: number | null
+    IN_EJA_CLASSE_ESP?: number | null
+    CO_LINGUA_INDIGENA_1?: number | null
+    CO_LINGUA_INDIGENA_2?: number | null
+    CO_LINGUA_INDIGENA_3?: number | null
+    IN_AREA_PLANTIO?: number | null
+    IN_DEPENDENCIAS_OUTRAS?: number | null
+    IN_DORMITORIO_PROFESSOR?: number | null
+    IN_EDUCACAO_INDIGENA?: number | null
+    IN_LAVANDERIA?: number | null
+    TP_AEE?: number | null
+    TP_ATIVIDADE_COMPLEMENTAR?: number | null
+    TP_INDIGENA_LINGUA?: number | null
+    IN_MEDIACAO_PRESENCIAL?: number | null
+    IN_MEDIACAO_SEMIPRESENCIAL?: number | null
+    IN_MEDIACAO_EAD?: number | null
+    IN_QUADRA_ESPORTES_PNE?: number | null
+    IN_SANITARIO_PNE?: number | null
+    IN_SANITARIO?: number | null
+    IN_SANITARIO_FORA_PREDIO?: number | null
+    IN_SANITARIO_DENTRO_PREDIO?: number | null
+    IN_SANITARIO_CHUVEIRO?: number | null
+    IN_PROF_CLASSE_COMUM?: number | null
+    IN_PROF_CLASSE_ESP?: number | null
+    NO_ENTIDADE?: string | null
+    NO_MUNICIPIO?: string | null
+    CO_UF: number
+    SG_UF?: string | null
+    TP_DEPENDENCIA?: number | null
+    TP_LOCALIZACAO?: number | null
   }
 
   export type DadoEducacaoBasicaUpdateWithoutLocalidadeInput = {
@@ -59281,6 +60770,704 @@ export namespace Prisma {
     instituicao_ensino_id?: NullableIntFieldUpdateOperationsInput | number | null
     formacao_docente_id?: NullableIntFieldUpdateOperationsInput | number | null
     regime_docente_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type CensoEscolarInfraestruturaUpdateWithoutLocalidadeInput = {
+    ANO?: IntFieldUpdateOperationsInput | number
+    IN_LOCAL_FUNC_PREDIO_ESCOLAR?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_OCUPACAO_PREDIO_ESCOLAR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_SALAS_EMPRESA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_SOCIOEDUCATIVO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_UNID_PRISIONAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_PRISIONAL_SOCIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_TEMPLO_IGREJA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_CASA_PROFESSOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_GALPAO?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_OCUPACAO_GALPAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_SALAS_OUTRA_ESC?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PREDIO_COMPARTILHADO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_POTAVEL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_FILTRADA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_REDE_PUBLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_POCO_ARTESIANO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_CACIMBA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_FONTE_RIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_CARRO_PIPA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_REDE_PUBLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_GERADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_GERADOR_FOSSIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_RENOVAVEL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_REDE_PUBLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_FOSSA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_FOSSA_SEPTICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_FOSSA_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_SERVICO_COLETA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_QUEIMA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_ENTERRA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_DESTINO_FINAL_PUBLICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_JOGA_OUTRA_AREA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_DESCARTA_OUTRA_AREA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_RECICLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_SEPARACAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_REUTILIZA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_RECICLAGEM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_FORA_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_DENTRO_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_EI?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_FUNCIONARIOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_CHUVEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DEPENDENCIAS_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_CORRIMAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_ELEVADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_PISOS_TATEIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_VAO_LIVRE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_RAMPAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_SINAL_SONORO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_SINAL_TATIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_SINAL_VISUAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BIBLIOTECA_SALA_LEITURA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BIBLIOTECA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_LEITURA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_COZINHA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LABORATORIO_CIENCIAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LABORATORIO_INFORMATICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LABORATORIO_EDUC_PROF?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES_COBERTA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES_DESCOBERTA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ATENDIMENTO_ESPECIAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AUDITORIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PATIO_COBERTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PATIO_DESCOBERTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PISCINA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_DIRETORIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_PROFESSOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_SECRETARIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_REFEITORIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ALMOXARIFADO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DESPENSA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AREA_VERDE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BERCARIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DORMITORIO_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PARQUE_INFANTIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ATELIE_ARTES?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_MUSICA_CORAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ESTUDIO_DANCA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_MULTIUSO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ESTUDIO_GRAVACAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_OFICINAS_EDUC_PROF?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_REPOUSO_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TERREIRAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_VIVEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_EXISTENTES?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS_DENTRO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS_FORA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZA_CLIMATIZADAS?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS_ACESSIVEIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_TV?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_VIDEOCASSETE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_DVD?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_PARABOLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_COPIADORA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_RETROPROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_IMPRESSORA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_IMPRESSORA_MULT?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_SOM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_PROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_MULTIMIDIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_FAX?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_FOTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_SCANNER?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_NENHUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_LOUSA_DIGITAL?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_TV?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_VIDEOCASSETE?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_DVD?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_PARABOLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_COPIADORA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_RETROPROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_IMPRESSORA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_IMPRESSORA_MULT?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_SOM?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_PROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_MULTIMIDIA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_FAX?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_FOTO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_LOUSA_DIGITAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_COMPUTADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMPUTADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMP_ADMINISTRATIVO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMP_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DESKTOP_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_DESKTOP_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_COMP_PORTATIL_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMP_PORTATIL_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TABLET_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_TABLET_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_APRENDIZAGEM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_ADMINISTRATIVO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_ALUNOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_COMUNIDADE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSO_INTERNET_COMPUTADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSO_INTERNET_DISP_PESSOAIS?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_REDE_LOCAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANDA_LARGA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_NAO_UTILIZA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_PEDAGOGICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_ARTES?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_AUDIOVISUAIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_AUDITIVOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_BIOLOGIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_BRINQUEDOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_CIENCIAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_CINEMA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_DISCIPLINAR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_FISICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_FOTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_INFORMATICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_JOGOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_JORNAIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_LIVROS_DIDAT?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_LIVROS_LITER?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_MAPAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_MUSICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_QUIMICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_REVISTAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_QUILOMBOLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_INDIGENA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_MULTIMIDIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_INFANTIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_CIENTIFICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_DIFUSAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_MUSICAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_JOGOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_ARTISTICAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_PROFISSIONAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_DESPORTIVA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_INDIGENA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_ETNICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_CAMPO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_BIL_SURDOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_QUILOMBOLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_AGRICOLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_EDU_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_NENHUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ALIMENTACAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ATIV_COMPLEMENTAR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_FUNDEB?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_REGULAR_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_REGULAR_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESP_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESP_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EJA_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EJA_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_LINGUA_INDIGENA_1?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_LINGUA_INDIGENA_2?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_LINGUA_INDIGENA_3?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AREA_PLANTIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DEPENDENCIAS_OUTRAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DORMITORIO_PROFESSOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EDUCACAO_INDIGENA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LAVANDERIA?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_AEE?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_ATIVIDADE_COMPLEMENTAR?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_INDIGENA_LINGUA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MEDIACAO_PRESENCIAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MEDIACAO_SEMIPRESENCIAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MEDIACAO_EAD?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_FORA_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_DENTRO_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_CHUVEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PROF_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PROF_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    NO_ENTIDADE?: NullableStringFieldUpdateOperationsInput | string | null
+    NO_MUNICIPIO?: NullableStringFieldUpdateOperationsInput | string | null
+    CO_UF?: IntFieldUpdateOperationsInput | number
+    SG_UF?: NullableStringFieldUpdateOperationsInput | string | null
+    TP_DEPENDENCIA?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_LOCALIZACAO?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type CensoEscolarInfraestruturaUncheckedUpdateWithoutLocalidadeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ANO?: IntFieldUpdateOperationsInput | number
+    IN_LOCAL_FUNC_PREDIO_ESCOLAR?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_OCUPACAO_PREDIO_ESCOLAR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_SALAS_EMPRESA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_SOCIOEDUCATIVO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_UNID_PRISIONAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_PRISIONAL_SOCIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_TEMPLO_IGREJA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_CASA_PROFESSOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_GALPAO?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_OCUPACAO_GALPAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_SALAS_OUTRA_ESC?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PREDIO_COMPARTILHADO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_POTAVEL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_FILTRADA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_REDE_PUBLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_POCO_ARTESIANO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_CACIMBA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_FONTE_RIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_CARRO_PIPA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_REDE_PUBLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_GERADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_GERADOR_FOSSIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_RENOVAVEL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_REDE_PUBLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_FOSSA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_FOSSA_SEPTICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_FOSSA_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_SERVICO_COLETA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_QUEIMA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_ENTERRA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_DESTINO_FINAL_PUBLICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_JOGA_OUTRA_AREA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_DESCARTA_OUTRA_AREA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_RECICLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_SEPARACAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_REUTILIZA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_RECICLAGEM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_FORA_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_DENTRO_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_EI?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_FUNCIONARIOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_CHUVEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DEPENDENCIAS_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_CORRIMAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_ELEVADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_PISOS_TATEIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_VAO_LIVRE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_RAMPAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_SINAL_SONORO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_SINAL_TATIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_SINAL_VISUAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BIBLIOTECA_SALA_LEITURA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BIBLIOTECA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_LEITURA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_COZINHA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LABORATORIO_CIENCIAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LABORATORIO_INFORMATICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LABORATORIO_EDUC_PROF?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES_COBERTA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES_DESCOBERTA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ATENDIMENTO_ESPECIAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AUDITORIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PATIO_COBERTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PATIO_DESCOBERTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PISCINA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_DIRETORIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_PROFESSOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_SECRETARIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_REFEITORIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ALMOXARIFADO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DESPENSA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AREA_VERDE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BERCARIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DORMITORIO_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PARQUE_INFANTIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ATELIE_ARTES?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_MUSICA_CORAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ESTUDIO_DANCA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_MULTIUSO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ESTUDIO_GRAVACAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_OFICINAS_EDUC_PROF?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_REPOUSO_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TERREIRAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_VIVEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_EXISTENTES?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS_DENTRO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS_FORA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZA_CLIMATIZADAS?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS_ACESSIVEIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_TV?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_VIDEOCASSETE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_DVD?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_PARABOLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_COPIADORA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_RETROPROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_IMPRESSORA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_IMPRESSORA_MULT?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_SOM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_PROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_MULTIMIDIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_FAX?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_FOTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_SCANNER?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_NENHUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_LOUSA_DIGITAL?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_TV?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_VIDEOCASSETE?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_DVD?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_PARABOLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_COPIADORA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_RETROPROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_IMPRESSORA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_IMPRESSORA_MULT?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_SOM?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_PROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_MULTIMIDIA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_FAX?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_FOTO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_LOUSA_DIGITAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_COMPUTADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMPUTADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMP_ADMINISTRATIVO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMP_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DESKTOP_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_DESKTOP_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_COMP_PORTATIL_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMP_PORTATIL_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TABLET_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_TABLET_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_APRENDIZAGEM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_ADMINISTRATIVO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_ALUNOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_COMUNIDADE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSO_INTERNET_COMPUTADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSO_INTERNET_DISP_PESSOAIS?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_REDE_LOCAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANDA_LARGA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_NAO_UTILIZA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_PEDAGOGICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_ARTES?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_AUDIOVISUAIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_AUDITIVOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_BIOLOGIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_BRINQUEDOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_CIENCIAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_CINEMA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_DISCIPLINAR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_FISICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_FOTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_INFORMATICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_JOGOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_JORNAIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_LIVROS_DIDAT?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_LIVROS_LITER?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_MAPAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_MUSICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_QUIMICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_REVISTAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_QUILOMBOLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_INDIGENA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_MULTIMIDIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_INFANTIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_CIENTIFICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_DIFUSAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_MUSICAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_JOGOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_ARTISTICAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_PROFISSIONAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_DESPORTIVA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_INDIGENA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_ETNICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_CAMPO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_BIL_SURDOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_QUILOMBOLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_AGRICOLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_EDU_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_NENHUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ALIMENTACAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ATIV_COMPLEMENTAR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_FUNDEB?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_REGULAR_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_REGULAR_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESP_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESP_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EJA_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EJA_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_LINGUA_INDIGENA_1?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_LINGUA_INDIGENA_2?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_LINGUA_INDIGENA_3?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AREA_PLANTIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DEPENDENCIAS_OUTRAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DORMITORIO_PROFESSOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EDUCACAO_INDIGENA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LAVANDERIA?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_AEE?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_ATIVIDADE_COMPLEMENTAR?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_INDIGENA_LINGUA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MEDIACAO_PRESENCIAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MEDIACAO_SEMIPRESENCIAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MEDIACAO_EAD?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_FORA_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_DENTRO_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_CHUVEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PROF_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PROF_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    NO_ENTIDADE?: NullableStringFieldUpdateOperationsInput | string | null
+    NO_MUNICIPIO?: NullableStringFieldUpdateOperationsInput | string | null
+    CO_UF?: IntFieldUpdateOperationsInput | number
+    SG_UF?: NullableStringFieldUpdateOperationsInput | string | null
+    TP_DEPENDENCIA?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_LOCALIZACAO?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type CensoEscolarInfraestruturaUncheckedUpdateManyWithoutLocalidadeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ANO?: IntFieldUpdateOperationsInput | number
+    IN_LOCAL_FUNC_PREDIO_ESCOLAR?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_OCUPACAO_PREDIO_ESCOLAR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_SALAS_EMPRESA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_SOCIOEDUCATIVO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_UNID_PRISIONAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_PRISIONAL_SOCIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_TEMPLO_IGREJA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_CASA_PROFESSOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_GALPAO?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_OCUPACAO_GALPAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_SALAS_OUTRA_ESC?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LOCAL_FUNC_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PREDIO_COMPARTILHADO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_POTAVEL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_FILTRADA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_REDE_PUBLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_POCO_ARTESIANO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_CACIMBA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_FONTE_RIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AGUA_CARRO_PIPA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_REDE_PUBLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_GERADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_GERADOR_FOSSIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_RENOVAVEL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ENERGIA_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_REDE_PUBLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_FOSSA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_FOSSA_SEPTICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_FOSSA_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESGOTO_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_SERVICO_COLETA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_QUEIMA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_ENTERRA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_DESTINO_FINAL_PUBLICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_JOGA_OUTRA_AREA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_DESCARTA_OUTRA_AREA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_RECICLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LIXO_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_SEPARACAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_REUTILIZA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_RECICLAGEM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TRATAMENTO_LIXO_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_FORA_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_DENTRO_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_EI?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_FUNCIONARIOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANHEIRO_CHUVEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DEPENDENCIAS_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_INEXISTENTE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_CORRIMAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_ELEVADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_PISOS_TATEIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_VAO_LIVRE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_RAMPAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_SINAL_SONORO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_SINAL_TATIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSIBILIDADE_SINAL_VISUAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BIBLIOTECA_SALA_LEITURA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BIBLIOTECA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_LEITURA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_COZINHA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LABORATORIO_CIENCIAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LABORATORIO_INFORMATICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LABORATORIO_EDUC_PROF?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES_COBERTA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES_DESCOBERTA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ATENDIMENTO_ESPECIAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AUDITORIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PATIO_COBERTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PATIO_DESCOBERTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PISCINA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_DIRETORIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_PROFESSOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_SECRETARIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_REFEITORIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ALMOXARIFADO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DESPENSA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AREA_VERDE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BERCARIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DORMITORIO_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PARQUE_INFANTIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ATELIE_ARTES?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_MUSICA_CORAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ESTUDIO_DANCA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_MULTIUSO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_ESTUDIO_GRAVACAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_OFICINAS_EDUC_PROF?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SALA_REPOUSO_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TERREIRAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_VIVEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_EXISTENTES?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS_DENTRO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS_FORA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZA_CLIMATIZADAS?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_SALAS_UTILIZADAS_ACESSIVEIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_TV?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_VIDEOCASSETE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_DVD?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_PARABOLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_COPIADORA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_RETROPROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_IMPRESSORA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_IMPRESSORA_MULT?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_SOM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_PROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_MULTIMIDIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_FAX?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_FOTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_SCANNER?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_NENHUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EQUIP_LOUSA_DIGITAL?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_TV?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_VIDEOCASSETE?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_DVD?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_PARABOLICA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_COPIADORA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_RETROPROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_IMPRESSORA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_IMPRESSORA_MULT?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_SOM?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_PROJETOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_MULTIMIDIA?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_FAX?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_FOTO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_EQUIP_LOUSA_DIGITAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_COMPUTADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMPUTADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMP_ADMINISTRATIVO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMP_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DESKTOP_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_DESKTOP_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_COMP_PORTATIL_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_COMP_PORTATIL_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_TABLET_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    QT_TABLET_ALUNO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_APRENDIZAGEM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_ADMINISTRATIVO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_ALUNOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_INTERNET_COMUNIDADE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSO_INTERNET_COMPUTADOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ACESSO_INTERNET_DISP_PESSOAIS?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_REDE_LOCAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_BANDA_LARGA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_NAO_UTILIZA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_PEDAGOGICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_ARTES?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_AUDIOVISUAIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_AUDITIVOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_BIOLOGIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_BRINQUEDOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_CIENCIAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_CINEMA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_DISCIPLINAR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_FISICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_FOTO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_INFORMATICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_JOGOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_JORNAIS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_LIVROS_DIDAT?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_LIVROS_LITER?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_MAPAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_MUSICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_OUTROS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_QUIMICA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_REVISTAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_QUILOMBOLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_ESP_INDIGENA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_MULTIMIDIA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_INFANTIL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_CIENTIFICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_DIFUSAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_MUSICAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_JOGOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_ARTISTICAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_PROFISSIONAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_DESPORTIVA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_INDIGENA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_ETNICO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_CAMPO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_BIL_SURDOS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_QUILOMBOLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_AGRICOLA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_EDU_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MATERIAL_PED_NENHUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ALIMENTACAO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ATIV_COMPLEMENTAR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_FUNDEB?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_REGULAR_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_REGULAR_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESP_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_ESP_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EJA_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EJA_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_LINGUA_INDIGENA_1?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_LINGUA_INDIGENA_2?: NullableIntFieldUpdateOperationsInput | number | null
+    CO_LINGUA_INDIGENA_3?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_AREA_PLANTIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DEPENDENCIAS_OUTRAS?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_DORMITORIO_PROFESSOR?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_EDUCACAO_INDIGENA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_LAVANDERIA?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_AEE?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_ATIVIDADE_COMPLEMENTAR?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_INDIGENA_LINGUA?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MEDIACAO_PRESENCIAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MEDIACAO_SEMIPRESENCIAL?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_MEDIACAO_EAD?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_QUADRA_ESPORTES_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_PNE?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_FORA_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_DENTRO_PREDIO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_SANITARIO_CHUVEIRO?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PROF_CLASSE_COMUM?: NullableIntFieldUpdateOperationsInput | number | null
+    IN_PROF_CLASSE_ESP?: NullableIntFieldUpdateOperationsInput | number | null
+    NO_ENTIDADE?: NullableStringFieldUpdateOperationsInput | string | null
+    NO_MUNICIPIO?: NullableStringFieldUpdateOperationsInput | string | null
+    CO_UF?: IntFieldUpdateOperationsInput | number
+    SG_UF?: NullableStringFieldUpdateOperationsInput | string | null
+    TP_DEPENDENCIA?: NullableIntFieldUpdateOperationsInput | number | null
+    TP_LOCALIZACAO?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type DadoEducacaoBasicaCreateManyDependenciaInput = {

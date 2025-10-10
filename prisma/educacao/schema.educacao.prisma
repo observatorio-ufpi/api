@@ -1,9 +1,9 @@
-generator client {
+generator educacao-client {
     provider = "prisma-client-js"
     output   = "./generated/educacao-client"
 }
 
-datasource db {
+datasource dbEducacao {
     provider = "postgresql"
     url      = env("DATABASE_URL_EDUCACAO")
 }
@@ -13,8 +13,15 @@ model Localidade {
     id          Int     @id
     nome        String
     tipo        String // "estado" ou "municipio"
-    uf          String? @db.Char(2)
-    codigo_ibge String?
+    uf          String? @dbEducacao.Char(2)
+    codigo_ibge String? @unique
+
+    // Informações regionais
+    territorio_desenvolvimento  String?
+    aglomerado                  String?
+    gerencia_regional           String?
+    populacao_2022              Int?
+    faixa_populacional          String?
 
     // Relações
     dados_basica            DadoEducacaoBasica[]
@@ -22,6 +29,7 @@ model Localidade {
     taxas_por_faixa_etaria  TaxasPorFaixaEtaria[]
     taxas                   Taxas[]
     dados_educacao_superior DadoEducacaoSuperior[]
+    infraestrutura          CensoEscolarInfraestrutura[]
 }
 
 // Dimensões específicas da educação básica
@@ -270,7 +278,7 @@ model DadoEducacaoBasica {
     id               Int      @id @default(autoincrement())
     tipo             String // "enrollment", "school/count", "class", "teacher", "auxiliar", "employees", "out_of_school", "liquid_enrollment_ratio", "gloss_enrollment_ratio", "rate_school_new"
     ano              Int
-    total            Decimal  @db.Decimal(15, 2)
+    total            Decimal  @dbEducacao.Decimal(15, 2)
     data_atualizacao DateTime @default(now())
 
     // Dimensões (todas opcionais)
@@ -325,7 +333,7 @@ model DadoEducacaoBasicaApos23 {
     id               Int      @id @default(autoincrement())
     ano              Int
     tipo             String // "enrollment", "school/count", "class", "teacher", "auxiliar", "employees", "out_of_school", "liquid_enrollment_ratio", "gloss_enrollment_ratio", "rate_school_new"
-    total            Decimal  @db.Decimal(15, 2)
+    total            Decimal  @dbEducacao.Decimal(15, 2)
     data_atualizacao DateTime @default(now())
 
     localidade_id Int?
@@ -361,7 +369,7 @@ model TaxasPorFaixaEtaria {
     id               Int      @id @default(autoincrement())
     ano              Int
     tipo             String
-    total            Decimal  @db.Decimal(15, 2)
+    total            Decimal  @dbEducacao.Decimal(15, 2)
     denominador      Int?
     numerador        Int?
     data_atualizacao DateTime @default(now())
@@ -383,7 +391,7 @@ model Taxas {
     id               Int      @id @default(autoincrement())
     ano              Int
     tipo             String
-    total            Decimal  @db.Decimal(15, 2)
+    total            Decimal  @dbEducacao.Decimal(15, 2)
     data_atualizacao DateTime @default(now())
 
     localidade_id Int?
@@ -415,7 +423,7 @@ model DadoEducacaoSuperior {
     id               Int      @id @default(autoincrement())
     ano              Int
     tipo             String
-    total            Decimal  @db.Decimal(15, 2)
+    total            Decimal  @dbEducacao.Decimal(15, 2)
     data_atualizacao DateTime @default(now())
 
     localidade_id Int?
@@ -710,12 +718,14 @@ model CensoEscolarInfraestrutura {
   IN_PROF_CLASSE_ESP               Int?
   
   NO_ENTIDADE     String?
-  CO_MUNICIPIO    Int?   // Código IBGE do município
+  CO_MUNICIPIO    String? // Código IBGE do município
   NO_MUNICIPIO    String?
   CO_UF           Int       // Código IBGE da UF
   SG_UF           String?
   TP_DEPENDENCIA  Int?      // 1-Federal, 2-Estadual, 3-Municipal, 4-Privada
   TP_LOCALIZACAO  Int?      // 1-Urbana, 2-Rural
   
+  localidade      Localidade? @relation(fields: [CO_MUNICIPIO], references: [codigo_ibge])
+
   @@map("censo_escolar_infraestrutura")
 }

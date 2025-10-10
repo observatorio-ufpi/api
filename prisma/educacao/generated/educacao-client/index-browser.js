@@ -127,7 +127,12 @@ exports.Prisma.LocalidadeScalarFieldEnum = {
   nome: 'nome',
   tipo: 'tipo',
   uf: 'uf',
-  codigo_ibge: 'codigo_ibge'
+  codigo_ibge: 'codigo_ibge',
+  territorio_desenvolvimento: 'territorio_desenvolvimento',
+  aglomerado: 'aglomerado',
+  gerencia_regional: 'gerencia_regional',
+  populacao_2022: 'populacao_2022',
+  faixa_populacional: 'faixa_populacional'
 };
 
 exports.Prisma.DependenciaAdministrativaBasicaScalarFieldEnum = {

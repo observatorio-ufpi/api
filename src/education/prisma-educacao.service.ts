@@ -25,7 +25,7 @@ export class PrismaEducacaoService implements OnModuleInit, OnModuleDestroy {
       const { PrismaClient } = require(prismaClientPath);
       this.prismaClient = new PrismaClient({
         datasources: {
-          db: {
+          dbEducacao: {
             url: process.env.DATABASE_URL_EDUCACAO,
           },
         },
