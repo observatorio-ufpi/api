@@ -23,7 +23,7 @@ export class CensoEscolarService {
     const results = await this.prisma.censoEscolarInfraestrutura.findMany({
       where: {
         ANO: { in: filterParams.years },
-        ...(filterParams.city && { CO_MUNICIPIO: Number(filterParams.city) }),
+        ...(filterParams.city && { CO_MUNICIPIO: String(filterParams.city) }),
         ...(!filterParams.city && { CO_UF: Number(filterParams.state) }),
       },
     });
