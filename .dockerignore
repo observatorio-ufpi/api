@@ -1,0 +1,32 @@
+# Ignorar pasta de backups (muito grande)
+backups/
+
+# Ignorar dados do PostgreSQL
+data/
+data_educacao/
+
+# Ignorar node_modules (será reinstalado)
+node_modules/
+
+# Ignorar arquivos de build
+dist/
+
+# Ignorar arquivos de log
+*.log
+logs/
+
+# Ignorar arquivos temporários
+.tmp/
+temp/
+
+# Ignorar arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de IDE
+.vscode/
+.idea/
+
+# Ignorar arquivos de teste
+coverage/
+test-results/

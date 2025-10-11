@@ -1,0 +1,67 @@
+name: Deploy Backend API
+
+on:
+  push:
+    branches: 
+      - main
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Upload source code to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "."
+          target: "/tmp/observatorio-api"
+
+  deploy:
+    needs: upload
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Navegar para o diretório da API
+            cd ${{ secrets.SERVER_PATH }}/api
+            
+            if [ -d src ]; then
+              echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S cp -r src ${{ secrets.SERVER_PATH }}/backups/code/src-backup-$(date +%Y%m%d-%H%M%S)
+              echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S rm -rf src
+            fi
+            
+            # Copiar novo código
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S cp -r /tmp/observatorio-api/* .
+            
+            # Criar arquivo .env com as secrets
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S tee ${{ secrets.SERVER_PATH }}/api/.env > /dev/null << EOF
+            POSTGRES_DB=${{ secrets.POSTGRES_DB }}
+            POSTGRES_USER=${{ secrets.POSTGRES_USER }}
+            POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+            COMPOSE_PROJECT_NAME=${{ secrets.COMPOSE_PROJECT_NAME }}
+            DATABASE_URL="postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@localhost:5436/${{ secrets.POSTGRES_DB }}?schema=public"
+            POSTGRES_EDUCACAO_DB=${{ secrets.POSTGRES_EDUCACAO_DB }}
+            POSTGRES_EDUCACAO_USER=${{ secrets.POSTGRES_EDUCACAO_USER }}
+            POSTGRES_EDUCACAO_PASSWORD=${{ secrets.POSTGRES_EDUCACAO_PASSWORD }}
+            DATABASE_URL_EDUCACAO="postgresql://${{ secrets.POSTGRES_EDUCACAO_USER }}:${{ secrets.POSTGRES_EDUCACAO_PASSWORD }}@localhost:5438/${{ secrets.POSTGRES_EDUCACAO_DB }}?schema=public"
+            PORT=${{ secrets.PORT }}
+            EOF
+            
+            # Rebuild apenas a API (sem afetar bancos)
+            # Rebuild e restart dos containers
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S docker-compose down
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S docker-compose up --build -d api
+            
+            # Limpar temporários
+            rm -rf /tmp/observatorio-api
