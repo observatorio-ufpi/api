@@ -11,6 +11,7 @@ import { RevenueCompositionModule } from './indicators/revenue_composition/reven
 import { RpebCompositionModule } from './indicators/rpeb_composition/rpeb_composition.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ResearchesModule } from './researches/researches.module';
+import { PrismaEducacaoService } from './education/prisma-educacao.service';
 
 @Module({
   imports: [
@@ -26,6 +27,6 @@ import { ResearchesModule } from './researches/researches.module';
     RateModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PrismaEducacaoService],
 })
 export class AppModule {}

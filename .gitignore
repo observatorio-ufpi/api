@@ -43,3 +43,6 @@ lerna-debug.log*
 
 # backups
 /backups/*.sql
+
+# Prisma generated files
+prisma/educacao/generated/

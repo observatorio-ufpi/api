@@ -3,6 +3,7 @@ import { EducationExpenseCompositionService } from './education_expense_composit
 import { GroupType } from 'src/utils/constants';
 import { IndicatorsFiltersDto } from '../dto/indicators.dto';
 import { PaginationDto } from 'src/dtos/pagination.dto';
+import { buildFilters } from 'src/utils/filter-builder';
 
 @Controller('education-expense-composition')
 export class EducationExpenseCompositionController {
@@ -26,15 +27,13 @@ export class EducationExpenseCompositionController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.educationExpenseCompositionService.despesaTotalMde(
       groupType,
@@ -64,15 +63,13 @@ export class EducationExpenseCompositionController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.educationExpenseCompositionService.despesasPessoalAtivoMde(
       groupType,
@@ -102,15 +99,13 @@ export class EducationExpenseCompositionController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.educationExpenseCompositionService.despesasPessoalInativoMde(
       groupType,
@@ -140,15 +135,13 @@ export class EducationExpenseCompositionController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.educationExpenseCompositionService.despesasCapitalMde(
       groupType,
@@ -178,15 +171,13 @@ export class EducationExpenseCompositionController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.educationExpenseCompositionService.transferenciasInstituicoesPrivadas(
       groupType,

@@ -2,11 +2,13 @@ import { Module } from '@nestjs/common';
 import { PrismaEducacaoModule } from '../prisma-educacao.module';
 import { BasicController } from './basic.controller';
 import { BasicService } from './basic.service';
+import { CensoEscolarModule } from './censo-escolar/censo-escolar.module';
 import { EducationResponseMapper } from './mappers/education-response.mapper';
 
 @Module({
-  imports: [PrismaEducacaoModule],
+  imports: [PrismaEducacaoModule, CensoEscolarModule],
   controllers: [BasicController],
   providers: [BasicService, EducationResponseMapper],
 })
 export class BasicModule {}
+

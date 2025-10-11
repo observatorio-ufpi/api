@@ -8,7 +8,14 @@ export class PrismaService
   implements OnModuleInit, OnModuleDestroy
 {
   async onModuleInit() {
-    await this.$connect();
+    try {
+      console.log('Tentando conectar no banco principal...');
+      await this.$connect();
+      console.log('✅ Conectado no banco principal com sucesso!');
+    } catch (error) {
+      console.error('❌ Erro ao conectar no banco principal:', error);
+      throw error;
+    }
   }
 
   async onModuleDestroy() {
