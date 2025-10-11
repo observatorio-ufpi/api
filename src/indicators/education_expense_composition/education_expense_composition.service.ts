@@ -318,15 +318,15 @@ export class EducationExpenseCompositionService {
       if (anoInicial || anoFinal) {
         Object.keys(groupedData).forEach((ano) => {
           Object.keys(groupedData[ano]).forEach((expenseKey) => {
-            groupedData[ano][expenseKey] = groupedData[ano][
-              expenseKey
-            ].filter((item) => {
-              const anoItem = parseInt(item.ano);
-              return (
-                (!anoInicial || anoItem >= anoInicial) &&
-                (!anoFinal || anoItem <= anoFinal)
-              );
-            });
+            groupedData[ano][expenseKey] = groupedData[ano][expenseKey].filter(
+              (item) => {
+                const anoItem = parseInt(item.ano);
+                return (
+                  (!anoInicial || anoItem >= anoInicial) &&
+                  (!anoFinal || anoItem <= anoFinal)
+                );
+              },
+            );
           });
         });
       }
@@ -521,15 +521,15 @@ export class EducationExpenseCompositionService {
       if (anoInicial || anoFinal) {
         Object.keys(groupedData).forEach((ano) => {
           Object.keys(groupedData[ano]).forEach((expenseKey) => {
-            groupedData[ano][expenseKey] = groupedData[ano][
-              expenseKey
-            ].filter((item) => {
-              const anoItem = parseInt(item.ano);
-              return (
-                (!anoInicial || anoItem >= anoInicial) &&
-                (!anoFinal || anoItem <= anoFinal)
-              );
-            });
+            groupedData[ano][expenseKey] = groupedData[ano][expenseKey].filter(
+              (item) => {
+                const anoItem = parseInt(item.ano);
+                return (
+                  (!anoInicial || anoItem >= anoInicial) &&
+                  (!anoFinal || anoItem <= anoFinal)
+                );
+              },
+            );
           });
         });
       }
@@ -724,15 +724,15 @@ export class EducationExpenseCompositionService {
       if (anoInicial || anoFinal) {
         Object.keys(groupedData).forEach((ano) => {
           Object.keys(groupedData[ano]).forEach((expenseKey) => {
-            groupedData[ano][expenseKey] = groupedData[ano][
-              expenseKey
-            ].filter((item) => {
-              const anoItem = parseInt(item.ano);
-              return (
-                (!anoInicial || anoItem >= anoInicial) &&
-                (!anoFinal || anoItem <= anoFinal)
-              );
-            });
+            groupedData[ano][expenseKey] = groupedData[ano][expenseKey].filter(
+              (item) => {
+                const anoItem = parseInt(item.ano);
+                return (
+                  (!anoInicial || anoItem >= anoInicial) &&
+                  (!anoFinal || anoItem <= anoFinal)
+                );
+              },
+            );
           });
         });
       }
@@ -925,15 +925,15 @@ export class EducationExpenseCompositionService {
       if (anoInicial || anoFinal) {
         Object.keys(groupedData).forEach((ano) => {
           Object.keys(groupedData[ano]).forEach((expenseKey) => {
-            groupedData[ano][expenseKey] = groupedData[ano][
-              expenseKey
-            ].filter((item) => {
-              const anoItem = parseInt(item.ano);
-              return (
-                (!anoInicial || anoItem >= anoInicial) &&
-                (!anoFinal || anoItem <= anoFinal)
-              );
-            });
+            groupedData[ano][expenseKey] = groupedData[ano][expenseKey].filter(
+              (item) => {
+                const anoItem = parseInt(item.ano);
+                return (
+                  (!anoInicial || anoItem >= anoInicial) &&
+                  (!anoFinal || anoItem <= anoFinal)
+                );
+              },
+            );
           });
         });
       }
@@ -1133,13 +1133,15 @@ export class EducationExpenseCompositionService {
       if (anoInicial || anoFinal) {
         Object.keys(groupedData).forEach((ano) => {
           Object.keys(groupedData[ano]).forEach((expenseKey) => {
-            groupedData[ano][expenseKey] = groupedData[ano][expenseKey].filter((item) => {
-              const anoItem = parseInt(item.ano);
-              return (
-                (!anoInicial || anoItem >= anoInicial) &&
-                (!anoFinal || anoItem <= anoFinal)
-              );
-            });
+            groupedData[ano][expenseKey] = groupedData[ano][expenseKey].filter(
+              (item) => {
+                const anoItem = parseInt(item.ano);
+                return (
+                  (!anoInicial || anoItem >= anoInicial) &&
+                  (!anoFinal || anoItem <= anoFinal)
+                );
+              },
+            );
           });
         });
       }

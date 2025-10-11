@@ -1,7 +1,6 @@
 import { PrismaClient } from './generated/educacao-client';
 import * as fs from 'fs';
 import * as path from 'path';
-
 import { parse } from 'csv-parse/sync';
 
 const prisma = new PrismaClient();

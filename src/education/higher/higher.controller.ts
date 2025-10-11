@@ -14,18 +14,21 @@ export class HigherController {
   @Get('university_enrollment')
   @ApiOperation({
     summary: 'Obter dados de matrícula do ensino superior',
-    description: 'Retorna dados de matrícula na educação superior filtrados por dimensões e parâmetros específicos',
+    description:
+      'Retorna dados de matrícula na educação superior filtrados por dimensões e parâmetros específicos',
   })
   @ApiQuery({
     name: 'dims',
     required: false,
-    description: 'Dimensões para agrupamento dos dados (ex: upper_education_mod, upper_adm_dependency, age_student_code, academic_level)',
+    description:
+      'Dimensões para agrupamento dos dados (ex: upper_education_mod, upper_adm_dependency, age_student_code, academic_level)',
     example: 'upper_education_mod,upper_adm_dependency',
   })
   @ApiQuery({
     name: 'filter',
     required: false,
-    description: 'Filtros para os dados no formato: min_year:"2020",max_year:"2023",state:"22",city:"2211001"',
+    description:
+      'Filtros para os dados no formato: min_year:"2020",max_year:"2023",state:"22",city:"2211001"',
     example: 'min_year:"2020",max_year:"2023",state:"22"',
   })
   @ApiResponse({
@@ -38,7 +41,10 @@ export class HigherController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getEnrollment(@Query('dims') dims: string, @Query('filter') filter: string): Promise<EducationResponseDto> {
+  getEnrollment(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+  ): Promise<EducationResponseDto> {
     return this.higherService.getEnrollment(dims, filter);
   }
 
@@ -67,7 +73,10 @@ export class HigherController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getUniversityCount(@Query('dims') dims: string, @Query('filter') filter: string): Promise<EducationResponseDto> {
+  getUniversityCount(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+  ): Promise<EducationResponseDto> {
     return this.higherService.getUniversityCount(dims, filter);
   }
 
@@ -96,14 +105,18 @@ export class HigherController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getCourseCount(@Query('dims') dims: string, @Query('filter') filter: string): Promise<EducationResponseDto> {
+  getCourseCount(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+  ): Promise<EducationResponseDto> {
     return this.higherService.getCourseCount(dims, filter);
   }
 
   @Get('course_aggregate')
   @ApiOperation({
     summary: 'Agregação de cursos superiores',
-    description: 'Retorna dados agregados de cursos do ensino superior (alias para course_count)',
+    description:
+      'Retorna dados agregados de cursos do ensino superior (alias para course_count)',
   })
   @ApiQuery({
     name: 'dims',
@@ -125,7 +138,10 @@ export class HigherController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getCourseAggregate(@Query('dims') dims: string, @Query('filter') filter: string): Promise<EducationResponseDto> {
+  getCourseAggregate(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+  ): Promise<EducationResponseDto> {
     return this.higherService.getCourseCount(dims, filter);
   }
 
@@ -154,7 +170,10 @@ export class HigherController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getTeacher(@Query('dims') dims: string, @Query('filter') filter: string): Promise<EducationResponseDto> {
+  getTeacher(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+  ): Promise<EducationResponseDto> {
     return this.higherService.getTeacher(dims, filter);
   }
 
@@ -163,7 +182,8 @@ export class HigherController {
   @Get('university_enrollment/timeseries')
   @ApiOperation({
     summary: 'Obter série histórica de matrícula do ensino superior',
-    description: 'Retorna dados de série histórica de matrícula na educação superior',
+    description:
+      'Retorna dados de série histórica de matrícula na educação superior',
   })
   @ApiQuery({
     name: 'dims',
@@ -173,7 +193,8 @@ export class HigherController {
   @ApiQuery({
     name: 'filter',
     required: false,
-    description: 'Filtros para os dados no formato: min_year:"2020",max_year:"2023",state:"22"',
+    description:
+      'Filtros para os dados no formato: min_year:"2020",max_year:"2023",state:"22"',
   })
   @ApiResponse({
     status: 200,
@@ -185,14 +206,18 @@ export class HigherController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getEnrollmentTimeSeries(@Query('dims') dims: string, @Query('filter') filter: string): Promise<EducationResponseDto> {
+  getEnrollmentTimeSeries(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+  ): Promise<EducationResponseDto> {
     return this.higherService.getEnrollmentTimeSeries(dims, filter);
   }
 
   @Get('university/count/timeseries')
   @ApiOperation({
     summary: 'Obter série histórica de contagem de instituições',
-    description: 'Retorna dados de série histórica da contagem de instituições de ensino superior',
+    description:
+      'Retorna dados de série histórica da contagem de instituições de ensino superior',
   })
   @ApiQuery({
     name: 'dims',
@@ -206,7 +231,8 @@ export class HigherController {
   })
   @ApiResponse({
     status: 200,
-    description: 'Série histórica de contagem de instituições retornada com sucesso',
+    description:
+      'Série histórica de contagem de instituições retornada com sucesso',
     type: EducationResponseDto,
   })
   @ApiResponse({
@@ -214,14 +240,18 @@ export class HigherController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getUniversityCountTimeSeries(@Query('dims') dims: string, @Query('filter') filter: string): Promise<EducationResponseDto> {
+  getUniversityCountTimeSeries(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+  ): Promise<EducationResponseDto> {
     return this.higherService.getUniversityCountTimeSeries(dims, filter);
   }
 
   @Get('course_count/timeseries')
   @ApiOperation({
     summary: 'Obter série histórica de cursos',
-    description: 'Retorna dados de série histórica sobre cursos na educação superior',
+    description:
+      'Retorna dados de série histórica sobre cursos na educação superior',
   })
   @ApiQuery({
     name: 'dims',
@@ -243,14 +273,18 @@ export class HigherController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getCourseCountTimeSeries(@Query('dims') dims: string, @Query('filter') filter: string): Promise<EducationResponseDto> {
+  getCourseCountTimeSeries(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+  ): Promise<EducationResponseDto> {
     return this.higherService.getCourseCountTimeSeries(dims, filter);
   }
 
   @Get('course_aggregate/timeseries')
   @ApiOperation({
     summary: 'Obter série histórica de cursos agregados',
-    description: 'Retorna dados de série histórica sobre cursos agregados na educação superior',
+    description:
+      'Retorna dados de série histórica sobre cursos agregados na educação superior',
   })
   @ApiQuery({
     name: 'dims',
@@ -272,14 +306,18 @@ export class HigherController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getCourseAggregateTimeSeries(@Query('dims') dims: string, @Query('filter') filter: string): Promise<EducationResponseDto> {
+  getCourseAggregateTimeSeries(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+  ): Promise<EducationResponseDto> {
     return this.higherService.getCourseCountTimeSeries(dims, filter);
   }
 
   @Get('university_teacher/timeseries')
   @ApiOperation({
     summary: 'Obter série histórica de docentes',
-    description: 'Retorna dados de série histórica sobre docentes na educação superior',
+    description:
+      'Retorna dados de série histórica sobre docentes na educação superior',
   })
   @ApiQuery({
     name: 'dims',
@@ -301,7 +339,10 @@ export class HigherController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getTeacherTimeSeries(@Query('dims') dims: string, @Query('filter') filter: string): Promise<EducationResponseDto> {
+  getTeacherTimeSeries(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+  ): Promise<EducationResponseDto> {
     return this.higherService.getTeacherTimeSeries(dims, filter);
   }
 }

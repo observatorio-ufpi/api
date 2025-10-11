@@ -16,15 +16,24 @@ interface EducationResponse {
 export class HigherService {
   constructor(private prisma: PrismaEducacaoService) {}
 
-  async getEnrollment(dims: string, filter: string): Promise<EducationResponse> {
+  async getEnrollment(
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
     return this.queryData('matriculas', dims, filter);
   }
 
-  async getUniversityCount(dims: string, filter: string): Promise<EducationResponse> {
+  async getUniversityCount(
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
     return this.queryData('ies', dims, filter);
   }
 
-  async getCourseCount(dims: string, filter: string): Promise<EducationResponse> {
+  async getCourseCount(
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
     return this.queryData('cursos', dims, filter);
   }
 
@@ -33,23 +42,39 @@ export class HigherService {
   }
 
   // Série histórica
-  async getEnrollmentTimeSeries(dims: string, filter: string): Promise<EducationResponse> {
+  async getEnrollmentTimeSeries(
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
     return this.serieHistoricaTwoDimensions('matriculas', dims, filter);
   }
 
-  async getUniversityCountTimeSeries(dims: string, filter: string): Promise<EducationResponse> {
+  async getUniversityCountTimeSeries(
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
     return this.serieHistoricaTwoDimensions('ies', dims, filter);
   }
 
-  async getCourseCountTimeSeries(dims: string, filter: string): Promise<EducationResponse> {
+  async getCourseCountTimeSeries(
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
     return this.serieHistoricaTwoDimensions('cursos', dims, filter);
   }
 
-  async getTeacherTimeSeries(dims: string, filter: string): Promise<EducationResponse> {
+  async getTeacherTimeSeries(
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
     return this.serieHistoricaTwoDimensions('docentes', dims, filter);
   }
 
-    private async queryData(tipo: string, dims: string, filter: string): Promise<EducationResponse> {
+  private async queryData(
+    tipo: string,
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
     const filterParams = this.parseFilter(filter);
     const dimensions = this.parseDims(dims);
 
@@ -63,7 +88,9 @@ export class HigherService {
       where: {
         tipo,
         ano: { in: filterParams.years },
-        localidade_id: filterParams.city ? Number(filterParams.city) : Number(filterParams.state),
+        localidade_id: filterParams.city
+          ? Number(filterParams.city)
+          : Number(filterParams.state),
       },
       include: {
         localidade: true,
@@ -81,16 +108,21 @@ export class HigherService {
     return this.processResults(results, dimensions, tipo);
   }
 
-  private async queryTeacherData(dimensions: string[], filterParams: FilterParams): Promise<EducationResponse> {
+  private async queryTeacherData(
+    dimensions: string[],
+    filterParams: FilterParams,
+  ): Promise<EducationResponse> {
     // Docentes só aceita uma dimensão (ou nenhuma para total)
     if (dimensions.length > 1) {
       return { result: [] };
     }
 
-    let whereConditions: any = {
+    const whereConditions: any = {
       tipo: 'docentes',
       ano: { in: filterParams.years },
-      localidade_id: filterParams.city ? Number(filterParams.city) : Number(filterParams.state),
+      localidade_id: filterParams.city
+        ? Number(filterParams.city)
+        : Number(filterParams.state),
     };
 
     // Se não há dimensões, buscar apenas registros com valores totais (ambos NULL)
@@ -109,7 +141,10 @@ export class HigherService {
         // Para formação docente: buscar onde formacao_docente_id NÃO é null
         whereConditions.formacao_docente_id = { not: null };
         whereConditions.regime_docente_id = null;
-      } else if (dimension === 'upper_adm_dependency' || dimension === 'academic_level') {
+      } else if (
+        dimension === 'upper_adm_dependency' ||
+        dimension === 'academic_level'
+      ) {
         // Para categoria administrativa e organização acadêmica: buscar onde ambos são NULL (valor total)
         whereConditions.regime_docente_id = null;
         whereConditions.formacao_docente_id = null;
@@ -138,7 +173,11 @@ export class HigherService {
     return this.processResults(results, dimensions, 'docentes');
   }
 
-  private async serieHistoricaTwoDimensions(tipo: string, dims: string, filter: string): Promise<EducationResponse> {
+  private async serieHistoricaTwoDimensions(
+    tipo: string,
+    dims: string,
+    filter: string,
+  ): Promise<EducationResponse> {
     const filterParams = this.parseFilter(filter);
     const dimensions = this.parseDims(dims);
 
@@ -150,8 +189,13 @@ export class HigherService {
     const results = await this.prisma.dadoEducacaoSuperior.findMany({
       where: {
         tipo,
-        ano: { gte: filterParams.years[0], lte: filterParams.years[filterParams.years.length - 1] },
-        localidade_id: filterParams.city ? Number(filterParams.city) : Number(filterParams.state),
+        ano: {
+          gte: filterParams.years[0],
+          lte: filterParams.years[filterParams.years.length - 1],
+        },
+        localidade_id: filterParams.city
+          ? Number(filterParams.city)
+          : Number(filterParams.state),
       },
       include: {
         localidade: true,
@@ -170,16 +214,24 @@ export class HigherService {
     return this.processResults(results, dimensions, tipo);
   }
 
-  private async queryTeacherDataTimeSeries(dimensions: string[], filterParams: FilterParams): Promise<EducationResponse> {
+  private async queryTeacherDataTimeSeries(
+    dimensions: string[],
+    filterParams: FilterParams,
+  ): Promise<EducationResponse> {
     // Docentes só aceita uma dimensão (ou nenhuma para total)
     if (dimensions.length > 1) {
       return { result: [] };
     }
 
-    let whereConditions: any = {
+    const whereConditions: any = {
       tipo: 'docentes',
-      ano: { gte: filterParams.years[0], lte: filterParams.years[filterParams.years.length - 1] },
-      localidade_id: filterParams.city ? Number(filterParams.city) : Number(filterParams.state),
+      ano: {
+        gte: filterParams.years[0],
+        lte: filterParams.years[filterParams.years.length - 1],
+      },
+      localidade_id: filterParams.city
+        ? Number(filterParams.city)
+        : Number(filterParams.state),
     };
 
     // Se não há dimensões, buscar apenas registros com valores totais (ambos NULL)
@@ -198,7 +250,10 @@ export class HigherService {
         // Para formação docente: buscar onde formacao_docente_id NÃO é null
         whereConditions.formacao_docente_id = { not: null };
         whereConditions.regime_docente_id = null;
-      } else if (dimension === 'upper_adm_dependency' || dimension === 'academic_level') {
+      } else if (
+        dimension === 'upper_adm_dependency' ||
+        dimension === 'academic_level'
+      ) {
         // Para categoria administrativa e organização acadêmica: buscar onde ambos são NULL (valor total)
         whereConditions.regime_docente_id = null;
         whereConditions.formacao_docente_id = null;
@@ -228,30 +283,44 @@ export class HigherService {
     return this.processResults(results, dimensions, 'docentes');
   }
 
-  private processResults(results: any[], dimensions: string[], tipo: string): EducationResponse {
+  private processResults(
+    results: any[],
+    dimensions: string[],
+    tipo: string,
+  ): EducationResponse {
     if (!dimensions || dimensions.length === 0) {
       // Sem dimensões - somar o campo 'total' de cada registro por ano
       const yearTotals = new Map();
 
-      results.forEach(item => {
+      results.forEach((item) => {
         const year = item.ano;
 
         // Para docentes sem dimensão, considerar apenas registros com regime e formação NULL (valor total correto)
         if (tipo === 'docentes') {
-          if (item.regime_docente_id === null && item.formacao_docente_id === null) {
-            yearTotals.set(year, (yearTotals.get(year) || 0) + Number(item.total));
+          if (
+            item.regime_docente_id === null &&
+            item.formacao_docente_id === null
+          ) {
+            yearTotals.set(
+              year,
+              (yearTotals.get(year) || 0) + Number(item.total),
+            );
           }
         } else {
           // Para matrículas, cursos e IES, somar o campo 'total' de cada linha
-          yearTotals.set(year, (yearTotals.get(year) || 0) + Number(item.total));
+          yearTotals.set(
+            year,
+            (yearTotals.get(year) || 0) + Number(item.total),
+          );
         }
       });
 
-      const aggregated = Array.from(yearTotals.entries()).map(([year, total]) => ({
-        year,
-        total,
-      }));
-
+      const aggregated = Array.from(yearTotals.entries()).map(
+        ([year, total]) => ({
+          year,
+          total,
+        }),
+      );
 
       return { result: aggregated };
     }
@@ -270,10 +339,14 @@ export class HigherService {
     return { result: [] };
   }
 
-  private processOneDimension(results: any[], dimension: string, tipo: string): EducationResponse {
+  private processOneDimension(
+    results: any[],
+    dimension: string,
+    tipo: string,
+  ): EducationResponse {
     const dimensionYearTotals = new Map();
 
-    results.forEach(item => {
+    results.forEach((item) => {
       const dimValue = this.getDimensionValue(item, dimension);
       if (dimValue) {
         const year = item.ano;
@@ -310,7 +383,11 @@ export class HigherService {
     return { result: processedResults };
   }
 
-  private processTwoDimensions(results: any[], dimensions: string[], tipo: string): EducationResponse {
+  private processTwoDimensions(
+    results: any[],
+    dimensions: string[],
+    tipo: string,
+  ): EducationResponse {
     const [dim1, dim2] = dimensions;
 
     // Para docentes, não permitir duas dimensões
@@ -322,7 +399,7 @@ export class HigherService {
     const dim1Values = new Set();
     const dim2Values = new Set();
 
-    results.forEach(item => {
+    results.forEach((item) => {
       const dim1Value = this.getDimensionValue(item, dim1);
       const dim2Value = this.getDimensionValue(item, dim2);
 
@@ -345,8 +422,12 @@ export class HigherService {
     const crossTableData = [];
     crossData.forEach((yearMap, key) => {
       const [dim1Id, dim2Id] = key.split('-');
-      const dim1Info = Array.from(dim1Values).find(v => (v as string).startsWith(dim1Id + '_'));
-      const dim2Info = Array.from(dim2Values).find(v => (v as string).startsWith(dim2Id + '_'));
+      const dim1Info = Array.from(dim1Values).find((v) =>
+        (v as string).startsWith(dim1Id + '_'),
+      );
+      const dim2Info = Array.from(dim2Values).find((v) =>
+        (v as string).startsWith(dim2Id + '_'),
+      );
 
       if (dim1Info && dim2Info) {
         const dim1Name = (dim1Info as string).split('_', 2)[1];
@@ -378,38 +459,58 @@ export class HigherService {
     return response;
   }
 
-  private getDimensionValue(item: any, dimension: string): { id: number; name: string } | null {
+  private getDimensionValue(
+    item: any,
+    dimension: string,
+  ): { id: number; name: string } | null {
     switch (dimension) {
       case 'upper_education_mod':
-        return item.modalidade_ensino ?
-          { id: item.modalidade_ensino.id, name: item.modalidade_ensino.nome } : null;
+        return item.modalidade_ensino
+          ? { id: item.modalidade_ensino.id, name: item.modalidade_ensino.nome }
+          : null;
 
       case 'upper_adm_dependency':
-        return item.categoria_administrativa ?
-          { id: item.categoria_administrativa.id, name: item.categoria_administrativa.nome } : null;
+        return item.categoria_administrativa
+          ? {
+              id: item.categoria_administrativa.id,
+              name: item.categoria_administrativa.nome,
+            }
+          : null;
 
       case 'age_student_code':
-        return item.faixa_etaria ?
-          { id: item.faixa_etaria.id, name: item.faixa_etaria.nome } : null;
+        return item.faixa_etaria
+          ? { id: item.faixa_etaria.id, name: item.faixa_etaria.nome }
+          : null;
 
       case 'academic_level':
-        return item.organizacao_academica ?
-          { id: item.organizacao_academica.id, name: item.organizacao_academica.nome } : null;
+        return item.organizacao_academica
+          ? {
+              id: item.organizacao_academica.id,
+              name: item.organizacao_academica.nome,
+            }
+          : null;
 
       case 'work_regime':
-        return item.regime_docente ?
-          { id: item.regime_docente.id, name: item.regime_docente.nome } : null;
+        return item.regime_docente
+          ? { id: item.regime_docente.id, name: item.regime_docente.nome }
+          : null;
 
       case 'initial_training':
-        return item.formacao_docente ?
-          { id: item.formacao_docente.id, name: item.formacao_docente.nome } : null;
+        return item.formacao_docente
+          ? { id: item.formacao_docente.id, name: item.formacao_docente.nome }
+          : null;
 
       default:
         return null;
     }
   }
 
-  private addDimensionFields(result: any, dimension: string, id: number, name: string): void {
+  private addDimensionFields(
+    result: any,
+    dimension: string,
+    id: number,
+    name: string,
+  ): void {
     switch (dimension) {
       case 'upper_education_mod':
         result.upper_education_mod_id = id;
@@ -445,16 +546,52 @@ export class HigherService {
 
   private getCrossKey(dim1: string, dim2: string): string | null {
     const combinations = [
-      ['upper_education_mod', 'age_student_code', 'byModalidadeAndFaixaEtariaSuperior'],
-      ['upper_education_mod', 'academic_level', 'byModalidadeAndOrganizacaoAcademica'],
-      ['upper_education_mod', 'upper_adm_dependency', 'byModalidadeAndCategoriaAdministrativa'],
-      ['upper_adm_dependency', 'age_student_code', 'byCategoriaAdministrativaAndFaixaEtariaSuperior'],
-      ['upper_adm_dependency', 'academic_level', 'byCategoriaAdministrativaAndOrganizacaoAcademica'],
-      ['academic_level', 'age_student_code', 'byOrganizacaoAcademicaAndFaixaEtariaSuperior'],
-      ['upper_adm_dependency', 'work_regime', 'byCategoriaAdministrativaAndRegime'],
-      ['upper_adm_dependency', 'initial_training', 'byCategoriaAdministrativaAndFormacaoDocente'],
+      [
+        'upper_education_mod',
+        'age_student_code',
+        'byModalidadeAndFaixaEtariaSuperior',
+      ],
+      [
+        'upper_education_mod',
+        'academic_level',
+        'byModalidadeAndOrganizacaoAcademica',
+      ],
+      [
+        'upper_education_mod',
+        'upper_adm_dependency',
+        'byModalidadeAndCategoriaAdministrativa',
+      ],
+      [
+        'upper_adm_dependency',
+        'age_student_code',
+        'byCategoriaAdministrativaAndFaixaEtariaSuperior',
+      ],
+      [
+        'upper_adm_dependency',
+        'academic_level',
+        'byCategoriaAdministrativaAndOrganizacaoAcademica',
+      ],
+      [
+        'academic_level',
+        'age_student_code',
+        'byOrganizacaoAcademicaAndFaixaEtariaSuperior',
+      ],
+      [
+        'upper_adm_dependency',
+        'work_regime',
+        'byCategoriaAdministrativaAndRegime',
+      ],
+      [
+        'upper_adm_dependency',
+        'initial_training',
+        'byCategoriaAdministrativaAndFormacaoDocente',
+      ],
       ['academic_level', 'work_regime', 'byOrganizacaoAcademicaAndRegime'],
-      ['academic_level', 'initial_training', 'byOrganizacaoAcademicaAndFormacaoDocente'],
+      [
+        'academic_level',
+        'initial_training',
+        'byOrganizacaoAcademicaAndFormacaoDocente',
+      ],
     ];
 
     for (const [d1, d2, key] of combinations) {
@@ -479,7 +616,7 @@ export class HigherService {
     let minYear: number | null = null;
     let maxYear: number | null = null;
 
-    filterParts.forEach(part => {
+    filterParts.forEach((part) => {
       const [key, value] = part.split(':');
       const cleanValue = value?.replace(/"/g, '');
 
@@ -515,6 +652,6 @@ export class HigherService {
 
   private parseDims(dims: string): string[] {
     if (!dims) return [];
-    return dims.split(',').map(d => d.trim());
+    return dims.split(',').map((d) => d.trim());
   }
 }
