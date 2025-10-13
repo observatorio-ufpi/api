@@ -1,6 +1,5 @@
-
 import { ApiProperty } from '@nestjs/swagger';
-import { IsOptional, IsString, IsArray, ValidateNested } from 'class-validator';
+import { IsOptional, IsString, IsArray, ValidateNested, IsNumber } from 'class-validator';
 import { Type } from 'class-transformer';
 
 class Filter {
@@ -40,4 +39,16 @@ export class FilterDto {
   @IsArray()
   @IsString({ each: true })
   dimensions?: string[];
+
+  @ApiProperty({ required: false, default: 1, type: Number })
+  @IsOptional()
+  @IsNumber()
+  @Type(() => Number)
+  page?: number;
+
+  @ApiProperty({ required: false, default: 10, type: Number })
+  @IsOptional()
+  @IsNumber()
+  @Type(() => Number)
+  limit?: number;
 }

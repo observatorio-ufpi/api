@@ -10,7 +10,7 @@ export class CensoEscolarService {
     private readonly mapper: CensoEscolarMapper,
   ) {}
 
-  async getInfraestrutura(filterDto: FilterDto) {
+  async getInfraestrutura(filterDto: FilterDto, rawParams?: { city?: string; state?: string }) {
     const where: any = {};
 
     if (filterDto.min_year && filterDto.max_year) {
@@ -23,6 +23,16 @@ export class CensoEscolarService {
       where.ANO = { gte: parseInt(filterDto.min_year, 10) };
     } else if (filterDto.max_year) {
       where.ANO = { lte: parseInt(filterDto.max_year, 10) };
+    }
+
+    // If frontend provided compact filter with city/state, prefer those when available
+    if (rawParams) {
+      if (rawParams.city) {
+        // CO_MUNICIPIO is stored as string (codigo_ibge)
+        where.CO_MUNICIPIO = rawParams.city;
+      } else if (rawParams.state) {
+        where.CO_UF = parseInt(rawParams.state, 10);
+      }
     }
 
     if (filterDto.filters) {
@@ -60,6 +70,14 @@ export class CensoEscolarService {
           where.localidade = { is: localidadeFilters };
         }
       }
+
+    // Temporary debug: log the computed `where` and filters for diagnosis
+    try {
+      // eslint-disable-next-line no-console
+      console.debug('[CensoEscolarService] Prisma `where` object:', JSON.stringify(where));
+    } catch (e) {
+      // ignore logging errors
+    }
     }
 
     const results = await this.prisma.censoEscolarInfraestrutura.findMany({
@@ -76,7 +94,9 @@ export class CensoEscolarService {
           },
         },
       },
-      take: 1000,
+      // Support pagination if provided (if no limit is provided, return all results)
+      ...(filterDto.limit ? { take: Number(filterDto.limit) } : {}),
+      ...(filterDto.page && filterDto.limit ? { skip: (Number(filterDto.page) - 1) * Number(filterDto.limit) } : {}),
     });
 
     const context = {
