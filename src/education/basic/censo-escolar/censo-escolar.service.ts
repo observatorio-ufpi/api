@@ -58,6 +58,7 @@ export class CensoEscolarService {
             case 'aglomerado':
               localidadeFilters.aglomerado = filter.value;
               break;
+            case 'gerencia':
             case 'gre':
               localidadeFilters.gerencia_regional = filter.value;
               break;
