@@ -4,6 +4,7 @@ import { GroupType } from 'src/utils/constants';
 import { IndicatorsFiltersDto } from '../dto/indicators.dto';
 import { ResourcesApplicationControlService } from './resources_application_control.service';
 import { ApiTags } from '@nestjs/swagger';
+import { buildFilters } from 'src/utils/filter-builder';
 
 @ApiTags('indicators')
 @Controller('resources-application-control')
@@ -28,15 +29,13 @@ export class ResourcesApplicationControlController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
     return this.resourcesApplicationControlService.mdeApplicationControl(
       groupType,
       filters,
@@ -65,15 +64,13 @@ export class ResourcesApplicationControlController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
     return this.resourcesApplicationControlService.fundebApplicationControl(
       groupType,
       filters,
@@ -102,15 +99,13 @@ export class ResourcesApplicationControlController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
     return this.resourcesApplicationControlService.edInfantilVAATApplicationControl(
       groupType,
       filters,
@@ -139,15 +134,13 @@ export class ResourcesApplicationControlController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
     return this.resourcesApplicationControlService.despesaCapitalVAATApplicationControl(
       groupType,
       filters,

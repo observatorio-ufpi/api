@@ -3,6 +3,7 @@ import { PaginationDto } from 'src/dtos/pagination.dto';
 import { GroupType } from 'src/utils/constants';
 import { IndicatorsFiltersDto } from '../dto/indicators.dto';
 import { FinancingCapacityService } from './financing_capacity.service';
+import { buildFilters } from 'src/utils/filter-builder';
 
 @Controller('financing-capacity')
 export class FinancingCapacityController {
@@ -26,15 +27,13 @@ export class FinancingCapacityController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.financingCapacityService.rpebFinancingCapacity(
       groupType,
@@ -64,15 +63,13 @@ export class FinancingCapacityController {
     @Query()
     { page = 1, limit = 10 }: PaginationDto,
   ) {
-    const filters = {
-      ...(codigoMunicipio && { codigoMunicipio }),
-      ...(aglomeradoMunicipio && { aglomeradoMunicipio }),
-      ...(faixaPopulacionalMunicipio && { faixaPopulacionalMunicipio }),
-      ...(territorioDeDesenvolvimentoMunicipio && {
-        territorioDeDesenvolvimentoMunicipio,
-      }),
-      ...(gerenciaRegionalMunicipio && { gerenciaRegionalMunicipio }),
-    };
+    const filters = buildFilters({
+      codigoMunicipio,
+      aglomeradoMunicipio,
+      faixaPopulacionalMunicipio,
+      territorioDeDesenvolvimentoMunicipio,
+      gerenciaRegionalMunicipio,
+    });
 
     return this.financingCapacityService.fundebFinancingCapacity(
       groupType,
