@@ -202,7 +202,6 @@ const categoryFields = {
     'IN_MATERIAL_PED_EDU_ESP',
     'IN_MATERIAL_PED_NENHUM',
   ],
-  
 };
 
 @Injectable()
@@ -222,7 +221,7 @@ export class CensoEscolarMapper {
 
         dimensions.forEach((dim) => {
           if (categoryFields[dim]) {
-            categoryFields[dim].forEach(field => {
+            categoryFields[dim].forEach((field) => {
               responseItem[field] = item[field];
             });
           }

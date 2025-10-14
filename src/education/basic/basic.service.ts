@@ -12,13 +12,13 @@ import { EducationResponseMapper } from './mappers/education-response.mapper';
 export class BasicService {
   // Mapeamento de IDs das etapas de matrícula (até 2020 -> 2021+)
   private readonly etapaMatriculaMapping = {
-    1: 1,  // Creche
-    2: 2,  // Pré-Escola
-    4: 3,  // Ensino Fundamental - anos iniciais
-    5: 4,  // Ensino Fundamental - anos finais
-    7: 5,  // Ensino Médio
-    8: 6,  // Ensino Médio Integrado ou Normal - técnico
-    9: 7,  // EJA - Ensino Fundamental
+    1: 1, // Creche
+    2: 2, // Pré-Escola
+    4: 3, // Ensino Fundamental - anos iniciais
+    5: 4, // Ensino Fundamental - anos finais
+    7: 5, // Ensino Médio
+    8: 6, // Ensino Médio Integrado ou Normal - técnico
+    9: 7, // EJA - Ensino Fundamental
     10: 8, // EJA - Ensino Médio
     11: 9, // EJA - EF e EM Integrado - técnico
     12: 10, // Educação Profissional - concomitante e subsequente
@@ -57,15 +57,20 @@ export class BasicService {
     filterParams: FilterParams,
   ): any[] {
     // Só aplicar normalização para enrollment com série histórica cruzando 2020/2021
-    if (tipo !== 'enrollment' ||
-        !filterParams.years.some((y) => y <= 2020) ||
-        !filterParams.years.some((y) => y >= 2021)) {
+    if (
+      tipo !== 'enrollment' ||
+      !filterParams.years.some((y) => y <= 2020) ||
+      !filterParams.years.some((y) => y >= 2021)
+    ) {
       return data;
     }
 
-    return data.map(item => {
+    return data.map((item) => {
       if (item.education_level_mod_id !== null) {
-        const normalizedId = this.normalizeEtapaId(item.education_level_mod_id, item.year);
+        const normalizedId = this.normalizeEtapaId(
+          item.education_level_mod_id,
+          item.year,
+        );
         return {
           ...item,
           education_level_mod_id: normalizedId,
@@ -143,32 +148,33 @@ export class BasicService {
     // 1. Dados até 2023 (lógica original)
     // 2. Teacher em qualquer ano (2024+) - sempre tratado como 2023 para aplicar filtro correto
     //if (filterParams.years.some((y) => y <= 2023) || tipo === 'teacher') {
-      try {
-        // Tipo teacher >= 2021 está com nome federativeEntity no banco de dados
-        if (tipo === 'teacher' && filterParams.years.some((y) => y >= 2021))
-          tipo = 'federativeEntity';
+    try {
+      // Tipo teacher >= 2021 está com nome federativeEntity no banco de dados
+      if (tipo === 'teacher' && filterParams.years.some((y) => y >= 2021))
+        tipo = 'federativeEntity';
 
-        // Buscar todos os registros do tipo/ano/localidade
-        const results = await this.prisma.dadoEducacaoBasica.findMany({
-          where: {
-            tipo,
-            ano: { in: filterParams.years },
-            localidade_id: filterParams.city
-              ? Number(filterParams.city)
-              : Number(filterParams.state),
-          },
-          include,
-        });
+      // Buscar todos os registros do tipo/ano/localidade
+      const results = await this.prisma.dadoEducacaoBasica.findMany({
+        where: {
+          tipo,
+          ano: { in: filterParams.years },
+          localidade_id: filterParams.city
+            ? Number(filterParams.city)
+            : Number(filterParams.state),
+        },
+        include,
+      });
 
-        // Filtrar dados originais antes do mapeamento para tipos sem dimensões
-        let filteredResults = results;
-        if (
-          (tipo === 'teacher' || tipo === 'federativeEntity') &&
-          filterParams.years.some((y) => y >= 2021) &&
-          dimensions.length === 0
-        ) {
-          // Filtrar apenas registros com TODAS as dimensões null nos dados originais
-          filteredResults = results.filter((item) =>
+      // Filtrar dados originais antes do mapeamento para tipos sem dimensões
+      let filteredResults = results;
+      if (
+        (tipo === 'teacher' || tipo === 'federativeEntity') &&
+        filterParams.years.some((y) => y >= 2021) &&
+        dimensions.length === 0
+      ) {
+        // Filtrar apenas registros com TODAS as dimensões null nos dados originais
+        filteredResults = results.filter(
+          (item) =>
             !item.dependencia_id &&
             !item.dependencia_teacher_id &&
             !item.etapa_id &&
@@ -180,68 +186,73 @@ export class BasicService {
             !item.vinculo_id &&
             !item.formacao_id &&
             !item.faixa_etaria_id &&
-            !item.contrato_id
-          );
-          console.log('Dados filtrados no banco (TODAS dimensões null):', filteredResults.length, 'de', results.length);
-        }
-
-        // Criar contexto para o mapper
-        const mappingContext: MappingContext = {
-          tipo,
-          filterParams,
-          dimensions,
-          dataSource: DataSourceType.DADOS_EDUCACAO_BASICA,
-        };
-
-        // Usar o mapper para padronizar a resposta
-        const standardResponse = this.mapper.mapToStandardFormat(
-          filteredResults,
-          mappingContext,
+            !item.contrato_id,
         );
-
-        // Remover itens excluídos
-        const finalFilteredResults = this.mapper.removeExcludedItems(
-          standardResponse.result,
-          mappingContext,
+        console.log(
+          'Dados filtrados no banco (TODAS dimensões null):',
+          filteredResults.length,
+          'de',
+          results.length,
         );
-        standardResponse.result = finalFilteredResults;
-
-        // Normalizar IDs das etapas para série histórica antes do processamento
-        standardResponse.result = this.normalizeEtapaIdsForHistoricalSeries(
-          standardResponse.result,
-          tipo,
-          filterParams,
-        );
-
-        // Lógica de agrupamento baseada nas dimensões
-        if (dimensions.length === 0) {
-          // Sem dimensões - usar combinação fixa para evitar dupla contagem
-          standardResponse.result = this.processNoDimensions(
-            standardResponse.result,
-            tipo,
-            filterParams,
-          );
-        } else if (dimensions.length === 1) {
-          // Com uma dimensão - aplicar lógica específica baseada no tipo
-          standardResponse.result = this.processSingleDimension(
-            standardResponse.result,
-            dimensions[0],
-            tipo,
-            filterParams,
-          );
-        } else if (dimensions.length === 2) {
-          // Com duas dimensões - manter todos os dados detalhados
-          standardResponse.result = this.processTwoDimensions(
-            standardResponse.result,
-            dimensions,
-          );
-        }
-
-        return standardResponse;
-      } catch (error) {
-        console.error('Erro ao buscar dados da educação básica:', error);
-        throw new Error('Falha ao recuperar dados da educação básica');
       }
+
+      // Criar contexto para o mapper
+      const mappingContext: MappingContext = {
+        tipo,
+        filterParams,
+        dimensions,
+        dataSource: DataSourceType.DADOS_EDUCACAO_BASICA,
+      };
+
+      // Usar o mapper para padronizar a resposta
+      const standardResponse = this.mapper.mapToStandardFormat(
+        filteredResults,
+        mappingContext,
+      );
+
+      // Remover itens excluídos
+      const finalFilteredResults = this.mapper.removeExcludedItems(
+        standardResponse.result,
+        mappingContext,
+      );
+      standardResponse.result = finalFilteredResults;
+
+      // Normalizar IDs das etapas para série histórica antes do processamento
+      standardResponse.result = this.normalizeEtapaIdsForHistoricalSeries(
+        standardResponse.result,
+        tipo,
+        filterParams,
+      );
+
+      // Lógica de agrupamento baseada nas dimensões
+      if (dimensions.length === 0) {
+        // Sem dimensões - usar combinação fixa para evitar dupla contagem
+        standardResponse.result = this.processNoDimensions(
+          standardResponse.result,
+          tipo,
+          filterParams,
+        );
+      } else if (dimensions.length === 1) {
+        // Com uma dimensão - aplicar lógica específica baseada no tipo
+        standardResponse.result = this.processSingleDimension(
+          standardResponse.result,
+          dimensions[0],
+          tipo,
+          filterParams,
+        );
+      } else if (dimensions.length === 2) {
+        // Com duas dimensões - manter todos os dados detalhados
+        standardResponse.result = this.processTwoDimensions(
+          standardResponse.result,
+          dimensions,
+        );
+      }
+
+      return standardResponse;
+    } catch (error) {
+      console.error('Erro ao buscar dados da educação básica:', error);
+      throw new Error('Falha ao recuperar dados da educação básica');
+    }
     //}
 
     // Fallback para dados após 2023 (exceto teacher sem dimensões que já foi tratado acima)
@@ -260,11 +271,8 @@ export class BasicService {
       (tipo === 'teacher' || tipo === 'federativeEntity') &&
       filterParams.years.some((y) => y >= 2021)
     ) {
-
       // Para teacher >= 2021, escolher uma dimensão para agrupar
       const filtered = data.filter((item) => item.location_id == null);
-
-
 
       const totalPorAno = {};
       for (const item of filtered) {
@@ -714,19 +722,20 @@ export class BasicService {
         dimensions.length === 0
       ) {
         // Filtrar apenas registros com TODAS as dimensões null nos dados originais
-        allResults = allResults.filter((item) =>
-          !item.dependencia_id &&
-          !item.dependencia_teacher_id &&
-          !item.etapa_id &&
-          !item.etapa_school_id &&
-          !item.etapa_teacher_id &&
-          !item.etapa_turma_id &&
-          !item.etapa_matricula_ate2020_id &&
-          !item.localizacao_id &&
-          !item.vinculo_id &&
-          !item.formacao_id &&
-          !item.faixa_etaria_id &&
-          !item.contrato_id
+        allResults = allResults.filter(
+          (item) =>
+            !item.dependencia_id &&
+            !item.dependencia_teacher_id &&
+            !item.etapa_id &&
+            !item.etapa_school_id &&
+            !item.etapa_teacher_id &&
+            !item.etapa_turma_id &&
+            !item.etapa_matricula_ate2020_id &&
+            !item.localizacao_id &&
+            !item.vinculo_id &&
+            !item.formacao_id &&
+            !item.faixa_etaria_id &&
+            !item.contrato_id,
         );
       }
 

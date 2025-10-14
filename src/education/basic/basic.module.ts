@@ -11,4 +11,3 @@ import { EducationResponseMapper } from './mappers/education-response.mapper';
   providers: [BasicService, EducationResponseMapper],
 })
 export class BasicModule {}
-

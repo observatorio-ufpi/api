@@ -25,7 +25,7 @@ export class PrismaEducacaoService implements OnModuleInit, OnModuleDestroy {
       const { PrismaClient } = require(prismaClientPath);
       this.prismaClient = new PrismaClient({
         datasources: {
-          db: {
+          dbEducacao: {
             url: process.env.DATABASE_URL_EDUCACAO,
           },
         },
@@ -41,22 +41,31 @@ export class PrismaEducacaoService implements OnModuleInit, OnModuleDestroy {
       // Tentar conectar com retry
       let attempts = 0;
       const maxAttempts = 5;
-      
+
       while (attempts < maxAttempts) {
         try {
-          console.log(`Tentando conectar no banco de educação... (tentativa ${attempts + 1}/${maxAttempts})`);
+          console.log(
+            `Tentando conectar no banco de educação... (tentativa ${attempts + 1}/${maxAttempts})`,
+          );
           await this.prismaClient.$connect();
           console.log('✅ Conectado no banco de educação com sucesso!');
           return;
         } catch (error) {
           attempts++;
-          console.error(`❌ Erro ao conectar no banco de educação (tentativa ${attempts}):`, error.message);
-          
+          console.error(
+            `❌ Erro ao conectar no banco de educação (tentativa ${attempts}):`,
+            error.message,
+          );
+
           if (attempts < maxAttempts) {
-            console.log(`⏳ Aguardando 3 segundos antes da próxima tentativa...`);
-            await new Promise(resolve => setTimeout(resolve, 3000));
+            console.log(
+              `⏳ Aguardando 3 segundos antes da próxima tentativa...`,
+            );
+            await new Promise((resolve) => setTimeout(resolve, 3000));
           } else {
-            console.error('❌ Falha ao conectar no banco de educação após todas as tentativas');
+            console.error(
+              '❌ Falha ao conectar no banco de educação após todas as tentativas',
+            );
             throw error;
           }
         }

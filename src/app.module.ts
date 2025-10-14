@@ -12,6 +12,7 @@ import { RpebCompositionModule } from './indicators/rpeb_composition/rpeb_compos
 import { PrismaModule } from './prisma/prisma.module';
 import { ResearchesModule } from './researches/researches.module';
 import { PrismaEducacaoService } from './education/prisma-educacao.service';
+import { LocalidadesModule } from './education/localidades/localidades.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { PrismaEducacaoService } from './education/prisma-educacao.service';
     BasicModule,
     HigherModule,
     RateModule,
+    LocalidadesModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaEducacaoService],

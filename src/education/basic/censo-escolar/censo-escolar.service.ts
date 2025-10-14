@@ -1,13 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaEducacaoService } from '../../prisma-educacao.service';
 import { CensoEscolarMapper } from './mappers/censo-escolar.mapper';
-
-interface FilterParams {
-  years: number[];
-  state: string;
-  city?: string;
-  isHistorical?: boolean;
-}
+import { FilterDto } from './dto/filter.dto';
 
 @Injectable()
 export class CensoEscolarService {
@@ -16,24 +10,104 @@ export class CensoEscolarService {
     private readonly mapper: CensoEscolarMapper,
   ) {}
 
-  async getInfraestrutura(dims: string, filter: string) {
-    const filterParams = this.parseFilter(filter);
-    const dimensions = this.parseDims(dims);
+  async getInfraestrutura(filterDto: FilterDto, rawParams?: { city?: string; state?: string }) {
+    const where: any = {};
+
+    if (filterDto.min_year && filterDto.max_year) {
+      const minYear = parseInt(filterDto.min_year, 10);
+      const maxYear = parseInt(filterDto.max_year, 10);
+      const years = [];
+      for (let year = minYear; year <= maxYear; year++) years.push(year);
+      where.ANO = { in: years };
+    } else if (filterDto.min_year) {
+      where.ANO = { gte: parseInt(filterDto.min_year, 10) };
+    } else if (filterDto.max_year) {
+      where.ANO = { lte: parseInt(filterDto.max_year, 10) };
+    }
+
+    // If frontend provided compact filter with city/state, prefer those when available
+    if (rawParams) {
+      if (rawParams.city) {
+        // CO_MUNICIPIO is stored as string (codigo_ibge)
+        where.CO_MUNICIPIO = rawParams.city;
+      } else if (rawParams.state) {
+        where.CO_UF = parseInt(rawParams.state, 10);
+      }
+    }
+
+    if (filterDto.filters) {
+      let filters = filterDto.filters;
+      if (typeof filters === 'string') {
+        try {
+          filters = JSON.parse(filters);
+        } catch (error) {
+          throw new BadRequestException('Invalid filters format. Expected a JSON string.');
+        }
+      }
+
+      if (Array.isArray(filters) && filters.length > 0) {
+        const localidadeFilters: any = {};
+        for (const filter of filters) {
+          switch (filter.type) {
+            case 'cidade':
+              localidadeFilters.nome = filter.value;
+              break;
+            case 'territorio':
+              localidadeFilters.territorio_desenvolvimento = filter.value;
+              break;
+            case 'aglomerado':
+              localidadeFilters.aglomerado = filter.value;
+              break;
+            case 'gerencia':
+            case 'gre':
+              localidadeFilters.gerencia_regional = filter.value;
+              break;
+            case 'faixa_populacional':
+              localidadeFilters.faixa_populacional = filter.value;
+              break;
+          }
+        }
+        if (Object.keys(localidadeFilters).length > 0) {
+          where.localidade = { is: localidadeFilters };
+        }
+      }
+
+    // Temporary debug: log the computed `where` and filters for diagnosis
+    try {
+      // eslint-disable-next-line no-console
+      console.debug('[CensoEscolarService] Prisma `where` object:', JSON.stringify(where));
+    } catch (e) {
+      // ignore logging errors
+    }
+    }
 
     const results = await this.prisma.censoEscolarInfraestrutura.findMany({
-      where: {
-        ANO: { in: filterParams.years },
-        ...(filterParams.city && { CO_MUNICIPIO: Number(filterParams.city) }),
-        ...(!filterParams.city && { CO_UF: Number(filterParams.state) }),
+      where,
+      include: {
+        localidade: {
+          select: {
+            nome: true,
+            codigo_ibge: true,
+            territorio_desenvolvimento: true,
+            aglomerado: true,
+            gerencia_regional: true,
+            faixa_populacional: true,
+          },
+        },
       },
+      // Support pagination if provided (if no limit is provided, return all results)
+      ...(filterDto.limit ? { take: Number(filterDto.limit) } : {}),
+      ...(filterDto.page && filterDto.limit ? { skip: (Number(filterDto.page) - 1) * Number(filterDto.limit) } : {}),
     });
 
-    return this.mapper.mapToStandardFormat(results, {
-      dimensions,
-      filterParams,
-    });
+    const context = {
+      dimensions: filterDto.dimensions || [],
+      filterParams: filterDto.filters || [],
+    };
+
+    return this.mapper.mapToStandardFormat(results, context);
   }
-  // --- ✅ NOVO MÉTODO PARA A LÓGICA DA SÉRIE HISTÓRICA ---
+
   async getInfraestruturaTimeSeries(options: {
     indicador: string;
     startYear?: string;
@@ -45,99 +119,31 @@ export class CensoEscolarService {
       throw new BadRequestException('O parâmetro "indicador" é obrigatório.');
     }
 
-    const startYearNum = parseInt(startYear, 10) || 2007; // Ano padrão inicial
-    const endYearNum = parseInt(endYear, 10) || 2024;   // Ano padrão final
+    const startYearNum = parseInt(startYear, 10) || 2007;
+    const endYearNum = parseInt(endYear, 10) || 2024;
 
     try {
-      // Usamos o Prisma Client da educação
       const result = await this.prisma.censoEscolarInfraestrutura.groupBy({
         by: ['ANO'],
-        _sum: {
-          [indicador]: true, // Agrega dinamicamente a coluna do indicador
-        },
+        _sum: { [indicador]: true },
         where: {
-          ANO: {
-            gte: startYearNum,
-            lte: endYearNum,
-          },
+          ANO: { gte: startYearNum, lte: endYearNum },
         },
-        orderBy: {
-          ANO: 'asc',
-        },
+        orderBy: { ANO: 'asc' },
       });
 
-      // Formata a resposta para ser amigável para o frontend
-      const formattedResult = result.map(item => ({
+      const formattedResult = result.map((item) => ({
         ano: item.ANO,
         total: item._sum[indicador] || 0,
       }));
-      
-      return { result: formattedResult };
 
+      return { result: formattedResult };
     } catch (error) {
-      console.error("Erro no serviço ao buscar série histórica:", error);
-      // Lide com o erro - ex: verifique se a coluna 'indicador' é válida
+      console.error('Erro no serviço ao buscar série histórica:', error);
       if (error.code === 'P2009' || error.message.includes('Invalid field')) {
         throw new BadRequestException(`Indicador inválido: ${indicador}`);
       }
-      throw new Error("Não foi possível processar a sua requisição.");
+      throw new Error('Não foi possível processar a sua requisição.');
     }
   }
-  private parseFilter(filter: string): FilterParams {
-    try {
-      if (!filter || typeof filter !== 'string') {
-        return { years: [2022], state: '22', isHistorical: false };
-      }
-
-      const yearPattern = /min_year:"(\d+)",max_year:"(\d+)"/;
-      const statePattern = /state:"(\d+)"/;
-      const cityPattern = /city:"(\d+)"/;
-
-      const yearMatch = filter.match(yearPattern);
-      const stateMatch = filter.match(statePattern);
-      const cityMatch = filter.match(cityPattern);
-
-      const minYear = yearMatch?.[1] ? parseInt(yearMatch[1]) : 2022;
-      const maxYear = yearMatch?.[2] ? parseInt(yearMatch[2]) : 2022;
-      const years = [];
-      for (let year = minYear; year <= maxYear; year++) {
-        years.push(year);
-      }
-
-      return {
-        years,
-        state: stateMatch?.[1] || '22',
-        city: cityMatch?.[1],
-        isHistorical: minYear !== maxYear,
-      };
-    } catch (error) {
-      console.error('Erro ao analisar filtro:', error);
-      return { years: [2022], state: '22', isHistorical: false };
-    }
-  }
-
-  private parseDims(dims: string): string[] {
-    if (!dims || typeof dims !== 'string') {
-      return [];
-    }
-    return dims
-      .split(',')
-      .map((dim) => dim.trim())
-      .filter((dim) => dim.length > 0);
-  }
-
-  private buildFilterString(filterParams: FilterParams): string {
-    const minYear = Math.min(...filterParams.years);
-    const maxYear = Math.max(...filterParams.years);
-
-    let filter = `min_year:"${minYear}",max_year:"${maxYear}",state:"${filterParams.state}"`;
-
-    if (filterParams.city) {
-      filter += `,city:"${filterParams.city}"`;
-    }
-
-    return filter;
-  }
-
-  
 }
