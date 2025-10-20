@@ -217,6 +217,9 @@ export class CensoEscolarMapper {
           CO_MUNICIPIO: item.CO_MUNICIPIO,
           NO_MUNICIPIO: item.NO_MUNICIPIO,
           SG_UF: item.SG_UF,
+          CO_ENTIDADE: item.CO_ENTIDADE,
+          TP_DEPENDENCIA: item.TP_DEPENDENCIA,
+          TP_LOCALIZACAO: item.TP_LOCALIZACAO,
         };
 
         dimensions.forEach((dim) => {
