@@ -90,8 +90,13 @@ export class PrismaEducacaoService implements OnModuleInit, OnModuleDestroy {
     return this.prismaClient?.dadoEducacaoBasicaApos23;
   }
 
+  // Educação Superior
   get dadoEducacaoSuperior() {
     return this.prismaClient?.dadoEducacaoSuperior;
+  }
+
+  get instituicaoEnsinoSuperior() {
+    return this.prismaClient?.instituicaoEnsinoSuperior;
   }
 
   get localidade() {

@@ -283,11 +283,11 @@ export class HigherService {
     return this.processResults(results, dimensions, 'docentes');
   }
 
-  private processResults(
+  private async processResults(
     results: any[],
     dimensions: string[],
     tipo: string,
-  ): EducationResponse {
+  ): Promise<EducationResponse> {
     if (!dimensions || dimensions.length === 0) {
       // Sem dimensões - somar o campo 'total' de cada registro por ano
       const yearTotals = new Map();
@@ -327,23 +327,23 @@ export class HigherService {
 
     if (dimensions.length === 1) {
       // Uma dimensão - agrupar pela dimensão selecionada
-      return this.processOneDimension(results, dimensions[0], tipo);
+      return await this.processOneDimension(results, dimensions[0], tipo);
     }
 
     if (dimensions.length === 2) {
       // Duas dimensões - criar tabela cruzada
-      return this.processTwoDimensions(results, dimensions, tipo);
+      return await this.processTwoDimensions(results, dimensions, tipo);
     }
 
     // Mais de duas dimensões não suportado
     return { result: [] };
   }
 
-  private processOneDimension(
+  private async processOneDimension(
     results: any[],
     dimension: string,
     tipo: string,
-  ): EducationResponse {
+  ): Promise<EducationResponse> {
     const dimensionYearTotals = new Map();
 
     results.forEach((item) => {
@@ -361,10 +361,33 @@ export class HigherService {
       }
     });
 
+    // Se a dimensão for 'institution', buscar os nomes das IES
+    let iesNamesMap = new Map();
+    if (dimension === 'institution') {
+      const codigosIes = Array.from(dimensionYearTotals.keys()).map(key =>
+        key.split('_')[0]
+      );
+
+      const iesRecords = await this.prisma['instituicaoEnsinoSuperior'].findMany({
+        where: {
+          codigo: { in: codigosIes },
+        },
+      });
+
+      iesRecords.forEach(ies => {
+        iesNamesMap.set(ies.codigo, ies.nome);
+      });
+    }
+
     const processedResults = [];
 
     dimensionYearTotals.forEach((yearMap, key) => {
       const [id, name] = key.split('_', 2);
+
+      // Se for institution, usar o nome real da IES
+      const finalName = dimension === 'institution'
+        ? (iesNamesMap.get(id) || `IES ${id}`)
+        : name;
 
       // Para cada ano da dimensão, criar um registro separado
       yearMap.forEach((total, year) => {
@@ -374,7 +397,7 @@ export class HigherService {
         };
 
         // Adicionar campos específicos da dimensão
-        this.addDimensionFields(result, dimension, Number(id), name);
+        this.addDimensionFields(result, dimension, Number(id), finalName);
 
         processedResults.push(result);
       });
@@ -383,11 +406,11 @@ export class HigherService {
     return { result: processedResults };
   }
 
-  private processTwoDimensions(
+  private async processTwoDimensions(
     results: any[],
     dimensions: string[],
     tipo: string,
-  ): EducationResponse {
+  ): Promise<EducationResponse> {
     const [dim1, dim2] = dimensions;
 
     // Para docentes, não permitir duas dimensões
@@ -418,6 +441,25 @@ export class HigherService {
       }
     });
 
+    // Mapear nomes corretos de IES quando uma das dimensões for 'institution'
+    let iesNamesMap = new Map<string, string>();
+    if (dim1 === 'institution' || dim2 === 'institution') {
+      const extractIds = (valuesSet: Set<any>) =>
+        Array.from(valuesSet)
+          .map((v: any) => String(v as string))
+          .map((s) => s.split('_')[0])
+          .filter((id) => !!id);
+      const codesDim1 = dim1 === 'institution' ? extractIds(dim1Values) : [];
+      const codesDim2 = dim2 === 'institution' ? extractIds(dim2Values) : [];
+      const allCodes = Array.from(new Set([...(codesDim1 as string[]), ...(codesDim2 as string[])]));
+      if (allCodes.length > 0) {
+        const iesRecords = await this.prisma['instituicaoEnsinoSuperior'].findMany({
+          where: { codigo: { in: allCodes } },
+        });
+        iesRecords.forEach((ies) => iesNamesMap.set(String(ies.codigo), ies.nome));
+      }
+    }
+
     // Criar dados para a tabela cruzada
     const crossTableData = [];
     crossData.forEach((yearMap, key) => {
@@ -430,8 +472,15 @@ export class HigherService {
       );
 
       if (dim1Info && dim2Info) {
-        const dim1Name = (dim1Info as string).split('_', 2)[1];
-        const dim2Name = (dim2Info as string).split('_', 2)[1];
+        let dim1Name = (dim1Info as string).split('_', 2)[1];
+        let dim2Name = (dim2Info as string).split('_', 2)[1];
+
+        if (dim1 === 'institution') {
+          dim1Name = iesNamesMap.get(dim1Id) || `IES ${dim1Id}`;
+        }
+        if (dim2 === 'institution') {
+          dim2Name = iesNamesMap.get(dim2Id) || `IES ${dim2Id}`;
+        }
 
         // Para cada ano, criar um registro separado
         yearMap.forEach((total, year) => {
@@ -500,6 +549,18 @@ export class HigherService {
           ? { id: item.formacao_docente.id, name: item.formacao_docente.nome }
           : null;
 
+      case 'institution':
+        // Obtém o codigo_ies do curso
+        if (item.cursos && item.cursos.codigo_ies) {
+          // Retorna o codigo_ies como ID
+          // O nome será buscado posteriormente via join ou query adicional
+          return {
+            id: item.cursos.codigo_ies,
+            name: item.cursos.codigo_ies.toString(), // Temporário, será substituído
+          };
+        }
+        return null;
+
       default:
         return null;
     }
@@ -540,6 +601,11 @@ export class HigherService {
       case 'initial_training':
         result.initial_training_id = id;
         result.initial_training_name = name;
+        break;
+
+      case 'institution':
+        result.institution_id = id;
+        result.institution_name = name;
         break;
     }
   }
@@ -592,6 +658,15 @@ export class HigherService {
         'initial_training',
         'byOrganizacaoAcademicaAndFormacaoDocente',
       ],
+      // Novas combinações envolvendo instituição de ensino
+      ['institution', 'upper_education_mod', 'byInstitutionAndModalidade'],
+      [
+        'institution',
+        'upper_adm_dependency',
+        'byInstitutionAndCategoriaAdministrativa',
+      ],
+      ['institution', 'academic_level', 'byInstitutionAndOrganizacaoAcademica'],
+      ['institution', 'age_student_code', 'byInstitutionAndFaixaEtariaSuperior'],
     ];
 
     for (const [d1, d2, key] of combinations) {

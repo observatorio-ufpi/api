@@ -464,3 +464,4 @@ console.log('🚀 Script carregado. Iniciando execução...');
 main().catch(console.error);
 
 export { inserirValoresFixos, main, processarArquivoExcel };
+
