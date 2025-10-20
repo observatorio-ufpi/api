@@ -724,6 +724,7 @@ model CensoEscolarInfraestrutura {
   SG_UF           String?
   TP_DEPENDENCIA  Int?      // 1-Federal, 2-Estadual, 3-Municipal, 4-Privada
   TP_LOCALIZACAO  Int?      // 1-Urbana, 2-Rural
+  CO_ENTIDADE     Int?      // Código da entidade
   
   localidade      Localidade? @relation(fields: [CO_MUNICIPIO], references: [codigo_ibge])
 
