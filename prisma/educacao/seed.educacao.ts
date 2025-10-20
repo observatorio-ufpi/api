@@ -7,30 +7,41 @@ import { parse } from 'csv-parse';
 
 const prisma = new PrismaClient();
 
-const arquivoCSV = 'C:/teste_salvamento/dados_2024_piaui.csv';
+const arquivoCSV = 'C:/teste_salvamento/dados_2007_piaui.csv';
 
 // A funçãoaceita a lista de colunas permitidas como argumento/
+const colunasDeCodigoString = [
+  'CO_ENTIDADE',
+  'NO_ENTIDADE',
+  'CO_MUNICIPIO',
+  'NO_MUNICIPIO',
+  'SG_UF'
+];
+
 function processaLinha(row: any, colunasPermitidas: string[]): Record<string, any> {
   const record: Record<string, any> = {};
 
-  // Itera sobre a lista de colunas permitidas
   for (const coluna of colunasPermitidas) {
-    // Verifica se a linha do CSV realmente possui essa coluna.
     if (Object.prototype.hasOwnProperty.call(row, coluna)) {
       let value = row[coluna];
 
-      if (value === '') {
-        value = null;
-      } else if (typeof value === 'string') {
+      if (value === '' || value === null || value === undefined) {
+        record[coluna] = null;
+      } 
+      // --- ✅ INÍCIO DA CORREÇÃO ---
+      else if (colunasDeCodigoString.includes(coluna)) {
+        record[coluna] = String(value); // Força a ser 'String'
+      } 
+      // --- FIM DA CORREÇÃO ---
+      else if (typeof value === 'string') {
         const num = Number(value.replace(',', '.'));
-        value = isNaN(num) ? value : num;
+        value = isNaN(num) ? value : num; // Converte o resto para número
+        record[coluna] = value;
+      } 
+      else {
+        record[coluna] = value; // Mantém o valor se já for numérico
       }
-      
-      // Adiciona ao registro final apenas se a coluna for permitida.
-      record[coluna] = value;
     }
-    // Se a coluna permitida não existir na linha do CSV, ela simplesmente não será adicionada ao objeto,
-    // o que é geralmente o comportamento desejado.
   }
   return record;
 }
