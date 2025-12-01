@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import {
-  DetailedEducationData,
-  EducationResponse,
-  FilterParams,
-  MappingContext,
+    DetailedEducationData,
+    EducationResponse,
+    FilterParams,
+    MappingContext,
 } from '../../../interfaces/education.interface';
 
 @Injectable()
@@ -83,6 +83,8 @@ export class EducationResponseMapper {
         adm_dependency_detailed_name: null,
         location_id: item.localizacao?.id ?? null,
         location_name: item.localizacao?.nome ?? null,
+        municipality_id: item.localidade_id ?? null,
+        municipality_name: null, // Será preenchido no BasicService
       };
 
       // Mapeamento específico por tipo para campos adicionais

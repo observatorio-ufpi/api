@@ -5,6 +5,7 @@ import {
   FilterParams,
   MappingContext,
 } from '../../interfaces/education.interface';
+import { municipios } from '../../utils/citiesMapping';
 import { PrismaEducacaoService } from '../prisma-educacao.service';
 import { EducationResponseMapper } from './mappers/education-response.mapper';
 
@@ -28,6 +29,17 @@ export class BasicService {
     private prisma: PrismaEducacaoService,
     private mapper: EducationResponseMapper,
   ) {}
+
+  /**
+   * Busca o nome do município pelo código
+   * @param codigoMunicipio Código do município (ex: 2211001)
+   * @returns Nome do município ou null se não encontrado
+   */
+  private getMunicipioName(codigoMunicipio: number | null): string | null {
+    if (!codigoMunicipio) return null;
+    const municipio = municipios[codigoMunicipio];
+    return municipio?.nomeMunicipio || null;
+  }
 
   /**
    * Normaliza o ID da etapa de matrícula baseado no ano
@@ -153,15 +165,34 @@ export class BasicService {
       if (tipo === 'teacher' && filterParams.years.some((y) => y >= 2021))
         tipo = 'federativeEntity';
 
+      // Se a dimensão municipality estiver presente, buscar dados de todos os municípios do estado
+      // Caso contrário, usar filtro normal (cidade específica ou estado)
+      const whereClause: any = {
+        tipo,
+        ano: { in: filterParams.years },
+      };
+
+      if (dimensions.includes('municipality')) {
+        // Se tem dimensão municipality, buscar todos os municípios do estado
+        if (filterParams.city) {
+          // Se foi especificada uma cidade, buscar apenas essa
+          whereClause.localidade_id = Number(filterParams.city);
+        } else {
+          // Buscar todos os municípios do estado
+          // Obter todos os códigos de municípios do mapeamento
+          const municipioCodes = Object.keys(municipios).map(Number);
+          whereClause.localidade_id = { in: municipioCodes };
+        }
+      } else {
+        // Lógica normal: cidade específica ou estado
+        whereClause.localidade_id = filterParams.city
+          ? Number(filterParams.city)
+          : Number(filterParams.state);
+      }
+
       // Buscar todos os registros do tipo/ano/localidade
       const results = await this.prisma.dadoEducacaoBasica.findMany({
-        where: {
-          tipo,
-          ano: { in: filterParams.years },
-          localidade_id: filterParams.city
-            ? Number(filterParams.city)
-            : Number(filterParams.state),
-        },
+        where: whereClause,
         include,
       });
 
@@ -188,12 +219,6 @@ export class BasicService {
             !item.faixa_etaria_id &&
             !item.contrato_id,
         );
-        console.log(
-          'Dados filtrados no banco (TODAS dimensões null):',
-          filteredResults.length,
-          'de',
-          results.length,
-        );
       }
 
       // Criar contexto para o mapper
@@ -209,6 +234,14 @@ export class BasicService {
         filteredResults,
         mappingContext,
       );
+
+      // Enriquecer dados com nome do município se a dimensão municipality estiver presente
+      if (dimensions.includes('municipality')) {
+        standardResponse.result = standardResponse.result.map((item) => ({
+          ...item,
+          municipality_name: this.getMunicipioName(item.municipality_id),
+        }));
+      }
 
       // Remover itens excluídos
       const finalFilteredResults = this.mapper.removeExcludedItems(
@@ -354,6 +387,7 @@ export class BasicService {
         ],
         location: ['location_id', 'location_name'],
         contract_type: ['contract_type_id', 'contract_type_name'],
+        municipality: ['municipality_id', 'municipality_name'],
       };
       [mainDim, mainName] = dimensionMap[dimension] || ['', ''];
     } else {
@@ -367,6 +401,7 @@ export class BasicService {
           'adm_dependency_detailed_name',
         ],
         location: ['location_id', 'location_name'],
+        municipality: ['municipality_id', 'municipality_name'],
       };
       [mainDim, mainName] = dimensionMap[dimension] || ['', ''];
     }
@@ -439,6 +474,44 @@ export class BasicService {
         fixedCombo = ['education_level_mod_id', 'adm_dependency_detailed_id'];
       } else if (dimension === 'adm_dependency_detailed') {
         fixedCombo = ['adm_dependency_detailed_id', 'education_level_mod_id'];
+      } else if (dimension === 'municipality') {
+        // Para municipality, usar combinação fixa de outras dimensões (etapa + localidade)
+        // para calcular o total por município, evitando dupla contagem
+        // municipality é o localidade_id, então precisamos combinar com outras dimensões
+        const filtered = data.filter(
+          (item) =>
+            item.municipality_id !== null &&
+            item.education_level_mod_id !== null &&
+            item.location_id !== null,
+        );
+
+        // Agrupar apenas por ano + municipality_id, somando todos os valores
+        // da combinação etapa + localidade para cada município
+        const groupMap = new Map();
+        for (const item of filtered) {
+          const key = `${item.year}|${item.municipality_id}`;
+          if (!groupMap.has(key)) {
+            groupMap.set(key, {
+              year: item.year,
+              municipality_id: item.municipality_id,
+              municipality_name: item.municipality_name,
+              // Garantir que outras dimensões sejam null
+              education_level_mod_id: null,
+              education_level_mod_name: null,
+              adm_dependency_detailed_id: null,
+              adm_dependency_detailed_name: null,
+              location_id: null,
+              location_name: null,
+              total: 0,
+            });
+          }
+          groupMap.get(key).total += item.total;
+        }
+
+        return Array.from(groupMap.values()).sort((a, b) => {
+          if (a.year !== b.year) return a.year - b.year;
+          return a.municipality_id - b.municipality_id;
+        });
       } else {
         fixedCombo = ['location_id', 'education_level_mod_id'];
       }
@@ -451,7 +524,7 @@ export class BasicService {
         (item) => item[mainDimFixed] !== null && item[otherDim] !== null,
       );
 
-      // console.log('Dados filtrados com combinação fixa:', filtered);
+      //console.log('Dados filtrados com combinação fixa:', filtered);
 
       // Agrupar por ano + valor da dimensão desejada
       const groupMap = new Map();
@@ -479,28 +552,165 @@ export class BasicService {
 
   private processTwoDimensions(data: any[], dimensions: string[]): any[] {
     // Para duas dimensões, retornar dados detalhados agrupados
+    // IMPORTANTE: Município não é uma dimensão no banco, então os dados podem vir
+    // com outras dimensões preenchidas (etapa, dependência, etc). Precisamos
+    // agrupar pelas dimensões solicitadas e retornar APENAS esses campos.
+    // ATENÇÃO: Quando municipality está envolvido, usar combinação fixa para evitar dupla contagem
     const groupMap = new Map();
 
-    for (const item of data) {
-      // Criar chave única baseada no ano e valores das dimensões
-      const keys = dimensions.map((dim) => {
-        if (dim === 'education_level_mod') return item.education_level_mod_id;
-        if (dim === 'adm_dependency_detailed')
-          return item.adm_dependency_detailed_id;
-        if (dim === 'location') return item.location_id;
-        if (dim === 'contract_type') return item.contract_type_id;
-        return null;
-      });
+    // Mapear dimensões para seus campos correspondentes
+    const dimensionFields: Record<string, { id: string; name: string }> = {
+      education_level_mod: {
+        id: 'education_level_mod_id',
+        name: 'education_level_mod_name',
+      },
+      adm_dependency_detailed: {
+        id: 'adm_dependency_detailed_id',
+        name: 'adm_dependency_detailed_name',
+      },
+      location: {
+        id: 'location_id',
+        name: 'location_name',
+      },
+      contract_type: {
+        id: 'contract_type_id',
+        name: 'contract_type_name',
+      },
+      municipality: {
+        id: 'municipality_id',
+        name: 'municipality_name',
+      },
+    };
 
-      // Para employees, não exigir que todas as dimensões tenham valores não nulos
-      // já que employees não tem education_level_mod
-      const shouldInclude = keys.every((k) => k !== null);
+    // Verificar se municipality está envolvido
+    const hasMunicipality = dimensions.includes('municipality');
+    const hasLocation = dimensions.includes('location');
+    const hasEducationLevel = dimensions.includes('education_level_mod');
+    const hasAdmDependency = dimensions.includes('adm_dependency_detailed');
 
-      if (shouldInclude) {
-        const key = `${item.year}|${keys.join('|')}`;
-        if (!groupMap.has(key)) {
-          groupMap.set(key, { ...item });
-        } else {
+    // Se municipality está envolvido, precisamos usar uma combinação fixa para evitar dupla contagem
+    if (hasMunicipality) {
+      let filtered: any[];
+
+      if (hasLocation) {
+        // municipality + location: usar combinação fixa etapa + localidade
+        filtered = data.filter(
+          (item) =>
+            item.municipality_id !== null &&
+            item.location_id !== null &&
+            item.education_level_mod_id !== null,
+        );
+      } else if (hasEducationLevel) {
+        // municipality + education_level_mod: usar combinação fixa etapa + localidade
+        // (etapa já está nas dimensões, então só precisamos garantir localidade)
+        filtered = data.filter(
+          (item) =>
+            item.municipality_id !== null &&
+            item.education_level_mod_id !== null &&
+            item.location_id !== null,
+        );
+      } else if (hasAdmDependency) {
+        // municipality + adm_dependency_detailed: usar combinação fixa dependência + localidade
+        // (dependência já está nas dimensões, então só precisamos garantir localidade)
+        filtered = data.filter(
+          (item) =>
+            item.municipality_id !== null &&
+            item.adm_dependency_detailed_id !== null &&
+            item.location_id !== null,
+        );
+      } else {
+        // municipality + outra dimensão: usar combinação fixa etapa + localidade (padrão)
+        filtered = data.filter(
+          (item) =>
+            item.municipality_id !== null &&
+            item.education_level_mod_id !== null &&
+            item.location_id !== null,
+        );
+      }
+
+      for (const item of filtered) {
+        // Criar chave única baseada no ano e valores das dimensões selecionadas
+        const keys = dimensions.map((dim) => {
+          const field = dimensionFields[dim];
+          return field ? item[field.id] : null;
+        });
+
+        const shouldInclude = keys.every((k) => k !== null);
+
+        if (shouldInclude) {
+          const key = `${item.year}|${keys.join('|')}`;
+          if (!groupMap.has(key)) {
+            // Criar objeto apenas com os campos das dimensões selecionadas
+            const resultItem: any = {
+              year: item.year,
+              total: 0,
+            };
+
+            // Adicionar apenas os campos das dimensões selecionadas
+            dimensions.forEach((dim) => {
+              const field = dimensionFields[dim];
+              if (field) {
+                resultItem[field.id] = item[field.id];
+                resultItem[field.name] = item[field.name];
+              }
+            });
+
+            // Garantir que outras dimensões sejam null
+            Object.keys(dimensionFields).forEach((dim) => {
+              if (!dimensions.includes(dim)) {
+                const field = dimensionFields[dim];
+                resultItem[field.id] = null;
+                resultItem[field.name] = null;
+              }
+            });
+
+            groupMap.set(key, resultItem);
+          }
+          groupMap.get(key).total += item.total;
+        }
+      }
+    } else {
+      // Para outras combinações de dimensões (sem municipality), usar lógica normal
+      for (const item of data) {
+        // Criar chave única baseada no ano e valores das dimensões selecionadas
+        const keys = dimensions.map((dim) => {
+          const field = dimensionFields[dim];
+          return field ? item[field.id] : null;
+        });
+
+        // Para employees, não exigir que todas as dimensões tenham valores não nulos
+        // já que employees não tem education_level_mod
+        const shouldInclude = keys.every((k) => k !== null);
+
+        if (shouldInclude) {
+          const key = `${item.year}|${keys.join('|')}`;
+          if (!groupMap.has(key)) {
+            // Criar objeto apenas com os campos das dimensões selecionadas
+            const resultItem: any = {
+              year: item.year,
+              total: 0,
+            };
+
+            // Adicionar apenas os campos das dimensões selecionadas
+            dimensions.forEach((dim) => {
+              const field = dimensionFields[dim];
+              if (field) {
+                resultItem[field.id] = item[field.id];
+                resultItem[field.name] = item[field.name];
+              }
+            });
+
+            // Garantir que outras dimensões sejam null
+            Object.keys(dimensionFields).forEach((dim) => {
+              if (!dimensions.includes(dim)) {
+                const field = dimensionFields[dim];
+                resultItem[field.id] = null;
+                resultItem[field.name] = null;
+              }
+            });
+
+            groupMap.set(key, resultItem);
+          }
           groupMap.get(key).total += item.total;
         }
       }
@@ -657,17 +867,40 @@ export class BasicService {
         const yearsUntil2020 = filterParams.years.filter((y) => y <= 2020);
         const yearsFrom2021 = filterParams.years.filter((y) => y >= 2021);
 
+        // Se a dimensão municipality estiver presente, buscar dados de todos os municípios
+        const whereClauseUntil2020: any = {
+          tipo: 'enrollment',
+          ano: { in: yearsUntil2020 },
+        };
+        const whereClauseFrom2021: any = {
+          tipo: 'enrollmentAggregate',
+          ano: { in: yearsFrom2021 },
+        };
+
+        if (dimensions.includes('municipality')) {
+          if (filterParams.city) {
+            whereClauseUntil2020.localidade_id = Number(filterParams.city);
+            whereClauseFrom2021.localidade_id = Number(filterParams.city);
+          } else {
+            // Buscar todos os municípios do estado
+            const municipioCodes = Object.keys(municipios).map(Number);
+            whereClauseUntil2020.localidade_id = { in: municipioCodes };
+            whereClauseFrom2021.localidade_id = { in: municipioCodes };
+          }
+        } else {
+          whereClauseUntil2020.localidade_id = filterParams.city
+            ? Number(filterParams.city)
+            : Number(filterParams.state);
+          whereClauseFrom2021.localidade_id = filterParams.city
+            ? Number(filterParams.city)
+            : Number(filterParams.state);
+        }
+
         // Consulta para dados até 2020 (tipo = 'enrollment')
         if (yearsUntil2020.length > 0) {
           const resultsUntil2020 =
             await this.prisma.dadoEducacaoBasica.findMany({
-              where: {
-                tipo: 'enrollment',
-                ano: { in: yearsUntil2020 },
-                localidade_id: filterParams.city
-                  ? Number(filterParams.city)
-                  : Number(filterParams.state),
-              },
+              where: whereClauseUntil2020,
               include,
             });
           allResults = allResults.concat(resultsUntil2020);
@@ -677,13 +910,7 @@ export class BasicService {
         if (yearsFrom2021.length > 0) {
           const resultsFrom2021 = await this.prisma.dadoEducacaoBasica.findMany(
             {
-              where: {
-                tipo: 'enrollmentAggregate',
-                ano: { in: yearsFrom2021 },
-                localidade_id: filterParams.city
-                  ? Number(filterParams.city)
-                  : Number(filterParams.state),
-              },
+              where: whereClauseFrom2021,
               include,
             },
           );
@@ -702,14 +929,28 @@ export class BasicService {
         if (tipo === 'enrollment' && filterParams.years.some((y) => y >= 2021))
           queryType = 'enrollmentAggregate';
 
+        // Se a dimensão municipality estiver presente, buscar dados de todos os municípios
+        const whereClause: any = {
+          tipo: queryType,
+          ano: { in: filterParams.years },
+        };
+
+        if (dimensions.includes('municipality')) {
+          if (filterParams.city) {
+            whereClause.localidade_id = Number(filterParams.city);
+          } else {
+            // Buscar todos os municípios do estado
+            const municipioCodes = Object.keys(municipios).map(Number);
+            whereClause.localidade_id = { in: municipioCodes };
+          }
+        } else {
+          whereClause.localidade_id = filterParams.city
+            ? Number(filterParams.city)
+            : Number(filterParams.state);
+        }
+
         allResults = await this.prisma.dadoEducacaoBasica.findMany({
-          where: {
-            tipo: queryType,
-            ano: { in: filterParams.years },
-            localidade_id: filterParams.city
-              ? Number(filterParams.city)
-              : Number(filterParams.state),
-          },
+          where: whereClause,
           include,
         });
       }
@@ -752,6 +993,14 @@ export class BasicService {
         allResults,
         mappingContext,
       );
+
+      // Enriquecer dados com nome do município se a dimensão municipality estiver presente
+      if (dimensions.includes('municipality')) {
+        standardResponse.result = standardResponse.result.map((item) => ({
+          ...item,
+          municipality_name: this.getMunicipioName(item.municipality_id),
+        }));
+      }
 
       // Remover itens excluídos
       const filteredResults = this.mapper.removeExcludedItems(

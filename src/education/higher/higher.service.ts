@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { municipios } from '../../utils/citiesMapping';
 import { PrismaEducacaoService } from '../prisma-educacao.service';
 
 interface FilterParams {
@@ -83,15 +84,31 @@ export class HigherService {
       return this.queryTeacherData(dimensions, filterParams);
     }
 
+    // Se a dimensão municipality estiver selecionada, buscar todos os municípios do estado
+    const hasMunicipalityDimension = dimensions.includes('municipality');
+
+    let whereCondition: any = {
+      tipo,
+      ano: { in: filterParams.years },
+    };
+
+    if (hasMunicipalityDimension && !filterParams.city) {
+      // Buscar todos os municípios do estado (códigos que começam com o código do estado)
+      const stateCode = filterParams.state;
+      const municipioIds = Object.keys(municipios)
+        .filter((key) => key.startsWith(stateCode))
+        .map((key) => Number(key));
+
+      whereCondition.localidade_id = { in: municipioIds };
+    } else {
+      whereCondition.localidade_id = filterParams.city
+        ? Number(filterParams.city)
+        : Number(filterParams.state);
+    }
+
     // Buscar dados básicos sempre incluindo todas as relações
     const results = await this.prisma.dadoEducacaoSuperior.findMany({
-      where: {
-        tipo,
-        ano: { in: filterParams.years },
-        localidade_id: filterParams.city
-          ? Number(filterParams.city)
-          : Number(filterParams.state),
-      },
+      where: whereCondition,
       include: {
         localidade: true,
         cursos: true,
@@ -186,17 +203,33 @@ export class HigherService {
       return this.queryTeacherDataTimeSeries(dimensions, filterParams);
     }
 
-    const results = await this.prisma.dadoEducacaoSuperior.findMany({
-      where: {
-        tipo,
-        ano: {
-          gte: filterParams.years[0],
-          lte: filterParams.years[filterParams.years.length - 1],
-        },
-        localidade_id: filterParams.city
-          ? Number(filterParams.city)
-          : Number(filterParams.state),
+    // Se a dimensão municipality estiver selecionada, buscar todos os municípios do estado
+    const hasMunicipalityDimension = dimensions.includes('municipality');
+
+    let whereCondition: any = {
+      tipo,
+      ano: {
+        gte: filterParams.years[0],
+        lte: filterParams.years[filterParams.years.length - 1],
       },
+    };
+
+    if (hasMunicipalityDimension && !filterParams.city) {
+      // Buscar todos os municípios do estado
+      const stateCode = filterParams.state;
+      const municipioIds = Object.keys(municipios)
+        .filter((key) => key.startsWith(stateCode))
+        .map((key) => Number(key));
+
+      whereCondition.localidade_id = { in: municipioIds };
+    } else {
+      whereCondition.localidade_id = filterParams.city
+        ? Number(filterParams.city)
+        : Number(filterParams.state);
+    }
+
+    const results = await this.prisma.dadoEducacaoSuperior.findMany({
+      where: whereCondition,
       include: {
         localidade: true,
         cursos: true,
@@ -561,6 +594,20 @@ export class HigherService {
         }
         return null;
 
+      case 'municipality':
+        // Obtém o ID e nome do município da localidade
+        if (item.localidade_id && item.localidade) {
+          const municipioCode = item.localidade_id.toString();
+          const municipioInfo = municipios[municipioCode];
+          return {
+            id: item.localidade_id,
+            name: municipioInfo
+              ? municipioInfo.nomeMunicipio
+              : item.localidade.nome,
+          };
+        }
+        return null;
+
       default:
         return null;
     }
@@ -606,6 +653,11 @@ export class HigherService {
       case 'institution':
         result.institution_id = id;
         result.institution_name = name;
+        break;
+
+      case 'municipality':
+        result.municipality_id = id;
+        result.municipality_name = name;
         break;
     }
   }
@@ -658,7 +710,7 @@ export class HigherService {
         'initial_training',
         'byOrganizacaoAcademicaAndFormacaoDocente',
       ],
-      // Novas combinações envolvendo instituição de ensino
+      // Combinações envolvendo instituição de ensino
       ['institution', 'upper_education_mod', 'byInstitutionAndModalidade'],
       [
         'institution',
@@ -667,6 +719,23 @@ export class HigherService {
       ],
       ['institution', 'academic_level', 'byInstitutionAndOrganizacaoAcademica'],
       ['institution', 'age_student_code', 'byInstitutionAndFaixaEtariaSuperior'],
+      // Combinações envolvendo município
+      ['municipality', 'upper_education_mod', 'byMunicipioAndModalidade'],
+      [
+        'municipality',
+        'upper_adm_dependency',
+        'byMunicipioAndCategoriaAdministrativa',
+      ],
+      [
+        'municipality',
+        'academic_level',
+        'byMunicipioAndOrganizacaoAcademica',
+      ],
+      [
+        'municipality',
+        'age_student_code',
+        'byMunicipioAndFaixaEtariaSuperior',
+      ],
     ];
 
     for (const [d1, d2, key] of combinations) {

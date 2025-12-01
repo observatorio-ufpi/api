@@ -12,6 +12,8 @@ export interface DetailedEducationData extends BaseEducationData {
   location_name?: string;
   contract_type_id?: number;
   contract_type_name?: string;
+  municipality_id?: number;
+  municipality_name?: string;
   original_tipo?: string;
 }
 
