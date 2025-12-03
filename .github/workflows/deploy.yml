@@ -13,6 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup OpenFortiVPN
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openfortivpn
+          echo "${{ secrets.VPN_PASSWORD }}" | sudo openfortivpn vpnssl.ati.pi.gov.br:443 -u ${{ secrets.VPN_USERNAME }} --trusted-cert ${{ secrets.VPN_CERT_HASH }} --pppd-use-peerdns=1 &
+          sleep 10
+
       - name: Upload source code to server
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -22,10 +29,22 @@ jobs:
           source: "."
           target: "/tmp/observatorio-api"
 
+      - name: Disconnect VPN
+        if: always()
+        run: |
+          sudo pkill openfortivpn || true
+
   deploy:
     needs: upload
     runs-on: ubuntu-latest
     steps:
+      - name: Setup OpenFortiVPN
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openfortivpn
+          echo "${{ secrets.VPN_PASSWORD }}" | sudo openfortivpn vpnssl.ati.pi.gov.br:443 -u ${{ secrets.VPN_USERNAME }} --trusted-cert ${{ secrets.VPN_CERT_HASH }} --pppd-use-peerdns=1 &
+          sleep 10
+
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -37,6 +56,8 @@ jobs:
             cd ${{ secrets.SERVER_PATH }}/api
             
             if [ -d src ]; then
+              # Criar diretório de backup se não existir
+              echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S mkdir -p ${{ secrets.SERVER_PATH }}/backups/code
               echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S cp -r src ${{ secrets.SERVER_PATH }}/backups/code/src-backup-$(date +%Y%m%d-%H%M%S)
               echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S rm -rf src
             fi
@@ -65,3 +86,8 @@ jobs:
             
             # Limpar temporários
             rm -rf /tmp/observatorio-api
+
+      - name: Disconnect VPN
+        if: always()
+        run: |
+          sudo pkill openfortivpn || true
