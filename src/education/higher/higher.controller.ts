@@ -31,6 +31,18 @@ export class HigherController {
       'Filtros para os dados no formato: min_year:"2020",max_year:"2023",state:"22",city:"2211001"',
     example: 'min_year:"2020",max_year:"2023",state:"22"',
   })
+  @ApiQuery({
+    name: 'page',
+    required: false,
+    description: 'Número da página para paginação (quando dimensão municipality estiver presente)',
+    example: '1',
+  })
+  @ApiQuery({
+    name: 'limit',
+    required: false,
+    description: 'Quantidade de municípios por página (quando dimensão municipality estiver presente)',
+    example: '20',
+  })
   @ApiResponse({
     status: 200,
     description: 'Dados de matrícula retornados com sucesso',
@@ -44,8 +56,12 @@ export class HigherController {
   getEnrollment(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ): Promise<EducationResponseDto> {
-    return this.higherService.getEnrollment(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.higherService.getEnrollment(dims, filter, pageNum, limitNum);
   }
 
   @Get('university/count')
@@ -76,8 +92,12 @@ export class HigherController {
   getUniversityCount(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ): Promise<EducationResponseDto> {
-    return this.higherService.getUniversityCount(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.higherService.getUniversityCount(dims, filter, pageNum, limitNum);
   }
 
   @Get('course_count')
@@ -108,8 +128,12 @@ export class HigherController {
   getCourseCount(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ): Promise<EducationResponseDto> {
-    return this.higherService.getCourseCount(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.higherService.getCourseCount(dims, filter, pageNum, limitNum);
   }
 
   @Get('course_aggregate')
@@ -141,8 +165,12 @@ export class HigherController {
   getCourseAggregate(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ): Promise<EducationResponseDto> {
-    return this.higherService.getCourseCount(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.higherService.getCourseCount(dims, filter, pageNum, limitNum);
   }
 
   @Get('university_teacher')
@@ -173,8 +201,12 @@ export class HigherController {
   getTeacher(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ): Promise<EducationResponseDto> {
-    return this.higherService.getTeacher(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.higherService.getTeacher(dims, filter, pageNum, limitNum);
   }
 
   // === ENDPOINTS DE SÉRIE HISTÓRICA ===
@@ -209,8 +241,12 @@ export class HigherController {
   getEnrollmentTimeSeries(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ): Promise<EducationResponseDto> {
-    return this.higherService.getEnrollmentTimeSeries(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.higherService.getEnrollmentTimeSeries(dims, filter, pageNum, limitNum);
   }
 
   @Get('university/count/timeseries')
@@ -243,8 +279,12 @@ export class HigherController {
   getUniversityCountTimeSeries(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ): Promise<EducationResponseDto> {
-    return this.higherService.getUniversityCountTimeSeries(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.higherService.getUniversityCountTimeSeries(dims, filter, pageNum, limitNum);
   }
 
   @Get('course_count/timeseries')
@@ -276,8 +316,12 @@ export class HigherController {
   getCourseCountTimeSeries(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ): Promise<EducationResponseDto> {
-    return this.higherService.getCourseCountTimeSeries(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.higherService.getCourseCountTimeSeries(dims, filter, pageNum, limitNum);
   }
 
   @Get('course_aggregate/timeseries')
@@ -309,8 +353,12 @@ export class HigherController {
   getCourseAggregateTimeSeries(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ): Promise<EducationResponseDto> {
-    return this.higherService.getCourseCountTimeSeries(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.higherService.getCourseCountTimeSeries(dims, filter, pageNum, limitNum);
   }
 
   @Get('university_teacher/timeseries')
@@ -342,7 +390,11 @@ export class HigherController {
   getTeacherTimeSeries(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ): Promise<EducationResponseDto> {
-    return this.higherService.getTeacherTimeSeries(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.higherService.getTeacherTimeSeries(dims, filter, pageNum, limitNum);
   }
 }

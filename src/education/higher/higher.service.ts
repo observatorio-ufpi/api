@@ -10,6 +10,12 @@ interface FilterParams {
 
 interface EducationResponse {
   result: any[];
+  pagination?: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  };
   [key: string]: any;
 }
 
@@ -20,68 +26,89 @@ export class HigherService {
   async getEnrollment(
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
-    return this.queryData('matriculas', dims, filter);
+    return this.queryData('matriculas', dims, filter, page, limit);
   }
 
   async getUniversityCount(
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
-    return this.queryData('ies', dims, filter);
+    return this.queryData('ies', dims, filter, page, limit);
   }
 
   async getCourseCount(
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
-    return this.queryData('cursos', dims, filter);
+    return this.queryData('cursos', dims, filter, page, limit);
   }
 
-  async getTeacher(dims: string, filter: string): Promise<EducationResponse> {
-    return this.queryData('docentes', dims, filter);
+  async getTeacher(
+    dims: string,
+    filter: string,
+    page?: number,
+    limit?: number,
+  ): Promise<EducationResponse> {
+    return this.queryData('docentes', dims, filter, page, limit);
   }
 
   // Série histórica
   async getEnrollmentTimeSeries(
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
-    return this.serieHistoricaTwoDimensions('matriculas', dims, filter);
+    return this.serieHistoricaTwoDimensions('matriculas', dims, filter, page, limit);
   }
 
   async getUniversityCountTimeSeries(
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
-    return this.serieHistoricaTwoDimensions('ies', dims, filter);
+    return this.serieHistoricaTwoDimensions('ies', dims, filter, page, limit);
   }
 
   async getCourseCountTimeSeries(
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
-    return this.serieHistoricaTwoDimensions('cursos', dims, filter);
+    return this.serieHistoricaTwoDimensions('cursos', dims, filter, page, limit);
   }
 
   async getTeacherTimeSeries(
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
-    return this.serieHistoricaTwoDimensions('docentes', dims, filter);
+    return this.serieHistoricaTwoDimensions('docentes', dims, filter, page, limit);
   }
 
   private async queryData(
     tipo: string,
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
     const filterParams = this.parseFilter(filter);
     const dimensions = this.parseDims(dims);
 
     // Para docentes, precisamos de lógica especial para evitar duplicação
     if (tipo === 'docentes') {
-      return this.queryTeacherData(dimensions, filterParams);
+      return this.queryTeacherData(dimensions, filterParams, page, limit);
     }
 
     // Se a dimensão municipality estiver selecionada, buscar todos os municípios do estado
@@ -92,14 +119,28 @@ export class HigherService {
       ano: { in: filterParams.years },
     };
 
-    if (hasMunicipalityDimension && !filterParams.city) {
-      // Buscar todos os municípios do estado (códigos que começam com o código do estado)
-      const stateCode = filterParams.state;
-      const municipioIds = Object.keys(municipios)
-        .filter((key) => key.startsWith(stateCode))
-        .map((key) => Number(key));
+    let municipioIdsComDados: number[] = [];
+    let totalMunicipios = 0;
 
-      whereCondition.localidade_id = { in: municipioIds };
+    if (hasMunicipalityDimension && !filterParams.city) {
+      // Buscar municípios únicos que têm dados no banco
+      municipioIdsComDados = await this.getMunicipiosComDados(
+        tipo,
+        filterParams.years,
+        filterParams.state,
+      );
+
+      totalMunicipios = municipioIdsComDados.length;
+
+      // Se paginação foi solicitada, aplicar slice nos IDs
+      if (page !== undefined && limit !== undefined) {
+        const startIndex = (page - 1) * limit;
+        const endIndex = startIndex + limit;
+        const paginatedIds = municipioIdsComDados.slice(startIndex, endIndex);
+        whereCondition.localidade_id = { in: paginatedIds };
+      } else {
+        whereCondition.localidade_id = { in: municipioIdsComDados };
+      }
     } else {
       whereCondition.localidade_id = filterParams.city
         ? Number(filterParams.city)
@@ -122,25 +163,68 @@ export class HigherService {
       },
     });
 
-    return this.processResults(results, dimensions, tipo);
+    const response = await this.processResults(results, dimensions, tipo);
+
+    // Adicionar paginação quando solicitada
+    if (hasMunicipalityDimension && !filterParams.city && page !== undefined && limit !== undefined) {
+      const totalPages = Math.ceil(totalMunicipios / limit);
+      response.pagination = {
+        total: totalMunicipios,
+        page: page,
+        limit: limit,
+        totalPages: totalPages,
+      };
+    }
+
+    return response;
   }
 
   private async queryTeacherData(
     dimensions: string[],
     filterParams: FilterParams,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
     // Docentes só aceita uma dimensão (ou nenhuma para total)
     if (dimensions.length > 1) {
       return { result: [] };
     }
 
+    const hasMunicipalityDimension = dimensions.includes('municipality');
+
     const whereConditions: any = {
       tipo: 'docentes',
       ano: { in: filterParams.years },
-      localidade_id: filterParams.city
-        ? Number(filterParams.city)
-        : Number(filterParams.state),
     };
+
+    let municipioIdsComDados: number[] = [];
+    let totalMunicipios = 0;
+
+    if (hasMunicipalityDimension && !filterParams.city) {
+      // Buscar municípios únicos que têm dados no banco
+      municipioIdsComDados = await this.getMunicipiosComDados(
+        'docentes',
+        filterParams.years,
+        filterParams.state,
+        dimensions,
+      );
+
+      totalMunicipios = municipioIdsComDados.length;
+
+      // Se paginação foi solicitada, aplicar slice nos IDs
+      if (page !== undefined && limit !== undefined) {
+        const startIndex = (page - 1) * limit;
+        const endIndex = startIndex + limit;
+        const paginatedIds = municipioIdsComDados.slice(startIndex, endIndex);
+        whereConditions.localidade_id = { in: paginatedIds };
+      } else {
+        whereConditions.localidade_id = { in: municipioIdsComDados };
+      }
+    } else {
+      whereConditions.localidade_id = filterParams.city
+        ? Number(filterParams.city)
+        : Number(filterParams.state);
+    }
 
     // Se não há dimensões, buscar apenas registros com valores totais (ambos NULL)
     if (dimensions.length === 0) {
@@ -187,20 +271,35 @@ export class HigherService {
       },
     });
 
-    return this.processResults(results, dimensions, 'docentes');
+    const response = await this.processResults(results, dimensions, 'docentes');
+
+    // Adicionar paginação quando solicitada
+    if (hasMunicipalityDimension && !filterParams.city && page !== undefined && limit !== undefined) {
+      const totalPages = Math.ceil(totalMunicipios / limit);
+      response.pagination = {
+        total: totalMunicipios,
+        page: page,
+        limit: limit,
+        totalPages: totalPages,
+      };
+    }
+
+    return response;
   }
 
   private async serieHistoricaTwoDimensions(
     tipo: string,
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
     const filterParams = this.parseFilter(filter);
     const dimensions = this.parseDims(dims);
 
     // Para docentes, usar lógica especial
     if (tipo === 'docentes') {
-      return this.queryTeacherDataTimeSeries(dimensions, filterParams);
+      return this.queryTeacherDataTimeSeries(dimensions, filterParams, page, limit);
     }
 
     // Se a dimensão municipality estiver selecionada, buscar todos os municípios do estado
@@ -214,14 +313,23 @@ export class HigherService {
       },
     };
 
-    if (hasMunicipalityDimension && !filterParams.city) {
-      // Buscar todos os municípios do estado
-      const stateCode = filterParams.state;
-      const municipioIds = Object.keys(municipios)
-        .filter((key) => key.startsWith(stateCode))
-        .map((key) => Number(key));
+    let municipioIdsComDados: number[] = [];
+    let totalMunicipios = 0;
 
-      whereCondition.localidade_id = { in: municipioIds };
+    // Para série histórica, NÃO aplicar paginação na query (buscar todos)
+    // A paginação será aplicada DEPOIS do processamento
+    if (hasMunicipalityDimension && !filterParams.city) {
+      // Buscar municípios únicos que têm dados no banco
+      municipioIdsComDados = await this.getMunicipiosComDados(
+        tipo,
+        filterParams.years,
+        filterParams.state,
+        undefined,
+        true, // isTimeSeries
+      );
+
+      totalMunicipios = municipioIdsComDados.length;
+      whereCondition.localidade_id = { in: municipioIdsComDados };
     } else {
       whereCondition.localidade_id = filterParams.city
         ? Number(filterParams.city)
@@ -244,17 +352,50 @@ export class HigherService {
       orderBy: { ano: 'asc' },
     });
 
-    return this.processResults(results, dimensions, tipo);
+    const response = await this.processResults(results, dimensions, tipo);
+
+    // Garantir que os resultados estejam ordenados antes da paginação
+    // Ordenar por municipality_id (menor para maior) e depois por year
+    if (hasMunicipalityDimension && response.result.length > 0) {
+      response.result.sort((a, b) => {
+        const aId = Number(a.municipality_id) || 0;
+        const bId = Number(b.municipality_id) || 0;
+
+        if (aId !== bId) {
+          return aId - bId;
+        }
+
+        const aYear = Number(a.year) || 0;
+        const bYear = Number(b.year) || 0;
+        return aYear - bYear;
+      });
+    }
+
+    // Para série histórica, aplicar paginação DEPOIS do processamento
+    if (hasMunicipalityDimension && !filterParams.city && page !== undefined && limit !== undefined) {
+      return this.applyPaginationToMunicipalityResults(
+        response,
+        page,
+        limit,
+        municipioIdsComDados,
+      );
+    }
+
+    return response;
   }
 
   private async queryTeacherDataTimeSeries(
     dimensions: string[],
     filterParams: FilterParams,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
     // Docentes só aceita uma dimensão (ou nenhuma para total)
     if (dimensions.length > 1) {
       return { result: [] };
     }
+
+    const hasMunicipalityDimension = dimensions.includes('municipality');
 
     const whereConditions: any = {
       tipo: 'docentes',
@@ -262,10 +403,30 @@ export class HigherService {
         gte: filterParams.years[0],
         lte: filterParams.years[filterParams.years.length - 1],
       },
-      localidade_id: filterParams.city
-        ? Number(filterParams.city)
-        : Number(filterParams.state),
     };
+
+    let municipioIdsComDados: number[] = [];
+    let totalMunicipios = 0;
+
+    // Para série histórica, NÃO aplicar paginação na query (buscar todos)
+    // A paginação será aplicada DEPOIS do processamento
+    if (hasMunicipalityDimension && !filterParams.city) {
+      // Buscar municípios únicos que têm dados no banco
+      municipioIdsComDados = await this.getMunicipiosComDados(
+        'docentes',
+        filterParams.years,
+        filterParams.state,
+        dimensions,
+        true, // isTimeSeries
+      );
+
+      totalMunicipios = municipioIdsComDados.length;
+      whereConditions.localidade_id = { in: municipioIdsComDados };
+    } else {
+      whereConditions.localidade_id = filterParams.city
+        ? Number(filterParams.city)
+        : Number(filterParams.state);
+    }
 
     // Se não há dimensões, buscar apenas registros com valores totais (ambos NULL)
     if (dimensions.length === 0) {
@@ -313,7 +474,36 @@ export class HigherService {
       orderBy: { ano: 'asc' },
     });
 
-    return this.processResults(results, dimensions, 'docentes');
+    const response = await this.processResults(results, dimensions, 'docentes');
+
+    // Garantir que os resultados estejam ordenados antes da paginação
+    // Ordenar por municipality_id (menor para maior) e depois por year
+    if (hasMunicipalityDimension && response.result.length > 0) {
+      response.result.sort((a, b) => {
+        const aId = Number(a.municipality_id) || 0;
+        const bId = Number(b.municipality_id) || 0;
+
+        if (aId !== bId) {
+          return aId - bId;
+        }
+
+        const aYear = Number(a.year) || 0;
+        const bYear = Number(b.year) || 0;
+        return aYear - bYear;
+      });
+    }
+
+    // Para série histórica, aplicar paginação DEPOIS do processamento
+    if (hasMunicipalityDimension && !filterParams.city && page !== undefined && limit !== undefined) {
+      return this.applyPaginationToMunicipalityResults(
+        response,
+        page,
+        limit,
+        municipioIdsComDados,
+      );
+    }
+
+    return response;
   }
 
   private async processResults(
@@ -414,7 +604,19 @@ export class HigherService {
 
     const processedResults = [];
 
-    dimensionYearTotals.forEach((yearMap, key) => {
+    // Converter para array e ordenar por ID quando for municipality
+    const sortedEntries = Array.from(dimensionYearTotals.entries());
+
+    if (dimension === 'municipality') {
+      // Ordenar por ID do município (menor para maior)
+      sortedEntries.sort((a, b) => {
+        const aId = Number(a[0].split('_')[0]);
+        const bId = Number(b[0].split('_')[0]);
+        return aId - bId;
+      });
+    }
+
+    sortedEntries.forEach(([key, yearMap]) => {
       const [id, name] = key.split('_', 2);
 
       // Se for institution, usar o nome real da IES
@@ -422,8 +624,11 @@ export class HigherService {
         ? (iesNamesMap.get(id) || `IES ${id}`)
         : name;
 
+      // Converter yearMap para array e ordenar por ano
+      const sortedYears = Array.from(yearMap.entries() as IterableIterator<[number, number]>).sort((a, b) => a[0] - b[0]);
+
       // Para cada ano da dimensão, criar um registro separado
-      yearMap.forEach((total, year) => {
+      sortedYears.forEach(([year, total]) => {
         const result: any = {
           year,
           total,
@@ -797,5 +1002,155 @@ export class HigherService {
   private parseDims(dims: string): string[] {
     if (!dims) return [];
     return dims.split(',').map((d) => d.trim());
+  }
+
+  /**
+   * Busca municípios únicos que têm dados no banco para os filtros especificados
+   */
+  private async getMunicipiosComDados(
+    tipo: string,
+    years: number[],
+    stateCode: string,
+    dimensions?: string[],
+    isTimeSeries?: boolean,
+  ): Promise<number[]> {
+    const whereCondition: any = {
+      tipo,
+    };
+
+    // Para série histórica, usar intervalo de anos
+    if (isTimeSeries && years.length > 0) {
+      whereCondition.ano = {
+        gte: years[0],
+        lte: years[years.length - 1],
+      };
+    } else {
+      whereCondition.ano = { in: years };
+    }
+
+    // Para docentes, aplicar condições específicas baseadas nas dimensões
+    if (tipo === 'docentes' && dimensions && dimensions.length > 0) {
+      const dimension = dimensions[0];
+      if (dimension === 'work_regime') {
+        whereCondition.regime_docente_id = { not: 1, gte: 2 };
+        whereCondition.formacao_docente_id = null;
+      } else if (dimension === 'initial_training') {
+        whereCondition.formacao_docente_id = { not: null };
+        whereCondition.regime_docente_id = null;
+      } else {
+        whereCondition.regime_docente_id = null;
+        whereCondition.formacao_docente_id = null;
+      }
+    } else if (tipo === 'docentes') {
+      whereCondition.regime_docente_id = null;
+      whereCondition.formacao_docente_id = null;
+    }
+
+    // Buscar municípios únicos que têm dados
+    const municipiosComDados = await this.prisma.dadoEducacaoSuperior.findMany({
+      where: whereCondition,
+      select: { localidade_id: true },
+      distinct: ['localidade_id'],
+    });
+
+    // Filtrar apenas os que começam com o código do estado, excluir o próprio estado (ID = stateCode)
+    // e ordenar do menor para o maior
+    const stateCodeNum = Number(stateCode);
+    const municipioIds = municipiosComDados
+      .map((item) => item.localidade_id)
+      .filter((id) => {
+        if (!id) return false;
+        const idStr = id.toString();
+        const idNum = Number(id);
+        // Incluir apenas municípios (que começam com stateCode mas não são o próprio estado)
+        return idStr.startsWith(stateCode) && idNum !== stateCodeNum;
+      })
+      .map((id) => Number(id))
+      .sort((a, b) => a - b); // Ordenar do menor para o maior
+
+    return municipioIds;
+  }
+
+  /**
+   * Aplica paginação aos resultados agrupando por município (para série histórica)
+   */
+  private applyPaginationToMunicipalityResults(
+    response: EducationResponse,
+    page: number,
+    limit: number,
+    municipioIdsComDados: number[],
+  ): EducationResponse {
+    const totalMunicipios = municipioIdsComDados.length;
+    const totalPages = Math.ceil(totalMunicipios / limit);
+
+    // Calcular índices de paginação (por município, não por registro)
+    const startIndex = (page - 1) * limit;
+    const endIndex = startIndex + limit;
+    const paginatedMunicipioIds = municipioIdsComDados.slice(startIndex, endIndex);
+
+    // Criar um Set para busca rápida
+    const paginatedMunicipioIdsSet = new Set(paginatedMunicipioIds);
+
+    // Filtrar resultados para incluir TODOS os registros dos municípios da página atual
+    // Garantir que a comparação seja feita com números
+    const paginatedResults = response.result.filter((item) => {
+      const municipalityId = Number(item.municipality_id);
+      return municipalityId && paginatedMunicipioIdsSet.has(municipalityId);
+    });
+
+    // Ordenar resultados por municipality_id (menor para maior) e depois por year
+    // Garantir que os IDs sejam tratados como números para ordenação correta
+    paginatedResults.sort((a, b) => {
+      const aId = Number(a.municipality_id) || 0;
+      const bId = Number(b.municipality_id) || 0;
+
+      if (aId !== bId) {
+        return aId - bId;
+      }
+
+      const aYear = Number(a.year) || 0;
+      const bYear = Number(b.year) || 0;
+      return aYear - bYear;
+    });
+
+    // Criar nova resposta com resultados paginados
+    const paginatedResponse: EducationResponse = {
+      result: paginatedResults,
+      pagination: {
+        total: totalMunicipios,
+        page: page,
+        limit: limit,
+        totalPages: totalPages,
+      },
+    };
+
+    // Preservar outras chaves da resposta original (como chaves de tabela cruzada)
+    Object.keys(response).forEach((key) => {
+      if (key !== 'result' && key !== 'pagination') {
+        if (Array.isArray(response[key])) {
+          const filteredArray = (response[key] as any[]).filter((item) => {
+            const municipalityId = Number(item.municipality_id);
+            return municipalityId && paginatedMunicipioIdsSet.has(municipalityId);
+          });
+          filteredArray.sort((a, b) => {
+            const aId = Number(a.municipality_id) || 0;
+            const bId = Number(b.municipality_id) || 0;
+
+            if (aId !== bId) {
+              return aId - bId;
+            }
+
+            const aYear = Number(a.year) || 0;
+            const bYear = Number(b.year) || 0;
+            return aYear - bYear;
+          });
+          paginatedResponse[key] = filteredArray;
+        } else {
+          paginatedResponse[key] = response[key];
+        }
+      }
+    });
+
+    return paginatedResponse;
   }
 }

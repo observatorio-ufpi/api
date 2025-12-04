@@ -1,8 +1,8 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import {
-  EducationResponseDto,
-  ErrorResponseDto,
+    EducationResponseDto,
+    ErrorResponseDto,
 } from '../../dtos/common-response.dto';
 import { BasicService } from './basic.service';
 
@@ -31,6 +31,18 @@ export class BasicController {
       'Filtros para os dados no formato: years=2023,2022&state=22&city=2211001',
     example: 'years=2023,2022&state=22',
   })
+  @ApiQuery({
+    name: 'page',
+    required: false,
+    description: 'Número da página para paginação (quando dimensão municipality estiver presente)',
+    example: '1',
+  })
+  @ApiQuery({
+    name: 'limit',
+    required: false,
+    description: 'Quantidade de itens por página (quando dimensão municipality estiver presente)',
+    example: '20',
+  })
   @ApiResponse({
     status: 200,
     description: 'Dados de matrícula retornados com sucesso',
@@ -46,8 +58,15 @@ export class BasicController {
     description: 'Erro interno do servidor',
     type: ErrorResponseDto,
   })
-  getEnrollment(@Query('dims') dims: string, @Query('filter') filter: string) {
-    return this.basicService.getEnrollment(dims, filter);
+  getEnrollment(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+  ) {
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.basicService.getEnrollment(dims, filter, pageNum, limitNum);
   }
 
   @Get('school/count')
@@ -75,8 +94,15 @@ export class BasicController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getSchoolCount(@Query('dims') dims: string, @Query('filter') filter: string) {
-    return this.basicService.getSchoolCount(dims, filter);
+  getSchoolCount(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+  ) {
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.basicService.getSchoolCount(dims, filter, pageNum, limitNum);
   }
 
   @Get('class')
@@ -104,8 +130,15 @@ export class BasicController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getClass(@Query('dims') dims: string, @Query('filter') filter: string) {
-    return this.basicService.getClass(dims, filter);
+  getClass(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+  ) {
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.basicService.getClass(dims, filter, pageNum, limitNum);
   }
 
   @Get('teacher')
@@ -133,8 +166,15 @@ export class BasicController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getTeacher(@Query('dims') dims: string, @Query('filter') filter: string) {
-    return this.basicService.getTeacher(dims, filter);
+  getTeacher(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+  ) {
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.basicService.getTeacher(dims, filter, pageNum, limitNum);
   }
 
   // === ENDPOINTS DE SÉRIE HISTÓRICA ===
@@ -177,8 +217,12 @@ export class BasicController {
   getEnrollmentTimeSeries(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ) {
-    return this.basicService.getEnrollmentTimeSeries(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.basicService.getEnrollmentTimeSeries(dims, filter, pageNum, limitNum);
   }
 
   @Get('school/count/timeseries')
@@ -210,8 +254,12 @@ export class BasicController {
   getSchoolCountTimeSeries(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ) {
-    return this.basicService.getSchoolCountTimeSeries(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.basicService.getSchoolCountTimeSeries(dims, filter, pageNum, limitNum);
   }
 
   @Get('class/timeseries')
@@ -243,8 +291,12 @@ export class BasicController {
   getClassTimeSeries(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ) {
-    return this.basicService.getClassTimeSeries(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.basicService.getClassTimeSeries(dims, filter, pageNum, limitNum);
   }
 
   @Get('teacher/timeseries')
@@ -276,8 +328,12 @@ export class BasicController {
   getTeacherTimeSeries(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ) {
-    return this.basicService.getTeacherTimeSeries(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.basicService.getTeacherTimeSeries(dims, filter, pageNum, limitNum);
   }
 
   @Get('employees/timeseries')
@@ -309,8 +365,12 @@ export class BasicController {
   getEmployeesTimeSeries(
     @Query('dims') dims: string,
     @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ) {
-    return this.basicService.getEmployeesTimeSeries(dims, filter);
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.basicService.getEmployeesTimeSeries(dims, filter, pageNum, limitNum);
   }
 
   // @Get('auxiliar')
@@ -367,8 +427,15 @@ export class BasicController {
     description: 'Parâmetros inválidos',
     type: ErrorResponseDto,
   })
-  getEmployees(@Query('dims') dims: string, @Query('filter') filter: string) {
-    return this.basicService.getEmployees(dims, filter);
+  getEmployees(
+    @Query('dims') dims: string,
+    @Query('filter') filter: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+  ) {
+    const pageNum = page ? parseInt(page, 10) : undefined;
+    const limitNum = limit ? parseInt(limit, 10) : undefined;
+    return this.basicService.getEmployees(dims, filter, pageNum, limitNum);
   }
 
   // @Get('liquid_enrollment_ratio')

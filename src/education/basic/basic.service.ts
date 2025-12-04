@@ -92,51 +92,53 @@ export class BasicService {
     });
   }
 
-  async getEnrollment(dims: string, filter: string) {
-    return this.queryDataTwoDimensions('enrollment', dims, filter);
+  async getEnrollment(dims: string, filter: string, page?: number, limit?: number) {
+    return this.queryDataTwoDimensions('enrollment', dims, filter, page, limit);
   }
 
-  async getSchoolCount(dims: string, filter: string) {
-    return this.queryDataTwoDimensions('school/count', dims, filter);
+  async getSchoolCount(dims: string, filter: string, page?: number, limit?: number) {
+    return this.queryDataTwoDimensions('school/count', dims, filter, page, limit);
   }
 
-  async getClass(dims: string, filter: string) {
-    return this.queryDataTwoDimensions('class', dims, filter);
+  async getClass(dims: string, filter: string, page?: number, limit?: number) {
+    return this.queryDataTwoDimensions('class', dims, filter, page, limit);
   }
 
-  async getTeacher(dims: string, filter: string) {
-    return this.queryDataTwoDimensions('teacher', dims, filter);
+  async getTeacher(dims: string, filter: string, page?: number, limit?: number) {
+    return this.queryDataTwoDimensions('teacher', dims, filter, page, limit);
   }
 
-  async getEmployees(dims: string, filter: string) {
-    return this.queryDataTwoDimensions('employees', dims, filter);
+  async getEmployees(dims: string, filter: string, page?: number, limit?: number) {
+    return this.queryDataTwoDimensions('employees', dims, filter, page, limit);
   }
 
   // Métodos públicos para série histórica
-  async getEnrollmentTimeSeries(dims: string, filter: string) {
-    return this.serieHistorica('enrollment', dims, filter);
+  async getEnrollmentTimeSeries(dims: string, filter: string, page?: number, limit?: number) {
+    return this.serieHistorica('enrollment', dims, filter, page, limit);
   }
 
-  async getSchoolCountTimeSeries(dims: string, filter: string) {
-    return this.serieHistorica('school/count', dims, filter);
+  async getSchoolCountTimeSeries(dims: string, filter: string, page?: number, limit?: number) {
+    return this.serieHistorica('school/count', dims, filter, page, limit);
   }
 
-  async getClassTimeSeries(dims: string, filter: string) {
-    return this.serieHistorica('class', dims, filter);
+  async getClassTimeSeries(dims: string, filter: string, page?: number, limit?: number) {
+    return this.serieHistorica('class', dims, filter, page, limit);
   }
 
-  async getTeacherTimeSeries(dims: string, filter: string) {
-    return this.serieHistorica('teacher', dims, filter);
+  async getTeacherTimeSeries(dims: string, filter: string, page?: number, limit?: number) {
+    return this.serieHistorica('teacher', dims, filter, page, limit);
   }
 
-  async getEmployeesTimeSeries(dims: string, filter: string) {
-    return this.serieHistorica('employees', dims, filter);
+  async getEmployeesTimeSeries(dims: string, filter: string, page?: number, limit?: number) {
+    return this.serieHistorica('employees', dims, filter, page, limit);
   }
 
   private async queryDataTwoDimensions(
     tipo: string,
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
     const filterParams = this.parseFilter(filter);
     const dimensions = this.parseDims(dims);
@@ -178,10 +180,21 @@ export class BasicService {
           // Se foi especificada uma cidade, buscar apenas essa
           whereClause.localidade_id = Number(filterParams.city);
         } else {
-          // Buscar todos os municípios do estado
-          // Obter todos os códigos de municípios do mapeamento
-          const municipioCodes = Object.keys(municipios).map(Number);
-          whereClause.localidade_id = { in: municipioCodes };
+          // Buscar todos os municípios do estado (códigos que começam com o código do estado)
+          const stateCode = filterParams.state;
+          const municipioCodes = Object.keys(municipios)
+            .filter((key) => key.startsWith(stateCode))
+            .map(Number);
+
+          // Se paginação foi solicitada, aplicar slice nos códigos
+          if (page !== undefined && limit !== undefined) {
+            const startIndex = (page - 1) * limit;
+            const endIndex = startIndex + limit;
+            const paginatedCodes = municipioCodes.slice(startIndex, endIndex);
+            whereClause.localidade_id = { in: paginatedCodes };
+          } else {
+            whereClause.localidade_id = { in: municipioCodes };
+          }
         }
       } else {
         // Lógica normal: cidade específica ou estado
@@ -279,6 +292,21 @@ export class BasicService {
           standardResponse.result,
           dimensions,
         );
+      }
+
+      // Adicionar paginação apenas quando solicitada e dimensão municipality estiver presente
+      if (dimensions.includes('municipality') && !filterParams.city && page !== undefined && limit !== undefined) {
+        const stateCode = filterParams.state;
+        const totalMunicipios = Object.keys(municipios)
+          .filter((key) => key.startsWith(stateCode)).length;
+        const totalPages = Math.ceil(totalMunicipios / limit);
+
+        standardResponse.pagination = {
+          total: totalMunicipios,
+          page: page,
+          limit: limit,
+          totalPages: totalPages,
+        };
       }
 
       return standardResponse;
@@ -839,6 +867,8 @@ export class BasicService {
     tipo: string,
     dims: string,
     filter: string,
+    page?: number,
+    limit?: number,
   ): Promise<EducationResponse> {
     const filterParams = this.parseFilter(filter);
     const dimensions = this.parseDims(dims);
@@ -882,10 +912,19 @@ export class BasicService {
             whereClauseUntil2020.localidade_id = Number(filterParams.city);
             whereClauseFrom2021.localidade_id = Number(filterParams.city);
           } else {
-            // Buscar todos os municípios do estado
+            // Buscar todos os municípios do estado com paginação
             const municipioCodes = Object.keys(municipios).map(Number);
-            whereClauseUntil2020.localidade_id = { in: municipioCodes };
-            whereClauseFrom2021.localidade_id = { in: municipioCodes };
+
+            if (page !== undefined && limit !== undefined) {
+              const startIndex = (page - 1) * limit;
+              const endIndex = startIndex + limit;
+              const paginatedCodes = municipioCodes.slice(startIndex, endIndex);
+              whereClauseUntil2020.localidade_id = { in: paginatedCodes };
+              whereClauseFrom2021.localidade_id = { in: paginatedCodes };
+            } else {
+              whereClauseUntil2020.localidade_id = { in: municipioCodes };
+              whereClauseFrom2021.localidade_id = { in: municipioCodes };
+            }
           }
         } else {
           whereClauseUntil2020.localidade_id = filterParams.city
@@ -939,9 +978,17 @@ export class BasicService {
           if (filterParams.city) {
             whereClause.localidade_id = Number(filterParams.city);
           } else {
-            // Buscar todos os municípios do estado
+            // Buscar todos os municípios do estado com paginação
             const municipioCodes = Object.keys(municipios).map(Number);
-            whereClause.localidade_id = { in: municipioCodes };
+
+            if (page !== undefined && limit !== undefined) {
+              const startIndex = (page - 1) * limit;
+              const endIndex = startIndex + limit;
+              const paginatedCodes = municipioCodes.slice(startIndex, endIndex);
+              whereClause.localidade_id = { in: paginatedCodes };
+            } else {
+              whereClause.localidade_id = { in: municipioCodes };
+            }
           }
         } else {
           whereClause.localidade_id = filterParams.city
@@ -1038,6 +1085,21 @@ export class BasicService {
           standardResponse.result,
           dimensions,
         );
+      }
+
+      // Adicionar paginação apenas quando solicitada e dimensão municipality estiver presente
+      if (dimensions.includes('municipality') && !filterParams.city && page !== undefined && limit !== undefined) {
+        const stateCode = filterParams.state;
+        const totalMunicipios = Object.keys(municipios)
+          .filter((key) => key.startsWith(stateCode)).length;
+        const totalPages = Math.ceil(totalMunicipios / limit);
+
+        standardResponse.pagination = {
+          total: totalMunicipios,
+          page: page,
+          limit: limit,
+          totalPages: totalPages,
+        };
       }
 
       return standardResponse;
