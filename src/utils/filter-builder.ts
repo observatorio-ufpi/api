@@ -1,6 +1,7 @@
 import { GeneralFiltersDto } from '../dtos/filters.dto';
 
 export function buildFilters(filters: GeneralFiltersDto) {
+  console.log('[buildFilters] Input filters:', JSON.stringify(filters));
   const whereClause: any = {};
   const otherFilters: any = {};
 
@@ -48,13 +49,11 @@ export function buildFilters(filters: GeneralFiltersDto) {
       }, // Final
     ];
 
-    // Se há outros filtros, combiná-los com AND
+    // Se há outros filtros, combiná-los com AND: (OR das gerências) E (outros filtros)
     if (Object.keys(otherFilters).length > 0) {
       whereClause.AND = [
-        ...gerenciaConditions.map((condition) => ({
-          ...condition,
-          ...otherFilters,
-        })),
+        { OR: gerenciaConditions },
+        otherFilters,
       ];
     } else {
       whereClause.OR = gerenciaConditions;
@@ -64,5 +63,6 @@ export function buildFilters(filters: GeneralFiltersDto) {
     Object.assign(whereClause, otherFilters);
   }
 
+  console.log('[buildFilters] Output whereClause:', JSON.stringify(whereClause, null, 2));
   return whereClause;
 }
