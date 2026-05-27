@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import {
-  AplicacaoDespesasFinsLimiteMinimoConstitucionalTipos21,
-  ApuracaoDespesasLimiteMinimoConstitucionalTipos23,
   ApuracaoLimiteMinimoConstitucionalTipos21,
   ApuracaoLimiteMinimoConstitucionalTipos23,
   DeducoesAdicoesParaFinsLimiteConstitucionalTipo0708,
@@ -61,7 +59,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -84,7 +81,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -113,7 +109,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -144,7 +139,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -174,7 +168,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -206,7 +199,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -236,7 +228,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -268,7 +259,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -297,7 +287,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -326,7 +315,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -471,7 +459,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -557,7 +544,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -589,7 +575,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -621,7 +606,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -655,7 +639,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -687,7 +670,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -719,7 +701,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -753,7 +734,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -785,7 +765,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -927,7 +906,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -954,7 +932,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -981,7 +958,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1008,7 +984,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1037,7 +1012,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1064,7 +1038,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1091,7 +1064,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1120,7 +1092,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1147,7 +1118,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -1284,7 +1254,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -1344,7 +1313,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1374,7 +1342,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1406,7 +1373,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1441,7 +1407,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1476,7 +1441,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1511,7 +1475,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1548,7 +1511,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1582,7 +1544,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -1730,7 +1691,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -1800,7 +1760,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1830,7 +1789,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1860,7 +1818,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1892,7 +1849,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1922,7 +1878,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1952,7 +1907,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -1984,7 +1938,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -2074,7 +2027,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -2308,7 +2260,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -2355,7 +2306,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -2402,7 +2352,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -2449,7 +2398,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -2501,7 +2449,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -2548,7 +2495,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -2595,7 +2541,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -2648,7 +2593,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -2701,7 +2645,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -2867,7 +2810,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -2952,7 +2894,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -3054,7 +2995,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -3118,7 +3058,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -3182,7 +3121,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -3252,7 +3190,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -3316,7 +3253,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -3380,29 +3316,18 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-          nomeMunicipio: true,
-          receita: {
-            where: {
-              tipo: {
-                in: [ItemReceitaTipos21.TOTAL_RECEITA_IMPOSTOS],
-              },
-            },
-            select: {
-              receitasRealizadaAteBimestre: true,
-              tipo: true,
-            },
-          },
-          aplicacaoDespesasFinsLimiteMinimoConstitucional: {
+          apuracaoLimiteMinimoConstitucional: {
             where: {
               tipo: {
                 in: [
-                  AplicacaoDespesasFinsLimiteMinimoConstitucionalTipos21.TOTAL_DESPESAS_MDE_CUSTEADAS_COM_RECURSOS_IMPOSTOS,
-                  AplicacaoDespesasFinsLimiteMinimoConstitucionalTipos21.RESULTADO_LIQUIDO_TRANSFERENCIAS_FUNDEB,
+                  ApuracaoLimiteMinimoConstitucionalTipos21.APLICACAO_EM_MDE_SOBRE_RECEITA_DE_IMPOSTOS,
                 ],
               },
             },
             select: {
-              valor: true,
+              valorExigido: true,
+              valorAplicado: true,
+              percentualAplicado: true,
               tipo: true,
             },
           },
@@ -3414,53 +3339,35 @@ export class ResearchesService {
     );
 
     const modifiedRevenues2122 = revenues2122.map((item) => {
-      let totalReceitaImpostos = 0;
-      let totalDespesasMdeRecursosImpostos = 0;
-      let resultadoLiquidoTransferenciasFundeb = 0;
+      let valorExigidoMde = 0;
+      let valorAplicadoMde = 0;
+      let percentualAplicadoMde = 0;
 
-      item.receita.forEach((r) => {
-        if (r.tipo === ItemReceitaTipos21.TOTAL_RECEITA_IMPOSTOS) {
-          totalReceitaImpostos = r.receitasRealizadaAteBimestre;
+      item.apuracaoLimiteMinimoConstitucional.forEach((r) => {
+        if (
+          r.tipo ===
+          ApuracaoLimiteMinimoConstitucionalTipos21.APLICACAO_EM_MDE_SOBRE_RECEITA_DE_IMPOSTOS
+        ) {
+          valorExigidoMde = r.valorExigido;
+          valorAplicadoMde = r.valorAplicado;
+          percentualAplicadoMde = r.percentualAplicado;
         }
       });
 
-      item.aplicacaoDespesasFinsLimiteMinimoConstitucional.forEach((d) => {
-        if (
-          d.tipo ===
-          AplicacaoDespesasFinsLimiteMinimoConstitucionalTipos21.TOTAL_DESPESAS_MDE_CUSTEADAS_COM_RECURSOS_IMPOSTOS
-        ) {
-          totalDespesasMdeRecursosImpostos = d.valor;
-        }
-        if (
-          d.tipo ===
-          AplicacaoDespesasFinsLimiteMinimoConstitucionalTipos21.RESULTADO_LIQUIDO_TRANSFERENCIAS_FUNDEB
-        ) {
-          resultadoLiquidoTransferenciasFundeb = d.valor;
-        }
-      });
+      valorExigidoMde = parseFloat(valorExigidoMde.toFixed(4));
+      valorAplicadoMde = parseFloat(valorAplicadoMde.toFixed(4));
+      percentualAplicadoMde = parseFloat(percentualAplicadoMde.toFixed(4));
 
-      // Tabela 9 (municipal): remover efeitos de "Restos a Pagar" (linhas 29-31)
-      // nas contas de 2021–2023. Aqui recalculamos o valor aplicado sem subtrair
-      // os componentes de Restos a Pagar.
-      const valorExigidoMde = parseFloat(
-        (0.25 * totalReceitaImpostos).toFixed(4),
-      );
-      const valorAplicadoMde = parseFloat(
-        (
-          totalDespesasMdeRecursosImpostos - resultadoLiquidoTransferenciasFundeb
-        ).toFixed(4),
-      );
-      const percentualAplicadoMde = parseFloat(
-        (
-          totalReceitaImpostos
-            ? (valorAplicadoMde / totalReceitaImpostos) * 100
-            : 0
-        ).toFixed(4),
+      const filteredApuracao = item.apuracaoLimiteMinimoConstitucional.filter(
+        (r) =>
+          r.tipo !==
+          ApuracaoLimiteMinimoConstitucionalTipos21.APLICACAO_EM_MDE_SOBRE_RECEITA_DE_IMPOSTOS,
       );
 
       return {
         ...item,
         apuracaoLimiteMinimoConstitucional: [
+          ...filteredApuracao,
           {
             tipo: 'VALOR_EXIGIDO_MDE',
             valor: valorExigidoMde,
@@ -3481,31 +3388,18 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
-        receita: {
-          where: {
-            tipo: {
-              in: [ItemReceitaTipos23.TOTAL_DA_RECEITA_RESULTANTE_DE_IMPOSTOS],
-            },
-          },
-          select: {
-            receitasRealizadasAteBimestre: true,
-            tipo: true,
-          },
-        },
-        apuracaoDespesasLimiteMinimoConstitucional: {
+        apuracaoLimiteMinimoConstitucional: {
           where: {
             tipo: {
               in: [
-                ApuracaoDespesasLimiteMinimoConstitucionalTipos23.TOTAL_DESPESAS_MDE_CUSTEADAS_RECURSOS_IMPOSTOS,
-                ApuracaoDespesasLimiteMinimoConstitucionalTipos23.TOTAL_RECEITAS_TRANSFERIDAS_FUNDEB,
-                ApuracaoDespesasLimiteMinimoConstitucionalTipos23.RECEITAS_FUNDEB_NAO_UTILIZADAS_EXERCICIO_SUPERIOR_10_PORCENTO,
-                ApuracaoDespesasLimiteMinimoConstitucionalTipos23.VALOR_APLICADO_PRIMEIRO_QUADRIMESTRE_LIMITE_CONSTITUCIONAL,
+                ApuracaoLimiteMinimoConstitucionalTipos23.APLICACAO_EM_MDE_SOBRE_RECEITA_LIQUIDA_DE_IMPOSTOS,
               ],
             },
           },
           select: {
-            valor: true,
+            valorExigido: true,
+            valorAplicado: true,
+            percentualAplicado: true,
             tipo: true,
           },
         },
@@ -3516,71 +3410,34 @@ export class ResearchesService {
     });
 
     const modifiedRevenues23 = revenues23.map((item) => {
-      let totalReceitaImpostos = 0;
-      let totalDespesasMdeRecursosImpostos = 0;
-      let totalReceitasTransferidasFundeb = 0;
-      let receitasFundebNaoUtilizadasSuperior10 = 0;
-      let valorAplicadoPrimeiroQuadrimLimiteConst = 0;
+      let valorExigidoMde = 0;
+      let valorAplicadoMde = 0;
+      let percentualAplicado = 0;
 
-      item.receita.forEach((r) => {
-        if (r.tipo === ItemReceitaTipos23.TOTAL_DA_RECEITA_RESULTANTE_DE_IMPOSTOS) {
-          totalReceitaImpostos = r.receitasRealizadasAteBimestre;
+      item.apuracaoLimiteMinimoConstitucional.forEach((r) => {
+        if (
+          r.tipo ===
+          ApuracaoLimiteMinimoConstitucionalTipos23.APLICACAO_EM_MDE_SOBRE_RECEITA_LIQUIDA_DE_IMPOSTOS
+        ) {
+          valorExigidoMde = r.valorExigido;
+          valorAplicadoMde = r.valorAplicado;
+          percentualAplicado = r.percentualAplicado;
         }
       });
 
-      item.apuracaoDespesasLimiteMinimoConstitucional.forEach((d) => {
-        if (
-          d.tipo ===
-          ApuracaoDespesasLimiteMinimoConstitucionalTipos23.TOTAL_DESPESAS_MDE_CUSTEADAS_RECURSOS_IMPOSTOS
-        ) {
-          totalDespesasMdeRecursosImpostos = d.valor;
-        }
-        if (
-          d.tipo ===
-          ApuracaoDespesasLimiteMinimoConstitucionalTipos23.TOTAL_RECEITAS_TRANSFERIDAS_FUNDEB
-        ) {
-          totalReceitasTransferidasFundeb = d.valor;
-        }
-        if (
-          d.tipo ===
-          ApuracaoDespesasLimiteMinimoConstitucionalTipos23.RECEITAS_FUNDEB_NAO_UTILIZADAS_EXERCICIO_SUPERIOR_10_PORCENTO
-        ) {
-          receitasFundebNaoUtilizadasSuperior10 = d.valor;
-        }
-        if (
-          d.tipo ===
-          ApuracaoDespesasLimiteMinimoConstitucionalTipos23.VALOR_APLICADO_PRIMEIRO_QUADRIMESTRE_LIMITE_CONSTITUCIONAL
-        ) {
-          valorAplicadoPrimeiroQuadrimLimiteConst = d.valor;
-        }
-      });
+      valorExigidoMde = parseFloat(valorExigidoMde.toFixed(4));
+      valorAplicadoMde = parseFloat(valorAplicadoMde.toFixed(4));
 
-      const valorExigidoMde = parseFloat(
-        (0.25 * totalReceitaImpostos).toFixed(4),
-      );
-
-      // Fórmula original (linha 28): (22 + 23 + 25) - (24 + 26 + 27)
-      // Ajuste solicitado (2021–2023 municipal): remover Restos a Pagar (26 e 27) das contas.
-      const valorAplicadoMde = parseFloat(
-        (
-          totalDespesasMdeRecursosImpostos +
-          totalReceitasTransferidasFundeb +
-          valorAplicadoPrimeiroQuadrimLimiteConst -
-          receitasFundebNaoUtilizadasSuperior10
-        ).toFixed(4),
-      );
-
-      const percentualAplicadoMde = parseFloat(
-        (
-          totalReceitaImpostos
-            ? (valorAplicadoMde / totalReceitaImpostos) * 100
-            : 0
-        ).toFixed(4),
+      const filteredApuracao = item.apuracaoLimiteMinimoConstitucional.filter(
+        (r) =>
+          r.tipo !==
+          ApuracaoLimiteMinimoConstitucionalTipos23.APLICACAO_EM_MDE_SOBRE_RECEITA_LIQUIDA_DE_IMPOSTOS,
       );
 
       return {
         ...item,
         apuracaoLimiteMinimoConstitucional: [
+          ...filteredApuracao,
           {
             tipo: 'VALOR_EXIGIDO_MDE',
             valor: valorExigidoMde,
@@ -3591,7 +3448,7 @@ export class ResearchesService {
           },
           {
             tipo: 'PERCENTUAL_APLICADO_MDE',
-            valor: percentualAplicadoMde,
+            valor: percentualAplicado,
           },
         ],
       };
@@ -3716,7 +3573,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         despesa: {
           where: {
             tipo: {
@@ -3754,7 +3610,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -3792,7 +3647,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -3886,7 +3740,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -3904,12 +3757,8 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
-                  DeducoesFinsLimiteFundebTipo1314.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_FUNDEB,
                   DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_16_1,
-                  DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_16_2,
-                  DeducoesFinsLimiteFundebTipo1314.DESPESAS_SUPERAVIT_FINANCEIRO_EXERCICIO_ANTERIOR_FUNDEB,
                   DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_17_1,
-                  DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_17_2,
                 ],
               },
             },
@@ -3952,57 +3801,23 @@ export class ResearchesService {
         }
       });
 
-      let deducoesFundeb40Porcento16_2 = 0;
-      let deducoesFundeb40Porcento17_2 = 0;
-      let deducoesFundeb16 = 0;
-      let deducoesFundeb17 = 0;
-
       item.deducoesParaFinsLimiteFundeb.forEach((d) => {
         if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1314.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_FUNDEB
-        ) {
-          deducoesFundeb16 = d.valor;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_16_1
+          d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_16_1
         ) {
           deducoesFundeb60Porcento16_1 = d.valor;
         }
         if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_16_2
-        ) {
-          deducoesFundeb40Porcento16_2 = d.valor;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1314.DESPESAS_SUPERAVIT_FINANCEIRO_EXERCICIO_ANTERIOR_FUNDEB
-        ) {
-          deducoesFundeb17 = d.valor;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_17_1
+          d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_17_1
         ) {
           deducoesFundeb60Porcento17_1 = d.valor;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_17_2
-        ) {
-          deducoesFundeb40Porcento17_2 = d.valor;
         }
       });
 
       const despesasProfissionaisEducacao = parseFloat(
         (
           fundebPagamentoProfissionaisMagisterio -
-          ((deducoesFundeb16 || deducoesFundeb60Porcento16_1 + deducoesFundeb40Porcento16_2) +
-            (deducoesFundeb17 ||
-              deducoesFundeb60Porcento17_1 +
-              deducoesFundeb40Porcento17_2))
+          (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
         ).toFixed(4),
       );
 
@@ -4015,18 +3830,8 @@ export class ResearchesService {
 
       const filteredDeducoes = item.deducoesParaFinsLimiteFundeb.filter(
         (d) =>
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1314.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_FUNDEB &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_16_1 &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_16_2 &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1314.DESPESAS_SUPERAVIT_FINANCEIRO_EXERCICIO_ANTERIOR_FUNDEB &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_17_1 &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_17_2,
+          d.tipo !== DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_16_1 &&
+          d.tipo !== DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_17_1,
       );
 
       return {
@@ -4047,7 +3852,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -4065,12 +3869,8 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
-                  DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA,
                   DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR,
                   DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
                 ],
               },
             },
@@ -4113,18 +3913,7 @@ export class ResearchesService {
         }
       });
 
-      let deducoesFundeb40Porcento16_2 = 0;
-      let deducoesFundeb40Porcento17_2 = 0;
-      let deducoesFundeb16 = 0;
-      let deducoesFundeb17 = 0;
-
       item.deducoesParaFinsLimiteFundeb.forEach((d) => {
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA
-        ) {
-          deducoesFundeb16 = d.valor;
-        }
         if (
           d.tipo ===
           DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO
@@ -4133,37 +3922,16 @@ export class ResearchesService {
         }
         if (
           d.tipo ===
-          DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO
-        ) {
-          deducoesFundeb40Porcento16_2 = d.valor;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR
-        ) {
-          deducoesFundeb17 = d.valor;
-        }
-        if (
-          d.tipo ===
           DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO
         ) {
           deducoesFundeb60Porcento17_1 = d.valor;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO
-        ) {
-          deducoesFundeb40Porcento17_2 = d.valor;
         }
       });
 
       const despesasProfissionaisEducacao = parseFloat(
         (
           fundebPagamentoProfissionaisMagisterio -
-          ((deducoesFundeb16 || deducoesFundeb60Porcento16_1 + deducoesFundeb40Porcento16_2) +
-            (deducoesFundeb17 ||
-              deducoesFundeb60Porcento17_1 +
-              deducoesFundeb40Porcento17_2))
+          (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
         ).toFixed(4),
       );
 
@@ -4176,17 +3944,9 @@ export class ResearchesService {
       const filteredDeducoes = item.deducoesParaFinsLimiteFundeb.filter(
         (d) =>
           d.tipo !==
-            DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA &&
-          d.tipo !==
             DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO &&
           d.tipo !==
-            DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
+            DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
       );
 
       return {
@@ -4207,7 +3967,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -4225,12 +3984,8 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
-                  DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA,
                   DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR,
                   DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
                 ],
               },
             },
@@ -4273,18 +4028,7 @@ export class ResearchesService {
         }
       });
 
-      let deducoesFundeb40Porcento16_2 = 0;
-      let deducoesFundeb40Porcento17_2 = 0;
-      let deducoesFundeb16 = 0;
-      let deducoesFundeb17 = 0;
-
       item.deducoesParaFinsLimiteFundeb.forEach((d) => {
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA
-        ) {
-          deducoesFundeb16 = d.valor;
-        }
         if (
           d.tipo ===
           DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO
@@ -4293,37 +4037,16 @@ export class ResearchesService {
         }
         if (
           d.tipo ===
-          DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO
-        ) {
-          deducoesFundeb40Porcento16_2 = d.valor;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR
-        ) {
-          deducoesFundeb17 = d.valor;
-        }
-        if (
-          d.tipo ===
           DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO
         ) {
           deducoesFundeb60Porcento17_1 = d.valor;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO
-        ) {
-          deducoesFundeb40Porcento17_2 = d.valor;
         }
       });
 
       const despesasProfissionaisEducacao = parseFloat(
         (
           fundebPagamentoProfissionaisMagisterio -
-          ((deducoesFundeb16 || deducoesFundeb60Porcento16_1 + deducoesFundeb40Porcento16_2) +
-            (deducoesFundeb17 ||
-              deducoesFundeb60Porcento17_1 +
-              deducoesFundeb40Porcento17_2))
+          (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
         ).toFixed(4),
       );
 
@@ -4336,17 +4059,9 @@ export class ResearchesService {
       const filteredDeducoes = item.deducoesParaFinsLimiteFundeb.filter(
         (d) =>
           d.tipo !==
-            DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA &&
-          d.tipo !==
             DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO &&
           d.tipo !==
-            DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
+            DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
       );
 
       return {
@@ -4362,22 +4077,17 @@ export class ResearchesService {
       };
     });
 
-    const paymentTypes1920 = [
-      ItemDespesaTipos1920.FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO,
-      ItemDespesaTipos1920.FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_EDUCACAO_INFANTIL,
-      ItemDespesaTipos1920.FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_ENSINO_FUNDAMENTAL,
-    ];
-
     const revenues1920 =
       await this.prismaService.relatorioMunicipal1920.findMany({
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
-                in: paymentTypes1920,
+                in: [
+                  ItemDespesaTipos1920.FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO,
+                ],
               },
             },
             select: {
@@ -4390,11 +4100,7 @@ export class ResearchesService {
               tipo: {
                 in: [
                   DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA,
-                  DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO,
                   DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR,
-                  DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
                 ],
               },
             },
@@ -4426,85 +4132,51 @@ export class ResearchesService {
       let fundebPagamentoProfissionaisMagisterio = 0;
       let deducoesFundeb60Porcento16_1 = 0;
       let deducoesFundeb60Porcento17_1 = 0;
-      let deducoesFundeb40Porcento16_2 = 0;
-      let deducoesFundeb40Porcento17_2 = 0;
-      let deducoesFundeb16 = 0;
-      let deducoesFundeb17 = 0;
 
       item.despesa.forEach((d) => {
-        if (paymentTypes1920.includes(d.tipo)) {
-          fundebPagamentoProfissionaisMagisterio +=
-            d.despesasLiquidadasAteBimestre || 0;
+        if (
+          d.tipo ===
+          ItemDespesaTipos1920.FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO
+        ) {
+          fundebPagamentoProfissionaisMagisterio =
+            d.despesasLiquidadasAteBimestre;
         }
       });
 
       item.deducoesParaFinsLimiteFundeb.forEach((d) => {
         if (
           d.tipo ===
-          DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA
-        ) {
-          deducoesFundeb16 = d.valor || 0;
-        }
-        if (
-          d.tipo ===
           DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO
         ) {
-          deducoesFundeb60Porcento16_1 = d.valor || 0;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO
-        ) {
-          deducoesFundeb40Porcento16_2 = d.valor || 0;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR
-        ) {
-          deducoesFundeb17 = d.valor || 0;
+          deducoesFundeb60Porcento16_1 = d.valor;
         }
         if (
           d.tipo ===
           DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO
         ) {
-          deducoesFundeb60Porcento17_1 = d.valor || 0;
-        }
-        if (
-          d.tipo ===
-          DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO
-        ) {
-          deducoesFundeb40Porcento17_2 = d.valor || 0;
+          deducoesFundeb60Porcento17_1 = d.valor;
         }
       });
 
       const despesasProfissionaisEducacao = parseFloat(
         (
           fundebPagamentoProfissionaisMagisterio -
-          ((deducoesFundeb16 || deducoesFundeb60Porcento16_1 + deducoesFundeb40Porcento16_2) +
-            (deducoesFundeb17 ||
-              deducoesFundeb60Porcento17_1 +
-              deducoesFundeb40Porcento17_2))
+          (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
         ).toFixed(4),
       );
 
       // Remove os tipos que foram usados no cálculo
       const filteredDespesas = item.despesa.filter(
-        (d) => !paymentTypes1920.includes(d.tipo),
+        (d) =>
+          d.tipo !==
+          ItemDespesaTipos1920.FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO,
       );
       const filteredDeducoes = item.deducoesParaFinsLimiteFundeb.filter(
         (d) =>
           d.tipo !==
-            DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA &&
-          d.tipo !==
             DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO &&
           d.tipo !==
-            DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO &&
-          d.tipo !==
-            DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
+            DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
       );
 
       return {
@@ -4531,7 +4203,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           indicadoresArt212: {
             where: {
               tipo: {
@@ -4562,8 +4233,6 @@ export class ResearchesService {
           r.tipo ===
           IndicadoresTipos21Art212.MINIMO_70_FUNDEB_REMUNERACAO_PROFESSORES
         ) {
-          // Para 2021–2022, removemos o efeito de "Restos a Pagar" nas contas
-          // usando o valor aplicado (antes de deduções/ajustes do SIOPE).
           despesasProfissionaisEducacaoBasica = r.valorConsideradoAposDeducoes;
           porcentagemAplicadoProfissionaisEducacaoBasica = r.percentualAplicado;
         }
@@ -4602,7 +4271,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         indicadoresArt212: {
           where: {
             tipo: {
@@ -4632,8 +4300,6 @@ export class ResearchesService {
           r.tipo ===
           IndicadoresArt212Tipos23.MINIMO_70_PORCENTO_FUNDEB_PROFISSIONAIS_EDUCACAO_BASICA
         ) {
-          // Para 2023, removemos o efeito de "Restos a Pagar" nas contas
-          // usando o valor aplicado (antes de deduções/ajustes do SIOPE).
           despesasProfissionaisEducacaoBasica = r.valorConsideradoAposDeducoes;
           porcentagemAplicadoProfissionaisEducacaoBasica = r.percentualAplicado;
         }
@@ -4787,7 +4453,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         despesa: {
           where: {
             tipo: {
@@ -4820,7 +4485,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -4851,7 +4515,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -4882,7 +4545,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -4915,7 +4577,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -4948,7 +4609,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -4981,7 +4641,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -5016,7 +4675,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -5048,7 +4706,6 @@ export class ResearchesService {
             },
             select: {
               despesasLiquidadasAteBimestre: true,
-              despesasPagasAteBimestre: true,
               tipo: true,
             },
           },
@@ -5067,8 +4724,6 @@ export class ResearchesService {
       let totalGeral = 0;
 
       item.despesa.forEach((d) => {
-        const valorDespesaSemRestos = d.despesasPagasAteBimestre;
-
         if (
           [
             ItemDespesasTipos21.FUNDEB_EDUCACAO_INFANTIL,
@@ -5077,7 +4732,7 @@ export class ResearchesService {
             ItemDespesasTipos21.OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
           ].includes(d.tipo as any)
         ) {
-          totalEducacaoInfantil += valorDespesaSemRestos;
+          totalEducacaoInfantil += d.despesasLiquidadasAteBimestre;
         }
         if (
           [
@@ -5087,7 +4742,7 @@ export class ResearchesService {
             ItemDespesasTipos21.OUTRAS_DESPESAS_CRECHE,
           ].includes(d.tipo as any)
         ) {
-          totalCreche += valorDespesaSemRestos;
+          totalCreche += d.despesasLiquidadasAteBimestre;
         }
         if (
           [
@@ -5097,7 +4752,7 @@ export class ResearchesService {
             ItemDespesasTipos21.OUTRAS_DESPESAS_PRE_ESCOLA,
           ].includes(d.tipo as any)
         ) {
-          totalPreEscola += valorDespesaSemRestos;
+          totalPreEscola += d.despesasLiquidadasAteBimestre;
         }
         if (
           [
@@ -5107,7 +4762,7 @@ export class ResearchesService {
             ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
           ].includes(d.tipo as any)
         ) {
-          totalEnsinoFundamental += valorDespesaSemRestos;
+          totalEnsinoFundamental += d.despesasLiquidadasAteBimestre;
         }
         if (
           [
@@ -5116,7 +4771,7 @@ export class ResearchesService {
             ItemDespesasTipos21.TOTAL_OUTRAS_DESPESAS_EDUCACAO,
           ].includes(d.tipo as any)
         ) {
-          totalGeral += valorDespesaSemRestos;
+          totalGeral += d.despesasLiquidadasAteBimestre;
         }
       });
 
@@ -5184,7 +4839,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         despesa: {
           where: {
             tipo: {
@@ -5208,7 +4862,6 @@ export class ResearchesService {
           },
           select: {
             despesasLiquidadasAteBimestre: true,
-            despesasPagasAteBimestre: true,
             tipo: true,
           },
         },
@@ -5224,15 +4877,13 @@ export class ResearchesService {
       let totalGeral = 0;
 
       item.despesa.forEach((d) => {
-        const valorDespesaSemRestos = d.despesasPagasAteBimestre;
-
         if (
           [
             ItemDespesaTipos23.MDE_COM_RECEITAS_IMPOSTOS_FUNDEB_EDUCACAO_INFANTIL,
             ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_EDUCACAO_INFANTIL,
           ].includes(d.tipo as any)
         ) {
-          totalEducacaoInfantil += valorDespesaSemRestos;
+          totalEducacaoInfantil += d.despesasLiquidadasAteBimestre;
         }
         if (
           [
@@ -5240,7 +4891,7 @@ export class ResearchesService {
             ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_ENSINO_FUNDAMENTAL,
           ].includes(d.tipo as any)
         ) {
-          totalEnsinoFundamental += valorDespesaSemRestos;
+          totalEnsinoFundamental += d.despesasLiquidadasAteBimestre;
         }
         if (
           [
@@ -5248,7 +4899,7 @@ export class ResearchesService {
             ItemDespesaTipos23.TOTAL_DESPESAS_MDE_CUSTEADAS_COM_RECEITAS_IMPOSTOS_E_FUNDEB,
           ].includes(d.tipo as any)
         ) {
-          totalGeral += valorDespesaSemRestos;
+          totalGeral += d.despesasLiquidadasAteBimestre;
         }
       });
 
@@ -5411,7 +5062,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -5497,7 +5147,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -5575,7 +5224,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -5661,7 +5309,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -5771,7 +5418,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -5881,7 +5527,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -5991,7 +5636,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -6107,7 +5751,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           apuracaoLimiteMinimoConstitucional: {
             where: {
               tipo: {
@@ -6250,7 +5893,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         apuracaoLimiteMinimoConstitucional: {
           where: {
             tipo: {
@@ -6513,7 +6155,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         despesa: {
           where: {
             tipo: {
@@ -6538,7 +6179,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -6584,7 +6224,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -6632,7 +6271,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -6680,7 +6318,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -6729,7 +6366,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -6778,7 +6414,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           despesa: {
             where: {
               tipo: {
@@ -6826,7 +6461,6 @@ export class ResearchesService {
         select: {
           ano: true,
           codigoMunicipio: true,
-        nomeMunicipio: true,
           receita: {
             where: {
               tipo: {
@@ -6881,7 +6515,6 @@ export class ResearchesService {
       select: {
         ano: true,
         codigoMunicipio: true,
-        nomeMunicipio: true,
         receita: {
           where: {
             tipo: {
@@ -7375,4 +7008,3 @@ export class ResearchesService {
     return groupedRevenues;
   }
 }
-

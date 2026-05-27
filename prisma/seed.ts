@@ -396,8 +396,6 @@ async function seedDatabase06(
         ' ',
       );
 
-      // Remover "Restos a Pagar" (tabela 34.*) do seed municipal 2021–2022
-      // porque está atrapalhando os cálculos/exibição a partir desses dados.
       console.log(tipoReceitaDespesaLimpo);
 
       const {
@@ -572,8 +570,6 @@ async function seedDatabase0708(
         ' ',
       );
 
-      // Remover "Restos a Pagar" (tabela 30.*) do seed municipal 2023
-      // porque está atrapalhando os cálculos/exibição a partir desses dados.
       console.log(tipoReceitaDespesaLimpo);
 
       const {
