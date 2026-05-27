@@ -3757,13 +3757,8 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
-                  DeducoesFinsLimiteFundebTipo1314.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_FUNDEB,
                   DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_16_1,
-                  DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_16_2,
-                  DeducoesFinsLimiteFundebTipo1314.DESPESAS_SUPERAVIT_FINANCEIRO_EXERCICIO_ANTERIOR_FUNDEB,
                   DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_17_1,
-                  DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_17_2,
-                  DeducoesFinsLimiteFundebTipo1314.TOTAL_DEDUCOES_PARA_FINS_LIMITE_FUNDEB,
                 ],
               },
             },
@@ -3793,8 +3788,8 @@ export class ResearchesService {
 
     const modifiedRevenues1314 = revenues1314.map((item) => {
       let fundebPagamentoProfissionaisMagisterio = 0;
-      let fundebPagamentoProfissionaisMagisterio = 0;
-      let totalDeducoes = 0;
+      let deducoesFundeb60Porcento16_1 = 0;
+      let deducoesFundeb60Porcento17_1 = 0;
 
       item.despesa.forEach((d) => {
         if (
@@ -3808,20 +3803,22 @@ export class ResearchesService {
 
       item.deducoesParaFinsLimiteFundeb.forEach((d) => {
         if (
-          d.tipo === DeducoesFinsLimiteFundebTipo1314.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_FUNDEB ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_16_1 ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_16_2 ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1314.DESPESAS_SUPERAVIT_FINANCEIRO_EXERCICIO_ANTERIOR_FUNDEB ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_17_1 ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_17_2 ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1314.TOTAL_DEDUCOES_PARA_FINS_LIMITE_FUNDEB
+          d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_16_1
         ) {
-          totalDeducoes += d.valor || 0;
+          deducoesFundeb60Porcento16_1 = d.valor;
+        }
+        if (
+          d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_17_1
+        ) {
+          deducoesFundeb60Porcento17_1 = d.valor;
         }
       });
 
       const despesasProfissionaisEducacao = parseFloat(
-        (fundebPagamentoProfissionaisMagisterio - totalDeducoes).toFixed(4),
+        (
+          fundebPagamentoProfissionaisMagisterio -
+          (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
+        ).toFixed(4),
       );
 
       // Remove os tipos que foram usados no cálculo
@@ -3833,15 +3830,8 @@ export class ResearchesService {
 
       const filteredDeducoes = item.deducoesParaFinsLimiteFundeb.filter(
         (d) =>
-          !(
-            d.tipo === DeducoesFinsLimiteFundebTipo1314.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_FUNDEB ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_16_1 ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_16_2 ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1314.DESPESAS_SUPERAVIT_FINANCEIRO_EXERCICIO_ANTERIOR_FUNDEB ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_17_1 ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1314.FUNDEB_40_PORCENTO_17_2 ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1314.TOTAL_DEDUCOES_PARA_FINS_LIMITE_FUNDEB
-          ),
+          d.tipo !== DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_16_1 &&
+          d.tipo !== DeducoesFinsLimiteFundebTipo1314.FUNDEB_60_PORCENTO_17_1,
       );
 
       return {
@@ -3879,13 +3869,8 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
-                  DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA,
                   DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR,
                   DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1516.TOTAL_DEDUCOES_PARA_FINS_LIMITE,
                 ],
               },
             },
@@ -3915,7 +3900,8 @@ export class ResearchesService {
 
     const modifiedRevenues1516 = revenues1516.map((item) => {
       let fundebPagamentoProfissionaisMagisterio = 0;
-      let totalDeducoes = 0;
+      let deducoesFundeb60Porcento16_1 = 0;
+      let deducoesFundeb60Porcento17_1 = 0;
 
       item.despesa.forEach((d) => {
         if (
@@ -3929,20 +3915,24 @@ export class ResearchesService {
 
       item.deducoesParaFinsLimiteFundeb.forEach((d) => {
         if (
-          d.tipo === DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1516.TOTAL_DEDUCOES_PARA_FINS_LIMITE
+          d.tipo ===
+          DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO
         ) {
-          totalDeducoes += d.valor || 0;
+          deducoesFundeb60Porcento16_1 = d.valor;
+        }
+        if (
+          d.tipo ===
+          DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO
+        ) {
+          deducoesFundeb60Porcento17_1 = d.valor;
         }
       });
 
       const despesasProfissionaisEducacao = parseFloat(
-        (fundebPagamentoProfissionaisMagisterio - totalDeducoes).toFixed(4),
+        (
+          fundebPagamentoProfissionaisMagisterio -
+          (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
+        ).toFixed(4),
       );
 
       // Remove os tipos que foram usados no cálculo
@@ -3953,15 +3943,10 @@ export class ResearchesService {
       );
       const filteredDeducoes = item.deducoesParaFinsLimiteFundeb.filter(
         (d) =>
-          !(
-            d.tipo === DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1516.TOTAL_DEDUCOES_PARA_FINS_LIMITE
-          ),
+          d.tipo !==
+            DeducoesFinsLimiteFundebTipo1516.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO &&
+          d.tipo !==
+            DeducoesFinsLimiteFundebTipo1516.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
       );
 
       return {
@@ -3999,13 +3984,8 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
-                  DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA,
                   DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR,
                   DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1718.TOTAL_DEDUCOES_PARA_FINS_LIMITE,
                 ],
               },
             },
@@ -4035,7 +4015,8 @@ export class ResearchesService {
 
     const modifiedRevenues1718 = revenues1718.map((item) => {
       let fundebPagamentoProfissionaisMagisterio = 0;
-      let totalDeducoes = 0;
+      let deducoesFundeb60Porcento16_1 = 0;
+      let deducoesFundeb60Porcento17_1 = 0;
 
       item.despesa.forEach((d) => {
         if (
@@ -4049,20 +4030,24 @@ export class ResearchesService {
 
       item.deducoesParaFinsLimiteFundeb.forEach((d) => {
         if (
-          d.tipo === DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1718.TOTAL_DEDUCOES_PARA_FINS_LIMITE
+          d.tipo ===
+          DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO
         ) {
-          totalDeducoes += d.valor || 0;
+          deducoesFundeb60Porcento16_1 = d.valor;
+        }
+        if (
+          d.tipo ===
+          DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO
+        ) {
+          deducoesFundeb60Porcento17_1 = d.valor;
         }
       });
 
       const despesasProfissionaisEducacao = parseFloat(
-        (fundebPagamentoProfissionaisMagisterio - totalDeducoes).toFixed(4),
+        (
+          fundebPagamentoProfissionaisMagisterio -
+          (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
+        ).toFixed(4),
       );
 
       // Remove os tipos que foram usados no cálculo
@@ -4073,15 +4058,10 @@ export class ResearchesService {
       );
       const filteredDeducoes = item.deducoesParaFinsLimiteFundeb.filter(
         (d) =>
-          !(
-            d.tipo === DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1718.TOTAL_DEDUCOES_PARA_FINS_LIMITE
-          ),
+          d.tipo !==
+            DeducoesFinsLimiteFundebTipo1718.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO &&
+          d.tipo !==
+            DeducoesFinsLimiteFundebTipo1718.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
       );
 
       return {
@@ -4119,13 +4099,8 @@ export class ResearchesService {
             where: {
               tipo: {
                 in: [
-                  DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA,
                   DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR,
                   DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO,
-                  DeducoesFinsLimiteFundebTipo1920.TOTAL_DEDUCOES_PARA_FINS_LIMITE,
                 ],
               },
             },
@@ -4155,7 +4130,8 @@ export class ResearchesService {
 
     const modifiedRevenues1920 = revenues1920.map((item) => {
       let fundebPagamentoProfissionaisMagisterio = 0;
-      let totalDeducoes = 0;
+      let deducoesFundeb60Porcento16_1 = 0;
+      let deducoesFundeb60Porcento17_1 = 0;
 
       item.despesa.forEach((d) => {
         if (
@@ -4169,20 +4145,24 @@ export class ResearchesService {
 
       item.deducoesParaFinsLimiteFundeb.forEach((d) => {
         if (
-          d.tipo === DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO ||
-          d.tipo === DeducoesFinsLimiteFundebTipo1920.TOTAL_DEDUCOES_PARA_FINS_LIMITE
+          d.tipo ===
+          DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO
         ) {
-          totalDeducoes += d.valor || 0;
+          deducoesFundeb60Porcento16_1 = d.valor;
+        }
+        if (
+          d.tipo ===
+          DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO
+        ) {
+          deducoesFundeb60Porcento17_1 = d.valor;
         }
       });
 
       const despesasProfissionaisEducacao = parseFloat(
-        (fundebPagamentoProfissionaisMagisterio - totalDeducoes).toFixed(4),
+        (
+          fundebPagamentoProfissionaisMagisterio -
+          (deducoesFundeb60Porcento16_1 + deducoesFundeb60Porcento17_1)
+        ).toFixed(4),
       );
 
       // Remove os tipos que foram usados no cálculo
@@ -4193,15 +4173,10 @@ export class ResearchesService {
       );
       const filteredDeducoes = item.deducoesParaFinsLimiteFundeb.filter(
         (d) =>
-          !(
-            d.tipo === DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_40_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_40_PORCENTO ||
-            d.tipo === DeducoesFinsLimiteFundebTipo1920.TOTAL_DEDUCOES_PARA_FINS_LIMITE
-          ),
+          d.tipo !==
+            DeducoesFinsLimiteFundebTipo1920.RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO &&
+          d.tipo !==
+            DeducoesFinsLimiteFundebTipo1920.DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO,
       );
 
       return {
