@@ -1,0 +1,362 @@
+// Schema educacional v2 — Postgres namespace `educacao_v2`.
+//
+// Recorte: localidade, consolidados da educação básica e fatias de matrícula.
+// Fatias comentadas no final do bloco de matrícula: descomente + migrate.
+// O v1 (`prisma/educacao/schema.educacao.prisma`) permanece intacto.
+
+generator educacaoV2Client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+  output          = "./generated/educacao-v2-client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL_EDUCACAO")
+  schemas  = ["educacao_v2"]
+}
+
+/// Dataset: dados_educacionais_basicos/_municipios_piaui.json
+model Localidade {
+  id                         Int      @id
+  nome                       String
+  tipo                       String
+  uf                         String?  @db.Char(2)
+  codigo_ibge                String?  @unique
+  territorio_desenvolvimento String?
+  aglomerado                 String?
+  gerencia_regional          String?
+  populacao_2022             Int?
+  faixa_populacional         String?
+  latitude                   Decimal? @db.Decimal(18, 12)
+  longitude                  Decimal? @db.Decimal(18, 12)
+
+  basica_matricula                 BasicaMatricula[]
+  basica_matricula_por_etapa       BasicaMatriculaPorEtapa[]
+  basica_matricula_por_dependencia BasicaMatriculaPorDependencia[]
+  basica_matricula_por_localizacao BasicaMatriculaPorLocalizacao[]
+  basica_matricula_por_sexo        BasicaMatriculaPorSexo[]
+  basica_matricula_por_cor_raca    BasicaMatriculaPorCorRaca[]
+  basica_matricula_por_faixa_etaria        BasicaMatriculaPorFaixaEtaria[]
+  // basica_matricula_por_tempo_integral      BasicaMatriculaPorTempoIntegral[]
+  // basica_matricula_por_turno               BasicaMatriculaPorTurno[]
+  // basica_matricula_por_localizacao_diff    BasicaMatriculaPorLocalizacaoDiff[]
+  // basica_matricula_por_classe_especial     BasicaMatriculaPorClasseEspecial[]
+  // basica_matricula_por_educacao_especial   BasicaMatriculaPorEducacaoEspecial[]
+  // basica_matricula_por_pee                 BasicaMatriculaPorPee[]
+  // basica_matricula_por_pee_categoria       BasicaMatriculaPorPeeCategoria[]
+  // basica_matricula_por_modalidade_integral BasicaMatriculaPorModalidadeIntegral[]
+  basica_turma                     BasicaTurma[]
+  basica_escola                    BasicaEscola[]
+  basica_funcionario               BasicaFuncionario[]
+  basica_docente                   BasicaDocente[]
+
+  @@map("localidade")
+  @@schema("educacao_v2")
+}
+
+/// Dataset (soma Urbana+Rural): matriculas/{classico|moderno}/{ano}/location
+model BasicaMatricula {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano], map: "bmat_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_matricula")
+  @@schema("educacao_v2")
+}
+
+/// Dataset: matriculas/classico/{ano}/education_level_mod
+///          matriculas/moderno/{ano}/education_level_mod_agg
+model BasicaMatriculaPorEtapa {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  etapa         String
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano, etapa], map: "bmat_etapa_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_matricula_por_etapa")
+  @@schema("educacao_v2")
+}
+
+/// Dataset: matriculas/{classico|moderno}/{ano}/adm_dependency_detailed
+model BasicaMatriculaPorDependencia {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  dependencia   String
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano, dependencia], map: "bmat_dep_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_matricula_por_dependencia")
+  @@schema("educacao_v2")
+}
+
+/// Dataset: matriculas/{classico|moderno}/{ano}/location
+model BasicaMatriculaPorLocalizacao {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  localizacao   String
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano, localizacao], map: "bmat_loc_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_matricula_por_localizacao")
+  @@schema("educacao_v2")
+}
+
+/// Dataset: matriculas/{classico|moderno}/{ano}/gender
+model BasicaMatriculaPorSexo {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  sexo          String
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano, sexo], map: "bmat_sexo_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_matricula_por_sexo")
+  @@schema("educacao_v2")
+}
+
+/// Dataset: matriculas/{classico|moderno}/{ano}/ethnic_group
+model BasicaMatriculaPorCorRaca {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  cor_raca      String
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano, cor_raca], map: "bmat_cor_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_matricula_por_cor_raca")
+  @@schema("educacao_v2")
+}
+
+// Root das pastas: datasets/dados_educacionais_basicos/
+
+// Dataset: matriculas/classico/{ano}/age_range_all
+//          matriculas/moderno/{ano}/age_range_aggregate
+model BasicaMatriculaPorFaixaEtaria {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  faixa_etaria  String
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano, faixa_etaria], map: "bmat_faixa_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_matricula_por_faixa_etaria")
+  @@schema("educacao_v2")
+}
+
+// Dataset: matriculas/classico/{ano}/integral_time
+//          matriculas/moderno/{ano}/integral_time_agg
+// model BasicaMatriculaPorTempoIntegral {
+//   id             Int        @id @default(autoincrement())
+//   localidade_id  Int
+//   ano            Int
+//   tempo_integral String
+//   total          Decimal    @db.Decimal(15, 2)
+//   localidade     Localidade @relation(fields: [localidade_id], references: [id])
+//
+//   @@unique([localidade_id, ano, tempo_integral], map: "bmat_tint_uk")
+//   @@index([localidade_id, ano])
+//   @@index([ano])
+//   @@map("basica_matricula_por_tempo_integral")
+//   @@schema("educacao_v2")
+// }
+
+// Dataset: matriculas/classico/{ano}/period
+//          matriculas/moderno/{ano}/period_agg
+// model BasicaMatriculaPorTurno {
+//   id            Int        @id @default(autoincrement())
+//   localidade_id Int
+//   ano           Int
+//   turno         String
+//   total         Decimal    @db.Decimal(15, 2)
+//   localidade    Localidade @relation(fields: [localidade_id], references: [id])
+//
+//   @@unique([localidade_id, ano, turno], map: "bmat_turno_uk")
+//   @@index([localidade_id, ano])
+//   @@index([ano])
+//   @@map("basica_matricula_por_turno")
+//   @@schema("educacao_v2")
+// }
+
+// Dataset: matriculas/{classico|moderno}/{ano}/diff_location
+// model BasicaMatriculaPorLocalizacaoDiff {
+//   id               Int        @id @default(autoincrement())
+//   localidade_id    Int
+//   ano              Int
+//   localizacao_diff String
+//   total            Decimal    @db.Decimal(15, 2)
+//   localidade       Localidade @relation(fields: [localidade_id], references: [id])
+//
+//   @@unique([localidade_id, ano, localizacao_diff], map: "bmat_locd_uk")
+//   @@index([localidade_id, ano])
+//   @@index([ano])
+//   @@map("basica_matricula_por_localizacao_diff")
+//   @@schema("educacao_v2")
+// }
+
+// Dataset: matriculas/classico/{ano}/special_class  (só clássico)
+// model BasicaMatriculaPorClasseEspecial {
+//   id               Int        @id @default(autoincrement())
+//   localidade_id    Int
+//   ano              Int
+//   classe_especial  String
+//   total            Decimal    @db.Decimal(15, 2)
+//   localidade       Localidade @relation(fields: [localidade_id], references: [id])
+//
+//   @@unique([localidade_id, ano, classe_especial], map: "bmat_clesp_uk")
+//   @@index([localidade_id, ano])
+//   @@index([ano])
+//   @@map("basica_matricula_por_classe_especial")
+//   @@schema("educacao_v2")
+// }
+
+// Dataset: matriculas/moderno/{ano}/special_education  (só moderno)
+// model BasicaMatriculaPorEducacaoEspecial {
+//   id                 Int        @id @default(autoincrement())
+//   localidade_id      Int
+//   ano                Int
+//   educacao_especial  String
+//   total              Decimal    @db.Decimal(15, 2)
+//   localidade         Localidade @relation(fields: [localidade_id], references: [id])
+//
+//   @@unique([localidade_id, ano, educacao_especial], map: "bmat_edesp_uk")
+//   @@index([localidade_id, ano])
+//   @@index([ano])
+//   @@map("basica_matricula_por_educacao_especial")
+//   @@schema("educacao_v2")
+// }
+
+// Dataset: matriculas/classico/{ano}/pee  (só clássico)
+// model BasicaMatriculaPorPee {
+//   id            Int        @id @default(autoincrement())
+//   localidade_id Int
+//   ano           Int
+//   pee           String
+//   total         Decimal    @db.Decimal(15, 2)
+//   localidade    Localidade @relation(fields: [localidade_id], references: [id])
+//
+//   @@unique([localidade_id, ano, pee], map: "bmat_pee_uk")
+//   @@index([localidade_id, ano])
+//   @@index([ano])
+//   @@map("basica_matricula_por_pee")
+//   @@schema("educacao_v2")
+// }
+
+// Dataset: matriculas/classico/{ano}/pee_por_categoria  (só clássico)
+// model BasicaMatriculaPorPeeCategoria {
+//   id            Int        @id @default(autoincrement())
+//   localidade_id Int
+//   ano           Int
+//   pee_categoria String
+//   total         Decimal    @db.Decimal(15, 2)
+//   localidade    Localidade @relation(fields: [localidade_id], references: [id])
+//
+//   @@unique([localidade_id, ano, pee_categoria], map: "bmat_peecat_uk")
+//   @@index([localidade_id, ano])
+//   @@index([ano])
+//   @@map("basica_matricula_por_pee_categoria")
+//   @@schema("educacao_v2")
+// }
+
+// Dataset: matriculas/moderno/{ano}/modality_integral_time  (só moderno)
+// model BasicaMatriculaPorModalidadeIntegral {
+//   id                   Int        @id @default(autoincrement())
+//   localidade_id        Int
+//   ano                  Int
+//   modalidade_integral  String
+//   total                Decimal    @db.Decimal(15, 2)
+//   localidade           Localidade @relation(fields: [localidade_id], references: [id])
+//
+//   @@unique([localidade_id, ano, modalidade_integral], map: "bmat_modint_uk")
+//   @@index([localidade_id, ano])
+//   @@index([ano])
+//   @@map("basica_matricula_por_modalidade_integral")
+//   @@schema("educacao_v2")
+// }
+
+/// Dataset (soma Urbana+Rural): turmas/{ano}/location
+model BasicaTurma {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano], map: "btur_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_turma")
+  @@schema("educacao_v2")
+}
+
+/// Dataset (soma Urbana+Rural): escolas/{ano}/location
+model BasicaEscola {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano], map: "besc_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_escola")
+  @@schema("educacao_v2")
+}
+
+/// Dataset (soma Urbana+Rural): funcionarios/{ano}/location
+model BasicaFuncionario {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano], map: "bfun_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_funcionario")
+  @@schema("educacao_v2")
+}
+
+/// Dataset (soma): docentes/classico/{ano}/location
+///                 docentes/moderno/{ano}/location_entity
+model BasicaDocente {
+  id            Int        @id @default(autoincrement())
+  localidade_id Int
+  ano           Int
+  total         Decimal    @db.Decimal(15, 2)
+  localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+  @@unique([localidade_id, ano], map: "bdoc_uk")
+  @@index([localidade_id, ano])
+  @@index([ano])
+  @@map("basica_docente")
+  @@schema("educacao_v2")
+}

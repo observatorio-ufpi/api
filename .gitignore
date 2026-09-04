@@ -44,13 +44,7 @@ lerna-debug.log*
 # backups
 /backups/*.sql
 
-<<<<<<< HEAD
-# Ignora o client gerado pelo schema principal (o default)
-/prisma/generated/
-
-# Ignora a pasta 'generated' do schema de educação
-/prisma/educacao/generated/
-=======
 # Prisma generated files
-prisma/educacao/generated/
->>>>>>> main
+/prisma/generated/
+/prisma/educacao/generated/
+/prisma/educacao-v2/generated/
