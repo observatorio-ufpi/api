@@ -1,0 +1,38 @@
+{
+  "geradoEm": "2026-10-07T01:38:24.492Z",
+  "modo": "APLICADO",
+  "fonte": "Tabelão corrigido (aba T4, fundo azul) - Parnaíba 2009",
+  "operacoes": 2,
+  "erros": [],
+  "observacao": "Existem 2 registros de RelatorioMunicipal0912 duplicados para Parnaíba/2009 (ids 61 e 460, mesmos dados em todas as linhas de receita conferidas). Corrigidos os dois para não deixar inconsistência entre eles.",
+  "plano": [
+    {
+      "municipio": "Parnaíba",
+      "ano": "2009",
+      "relatorioId": 61,
+      "tipo": "TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO",
+      "operacao": "create",
+      "dados": {
+        "previsaoInicial": 0,
+        "previsaoAtualizada": 1914000,
+        "receitasRealizadaBimestre": 0,
+        "receitasRealizadaAteBimestre": 1741341.21,
+        "percentual": 0
+      }
+    },
+    {
+      "municipio": "Parnaíba",
+      "ano": "2009",
+      "relatorioId": 460,
+      "tipo": "TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO",
+      "operacao": "create",
+      "dados": {
+        "previsaoInicial": 0,
+        "previsaoAtualizada": 1914000,
+        "receitasRealizadaBimestre": 0,
+        "receitasRealizadaAteBimestre": 1741341.21,
+        "percentual": 0
+      }
+    }
+  ]
+}

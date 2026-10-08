@@ -1,0 +1,451 @@
+[
+  {
+    "municipio": "Morro do Chapéu do Piauí",
+    "codigo6": "220667",
+    "porModelo": [
+      {
+        "periodo": "2006",
+        "delegate": "relatorioMunicipal06",
+        "quantidade": 1,
+        "anos": [
+          "2006"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Morro do Chap├®u do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2007-2008",
+        "delegate": "relatorioMunicipal0708",
+        "quantidade": 2,
+        "anos": [
+          "2007",
+          "2008"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Morro do Chap├®u do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2009-2012",
+        "delegate": "relatorioMunicipal0912",
+        "quantidade": 4,
+        "anos": [
+          "2009",
+          "2010",
+          "2011",
+          "2012"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Morro do Chap├®u do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2013-2014",
+        "delegate": "relatorioMunicipal1314",
+        "quantidade": 2,
+        "anos": [
+          "2013",
+          "2014"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Morro do Chap├®u do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2015-2016",
+        "delegate": "relatorioMunicipal1516",
+        "quantidade": 2,
+        "anos": [
+          "2015",
+          "2016"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Morro do Chap├®u do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2017-2018",
+        "delegate": "relatorioMunicipal1718",
+        "quantidade": 2,
+        "anos": [
+          "2017",
+          "2018"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Morro do Chap├®u do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2019-2020",
+        "delegate": "relatorioMunicipal1920",
+        "quantidade": 2,
+        "anos": [
+          "2019",
+          "2020"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Morro do Chap├®u do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2021-2022",
+        "delegate": "relatorioMunicipal21",
+        "quantidade": 2,
+        "anos": [
+          "2021",
+          "2022"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Morro do Chap├®u do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2023-2024",
+        "delegate": "relatorioMunicipal23",
+        "quantidade": 2,
+        "anos": [
+          "2023",
+          "2024"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Morro do Chap├®u do Piau├¡"
+        ]
+      }
+    ]
+  },
+  {
+    "municipio": "Nazaré do Piauí",
+    "codigo6": "220670",
+    "porModelo": [
+      {
+        "periodo": "2007-2008",
+        "delegate": "relatorioMunicipal0708",
+        "quantidade": 2,
+        "anos": [
+          "2007",
+          "2008"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nazar├® do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2009-2012",
+        "delegate": "relatorioMunicipal0912",
+        "quantidade": 4,
+        "anos": [
+          "2009",
+          "2010",
+          "2011",
+          "2012"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nazar├® do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2013-2014",
+        "delegate": "relatorioMunicipal1314",
+        "quantidade": 2,
+        "anos": [
+          "2013",
+          "2014"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nazar├® do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2015-2016",
+        "delegate": "relatorioMunicipal1516",
+        "quantidade": 2,
+        "anos": [
+          "2015",
+          "2016"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nazar├® do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2017-2018",
+        "delegate": "relatorioMunicipal1718",
+        "quantidade": 2,
+        "anos": [
+          "2017",
+          "2018"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nazar├® do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2019-2020",
+        "delegate": "relatorioMunicipal1920",
+        "quantidade": 2,
+        "anos": [
+          "2019",
+          "2020"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nazar├® do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2021-2022",
+        "delegate": "relatorioMunicipal21",
+        "quantidade": 2,
+        "anos": [
+          "2021",
+          "2022"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nazar├® do Piau├¡"
+        ]
+      },
+      {
+        "periodo": "2023-2024",
+        "delegate": "relatorioMunicipal23",
+        "quantidade": 2,
+        "anos": [
+          "2023",
+          "2024"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nazar├® do Piau├¡"
+        ]
+      }
+    ]
+  },
+  {
+    "municipio": "Nossa Senhora de Nazaré",
+    "codigo6": "220675",
+    "porModelo": [
+      {
+        "periodo": "2006",
+        "delegate": "relatorioMunicipal06",
+        "quantidade": 1,
+        "anos": [
+          "2006"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora de Nazar├®"
+        ]
+      },
+      {
+        "periodo": "2007-2008",
+        "delegate": "relatorioMunicipal0708",
+        "quantidade": 2,
+        "anos": [
+          "2007",
+          "2008"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora de Nazar├®"
+        ]
+      },
+      {
+        "periodo": "2009-2012",
+        "delegate": "relatorioMunicipal0912",
+        "quantidade": 4,
+        "anos": [
+          "2009",
+          "2010",
+          "2011",
+          "2012"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora de Nazar├®"
+        ]
+      },
+      {
+        "periodo": "2013-2014",
+        "delegate": "relatorioMunicipal1314",
+        "quantidade": 2,
+        "anos": [
+          "2013",
+          "2014"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora de Nazar├®"
+        ]
+      },
+      {
+        "periodo": "2015-2016",
+        "delegate": "relatorioMunicipal1516",
+        "quantidade": 2,
+        "anos": [
+          "2015",
+          "2016"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora de Nazar├®"
+        ]
+      },
+      {
+        "periodo": "2017-2018",
+        "delegate": "relatorioMunicipal1718",
+        "quantidade": 2,
+        "anos": [
+          "2017",
+          "2018"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora de Nazar├®"
+        ]
+      },
+      {
+        "periodo": "2019-2020",
+        "delegate": "relatorioMunicipal1920",
+        "quantidade": 2,
+        "anos": [
+          "2019",
+          "2020"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora de Nazar├®"
+        ]
+      },
+      {
+        "periodo": "2021-2022",
+        "delegate": "relatorioMunicipal21",
+        "quantidade": 2,
+        "anos": [
+          "2021",
+          "2022"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora de Nazar├®"
+        ]
+      },
+      {
+        "periodo": "2023-2024",
+        "delegate": "relatorioMunicipal23",
+        "quantidade": 2,
+        "anos": [
+          "2023",
+          "2024"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora de Nazar├®"
+        ]
+      }
+    ]
+  },
+  {
+    "municipio": "Nossa Senhora dos Remédios",
+    "codigo6": "220680",
+    "porModelo": [
+      {
+        "periodo": "2006",
+        "delegate": "relatorioMunicipal06",
+        "quantidade": 1,
+        "anos": [
+          "2006"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora dos Rem├®dios"
+        ]
+      },
+      {
+        "periodo": "2007-2008",
+        "delegate": "relatorioMunicipal0708",
+        "quantidade": 2,
+        "anos": [
+          "2007",
+          "2008"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora dos Rem├®dios"
+        ]
+      },
+      {
+        "periodo": "2009-2012",
+        "delegate": "relatorioMunicipal0912",
+        "quantidade": 4,
+        "anos": [
+          "2009",
+          "2010",
+          "2011",
+          "2012"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora dos Rem├®dios"
+        ]
+      },
+      {
+        "periodo": "2013-2014",
+        "delegate": "relatorioMunicipal1314",
+        "quantidade": 2,
+        "anos": [
+          "2013",
+          "2014"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora dos Rem├®dios"
+        ]
+      },
+      {
+        "periodo": "2015-2016",
+        "delegate": "relatorioMunicipal1516",
+        "quantidade": 2,
+        "anos": [
+          "2015",
+          "2016"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora dos Rem├®dios"
+        ]
+      },
+      {
+        "periodo": "2017-2018",
+        "delegate": "relatorioMunicipal1718",
+        "quantidade": 2,
+        "anos": [
+          "2017",
+          "2018"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora dos Rem├®dios"
+        ]
+      },
+      {
+        "periodo": "2019-2020",
+        "delegate": "relatorioMunicipal1920",
+        "quantidade": 2,
+        "anos": [
+          "2019",
+          "2020"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora dos Rem├®dios"
+        ]
+      },
+      {
+        "periodo": "2021-2022",
+        "delegate": "relatorioMunicipal21",
+        "quantidade": 2,
+        "anos": [
+          "2021",
+          "2022"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora dos Rem├®dios"
+        ]
+      },
+      {
+        "periodo": "2023-2024",
+        "delegate": "relatorioMunicipal23",
+        "quantidade": 2,
+        "anos": [
+          "2023",
+          "2024"
+        ],
+        "nomeMunicipioNoBanco": [
+          "Nossa Senhora dos Rem├®dios"
+        ]
+      }
+    ]
+  }
+]

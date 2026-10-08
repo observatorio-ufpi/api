@@ -4678,29 +4678,24 @@ export class ResearchesService {
           despesa: {
             where: {
               tipo: {
+                // Linhas 41-46 do RREO ("Outras despesas com educação") ficam de fora:
+                // o próprio relatório as separa do bloco de MDE e só as reúne no
+                // "Total geral das despesas com educação" (linha 47).
                 in: [
                   ItemDespesasTipos21.FUNDEB_EDUCACAO_INFANTIL,
                   ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
                   ItemDespesasTipos21.MDE_EDUCACAO_INFANTIL,
-                  ItemDespesasTipos21.OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
                   ItemDespesasTipos21.FUNDEB_CRECHE,
                   ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_CRECHE,
                   ItemDespesasTipos21.MDE_CRECHE,
-                  ItemDespesasTipos21.OUTRAS_DESPESAS_CRECHE,
                   ItemDespesasTipos21.FUNDEB_PRE_ESCOLA,
                   ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_PRE_ESCOLA,
                   ItemDespesasTipos21.MDE_PRE_ESCOLA,
-                  ItemDespesasTipos21.OUTRAS_DESPESAS_PRE_ESCOLA,
                   ItemDespesasTipos21.FUNDEB_ENSINO_FUNDAMENTAL,
                   ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
                   ItemDespesasTipos21.MDE_ENSINO_FUNDAMENTAL,
-                  ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
-                  ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_MEDIO,
-                  ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_SUPERIOR,
-                  ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_PROFISSIONAL_NAO_INTEGRADO,
                   ItemDespesasTipos21.TOTAL_DESPESAS_FUNDEB,
                   ItemDespesasTipos21.TOTAL_ACOES_TIPICAS_MDE,
-                  ItemDespesasTipos21.TOTAL_OUTRAS_DESPESAS_EDUCACAO,
                 ],
               },
             },
@@ -4729,7 +4724,6 @@ export class ResearchesService {
             ItemDespesasTipos21.FUNDEB_EDUCACAO_INFANTIL,
             ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
             ItemDespesasTipos21.MDE_EDUCACAO_INFANTIL,
-            ItemDespesasTipos21.OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
           ].includes(d.tipo as any)
         ) {
           totalEducacaoInfantil += d.despesasLiquidadasAteBimestre;
@@ -4739,7 +4733,6 @@ export class ResearchesService {
             ItemDespesasTipos21.FUNDEB_CRECHE,
             ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_CRECHE,
             ItemDespesasTipos21.MDE_CRECHE,
-            ItemDespesasTipos21.OUTRAS_DESPESAS_CRECHE,
           ].includes(d.tipo as any)
         ) {
           totalCreche += d.despesasLiquidadasAteBimestre;
@@ -4749,7 +4742,6 @@ export class ResearchesService {
             ItemDespesasTipos21.FUNDEB_PRE_ESCOLA,
             ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_PRE_ESCOLA,
             ItemDespesasTipos21.MDE_PRE_ESCOLA,
-            ItemDespesasTipos21.OUTRAS_DESPESAS_PRE_ESCOLA,
           ].includes(d.tipo as any)
         ) {
           totalPreEscola += d.despesasLiquidadasAteBimestre;
@@ -4759,7 +4751,6 @@ export class ResearchesService {
             ItemDespesasTipos21.FUNDEB_ENSINO_FUNDAMENTAL,
             ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
             ItemDespesasTipos21.MDE_ENSINO_FUNDAMENTAL,
-            ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
           ].includes(d.tipo as any)
         ) {
           totalEnsinoFundamental += d.despesasLiquidadasAteBimestre;
@@ -4768,7 +4759,6 @@ export class ResearchesService {
           [
             ItemDespesasTipos21.TOTAL_DESPESAS_FUNDEB,
             ItemDespesasTipos21.TOTAL_ACOES_TIPICAS_MDE,
-            ItemDespesasTipos21.TOTAL_OUTRAS_DESPESAS_EDUCACAO,
           ].includes(d.tipo as any)
         ) {
           totalGeral += d.despesasLiquidadasAteBimestre;
@@ -4789,19 +4779,15 @@ export class ResearchesService {
             ItemDespesasTipos21.FUNDEB_EDUCACAO_INFANTIL,
             ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
             ItemDespesasTipos21.MDE_EDUCACAO_INFANTIL,
-            ItemDespesasTipos21.OUTRAS_DESPESAS_EDUCACAO_INFANTIL,
             ItemDespesasTipos21.FUNDEB_CRECHE,
             ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_EDUCACAO_CRECHE,
             ItemDespesasTipos21.MDE_CRECHE,
-            ItemDespesasTipos21.OUTRAS_DESPESAS_CRECHE,
             ItemDespesasTipos21.FUNDEB_PRE_ESCOLA,
             ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_PRE_ESCOLA,
             ItemDespesasTipos21.MDE_PRE_ESCOLA,
-            ItemDespesasTipos21.OUTRAS_DESPESAS_PRE_ESCOLA,
             ItemDespesasTipos21.FUNDEB_ENSINO_FUNDAMENTAL,
             ItemDespesasTipos21.FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
             ItemDespesasTipos21.MDE_ENSINO_FUNDAMENTAL,
-            ItemDespesasTipos21.OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL,
             ItemDespesasTipos21.TOTAL_DESPESAS_FUNDEB,
             ItemDespesasTipos21.TOTAL_ACOES_TIPICAS_MDE,
           ].includes(d.tipo as any),
@@ -4842,20 +4828,14 @@ export class ResearchesService {
         despesa: {
           where: {
             tipo: {
+              // Linha 32 do RREO e seus subitens ("Outras despesas com educação")
+              // ficam de fora: o próprio relatório os separa do bloco de MDE e só
+              // os reúne no "Total geral das despesas com educação" (linha 33).
               in: [
                 ItemDespesaTipos23.MDE_COM_RECEITAS_IMPOSTOS_FUNDEB_EDUCACAO_INFANTIL,
-                ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_EDUCACAO_INFANTIL,
                 ItemDespesaTipos23.MDE_COM_RECEITAS_IMPOSTOS_FUNDEB_EDUCACAO_INFANTIL_CRECHE,
                 ItemDespesaTipos23.MDE_COM_RECEITAS_IMPOSTOS_FUNDEB_EDUCACAO_INFANTIL_PRE_ESCOLA,
                 ItemDespesaTipos23.MDE_COM_RECEITAS_IMPOSTOS_FUNDEB_ENSINO_FUNDAMENTAL,
-                ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_ENSINO_FUNDAMENTAL,
-                ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_ENSINO_MEDIO,
-                ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_ENSINO_SUPERIOR,
-                ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_ESPECIAL,
-                ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_DE_JOVENS_E_ADULTOS,
-                ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_ENSINO_PROFISSIONAL,
-                ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_OUTRAS,
-                ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO,
                 ItemDespesaTipos23.TOTAL_DESPESAS_MDE_CUSTEADAS_COM_RECEITAS_IMPOSTOS_E_FUNDEB,
               ],
             },
@@ -4880,7 +4860,6 @@ export class ResearchesService {
         if (
           [
             ItemDespesaTipos23.MDE_COM_RECEITAS_IMPOSTOS_FUNDEB_EDUCACAO_INFANTIL,
-            ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_EDUCACAO_INFANTIL,
           ].includes(d.tipo as any)
         ) {
           totalEducacaoInfantil += d.despesasLiquidadasAteBimestre;
@@ -4888,14 +4867,12 @@ export class ResearchesService {
         if (
           [
             ItemDespesaTipos23.MDE_COM_RECEITAS_IMPOSTOS_FUNDEB_ENSINO_FUNDAMENTAL,
-            ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_ENSINO_FUNDAMENTAL,
           ].includes(d.tipo as any)
         ) {
           totalEnsinoFundamental += d.despesasLiquidadasAteBimestre;
         }
         if (
           [
-            ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO,
             ItemDespesaTipos23.TOTAL_DESPESAS_MDE_CUSTEADAS_COM_RECEITAS_IMPOSTOS_E_FUNDEB,
           ].includes(d.tipo as any)
         ) {
@@ -4913,10 +4890,7 @@ export class ResearchesService {
         (d) =>
           ![
             ItemDespesaTipos23.MDE_COM_RECEITAS_IMPOSTOS_FUNDEB_EDUCACAO_INFANTIL,
-            ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_EDUCACAO_INFANTIL,
             ItemDespesaTipos23.MDE_COM_RECEITAS_IMPOSTOS_FUNDEB_ENSINO_FUNDAMENTAL,
-            ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO_ENSINO_FUNDAMENTAL,
-            ItemDespesaTipos23.TOTAL_OUTRAS_DESPESAS_COM_EDUCACAO,
             ItemDespesaTipos23.TOTAL_DESPESAS_MDE_CUSTEADAS_COM_RECEITAS_IMPOSTOS_E_FUNDEB,
           ].includes(d.tipo as any),
       );

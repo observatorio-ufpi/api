@@ -1,0 +1,129 @@
+{
+  "geradoEm": "2026-10-07T00:48:06.507Z",
+  "modo": "APLICADO",
+  "fonte": "Tabelão corrigido (aba T1, linhas marrom) - 3 casos recorrentes 2020",
+  "operacoes": 15,
+  "erros": [],
+  "plano": [
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "IPTU_RECEITA_RESULTANTE",
+      "antes": 8.33,
+      "depois": 2500,
+      "id": 19598
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "ITBI_RECEITA_RESULTANTE",
+      "antes": 12.2,
+      "depois": 2500,
+      "id": 19600
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "ISS_RECEITA_RESULTANTE",
+      "antes": 57.21,
+      "depois": 173068.69,
+      "id": 19602
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "IRRF_RECEITA_RESULTANTE",
+      "antes": 109.36,
+      "depois": 191382.37,
+      "id": 19604
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "RECEITA_DE_IMPOSTOS",
+      "antes": 69.97,
+      "depois": 369451.06,
+      "id": 19597
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "IPTU_RECEITA_RESULTANTE",
+      "antes": 9.34,
+      "depois": 3174.57,
+      "id": 11410
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "ITBI_RECEITA_RESULTANTE",
+      "antes": 2.05,
+      "depois": 216.52,
+      "id": 11412
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "ISS_RECEITA_RESULTANTE",
+      "antes": 505.37,
+      "depois": 359341.59,
+      "id": 11414
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "IRRF_RECEITA_RESULTANTE",
+      "antes": 60.67,
+      "depois": 284674.24,
+      "id": 11416
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "RECEITA_DE_IMPOSTOS",
+      "antes": 110.69,
+      "depois": 647406.92,
+      "id": 11409
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "IPTU_RECEITA_RESULTANTE",
+      "antes": 36.32,
+      "depois": 13124.96,
+      "id": 6534
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "ITBI_RECEITA_RESULTANTE",
+      "antes": 43.92,
+      "depois": 20087.05,
+      "id": 6536
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "ISS_RECEITA_RESULTANTE",
+      "antes": 72.28,
+      "depois": 161234.45,
+      "id": 6538
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "IRRF_RECEITA_RESULTANTE",
+      "antes": 328.1,
+      "depois": 988097.7,
+      "id": 6540
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "RECEITA_DE_IMPOSTOS",
+      "antes": 195.1,
+      "depois": 1182544.16,
+      "id": 6533
+    }
+  ]
+}

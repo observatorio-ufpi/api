@@ -1,0 +1,377 @@
+{
+  "geradoEm": "2026-10-06T21:28:36.056Z",
+  "modo": "APLICADO",
+  "politica": "Somente documentos com aplicacaoAutomatica=true; 26 casos em revisão manual não são processados.",
+  "documentosPlanejados": 7,
+  "documentosProcessados": 7,
+  "operacoes": {
+    "total": 21,
+    "update": 21,
+    "create": 0
+  },
+  "erros": [],
+  "plano": [
+    {
+      "fonte": "RREO_Municipal_Morro do Chapéu do Piauí_6_2017.pdf.pdf (PDF correto fornecido em 2026-10-06)",
+      "modeloRelatorio": "RelatorioMunicipal1718",
+      "ano": "2017",
+      "codigoIbgeOrigem": "2206670",
+      "codigoMunicipioNoBanco": "220667",
+      "relatorioId": 133,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 0,
+            "dotacaoAtualizada": 4598285.33,
+            "despesasEmpenhadasAteBimestre": 4036290.24,
+            "despesasEmpenhadasPercentual": 87.77,
+            "despesasLiquidadasAteBimestre": 4036290.24,
+            "despesasLiquidadasPercentual": 87.77,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 133,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 133,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 158699.38
+          },
+          "relatorioId": 133,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Morro do Chapéu do Piauí_6_2019.pdf.pdf (PDF correto fornecido em 2026-10-06)",
+      "modeloRelatorio": "RelatorioMunicipal1920",
+      "ano": "2019",
+      "codigoIbgeOrigem": "2206670",
+      "codigoMunicipioNoBanco": "220667",
+      "relatorioId": 132,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 5566347.2,
+            "dotacaoAtualizada": 5206817,
+            "despesasEmpenhadasAteBimestre": 4973451.17,
+            "despesasEmpenhadasPercentual": 95.52,
+            "despesasLiquidadasAteBimestre": 4903857.34,
+            "despesasLiquidadasPercentual": 94.18,
+            "inscritasRestosPagar": 69593.83
+          },
+          "relatorioId": 132,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 38480.33
+          },
+          "relatorioId": 132,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 67597.36
+          },
+          "relatorioId": 132,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Morro do Chapéu do Piauí_1_2013.pdf.pdf (conteudo real: Nazaré do Piauí, arquivo renomeado para a identidade correta)",
+      "modeloRelatorio": "RelatorioMunicipal1314",
+      "ano": "2013",
+      "codigoIbgeOrigem": "2206704",
+      "codigoMunicipioNoBanco": "220670",
+      "relatorioId": 427,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 3270403.55,
+            "dotacaoAtualizada": 3587979.12,
+            "despesasLiquidadasBimestre": 0,
+            "despesasLiquidadasAteBimestre": 2646842.44,
+            "percentual": 73.76
+          },
+          "relatorioId": 427,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_16_1",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 427,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_17_1",
+          "dados": {
+            "valor": 43388.09
+          },
+          "relatorioId": 427,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Morro do Chapéu do Piauí_6_2017.pdf.pdf [arquivo] (conteudo real: Nazaré do Piauí, arquivo renomeado para a identidade correta)",
+      "modeloRelatorio": "RelatorioMunicipal1718",
+      "ano": "2017",
+      "codigoIbgeOrigem": "2206704",
+      "codigoMunicipioNoBanco": "220670",
+      "relatorioId": 427,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 3781401.91,
+            "dotacaoAtualizada": 6032749.28,
+            "despesasEmpenhadasAteBimestre": 4476636.74,
+            "despesasEmpenhadasPercentual": 74.21,
+            "despesasLiquidadasAteBimestre": 4476636.74,
+            "despesasLiquidadasPercentual": 74.21,
+            "inscritasRestosPagar": 12564.93
+          },
+          "relatorioId": 427,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 427,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 45899.18
+          },
+          "relatorioId": 427,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Morro do Chapéu do Piauí_6_2019.pdf.pdf [arquivo] (conteudo real: Nazaré do Piauí, arquivo renomeado para a identidade correta)",
+      "modeloRelatorio": "RelatorioMunicipal1920",
+      "ano": "2019",
+      "codigoIbgeOrigem": "2206704",
+      "codigoMunicipioNoBanco": "220670",
+      "relatorioId": 426,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 6009000,
+            "dotacaoAtualizada": 5930792.7,
+            "despesasEmpenhadasAteBimestre": 4986703.31,
+            "despesasEmpenhadasPercentual": 84.08,
+            "despesasLiquidadasAteBimestre": 4986703.31,
+            "despesasLiquidadasPercentual": 84.08,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 426,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 191264.84
+          },
+          "relatorioId": 426,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 147001.94
+          },
+          "relatorioId": 426,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Nazaré do Piauí_6_2018.pdf.pdf [arquivo] (conteudo real: Nossa Senhora de Nazaré, arquivo renomeado para a identidade correta)",
+      "modeloRelatorio": "RelatorioMunicipal1718",
+      "ano": "2018",
+      "codigoIbgeOrigem": "2206753",
+      "codigoMunicipioNoBanco": "220675",
+      "relatorioId": 202,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 4821000,
+            "dotacaoAtualizada": 3606000,
+            "despesasEmpenhadasAteBimestre": 3531470.45,
+            "despesasEmpenhadasPercentual": 97.93,
+            "despesasLiquidadasAteBimestre": 3531470.45,
+            "despesasLiquidadasPercentual": 97.93,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 202,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 231709.66
+          },
+          "relatorioId": 202,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 202,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Nazaré do Piauí_6_2019.pdf.pdf [arquivo] (conteudo real: Nossa Senhora de Nazaré, arquivo renomeado para a identidade correta)",
+      "modeloRelatorio": "RelatorioMunicipal1920",
+      "ano": "2019",
+      "codigoIbgeOrigem": "2206753",
+      "codigoMunicipioNoBanco": "220675",
+      "relatorioId": 200,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 5186955,
+            "dotacaoAtualizada": 3701705,
+            "despesasEmpenhadasAteBimestre": 3293774.99,
+            "despesasEmpenhadasPercentual": 88.98,
+            "despesasLiquidadasAteBimestre": 3293774.99,
+            "despesasLiquidadasPercentual": 88.98,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 200,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 214765.78
+          },
+          "relatorioId": 200,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 200,
+          "operacao": "update"
+        }
+      ]
+    }
+  ]
+}

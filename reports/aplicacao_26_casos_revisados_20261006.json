@@ -1,0 +1,993 @@
+{
+  "geradoEm": "2026-10-06T20:48:55.337Z",
+  "modo": "APLICADO",
+  "politica": "Somente documentos com aplicacaoAutomatica=true; 26 casos em revisão manual não são processados.",
+  "documentosPlanejados": 19,
+  "documentosProcessados": 19,
+  "operacoes": {
+    "total": 57,
+    "update": 57,
+    "create": 0
+  },
+  "erros": [],
+  "plano": [
+    {
+      "fonte": "RREO_Municipal_Aroazes_1_2015.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1516",
+      "ano": "2015",
+      "codigoIbgeOrigem": "2200905",
+      "codigoMunicipioNoBanco": "220090",
+      "relatorioId": 233,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1516",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 1952500,
+            "dotacaoAtualizada": 2704300,
+            "despesasEmpenhadasAteBimestre": 2115000.36,
+            "despesasEmpenhadasPercentual": 78.2,
+            "despesasLiquidadasAteBimestre": 2115000.36,
+            "despesasLiquidadasPercentual": 78.2,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 233,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1516",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 54008.5
+          },
+          "relatorioId": 233,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1516",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 233,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Barro Duro_1_2014.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1314",
+      "ano": "2014",
+      "codigoIbgeOrigem": "2201408",
+      "codigoMunicipioNoBanco": "220140",
+      "relatorioId": 62,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 2687003.07,
+            "dotacaoAtualizada": 2515403.85,
+            "despesasLiquidadasBimestre": 0,
+            "despesasLiquidadasAteBimestre": 1796672.66,
+            "percentual": 71.42
+          },
+          "relatorioId": 62,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_16_1",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 62,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_17_1",
+          "dados": {
+            "valor": 7947.22
+          },
+          "relatorioId": 62,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Currais_6_2019.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1920",
+      "ano": "2019",
+      "codigoIbgeOrigem": "2203230",
+      "codigoMunicipioNoBanco": "220323",
+      "relatorioId": 492,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 3850000,
+            "dotacaoAtualizada": 4560744.98,
+            "despesasEmpenhadasAteBimestre": 4169780.41,
+            "despesasEmpenhadasPercentual": 91.43,
+            "despesasLiquidadasAteBimestre": 4169780.41,
+            "despesasLiquidadasPercentual": 91.43,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 492,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 492,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 400000
+          },
+          "relatorioId": 492,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Currais_6_2020.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1920",
+      "ano": "2020",
+      "codigoIbgeOrigem": "2203230",
+      "codigoMunicipioNoBanco": "220323",
+      "relatorioId": 493,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 4767904,
+            "dotacaoAtualizada": 4248275,
+            "despesasEmpenhadasAteBimestre": 3835785.26,
+            "despesasEmpenhadasPercentual": 90.29,
+            "despesasLiquidadasAteBimestre": 3835785.26,
+            "despesasLiquidadasPercentual": 90.29,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 493,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 493,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 160000
+          },
+          "relatorioId": 493,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Elesbão Veloso_6_2018.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1718",
+      "ano": "2018",
+      "codigoIbgeOrigem": "2203503",
+      "codigoMunicipioNoBanco": "220350",
+      "relatorioId": 240,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 5538141.43,
+            "dotacaoAtualizada": 6435395.4,
+            "despesasEmpenhadasAteBimestre": 6435395.4,
+            "despesasEmpenhadasPercentual": 100,
+            "despesasLiquidadasAteBimestre": 6435395.4,
+            "despesasLiquidadasPercentual": 100,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 240,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 240,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 240,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Inhuma_1_2015.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1516",
+      "ano": "2015",
+      "codigoIbgeOrigem": "2204709",
+      "codigoMunicipioNoBanco": "220470",
+      "relatorioId": 21,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1516",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 8680000,
+            "dotacaoAtualizada": 6147600,
+            "despesasEmpenhadasAteBimestre": 5318059.1,
+            "despesasEmpenhadasPercentual": 86.5,
+            "despesasLiquidadasAteBimestre": 5318059.1,
+            "despesasLiquidadasPercentual": 86.5,
+            "inscritasRestosPagar": 53250.25
+          },
+          "relatorioId": 21,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1516",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 21,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1516",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 21,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Manoel Emídio_6_2019.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1920",
+      "ano": "2019",
+      "codigoIbgeOrigem": "2205904",
+      "codigoMunicipioNoBanco": "220590",
+      "relatorioId": 500,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 0,
+            "dotacaoAtualizada": 3699540,
+            "despesasEmpenhadasAteBimestre": 3309282.46,
+            "despesasEmpenhadasPercentual": 89.45,
+            "despesasLiquidadasAteBimestre": 3309282.46,
+            "despesasLiquidadasPercentual": 89.45,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 500,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 500,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 500,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Matias Olímpio_6_2019.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1920",
+      "ano": "2019",
+      "codigoIbgeOrigem": "2206100",
+      "codigoMunicipioNoBanco": "220610",
+      "relatorioId": 128,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 0,
+            "dotacaoAtualizada": 9510018.29,
+            "despesasEmpenhadasAteBimestre": 6184656.87,
+            "despesasEmpenhadasPercentual": 65.03,
+            "despesasLiquidadasAteBimestre": 6184656.87,
+            "despesasLiquidadasPercentual": 65.03,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 128,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 181928.72
+          },
+          "relatorioId": 128,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 185623
+          },
+          "relatorioId": 128,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Morro Cabeça no Tempo_6_2017.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1718",
+      "ano": "2017",
+      "codigoIbgeOrigem": "2206654",
+      "codigoMunicipioNoBanco": "220665",
+      "relatorioId": 505,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 2785000,
+            "dotacaoAtualizada": 2477593.96,
+            "despesasEmpenhadasAteBimestre": 2462846.76,
+            "despesasEmpenhadasPercentual": 99.4,
+            "despesasLiquidadasAteBimestre": 2462846.76,
+            "despesasLiquidadasPercentual": 99.4,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 505,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 505,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 54763.34
+          },
+          "relatorioId": 505,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Murici dos Portelas_1_2013.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1314",
+      "ano": "2013",
+      "codigoIbgeOrigem": "2206696",
+      "codigoMunicipioNoBanco": "220669",
+      "relatorioId": 229,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 2198454,
+            "dotacaoAtualizada": 3995907.97,
+            "despesasLiquidadasBimestre": 0,
+            "despesasLiquidadasAteBimestre": 3995907.97,
+            "percentual": 100
+          },
+          "relatorioId": 229,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_16_1",
+          "dados": {
+            "valor": 392667.04
+          },
+          "relatorioId": 229,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_17_1",
+          "dados": {
+            "valor": 53019.55
+          },
+          "relatorioId": 229,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Nossa Senhora dos Remédios_6_2018.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1718",
+      "ano": "2018",
+      "codigoIbgeOrigem": "2206803",
+      "codigoMunicipioNoBanco": "220680",
+      "relatorioId": 136,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 6955000,
+            "dotacaoAtualizada": 8735200,
+            "despesasEmpenhadasAteBimestre": 8532557.77,
+            "despesasEmpenhadasPercentual": 97.68,
+            "despesasLiquidadasAteBimestre": 8532557.77,
+            "despesasLiquidadasPercentual": 97.68,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 136,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 415415.35
+          },
+          "relatorioId": 136,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 50886.69
+          },
+          "relatorioId": 136,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Paes Landim_1_2014.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1314",
+      "ano": "2014",
+      "codigoIbgeOrigem": "2207306",
+      "codigoMunicipioNoBanco": "220730",
+      "relatorioId": 430,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 1438000,
+            "dotacaoAtualizada": 1848293.04,
+            "despesasLiquidadasBimestre": 0,
+            "despesasLiquidadasAteBimestre": 1819277.04,
+            "percentual": 98.43
+          },
+          "relatorioId": 430,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_16_1",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 430,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_17_1",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 430,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Palmeira do Piauí_6_2017.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1718",
+      "ano": "2017",
+      "codigoIbgeOrigem": "2207405",
+      "codigoMunicipioNoBanco": "220740",
+      "relatorioId": 507,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 0,
+            "dotacaoAtualizada": 2603600,
+            "despesasEmpenhadasAteBimestre": 2291306.36,
+            "despesasEmpenhadasPercentual": 88,
+            "despesasLiquidadasAteBimestre": 2291306.36,
+            "despesasLiquidadasPercentual": 88,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 507,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 507,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 72873.57
+          },
+          "relatorioId": 507,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Piracuruca_1_2014.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1314",
+      "ano": "2014",
+      "codigoIbgeOrigem": "2208304",
+      "codigoMunicipioNoBanco": "220830",
+      "relatorioId": 140,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 8626210,
+            "dotacaoAtualizada": 10215848,
+            "despesasLiquidadasBimestre": 0,
+            "despesasLiquidadasAteBimestre": 10012764.58,
+            "percentual": 98.01
+          },
+          "relatorioId": 140,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_16_1",
+          "dados": {
+            "valor": 208020.7
+          },
+          "relatorioId": 140,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_17_1",
+          "dados": {
+            "valor": 634451.5
+          },
+          "relatorioId": 140,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Piracuruca_6_2020.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1920",
+      "ano": "2020",
+      "codigoIbgeOrigem": "2208304",
+      "codigoMunicipioNoBanco": "220830",
+      "relatorioId": 139,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 13658000,
+            "dotacaoAtualizada": 13913000,
+            "despesasEmpenhadasAteBimestre": 13699510.58,
+            "despesasEmpenhadasPercentual": 98.47,
+            "despesasLiquidadasAteBimestre": 13699510.58,
+            "despesasLiquidadasPercentual": 98.47,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 139,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 211808.53
+          },
+          "relatorioId": 139,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 139,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_São Gonçalo do Gurguéia_1_2016.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1516",
+      "ano": "2016",
+      "codigoIbgeOrigem": "2209757",
+      "codigoMunicipioNoBanco": "220975",
+      "relatorioId": 518,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1516",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 2384000,
+            "dotacaoAtualizada": 2289500,
+            "despesasEmpenhadasAteBimestre": 2151184.78,
+            "despesasEmpenhadasPercentual": 93.95,
+            "despesasLiquidadasAteBimestre": 2085418.14,
+            "despesasLiquidadasPercentual": 91.08,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 518,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1516",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 518,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1516",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 518,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_São Gonçalo do Gurguéia_6_2019.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1920",
+      "ano": "2019",
+      "codigoIbgeOrigem": "2209757",
+      "codigoMunicipioNoBanco": "220975",
+      "relatorioId": 518,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 0,
+            "dotacaoAtualizada": 2206683.51,
+            "despesasEmpenhadasAteBimestre": 2206683.51,
+            "despesasEmpenhadasPercentual": 100,
+            "despesasLiquidadasAteBimestre": 2206683.51,
+            "despesasLiquidadasPercentual": 100,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 518,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 518,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1920",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 27786.89
+          },
+          "relatorioId": 518,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_São João da Fronteira_6_2017.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1718",
+      "ano": "2017",
+      "codigoIbgeOrigem": "2209872",
+      "codigoMunicipioNoBanco": "220987",
+      "relatorioId": 145,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 0,
+            "dotacaoAtualizada": 4323680,
+            "despesasEmpenhadasAteBimestre": 3410832.67,
+            "despesasEmpenhadasPercentual": 78.88,
+            "despesasLiquidadasAteBimestre": 3410832.67,
+            "despesasLiquidadasPercentual": 78.88,
+            "inscritasRestosPagar": 0
+          },
+          "relatorioId": 145,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "RESTOS_A_PAGAR_SEM_DISPONIBILIDADE_FINANCEIRA_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 145,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1718",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "DESPESAS_CUSTEADAS_SUPERAVIT_EXERCICIO_ANTERIOR_60_PORCENTO",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 145,
+          "operacao": "update"
+        }
+      ]
+    },
+    {
+      "fonte": "RREO_Municipal_Vila Nova do Piauí_1_2013.pdf.pdf",
+      "modeloRelatorio": "RelatorioMunicipal1314",
+      "ano": "2013",
+      "codigoIbgeOrigem": "2211605",
+      "codigoMunicipioNoBanco": "221160",
+      "relatorioId": 309,
+      "operations": [
+        {
+          "codigoLinhaRreo": "13",
+          "delegatePrisma": "despesa1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO",
+          "dados": {
+            "dotacaoInicial": 863307,
+            "dotacaoAtualizada": 990047.52,
+            "despesasLiquidadasBimestre": 0,
+            "despesasLiquidadasAteBimestre": 990047.52,
+            "percentual": 100
+          },
+          "relatorioId": 309,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "16.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_16_1",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 309,
+          "operacao": "update"
+        },
+        {
+          "codigoLinhaRreo": "17.1",
+          "delegatePrisma": "deducoesFinsLimiteFundeb1314",
+          "chaveCompostaPrisma": "relatorioMunicialId_tipo",
+          "chaveEstrangeira": "relatorioMunicialId",
+          "tipoEnum": "FUNDEB_60_PORCENTO_17_1",
+          "dados": {
+            "valor": 0
+          },
+          "relatorioId": 309,
+          "operacao": "update"
+        }
+      ]
+    }
+  ]
+}

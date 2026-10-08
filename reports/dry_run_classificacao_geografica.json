@@ -1,0 +1,5393 @@
+{
+  "geradoEm": "2026-09-17T03:03:40.102Z",
+  "modo": "DRY_RUN",
+  "municipiosReferencia": 12,
+  "registrosEncontrados": 255,
+  "registrosSemCorrespondencia": 5,
+  "registrosParaAtualizar": 255,
+  "registrosJaCorretos": 0,
+  "ausentes": [
+    {
+      "delegate": "relatorioMunicipal06",
+      "codigoIbge": "2203230",
+      "municipio": "Currais"
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "codigoIbge": "2205151",
+      "municipio": "Jacobina do Piauí"
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "codigoIbge": "2205201",
+      "municipio": "Jaicós"
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "codigoIbge": "2205300",
+      "municipio": "Jerumenha"
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "codigoIbge": "2205565",
+      "municipio": "Lagoa do Barro do Piauí"
+    }
+  ],
+  "plano": [
+    {
+      "delegate": "relatorioMunicipal06",
+      "id": 108,
+      "ano": "2006",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "id": 96,
+      "ano": "2006",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "id": 7,
+      "ano": "2006",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "id": 36,
+      "ano": "2006",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "id": 97,
+      "ano": "2006",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "id": 60,
+      "ano": "2006",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "id": 40,
+      "ano": "2006",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 218,
+      "ano": "2007",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 219,
+      "ano": "2008",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 194,
+      "ano": "2007",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 195,
+      "ano": "2008",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 13,
+      "ano": "2007",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 14,
+      "ano": "2008",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 480,
+      "ano": "2007",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 481,
+      "ano": "2008",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 486,
+      "ano": "2007",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 487,
+      "ano": "2008",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 323,
+      "ano": "2007",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 324,
+      "ano": "2008",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 25,
+      "ano": "2007",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 26,
+      "ano": "2008",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 325,
+      "ano": "2007",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 326,
+      "ano": "2008",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 73,
+      "ano": "2007",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 74,
+      "ano": "2008",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 196,
+      "ano": "2007",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 197,
+      "ano": "2008",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 455,
+      "ano": "2008",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 122,
+      "ano": "2007",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 123,
+      "ano": "2008",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 396,
+      "ano": "2007",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 397,
+      "ano": "2008",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 81,
+      "ano": "2007",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0708",
+      "id": 82,
+      "ano": "2008",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 436,
+      "ano": "2009",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 437,
+      "ano": "2010",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 438,
+      "ano": "2011",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 439,
+      "ano": "2012",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 388,
+      "ano": "2009",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 389,
+      "ano": "2010",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 390,
+      "ano": "2011",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 391,
+      "ano": "2012",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 25,
+      "ano": "2009",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 26,
+      "ano": "2010",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 27,
+      "ano": "2011",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 28,
+      "ano": "2012",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 972,
+      "ano": "2009",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 973,
+      "ano": "2010",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 974,
+      "ano": "2011",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 975,
+      "ano": "2012",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 984,
+      "ano": "2009",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 985,
+      "ano": "2010",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 986,
+      "ano": "2011",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 987,
+      "ano": "2012",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 648,
+      "ano": "2009",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 649,
+      "ano": "2010",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 650,
+      "ano": "2011",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 651,
+      "ano": "2012",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 49,
+      "ano": "2009",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 50,
+      "ano": "2010",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 51,
+      "ano": "2011",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 52,
+      "ano": "2012",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 652,
+      "ano": "2009",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 653,
+      "ano": "2010",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 654,
+      "ano": "2011",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 655,
+      "ano": "2012",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 145,
+      "ano": "2009",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 146,
+      "ano": "2010",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 147,
+      "ano": "2011",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 148,
+      "ano": "2012",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 392,
+      "ano": "2009",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 393,
+      "ano": "2010",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 394,
+      "ano": "2011",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 395,
+      "ano": "2012",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 920,
+      "ano": "2009",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 921,
+      "ano": "2010",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 922,
+      "ano": "2011",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 923,
+      "ano": "2012",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 244,
+      "ano": "2009",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 245,
+      "ano": "2010",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 246,
+      "ano": "2011",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 247,
+      "ano": "2012",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 800,
+      "ano": "2009",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 801,
+      "ano": "2010",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 802,
+      "ano": "2011",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 803,
+      "ano": "2012",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 161,
+      "ano": "2009",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 162,
+      "ano": "2010",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 163,
+      "ano": "2011",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal0912",
+      "id": 164,
+      "ano": "2012",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 219,
+      "ano": "2013",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 220,
+      "ano": "2014",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 195,
+      "ano": "2013",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 196,
+      "ano": "2014",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 13,
+      "ano": "2013",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 14,
+      "ano": "2014",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 487,
+      "ano": "2013",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 488,
+      "ano": "2014",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 493,
+      "ano": "2013",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 494,
+      "ano": "2014",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 325,
+      "ano": "2013",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 326,
+      "ano": "2014",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 25,
+      "ano": "2013",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 26,
+      "ano": "2014",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 327,
+      "ano": "2013",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 328,
+      "ano": "2014",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 73,
+      "ano": "2013",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 74,
+      "ano": "2014",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 197,
+      "ano": "2013",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 198,
+      "ano": "2014",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 461,
+      "ano": "2013",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 462,
+      "ano": "2014",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 123,
+      "ano": "2013",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 124,
+      "ano": "2014",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 401,
+      "ano": "2013",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 402,
+      "ano": "2014",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 81,
+      "ano": "2013",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1314",
+      "id": 82,
+      "ano": "2014",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 219,
+      "ano": "2015",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 220,
+      "ano": "2016",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 195,
+      "ano": "2015",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 196,
+      "ano": "2016",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 13,
+      "ano": "2015",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 14,
+      "ano": "2016",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 486,
+      "ano": "2015",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 487,
+      "ano": "2016",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 492,
+      "ano": "2015",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 493,
+      "ano": "2016",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 324,
+      "ano": "2015",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 325,
+      "ano": "2016",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 25,
+      "ano": "2015",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 26,
+      "ano": "2016",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 326,
+      "ano": "2015",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 327,
+      "ano": "2016",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 73,
+      "ano": "2015",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 74,
+      "ano": "2016",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 197,
+      "ano": "2015",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 198,
+      "ano": "2016",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 460,
+      "ano": "2015",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 461,
+      "ano": "2016",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 123,
+      "ano": "2015",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 124,
+      "ano": "2016",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 400,
+      "ano": "2015",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 401,
+      "ano": "2016",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 81,
+      "ano": "2015",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1516",
+      "id": 82,
+      "ano": "2016",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 219,
+      "ano": "2017",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 220,
+      "ano": "2018",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 195,
+      "ano": "2017",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 196,
+      "ano": "2018",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 13,
+      "ano": "2017",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 14,
+      "ano": "2018",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 487,
+      "ano": "2017",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 488,
+      "ano": "2018",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 493,
+      "ano": "2017",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 494,
+      "ano": "2018",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 325,
+      "ano": "2017",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 326,
+      "ano": "2018",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 25,
+      "ano": "2017",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 26,
+      "ano": "2018",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 327,
+      "ano": "2017",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 328,
+      "ano": "2018",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 73,
+      "ano": "2017",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 74,
+      "ano": "2018",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 197,
+      "ano": "2017",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 198,
+      "ano": "2018",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 461,
+      "ano": "2017",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 462,
+      "ano": "2018",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 123,
+      "ano": "2017",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 124,
+      "ano": "2018",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 401,
+      "ano": "2017",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 402,
+      "ano": "2018",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 81,
+      "ano": "2017",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1718",
+      "id": 82,
+      "ano": "2018",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 218,
+      "ano": "2019",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 219,
+      "ano": "2020",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 194,
+      "ano": "2019",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 195,
+      "ano": "2020",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 13,
+      "ano": "2019",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 14,
+      "ano": "2020",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 486,
+      "ano": "2019",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 487,
+      "ano": "2020",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 492,
+      "ano": "2019",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 493,
+      "ano": "2020",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 324,
+      "ano": "2019",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 325,
+      "ano": "2020",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 25,
+      "ano": "2019",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 26,
+      "ano": "2020",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 326,
+      "ano": "2019",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 327,
+      "ano": "2020",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 72,
+      "ano": "2019",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 73,
+      "ano": "2020",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 196,
+      "ano": "2019",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 197,
+      "ano": "2020",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 460,
+      "ano": "2019",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 461,
+      "ano": "2020",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 122,
+      "ano": "2019",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 123,
+      "ano": "2020",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 400,
+      "ano": "2019",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 401,
+      "ano": "2020",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 80,
+      "ano": "2019",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal1920",
+      "id": 81,
+      "ano": "2020",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 219,
+      "ano": "2021",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 220,
+      "ano": "2022",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 195,
+      "ano": "2021",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 196,
+      "ano": "2022",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 13,
+      "ano": "2021",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 14,
+      "ano": "2022",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 487,
+      "ano": "2021",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 488,
+      "ano": "2022",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 493,
+      "ano": "2021",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 494,
+      "ano": "2022",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 325,
+      "ano": "2021",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 326,
+      "ano": "2022",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 25,
+      "ano": "2021",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 26,
+      "ano": "2022",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 327,
+      "ano": "2021",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 328,
+      "ano": "2022",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 73,
+      "ano": "2021",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 74,
+      "ano": "2022",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 197,
+      "ano": "2021",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 198,
+      "ano": "2022",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 461,
+      "ano": "2021",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 462,
+      "ano": "2022",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 123,
+      "ano": "2021",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 124,
+      "ano": "2022",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 401,
+      "ano": "2021",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 402,
+      "ano": "2022",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 81,
+      "ano": "2021",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal21",
+      "id": 82,
+      "ano": "2022",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 110,
+      "ano": "2023",
+      "codigoMunicipio": "220265",
+      "municipio": "Caxingó",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "PLANICIE_LITORANEA",
+        "aglomeradoMunicipio": "2",
+        "gerenciaRegionalMunicipio": "1ª",
+        "populacaoMunicipio": 5496,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 98,
+      "ano": "2023",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 493,
+      "ano": "2024",
+      "codigoMunicipio": "220271",
+      "municipio": "Cocal de Telha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "1",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4911,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 7,
+      "ano": "2023",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 241,
+      "ano": "2023",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 501,
+      "ano": "2024",
+      "codigoMunicipio": "220300",
+      "municipio": "Cristalândia do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15",
+        "populacaoMunicipio": 7283,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "28",
+        "gerenciaRegionalMunicipio": "15ª",
+        "populacaoMunicipio": 7356,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 244,
+      "ano": "2023",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 504,
+      "ano": "2024",
+      "codigoMunicipio": "220323",
+      "municipio": "Currais",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14",
+        "populacaoMunicipio": 4844,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_DAS_MANGABEIRAS",
+        "aglomeradoMunicipio": "26",
+        "gerenciaRegionalMunicipio": "14ª",
+        "populacaoMunicipio": 4854,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 162,
+      "ano": "2023",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 535,
+      "ano": "2024",
+      "codigoMunicipio": "220515",
+      "municipio": "Jacobina do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17",
+        "populacaoMunicipio": 5624,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "14",
+        "gerenciaRegionalMunicipio": "17ª",
+        "populacaoMunicipio": 5613,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 13,
+      "ano": "2023",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 163,
+      "ano": "2023",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 536,
+      "ano": "2024",
+      "codigoMunicipio": "220520",
+      "municipio": "Jaicós",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CHAPADA_VALE_DO_RIO_ITAIM",
+        "aglomeradoMunicipio": "13",
+        "gerenciaRegionalMunicipio": "9ª",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 37,
+      "ano": "2023",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 537,
+      "ano": "2024",
+      "codigoMunicipio": "220525",
+      "municipio": "Jardim do Mulato",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "9",
+        "gerenciaRegionalMunicipio": "6ª",
+        "populacaoMunicipio": 4180,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 99,
+      "ano": "2023",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 538,
+      "ano": "2024",
+      "codigoMunicipio": "220527",
+      "municipio": "Jatobá do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "CARNAUBAIS",
+        "aglomeradoMunicipio": "5",
+        "gerenciaRegionalMunicipio": "5ª",
+        "populacaoMunicipio": 4494,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 228,
+      "ano": "2023",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 539,
+      "ano": "2024",
+      "codigoMunicipio": "220530",
+      "municipio": "Jerumenha",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10",
+        "populacaoMunicipio": 17527,
+        "faixaPopulacionalMunicipio": "DE_10001_A_20000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "TABULEIROS_DO_ALTO_PARNAIBA",
+        "aglomeradoMunicipio": "24",
+        "gerenciaRegionalMunicipio": "10ª",
+        "populacaoMunicipio": 4497,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 62,
+      "ano": "2023",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 549,
+      "ano": "2024",
+      "codigoMunicipio": "220557",
+      "municipio": "Lagoa de São Francisco",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "12",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "COCAIS",
+        "aglomeradoMunicipio": "4",
+        "gerenciaRegionalMunicipio": "3ª",
+        "populacaoMunicipio": 6331,
+        "faixaPopulacionalMunicipio": "DE_5001_A_10000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 198,
+      "ano": "2023",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 548,
+      "ano": "2024",
+      "codigoMunicipio": "220556",
+      "municipio": "Lagoa do Barro do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "18",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "SERRA_DA_CAPIVARA",
+        "aglomeradoMunicipio": "18",
+        "gerenciaRegionalMunicipio": "12ª",
+        "populacaoMunicipio": 4995,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 41,
+      "ano": "2023",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    },
+    {
+      "delegate": "relatorioMunicipal23",
+      "id": 550,
+      "ano": "2024",
+      "codigoMunicipio": "220558",
+      "municipio": "Lagoa do Piauí",
+      "antes": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "3",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      },
+      "depois": {
+        "territorioDeDesenvolvimentoMunicipio": "ENTRE_RIOS",
+        "aglomeradoMunicipio": "8",
+        "gerenciaRegionalMunicipio": "18ª",
+        "populacaoMunicipio": 4810,
+        "faixaPopulacionalMunicipio": "MENOS_DE_5000_HABITANTES"
+      }
+    }
+  ]
+}

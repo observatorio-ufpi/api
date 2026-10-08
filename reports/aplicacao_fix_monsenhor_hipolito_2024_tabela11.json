@@ -1,0 +1,21 @@
+{
+  "geradoEm": "2026-10-08T00:42:45.498Z",
+  "antes": {
+    "id": 1317,
+    "tipo": "PROPORCAO_50_PORCENTO_FUNDEB_VAAT_EDUCACAO_INFANTIL",
+    "valorExigido": 0,
+    "valorAplicado": 0,
+    "valorConsideradoAposDeducoes": 0,
+    "percentualAplicado": 63.63,
+    "relatorioMunicialId": 563
+  },
+  "depois": {
+    "id": 1317,
+    "tipo": "PROPORCAO_50_PORCENTO_FUNDEB_VAAT_EDUCACAO_INFANTIL",
+    "valorExigido": 0,
+    "valorAplicado": 0,
+    "valorConsideradoAposDeducoes": 0,
+    "percentualAplicado": 62.63,
+    "relatorioMunicialId": 563
+  }
+}

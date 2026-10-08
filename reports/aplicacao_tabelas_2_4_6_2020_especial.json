@@ -1,0 +1,489 @@
+{
+  "geradoEm": "2026-10-07T01:01:22.724Z",
+  "modo": "APLICADO",
+  "fonte": "Tabelão corrigido (abas T2/T4/T6, linhas marrom) - 3 casos recorrentes 2020",
+  "operacoes": 60,
+  "erros": [],
+  "plano": [
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "COTA_PARTE_FPM",
+      "antes": 84.73,
+      "depois": 7549728.56,
+      "id": 19606
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 77.57,
+      "depois": 1163494.32,
+      "id": 19610
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "ICMS_DESONERACAO_LC_87_1996",
+      "antes": 0,
+      "depois": 0,
+      "id": 19611
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "COTA_PARTE_IPI_EXPORTACAO",
+      "antes": 12.3,
+      "depois": 246.09,
+      "id": 19612
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 38.86,
+      "depois": 3885.55,
+      "id": 19613
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 65.13,
+      "depois": 97695.58,
+      "id": 19614
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "COTA_PARTE_IOF_OURO",
+      "antes": 0,
+      "depois": 0,
+      "id": 19615
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS",
+      "antes": 83.36,
+      "depois": 8815050.1,
+      "id": 19605
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "RECEITA_APLICACAO_FINANCEIRA",
+      "antes": 0,
+      "depois": 0,
+      "id": 19617
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "TRANSFERENCIAS_SALARIO_EDUCACAO",
+      "antes": 55.01,
+      "depois": 77011.69,
+      "id": 19619
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "OUTRAS_TRANSFERENCIAS_FNDE",
+      "antes": 0,
+      "depois": 0,
+      "id": 19623
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "APLICACAO_FINANCEIRA_FNDE",
+      "antes": 8.07,
+      "depois": 1372.41,
+      "id": 19624
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "TRANSFERENCIAS_DIRETAS_PDDE",
+      "antes": 0,
+      "depois": 0,
+      "id": 19620
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "TRANSFERENCIAS_DIRETAS_PNAE",
+      "antes": 70.65,
+      "depois": 211952.4,
+      "id": 19621
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "TRANSFERENCIAS_DIRETAS_PNATE",
+      "antes": 43.77,
+      "depois": 65653.53,
+      "id": 19622
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "RECEITA_TRANSFERENCIAS_CONVENIOS",
+      "antes": 44.41,
+      "depois": 66612.8,
+      "id": 19625
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "RECEITA_OPERACOES_CREDITO",
+      "antes": 0,
+      "depois": 0,
+      "id": 19628
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO",
+      "antes": 0,
+      "depois": 0,
+      "id": 19629
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO",
+      "antes": 39.42,
+      "depois": 422602.83,
+      "id": 19630
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB",
+      "antes": 92.29,
+      "depois": 1384294.31,
+      "id": 19640
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "COTA_PARTE_FPM",
+      "antes": 95.59,
+      "depois": 7549728.56,
+      "id": 11418
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 112.79,
+      "depois": 704001.88,
+      "id": 11422
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "ICMS_DESONERACAO_LC_87_1996",
+      "antes": 0,
+      "depois": 0,
+      "id": 11423
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "COTA_PARTE_IPI_EXPORTACAO",
+      "antes": 67.52,
+      "depois": 136.39,
+      "id": 11424
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 394.9,
+      "depois": 2233.53,
+      "id": 11425
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 116.63,
+      "depois": 105428.26,
+      "id": 11426
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "COTA_PARTE_IOF_OURO",
+      "antes": 0,
+      "depois": 0,
+      "id": 11427
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS",
+      "antes": 97.06,
+      "depois": 8361528.62,
+      "id": 11417
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "RECEITA_APLICACAO_FINANCEIRA",
+      "antes": 0,
+      "depois": 0,
+      "id": 11429
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "TRANSFERENCIAS_SALARIO_EDUCACAO",
+      "antes": 73.8,
+      "depois": 46293.47,
+      "id": 11431
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "OUTRAS_TRANSFERENCIAS_FNDE",
+      "antes": 0,
+      "depois": 0,
+      "id": 11435
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "APLICACAO_FINANCEIRA_FNDE",
+      "antes": 219.78,
+      "depois": 4217.61,
+      "id": 11436
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "TRANSFERENCIAS_DIRETAS_PDDE",
+      "antes": 0,
+      "depois": 0,
+      "id": 11432
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "TRANSFERENCIAS_DIRETAS_PNAE",
+      "antes": 113.08,
+      "depois": 78806.2,
+      "id": 11433
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "TRANSFERENCIAS_DIRETAS_PNATE",
+      "antes": 0,
+      "depois": 0,
+      "id": 11434
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "RECEITA_TRANSFERENCIAS_CONVENIOS",
+      "antes": 0.28,
+      "depois": 747.18,
+      "id": 11437
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "RECEITA_OPERACOES_CREDITO",
+      "antes": 0,
+      "depois": 0,
+      "id": 11440
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO",
+      "antes": 0,
+      "depois": 0,
+      "id": 11441
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO",
+      "antes": 22.06,
+      "depois": 130064.46,
+      "id": 11442
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB",
+      "antes": 61.43,
+      "depois": 767384.74,
+      "id": 11452
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "COTA_PARTE_FPM",
+      "antes": 68.16,
+      "depois": 10066304.74,
+      "id": 6542
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 106.34,
+      "depois": 925183.22,
+      "id": 6546
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "ICMS_DESONERACAO_LC_87_1996",
+      "antes": 0,
+      "depois": 0,
+      "id": 6547
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "COTA_PARTE_IPI_EXPORTACAO",
+      "antes": 4.1,
+      "depois": 183.09,
+      "id": 6548
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 3.19,
+      "depois": 1778.75,
+      "id": 6549
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 94.39,
+      "depois": 63167.89,
+      "id": 6550
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "COTA_PARTE_IOF_OURO",
+      "antes": 0,
+      "depois": 0,
+      "id": 6551
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "RECEITA_DE_TRANSFERENCIAS_CONSTITUCIONAIS_E_LEGAIS",
+      "antes": 70.08,
+      "depois": 11056617.69,
+      "id": 6541
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "RECEITA_APLICACAO_FINANCEIRA",
+      "antes": 3.02,
+      "depois": 538.91,
+      "id": 6553
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "TRANSFERENCIAS_SALARIO_EDUCACAO",
+      "antes": 68.92,
+      "depois": 215255.13,
+      "id": 6555
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "OUTRAS_TRANSFERENCIAS_FNDE",
+      "antes": 0,
+      "depois": 0,
+      "id": 6559
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "APLICACAO_FINANCEIRA_FNDE",
+      "antes": 0,
+      "depois": 0,
+      "id": 6560
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "TRANSFERENCIAS_DIRETAS_PDDE",
+      "antes": 8.51,
+      "depois": 4080,
+      "id": 6556
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "TRANSFERENCIAS_DIRETAS_PNAE",
+      "antes": 109.33,
+      "depois": 487799.4,
+      "id": 6557
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "TRANSFERENCIAS_DIRETAS_PNATE",
+      "antes": 170.43,
+      "depois": 152076.58,
+      "id": 6558
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "RECEITA_TRANSFERENCIAS_CONVENIOS",
+      "antes": 0,
+      "depois": 0,
+      "id": 6561
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "RECEITA_OPERACOES_CREDITO",
+      "antes": 0,
+      "depois": 0,
+      "id": 6564
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO",
+      "antes": 0,
+      "depois": 0,
+      "id": 6565
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO",
+      "antes": 45.91,
+      "depois": 859750.02,
+      "id": 6566
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "COMPLEMENTACAO_DA_UNIAO_AO_FUNDEB",
+      "antes": 101.7,
+      "depois": 3609159.64,
+      "id": 6576
+    }
+  ]
+}

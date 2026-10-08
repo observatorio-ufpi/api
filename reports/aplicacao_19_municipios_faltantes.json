@@ -1,0 +1,162 @@
+{
+  "geradoEm": "2026-10-07T11:19:53.904Z",
+  "modo": "APLICADO",
+  "documentosNoJson": 19,
+  "relatoriosCriados": 19,
+  "totalLinhasFilhas": 2405,
+  "avisos": [],
+  "plano": [
+    {
+      "nomeMunicipio": "Arraial",
+      "ano": "2007",
+      "codigoMunicipio": "220100",
+      "modeloPrisma": "RelatorioMunicipal0708",
+      "classificacaoFonte": "relatorioMunicipal0708/mesmo periodo, ano=2008",
+      "numFilhos": 84
+    },
+    {
+      "nomeMunicipio": "Belém do Piauí",
+      "ano": "2007",
+      "codigoMunicipio": "220157",
+      "modeloPrisma": "RelatorioMunicipal0708",
+      "classificacaoFonte": "relatorioMunicipal0708/mesmo periodo, ano=2008",
+      "numFilhos": 84
+    },
+    {
+      "nomeMunicipio": "Murici dos Portelas",
+      "ano": "2023",
+      "codigoMunicipio": "220669",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2024",
+      "numFilhos": 136
+    },
+    {
+      "nomeMunicipio": "Queimada Nova",
+      "ano": "2023",
+      "codigoMunicipio": "220865",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2024",
+      "numFilhos": 136
+    },
+    {
+      "nomeMunicipio": "São João da Varjota",
+      "ano": "2023",
+      "codigoMunicipio": "220995",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2024",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Acauã",
+      "ano": "2024",
+      "codigoMunicipio": "220005",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Antônio Almeida",
+      "ano": "2024",
+      "codigoMunicipio": "220080",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Bom Princípio do Piauí",
+      "ano": "2024",
+      "codigoMunicipio": "220191",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Caraúbas do Piauí",
+      "ano": "2024",
+      "codigoMunicipio": "220253",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Caxingó",
+      "ano": "2024",
+      "codigoMunicipio": "220265",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "João Costa",
+      "ano": "2024",
+      "codigoMunicipio": "220535",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Madeiro",
+      "ano": "2024",
+      "codigoMunicipio": "220585",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Matias Olímpio",
+      "ano": "2024",
+      "codigoMunicipio": "220610",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Olho D'Água do Piauí",
+      "ano": "2024",
+      "codigoMunicipio": "220710",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Parnaguá",
+      "ano": "2024",
+      "codigoMunicipio": "220760",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Patos do Piauí",
+      "ano": "2024",
+      "codigoMunicipio": "220777",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Pau D'Arco do Piauí",
+      "ano": "2024",
+      "codigoMunicipio": "220779",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "Santa Luz",
+      "ano": "2024",
+      "codigoMunicipio": "220930",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    },
+    {
+      "nomeMunicipio": "São Francisco do Piauí",
+      "ano": "2024",
+      "codigoMunicipio": "220970",
+      "modeloPrisma": "RelatorioMunicipal23",
+      "classificacaoFonte": "relatorioMunicipal23/mesmo periodo, ano=2023",
+      "numFilhos": 131
+    }
+  ]
+}

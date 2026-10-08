@@ -1,0 +1,184 @@
+{
+  "geradoEm": "2026-10-06T20:49:22.478Z",
+  "modo": "SOMENTE_LEITURA",
+  "comparacao": "valorTabela8Validado (valor do PDF, nao do relatorio oficial)",
+  "resumo": {
+    "documentosAutomaticos": 19,
+    "ok": 19,
+    "divergentes": 0,
+    "ausentes": 0
+  },
+  "documentos": [
+    {
+      "fonte": "RREO_Municipal_Aroazes_1_2015.pdf.pdf",
+      "ano": "2015",
+      "codigoMunicipio": "220090",
+      "calculadoNoBanco": 2060991.8599999999,
+      "valorTabela8Validado": 2060991.86,
+      "valorCorretoRelatorio": 2060991.66,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barro Duro_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220140",
+      "calculadoNoBanco": 1788725.44,
+      "valorTabela8Validado": 1788725.44,
+      "valorCorretoRelatorio": 1788425.44,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Currais_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220323",
+      "calculadoNoBanco": 3769780.41,
+      "valorTabela8Validado": 3769780.41,
+      "valorCorretoRelatorio": 3760481.01,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Currais_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220323",
+      "calculadoNoBanco": 3675785.26,
+      "valorTabela8Validado": 3675785.26,
+      "valorCorretoRelatorio": 3671785.26,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Elesbão Veloso_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220350",
+      "calculadoNoBanco": 6435395.4,
+      "valorTabela8Validado": 6435395.4,
+      "valorCorretoRelatorio": 6425395.4,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Inhuma_1_2015.pdf.pdf",
+      "ano": "2015",
+      "codigoMunicipio": "220470",
+      "calculadoNoBanco": 5318059.1,
+      "valorTabela8Validado": 5318059.1,
+      "valorCorretoRelatorio": 5318059.19,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Manoel Emídio_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220590",
+      "calculadoNoBanco": 3309282.46,
+      "valorTabela8Validado": 3309282.46,
+      "valorCorretoRelatorio": 802050.86,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Matias Olímpio_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220610",
+      "calculadoNoBanco": 5817105.15,
+      "valorTabela8Validado": 5817105.15,
+      "valorCorretoRelatorio": 6188351.15,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Morro Cabeça no Tempo_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220665",
+      "calculadoNoBanco": 2408083.42,
+      "valorTabela8Validado": 2408083.42,
+      "valorCorretoRelatorio": 2408082.92,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Murici dos Portelas_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220669",
+      "calculadoNoBanco": 3550221.3800000004,
+      "valorTabela8Validado": 3550221.38,
+      "valorCorretoRelatorio": 445686.59,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Nossa Senhora dos Remédios_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220680",
+      "calculadoNoBanco": 8066255.7299999995,
+      "valorTabela8Validado": 8066255.73,
+      "valorCorretoRelatorio": 8168029.11,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Paes Landim_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220730",
+      "calculadoNoBanco": 1819277.04,
+      "valorTabela8Validado": 1819277.04,
+      "valorCorretoRelatorio": 1819277,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Palmeira do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220740",
+      "calculadoNoBanco": 2218432.79,
+      "valorTabela8Validado": 2218432.79,
+      "valorCorretoRelatorio": 2218433.79,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Piracuruca_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220830",
+      "calculadoNoBanco": 9170292.38,
+      "valorTabela8Validado": 9170292.38,
+      "valorCorretoRelatorio": 10439195.38,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Piracuruca_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220830",
+      "calculadoNoBanco": 13487702.05,
+      "valorTabela8Validado": 13487702.05,
+      "valorCorretoRelatorio": 13457702.05,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Gonçalo do Gurguéia_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220975",
+      "calculadoNoBanco": 2085418.14,
+      "valorTabela8Validado": 2085418.14,
+      "valorCorretoRelatorio": 329442,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Gonçalo do Gurguéia_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220975",
+      "calculadoNoBanco": 2178896.6199999996,
+      "valorTabela8Validado": 2178896.62,
+      "valorCorretoRelatorio": 256477.54,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São João da Fronteira_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220987",
+      "calculadoNoBanco": 3410832.67,
+      "valorTabela8Validado": 3410832.67,
+      "valorCorretoRelatorio": 7410832.67,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Vila Nova do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "221160",
+      "calculadoNoBanco": 990047.52,
+      "valorTabela8Validado": 990047.52,
+      "valorCorretoRelatorio": 960047.52,
+      "status": "OK"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "geradoEm": "2026-09-17T03:37:10.971Z",
+  "modo": "DRY_RUN",
+  "municipiosReferencia": 12,
+  "registrosEncontrados": 255,
+  "registrosSemCorrespondencia": 5,
+  "registrosParaAtualizar": 0,
+  "registrosJaCorretos": 255,
+  "ausentes": [
+    {
+      "delegate": "relatorioMunicipal06",
+      "codigoIbge": "2203230",
+      "municipio": "Currais"
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "codigoIbge": "2205151",
+      "municipio": "Jacobina do Piauí"
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "codigoIbge": "2205201",
+      "municipio": "Jaicós"
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "codigoIbge": "2205300",
+      "municipio": "Jerumenha"
+    },
+    {
+      "delegate": "relatorioMunicipal06",
+      "codigoIbge": "2205565",
+      "municipio": "Lagoa do Barro do Piauí"
+    }
+  ],
+  "plano": []
+}

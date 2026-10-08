@@ -1,0 +1,1478 @@
+{
+  "total": 147,
+  "ok": 112,
+  "divergentes": 35,
+  "outros": 0,
+  "resultados": [
+    {
+      "municipio": "Alagoinha do Piauí",
+      "ano": "2017",
+      "codigo": "220025",
+      "relatorioId": 265,
+      "calculado": 517663.917,
+      "esperado": 517663.917,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Alvorada do Gurguéia",
+      "ano": "2017",
+      "codigo": "220045",
+      "relatorioId": 475,
+      "calculado": 580128.39,
+      "esperado": 580128.39,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Anísio de Abreu",
+      "ano": "2017",
+      "codigo": "220070",
+      "relatorioId": 377,
+      "calculado": 588960.8445,
+      "esperado": 308860.8445,
+      "status": "DIVERGENTE",
+      "diferenca": 280100
+    },
+    {
+      "municipio": "Antônio Almeida",
+      "ano": "2017",
+      "codigo": "220080",
+      "relatorioId": 451,
+      "calculado": 611554.649,
+      "esperado": 611534.399,
+      "status": "DIVERGENTE",
+      "diferenca": 20.25
+    },
+    {
+      "municipio": "Aroazes",
+      "ano": "2017",
+      "codigo": "220090",
+      "relatorioId": 233,
+      "calculado": 566076.685,
+      "esperado": 566076.685,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Aroeiras do Itaim",
+      "ano": "2017",
+      "codigo": "220095",
+      "relatorioId": 269,
+      "calculado": 493160.5295,
+      "esperado": 494160.5295,
+      "status": "DIVERGENTE",
+      "diferenca": -1000
+    },
+    {
+      "municipio": "Arraial",
+      "ano": "2017",
+      "codigo": "220100",
+      "relatorioId": 413,
+      "calculado": 449580.21,
+      "esperado": 449580.20999999996,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Avelino Lopes",
+      "ano": "2017",
+      "codigo": "220110",
+      "relatorioId": 477,
+      "calculado": 953724.496,
+      "esperado": 953724.4960000002,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Baixa Grande do Ribeiro",
+      "ano": "2017",
+      "codigo": "220115",
+      "relatorioId": 453,
+      "calculado": 2648967.7025,
+      "esperado": 2648967.7025,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Barra D'Alcântara",
+      "ano": "2017",
+      "codigo": "220117",
+      "relatorioId": 237,
+      "calculado": 587040.9515,
+      "esperado": 587040.9565,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Batalha",
+      "ano": "2017",
+      "codigo": "220150",
+      "relatorioId": 109,
+      "calculado": 1411656.1625,
+      "esperado": 1411656.1625,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Bela Vista do Piauí",
+      "ano": "2017",
+      "codigo": "220155",
+      "relatorioId": 343,
+      "calculado": 525345.6325,
+      "esperado": 525345.4325,
+      "status": "DIVERGENTE",
+      "diferenca": 0.2
+    },
+    {
+      "municipio": "Belém do Piauí",
+      "ano": "2017",
+      "codigo": "220157",
+      "relatorioId": 313,
+      "calculado": 530389.843,
+      "esperado": 528389.843,
+      "status": "DIVERGENTE",
+      "diferenca": 2000
+    },
+    {
+      "municipio": "Betânia do Piauí",
+      "ano": "2017",
+      "codigo": "220173",
+      "relatorioId": 315,
+      "calculado": 535706.2435,
+      "esperado": 535706.2435,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Bocaina",
+      "ano": "2017",
+      "codigo": "220180",
+      "relatorioId": 271,
+      "calculado": 517117.505,
+      "esperado": 517067.505,
+      "status": "DIVERGENTE",
+      "diferenca": 50
+    },
+    {
+      "municipio": "Bom Jesus",
+      "ano": "2017",
+      "codigo": "220190",
+      "relatorioId": 7,
+      "calculado": 3271695.7635,
+      "esperado": 3271695.7635000004,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Bonfim do Piauí",
+      "ano": "2017",
+      "codigo": "220192",
+      "relatorioId": 379,
+      "calculado": 548442.9375,
+      "esperado": 268442.9375,
+      "status": "DIVERGENTE",
+      "diferenca": 280000
+    },
+    {
+      "municipio": "Boqueirão do Piauí",
+      "ano": "2017",
+      "codigo": "220194",
+      "relatorioId": 183,
+      "calculado": 554820.029,
+      "esperado": 552320.029,
+      "status": "DIVERGENTE",
+      "diferenca": 2500
+    },
+    {
+      "municipio": "Brasileira",
+      "ano": "2017",
+      "codigo": "220196",
+      "relatorioId": 111,
+      "calculado": 578656.7415,
+      "esperado": 578656.7415,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Brejo do Piauí",
+      "ano": "2017",
+      "codigo": "220198",
+      "relatorioId": 9,
+      "calculado": 561145.782,
+      "esperado": 561170.7819999999,
+      "status": "DIVERGENTE",
+      "diferenca": -25
+    },
+    {
+      "municipio": "Buriti dos Montes",
+      "ano": "2017",
+      "codigo": "220202",
+      "relatorioId": 185,
+      "calculado": 586020.6425,
+      "esperado": 586020.6425000001,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Cajazeiras do Piauí",
+      "ano": "2017",
+      "codigo": "220207",
+      "relatorioId": 345,
+      "calculado": 520651.728,
+      "esperado": 520651.728,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Caldeirão Grande do Piauí",
+      "ano": "2017",
+      "codigo": "220209",
+      "relatorioId": 317,
+      "calculado": 806693.195,
+      "esperado": 809193.195,
+      "status": "DIVERGENTE",
+      "diferenca": -2500
+    },
+    {
+      "municipio": "Campinas do Piauí",
+      "ano": "2017",
+      "codigo": "220210",
+      "relatorioId": 347,
+      "calculado": 496762.0295,
+      "esperado": 496762.0295,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Campo Alegre do Fidalgo",
+      "ano": "2017",
+      "codigo": "220211",
+      "relatorioId": 381,
+      "calculado": 538844.641,
+      "esperado": 258844.641,
+      "status": "DIVERGENTE",
+      "diferenca": 280000
+    },
+    {
+      "municipio": "Campo Grande do Piauí",
+      "ano": "2017",
+      "codigo": "220213",
+      "relatorioId": 273,
+      "calculado": 554421.097,
+      "esperado": 554421.097,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Campo Largo do Piauí",
+      "ano": "2017",
+      "codigo": "220217",
+      "relatorioId": 113,
+      "calculado": 562038.7365,
+      "esperado": 562038.7364999999,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Campo Maior",
+      "ano": "2017",
+      "codigo": "220220",
+      "relatorioId": 189,
+      "calculado": 4266077.2135,
+      "esperado": 4266077.2135,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Canavieira",
+      "ano": "2017",
+      "codigo": "220225",
+      "relatorioId": 457,
+      "calculado": 528228.8035,
+      "esperado": 528228.8035,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Capitão de Campos",
+      "ano": "2017",
+      "codigo": "220240",
+      "relatorioId": 191,
+      "calculado": 788712.2875,
+      "esperado": 788712.2875,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Caracol",
+      "ano": "2017",
+      "codigo": "220250",
+      "relatorioId": 385,
+      "calculado": 736670.5805,
+      "esperado": 736670.5805,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Caridade do Piauí",
+      "ano": "2017",
+      "codigo": "220255",
+      "relatorioId": 319,
+      "calculado": 434487.8795,
+      "esperado": 434487.8795,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Castelo do Piauí",
+      "ano": "2017",
+      "codigo": "220260",
+      "relatorioId": 193,
+      "calculado": 1378901.2455,
+      "esperado": 1378901.2455,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Cocal de Telha",
+      "ano": "2017",
+      "codigo": "220271",
+      "relatorioId": 195,
+      "calculado": 523980.2885,
+      "esperado": 523980.28850000014,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Colônia do Gurguéia",
+      "ano": "2017",
+      "codigo": "220275",
+      "relatorioId": 483,
+      "calculado": 550588.8775,
+      "esperado": 550588.8775000001,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Colônia do Piauí",
+      "ano": "2017",
+      "codigo": "220277",
+      "relatorioId": 349,
+      "calculado": 574483.44,
+      "esperado": 574483.44,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Conceição do Canindé",
+      "ano": "2017",
+      "codigo": "220280",
+      "relatorioId": 351,
+      "calculado": 562929.5465,
+      "esperado": 562929.5465,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Coronel José Dias",
+      "ano": "2017",
+      "codigo": "220285",
+      "relatorioId": 387,
+      "calculado": 574832.5465,
+      "esperado": 599832.5465,
+      "status": "DIVERGENTE",
+      "diferenca": -25000
+    },
+    {
+      "municipio": "Corrente",
+      "ano": "2017",
+      "codigo": "220290",
+      "relatorioId": 485,
+      "calculado": 1888214.4915,
+      "esperado": 1888214.4915,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Cristalândia do Piauí",
+      "ano": "2017",
+      "codigo": "220300",
+      "relatorioId": 13,
+      "calculado": 490977.7405,
+      "esperado": 490977.7405000001,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Cristino Castro",
+      "ano": "2017",
+      "codigo": "220310",
+      "relatorioId": 489,
+      "calculado": 1046317.4005,
+      "esperado": 1046317.4005,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Curimatá",
+      "ano": "2017",
+      "codigo": "220320",
+      "relatorioId": 491,
+      "calculado": 714830.2375,
+      "esperado": 714830.2374999999,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Curral Novo do Piauí",
+      "ano": "2017",
+      "codigo": "220327",
+      "relatorioId": 321,
+      "calculado": 1229309.074,
+      "esperado": 1229309.074,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Dom Expedito Lopes",
+      "ano": "2017",
+      "codigo": "220340",
+      "relatorioId": 275,
+      "calculado": 601810.131,
+      "esperado": 601810.131,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Dom Inocêncio",
+      "ano": "2017",
+      "codigo": "220345",
+      "relatorioId": 391,
+      "calculado": 855497.7255,
+      "esperado": 855497.7255,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Domingos Mourão",
+      "ano": "2017",
+      "codigo": "220342",
+      "relatorioId": 15,
+      "calculado": 504004.456,
+      "esperado": 504004.456,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Elesbão Veloso",
+      "ano": "2017",
+      "codigo": "220350",
+      "relatorioId": 239,
+      "calculado": 1077448.724,
+      "esperado": 1077448.724,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Eliseu Martins",
+      "ano": "2017",
+      "codigo": "220360",
+      "relatorioId": 495,
+      "calculado": 581703.671,
+      "esperado": 581703.671,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Esperantina",
+      "ano": "2017",
+      "codigo": "220370",
+      "relatorioId": 117,
+      "calculado": 2081005.1335,
+      "esperado": 2081006.1335000002,
+      "status": "DIVERGENTE",
+      "diferenca": -1
+    },
+    {
+      "municipio": "Flores do Piauí",
+      "ano": "2017",
+      "codigo": "220380",
+      "relatorioId": 419,
+      "calculado": 510296.7775,
+      "esperado": 510296.7774999999,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Floresta do Piauí",
+      "ano": "2017",
+      "codigo": "220385",
+      "relatorioId": 353,
+      "calculado": 476108.5795,
+      "esperado": 475933.5795,
+      "status": "DIVERGENTE",
+      "diferenca": 175
+    },
+    {
+      "municipio": "Floriano",
+      "ano": "2017",
+      "codigo": "220390",
+      "relatorioId": 17,
+      "calculado": 4778138.9565,
+      "esperado": 4778138.9565,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Francinópolis",
+      "ano": "2017",
+      "codigo": "220400",
+      "relatorioId": 241,
+      "calculado": 509293.055,
+      "esperado": 509293.055,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Francisco Macedo",
+      "ano": "2017",
+      "codigo": "220415",
+      "relatorioId": 323,
+      "calculado": 488488.32,
+      "esperado": 488488.32,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Francisco Santos",
+      "ano": "2017",
+      "codigo": "220420",
+      "relatorioId": 277,
+      "calculado": 481256.6015,
+      "esperado": 481256.6015,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Fronteiras",
+      "ano": "2017",
+      "codigo": "220430",
+      "relatorioId": 279,
+      "calculado": 1292166.081,
+      "esperado": 1292166.081,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Geminiano",
+      "ano": "2017",
+      "codigo": "220435",
+      "relatorioId": 281,
+      "calculado": 556694.927,
+      "esperado": 556694.927,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Gilbués",
+      "ano": "2017",
+      "codigo": "220440",
+      "relatorioId": 497,
+      "calculado": 1132883.832,
+      "esperado": 1132883.8320000002,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Guadalupe",
+      "ano": "2017",
+      "codigo": "220450",
+      "relatorioId": 19,
+      "calculado": 1089726.1585,
+      "esperado": 1089726.1585000001,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Inhuma",
+      "ano": "2017",
+      "codigo": "220470",
+      "relatorioId": 21,
+      "calculado": 1052562.789,
+      "esperado": 1052562.789,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Ipiranga do Piauí",
+      "ano": "2017",
+      "codigo": "220480",
+      "relatorioId": 245,
+      "calculado": 678213.6915,
+      "esperado": 678213.6915,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Isaías Coelho",
+      "ano": "2017",
+      "codigo": "220490",
+      "relatorioId": 355,
+      "calculado": 580109.398,
+      "esperado": 580109.4,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Itainópolis",
+      "ano": "2017",
+      "codigo": "220500",
+      "relatorioId": 23,
+      "calculado": 819589.8075,
+      "esperado": 819589.825,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Jaicós",
+      "ano": "2017",
+      "codigo": "220520",
+      "relatorioId": 25,
+      "calculado": 1215589.8445,
+      "esperado": 1215584.8445,
+      "status": "DIVERGENTE",
+      "diferenca": 5
+    },
+    {
+      "municipio": "Jatobá do Piauí",
+      "ano": "2017",
+      "codigo": "220527",
+      "relatorioId": 197,
+      "calculado": 499126.2515,
+      "esperado": 499126.2515,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "João Costa",
+      "ano": "2017",
+      "codigo": "220535",
+      "relatorioId": 397,
+      "calculado": 1591172.18,
+      "esperado": 1591172.18,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Joaquim Pires",
+      "ano": "2017",
+      "codigo": "220540",
+      "relatorioId": 119,
+      "calculado": 972191.7165,
+      "esperado": 571944.727,
+      "status": "DIVERGENTE",
+      "diferenca": 400246.9895
+    },
+    {
+      "municipio": "Joca Marques",
+      "ano": "2017",
+      "codigo": "220545",
+      "relatorioId": 121,
+      "calculado": 571944.727,
+      "esperado": 431390.14,
+      "status": "DIVERGENTE",
+      "diferenca": 140554.587
+    },
+    {
+      "municipio": "Júlio Borges",
+      "ano": "2017",
+      "codigo": "220552",
+      "relatorioId": 499,
+      "calculado": 641031.1495,
+      "esperado": 641031.15,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Jurema",
+      "ano": "2017",
+      "codigo": "220553",
+      "relatorioId": 399,
+      "calculado": 595450.096,
+      "esperado": 595450.096,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Lagoa de São Francisco",
+      "ano": "2017",
+      "codigo": "220557",
+      "relatorioId": 123,
+      "calculado": 517333.6515,
+      "esperado": 759031.8554999998,
+      "status": "DIVERGENTE",
+      "diferenca": -241698.204
+    },
+    {
+      "municipio": "Lagoa do Barro do Piauí",
+      "ano": "2017",
+      "codigo": "220556",
+      "relatorioId": 401,
+      "calculado": 708949.274,
+      "esperado": 708949.274,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Lagoa do Sítio",
+      "ano": "2017",
+      "codigo": "220559",
+      "relatorioId": 247,
+      "calculado": 424432.786,
+      "esperado": 424432.786,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Landri Sales",
+      "ano": "2017",
+      "codigo": "220560",
+      "relatorioId": 463,
+      "calculado": 564207.0935,
+      "esperado": 564207.1035000001,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Luzilândia",
+      "ano": "2017",
+      "codigo": "220580",
+      "relatorioId": 125,
+      "calculado": 1446771.9745,
+      "esperado": 1280230.3745,
+      "status": "DIVERGENTE",
+      "diferenca": 166541.6
+    },
+    {
+      "municipio": "Madeiro",
+      "ano": "2017",
+      "codigo": "220585",
+      "relatorioId": 127,
+      "calculado": 562635.778,
+      "esperado": 493456.16,
+      "status": "DIVERGENTE",
+      "diferenca": 69179.618
+    },
+    {
+      "municipio": "Marcos Parente",
+      "ano": "2017",
+      "codigo": "220600",
+      "relatorioId": 465,
+      "calculado": 589006.422,
+      "esperado": 589006.422,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Massapê do Piauí",
+      "ano": "2017",
+      "codigo": "220605",
+      "relatorioId": 331,
+      "calculado": 557047.9945,
+      "esperado": 557047.9945,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Milton Brandão",
+      "ano": "2017",
+      "codigo": "220635",
+      "relatorioId": 29,
+      "calculado": 470087.407,
+      "esperado": 470087.407,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Monsenhor Hipólito",
+      "ano": "2017",
+      "codigo": "220650",
+      "relatorioId": 285,
+      "calculado": 520037.4205,
+      "esperado": 520037.4205,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Morro do Chapéu do Piauí",
+      "ano": "2017",
+      "codigo": "220667",
+      "relatorioId": 133,
+      "calculado": 552178.3975,
+      "esperado": 480803.42750000005,
+      "status": "DIVERGENTE",
+      "diferenca": 71374.97
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "ano": "2017",
+      "codigo": "220670",
+      "relatorioId": 427,
+      "calculado": 558506.171,
+      "esperado": 558506.171,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Nossa Senhora dos Remédios",
+      "ano": "2017",
+      "codigo": "220680",
+      "relatorioId": 135,
+      "calculado": 529375.57,
+      "esperado": 458000.6,
+      "status": "DIVERGENTE",
+      "diferenca": 71374.97
+    },
+    {
+      "municipio": "Nova Santa Rita",
+      "ano": "2017",
+      "codigo": "220795",
+      "relatorioId": 437,
+      "calculado": 554412.1085,
+      "esperado": 554412.1085,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "ano": "2017",
+      "codigo": "220690",
+      "relatorioId": 249,
+      "calculado": 545657.9755,
+      "esperado": 545657.9755,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Novo Santo Antônio",
+      "ano": "2017",
+      "codigo": "220695",
+      "relatorioId": 203,
+      "calculado": 473446.0755,
+      "esperado": 473446.0755,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Oeiras",
+      "ano": "2017",
+      "codigo": "220700",
+      "relatorioId": 357,
+      "calculado": 2414330.549,
+      "esperado": 2414330.549,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Padre Marcos",
+      "ano": "2017",
+      "codigo": "220720",
+      "relatorioId": 333,
+      "calculado": 542476.0315,
+      "esperado": 262476.0315,
+      "status": "DIVERGENTE",
+      "diferenca": 280000
+    },
+    {
+      "municipio": "Pajeú do Piauí",
+      "ano": "2017",
+      "codigo": "220735",
+      "relatorioId": 431,
+      "calculado": 697712.248,
+      "esperado": 697709.748,
+      "status": "DIVERGENTE",
+      "diferenca": 2.5
+    },
+    {
+      "municipio": "Palmeira do Piauí",
+      "ano": "2017",
+      "codigo": "220740",
+      "relatorioId": 507,
+      "calculado": 630137.6555,
+      "esperado": 628887.6555,
+      "status": "DIVERGENTE",
+      "diferenca": 1250
+    },
+    {
+      "municipio": "Paquetá",
+      "ano": "2017",
+      "codigo": "220755",
+      "relatorioId": 287,
+      "calculado": 508940.01,
+      "esperado": 508940.01,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Parnaguá",
+      "ano": "2017",
+      "codigo": "220760",
+      "relatorioId": 509,
+      "calculado": 1132594.8665,
+      "esperado": 1132593.3665,
+      "status": "DIVERGENTE",
+      "diferenca": 1.5
+    },
+    {
+      "municipio": "Patos do Piauí",
+      "ano": "2017",
+      "codigo": "220777",
+      "relatorioId": 335,
+      "calculado": 562951.0485,
+      "esperado": 562951.0485,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Paulistana",
+      "ano": "2017",
+      "codigo": "220780",
+      "relatorioId": 337,
+      "calculado": 1379167.028,
+      "esperado": 1379167.028,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Pavussu",
+      "ano": "2017",
+      "codigo": "220785",
+      "relatorioId": 433,
+      "calculado": 439337.1155,
+      "esperado": 439337.11550000013,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Pedro II",
+      "ano": "2017",
+      "codigo": "220790",
+      "relatorioId": 33,
+      "calculado": 2132052.322,
+      "esperado": 1926588.8545,
+      "status": "DIVERGENTE",
+      "diferenca": 205463.4675
+    },
+    {
+      "municipio": "Pedro Laurentino",
+      "ano": "2017",
+      "codigo": "220793",
+      "relatorioId": 435,
+      "calculado": 497832.4885,
+      "esperado": 497832.48900000006,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Picos",
+      "ano": "2017",
+      "codigo": "220800",
+      "relatorioId": 35,
+      "calculado": 7094283.7755,
+      "esperado": 7094283.77625,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Pimenteiras",
+      "ano": "2017",
+      "codigo": "220810",
+      "relatorioId": 251,
+      "calculado": 661256.3825,
+      "esperado": 661258.8825,
+      "status": "DIVERGENTE",
+      "diferenca": -2.5
+    },
+    {
+      "municipio": "Pio IX",
+      "ano": "2017",
+      "codigo": "220820",
+      "relatorioId": 291,
+      "calculado": 1193229.9175,
+      "esperado": 1193229.9175,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Piracuruca",
+      "ano": "2017",
+      "codigo": "220830",
+      "relatorioId": 139,
+      "calculado": 2014028.77,
+      "esperado": 2014028.77,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Piripiri",
+      "ano": "2017",
+      "codigo": "220840",
+      "relatorioId": 37,
+      "calculado": 3661711.366,
+      "esperado": 2886519.981,
+      "status": "DIVERGENTE",
+      "diferenca": 775191.385
+    },
+    {
+      "municipio": "Porto",
+      "ano": "2017",
+      "codigo": "220850",
+      "relatorioId": 143,
+      "calculado": 737282.745,
+      "esperado": 737282.745,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Porto Alegre do Piauí",
+      "ano": "2017",
+      "codigo": "220855",
+      "relatorioId": 467,
+      "calculado": 544189.54,
+      "esperado": 544189.54,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Prata do Piauí",
+      "ano": "2017",
+      "codigo": "220860",
+      "relatorioId": 253,
+      "calculado": 472645.308,
+      "esperado": 472645.308,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Queimada Nova",
+      "ano": "2017",
+      "codigo": "220865",
+      "relatorioId": 339,
+      "calculado": 630068.704,
+      "esperado": 630068.704,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Ribeira do Piauí",
+      "ano": "2017",
+      "codigo": "220887",
+      "relatorioId": 439,
+      "calculado": 2042429.5665,
+      "esperado": 2042429.5665,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Ribeiro Gonçalves",
+      "ano": "2017",
+      "codigo": "220890",
+      "relatorioId": 469,
+      "calculado": 1111754.3895,
+      "esperado": 1111754.3845,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Rio Grande do Piauí",
+      "ano": "2017",
+      "codigo": "220900",
+      "relatorioId": 441,
+      "calculado": 509468.544,
+      "esperado": 509468.54400000005,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Santa Cruz do Piauí",
+      "ano": "2017",
+      "codigo": "220910",
+      "relatorioId": 359,
+      "calculado": 582263.611,
+      "esperado": 582263.611,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Santa Cruz dos Milagres",
+      "ano": "2017",
+      "codigo": "220915",
+      "relatorioId": 255,
+      "calculado": 490758.3315,
+      "esperado": 490758.3315,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Santa Filomena",
+      "ano": "2017",
+      "codigo": "220920",
+      "relatorioId": 515,
+      "calculado": 807385.2315,
+      "esperado": 807385.2315,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Santa Luz",
+      "ano": "2017",
+      "codigo": "220930",
+      "relatorioId": 517,
+      "calculado": 530492.825,
+      "esperado": 530492.8250000001,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Santana do Piauí",
+      "ano": "2017",
+      "codigo": "220935",
+      "relatorioId": 293,
+      "calculado": 505902.3995,
+      "esperado": 505902.3995,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Santo Antônio de Lisboa",
+      "ano": "2017",
+      "codigo": "220940",
+      "relatorioId": 295,
+      "calculado": 555706.573,
+      "esperado": 555706.573,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Santo Inácio do Piauí",
+      "ano": "2017",
+      "codigo": "220950",
+      "relatorioId": 363,
+      "calculado": 528897.7065,
+      "esperado": 528897.707,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São Félix do Piauí",
+      "ano": "2017",
+      "codigo": "220960",
+      "relatorioId": 39,
+      "calculado": 418708.062,
+      "esperado": 418708.062,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São Francisco do Piauí",
+      "ano": "2017",
+      "codigo": "220970",
+      "relatorioId": 367,
+      "calculado": 530644.664,
+      "esperado": 530644.653,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São Gonçalo do Gurguéia",
+      "ano": "2017",
+      "codigo": "220975",
+      "relatorioId": 519,
+      "calculado": 604856.166,
+      "esperado": 604856.1660000001,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São João da Canabrava",
+      "ano": "2017",
+      "codigo": "220985",
+      "relatorioId": 297,
+      "calculado": 696471.0665,
+      "esperado": 694971.0665,
+      "status": "DIVERGENTE",
+      "diferenca": 1500
+    },
+    {
+      "municipio": "São João da Fronteira",
+      "ano": "2017",
+      "codigo": "220987",
+      "relatorioId": 145,
+      "calculado": 557785.318,
+      "esperado": 557785.3180000001,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São João da Varjota",
+      "ano": "2017",
+      "codigo": "220995",
+      "relatorioId": 369,
+      "calculado": 525677.025,
+      "esperado": 525677.025,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São João do Arraial",
+      "ano": "2017",
+      "codigo": "220997",
+      "relatorioId": 147,
+      "calculado": 500166.12,
+      "esperado": 591472.731,
+      "status": "DIVERGENTE",
+      "diferenca": -91306.611
+    },
+    {
+      "municipio": "São João do Piauí",
+      "ano": "2017",
+      "codigo": "221000",
+      "relatorioId": 405,
+      "calculado": 1917586.4035,
+      "esperado": 1917586.4035,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São José do Divino",
+      "ano": "2017",
+      "codigo": "221005",
+      "relatorioId": 149,
+      "calculado": 495261.1975,
+      "esperado": 495261.19749999995,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São José do Piauí",
+      "ano": "2017",
+      "codigo": "221020",
+      "relatorioId": 299,
+      "calculado": 520242.7535,
+      "esperado": 520242.7535,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São Luis do Piauí",
+      "ano": "2017",
+      "codigo": "221037",
+      "relatorioId": 303,
+      "calculado": 486989.1775,
+      "esperado": 486989.6775,
+      "status": "DIVERGENTE",
+      "diferenca": -0.5
+    },
+    {
+      "municipio": "São Miguel da Baixa Grande",
+      "ano": "2017",
+      "codigo": "221038",
+      "relatorioId": 259,
+      "calculado": 698081.905,
+      "esperado": 698081.905,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São Miguel do Fidalgo",
+      "ano": "2017",
+      "codigo": "221039",
+      "relatorioId": 445,
+      "calculado": 509883.492,
+      "esperado": 509883.4919999999,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São Miguel do Tapuio",
+      "ano": "2017",
+      "codigo": "221040",
+      "relatorioId": 207,
+      "calculado": 1267670.182,
+      "esperado": 1267670.182,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "São Raimundo Nonato",
+      "ano": "2017",
+      "codigo": "221060",
+      "relatorioId": 41,
+      "calculado": 2309906.0125,
+      "esperado": 2309906.0125,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Sebastião Barros",
+      "ano": "2017",
+      "codigo": "221062",
+      "relatorioId": 521,
+      "calculado": 517551.7705,
+      "esperado": 501191.77050000004,
+      "status": "DIVERGENTE",
+      "diferenca": 16360
+    },
+    {
+      "municipio": "Sebastião Leal",
+      "ano": "2017",
+      "codigo": "221063",
+      "relatorioId": 471,
+      "calculado": 885394.801,
+      "esperado": 885394.801,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Sigefredo Pacheco",
+      "ano": "2017",
+      "codigo": "221065",
+      "relatorioId": 209,
+      "calculado": 566460.8465,
+      "esperado": 566460.8465,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Simões",
+      "ano": "2017",
+      "codigo": "221070",
+      "relatorioId": 43,
+      "calculado": 1314690.856,
+      "esperado": 1314690.856,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Simplício Mendes",
+      "ano": "2017",
+      "codigo": "221080",
+      "relatorioId": 45,
+      "calculado": 1047761.0125,
+      "esperado": 1047761.0125,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Socorro do Piauí",
+      "ano": "2017",
+      "codigo": "221090",
+      "relatorioId": 447,
+      "calculado": 512468.0905,
+      "esperado": 512468.09050000005,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Sussuapara",
+      "ano": "2017",
+      "codigo": "221093",
+      "relatorioId": 47,
+      "calculado": 577429.5965,
+      "esperado": 577432.1065,
+      "status": "DIVERGENTE",
+      "diferenca": -2.51
+    },
+    {
+      "municipio": "Tamboril do Piauí",
+      "ano": "2017",
+      "codigo": "221095",
+      "relatorioId": 449,
+      "calculado": 511571.919,
+      "esperado": 511571.91900000005,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Tanque do Piauí",
+      "ano": "2017",
+      "codigo": "221097",
+      "relatorioId": 373,
+      "calculado": 508984.25,
+      "esperado": 508984.25,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Uruçuí",
+      "ano": "2017",
+      "codigo": "221120",
+      "relatorioId": 473,
+      "calculado": 3360362.995,
+      "esperado": 3360362.995,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Valença do Piauí",
+      "ano": "2017",
+      "codigo": "221130",
+      "relatorioId": 261,
+      "calculado": 1478173.2185,
+      "esperado": 1478173.2185,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Várzea Branca",
+      "ano": "2017",
+      "codigo": "221135",
+      "relatorioId": 411,
+      "calculado": 570245.325,
+      "esperado": 570245.325,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Várzea Grande",
+      "ano": "2017",
+      "codigo": "221140",
+      "relatorioId": 263,
+      "calculado": 507832.8585,
+      "esperado": 507832.8585,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Vera Mendes",
+      "ano": "2017",
+      "codigo": "221150",
+      "relatorioId": 307,
+      "calculado": 502788.6535,
+      "esperado": 502788.6535,
+      "status": "OK",
+      "diferenca": 0
+    },
+    {
+      "municipio": "Vila Nova do Piauí",
+      "ano": "2017",
+      "codigo": "221160",
+      "relatorioId": 309,
+      "calculado": 538767.4965,
+      "esperado": 538767.5165,
+      "status": "DIVERGENTE",
+      "diferenca": -0.02
+    },
+    {
+      "municipio": "Wall Ferraz",
+      "ano": "2017",
+      "codigo": "221170",
+      "relatorioId": 375,
+      "calculado": 535694.9685,
+      "esperado": 535694.9685,
+      "status": "OK",
+      "diferenca": 0
+    }
+  ]
+}

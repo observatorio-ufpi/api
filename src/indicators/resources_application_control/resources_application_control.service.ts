@@ -1165,10 +1165,10 @@ export class ResourcesApplicationControlService {
               ItemReceitaTipos0912.RECEITAS_RECEBIDAS_DO_FUNDEB,
           )?.receitasRealizadaAteBimestre || 0;
 
-        // Calcular a porcentagem (13E / 18B)/11E * 100
+        // Calcular a porcentagem (13E - 18B)/11E * 100
         const percentage =
-          receitaItem !== 0 && deducaoItem !== 0
-            ? (despesaItem / deducaoItem / receitaItem) * 100
+          receitaItem !== 0
+            ? ((despesaItem - deducaoItem) / receitaItem) * 100
             : 0;
 
         return {

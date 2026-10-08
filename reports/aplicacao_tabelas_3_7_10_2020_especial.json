@@ -1,0 +1,81 @@
+{
+  "geradoEm": "2026-10-07T01:17:30.577Z",
+  "modo": "APLICADO",
+  "fonte": "Tabelão corrigido (abas T3/T10) - confirmado via front/API - 3 casos recorrentes 2020",
+  "operacoes": 9,
+  "erros": [],
+  "plano": [
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "TOTAL_RECEITA_IMPOSTOS",
+      "antes": 82.72,
+      "depois": 9184501.16,
+      "id": 19616
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "RECEITAS_DESTINADAS_AO_FUNDEB",
+      "antes": 83.03,
+      "depois": 1638218.88,
+      "id": 19631
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "relatorioId": 427,
+      "tipo": "TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB",
+      "antes": 64.54,
+      "depois": 4195135.58,
+      "id": 19639
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "TOTAL_RECEITA_IMPOSTOS",
+      "antes": 97.93,
+      "depois": 9008935.54,
+      "id": 11428
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "RECEITAS_DESTINADAS_AO_FUNDEB",
+      "antes": 96.86,
+      "depois": 1547507.81,
+      "id": 11443
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "relatorioId": 249,
+      "tipo": "TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB",
+      "antes": 76.32,
+      "depois": 2407178.12,
+      "id": 11451
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "TOTAL_RECEITA_IMPOSTOS",
+      "antes": 74.71,
+      "depois": 12239161.85,
+      "id": 6552
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "RECEITAS_DESTINADAS_AO_FUNDEB",
+      "antes": 68.49,
+      "depois": 2044926.38,
+      "id": 6567
+    },
+    {
+      "municipio": "Porto",
+      "relatorioId": 143,
+      "tipo": "TRANSFERENCIAS_DE_RECURSOS_DO_FUNDEB",
+      "antes": 91.59,
+      "depois": 11013813.93,
+      "id": 6575
+    }
+  ]
+}

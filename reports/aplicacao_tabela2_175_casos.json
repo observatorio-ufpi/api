@@ -1,0 +1,3727 @@
+{
+  "geradoEm": "2026-10-07T01:21:53.156Z",
+  "modo": "APLICADO",
+  "fonte": "Tabelão corrigido (aba T2, linhas verdes) - 175 casos de 2017",
+  "casosNoArquivo": 175,
+  "operacoes": 413,
+  "erros": [],
+  "plano": [
+    {
+      "municipio": "Agricolândia",
+      "codigoMunicipio": "220010",
+      "relatorioId": 51,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786775.36,
+      "depois": 326925.15,
+      "id": 2416
+    },
+    {
+      "municipio": "Agricolândia",
+      "codigoMunicipio": "220010",
+      "relatorioId": 51,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 326925.15,
+      "depois": 1338.55,
+      "id": 2417
+    },
+    {
+      "municipio": "Agricolândia",
+      "codigoMunicipio": "220010",
+      "relatorioId": 51,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1338.55,
+      "depois": 33595.72,
+      "id": 2420
+    },
+    {
+      "municipio": "Água Branca",
+      "codigoMunicipio": "220020",
+      "relatorioId": 53,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 13573570.67,
+      "depois": 2403909.26,
+      "id": 2512
+    },
+    {
+      "municipio": "Água Branca",
+      "codigoMunicipio": "220020",
+      "relatorioId": 53,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 2403909.26,
+      "depois": 1396.83,
+      "id": 2513
+    },
+    {
+      "municipio": "Água Branca",
+      "codigoMunicipio": "220020",
+      "relatorioId": 53,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1396.83,
+      "depois": 568036.14,
+      "id": 2516
+    },
+    {
+      "municipio": "Alagoinha do Piauí",
+      "codigoMunicipio": "220025",
+      "relatorioId": 265,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6562913.07,
+      "depois": 1571.88,
+      "id": 12688
+    },
+    {
+      "municipio": "Alagoinha do Piauí",
+      "codigoMunicipio": "220025",
+      "relatorioId": 265,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 563871.77,
+      "depois": 170840.08,
+      "id": 12689
+    },
+    {
+      "municipio": "Alto Longá",
+      "codigoMunicipio": "220030",
+      "relatorioId": 55,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 11311308.9,
+      "depois": 1617812.73,
+      "id": 2608
+    },
+    {
+      "municipio": "Alto Longá",
+      "codigoMunicipio": "220030",
+      "relatorioId": 55,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 1617812.73,
+      "depois": 5954.47,
+      "id": 2609
+    },
+    {
+      "municipio": "Alto Longá",
+      "codigoMunicipio": "220030",
+      "relatorioId": 55,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 5954.47,
+      "depois": 68899.56,
+      "id": 2612
+    },
+    {
+      "municipio": "Alvorada do Gurguéia",
+      "codigoMunicipio": "220045",
+      "relatorioId": 475,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 16158.62,
+      "id": 22766
+    },
+    {
+      "municipio": "Alvorada do Gurguéia",
+      "codigoMunicipio": "220045",
+      "relatorioId": 475,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1137304.85,
+      "depois": 1948.62,
+      "id": 22767
+    },
+    {
+      "municipio": "Amarante",
+      "codigoMunicipio": "220050",
+      "relatorioId": 57,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 13573570.67,
+      "depois": 1942541.31,
+      "id": 2704
+    },
+    {
+      "municipio": "Amarante",
+      "codigoMunicipio": "220050",
+      "relatorioId": 57,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 1942541.31,
+      "depois": 5642.83,
+      "id": 2705
+    },
+    {
+      "municipio": "Amarante",
+      "codigoMunicipio": "220050",
+      "relatorioId": 57,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 5642.83,
+      "depois": 280891.16,
+      "id": 2708
+    },
+    {
+      "municipio": "Angical do Piauí",
+      "codigoMunicipio": "220060",
+      "relatorioId": 59,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1826.78,
+      "id": 2801
+    },
+    {
+      "municipio": "Angical do Piauí",
+      "codigoMunicipio": "220060",
+      "relatorioId": 59,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 692661.8,
+      "depois": 99212.49,
+      "id": 2802
+    },
+    {
+      "municipio": "Antônio Almeida",
+      "codigoMunicipio": "220080",
+      "relatorioId": 451,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 10121.86,
+      "id": 21614
+    },
+    {
+      "municipio": "Antônio Almeida",
+      "codigoMunicipio": "220080",
+      "relatorioId": 451,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1589293.14,
+      "depois": 51038.89,
+      "id": 21615
+    },
+    {
+      "municipio": "Aroazes",
+      "codigoMunicipio": "220090",
+      "relatorioId": 233,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 74445.45,
+      "id": 11152
+    },
+    {
+      "municipio": "Aroazes",
+      "codigoMunicipio": "220090",
+      "relatorioId": 233,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 826434.87,
+      "depois": 18174.77,
+      "id": 11153
+    },
+    {
+      "municipio": "Aroeiras do Itaim",
+      "codigoMunicipio": "220095",
+      "relatorioId": 269,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 155.25,
+      "id": 12880
+    },
+    {
+      "municipio": "Aroeiras do Itaim",
+      "codigoMunicipio": "220095",
+      "relatorioId": 269,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 194566.41,
+      "depois": 35851.8,
+      "id": 12881
+    },
+    {
+      "municipio": "Arraial",
+      "codigoMunicipio": "220100",
+      "relatorioId": 413,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1011.5,
+      "id": 19790
+    },
+    {
+      "municipio": "Arraial",
+      "codigoMunicipio": "220100",
+      "relatorioId": 413,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 542092.89,
+      "depois": 34757.98,
+      "id": 19791
+    },
+    {
+      "municipio": "Avelino Lopes",
+      "codigoMunicipio": "220110",
+      "relatorioId": 477,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9049180.65,
+      "depois": 5858.24,
+      "id": 22862
+    },
+    {
+      "municipio": "Avelino Lopes",
+      "codigoMunicipio": "220110",
+      "relatorioId": 477,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1060774.59,
+      "depois": 68291.88,
+      "id": 22863
+    },
+    {
+      "municipio": "Baixa Grande do Ribeiro",
+      "codigoMunicipio": "220115",
+      "relatorioId": 453,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9049047.1,
+      "depois": 1795087.54,
+      "id": 21710
+    },
+    {
+      "municipio": "Baixa Grande do Ribeiro",
+      "codigoMunicipio": "220115",
+      "relatorioId": 453,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 17308843.51,
+      "depois": 262576.63,
+      "id": 21711
+    },
+    {
+      "municipio": "Barra D'Alcântara",
+      "codigoMunicipio": "220117",
+      "relatorioId": 237,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 398473.26,
+      "id": 11343
+    },
+    {
+      "municipio": "Barra D'Alcântara",
+      "codigoMunicipio": "220117",
+      "relatorioId": 237,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 398473.26,
+      "depois": 661.07,
+      "id": 11344
+    },
+    {
+      "municipio": "Barra D'Alcântara",
+      "codigoMunicipio": "220117",
+      "relatorioId": 237,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 661.07,
+      "depois": 19625.97,
+      "id": 11347
+    },
+    {
+      "municipio": "Barro Duro",
+      "codigoMunicipio": "220140",
+      "relatorioId": 61,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1588.73,
+      "id": 2897
+    },
+    {
+      "municipio": "Barro Duro",
+      "codigoMunicipio": "220140",
+      "relatorioId": 61,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 722924.75,
+      "depois": 124822.47,
+      "id": 2898
+    },
+    {
+      "municipio": "Batalha",
+      "codigoMunicipio": "220150",
+      "relatorioId": 109,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 15835832.53,
+      "depois": 6385.49,
+      "id": 5200
+    },
+    {
+      "municipio": "Batalha",
+      "codigoMunicipio": "220150",
+      "relatorioId": 109,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2257375.71,
+      "depois": 199004.4,
+      "id": 5201
+    },
+    {
+      "municipio": "Bela Vista do Piauí",
+      "codigoMunicipio": "220155",
+      "relatorioId": 343,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 889.41,
+      "id": 16430
+    },
+    {
+      "municipio": "Bela Vista do Piauí",
+      "codigoMunicipio": "220155",
+      "relatorioId": 343,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 367307.94,
+      "depois": 21454.48,
+      "id": 16431
+    },
+    {
+      "municipio": "Belém do Piauí",
+      "codigoMunicipio": "220157",
+      "relatorioId": 313,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 851.53,
+      "id": 14991
+    },
+    {
+      "municipio": "Belém do Piauí",
+      "codigoMunicipio": "220157",
+      "relatorioId": 313,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 282883.32,
+      "depois": 41401.19,
+      "id": 14992
+    },
+    {
+      "municipio": "Beneditinos",
+      "codigoMunicipio": "220160",
+      "relatorioId": 63,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 962141.68,
+      "id": 2992
+    },
+    {
+      "municipio": "Beneditinos",
+      "codigoMunicipio": "220160",
+      "relatorioId": 63,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 962141.68,
+      "depois": 4945.28,
+      "id": 2993
+    },
+    {
+      "municipio": "Beneditinos",
+      "codigoMunicipio": "220160",
+      "relatorioId": 63,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 4945.28,
+      "depois": 101831.29,
+      "id": 2996
+    },
+    {
+      "municipio": "Betânia do Piauí",
+      "codigoMunicipio": "220173",
+      "relatorioId": 315,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 748904.59,
+      "id": 15086
+    },
+    {
+      "municipio": "Betânia do Piauí",
+      "codigoMunicipio": "220173",
+      "relatorioId": 315,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 748904.59,
+      "depois": 2917.91,
+      "id": 15087
+    },
+    {
+      "municipio": "Betânia do Piauí",
+      "codigoMunicipio": "220173",
+      "relatorioId": 315,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2917.91,
+      "depois": 51161.21,
+      "id": 15090
+    },
+    {
+      "municipio": "Bocaina",
+      "codigoMunicipio": "220180",
+      "relatorioId": 271,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2781.38,
+      "id": 12976
+    },
+    {
+      "municipio": "Bocaina",
+      "codigoMunicipio": "220180",
+      "relatorioId": 271,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 346778.55,
+      "depois": 43684.99,
+      "id": 12977
+    },
+    {
+      "municipio": "Bom Jesus",
+      "codigoMunicipio": "220190",
+      "relatorioId": 7,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 15835832.53,
+      "depois": 15597472.17,
+      "id": 304
+    },
+    {
+      "municipio": "Bom Jesus",
+      "codigoMunicipio": "220190",
+      "relatorioId": 7,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 15597472.17,
+      "depois": 504577.3,
+      "id": 305
+    },
+    {
+      "municipio": "Bom Jesus",
+      "codigoMunicipio": "220190",
+      "relatorioId": 7,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 504577.3,
+      "depois": 964009.19,
+      "id": 308
+    },
+    {
+      "municipio": "Bonfim do Piauí",
+      "codigoMunicipio": "220192",
+      "relatorioId": 379,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786883.16,
+      "depois": 408271.28,
+      "id": 18157
+    },
+    {
+      "municipio": "Bonfim do Piauí",
+      "codigoMunicipio": "220192",
+      "relatorioId": 379,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 408271.28,
+      "depois": 550.58,
+      "id": 18158
+    },
+    {
+      "municipio": "Bonfim do Piauí",
+      "codigoMunicipio": "220192",
+      "relatorioId": 379,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 550.58,
+      "depois": 46268.54,
+      "id": 18161
+    },
+    {
+      "municipio": "Boqueirão do Piauí",
+      "codigoMunicipio": "220194",
+      "relatorioId": 183,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 723.08,
+      "id": 8752
+    },
+    {
+      "municipio": "Boqueirão do Piauí",
+      "codigoMunicipio": "220194",
+      "relatorioId": 183,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 406897.09,
+      "depois": 74900.9,
+      "id": 8753
+    },
+    {
+      "municipio": "Brasileira",
+      "codigoMunicipio": "220196",
+      "relatorioId": 111,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 4730.68,
+      "id": 5296
+    },
+    {
+      "municipio": "Brasileira",
+      "codigoMunicipio": "220196",
+      "relatorioId": 111,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 838595.96,
+      "depois": 153657.07,
+      "id": 5297
+    },
+    {
+      "municipio": "Brejo do Piauí",
+      "codigoMunicipio": "220198",
+      "relatorioId": 9,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786930.76,
+      "depois": 1053867.99,
+      "id": 400
+    },
+    {
+      "municipio": "Brejo do Piauí",
+      "codigoMunicipio": "220198",
+      "relatorioId": 9,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 1053867.99,
+      "depois": 4101.89,
+      "id": 401
+    },
+    {
+      "municipio": "Brejo do Piauí",
+      "codigoMunicipio": "220198",
+      "relatorioId": 9,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 4101.89,
+      "depois": 23926.64,
+      "id": 404
+    },
+    {
+      "municipio": "Buriti dos Montes",
+      "codigoMunicipio": "220202",
+      "relatorioId": 185,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 13312.45,
+      "id": 8848
+    },
+    {
+      "municipio": "Buriti dos Montes",
+      "codigoMunicipio": "220202",
+      "relatorioId": 185,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1333368.29,
+      "depois": 66094.13,
+      "id": 8849
+    },
+    {
+      "municipio": "Cajazeiras do Piauí",
+      "codigoMunicipio": "220207",
+      "relatorioId": 345,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2638.93,
+      "id": 16526
+    },
+    {
+      "municipio": "Cajazeiras do Piauí",
+      "codigoMunicipio": "220207",
+      "relatorioId": 345,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 364025.04,
+      "depois": 34859.23,
+      "id": 16527
+    },
+    {
+      "municipio": "Cajueiro da Praia",
+      "codigoMunicipio": "220208",
+      "relatorioId": 215,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 11168.06,
+      "id": 10288
+    },
+    {
+      "municipio": "Cajueiro da Praia",
+      "codigoMunicipio": "220208",
+      "relatorioId": 215,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1156598.88,
+      "depois": 84713,
+      "id": 10289
+    },
+    {
+      "municipio": "Caldeirão Grande do Piauí",
+      "codigoMunicipio": "220209",
+      "relatorioId": 317,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2772.2,
+      "id": 15183
+    },
+    {
+      "municipio": "Caldeirão Grande do Piauí",
+      "codigoMunicipio": "220209",
+      "relatorioId": 317,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 482489.01,
+      "depois": 48558.05,
+      "id": 15184
+    },
+    {
+      "municipio": "Campinas do Piauí",
+      "codigoMunicipio": "220210",
+      "relatorioId": 347,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1582.76,
+      "id": 16622
+    },
+    {
+      "municipio": "Campinas do Piauí",
+      "codigoMunicipio": "220210",
+      "relatorioId": 347,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 645371.41,
+      "depois": 50054.4,
+      "id": 16623
+    },
+    {
+      "municipio": "Campo Grande do Piauí",
+      "codigoMunicipio": "220213",
+      "relatorioId": 273,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1514.79,
+      "id": 13072
+    },
+    {
+      "municipio": "Campo Grande do Piauí",
+      "codigoMunicipio": "220213",
+      "relatorioId": 273,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 561217.3,
+      "depois": 108204.52,
+      "id": 13073
+    },
+    {
+      "municipio": "Campo Largo do Piauí",
+      "codigoMunicipio": "220217",
+      "relatorioId": 113,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 437401.85,
+      "id": 5391
+    },
+    {
+      "municipio": "Campo Largo do Piauí",
+      "codigoMunicipio": "220217",
+      "relatorioId": 113,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 437401.85,
+      "depois": 1977.31,
+      "id": 5392
+    },
+    {
+      "municipio": "Campo Largo do Piauí",
+      "codigoMunicipio": "220217",
+      "relatorioId": 113,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1977.31,
+      "depois": 14653.91,
+      "id": 5395
+    },
+    {
+      "municipio": "Campo Maior",
+      "codigoMunicipio": "220220",
+      "relatorioId": 189,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 22622617.77,
+      "depois": 20849.68,
+      "id": 9040
+    },
+    {
+      "municipio": "Campo Maior",
+      "codigoMunicipio": "220220",
+      "relatorioId": 189,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 25068516.82,
+      "depois": 1396356.02,
+      "id": 9041
+    },
+    {
+      "municipio": "Canavieira",
+      "codigoMunicipio": "220225",
+      "relatorioId": 457,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 895666.91,
+      "id": 21901
+    },
+    {
+      "municipio": "Canavieira",
+      "codigoMunicipio": "220225",
+      "relatorioId": 457,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 895666.91,
+      "depois": 2014.99,
+      "id": 21902
+    },
+    {
+      "municipio": "Canavieira",
+      "codigoMunicipio": "220225",
+      "relatorioId": 457,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2014.99,
+      "depois": 4647.92,
+      "id": 21905
+    },
+    {
+      "municipio": "Capitão de Campos",
+      "codigoMunicipio": "220240",
+      "relatorioId": 191,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9049047.1,
+      "depois": 2633.45,
+      "id": 9136
+    },
+    {
+      "municipio": "Capitão de Campos",
+      "codigoMunicipio": "220240",
+      "relatorioId": 191,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 883516.25,
+      "depois": 179427.6,
+      "id": 9137
+    },
+    {
+      "municipio": "Caracol",
+      "codigoMunicipio": "220250",
+      "relatorioId": 385,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9049047.1,
+      "depois": 1197.91,
+      "id": 18446
+    },
+    {
+      "municipio": "Caracol",
+      "codigoMunicipio": "220250",
+      "relatorioId": 385,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 820510.24,
+      "depois": 80922.59,
+      "id": 18447
+    },
+    {
+      "municipio": "Caraúbas do Piauí",
+      "codigoMunicipio": "220253",
+      "relatorioId": 217,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2352.84,
+      "id": 10384
+    },
+    {
+      "municipio": "Caraúbas do Piauí",
+      "codigoMunicipio": "220253",
+      "relatorioId": 217,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 448083.74,
+      "depois": 66460.38,
+      "id": 10385
+    },
+    {
+      "municipio": "Caridade do Piauí",
+      "codigoMunicipio": "220255",
+      "relatorioId": 319,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1934.8,
+      "id": 15279
+    },
+    {
+      "municipio": "Caridade do Piauí",
+      "codigoMunicipio": "220255",
+      "relatorioId": 319,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 404004.82,
+      "depois": 10480.15,
+      "id": 15280
+    },
+    {
+      "municipio": "Castelo do Piauí",
+      "codigoMunicipio": "220260",
+      "relatorioId": 193,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 13573570.67,
+      "depois": 2764288.58,
+      "id": 9231
+    },
+    {
+      "municipio": "Castelo do Piauí",
+      "codigoMunicipio": "220260",
+      "relatorioId": 193,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 2764288.58,
+      "depois": 30229.28,
+      "id": 9232
+    },
+    {
+      "municipio": "Castelo do Piauí",
+      "codigoMunicipio": "220260",
+      "relatorioId": 193,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 30229.28,
+      "depois": 267570.99,
+      "id": 9235
+    },
+    {
+      "municipio": "Caxingó",
+      "codigoMunicipio": "220265",
+      "relatorioId": 219,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2482.37,
+      "id": 10480
+    },
+    {
+      "municipio": "Caxingó",
+      "codigoMunicipio": "220265",
+      "relatorioId": 219,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 449289.26,
+      "depois": 39829.72,
+      "id": 10481
+    },
+    {
+      "municipio": "Cocal",
+      "codigoMunicipio": "220270",
+      "relatorioId": 221,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 15835832.53,
+      "depois": 2272463.11,
+      "id": 10575
+    },
+    {
+      "municipio": "Cocal",
+      "codigoMunicipio": "220270",
+      "relatorioId": 221,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 2272463.11,
+      "depois": 4899.53,
+      "id": 10576
+    },
+    {
+      "municipio": "Cocal",
+      "codigoMunicipio": "220270",
+      "relatorioId": 221,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 4899.53,
+      "depois": 408067.58,
+      "id": 10579
+    },
+    {
+      "municipio": "Cocal de Telha",
+      "codigoMunicipio": "220271",
+      "relatorioId": 195,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6501285.48,
+      "depois": 396098.37,
+      "id": 9327
+    },
+    {
+      "municipio": "Cocal de Telha",
+      "codigoMunicipio": "220271",
+      "relatorioId": 195,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 396098.37,
+      "depois": 1168.06,
+      "id": 9328
+    },
+    {
+      "municipio": "Cocal de Telha",
+      "codigoMunicipio": "220271",
+      "relatorioId": 195,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1168.06,
+      "depois": 30691.3,
+      "id": 9331
+    },
+    {
+      "municipio": "Colônia do Gurguéia",
+      "codigoMunicipio": "220275",
+      "relatorioId": 483,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.26,
+      "depois": 714279.66,
+      "id": 23149
+    },
+    {
+      "municipio": "Colônia do Gurguéia",
+      "codigoMunicipio": "220275",
+      "relatorioId": 483,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 714279.66,
+      "depois": 2738.89,
+      "id": 23150
+    },
+    {
+      "municipio": "Colônia do Gurguéia",
+      "codigoMunicipio": "220275",
+      "relatorioId": 483,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2738.89,
+      "depois": 20643.82,
+      "id": 23153
+    },
+    {
+      "municipio": "Colônia do Piauí",
+      "codigoMunicipio": "220277",
+      "relatorioId": 349,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 767374.45,
+      "id": 16717
+    },
+    {
+      "municipio": "Colônia do Piauí",
+      "codigoMunicipio": "220277",
+      "relatorioId": 349,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 767374.45,
+      "depois": 1388.36,
+      "id": 16718
+    },
+    {
+      "municipio": "Colônia do Piauí",
+      "codigoMunicipio": "220277",
+      "relatorioId": 349,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1388.36,
+      "depois": 68528.83,
+      "id": 16721
+    },
+    {
+      "municipio": "Conceição do Canindé",
+      "codigoMunicipio": "220280",
+      "relatorioId": 351,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786285.36,
+      "depois": 721407.62,
+      "id": 16813
+    },
+    {
+      "municipio": "Conceição do Canindé",
+      "codigoMunicipio": "220280",
+      "relatorioId": 351,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 721407.62,
+      "depois": 2484.77,
+      "id": 16814
+    },
+    {
+      "municipio": "Conceição do Canindé",
+      "codigoMunicipio": "220280",
+      "relatorioId": 351,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2484.77,
+      "depois": 39479.7,
+      "id": 16817
+    },
+    {
+      "municipio": "Coronel José Dias",
+      "codigoMunicipio": "220285",
+      "relatorioId": 387,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2383.03,
+      "id": 18542
+    },
+    {
+      "municipio": "Coronel José Dias",
+      "codigoMunicipio": "220285",
+      "relatorioId": 387,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 937923.2,
+      "depois": 35856.2,
+      "id": 18543
+    },
+    {
+      "municipio": "Corrente",
+      "codigoMunicipio": "220290",
+      "relatorioId": 485,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 15835832.53,
+      "depois": 5542752.71,
+      "id": 23245
+    },
+    {
+      "municipio": "Corrente",
+      "codigoMunicipio": "220290",
+      "relatorioId": 485,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 5542752.71,
+      "depois": 226120.02,
+      "id": 23246
+    },
+    {
+      "municipio": "Corrente",
+      "codigoMunicipio": "220290",
+      "relatorioId": 485,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 226120.02,
+      "depois": 391084.16,
+      "id": 23249
+    },
+    {
+      "municipio": "Cristalândia do Piauí",
+      "codigoMunicipio": "220300",
+      "relatorioId": 13,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 7223293.76,
+      "depois": 7488.75,
+      "id": 593
+    },
+    {
+      "municipio": "Cristalândia do Piauí",
+      "codigoMunicipio": "220300",
+      "relatorioId": 13,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 874567.88,
+      "depois": 10000,
+      "id": 594
+    },
+    {
+      "municipio": "Cristino Castro",
+      "codigoMunicipio": "220310",
+      "relatorioId": 489,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9049047.1,
+      "depois": 6259.94,
+      "id": 23438
+    },
+    {
+      "municipio": "Cristino Castro",
+      "codigoMunicipio": "220310",
+      "relatorioId": 489,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1625849.64,
+      "depois": 120424.44,
+      "id": 23439
+    },
+    {
+      "municipio": "Curimatá",
+      "codigoMunicipio": "220320",
+      "relatorioId": 491,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9014295.13,
+      "depois": 5345,
+      "id": 23534
+    },
+    {
+      "municipio": "Curimatá",
+      "codigoMunicipio": "220320",
+      "relatorioId": 491,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1764654.28,
+      "depois": 84501.6,
+      "id": 23535
+    },
+    {
+      "municipio": "Curral Novo do Piauí",
+      "codigoMunicipio": "220327",
+      "relatorioId": 321,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 523723.18,
+      "id": 15374
+    },
+    {
+      "municipio": "Curral Novo do Piauí",
+      "codigoMunicipio": "220327",
+      "relatorioId": 321,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 523723.18,
+      "depois": 2686.7,
+      "id": 15375
+    },
+    {
+      "municipio": "Curral Novo do Piauí",
+      "codigoMunicipio": "220327",
+      "relatorioId": 321,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2686.7,
+      "depois": 15123.87,
+      "id": 15378
+    },
+    {
+      "municipio": "Curralinhos",
+      "codigoMunicipio": "220325",
+      "relatorioId": 67,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2382.51,
+      "id": 3185
+    },
+    {
+      "municipio": "Curralinhos",
+      "codigoMunicipio": "220325",
+      "relatorioId": 67,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 308737.43,
+      "depois": 22567.38,
+      "id": 3186
+    },
+    {
+      "municipio": "Demerval Lobão",
+      "codigoMunicipio": "220330",
+      "relatorioId": 69,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 9049047.1,
+      "depois": 3335076.12,
+      "id": 3280
+    },
+    {
+      "municipio": "Demerval Lobão",
+      "codigoMunicipio": "220330",
+      "relatorioId": 69,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 3335076.12,
+      "depois": 11821.93,
+      "id": 3281
+    },
+    {
+      "municipio": "Demerval Lobão",
+      "codigoMunicipio": "220330",
+      "relatorioId": 69,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 11821.93,
+      "depois": 283553.97,
+      "id": 3284
+    },
+    {
+      "municipio": "Dom Expedito Lopes",
+      "codigoMunicipio": "220340",
+      "relatorioId": 275,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1505.04,
+      "id": 13168
+    },
+    {
+      "municipio": "Dom Expedito Lopes",
+      "codigoMunicipio": "220340",
+      "relatorioId": 275,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 824173.64,
+      "depois": 132067.81,
+      "id": 13169
+    },
+    {
+      "municipio": "Dom Inocêncio",
+      "codigoMunicipio": "220345",
+      "relatorioId": 391,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6866845.7,
+      "depois": 1873826.41,
+      "id": 18733
+    },
+    {
+      "municipio": "Dom Inocêncio",
+      "codigoMunicipio": "220345",
+      "relatorioId": 391,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 1873826.41,
+      "depois": 11618.64,
+      "id": 18734
+    },
+    {
+      "municipio": "Dom Inocêncio",
+      "codigoMunicipio": "220345",
+      "relatorioId": 391,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 11618.64,
+      "depois": 37663.67,
+      "id": 18737
+    },
+    {
+      "municipio": "Domingos Mourão",
+      "codigoMunicipio": "220342",
+      "relatorioId": 15,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 507578.02,
+      "id": 688
+    },
+    {
+      "municipio": "Domingos Mourão",
+      "codigoMunicipio": "220342",
+      "relatorioId": 15,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 507578.02,
+      "depois": 1430.17,
+      "id": 689
+    },
+    {
+      "municipio": "Domingos Mourão",
+      "codigoMunicipio": "220342",
+      "relatorioId": 15,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1430.17,
+      "depois": 21288.52,
+      "id": 692
+    },
+    {
+      "municipio": "Elesbão Veloso",
+      "codigoMunicipio": "220350",
+      "relatorioId": 239,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 11311308.9,
+      "depois": 1907807.11,
+      "id": 11439
+    },
+    {
+      "municipio": "Elesbão Veloso",
+      "codigoMunicipio": "220350",
+      "relatorioId": 239,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 1907807.11,
+      "depois": 27157.77,
+      "id": 11440
+    },
+    {
+      "municipio": "Elesbão Veloso",
+      "codigoMunicipio": "220350",
+      "relatorioId": 239,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 27157.77,
+      "depois": 192077.08,
+      "id": 11443
+    },
+    {
+      "municipio": "Eliseu Martins",
+      "codigoMunicipio": "220360",
+      "relatorioId": 495,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 954478.71,
+      "id": 23725
+    },
+    {
+      "municipio": "Eliseu Martins",
+      "codigoMunicipio": "220360",
+      "relatorioId": 495,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 954478.71,
+      "depois": 4117.35,
+      "id": 23726
+    },
+    {
+      "municipio": "Eliseu Martins",
+      "codigoMunicipio": "220360",
+      "relatorioId": 495,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 4117.35,
+      "depois": 58212.05,
+      "id": 23729
+    },
+    {
+      "municipio": "Esperantina",
+      "codigoMunicipio": "220370",
+      "relatorioId": 117,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 20360356.03,
+      "depois": 4217488.88,
+      "id": 5583
+    },
+    {
+      "municipio": "Esperantina",
+      "codigoMunicipio": "220370",
+      "relatorioId": 117,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 4217488.88,
+      "depois": 5818.47,
+      "id": 5584
+    },
+    {
+      "municipio": "Esperantina",
+      "codigoMunicipio": "220370",
+      "relatorioId": 117,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 5818.47,
+      "depois": 618637.65,
+      "id": 5587
+    },
+    {
+      "municipio": "Flores do Piauí",
+      "codigoMunicipio": "220380",
+      "relatorioId": 419,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 652314.75,
+      "id": 20077
+    },
+    {
+      "municipio": "Flores do Piauí",
+      "codigoMunicipio": "220380",
+      "relatorioId": 419,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 652314.75,
+      "depois": 38751.08,
+      "id": 20078
+    },
+    {
+      "municipio": "Flores do Piauí",
+      "codigoMunicipio": "220380",
+      "relatorioId": 419,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 38751.08,
+      "depois": 35034.4,
+      "id": 20081
+    },
+    {
+      "municipio": "Floresta do Piauí",
+      "codigoMunicipio": "220385",
+      "relatorioId": 353,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 507.21,
+      "id": 16910
+    },
+    {
+      "municipio": "Floresta do Piauí",
+      "codigoMunicipio": "220385",
+      "relatorioId": 353,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 206242.45,
+      "depois": 25206.06,
+      "id": 16911
+    },
+    {
+      "municipio": "Floriano",
+      "codigoMunicipio": "220390",
+      "relatorioId": 17,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 24884879.57,
+      "depois": 20287807.98,
+      "id": 784
+    },
+    {
+      "municipio": "Floriano",
+      "codigoMunicipio": "220390",
+      "relatorioId": 17,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 20287807.98,
+      "depois": 54691.9,
+      "id": 785
+    },
+    {
+      "municipio": "Floriano",
+      "codigoMunicipio": "220390",
+      "relatorioId": 17,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 54691.9,
+      "depois": 3798062.66,
+      "id": 788
+    },
+    {
+      "municipio": "Francinópolis",
+      "codigoMunicipio": "220400",
+      "relatorioId": 241,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1477.33,
+      "id": 11536
+    },
+    {
+      "municipio": "Francinópolis",
+      "codigoMunicipio": "220400",
+      "relatorioId": 241,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 419744.27,
+      "depois": 36539.52,
+      "id": 11537
+    },
+    {
+      "municipio": "Francisco Macedo",
+      "codigoMunicipio": "220415",
+      "relatorioId": 323,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 181444.77,
+      "id": 15470
+    },
+    {
+      "municipio": "Francisco Macedo",
+      "codigoMunicipio": "220415",
+      "relatorioId": 323,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 181444.77,
+      "depois": 732.64,
+      "id": 15471
+    },
+    {
+      "municipio": "Francisco Macedo",
+      "codigoMunicipio": "220415",
+      "relatorioId": 323,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 732.64,
+      "depois": 47400.32,
+      "id": 15474
+    },
+    {
+      "municipio": "Francisco Santos",
+      "codigoMunicipio": "220420",
+      "relatorioId": 277,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6790981.54,
+      "depois": 4196.18,
+      "id": 13264
+    },
+    {
+      "municipio": "Francisco Santos",
+      "codigoMunicipio": "220420",
+      "relatorioId": 277,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 787454.61,
+      "depois": 148818.41,
+      "id": 13265
+    },
+    {
+      "municipio": "Fronteiras",
+      "codigoMunicipio": "220430",
+      "relatorioId": 279,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9049047.1,
+      "depois": 4906.18,
+      "id": 13360
+    },
+    {
+      "municipio": "Fronteiras",
+      "codigoMunicipio": "220430",
+      "relatorioId": 279,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 9870568.52,
+      "depois": 253173.81,
+      "id": 13361
+    },
+    {
+      "municipio": "Geminiano",
+      "codigoMunicipio": "220435",
+      "relatorioId": 281,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1998.25,
+      "id": 13456
+    },
+    {
+      "municipio": "Geminiano",
+      "codigoMunicipio": "220435",
+      "relatorioId": 281,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 694548.89,
+      "depois": 77671.86,
+      "id": 13457
+    },
+    {
+      "municipio": "Gilbués",
+      "codigoMunicipio": "220440",
+      "relatorioId": 497,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9049047.1,
+      "depois": 87522.76,
+      "id": 23822
+    },
+    {
+      "municipio": "Gilbués",
+      "codigoMunicipio": "220440",
+      "relatorioId": 497,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 3291157.76,
+      "depois": 13114.44,
+      "id": 23823
+    },
+    {
+      "municipio": "Guadalupe",
+      "codigoMunicipio": "220450",
+      "relatorioId": 19,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9049047.1,
+      "depois": 10869.32,
+      "id": 881
+    },
+    {
+      "municipio": "Guadalupe",
+      "codigoMunicipio": "220450",
+      "relatorioId": 19,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 5001923.35,
+      "depois": 264060.76,
+      "id": 882
+    },
+    {
+      "municipio": "Hugo Napoleão",
+      "codigoMunicipio": "220460",
+      "relatorioId": 71,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 3379.4,
+      "id": 3377
+    },
+    {
+      "municipio": "Hugo Napoleão",
+      "codigoMunicipio": "220460",
+      "relatorioId": 71,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 342350.79,
+      "depois": 31891.83,
+      "id": 3378
+    },
+    {
+      "municipio": "Ilha Grande",
+      "codigoMunicipio": "220465",
+      "relatorioId": 225,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 652840.05,
+      "id": 10767
+    },
+    {
+      "municipio": "Ilha Grande",
+      "codigoMunicipio": "220465",
+      "relatorioId": 225,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 652840.05,
+      "depois": 3070.73,
+      "id": 10768
+    },
+    {
+      "municipio": "Ilha Grande",
+      "codigoMunicipio": "220465",
+      "relatorioId": 225,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 3070.73,
+      "depois": 30635.3,
+      "id": 10771
+    },
+    {
+      "municipio": "Inhuma",
+      "codigoMunicipio": "220470",
+      "relatorioId": 21,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 11311308.9,
+      "depois": 2984.04,
+      "id": 977
+    },
+    {
+      "municipio": "Inhuma",
+      "codigoMunicipio": "220470",
+      "relatorioId": 21,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1467844.38,
+      "depois": 216913.39,
+      "id": 978
+    },
+    {
+      "municipio": "Ipiranga do Piauí",
+      "codigoMunicipio": "220480",
+      "relatorioId": 245,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2501.03,
+      "id": 11728
+    },
+    {
+      "municipio": "Ipiranga do Piauí",
+      "codigoMunicipio": "220480",
+      "relatorioId": 245,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 917077.32,
+      "depois": 123493.21,
+      "id": 11729
+    },
+    {
+      "municipio": "Isaías Coelho",
+      "codigoMunicipio": "220490",
+      "relatorioId": 355,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1402.81,
+      "id": 17006
+    },
+    {
+      "municipio": "Isaías Coelho",
+      "codigoMunicipio": "220490",
+      "relatorioId": 355,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 729202.3,
+      "depois": 55046.05,
+      "id": 17007
+    },
+    {
+      "municipio": "Itainópolis",
+      "codigoMunicipio": "220500",
+      "relatorioId": 23,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9049047.1,
+      "depois": 5048.52,
+      "id": 1073
+    },
+    {
+      "municipio": "Itainópolis",
+      "codigoMunicipio": "220500",
+      "relatorioId": 23,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1017870.65,
+      "depois": 143569.25,
+      "id": 1074
+    },
+    {
+      "municipio": "Jaicós",
+      "codigoMunicipio": "220520",
+      "relatorioId": 25,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 13573570.67,
+      "depois": 1716149.7,
+      "id": 1168
+    },
+    {
+      "municipio": "Jaicós",
+      "codigoMunicipio": "220520",
+      "relatorioId": 25,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 1716149.7,
+      "depois": 2729.56,
+      "id": 1169
+    },
+    {
+      "municipio": "Jaicós",
+      "codigoMunicipio": "220520",
+      "relatorioId": 25,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2729.56,
+      "depois": 216854.65,
+      "id": 1172
+    },
+    {
+      "municipio": "Jardim do Mulato",
+      "codigoMunicipio": "220525",
+      "relatorioId": 73,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 397150.66,
+      "id": 3472
+    },
+    {
+      "municipio": "Jardim do Mulato",
+      "codigoMunicipio": "220525",
+      "relatorioId": 73,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 397150.66,
+      "depois": 14409.99,
+      "id": 3473
+    },
+    {
+      "municipio": "Jardim do Mulato",
+      "codigoMunicipio": "220525",
+      "relatorioId": 73,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 14409.99,
+      "depois": 23403.54,
+      "id": 3476
+    },
+    {
+      "municipio": "Jatobá do Piauí",
+      "codigoMunicipio": "220527",
+      "relatorioId": 197,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 3196.84,
+      "id": 9424
+    },
+    {
+      "municipio": "Jatobá do Piauí",
+      "codigoMunicipio": "220527",
+      "relatorioId": 197,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 484149.74,
+      "depois": 53601.61,
+      "id": 9425
+    },
+    {
+      "municipio": "João Costa",
+      "codigoMunicipio": "220535",
+      "relatorioId": 397,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 6501.14,
+      "id": 19022
+    },
+    {
+      "municipio": "João Costa",
+      "codigoMunicipio": "220535",
+      "relatorioId": 397,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 796803.34,
+      "depois": 29792.81,
+      "id": 19023
+    },
+    {
+      "municipio": "Joaquim Pires",
+      "codigoMunicipio": "220540",
+      "relatorioId": 119,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 11311308.9,
+      "depois": 1004895.18,
+      "id": 5679
+    },
+    {
+      "municipio": "Joaquim Pires",
+      "codigoMunicipio": "220540",
+      "relatorioId": 119,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 1004895.18,
+      "depois": 3274.75,
+      "id": 5680
+    },
+    {
+      "municipio": "Joaquim Pires",
+      "codigoMunicipio": "220540",
+      "relatorioId": 119,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 3274.75,
+      "depois": 87335.12,
+      "id": 5683
+    },
+    {
+      "municipio": "Joca Marques",
+      "codigoMunicipio": "220545",
+      "relatorioId": 121,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 275559.72,
+      "id": 5775
+    },
+    {
+      "municipio": "Joca Marques",
+      "codigoMunicipio": "220545",
+      "relatorioId": 121,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 275559.72,
+      "depois": 1885.77,
+      "id": 5776
+    },
+    {
+      "municipio": "Joca Marques",
+      "codigoMunicipio": "220545",
+      "relatorioId": 121,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1885.77,
+      "depois": 23779.14,
+      "id": 5779
+    },
+    {
+      "municipio": "José de Freitas",
+      "codigoMunicipio": "220550",
+      "relatorioId": 75,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 21191094.04,
+      "depois": 3988092.65,
+      "id": 3568
+    },
+    {
+      "municipio": "José de Freitas",
+      "codigoMunicipio": "220550",
+      "relatorioId": 75,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 3988092.65,
+      "depois": 40865.25,
+      "id": 3569
+    },
+    {
+      "municipio": "José de Freitas",
+      "codigoMunicipio": "220550",
+      "relatorioId": 75,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 40865.25,
+      "depois": 413325.14,
+      "id": 3572
+    },
+    {
+      "municipio": "Júlio Borges",
+      "codigoMunicipio": "220552",
+      "relatorioId": 499,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1794.71,
+      "id": 23918
+    },
+    {
+      "municipio": "Júlio Borges",
+      "codigoMunicipio": "220552",
+      "relatorioId": 499,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 699795.47,
+      "depois": 30714.76,
+      "id": 23919
+    },
+    {
+      "municipio": "Jurema",
+      "codigoMunicipio": "220553",
+      "relatorioId": 399,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 711580.83,
+      "id": 19117
+    },
+    {
+      "municipio": "Jurema",
+      "codigoMunicipio": "220553",
+      "relatorioId": 399,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 711580.83,
+      "depois": 3489.2,
+      "id": 19118
+    },
+    {
+      "municipio": "Jurema",
+      "codigoMunicipio": "220553",
+      "relatorioId": 399,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 3489.2,
+      "depois": 26870.42,
+      "id": 19121
+    },
+    {
+      "municipio": "Lagoa Alegre",
+      "codigoMunicipio": "220555",
+      "relatorioId": 79,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6788527.61,
+      "depois": 1742.25,
+      "id": 3761
+    },
+    {
+      "municipio": "Lagoa Alegre",
+      "codigoMunicipio": "220555",
+      "relatorioId": 79,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 644376.1,
+      "depois": 28321.3,
+      "id": 3762
+    },
+    {
+      "municipio": "Lagoa de São Francisco",
+      "codigoMunicipio": "220557",
+      "relatorioId": 123,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 622.78,
+      "id": 5872
+    },
+    {
+      "municipio": "Lagoa de São Francisco",
+      "codigoMunicipio": "220557",
+      "relatorioId": 123,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 356650.62,
+      "depois": 48827.92,
+      "id": 5873
+    },
+    {
+      "municipio": "Lagoa do Barro do Piauí",
+      "codigoMunicipio": "220556",
+      "relatorioId": 401,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 4309.48,
+      "id": 19214
+    },
+    {
+      "municipio": "Lagoa do Barro do Piauí",
+      "codigoMunicipio": "220556",
+      "relatorioId": 401,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 726779.24,
+      "depois": 44799.86,
+      "id": 19215
+    },
+    {
+      "municipio": "Lagoa do Piauí",
+      "codigoMunicipio": "220558",
+      "relatorioId": 81,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 4623.95,
+      "id": 3857
+    },
+    {
+      "municipio": "Lagoa do Piauí",
+      "codigoMunicipio": "220558",
+      "relatorioId": 81,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1091038.62,
+      "depois": 27209.76,
+      "id": 3858
+    },
+    {
+      "municipio": "Lagoa do Sítio",
+      "codigoMunicipio": "220559",
+      "relatorioId": 247,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 522341.81,
+      "id": 11823
+    },
+    {
+      "municipio": "Lagoa do Sítio",
+      "codigoMunicipio": "220559",
+      "relatorioId": 247,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 522341.81,
+      "depois": 10836.69,
+      "id": 11824
+    },
+    {
+      "municipio": "Lagoa do Sítio",
+      "codigoMunicipio": "220559",
+      "relatorioId": 247,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 10836.69,
+      "depois": 19866.7,
+      "id": 11827
+    },
+    {
+      "municipio": "Lagoinha do Piauí",
+      "codigoMunicipio": "220554",
+      "relatorioId": 77,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 556.42,
+      "id": 3665
+    },
+    {
+      "municipio": "Lagoinha do Piauí",
+      "codigoMunicipio": "220554",
+      "relatorioId": 77,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 150174.59,
+      "depois": 32216.77,
+      "id": 3666
+    },
+    {
+      "municipio": "Landri Sales",
+      "codigoMunicipio": "220560",
+      "relatorioId": 463,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 77629.21,
+      "id": 22190
+    },
+    {
+      "municipio": "Landri Sales",
+      "codigoMunicipio": "220560",
+      "relatorioId": 463,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 864838.11,
+      "depois": 54357.2,
+      "id": 22191
+    },
+    {
+      "municipio": "Madeiro",
+      "codigoMunicipio": "220585",
+      "relatorioId": 127,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 382.44,
+      "id": 6064
+    },
+    {
+      "municipio": "Madeiro",
+      "codigoMunicipio": "220585",
+      "relatorioId": 127,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 408359.21,
+      "depois": 34983.33,
+      "id": 6065
+    },
+    {
+      "municipio": "Marcos Parente",
+      "codigoMunicipio": "220600",
+      "relatorioId": 465,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2902.54,
+      "id": 22286
+    },
+    {
+      "municipio": "Marcos Parente",
+      "codigoMunicipio": "220600",
+      "relatorioId": 465,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 822238.45,
+      "depois": 45884.52,
+      "id": 22287
+    },
+    {
+      "municipio": "Massapê do Piauí",
+      "codigoMunicipio": "220605",
+      "relatorioId": 331,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2004.69,
+      "id": 15854
+    },
+    {
+      "municipio": "Massapê do Piauí",
+      "codigoMunicipio": "220605",
+      "relatorioId": 331,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 469862.94,
+      "depois": 26467.96,
+      "id": 15855
+    },
+    {
+      "municipio": "Miguel Alves",
+      "codigoMunicipio": "220620",
+      "relatorioId": 83,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 18098094.23,
+      "depois": 2281585.89,
+      "id": 3952
+    },
+    {
+      "municipio": "Miguel Alves",
+      "codigoMunicipio": "220620",
+      "relatorioId": 83,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 2281585.89,
+      "depois": 27506.62,
+      "id": 3953
+    },
+    {
+      "municipio": "Miguel Alves",
+      "codigoMunicipio": "220620",
+      "relatorioId": 83,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 27506.62,
+      "depois": 173792.6,
+      "id": 3956
+    },
+    {
+      "municipio": "Miguel Leão",
+      "codigoMunicipio": "220630",
+      "relatorioId": 27,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1921.9,
+      "id": 1265
+    },
+    {
+      "municipio": "Miguel Leão",
+      "codigoMunicipio": "220630",
+      "relatorioId": 27,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 143849.51,
+      "depois": 15299.05,
+      "id": 1266
+    },
+    {
+      "municipio": "Milton Brandão",
+      "codigoMunicipio": "220635",
+      "relatorioId": 29,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2250.41,
+      "id": 1361
+    },
+    {
+      "municipio": "Milton Brandão",
+      "codigoMunicipio": "220635",
+      "relatorioId": 29,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 782292.6,
+      "depois": 7220.32,
+      "id": 1362
+    },
+    {
+      "municipio": "Monsenhor Hipólito",
+      "codigoMunicipio": "220650",
+      "relatorioId": 285,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1798.67,
+      "id": 13648
+    },
+    {
+      "municipio": "Monsenhor Hipólito",
+      "codigoMunicipio": "220650",
+      "relatorioId": 285,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 593674.28,
+      "depois": 133111.5,
+      "id": 13649
+    },
+    {
+      "municipio": "Morro do Chapéu do Piauí",
+      "codigoMunicipio": "220667",
+      "relatorioId": 133,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 487.19,
+      "id": 6352
+    },
+    {
+      "municipio": "Morro do Chapéu do Piauí",
+      "codigoMunicipio": "220667",
+      "relatorioId": 133,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 416657.16,
+      "depois": 37264.31,
+      "id": 6353
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "codigoMunicipio": "220670",
+      "relatorioId": 427,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2268.11,
+      "id": 20462
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "codigoMunicipio": "220670",
+      "relatorioId": 427,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 964093.04,
+      "depois": 71201.89,
+      "id": 20463
+    },
+    {
+      "municipio": "Nazária",
+      "codigoMunicipio": "220672",
+      "relatorioId": 87,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786781.99,
+      "depois": 773.05,
+      "id": 4144
+    },
+    {
+      "municipio": "Nazária",
+      "codigoMunicipio": "220672",
+      "relatorioId": 87,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1239806.71,
+      "depois": 24522.14,
+      "id": 4145
+    },
+    {
+      "municipio": "Nova Santa Rita",
+      "codigoMunicipio": "220795",
+      "relatorioId": 437,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2850.53,
+      "id": 20942
+    },
+    {
+      "municipio": "Nova Santa Rita",
+      "codigoMunicipio": "220795",
+      "relatorioId": 437,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 644199.83,
+      "depois": 31049.88,
+      "id": 20943
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "codigoMunicipio": "220690",
+      "relatorioId": 249,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2358.93,
+      "id": 11920
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "codigoMunicipio": "220690",
+      "relatorioId": 249,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 539045.83,
+      "depois": 72219.43,
+      "id": 11921
+    },
+    {
+      "municipio": "Novo Santo Antônio",
+      "codigoMunicipio": "220695",
+      "relatorioId": 203,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1359.89,
+      "id": 9712
+    },
+    {
+      "municipio": "Novo Santo Antônio",
+      "codigoMunicipio": "220695",
+      "relatorioId": 203,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 339138.88,
+      "depois": 30079.25,
+      "id": 9713
+    },
+    {
+      "municipio": "Oeiras",
+      "codigoMunicipio": "220700",
+      "relatorioId": 357,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 18098094.23,
+      "depois": 54334.32,
+      "id": 17102
+    },
+    {
+      "municipio": "Oeiras",
+      "codigoMunicipio": "220700",
+      "relatorioId": 357,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 6420926.34,
+      "depois": 596785.57,
+      "id": 17103
+    },
+    {
+      "municipio": "Padre Marcos",
+      "codigoMunicipio": "220720",
+      "relatorioId": 333,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1100.15,
+      "id": 15950
+    },
+    {
+      "municipio": "Padre Marcos",
+      "codigoMunicipio": "220720",
+      "relatorioId": 333,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 786269.28,
+      "depois": 119819.55,
+      "id": 15951
+    },
+    {
+      "municipio": "Pajeú do Piauí",
+      "codigoMunicipio": "220735",
+      "relatorioId": 431,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1214.22,
+      "id": 20654
+    },
+    {
+      "municipio": "Pajeú do Piauí",
+      "codigoMunicipio": "220735",
+      "relatorioId": 431,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 593822.75,
+      "depois": 8969.66,
+      "id": 20655
+    },
+    {
+      "municipio": "Palmeira do Piauí",
+      "codigoMunicipio": "220740",
+      "relatorioId": 507,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6795566.77,
+      "depois": 1507678.73,
+      "id": 24301
+    },
+    {
+      "municipio": "Palmeira do Piauí",
+      "codigoMunicipio": "220740",
+      "relatorioId": 507,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 1507678.73,
+      "depois": 119015.65,
+      "id": 24302
+    },
+    {
+      "municipio": "Palmeira do Piauí",
+      "codigoMunicipio": "220740",
+      "relatorioId": 507,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 119015.65,
+      "depois": 46747.9,
+      "id": 24305
+    },
+    {
+      "municipio": "Paquetá",
+      "codigoMunicipio": "220755",
+      "relatorioId": 287,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1715.34,
+      "id": 13744
+    },
+    {
+      "municipio": "Paquetá",
+      "codigoMunicipio": "220755",
+      "relatorioId": 287,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 331067.58,
+      "depois": 31706.43,
+      "id": 13745
+    },
+    {
+      "municipio": "Parnaguá",
+      "codigoMunicipio": "220760",
+      "relatorioId": 509,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 9049347.12,
+      "depois": 1861413.95,
+      "id": 24397
+    },
+    {
+      "municipio": "Parnaguá",
+      "codigoMunicipio": "220760",
+      "relatorioId": 509,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 1861413.95,
+      "depois": 28568.09,
+      "id": 24398
+    },
+    {
+      "municipio": "Parnaguá",
+      "codigoMunicipio": "220760",
+      "relatorioId": 509,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 28568.09,
+      "depois": 40000.65,
+      "id": 24401
+    },
+    {
+      "municipio": "Parnaíba",
+      "codigoMunicipio": "220770",
+      "relatorioId": 31,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 87982629.38,
+      "depois": 18423.68,
+      "id": 1457
+    },
+    {
+      "municipio": "Parnaíba",
+      "codigoMunicipio": "220770",
+      "relatorioId": 31,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 35607262.24,
+      "depois": 8572073.31,
+      "id": 1458
+    },
+    {
+      "municipio": "Passagem Franca do Piauí",
+      "codigoMunicipio": "220775",
+      "relatorioId": 93,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 587600.21,
+      "id": 4431
+    },
+    {
+      "municipio": "Passagem Franca do Piauí",
+      "codigoMunicipio": "220775",
+      "relatorioId": 93,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 587600.21,
+      "depois": 3356.01,
+      "id": 4432
+    },
+    {
+      "municipio": "Passagem Franca do Piauí",
+      "codigoMunicipio": "220775",
+      "relatorioId": 93,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 3356.01,
+      "depois": 33604.93,
+      "id": 4435
+    },
+    {
+      "municipio": "Patos do Piauí",
+      "codigoMunicipio": "220777",
+      "relatorioId": 335,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 5252.32,
+      "id": 16046
+    },
+    {
+      "municipio": "Patos do Piauí",
+      "codigoMunicipio": "220777",
+      "relatorioId": 335,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 678930.08,
+      "depois": 52940.22,
+      "id": 16047
+    },
+    {
+      "municipio": "Pau D'Arco do Piauí",
+      "codigoMunicipio": "220779",
+      "relatorioId": 95,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1866.99,
+      "id": 4528
+    },
+    {
+      "municipio": "Pau D'Arco do Piauí",
+      "codigoMunicipio": "220779",
+      "relatorioId": 95,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 320998.24,
+      "depois": 37092.66,
+      "id": 4529
+    },
+    {
+      "municipio": "Paulistana",
+      "codigoMunicipio": "220780",
+      "relatorioId": 337,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 13573570.67,
+      "depois": 20656.25,
+      "id": 16142
+    },
+    {
+      "municipio": "Paulistana",
+      "codigoMunicipio": "220780",
+      "relatorioId": 337,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 3390822.53,
+      "depois": 445983.47,
+      "id": 16143
+    },
+    {
+      "municipio": "Pavussu",
+      "codigoMunicipio": "220785",
+      "relatorioId": 433,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 862.87,
+      "id": 20750
+    },
+    {
+      "municipio": "Pavussu",
+      "codigoMunicipio": "220785",
+      "relatorioId": 433,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 858922.63,
+      "depois": 20283.93,
+      "id": 20751
+    },
+    {
+      "municipio": "Pedro II",
+      "codigoMunicipio": "220790",
+      "relatorioId": 33,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 20360356.03,
+      "depois": 3611593.55,
+      "id": 1552
+    },
+    {
+      "municipio": "Pedro II",
+      "codigoMunicipio": "220790",
+      "relatorioId": 33,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 3611593.55,
+      "depois": 7928.61,
+      "id": 1553
+    },
+    {
+      "municipio": "Pedro II",
+      "codigoMunicipio": "220790",
+      "relatorioId": 33,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 7928.61,
+      "depois": 593271.56,
+      "id": 1556
+    },
+    {
+      "municipio": "Pedro Laurentino",
+      "codigoMunicipio": "220793",
+      "relatorioId": 435,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 3738.52,
+      "id": 20846
+    },
+    {
+      "municipio": "Pedro Laurentino",
+      "codigoMunicipio": "220793",
+      "relatorioId": 435,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 440133.14,
+      "depois": 15194.32,
+      "id": 20847
+    },
+    {
+      "municipio": "Picos",
+      "codigoMunicipio": "220800",
+      "relatorioId": 35,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 29409403.19,
+      "depois": 9770.87,
+      "id": 1649
+    },
+    {
+      "municipio": "Picos",
+      "codigoMunicipio": "220800",
+      "relatorioId": 35,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 23305585.31,
+      "depois": 5548385.98,
+      "id": 1650
+    },
+    {
+      "municipio": "Pimenteiras",
+      "codigoMunicipio": "220810",
+      "relatorioId": 251,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 9049047.1,
+      "depois": 2437614.59,
+      "id": 12015
+    },
+    {
+      "municipio": "Pimenteiras",
+      "codigoMunicipio": "220810",
+      "relatorioId": 251,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 2437614.59,
+      "depois": 69039.95,
+      "id": 12016
+    },
+    {
+      "municipio": "Pimenteiras",
+      "codigoMunicipio": "220810",
+      "relatorioId": 251,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 69039.95,
+      "depois": 25505.91,
+      "id": 12019
+    },
+    {
+      "municipio": "Pio IX",
+      "codigoMunicipio": "220820",
+      "relatorioId": 291,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 13573570.67,
+      "depois": 2193563.75,
+      "id": 13935
+    },
+    {
+      "municipio": "Pio IX",
+      "codigoMunicipio": "220820",
+      "relatorioId": 291,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 2193563.75,
+      "depois": 27981.04,
+      "id": 13936
+    },
+    {
+      "municipio": "Pio IX",
+      "codigoMunicipio": "220820",
+      "relatorioId": 291,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 27981.04,
+      "depois": 169136.21,
+      "id": 13939
+    },
+    {
+      "municipio": "Piracuruca",
+      "codigoMunicipio": "220830",
+      "relatorioId": 139,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 15835832.53,
+      "depois": 3844613.66,
+      "id": 6639
+    },
+    {
+      "municipio": "Piracuruca",
+      "codigoMunicipio": "220830",
+      "relatorioId": 139,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 3844613.66,
+      "depois": 14574.01,
+      "id": 6640
+    },
+    {
+      "municipio": "Piracuruca",
+      "codigoMunicipio": "220830",
+      "relatorioId": 139,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 14574.01,
+      "depois": 701327.37,
+      "id": 6643
+    },
+    {
+      "municipio": "Piripiri",
+      "codigoMunicipio": "220840",
+      "relatorioId": 37,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 27147141.31,
+      "depois": 8574404.14,
+      "id": 1744
+    },
+    {
+      "municipio": "Piripiri",
+      "codigoMunicipio": "220840",
+      "relatorioId": 37,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 8574404.14,
+      "depois": 8172.42,
+      "id": 1745
+    },
+    {
+      "municipio": "Piripiri",
+      "codigoMunicipio": "220840",
+      "relatorioId": 37,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 8172.42,
+      "depois": 1737629.24,
+      "id": 1748
+    },
+    {
+      "municipio": "Porto",
+      "codigoMunicipio": "220850",
+      "relatorioId": 143,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 9049047.2,
+      "depois": 6574.39,
+      "id": 6832
+    },
+    {
+      "municipio": "Porto",
+      "codigoMunicipio": "220850",
+      "relatorioId": 143,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 682168.45,
+      "depois": 55658.53,
+      "id": 6833
+    },
+    {
+      "municipio": "Porto Alegre do Piauí",
+      "codigoMunicipio": "220855",
+      "relatorioId": 467,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2147.6,
+      "id": 22382
+    },
+    {
+      "municipio": "Porto Alegre do Piauí",
+      "codigoMunicipio": "220855",
+      "relatorioId": 467,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 665058.48,
+      "depois": 14333.12,
+      "id": 22383
+    },
+    {
+      "municipio": "Prata do Piauí",
+      "codigoMunicipio": "220860",
+      "relatorioId": 253,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 7066417.07,
+      "depois": 279468.23,
+      "id": 12111
+    },
+    {
+      "municipio": "Prata do Piauí",
+      "codigoMunicipio": "220860",
+      "relatorioId": 253,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 279468.23,
+      "depois": 428.53,
+      "id": 12112
+    },
+    {
+      "municipio": "Prata do Piauí",
+      "codigoMunicipio": "220860",
+      "relatorioId": 253,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 428.53,
+      "depois": 64105.67,
+      "id": 12115
+    },
+    {
+      "municipio": "Queimada Nova",
+      "codigoMunicipio": "220865",
+      "relatorioId": 339,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 7031.63,
+      "id": 16238
+    },
+    {
+      "municipio": "Queimada Nova",
+      "codigoMunicipio": "220865",
+      "relatorioId": 339,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1210275.94,
+      "depois": 60586.88,
+      "id": 16239
+    },
+    {
+      "municipio": "Regeneração",
+      "codigoMunicipio": "220880",
+      "relatorioId": 97,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 13573570.67,
+      "depois": 8901.18,
+      "id": 4624
+    },
+    {
+      "municipio": "Regeneração",
+      "codigoMunicipio": "220880",
+      "relatorioId": 97,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2351371.69,
+      "depois": 214929.11,
+      "id": 4625
+    },
+    {
+      "municipio": "Ribeira do Piauí",
+      "codigoMunicipio": "220887",
+      "relatorioId": 439,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 587214.22,
+      "id": 21037
+    },
+    {
+      "municipio": "Ribeira do Piauí",
+      "codigoMunicipio": "220887",
+      "relatorioId": 439,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 587214.22,
+      "depois": 1862.42,
+      "id": 21038
+    },
+    {
+      "municipio": "Ribeira do Piauí",
+      "codigoMunicipio": "220887",
+      "relatorioId": 439,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1862.42,
+      "depois": 7375.97,
+      "id": 21041
+    },
+    {
+      "municipio": "Ribeiro Gonçalves",
+      "codigoMunicipio": "220890",
+      "relatorioId": 469,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 696113.36,
+      "id": 22478
+    },
+    {
+      "municipio": "Ribeiro Gonçalves",
+      "codigoMunicipio": "220890",
+      "relatorioId": 469,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 6638114.03,
+      "depois": 70973.84,
+      "id": 22479
+    },
+    {
+      "municipio": "Rio Grande do Piauí",
+      "codigoMunicipio": "220900",
+      "relatorioId": 441,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2519.3,
+      "id": 21134
+    },
+    {
+      "municipio": "Rio Grande do Piauí",
+      "codigoMunicipio": "220900",
+      "relatorioId": 441,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 770535.29,
+      "depois": 73995.08,
+      "id": 21135
+    },
+    {
+      "municipio": "Santa Cruz do Piauí",
+      "codigoMunicipio": "220910",
+      "relatorioId": 359,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 716651.36,
+      "id": 17197
+    },
+    {
+      "municipio": "Santa Cruz do Piauí",
+      "codigoMunicipio": "220910",
+      "relatorioId": 359,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 716651.36,
+      "depois": 2224.08,
+      "id": 17198
+    },
+    {
+      "municipio": "Santa Cruz do Piauí",
+      "codigoMunicipio": "220910",
+      "relatorioId": 359,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2224.08,
+      "depois": 76532.23,
+      "id": 17201
+    },
+    {
+      "municipio": "Santa Cruz dos Milagres",
+      "codigoMunicipio": "220915",
+      "relatorioId": 255,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 3318,
+      "id": 12208
+    },
+    {
+      "municipio": "Santa Cruz dos Milagres",
+      "codigoMunicipio": "220915",
+      "relatorioId": 255,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 557976.92,
+      "depois": 929.56,
+      "id": 12209
+    },
+    {
+      "municipio": "Santa Filomena",
+      "codigoMunicipio": "220920",
+      "relatorioId": 515,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 5227785.61,
+      "id": 24684
+    },
+    {
+      "municipio": "Santa Filomena",
+      "codigoMunicipio": "220920",
+      "relatorioId": 515,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 5227785.61,
+      "depois": 207461.07,
+      "id": 24685
+    },
+    {
+      "municipio": "Santa Filomena",
+      "codigoMunicipio": "220920",
+      "relatorioId": 515,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 207461.07,
+      "depois": 1000,
+      "id": 24688
+    },
+    {
+      "municipio": "Santa Luz",
+      "codigoMunicipio": "220930",
+      "relatorioId": 517,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 771900.5,
+      "id": 24780
+    },
+    {
+      "municipio": "Santa Luz",
+      "codigoMunicipio": "220930",
+      "relatorioId": 517,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 771900.5,
+      "depois": 5284.69,
+      "id": 24781
+    },
+    {
+      "municipio": "Santa Luz",
+      "codigoMunicipio": "220930",
+      "relatorioId": 517,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 5284.69,
+      "depois": 47099.09,
+      "id": 24784
+    },
+    {
+      "municipio": "Santana do Piauí",
+      "codigoMunicipio": "220935",
+      "relatorioId": 293,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1041.16,
+      "id": 14032
+    },
+    {
+      "municipio": "Santana do Piauí",
+      "codigoMunicipio": "220935",
+      "relatorioId": 293,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 286258.85,
+      "depois": 64391.56,
+      "id": 14033
+    },
+    {
+      "municipio": "Santo Antônio de Lisboa",
+      "codigoMunicipio": "220940",
+      "relatorioId": 295,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 964391.09,
+      "id": 14127
+    },
+    {
+      "municipio": "Santo Antônio de Lisboa",
+      "codigoMunicipio": "220940",
+      "relatorioId": 295,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 964391.09,
+      "depois": 1284.67,
+      "id": 14128
+    },
+    {
+      "municipio": "Santo Antônio de Lisboa",
+      "codigoMunicipio": "220940",
+      "relatorioId": 295,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1284.67,
+      "depois": 113633.92,
+      "id": 14131
+    },
+    {
+      "municipio": "Santo Antônio dos Milagres",
+      "codigoMunicipio": "220945",
+      "relatorioId": 99,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.43,
+      "depois": 0,
+      "id": 4720
+    },
+    {
+      "municipio": "Santo Antônio dos Milagres",
+      "codigoMunicipio": "220945",
+      "relatorioId": 99,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 121884.68,
+      "depois": 13157.75,
+      "id": 4721
+    },
+    {
+      "municipio": "Santo Inácio do Piauí",
+      "codigoMunicipio": "220950",
+      "relatorioId": 363,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2152.91,
+      "id": 17390
+    },
+    {
+      "municipio": "Santo Inácio do Piauí",
+      "codigoMunicipio": "220950",
+      "relatorioId": 363,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 569909.48,
+      "depois": 38079,
+      "id": 17391
+    },
+    {
+      "municipio": "São Félix do Piauí",
+      "codigoMunicipio": "220960",
+      "relatorioId": 39,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6856785.36,
+      "depois": 435899.14,
+      "id": 1840
+    },
+    {
+      "municipio": "São Félix do Piauí",
+      "codigoMunicipio": "220960",
+      "relatorioId": 39,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 435899.14,
+      "depois": 3535.47,
+      "id": 1841
+    },
+    {
+      "municipio": "São Félix do Piauí",
+      "codigoMunicipio": "220960",
+      "relatorioId": 39,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 3535.47,
+      "depois": 27598.52,
+      "id": 1844
+    },
+    {
+      "municipio": "São Francisco do Piauí",
+      "codigoMunicipio": "220970",
+      "relatorioId": 367,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 4051.91,
+      "id": 17582
+    },
+    {
+      "municipio": "São Francisco do Piauí",
+      "codigoMunicipio": "220970",
+      "relatorioId": 367,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 885177.97,
+      "depois": 39344.97,
+      "id": 17583
+    },
+    {
+      "municipio": "São Gonçalo do Gurguéia",
+      "codigoMunicipio": "220975",
+      "relatorioId": 519,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 7362.61,
+      "id": 24877
+    },
+    {
+      "municipio": "São Gonçalo do Gurguéia",
+      "codigoMunicipio": "220975",
+      "relatorioId": 519,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 657446.52,
+      "depois": 733.92,
+      "id": 24878
+    },
+    {
+      "municipio": "São Gonçalo do Piauí",
+      "codigoMunicipio": "220980",
+      "relatorioId": 101,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1883.74,
+      "id": 4816
+    },
+    {
+      "municipio": "São Gonçalo do Piauí",
+      "codigoMunicipio": "220980",
+      "relatorioId": 101,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 410016.33,
+      "depois": 49724.61,
+      "id": 4817
+    },
+    {
+      "municipio": "São João da Canabrava",
+      "codigoMunicipio": "220985",
+      "relatorioId": 297,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786138.38,
+      "depois": 3881.89,
+      "id": 14224
+    },
+    {
+      "municipio": "São João da Canabrava",
+      "codigoMunicipio": "220985",
+      "relatorioId": 297,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 353013.92,
+      "depois": 58868.1,
+      "id": 14225
+    },
+    {
+      "municipio": "São João da Fronteira",
+      "codigoMunicipio": "220987",
+      "relatorioId": 145,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.2,
+      "depois": 665581.03,
+      "id": 6927
+    },
+    {
+      "municipio": "São João da Fronteira",
+      "codigoMunicipio": "220987",
+      "relatorioId": 145,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 665581.03,
+      "depois": 1223.63,
+      "id": 6928
+    },
+    {
+      "municipio": "São João da Fronteira",
+      "codigoMunicipio": "220987",
+      "relatorioId": 145,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1223.63,
+      "depois": 33887.31,
+      "id": 6931
+    },
+    {
+      "municipio": "São João da Varjota",
+      "codigoMunicipio": "220995",
+      "relatorioId": 369,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 273466.86,
+      "id": 17677
+    },
+    {
+      "municipio": "São João da Varjota",
+      "codigoMunicipio": "220995",
+      "relatorioId": 369,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 273466.86,
+      "depois": 2181.95,
+      "id": 17678
+    },
+    {
+      "municipio": "São João da Varjota",
+      "codigoMunicipio": "220995",
+      "relatorioId": 369,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2181.95,
+      "depois": 38484.27,
+      "id": 17681
+    },
+    {
+      "municipio": "São João do Arraial",
+      "codigoMunicipio": "220997",
+      "relatorioId": 147,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 327.89,
+      "id": 7024
+    },
+    {
+      "municipio": "São João do Arraial",
+      "codigoMunicipio": "220997",
+      "relatorioId": 147,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 403365.98,
+      "depois": 18445.78,
+      "id": 7025
+    },
+    {
+      "municipio": "São João do Piauí",
+      "codigoMunicipio": "221000",
+      "relatorioId": 405,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 13573570.67,
+      "depois": 12646.81,
+      "id": 19406
+    },
+    {
+      "municipio": "São João do Piauí",
+      "codigoMunicipio": "221000",
+      "relatorioId": 405,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2954839.62,
+      "depois": 423113.15,
+      "id": 19407
+    },
+    {
+      "municipio": "São José do Divino",
+      "codigoMunicipio": "221005",
+      "relatorioId": 149,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 439713.42,
+      "id": 7119
+    },
+    {
+      "municipio": "São José do Divino",
+      "codigoMunicipio": "221005",
+      "relatorioId": 149,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 439713.42,
+      "depois": 1150.15,
+      "id": 7120
+    },
+    {
+      "municipio": "São José do Divino",
+      "codigoMunicipio": "221005",
+      "relatorioId": 149,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1150.15,
+      "depois": 54489.77,
+      "id": 7123
+    },
+    {
+      "municipio": "São José do Piauí",
+      "codigoMunicipio": "221020",
+      "relatorioId": 299,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6798965.02,
+      "depois": 1475.64,
+      "id": 14320
+    },
+    {
+      "municipio": "São José do Piauí",
+      "codigoMunicipio": "221020",
+      "relatorioId": 299,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 619028.25,
+      "depois": 87592.7,
+      "id": 14321
+    },
+    {
+      "municipio": "São Luis do Piauí",
+      "codigoMunicipio": "221037",
+      "relatorioId": 303,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1153.51,
+      "id": 14512
+    },
+    {
+      "municipio": "São Luis do Piauí",
+      "codigoMunicipio": "221037",
+      "relatorioId": 303,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 193080.95,
+      "depois": 37747.13,
+      "id": 14513
+    },
+    {
+      "municipio": "São Miguel da Baixa Grande",
+      "codigoMunicipio": "221038",
+      "relatorioId": 259,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2008.64,
+      "id": 12400
+    },
+    {
+      "municipio": "São Miguel da Baixa Grande",
+      "codigoMunicipio": "221038",
+      "relatorioId": 259,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 252412.02,
+      "depois": 12656.8,
+      "id": 12401
+    },
+    {
+      "municipio": "São Miguel do Fidalgo",
+      "codigoMunicipio": "221039",
+      "relatorioId": 445,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1338.26,
+      "id": 21326
+    },
+    {
+      "municipio": "São Miguel do Fidalgo",
+      "codigoMunicipio": "221039",
+      "relatorioId": 445,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 436490.8,
+      "depois": 5359.27,
+      "id": 21327
+    },
+    {
+      "municipio": "São Miguel do Tapuio",
+      "codigoMunicipio": "221040",
+      "relatorioId": 207,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 13573570.67,
+      "depois": 16593.42,
+      "id": 9904
+    },
+    {
+      "municipio": "São Miguel do Tapuio",
+      "codigoMunicipio": "221040",
+      "relatorioId": 207,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2960699.14,
+      "depois": 46801.29,
+      "id": 9905
+    },
+    {
+      "municipio": "São Pedro do Piauí",
+      "codigoMunicipio": "221050",
+      "relatorioId": 103,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 11311308.9,
+      "depois": 3091.3,
+      "id": 4912
+    },
+    {
+      "municipio": "São Pedro do Piauí",
+      "codigoMunicipio": "221050",
+      "relatorioId": 103,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1268380.68,
+      "depois": 104480.37,
+      "id": 4913
+    },
+    {
+      "municipio": "São Raimundo Nonato",
+      "codigoMunicipio": "221060",
+      "relatorioId": 41,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 18098094.23,
+      "depois": 5926.9,
+      "id": 1937
+    },
+    {
+      "municipio": "São Raimundo Nonato",
+      "codigoMunicipio": "221060",
+      "relatorioId": 41,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 6662979.76,
+      "depois": 966425.71,
+      "id": 1938
+    },
+    {
+      "municipio": "Sebastião Barros",
+      "codigoMunicipio": "221062",
+      "relatorioId": 521,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 6893.1,
+      "id": 24973
+    },
+    {
+      "municipio": "Sebastião Barros",
+      "codigoMunicipio": "221062",
+      "relatorioId": 521,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 523969.39,
+      "depois": 17314.81,
+      "id": 24974
+    },
+    {
+      "municipio": "Sebastião Leal",
+      "codigoMunicipio": "221063",
+      "relatorioId": 471,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 5291478.61,
+      "id": 22573
+    },
+    {
+      "municipio": "Sebastião Leal",
+      "codigoMunicipio": "221063",
+      "relatorioId": 471,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 5291478.61,
+      "depois": 246734.36,
+      "id": 22574
+    },
+    {
+      "municipio": "Sebastião Leal",
+      "codigoMunicipio": "221063",
+      "relatorioId": 471,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 246734.36,
+      "depois": 38864.18,
+      "id": 22577
+    },
+    {
+      "municipio": "Sigefredo Pacheco",
+      "codigoMunicipio": "221065",
+      "relatorioId": 209,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 6000.25,
+      "id": 10000
+    },
+    {
+      "municipio": "Sigefredo Pacheco",
+      "codigoMunicipio": "221065",
+      "relatorioId": 209,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 823643.36,
+      "depois": 70080.98,
+      "id": 10001
+    },
+    {
+      "municipio": "Simões",
+      "codigoMunicipio": "221070",
+      "relatorioId": 43,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 11311308.9,
+      "depois": 6579.81,
+      "id": 2033
+    },
+    {
+      "municipio": "Simões",
+      "codigoMunicipio": "221070",
+      "relatorioId": 43,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 1718094.25,
+      "depois": 163500.56,
+      "id": 2034
+    },
+    {
+      "municipio": "Simplício Mendes",
+      "codigoMunicipio": "221080",
+      "relatorioId": 45,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 9049047.1,
+      "depois": 2156199.56,
+      "id": 2128
+    },
+    {
+      "municipio": "Simplício Mendes",
+      "codigoMunicipio": "221080",
+      "relatorioId": 45,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 2156199.56,
+      "depois": 3236.24,
+      "id": 2129
+    },
+    {
+      "municipio": "Simplício Mendes",
+      "codigoMunicipio": "221080",
+      "relatorioId": 45,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 3236.24,
+      "depois": 293193.81,
+      "id": 2132
+    },
+    {
+      "municipio": "Socorro do Piauí",
+      "codigoMunicipio": "221090",
+      "relatorioId": 447,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 7286785.36,
+      "depois": 1020.18,
+      "id": 21422
+    },
+    {
+      "municipio": "Socorro do Piauí",
+      "codigoMunicipio": "221090",
+      "relatorioId": 447,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 471624.97,
+      "depois": 38827.2,
+      "id": 21423
+    },
+    {
+      "municipio": "Sussuapara",
+      "codigoMunicipio": "221093",
+      "relatorioId": 47,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 782596.09,
+      "id": 2224
+    },
+    {
+      "municipio": "Sussuapara",
+      "codigoMunicipio": "221093",
+      "relatorioId": 47,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 782596.09,
+      "depois": 2526.97,
+      "id": 2225
+    },
+    {
+      "municipio": "Sussuapara",
+      "codigoMunicipio": "221093",
+      "relatorioId": 47,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 2526.97,
+      "depois": 144511.05,
+      "id": 2228
+    },
+    {
+      "municipio": "Tamboril do Piauí",
+      "codigoMunicipio": "221095",
+      "relatorioId": 449,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2471.77,
+      "id": 21518
+    },
+    {
+      "municipio": "Tamboril do Piauí",
+      "codigoMunicipio": "221095",
+      "relatorioId": 449,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 715696.86,
+      "depois": 2701.57,
+      "id": 21519
+    },
+    {
+      "municipio": "Tanque do Piauí",
+      "codigoMunicipio": "221097",
+      "relatorioId": 373,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 2246.58,
+      "id": 17870
+    },
+    {
+      "municipio": "Tanque do Piauí",
+      "codigoMunicipio": "221097",
+      "relatorioId": 373,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 291990.21,
+      "depois": 25631.99,
+      "id": 17871
+    },
+    {
+      "municipio": "Teresina",
+      "codigoMunicipio": "221100",
+      "relatorioId": 49,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 510493300.28,
+      "depois": 463250946.89,
+      "id": 2320
+    },
+    {
+      "municipio": "Teresina",
+      "codigoMunicipio": "221100",
+      "relatorioId": 49,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 463250946.89,
+      "depois": 241340.92,
+      "id": 2321
+    },
+    {
+      "municipio": "Teresina",
+      "codigoMunicipio": "221100",
+      "relatorioId": 49,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 241340.92,
+      "depois": 80892361.66,
+      "id": 2324
+    },
+    {
+      "municipio": "União",
+      "codigoMunicipio": "221110",
+      "relatorioId": 105,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 20360356.04,
+      "depois": 44692.94,
+      "id": 5008
+    },
+    {
+      "municipio": "União",
+      "codigoMunicipio": "221110",
+      "relatorioId": 105,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 6678146.05,
+      "depois": 631445.46,
+      "id": 5009
+    },
+    {
+      "municipio": "Uruçuí",
+      "codigoMunicipio": "221120",
+      "relatorioId": 473,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 13573570.67,
+      "depois": 32012559.03,
+      "id": 22669
+    },
+    {
+      "municipio": "Uruçuí",
+      "codigoMunicipio": "221120",
+      "relatorioId": 473,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 32012559.03,
+      "depois": 779315.55,
+      "id": 22670
+    },
+    {
+      "municipio": "Uruçuí",
+      "codigoMunicipio": "221120",
+      "relatorioId": 473,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 779315.55,
+      "depois": 57268.539999999106,
+      "id": 22673
+    },
+    {
+      "municipio": "Valença do Piauí",
+      "codigoMunicipio": "221130",
+      "relatorioId": 261,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 13573570.67,
+      "depois": 3233105.21,
+      "id": 12495
+    },
+    {
+      "municipio": "Valença do Piauí",
+      "codigoMunicipio": "221130",
+      "relatorioId": 261,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 3233105.21,
+      "depois": 5175.76,
+      "id": 12496
+    },
+    {
+      "municipio": "Valença do Piauí",
+      "codigoMunicipio": "221130",
+      "relatorioId": 261,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 5175.76,
+      "depois": 495222.01000000164,
+      "id": 12499
+    },
+    {
+      "municipio": "Várzea Branca",
+      "codigoMunicipio": "221135",
+      "relatorioId": 411,
+      "tipo": "COTA_PARTE_ICMS",
+      "antes": 6786785.36,
+      "depois": 379933.33,
+      "id": 19693
+    },
+    {
+      "municipio": "Várzea Branca",
+      "codigoMunicipio": "221135",
+      "relatorioId": 411,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 379933.33,
+      "depois": 848.93,
+      "id": 19694
+    },
+    {
+      "municipio": "Várzea Branca",
+      "codigoMunicipio": "221135",
+      "relatorioId": 411,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 848.93,
+      "depois": 23913.739999999292,
+      "id": 19697
+    },
+    {
+      "municipio": "Várzea Grande",
+      "codigoMunicipio": "221140",
+      "relatorioId": 263,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.56,
+      "depois": 1293.35,
+      "id": 12592
+    },
+    {
+      "municipio": "Várzea Grande",
+      "codigoMunicipio": "221140",
+      "relatorioId": 263,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 372214.61,
+      "depois": 43365.39,
+      "id": 12593
+    },
+    {
+      "municipio": "Vera Mendes",
+      "codigoMunicipio": "221150",
+      "relatorioId": 307,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 1356.98,
+      "id": 14704
+    },
+    {
+      "municipio": "Vera Mendes",
+      "codigoMunicipio": "221150",
+      "relatorioId": 307,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 252101.99,
+      "depois": 37469.89,
+      "id": 14705
+    },
+    {
+      "municipio": "Vila Nova do Piauí",
+      "codigoMunicipio": "221160",
+      "relatorioId": 309,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 627.88,
+      "id": 14800
+    },
+    {
+      "municipio": "Vila Nova do Piauí",
+      "codigoMunicipio": "221160",
+      "relatorioId": 309,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 254228.13,
+      "depois": 57197.93,
+      "id": 14801
+    },
+    {
+      "municipio": "Wall Ferraz",
+      "codigoMunicipio": "221170",
+      "relatorioId": 375,
+      "tipo": "COTA_PARTE_ITR",
+      "antes": 6786785.36,
+      "depois": 574.06,
+      "id": 17966
+    },
+    {
+      "municipio": "Wall Ferraz",
+      "codigoMunicipio": "221170",
+      "relatorioId": 375,
+      "tipo": "COTA_PARTE_IPVA",
+      "antes": 323261.12,
+      "depois": 37153.56,
+      "id": 17967
+    }
+  ]
+}

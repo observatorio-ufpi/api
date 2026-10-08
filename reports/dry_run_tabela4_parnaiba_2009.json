@@ -1,0 +1,23 @@
+{
+  "geradoEm": "2026-10-07T01:38:11.724Z",
+  "modo": "DRY_RUN",
+  "fonte": "Tabelão corrigido (aba T4, fundo azul) - Parnaíba 2009",
+  "operacoes": 1,
+  "erros": [],
+  "plano": [
+    {
+      "municipio": "Parnaíba",
+      "ano": "2009",
+      "relatorioId": 61,
+      "tipo": "TOTAL_RECEITAS_ADICIONAIS_FINANCIAMENTO_ENSINO",
+      "operacao": "create",
+      "dados": {
+        "previsaoInicial": 0,
+        "previsaoAtualizada": 1914000,
+        "receitasRealizadaBimestre": 0,
+        "receitasRealizadaAteBimestre": 1741341.21,
+        "percentual": 0
+      }
+    }
+  ]
+}

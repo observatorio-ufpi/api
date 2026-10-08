@@ -1,0 +1,2308 @@
+{
+  "geradoEm": "2026-09-17T03:37:10.661Z",
+  "modo": "SOMENTE_LEITURA",
+  "resumo": {
+    "documentosAutomaticos": 287,
+    "ok": 287,
+    "divergentes": 0,
+    "ausentes": 0
+  },
+  "documentos": [
+    {
+      "fonte": "RREO_Municipal_Agricolândia_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220010",
+      "calculadoNoBanco": 2333003.76,
+      "valorCorretoRelatorio": 2333003.76,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Alagoinha do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220025",
+      "calculadoNoBanco": 2863655.2600000002,
+      "valorCorretoRelatorio": 2863655.26,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Alagoinha do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220025",
+      "calculadoNoBanco": 2902086.76,
+      "valorCorretoRelatorio": 2902086.76,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Alegrete do Piauí_1_2015.pdf.pdf",
+      "ano": "2015",
+      "codigoMunicipio": "220027",
+      "calculadoNoBanco": 2302809.7,
+      "valorCorretoRelatorio": 2302809.7,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Alegrete do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220027",
+      "calculadoNoBanco": 2278315.69,
+      "valorCorretoRelatorio": 2278315.69,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Alto Longá_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220030",
+      "calculadoNoBanco": 5044206.21,
+      "valorCorretoRelatorio": 5044206.21,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Angical do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220060",
+      "calculadoNoBanco": 2688711.83,
+      "valorCorretoRelatorio": 2688711.83,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Anísio de Abreu_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220070",
+      "calculadoNoBanco": 5276903.67,
+      "valorCorretoRelatorio": 5276903.67,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Aroazes_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220090",
+      "calculadoNoBanco": 1570459.63,
+      "valorCorretoRelatorio": 1570459.63,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Aroeiras do Itaim_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220095",
+      "calculadoNoBanco": 1326815.05,
+      "valorCorretoRelatorio": 1326815.05,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Avelino Lopes_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220110",
+      "calculadoNoBanco": 4771227.13,
+      "valorCorretoRelatorio": 4771227.13,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Baixa Grande do Ribeiro_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220115",
+      "calculadoNoBanco": 5845298.149999999,
+      "valorCorretoRelatorio": 5845298.15,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barra D'Alcântara_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220117",
+      "calculadoNoBanco": 2404536.6799999997,
+      "valorCorretoRelatorio": 2404536.68,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barra D'Alcântara_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220117",
+      "calculadoNoBanco": 2623618.71,
+      "valorCorretoRelatorio": 2623618.71,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barra D'Alcântara_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220117",
+      "calculadoNoBanco": 2726714.4499999997,
+      "valorCorretoRelatorio": 2726714.45,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barras_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220120",
+      "calculadoNoBanco": 27431315.81,
+      "valorCorretoRelatorio": 27431315.81,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barras_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220120",
+      "calculadoNoBanco": 29771016.6,
+      "valorCorretoRelatorio": 29771016.6,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barreiras do Piauí_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220130",
+      "calculadoNoBanco": 1085875.6500000001,
+      "valorCorretoRelatorio": 1085875.65,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barreiras do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220130",
+      "calculadoNoBanco": 1558210.4000000001,
+      "valorCorretoRelatorio": 1558210.4,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barreiras do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220130",
+      "calculadoNoBanco": 1621736.48,
+      "valorCorretoRelatorio": 1621736.48,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barreiras do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220130",
+      "calculadoNoBanco": 1799752.76,
+      "valorCorretoRelatorio": 1799752.76,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barreiras do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220130",
+      "calculadoNoBanco": 1668567.9899999998,
+      "valorCorretoRelatorio": 1668567.99,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barro Duro_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220140",
+      "calculadoNoBanco": 2676635.52,
+      "valorCorretoRelatorio": 2676635.52,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Barro Duro_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220140",
+      "calculadoNoBanco": 3703706.33,
+      "valorCorretoRelatorio": 3703706.33,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Batalha_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220150",
+      "calculadoNoBanco": 12350124.649999999,
+      "valorCorretoRelatorio": 12350124.65,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Belém do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220157",
+      "calculadoNoBanco": 2378969.81,
+      "valorCorretoRelatorio": 2378969.81,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Beneditinos_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220160",
+      "calculadoNoBanco": 6508867.359999999,
+      "valorCorretoRelatorio": 6508867.36,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Beneditinos_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220160",
+      "calculadoNoBanco": 7158984.39,
+      "valorCorretoRelatorio": 7158984.39,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Bertolínia_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220170",
+      "calculadoNoBanco": 2849384.1,
+      "valorCorretoRelatorio": 2849384.1,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Betânia do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220173",
+      "calculadoNoBanco": 3783858.23,
+      "valorCorretoRelatorio": 3783858.23,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Betânia do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220173",
+      "calculadoNoBanco": 4283973.58,
+      "valorCorretoRelatorio": 4283973.58,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Betânia do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220173",
+      "calculadoNoBanco": 4126863.73,
+      "valorCorretoRelatorio": 4126863.73,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Bom Jesus_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220190",
+      "calculadoNoBanco": 10895890.02,
+      "valorCorretoRelatorio": 10895890.02,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Bonfim do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220192",
+      "calculadoNoBanco": 3620630.28,
+      "valorCorretoRelatorio": 3620630.28,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Boqueirão do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220194",
+      "calculadoNoBanco": 4016783.1399999997,
+      "valorCorretoRelatorio": 4016783.14,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Boqueirão do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220194",
+      "calculadoNoBanco": 4341233.989999999,
+      "valorCorretoRelatorio": 4341233.99,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Brasileira_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220196",
+      "calculadoNoBanco": 2705406.1,
+      "valorCorretoRelatorio": 2705406.1,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Brejo do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220198",
+      "calculadoNoBanco": 2200232.58,
+      "valorCorretoRelatorio": 2200232.58,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Buriti dos Lopes_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220200",
+      "calculadoNoBanco": 10122379.26,
+      "valorCorretoRelatorio": 10122379.26,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Buriti dos Lopes_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220200",
+      "calculadoNoBanco": 11860746.51,
+      "valorCorretoRelatorio": 11860746.51,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Buriti dos Lopes_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220200",
+      "calculadoNoBanco": 10988029.110000001,
+      "valorCorretoRelatorio": 10988029.11,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Buriti dos Lopes_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220200",
+      "calculadoNoBanco": 12432901.26,
+      "valorCorretoRelatorio": 12432901.26,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Buriti dos Montes_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220202",
+      "calculadoNoBanco": 4653828.7299999995,
+      "valorCorretoRelatorio": 4653828.73,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cajueiro da Praia_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220208",
+      "calculadoNoBanco": 4714821.829999999,
+      "valorCorretoRelatorio": 4714821.83,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Campo Alegre do Fidalgo_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220211",
+      "calculadoNoBanco": 3742758.82,
+      "valorCorretoRelatorio": 3742758.82,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Campo Alegre do Fidalgo_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220211",
+      "calculadoNoBanco": 3926188.2,
+      "valorCorretoRelatorio": 3926188.2,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Campo Alegre do Fidalgo_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220211",
+      "calculadoNoBanco": 3876553.01,
+      "valorCorretoRelatorio": 3876553.01,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Campo Grande do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220213",
+      "calculadoNoBanco": 3122206.42,
+      "valorCorretoRelatorio": 3122206.42,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Campo Largo do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220217",
+      "calculadoNoBanco": 5265049.02,
+      "valorCorretoRelatorio": 5265049.02,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Campo Largo do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220217",
+      "calculadoNoBanco": 6067024.12,
+      "valorCorretoRelatorio": 6067024.12,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Campo Largo do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220217",
+      "calculadoNoBanco": 5483193.2,
+      "valorCorretoRelatorio": 5483193.2,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Campo Maior_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220220",
+      "calculadoNoBanco": 11334910.31,
+      "valorCorretoRelatorio": 11334910.31,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Canto do Buriti_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220230",
+      "calculadoNoBanco": 8262189.29,
+      "valorCorretoRelatorio": 8262189.29,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Canto do Buriti_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220230",
+      "calculadoNoBanco": 7142691.18,
+      "valorCorretoRelatorio": 7142691.18,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Canto do Buriti_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220230",
+      "calculadoNoBanco": 8187721.029999999,
+      "valorCorretoRelatorio": 8187721.03,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Capitão de Campos_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220240",
+      "calculadoNoBanco": 6143602.12,
+      "valorCorretoRelatorio": 6143602.12,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Capitão Gervásio Oliveira_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220245",
+      "calculadoNoBanco": 1535732.15,
+      "valorCorretoRelatorio": 1535732.15,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Capitão Gervásio Oliveira_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220245",
+      "calculadoNoBanco": 2469426.48,
+      "valorCorretoRelatorio": 2469426.48,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Capitão Gervásio Oliveira_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220245",
+      "calculadoNoBanco": 2252213.85,
+      "valorCorretoRelatorio": 2252213.85,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Capitão Gervásio Oliveira_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220245",
+      "calculadoNoBanco": 2103931.13,
+      "valorCorretoRelatorio": 2103931.13,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Caraúbas do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220253",
+      "calculadoNoBanco": 2978342.31,
+      "valorCorretoRelatorio": 2978342.31,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Caridade do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220255",
+      "calculadoNoBanco": 2235526.98,
+      "valorCorretoRelatorio": 2235526.98,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Caxingó_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220265",
+      "calculadoNoBanco": 2560460.57,
+      "valorCorretoRelatorio": 2560460.57,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Caxingó_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220265",
+      "calculadoNoBanco": 3888001.28,
+      "valorCorretoRelatorio": 3888001.28,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Caxingó_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220265",
+      "calculadoNoBanco": 4308875.78,
+      "valorCorretoRelatorio": 4308875.78,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cocal de Telha_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220271",
+      "calculadoNoBanco": 2502086.51,
+      "valorCorretoRelatorio": 2502086.51,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cocal de Telha_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220271",
+      "calculadoNoBanco": 2637444.92,
+      "valorCorretoRelatorio": 2637444.92,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cocal de Telha_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220271",
+      "calculadoNoBanco": 3315494.7700000005,
+      "valorCorretoRelatorio": 3315494.77,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cocal dos Alves_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220272",
+      "calculadoNoBanco": 2989036.0700000003,
+      "valorCorretoRelatorio": 2989036.07,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cocal dos Alves_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220272",
+      "calculadoNoBanco": 2821694.9,
+      "valorCorretoRelatorio": 2821694.9,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cocal dos Alves_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220272",
+      "calculadoNoBanco": 3395981.7199999997,
+      "valorCorretoRelatorio": 3395981.72,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cocal dos Alves_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220272",
+      "calculadoNoBanco": 3854854.6300000004,
+      "valorCorretoRelatorio": 3854854.63,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cocal_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220270",
+      "calculadoNoBanco": 15818516.75,
+      "valorCorretoRelatorio": 15818516.75,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Coivaras_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220273",
+      "calculadoNoBanco": 1888838.12,
+      "valorCorretoRelatorio": 1888838.12,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Coivaras_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220273",
+      "calculadoNoBanco": 2130269.6099999994,
+      "valorCorretoRelatorio": 2130269.61,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Colônia do Gurguéia_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220275",
+      "calculadoNoBanco": 3668310.66,
+      "valorCorretoRelatorio": 3668310.66,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Colônia do Gurguéia_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220275",
+      "calculadoNoBanco": 4038228.38,
+      "valorCorretoRelatorio": 4038228.38,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Conceição do Canindé_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220280",
+      "calculadoNoBanco": 1601143.6300000001,
+      "valorCorretoRelatorio": 1601143.63,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Conceição do Canindé_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220280",
+      "calculadoNoBanco": 2195903.4899999998,
+      "valorCorretoRelatorio": 2195903.49,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Coronel José Dias_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220285",
+      "calculadoNoBanco": 2403075.97,
+      "valorCorretoRelatorio": 2403075.97,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Coronel José Dias_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220285",
+      "calculadoNoBanco": 2317306.0300000003,
+      "valorCorretoRelatorio": 2317306.03,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Corrente_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220290",
+      "calculadoNoBanco": 13633330.91,
+      "valorCorretoRelatorio": 13633330.91,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cristino Castro_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220310",
+      "calculadoNoBanco": 4529927.33,
+      "valorCorretoRelatorio": 4529927.33,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Cristino Castro_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220310",
+      "calculadoNoBanco": 4969008.61,
+      "valorCorretoRelatorio": 4969008.61,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Curimatá_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220320",
+      "calculadoNoBanco": 3408229.8300000005,
+      "valorCorretoRelatorio": 3408229.83,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Curimatá_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220320",
+      "calculadoNoBanco": 5724177.63,
+      "valorCorretoRelatorio": 5724177.63,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Currais_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220323",
+      "calculadoNoBanco": 2463383.13,
+      "valorCorretoRelatorio": 2463383.13,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Curral Novo do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220327",
+      "calculadoNoBanco": 2531743.98,
+      "valorCorretoRelatorio": 2531743.98,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Demerval Lobão_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220330",
+      "calculadoNoBanco": 2568830.22,
+      "valorCorretoRelatorio": 2568830.22,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Demerval Lobão_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220330",
+      "calculadoNoBanco": 8455403.58,
+      "valorCorretoRelatorio": 8455403.58,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Dirceu Arcoverde_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220335",
+      "calculadoNoBanco": 4189058.42,
+      "valorCorretoRelatorio": 4189058.42,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Dirceu Arcoverde_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220335",
+      "calculadoNoBanco": 5014286.55,
+      "valorCorretoRelatorio": 5014286.55,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Dom Expedito Lopes_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220340",
+      "calculadoNoBanco": 2877019.98,
+      "valorCorretoRelatorio": 2877019.98,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Dom Expedito Lopes_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220340",
+      "calculadoNoBanco": 3254147.75,
+      "valorCorretoRelatorio": 3254147.75,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Dom Expedito Lopes_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220340",
+      "calculadoNoBanco": 3475926.65,
+      "valorCorretoRelatorio": 3475926.65,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Dom Expedito Lopes_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220340",
+      "calculadoNoBanco": 3674156.06,
+      "valorCorretoRelatorio": 3674156.06,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Elesbão Veloso_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220350",
+      "calculadoNoBanco": 5437743.49,
+      "valorCorretoRelatorio": 5437743.49,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Elesbão Veloso_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220350",
+      "calculadoNoBanco": 6624220.34,
+      "valorCorretoRelatorio": 6624220.34,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Elesbão Veloso_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220350",
+      "calculadoNoBanco": 6502838.72,
+      "valorCorretoRelatorio": 6502838.72,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Eliseu Martins_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220360",
+      "calculadoNoBanco": 1373999.4300000002,
+      "valorCorretoRelatorio": 1373999.43,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Eliseu Martins_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220360",
+      "calculadoNoBanco": 1995667.54,
+      "valorCorretoRelatorio": 1995667.54,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Esperantina_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220370",
+      "calculadoNoBanco": 17866739.01,
+      "valorCorretoRelatorio": 17866739.01,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Esperantina_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220370",
+      "calculadoNoBanco": 17375383.32,
+      "valorCorretoRelatorio": 17375383.32,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Esperantina_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220370",
+      "calculadoNoBanco": 17968421.8,
+      "valorCorretoRelatorio": 17968421.8,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Flores do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220380",
+      "calculadoNoBanco": 2247280.65,
+      "valorCorretoRelatorio": 2247280.65,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Flores do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220380",
+      "calculadoNoBanco": 2551103.19,
+      "valorCorretoRelatorio": 2551103.19,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Floresta do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220385",
+      "calculadoNoBanco": 1160398,
+      "valorCorretoRelatorio": 1160398,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Floriano_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220390",
+      "calculadoNoBanco": 18861744.97,
+      "valorCorretoRelatorio": 18861744.97,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Floriano_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220390",
+      "calculadoNoBanco": 21713121.35,
+      "valorCorretoRelatorio": 21713121.35,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Francisco Santos_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220420",
+      "calculadoNoBanco": 3387962.67,
+      "valorCorretoRelatorio": 3387962.67,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Fronteiras_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220430",
+      "calculadoNoBanco": 4129954.9,
+      "valorCorretoRelatorio": 4129954.9,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Fronteiras_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220430",
+      "calculadoNoBanco": 4665682.25,
+      "valorCorretoRelatorio": 4665682.25,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Geminiano_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220435",
+      "calculadoNoBanco": 2053112.4799999997,
+      "valorCorretoRelatorio": 2053112.48,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Gilbués_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220440",
+      "calculadoNoBanco": 4920031.829999999,
+      "valorCorretoRelatorio": 4920031.83,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Gilbués_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220440",
+      "calculadoNoBanco": 7472407.43,
+      "valorCorretoRelatorio": 7472407.43,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Guadalupe_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220450",
+      "calculadoNoBanco": 4413955.12,
+      "valorCorretoRelatorio": 4413955.12,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Guadalupe_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220450",
+      "calculadoNoBanco": 5070371.96,
+      "valorCorretoRelatorio": 5070371.96,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Guadalupe_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220450",
+      "calculadoNoBanco": 5698927.260000001,
+      "valorCorretoRelatorio": 5698927.26,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Hugo Napoleão_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220460",
+      "calculadoNoBanco": 1388034.43,
+      "valorCorretoRelatorio": 1388034.43,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Hugo Napoleão_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220460",
+      "calculadoNoBanco": 1619900.7,
+      "valorCorretoRelatorio": 1619900.7,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Inhuma_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220470",
+      "calculadoNoBanco": 5843280.44,
+      "valorCorretoRelatorio": 5843280.44,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Inhuma_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220470",
+      "calculadoNoBanco": 6380973.72,
+      "valorCorretoRelatorio": 6380973.72,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Inhuma_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220470",
+      "calculadoNoBanco": 6054374.5,
+      "valorCorretoRelatorio": 6054374.5,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Inhuma_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220470",
+      "calculadoNoBanco": 6112726.510000001,
+      "valorCorretoRelatorio": 6112726.51,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Ipiranga do Piauí_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220480",
+      "calculadoNoBanco": 3408851.52,
+      "valorCorretoRelatorio": 3408851.52,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Ipiranga do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220480",
+      "calculadoNoBanco": 3940115.41,
+      "valorCorretoRelatorio": 3940115.41,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Itaueira_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220510",
+      "calculadoNoBanco": 4413236.76,
+      "valorCorretoRelatorio": 4413236.76,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Itaueira_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220510",
+      "calculadoNoBanco": 4921325.45,
+      "valorCorretoRelatorio": 4921325.45,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Jacobina do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220515",
+      "calculadoNoBanco": 3471537.64,
+      "valorCorretoRelatorio": 3471537.64,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Jaicós_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220520",
+      "calculadoNoBanco": 5480434.109999999,
+      "valorCorretoRelatorio": 5480434.11,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Jaicós_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220520",
+      "calculadoNoBanco": 7116235.34,
+      "valorCorretoRelatorio": 7116235.34,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Jatobá do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220527",
+      "calculadoNoBanco": 2538065.27,
+      "valorCorretoRelatorio": 2538065.27,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Jatobá do Piauí_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220527",
+      "calculadoNoBanco": 2704737.06,
+      "valorCorretoRelatorio": 2704737.06,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Jatobá do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220527",
+      "calculadoNoBanco": 3732346.3600000003,
+      "valorCorretoRelatorio": 3732346.36,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Jatobá do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220527",
+      "calculadoNoBanco": 3709365.3,
+      "valorCorretoRelatorio": 3709365.3,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Joca Marques_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220545",
+      "calculadoNoBanco": 3241410.49,
+      "valorCorretoRelatorio": 3241410.49,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_José de Freitas_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220550",
+      "calculadoNoBanco": 18869727.21,
+      "valorCorretoRelatorio": 18869727.21,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_João Costa_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220535",
+      "calculadoNoBanco": 868178.74,
+      "valorCorretoRelatorio": 868178.74,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Juazeiro do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220551",
+      "calculadoNoBanco": 2512312.44,
+      "valorCorretoRelatorio": 2512312.44,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Juazeiro do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220551",
+      "calculadoNoBanco": 2833255.94,
+      "valorCorretoRelatorio": 2833255.94,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Juazeiro do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220551",
+      "calculadoNoBanco": 2920155.37,
+      "valorCorretoRelatorio": 2920155.37,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Juazeiro do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220551",
+      "calculadoNoBanco": 3005796.8899999997,
+      "valorCorretoRelatorio": 3005796.89,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Jurema_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220553",
+      "calculadoNoBanco": 2586210.75,
+      "valorCorretoRelatorio": 2586210.75,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Jurema_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220553",
+      "calculadoNoBanco": 3371451.9299999997,
+      "valorCorretoRelatorio": 3371451.93,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Lagoa de São Francisco_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220557",
+      "calculadoNoBanco": 4609492.840000001,
+      "valorCorretoRelatorio": 4609492.84,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Lagoa do Barro do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220556",
+      "calculadoNoBanco": 2053915.72,
+      "valorCorretoRelatorio": 2053915.72,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Lagoa do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220558",
+      "calculadoNoBanco": 1911942.04,
+      "valorCorretoRelatorio": 1911942.04,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Lagoa do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220558",
+      "calculadoNoBanco": 2563978.3000000003,
+      "valorCorretoRelatorio": 2563978.3,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Landri Sales_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220560",
+      "calculadoNoBanco": 2412190.82,
+      "valorCorretoRelatorio": 2412190.82,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Landri Sales_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220560",
+      "calculadoNoBanco": 1666464.23,
+      "valorCorretoRelatorio": 1666464.23,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Luzilândia_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220580",
+      "calculadoNoBanco": 12404282,
+      "valorCorretoRelatorio": 12404282,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Luzilândia_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220580",
+      "calculadoNoBanco": 13929851.68,
+      "valorCorretoRelatorio": 13929851.68,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Luís Correia_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220570",
+      "calculadoNoBanco": 14145571.78,
+      "valorCorretoRelatorio": 14145571.78,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Massapê do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220605",
+      "calculadoNoBanco": 3013594.33,
+      "valorCorretoRelatorio": 3013594.33,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Massapê do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220605",
+      "calculadoNoBanco": 3281562.0100000002,
+      "valorCorretoRelatorio": 3281562.01,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Matias Olímpio_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220610",
+      "calculadoNoBanco": 2710631.38,
+      "valorCorretoRelatorio": 2710631.38,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Miguel Alves_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220620",
+      "calculadoNoBanco": 18933203.560000002,
+      "valorCorretoRelatorio": 18933203.56,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Miguel Alves_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220620",
+      "calculadoNoBanco": 22945224.88,
+      "valorCorretoRelatorio": 22945224.88,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Miguel Leão_1_2015.pdf.pdf",
+      "ano": "2015",
+      "codigoMunicipio": "220630",
+      "calculadoNoBanco": 701571.49,
+      "valorCorretoRelatorio": 701571.49,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Miguel Leão_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220630",
+      "calculadoNoBanco": 732725.47,
+      "valorCorretoRelatorio": 732725.47,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Monsenhor Hipólito_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220650",
+      "calculadoNoBanco": 4776274.62,
+      "valorCorretoRelatorio": 4776274.62,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Monte Alegre do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220660",
+      "calculadoNoBanco": 7577539.600000001,
+      "valorCorretoRelatorio": 7577539.6,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Monte Alegre do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220660",
+      "calculadoNoBanco": 8136424.460000001,
+      "valorCorretoRelatorio": 8136424.46,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Monte Alegre do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220660",
+      "calculadoNoBanco": 9040741.09,
+      "valorCorretoRelatorio": 9040741.09,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Monte Alegre do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220660",
+      "calculadoNoBanco": 9798501.3,
+      "valorCorretoRelatorio": 9798501.3,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Morro Cabeça no Tempo_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220665",
+      "calculadoNoBanco": 2688056.26,
+      "valorCorretoRelatorio": 2688056.26,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Morro Cabeça no Tempo_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220665",
+      "calculadoNoBanco": 2661297.76,
+      "valorCorretoRelatorio": 2661297.76,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Murici dos Portelas_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220669",
+      "calculadoNoBanco": 4673115.1,
+      "valorCorretoRelatorio": 4673115.1,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Nazária_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220672",
+      "calculadoNoBanco": 6170545.02,
+      "valorCorretoRelatorio": 6170545.02,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Nazária_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220672",
+      "calculadoNoBanco": 6939637.29,
+      "valorCorretoRelatorio": 6939637.29,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Nossa Senhora dos Remédios_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220680",
+      "calculadoNoBanco": 7925997.180000001,
+      "valorCorretoRelatorio": 7925997.18,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Nova Santa Rita_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220795",
+      "calculadoNoBanco": 2251909.43,
+      "valorCorretoRelatorio": 2251909.43,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Novo Oriente do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220690",
+      "calculadoNoBanco": 1949102.54,
+      "valorCorretoRelatorio": 1949102.54,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Novo Oriente do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220690",
+      "calculadoNoBanco": 2246060.77,
+      "valorCorretoRelatorio": 2246060.77,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Novo Santo Antônio_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220695",
+      "calculadoNoBanco": 2028672.67,
+      "valorCorretoRelatorio": 2028672.67,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pajeú do Piauí_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220735",
+      "calculadoNoBanco": 1537965.87,
+      "valorCorretoRelatorio": 1537965.87,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pajeú do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220735",
+      "calculadoNoBanco": 1246718.44,
+      "valorCorretoRelatorio": 1246718.44,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Palmeirais_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220750",
+      "calculadoNoBanco": 4980491.45,
+      "valorCorretoRelatorio": 4980491.45,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Palmeirais_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220750",
+      "calculadoNoBanco": 5743942.659999999,
+      "valorCorretoRelatorio": 5743942.66,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Palmeirais_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220750",
+      "calculadoNoBanco": 8785871.14,
+      "valorCorretoRelatorio": 8785871.14,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Palmeirais_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220750",
+      "calculadoNoBanco": 9794435.62,
+      "valorCorretoRelatorio": 9794435.62,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Paquetá_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220755",
+      "calculadoNoBanco": 1991950.8499999999,
+      "valorCorretoRelatorio": 1991950.85,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Parnaguá_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220760",
+      "calculadoNoBanco": 7070644.7,
+      "valorCorretoRelatorio": 7070644.7,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Parnaíba_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220770",
+      "calculadoNoBanco": 45032242.3,
+      "valorCorretoRelatorio": 45032242.3,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Parnaíba_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220770",
+      "calculadoNoBanco": 52809858.78,
+      "valorCorretoRelatorio": 52809858.78,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Passagem Franca do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220775",
+      "calculadoNoBanco": 2384511.36,
+      "valorCorretoRelatorio": 2384511.36,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Passagem Franca do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220775",
+      "calculadoNoBanco": 2837207.4400000004,
+      "valorCorretoRelatorio": 2837207.44,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Patos do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220777",
+      "calculadoNoBanco": 2061238.92,
+      "valorCorretoRelatorio": 2061238.92,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Patos do Piauí_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220777",
+      "calculadoNoBanco": 2405024.77,
+      "valorCorretoRelatorio": 2405024.77,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Patos do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220777",
+      "calculadoNoBanco": 3068210.6800000006,
+      "valorCorretoRelatorio": 3068210.68,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Patos do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220777",
+      "calculadoNoBanco": 2921224.48,
+      "valorCorretoRelatorio": 2921224.48,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Patos do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220777",
+      "calculadoNoBanco": 3049573.38,
+      "valorCorretoRelatorio": 3049573.38,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pau D'Arco do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220779",
+      "calculadoNoBanco": 1856519.76,
+      "valorCorretoRelatorio": 1856519.76,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pau D'Arco do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220779",
+      "calculadoNoBanco": 1770443.41,
+      "valorCorretoRelatorio": 1770443.41,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Paulistana_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220780",
+      "calculadoNoBanco": 9882142.05,
+      "valorCorretoRelatorio": 9882142.05,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Paulistana_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220780",
+      "calculadoNoBanco": 10846515.87,
+      "valorCorretoRelatorio": 10846515.87,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Paulistana_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220780",
+      "calculadoNoBanco": 11484653.75,
+      "valorCorretoRelatorio": 11484653.75,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pavussu_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220785",
+      "calculadoNoBanco": 1488392.58,
+      "valorCorretoRelatorio": 1488392.58,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pedro Laurentino_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220793",
+      "calculadoNoBanco": 1001199.48,
+      "valorCorretoRelatorio": 1001199.48,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pedro Laurentino_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220793",
+      "calculadoNoBanco": 1125439.0899999999,
+      "valorCorretoRelatorio": 1125439.09,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pedro Laurentino_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220793",
+      "calculadoNoBanco": 1294535.65,
+      "valorCorretoRelatorio": 1294535.65,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pimenteiras_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220810",
+      "calculadoNoBanco": 4996450.01,
+      "valorCorretoRelatorio": 4996450.01,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pio IX_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220820",
+      "calculadoNoBanco": 7403470.5,
+      "valorCorretoRelatorio": 7403470.5,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Pio IX_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220820",
+      "calculadoNoBanco": 7811486.15,
+      "valorCorretoRelatorio": 7811486.15,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Piracuruca_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220830",
+      "calculadoNoBanco": 7694847.76,
+      "valorCorretoRelatorio": 7694847.76,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Piracuruca_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220830",
+      "calculadoNoBanco": 11853523.77,
+      "valorCorretoRelatorio": 11853523.77,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Piripiri_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220840",
+      "calculadoNoBanco": 14815661.69,
+      "valorCorretoRelatorio": 14815661.69,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Piripiri_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220840",
+      "calculadoNoBanco": 22924303.78,
+      "valorCorretoRelatorio": 22924303.78,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Piripiri_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220840",
+      "calculadoNoBanco": 26114933.06,
+      "valorCorretoRelatorio": 26114933.06,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Porto Alegre do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220855",
+      "calculadoNoBanco": 1237285.94,
+      "valorCorretoRelatorio": 1237285.94,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Porto_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220850",
+      "calculadoNoBanco": 5738728.850000001,
+      "valorCorretoRelatorio": 5738728.85,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Porto_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220850",
+      "calculadoNoBanco": 7295263.45,
+      "valorCorretoRelatorio": 7295263.45,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Porto_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220850",
+      "calculadoNoBanco": 6549939.74,
+      "valorCorretoRelatorio": 6549939.74,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Porto_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220850",
+      "calculadoNoBanco": 8112229.86,
+      "valorCorretoRelatorio": 8112229.86,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Porto_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220850",
+      "calculadoNoBanco": 8601748.799999999,
+      "valorCorretoRelatorio": 8601748.8,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Prata do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220860",
+      "calculadoNoBanco": 1174147,
+      "valorCorretoRelatorio": 1174147,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Queimada Nova_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220865",
+      "calculadoNoBanco": 3428887.56,
+      "valorCorretoRelatorio": 3428887.56,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Queimada Nova_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220865",
+      "calculadoNoBanco": 3543781.1,
+      "valorCorretoRelatorio": 3543781.1,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Queimada Nova_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220865",
+      "calculadoNoBanco": 4138934.3899999997,
+      "valorCorretoRelatorio": 4138934.39,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Regeneração_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220880",
+      "calculadoNoBanco": 8684966.1,
+      "valorCorretoRelatorio": 8684966.1,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Riacho Frio_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220885",
+      "calculadoNoBanco": 1764255,
+      "valorCorretoRelatorio": 1764255,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Riacho Frio_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220885",
+      "calculadoNoBanco": 3339461.36,
+      "valorCorretoRelatorio": 3339461.36,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Riacho Frio_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220885",
+      "calculadoNoBanco": 3699852.85,
+      "valorCorretoRelatorio": 3699852.85,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Ribeira do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220887",
+      "calculadoNoBanco": 2496095.26,
+      "valorCorretoRelatorio": 2496095.26,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Ribeira do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220887",
+      "calculadoNoBanco": 3113954.07,
+      "valorCorretoRelatorio": 3113954.07,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Ribeiro Gonçalves_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220890",
+      "calculadoNoBanco": 3206093.49,
+      "valorCorretoRelatorio": 3206093.49,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Ribeiro Gonçalves_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220890",
+      "calculadoNoBanco": 3587110.1,
+      "valorCorretoRelatorio": 3587110.1,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Rio Grande do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220900",
+      "calculadoNoBanco": 2368401.98,
+      "valorCorretoRelatorio": 2368401.98,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Rio Grande do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220900",
+      "calculadoNoBanco": 2459854.73,
+      "valorCorretoRelatorio": 2459854.73,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Santa Cruz dos Milagres_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220915",
+      "calculadoNoBanco": 1718550.14,
+      "valorCorretoRelatorio": 1718550.14,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Santa Rosa do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220937",
+      "calculadoNoBanco": 1503621.77,
+      "valorCorretoRelatorio": 1503621.77,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Santana do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220935",
+      "calculadoNoBanco": 2180406.67,
+      "valorCorretoRelatorio": 2180406.67,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Santana do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220935",
+      "calculadoNoBanco": 2815848.6599999997,
+      "valorCorretoRelatorio": 2815848.66,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Santana do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220935",
+      "calculadoNoBanco": 3028900.8499999996,
+      "valorCorretoRelatorio": 3028900.85,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Santo Antônio de Lisboa_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220940",
+      "calculadoNoBanco": 1351703.59,
+      "valorCorretoRelatorio": 1351703.59,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Santo Antônio dos Milagres_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220945",
+      "calculadoNoBanco": 1016405.52,
+      "valorCorretoRelatorio": 1016405.52,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Sebastião Barros_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221062",
+      "calculadoNoBanco": 2528730.12,
+      "valorCorretoRelatorio": 2528730.12,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Sebastião Barros_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "221062",
+      "calculadoNoBanco": 3276879.8600000003,
+      "valorCorretoRelatorio": 3276879.86,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Sebastião Leal_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221063",
+      "calculadoNoBanco": 1776160.63,
+      "valorCorretoRelatorio": 1776160.63,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Sigefredo Pacheco_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221065",
+      "calculadoNoBanco": 4537285.86,
+      "valorCorretoRelatorio": 4537285.86,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Simplício Mendes_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221080",
+      "calculadoNoBanco": 5170662.62,
+      "valorCorretoRelatorio": 5170662.62,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Francisco do Piauí_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220970",
+      "calculadoNoBanco": 4114718.06,
+      "valorCorretoRelatorio": 4114718.06,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Félix do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220960",
+      "calculadoNoBanco": 1595208.27,
+      "valorCorretoRelatorio": 1595208.27,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Félix do Piauí_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220960",
+      "calculadoNoBanco": 1423723.78,
+      "valorCorretoRelatorio": 1423723.78,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Gonçalo do Gurguéia_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220975",
+      "calculadoNoBanco": 1478647.77,
+      "valorCorretoRelatorio": 1478647.77,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Gonçalo do Gurguéia_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "220975",
+      "calculadoNoBanco": 1675851.01,
+      "valorCorretoRelatorio": 1675851.01,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Gonçalo do Gurguéia_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220975",
+      "calculadoNoBanco": 1932387.01,
+      "valorCorretoRelatorio": 1932387.01,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Gonçalo do Gurguéia_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220975",
+      "calculadoNoBanco": 1982207.0199999998,
+      "valorCorretoRelatorio": 1982207.02,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São José do Divino_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "221005",
+      "calculadoNoBanco": 2117971.2,
+      "valorCorretoRelatorio": 2117971.2,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São José do Peixe_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "221010",
+      "calculadoNoBanco": 2381582.77,
+      "valorCorretoRelatorio": 2381582.77,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São José do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "221020",
+      "calculadoNoBanco": 1702611.59,
+      "valorCorretoRelatorio": 1702611.59,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São José do Piauí_1_2014.pdf.pdf",
+      "ano": "2014",
+      "codigoMunicipio": "221020",
+      "calculadoNoBanco": 1906863.28,
+      "valorCorretoRelatorio": 1906863.28,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São João da Fronteira_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220987",
+      "calculadoNoBanco": 3732835.42,
+      "valorCorretoRelatorio": 3732835.42,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São João da Serra_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220990",
+      "calculadoNoBanco": 1256766.5,
+      "valorCorretoRelatorio": 1256766.5,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São João da Serra_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "220990",
+      "calculadoNoBanco": 2778485.0600000005,
+      "valorCorretoRelatorio": 2778485.06,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São João da Serra_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220990",
+      "calculadoNoBanco": 2603727.71,
+      "valorCorretoRelatorio": 2603727.71,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São João do Arraial_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220997",
+      "calculadoNoBanco": 5616951.5,
+      "valorCorretoRelatorio": 5616951.5,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São João do Arraial_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "220997",
+      "calculadoNoBanco": 5804294.71,
+      "valorCorretoRelatorio": 5804294.71,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São João do Arraial_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "220997",
+      "calculadoNoBanco": 7278345.3,
+      "valorCorretoRelatorio": 7278345.3,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São João do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "221000",
+      "calculadoNoBanco": 8341783.99,
+      "valorCorretoRelatorio": 8341783.99,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Julião_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "221030",
+      "calculadoNoBanco": 2442712.71,
+      "valorCorretoRelatorio": 2442712.71,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Lourenço do Piauí_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "221035",
+      "calculadoNoBanco": 3405805.66,
+      "valorCorretoRelatorio": 3405805.66,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Luis do Piauí_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "221037",
+      "calculadoNoBanco": 895494.56,
+      "valorCorretoRelatorio": 895494.56,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Miguel do Tapuio_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "221040",
+      "calculadoNoBanco": 9714434.44,
+      "valorCorretoRelatorio": 9714434.44,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Pedro do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221050",
+      "calculadoNoBanco": 6350478.180000001,
+      "valorCorretoRelatorio": 6350478.18,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Raimundo Nonato_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "221060",
+      "calculadoNoBanco": 6678922.17,
+      "valorCorretoRelatorio": 6678922.17,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Raimundo Nonato_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "221060",
+      "calculadoNoBanco": 11753614.16,
+      "valorCorretoRelatorio": 11753614.16,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_São Raimundo Nonato_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221060",
+      "calculadoNoBanco": 10995016.15,
+      "valorCorretoRelatorio": 10995016.15,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Tamboril do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221095",
+      "calculadoNoBanco": 1810169.69,
+      "valorCorretoRelatorio": 1810169.69,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Tamboril do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "221095",
+      "calculadoNoBanco": 1849059.06,
+      "valorCorretoRelatorio": 1849059.06,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Tanque do Piauí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "221097",
+      "calculadoNoBanco": 1781750.7,
+      "valorCorretoRelatorio": 1781750.7,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Teresina_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "221100",
+      "calculadoNoBanco": 253878851.25,
+      "valorCorretoRelatorio": 253878851.25,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_União_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221110",
+      "calculadoNoBanco": 23556348.16,
+      "valorCorretoRelatorio": 23556348.16,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_União_6_2019.pdf.pdf",
+      "ano": "2019",
+      "codigoMunicipio": "221110",
+      "calculadoNoBanco": 24834936.81,
+      "valorCorretoRelatorio": 24834936.81,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Uruçuí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221120",
+      "calculadoNoBanco": 9736645.610000001,
+      "valorCorretoRelatorio": 9736645.61,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Uruçuí_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "221120",
+      "calculadoNoBanco": 10644357.14,
+      "valorCorretoRelatorio": 10644357.14,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Valença do Piauí_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "221130",
+      "calculadoNoBanco": 9034886.92,
+      "valorCorretoRelatorio": 9034886.92,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Valença do Piauí_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221130",
+      "calculadoNoBanco": 8345774.11,
+      "valorCorretoRelatorio": 8345774.11,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Vera Mendes_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "221150",
+      "calculadoNoBanco": 2379298.06,
+      "valorCorretoRelatorio": 2379298.06,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Várzea Branca_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "221135",
+      "calculadoNoBanco": 2935911.38,
+      "valorCorretoRelatorio": 2935911.38,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Várzea Grande_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "221140",
+      "calculadoNoBanco": 1462095.4100000001,
+      "valorCorretoRelatorio": 1462095.41,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Várzea Grande_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "221140",
+      "calculadoNoBanco": 2572925.91,
+      "valorCorretoRelatorio": 2572925.91,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Wall Ferraz_6_2018.pdf.pdf",
+      "ano": "2018",
+      "codigoMunicipio": "221170",
+      "calculadoNoBanco": 1745075.88,
+      "valorCorretoRelatorio": 1745075.88,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Wall Ferraz_6_2020.pdf.pdf",
+      "ano": "2020",
+      "codigoMunicipio": "221170",
+      "calculadoNoBanco": 1817427.0499999998,
+      "valorCorretoRelatorio": 1817427.05,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Água Branca_1_2013.pdf.pdf",
+      "ano": "2013",
+      "codigoMunicipio": "220020",
+      "calculadoNoBanco": 4338044.63,
+      "valorCorretoRelatorio": 4338044.63,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Água Branca_1_2016.pdf.pdf",
+      "ano": "2016",
+      "codigoMunicipio": "220020",
+      "calculadoNoBanco": 6950303.51,
+      "valorCorretoRelatorio": 6950303.51,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Água Branca_6_2017.pdf.pdf",
+      "ano": "2017",
+      "codigoMunicipio": "220020",
+      "calculadoNoBanco": 6880528.49,
+      "valorCorretoRelatorio": 6880528.49,
+      "status": "OK"
+    }
+  ]
+}

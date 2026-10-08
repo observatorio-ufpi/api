@@ -1,0 +1,82 @@
+{
+  "geradoEm": "2026-10-07T01:53:10.228Z",
+  "modo": "DRY_RUN",
+  "fonte": "PDF conferido visualmente (3 casos de coluna especial 2020, Tabela 8)",
+  "operacoes": 6,
+  "casos": [
+    {
+      "municipio": "Nazaré do Piauí",
+      "valorTabela8Esperado": 5256120.49
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "valorTabela8Esperado": 2366661.88
+    },
+    {
+      "municipio": "Porto",
+      "valorTabela8Esperado": 9430435.99
+    }
+  ],
+  "plano": [
+    {
+      "municipio": "Nazaré do Piauí",
+      "tabela": "despesa1920",
+      "id": 11929,
+      "dados": {
+        "despesasEmpenhadasAteBimestre": 5378673.92,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 5378673.92,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazaré do Piauí",
+      "tabela": "deducoesFinsLimiteFundeb1920",
+      "id": 2986,
+      "dados": {
+        "valor": 122553.43
+      },
+      "obs": "17.1"
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "tabela": "despesa1920",
+      "id": 6945,
+      "dados": {
+        "despesasEmpenhadasAteBimestre": 2367023.08,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 2367023.08,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piauí",
+      "tabela": "deducoesFinsLimiteFundeb1920",
+      "id": 1740,
+      "dados": {
+        "valor": 361.2
+      },
+      "obs": "17.1"
+    },
+    {
+      "municipio": "Porto",
+      "tabela": "despesa1920",
+      "id": 3977,
+      "dados": {
+        "despesasEmpenhadasAteBimestre": 9877389.62,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 9877389.62,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "tabela": "deducoesFinsLimiteFundeb1920",
+      "id": 995,
+      "dados": {
+        "valor": 446953.63
+      },
+      "obs": "16.1"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "geradoEm": "2026-10-06T21:28:42.050Z",
+  "modo": "SOMENTE_LEITURA",
+  "comparacao": "valorTabela8Validado (valor do PDF, nao do relatorio oficial)",
+  "resumo": {
+    "documentosAutomaticos": 7,
+    "ok": 7,
+    "divergentes": 0,
+    "ausentes": 0
+  },
+  "documentos": [
+    {
+      "fonte": "RREO_Municipal_Morro do Chapéu do Piauí_6_2017.pdf.pdf (PDF correto fornecido em 2026-10-06)",
+      "ano": "2017",
+      "codigoMunicipio": "220667",
+      "calculadoNoBanco": 3877590.8600000003,
+      "valorTabela8Validado": 3877590.86,
+      "valorCorretoRelatorio": 3877590.86,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Morro do Chapéu do Piauí_6_2019.pdf.pdf (PDF correto fornecido em 2026-10-06)",
+      "ano": "2019",
+      "codigoMunicipio": "220667",
+      "calculadoNoBanco": 4797779.649999999,
+      "valorTabela8Validado": 4797779.65,
+      "valorCorretoRelatorio": 4797779.65,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Morro do Chapéu do Piauí_1_2013.pdf.pdf (conteudo real: Nazaré do Piauí, arquivo renomeado para a identidade correta)",
+      "ano": "2013",
+      "codigoMunicipio": "220670",
+      "calculadoNoBanco": 2603454.35,
+      "valorTabela8Validado": 2603454.35,
+      "valorCorretoRelatorio": 2603454.35,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Morro do Chapéu do Piauí_6_2017.pdf.pdf [arquivo] (conteudo real: Nazaré do Piauí, arquivo renomeado para a identidade correta)",
+      "ano": "2017",
+      "codigoMunicipio": "220670",
+      "calculadoNoBanco": 4430737.5600000005,
+      "valorTabela8Validado": 4430737.56,
+      "valorCorretoRelatorio": 4430737.56,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Morro do Chapéu do Piauí_6_2019.pdf.pdf [arquivo] (conteudo real: Nazaré do Piauí, arquivo renomeado para a identidade correta)",
+      "ano": "2019",
+      "codigoMunicipio": "220670",
+      "calculadoNoBanco": 4648436.529999999,
+      "valorTabela8Validado": 4648436.53,
+      "valorCorretoRelatorio": 4648436.53,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Nazaré do Piauí_6_2018.pdf.pdf [arquivo] (conteudo real: Nossa Senhora de Nazaré, arquivo renomeado para a identidade correta)",
+      "ano": "2018",
+      "codigoMunicipio": "220675",
+      "calculadoNoBanco": 3299760.79,
+      "valorTabela8Validado": 3299760.79,
+      "valorCorretoRelatorio": 3299760.83,
+      "status": "OK"
+    },
+    {
+      "fonte": "RREO_Municipal_Nazaré do Piauí_6_2019.pdf.pdf [arquivo] (conteudo real: Nossa Senhora de Nazaré, arquivo renomeado para a identidade correta)",
+      "ano": "2019",
+      "codigoMunicipio": "220675",
+      "calculadoNoBanco": 3079009.2100000004,
+      "valorTabela8Validado": 3079009.21,
+      "valorCorretoRelatorio": 3079009.21,
+      "status": "OK"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "geradoEm": "2026-10-07T13:34:01.344Z",
+  "antes": {
+    "id": 28418,
+    "tipo": "VALOR_MINIMO_A_SER_APLICADO_ALEM_DO_VALOR_DESTINADO_AO_FUNDEB",
+    "previsaoAtualizada": 0,
+    "receitasRealizadasAteBimestre": 154222.92,
+    "relatorioMunicialId": 231
+  },
+  "depois": {
+    "id": 28418,
+    "tipo": "VALOR_MINIMO_A_SER_APLICADO_ALEM_DO_VALOR_DESTINADO_AO_FUNDEB",
+    "previsaoAtualizada": 1100391.09,
+    "receitasRealizadasAteBimestre": 1154222.92,
+    "relatorioMunicialId": 231
+  }
+}
