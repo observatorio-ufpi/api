@@ -63,6 +63,7 @@ services:
       - PORT=3003
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@observatorio_container:5432/${POSTGRES_DB}
       - DATABASE_URL_EDUCACAO=postgresql://${POSTGRES_EDUCACAO_USER}:${POSTGRES_EDUCACAO_PASSWORD}@observatorio_educacao_container:5432/${POSTGRES_EDUCACAO_DB}
+      - DATABASE_URL_EDUCACAO_V2=postgresql://${POSTGRES_EDUCACAO_USER}:${POSTGRES_EDUCACAO_PASSWORD}@observatorio_educacao_container:5432/${POSTGRES_EDUCACAO_DB}?schema=educacao_v2
     depends_on:
       database:
         condition: service_healthy
