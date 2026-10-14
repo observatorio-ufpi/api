@@ -96,6 +96,7 @@ model FatoEducacao {
     @@index([referencia, dims, ano])
     @@index([indicador, ano, localidade_id])
     @@index([indicador, dims_canonico, ano])
+    @@index([indicador, dims_canonico, ano, localidade_id])
     @@index([valor_dim1_id])
     @@index([valor_dim2_id])
     @@index([localidade_id])

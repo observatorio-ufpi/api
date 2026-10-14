@@ -3,6 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import {
   findSerieComposta,
   findSerieQuebrada,
@@ -42,6 +43,14 @@ export interface DadoFato {
  * consulta. Reconstruído de referencia + dims originais, conforme o README:
  * <raiz 1D|2D>/<referencia>/<ano>/<pasta da dimensão>/<ibge>_<MUNICIPIO>.json
  */
+interface CatalogoGrupo {
+  indicador: string;
+  dims_canonico: string;
+  anoMin: number;
+  anoMax: number;
+  fatos: number;
+}
+
 export interface FonteDataset {
   tipo: '1D' | '2D';
   referencia: string;
@@ -58,10 +67,17 @@ const RAIZ_1D = 'datasets/dados_educacionais_basicos';
 const RAIZ_2D =
   'datasets/dados_educacionais_basicos_microdados (2)/dados_educacionais_basicos_microdados';
 
-const LIMITE_PADRAO = 20000;
+const LIMITE_DETALHE = 50000;
+const TOP_ESCOLAS = 50;
+const CATALOGO_TTL_MS = 6 * 60 * 60 * 1000;
 
 @Injectable()
 export class EducacaoV2Service {
+  private catalogoCache = new Map<
+    string,
+    { expira: number; grupos: CatalogoGrupo[] }
+  >();
+
   constructor(private readonly prisma: PrismaEducacaoV2Service) {}
 
   getIndicadores() {
@@ -76,26 +92,20 @@ export class EducacaoV2Service {
     }
 
     const [grupos, nomesCanonicos] = await Promise.all([
-      this.prisma.fatoEducacao.groupBy({
-        by: ['indicador', 'dims_canonico'],
-        where: indicador ? { indicador } : {},
-        _min: { ano: true },
-        _max: { ano: true },
-        _count: { _all: true },
-      }),
+      this.gruposCatalogo(indicador),
       this.nomesDimensoesCanonicas(),
     ]);
 
-    const recortes = grupos.map((g: any) => {
+    const recortes = grupos.map((g) => {
       const dims = this.splitDims(g.dims_canonico, nomesCanonicos);
       return {
         indicador: g.indicador,
         recorte: g.dims_canonico,
         label: dims.map(labelDimensao).join(' × '),
         dimensoes: dims.map((d) => ({ nome: d, label: labelDimensao(d) })),
-        anoMin: g._min.ano,
-        anoMax: g._max.ano,
-        fatos: g._count._all,
+        anoMin: g.anoMin,
+        anoMax: g.anoMax,
+        fatos: g.fatos,
         tipoSerie: 'continua' as const,
       };
     });
@@ -247,7 +257,10 @@ export class EducacaoV2Service {
   }
 
   private async getFatosContinua(params: FatosParams) {
-    const { dados, fontes } = await this.buscarFatos(params.recorte, params);
+    const { dados, fontes, nota } = await this.buscarFatos(
+      params.recorte,
+      params,
+    );
 
     return {
       meta: {
@@ -256,6 +269,7 @@ export class EducacaoV2Service {
         tipoSerie: 'continua',
         agregado: !!params.agregar,
         fontes,
+        ...(nota ? { nota } : {}),
       },
       dados: this.posProcessar(dados, params),
     };
@@ -377,109 +391,217 @@ export class EducacaoV2Service {
   // --------------------------------------------------------------- auxiliares
 
   /**
-   * Busca fatos crus de um dims_canonico e converte para o formato da API.
-   * Também agrega a proveniência (fontes): de quais diretórios do dataset
-   * (referencia + dims originais) vieram os fatos retornados.
+   * Consulta fatos via SQL agregado. Com agregar=true (Piauí / grupo
+   * territorial) o SUM acontece no banco — não materializa uma linha por
+   * município. Proveniência sai de um GROUP BY referencia/dims à parte.
    */
   private async buscarFatos(
     dimsCanonico: string,
     params: FatosParams,
-  ): Promise<{ dados: DadoFato[]; fontes: FonteDataset[] }> {
-    const where: any = {
-      indicador: params.indicador,
-      dims_canonico: dimsCanonico,
-    };
+  ): Promise<{ dados: DadoFato[]; fontes: FonteDataset[]; nota?: string }> {
+    const anoInicio = params.anoInicio ?? 2007;
+    const anoFim = params.anoFim ?? 2024;
+    const localidadeIds = this.parseLocalidades(params.localidades);
+    const agregar = !!params.agregar;
+    const filtro = this.sqlFiltro(params.indicador, dimsCanonico, anoInicio, anoFim, localidadeIds);
 
-    if (params.anoInicio || params.anoFim) {
-      where.ano = {};
-      if (params.anoInicio) where.ano.gte = params.anoInicio;
-      if (params.anoFim) where.ano.lte = params.anoFim;
+    const [rows, fontesAgg, nomesCanonicos] = await Promise.all([
+      agregar
+        ? this.consultarAgregado(filtro)
+        : this.consultarDetalhe(filtro, params.limite ?? LIMITE_DETALHE),
+      this.consultarFontes(filtro),
+      this.nomesDimensoesCanonicas(),
+    ]);
+
+    let dados = rows.map((r) => this.rowParaDado(r, agregar));
+    let nota: string | undefined;
+
+    const dims = this.splitDims(dimsCanonico, nomesCanonicos);
+    const municipioUnico = localidadeIds.length === 1 && !agregar;
+    if (dims.includes('school') && !municipioUnico) {
+      const { dados: cortados, removidas } = this.topEscolas(dados, dims);
+      dados = cortados;
+      if (removidas > 0) {
+        nota =
+          `Recorte por escola sem município específico: exibindo as ${TOP_ESCOLAS} ` +
+          `escolas de maior total (${removidas} omitidas). Selecione um município ` +
+          `para ver a lista completa.`;
+      }
     }
 
-    const localidadeIds = (params.localidades || '')
+    return {
+      dados,
+      fontes: await this.montarFontes(fontesAgg),
+      nota,
+    };
+  }
+
+  private parseLocalidades(localidades?: string): number[] {
+    return (localidades || '')
       .split(',')
       .map((s) => parseInt(s.trim(), 10))
       .filter((n) => !isNaN(n));
+  }
 
-    if (localidadeIds.length) {
-      where.localidade_id = { in: localidadeIds };
+  private sqlFiltro(
+    indicador: string,
+    dimsCanonico: string,
+    anoInicio: number,
+    anoFim: number,
+    localidadeIds: number[],
+  ): Prisma.Sql {
+    const loc = localidadeIds.length
+      ? Prisma.sql`AND f.localidade_id IN (${Prisma.join(localidadeIds)})`
+      : Prisma.empty;
+    return Prisma.sql`
+      f.indicador = ${indicador}
+      AND f.dims_canonico = ${dimsCanonico}
+      AND f.ano >= ${anoInicio} AND f.ano <= ${anoFim}
+      ${loc}
+    `;
+  }
+
+  private async consultarAgregado(filtro: Prisma.Sql): Promise<any[]> {
+    return this.prisma.$queryRaw(Prisma.sql`
+      SELECT f.ano,
+             COALESCE(cv1.nome, v1.nome) AS dim1_valor,
+             COALESCE(d1.nome_canonico, d1.nome) AS dim1_nome,
+             CASE WHEN f.valor_dim2_id = 0 THEN NULL
+                  ELSE COALESCE(cv2.nome, v2.nome) END AS dim2_valor,
+             CASE WHEN f.valor_dim2_id = 0 THEN NULL
+                  ELSE COALESCE(d2.nome_canonico, d2.nome) END AS dim2_nome,
+             SUM(f.total)::float AS total
+      FROM educacao_v2."FatoEducacao" f
+      JOIN educacao_v2."ValorDimensao" v1 ON v1.id = f.valor_dim1_id
+      JOIN educacao_v2."Dimensao" d1 ON d1.id = v1.dimensao_id
+      LEFT JOIN educacao_v2."ValorDimensao" cv1 ON cv1.id = v1.valor_canonico_id
+      LEFT JOIN educacao_v2."ValorDimensao" v2 ON v2.id = f.valor_dim2_id
+      LEFT JOIN educacao_v2."Dimensao" d2 ON d2.id = v2.dimensao_id
+      LEFT JOIN educacao_v2."ValorDimensao" cv2 ON cv2.id = v2.valor_canonico_id
+      WHERE ${filtro}
+      GROUP BY 1, 2, 3, 4, 5
+    `);
+  }
+
+  private async consultarDetalhe(
+    filtro: Prisma.Sql,
+    limite: number,
+  ): Promise<any[]> {
+    return this.prisma.$queryRaw(Prisma.sql`
+      SELECT f.ano,
+             l.id AS loc_id, l.codigo_ibge AS loc_ibge, l.nome AS loc_nome,
+             COALESCE(cv1.nome, v1.nome) AS dim1_valor,
+             COALESCE(d1.nome_canonico, d1.nome) AS dim1_nome,
+             CASE WHEN f.valor_dim2_id = 0 THEN NULL
+                  ELSE COALESCE(cv2.nome, v2.nome) END AS dim2_valor,
+             CASE WHEN f.valor_dim2_id = 0 THEN NULL
+                  ELSE COALESCE(d2.nome_canonico, d2.nome) END AS dim2_nome,
+             f.total::float AS total
+      FROM educacao_v2."FatoEducacao" f
+      JOIN educacao_v2."Localidade" l ON l.id = f.localidade_id
+      JOIN educacao_v2."ValorDimensao" v1 ON v1.id = f.valor_dim1_id
+      JOIN educacao_v2."Dimensao" d1 ON d1.id = v1.dimensao_id
+      LEFT JOIN educacao_v2."ValorDimensao" cv1 ON cv1.id = v1.valor_canonico_id
+      LEFT JOIN educacao_v2."ValorDimensao" v2 ON v2.id = f.valor_dim2_id
+      LEFT JOIN educacao_v2."Dimensao" d2 ON d2.id = v2.dimensao_id
+      LEFT JOIN educacao_v2."ValorDimensao" cv2 ON cv2.id = v2.valor_canonico_id
+      WHERE ${filtro}
+      ORDER BY f.ano, l.nome
+      LIMIT ${limite}
+    `);
+  }
+
+  private async consultarFontes(filtro: Prisma.Sql): Promise<any[]> {
+    return this.prisma.$queryRaw(Prisma.sql`
+      SELECT f.referencia, f.dims,
+             MIN(f.ano)::int AS "anoMin",
+             MAX(f.ano)::int AS "anoMax",
+             COUNT(*)::int AS fatos
+      FROM educacao_v2."FatoEducacao" f
+      WHERE ${filtro}
+      GROUP BY f.referencia, f.dims
+    `);
+  }
+
+  private rowParaDado(r: any, agregar: boolean): DadoFato {
+    const dado: DadoFato = {
+      ano: Number(r.ano),
+      dim1: {
+        dimensao: r.dim1_nome,
+        label: labelDimensao(r.dim1_nome),
+        valor: r.dim1_valor,
+      },
+      total: Number(r.total),
+    };
+    if (!agregar && r.loc_id != null) {
+      dado.localidade = {
+        id: Number(r.loc_id),
+        codigoIbge: r.loc_ibge,
+        nome: r.loc_nome,
+      };
+    }
+    if (r.dim2_valor != null) {
+      dado.dim2 = {
+        dimensao: r.dim2_nome,
+        label: labelDimensao(r.dim2_nome),
+        valor: r.dim2_valor,
+      };
+    }
+    return dado;
+  }
+
+  /** Mantém as N escolas de maior total; o resto é omitido. */
+  private topEscolas(
+    dados: DadoFato[],
+    dims: string[],
+  ): { dados: DadoFato[]; removidas: number } {
+    const schoolEhDim2 = dims[1] === 'school';
+    const chave = (d: DadoFato) =>
+      schoolEhDim2 ? (d.dim2?.valor ?? '') : d.dim1.valor;
+
+    const totais = new Map<string, number>();
+    for (const d of dados) {
+      const k = chave(d);
+      totais.set(k, (totais.get(k) || 0) + d.total);
     }
 
-    const rows = await this.prisma.fatoEducacao.findMany({
-      where,
-      include: {
-        localidade: true,
-        valor_dim1: { include: { dimensao: true, valor_canonico: true } },
-        valor_dim2: { include: { dimensao: true, valor_canonico: true } },
-      },
-      orderBy: [{ ano: 'asc' }, { localidade_id: 'asc' }],
-      take: params.limite ?? LIMITE_PADRAO,
-    });
+    if (totais.size <= TOP_ESCOLAS) return { dados, removidas: 0 };
 
-    const dados = rows.map((r: any) => {
-      const dado: DadoFato = {
-        ano: r.ano,
-        localidade: {
-          id: r.localidade.id,
-          codigoIbge: r.localidade.codigo_ibge,
-          nome: r.localidade.nome,
-        },
-        dim1: this.mapearValorDimensao(r.valor_dim1),
-        total: Number(r.total),
-      };
-
-      // valor_dim2_id = 0 é o sentinela "TOTAL" dos recortes 1D
-      if (r.valor_dim2_id !== 0) {
-        dado.dim2 = this.mapearValorDimensao(r.valor_dim2);
-      }
-
-      return dado;
-    });
-
-    return { dados, fontes: await this.montarFontes(rows) };
+    const keep = new Set(
+      [...totais.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, TOP_ESCOLAS)
+        .map(([k]) => k),
+    );
+    const filtrados = dados.filter((d) => keep.has(chave(d)));
+    return { dados: filtrados, removidas: totais.size - TOP_ESCOLAS };
   }
 
   /**
-   * Agrega os fatos retornados por (referencia, dims original) e reconstrói o
-   * diretório do dataset de onde cada grupo veio. O caminho é determinístico:
+   * Reconstrói o diretório do dataset a partir dos grupos (referencia, dims).
    * 1D -> <RAIZ_1D>/<referencia>/<ano>/<dims>/
    * 2D -> <RAIZ_2D>/<referencia>/<ano>/<dimA_X_dimB>/
    */
-  private async montarFontes(rows: any[]): Promise<FonteDataset[]> {
-    if (!rows.length) return [];
+  private async montarFontes(grupos: any[]): Promise<FonteDataset[]> {
+    if (!grupos.length) return [];
 
     const nomesOriginais = await this.nomesDimensoesOriginais();
-    const mapa = new Map<string, FonteDataset>();
-
-    for (const r of rows) {
-      const chave = `${r.referencia}|${r.dims}`;
-      const atual = mapa.get(chave);
-
-      if (atual) {
-        atual.fatos += 1;
-        if (r.ano < atual.anoMin) atual.anoMin = r.ano;
-        if (r.ano > atual.anoMax) atual.anoMax = r.ano;
-        continue;
-      }
-
-      const partes = this.splitDims(r.dims, nomesOriginais);
+    const fontes: FonteDataset[] = grupos.map((g) => {
+      const partes = this.splitDims(g.dims, nomesOriginais);
       const ehCruzamento = partes.length === 2;
-      // No disco, as pastas 2D usam "_X_" entre as dimensões
-      // (ethnic_group_gender -> ethnic_group_X_gender)
-      const pasta = ehCruzamento ? partes.join('_X_') : r.dims;
-
-      mapa.set(chave, {
+      const pasta = ehCruzamento ? partes.join('_X_') : g.dims;
+      return {
         tipo: ehCruzamento ? '2D' : '1D',
-        referencia: r.referencia,
-        dims: r.dims,
-        anoMin: r.ano,
-        anoMax: r.ano,
-        fatos: 1,
-        diretorio: `${ehCruzamento ? RAIZ_2D : RAIZ_1D}/${r.referencia}/{ano}/${pasta}`,
-      });
-    }
+        referencia: g.referencia,
+        dims: g.dims,
+        anoMin: Number(g.anoMin),
+        anoMax: Number(g.anoMax),
+        fatos: Number(g.fatos),
+        diretorio: `${ehCruzamento ? RAIZ_2D : RAIZ_1D}/${g.referencia}/{ano}/${pasta}`,
+      };
+    });
 
-    return this.ordenarFontes(Array.from(mapa.values()));
+    return this.ordenarFontes(fontes);
   }
 
   private ordenarFontes(fontes: FonteDataset[]): FonteDataset[] {
@@ -547,6 +669,37 @@ export class EducacaoV2Service {
         a.dim1.valor.localeCompare(b.dim1.valor, 'pt-BR') ||
         (a.dim2?.valor ?? '').localeCompare(b.dim2?.valor ?? '', 'pt-BR'),
     );
+  }
+
+  private async gruposCatalogo(indicador?: string): Promise<CatalogoGrupo[]> {
+    const chave = indicador ?? '__all__';
+    const hit = this.catalogoCache.get(chave);
+    if (hit && hit.expira > Date.now()) return hit.grupos;
+
+    const grupos: CatalogoGrupo[] = indicador
+      ? await this.prisma.$queryRaw(Prisma.sql`
+          SELECT f.indicador, f.dims_canonico,
+                 MIN(f.ano)::int AS "anoMin",
+                 MAX(f.ano)::int AS "anoMax",
+                 COUNT(*)::int AS fatos
+          FROM educacao_v2."FatoEducacao" f
+          WHERE f.indicador = ${indicador}
+          GROUP BY f.indicador, f.dims_canonico
+        `)
+      : await this.prisma.$queryRaw(Prisma.sql`
+          SELECT f.indicador, f.dims_canonico,
+                 MIN(f.ano)::int AS "anoMin",
+                 MAX(f.ano)::int AS "anoMax",
+                 COUNT(*)::int AS fatos
+          FROM educacao_v2."FatoEducacao" f
+          GROUP BY f.indicador, f.dims_canonico
+        `);
+
+    this.catalogoCache.set(chave, {
+      expira: Date.now() + CATALOGO_TTL_MS,
+      grupos,
+    });
+    return grupos;
   }
 
   private async nomesDimensoesCanonicas(): Promise<Set<string>> {
