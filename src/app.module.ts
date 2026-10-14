@@ -13,6 +13,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { ResearchesModule } from './researches/researches.module';
 import { PrismaEducacaoService } from './education/prisma-educacao.service';
 import { LocalidadesModule } from './education/localidades/localidades.module';
+import { EducacaoV2Module } from './education/v2/educacao-v2.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { LocalidadesModule } from './education/localidades/localidades.module';
     HigherModule,
     RateModule,
     LocalidadesModule,
+    EducacaoV2Module,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaEducacaoService],

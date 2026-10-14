@@ -44,11 +44,13 @@ lerna-debug.log*
 # backups
 /backups/*.sql
 
-# Ignora o client gerado pelo schema principal (o default)
+# Prisma generated clients
 /prisma/generated/
-
-# Ignora a pasta 'generated' do schema de educação
 /prisma/educacao/generated/
+/prisma/educacao-v2/generated/
+
+# progresso do importador de datasets (recriado a cada execução)
+/scripts/progresso-import-datasets.json
 
 # Claude Code — preferências pessoais, não versionar
 CLAUDE.local.md

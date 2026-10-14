@@ -1,0 +1,102 @@
+// Schema v2 dos dados educacionais (datasets SIMCAQ, 1D e 2D).
+// Vive no mesmo banco de educação, mas no schema Postgres "educacao_v2"
+// (isolado do schema "public" usado pela API). Para descartar tudo:
+//   DROP SCHEMA educacao_v2 CASCADE;
+
+generator educacaoV2Client {
+    provider = "prisma-client-js"
+    output   = "./generated/educacao-v2-client"
+}
+
+datasource dbEducacaoV2 {
+    provider = "postgresql"
+    url      = env("DATABASE_URL_EDUCACAO_V2")
+}
+
+// Dimensão da API SIMCAQ (ex.: "location", "gender", "adm_dependency_detailed", "school")
+// nome_canonico unifica dimensões clássicas (até 2020) e modernas (2021+) que
+// significam o mesmo dado: gender_entity -> gender, education_level_mod_agg ->
+// education_level_mod etc. Quando não há equivalência, nome_canonico = nome.
+model Dimensao {
+    id            Int             @id @default(autoincrement())
+    nome          String          @unique // nome usado pela API (meta.dims)
+    nome_canonico String? // nome unificado clássico/moderno (null = igual a nome)
+    valores       ValorDimensao[]
+}
+
+// Valor de uma dimensão (ex.: dimensão "location" -> { codigo_api: 1, nome: "Urbana" })
+// Convenção: existe um registro sentinela id=0 ("TOTAL") usado como valor_dim2
+// nos fatos 1D, para que a unique constraint funcione no Postgres 13
+// (que não suporta NULLS NOT DISTINCT).
+model ValorDimensao {
+    id          Int      @id @default(autoincrement())
+    dimensao_id Int
+    dimensao    Dimensao @relation(fields: [dimensao_id], references: [id])
+    codigo_api  Int // id retornado pela API (ex.: school_id = código INEP)
+    nome        String
+
+    // Valor equivalente na dimensão canônica (casado pelo nome). Ex.:
+    // gender_entity "Feminino" -> gender "Feminino". Null = o próprio valor.
+    valor_canonico_id Int?
+    valor_canonico    ValorDimensao?  @relation("canonico", fields: [valor_canonico_id], references: [id])
+    equivalentes      ValorDimensao[] @relation("canonico")
+
+    fatos_dim1 FatoEducacao[] @relation("dim1")
+    fatos_dim2 FatoEducacao[] @relation("dim2")
+
+    @@unique([dimensao_id, codigo_api])
+    @@index([dimensao_id])
+}
+
+// Municípios do Piauí + estado (id = código IBGE numérico)
+model Localidade {
+    id          Int     @id // código IBGE numérico (7 dígitos p/ município, 22 p/ estado)
+    codigo_ibge String  @unique // código IBGE como string, vindo do JSON (ex.: "2207306")
+    nome        String
+    tipo        String // "municipio" | "estado"
+    uf          String  @default("PI")
+    latitude    Float?
+    longitude   Float?
+
+    fatos FatoEducacao[]
+}
+
+// Tabela de fatos: uma linha por (referencia, ano, localidade, valor_dim1, valor_dim2)
+// - Dados 1D: valor_dim2_id = 0 (sentinela "TOTAL")
+// - Dados 2D: par de dimensões normalizado em ordem alfabética do nome da dimensão
+model FatoEducacao {
+    id               Int      @id @default(autoincrement())
+    // Diretório do dataset de onde o fato foi importado, no nível categoria[/era]:
+    // "escolas", "turmas", "funcionarios", "auxiliares",
+    // "matriculas/classico", "matriculas/moderno", "docentes/classico", "docentes/moderno".
+    // A pasta exata é <referencia>/<ano>/<dims> e o arquivo é <codigo_ibge>_<NOME>.json.
+    referencia       String
+    // Indicador lógico unificando clássico e moderno: "matriculas", "docentes",
+    // "turmas", "escolas", "funcionarios", "auxiliares" (= referencia sem a era).
+    indicador        String?
+    dims             String // slug das dimensões em ordem alfabética separadas por "_", ex.: "adm_dependency_detailed_location" ou "location"
+    // Slug com nomes canônicos: "gender_entity" vira "gender" etc. Permite uma
+    // única consulta cobrir 2007-2024 mesmo quando a API trocou de dimensão.
+    dims_canonico    String?
+    ano              Int
+    total            Decimal  @dbEducacaoV2.Decimal(15, 2)
+    data_importacao  DateTime @default(now())
+
+    localidade_id Int
+    localidade    Localidade @relation(fields: [localidade_id], references: [id])
+
+    valor_dim1_id Int
+    valor_dim1    ValorDimensao @relation("dim1", fields: [valor_dim1_id], references: [id])
+
+    valor_dim2_id Int           @default(0)
+    valor_dim2    ValorDimensao @relation("dim2", fields: [valor_dim2_id], references: [id])
+
+    @@unique([referencia, ano, localidade_id, valor_dim1_id, valor_dim2_id])
+    @@index([referencia, ano, localidade_id])
+    @@index([referencia, dims, ano])
+    @@index([indicador, ano, localidade_id])
+    @@index([indicador, dims_canonico, ano])
+    @@index([valor_dim1_id])
+    @@index([valor_dim2_id])
+    @@index([localidade_id])
+}
