@@ -18,7 +18,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prisma:generate": "prisma generate && prisma generate --schema=./prisma/educacao/schema.educacao.prisma",
+    "prisma:generate": "prisma generate && prisma generate --schema=./prisma/educacao/schema.educacao.prisma && prisma generate --schema=./prisma/educacao-v2/schema.prisma",
     "prisma:generate:main": "prisma generate",
     "prisma:generate:educacao": "prisma generate --schema=./prisma/educacao/schema.educacao.prisma",
     "prisma:migrate:main": "prisma migrate deploy",

@@ -76,6 +76,7 @@ jobs:
             POSTGRES_EDUCACAO_USER=${{ secrets.POSTGRES_EDUCACAO_USER }}
             POSTGRES_EDUCACAO_PASSWORD=${{ secrets.POSTGRES_EDUCACAO_PASSWORD }}
             DATABASE_URL_EDUCACAO="postgresql://${{ secrets.POSTGRES_EDUCACAO_USER }}:${{ secrets.POSTGRES_EDUCACAO_PASSWORD }}@localhost:5438/${{ secrets.POSTGRES_EDUCACAO_DB }}?schema=public"
+            DATABASE_URL_EDUCACAO_V2="postgresql://${{ secrets.POSTGRES_EDUCACAO_USER }}:${{ secrets.POSTGRES_EDUCACAO_PASSWORD }}@localhost:5438/${{ secrets.POSTGRES_EDUCACAO_DB }}?schema=educacao_v2"
             PORT=${{ secrets.PORT }}
             EOF
             
