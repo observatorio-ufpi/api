@@ -42,7 +42,9 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # backups
-/backups/*.sql
+/backups/
+# dumps do banco (contêm a base inteira) nunca vão para o repositório
+*.dump
 
 # Prisma generated clients
 /prisma/generated/

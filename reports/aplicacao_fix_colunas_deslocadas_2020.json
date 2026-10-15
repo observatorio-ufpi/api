@@ -1,0 +1,1545 @@
+{
+  "geradoEm": "2026-10-15T01:00:32.431Z",
+  "ops": [
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6535,
+      "tipo": "IPTU",
+      "antes": {
+        "receitasRealizadaAteBimestre": 36.32,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 13124.96,
+        "percentual": 36.32
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6537,
+      "tipo": "ITBI",
+      "antes": {
+        "receitasRealizadaAteBimestre": 43.92,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 20087.05,
+        "percentual": 43.92
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6539,
+      "tipo": "ISS",
+      "antes": {
+        "receitasRealizadaAteBimestre": 72.28,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 161234.45,
+        "percentual": 72.28
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6543,
+      "tipo": "COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B",
+      "antes": {
+        "receitasRealizadaAteBimestre": 66.34,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 9234322.92,
+        "percentual": 66.34
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6544,
+      "tipo": "COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D",
+      "antes": {
+        "receitasRealizadaAteBimestre": 98.04,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 415547.93,
+        "percentual": 98.04
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6545,
+      "tipo": "COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_E",
+      "antes": {
+        "receitasRealizadaAteBimestre": 98.25,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 416433.89,
+        "percentual": 98.25
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6554,
+      "tipo": "RECEITA_TRANSFERENCIAS_FNDE",
+      "antes": {
+        "receitasRealizadaAteBimestre": 64.43,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 859211.11,
+        "percentual": 64.43
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6568,
+      "tipo": "COTA_PARTE_FPM_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 66.34,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 1846864.25,
+        "percentual": 66.34
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6569,
+      "tipo": "COTA_PARTE_ICMS_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 106.34,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 185036.42,
+        "percentual": 106.34
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6571,
+      "tipo": "COTA_PARTE_IPI_EXPORTACAO_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 4.1,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 36.62,
+        "percentual": 4.1
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6572,
+      "tipo": "COTA_PARTE_ITR_OU_ITR_ARRECADADOS_DESTINADOS_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 3.19,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 355.71,
+        "percentual": 3.19
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "receita1920",
+      "id": 6573,
+      "tipo": "COTA_PARTE_IPVA_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 94.39,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 12633.38,
+        "percentual": 94.39
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3978,
+      "tipo": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_EDUCACAO_INFANTIL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 2892697.43,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 2892697.43,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 2892697.43,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3979,
+      "tipo": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_ENSINO_FUNDAMENTAL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 6984692.19,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 6984692.19,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 6984692.19,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3980,
+      "tipo": "FUNDEB_OUTRAS_DESPESAS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 5193122.01,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 5193122.01,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 5193122.01,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3981,
+      "tipo": "FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 3000,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 3000,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 3000,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3982,
+      "tipo": "FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 5190122.01,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 5190122.01,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 5190122.01,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3983,
+      "tipo": "FUNDEB_TOTAL_DESPESAS_FUNDEB",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 15070511.63,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 15070511.63,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 15070511.63,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3984,
+      "tipo": "MDE_DESPESAS_EDUCACAO_INFANTIL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 2902597.43,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 2902597.43,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 2902597.43,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3985,
+      "tipo": "MDE_DESPESAS_EDUCACAO_INFANTIL_CRECHE",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 1997520.32,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 1997520.32,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 1997520.32,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3986,
+      "tipo": "MDE_EDUCACAO_INFANTIL_CRECHE_DESPESAS_CUSTEADAS_FUNDEB",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 1990620.32,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 1990620.32,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 1990620.32,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3987,
+      "tipo": "MDE_EDUCACAO_INFANTIL_CRECHE_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 6900,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 6900,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 6900,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3988,
+      "tipo": "MDE_DESPESAS_EDUCACAO_INFANTIL_PRE_ESCOLA",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 905077.11,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 905077.11,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 905077.11,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3989,
+      "tipo": "MDE_EDUCACAO_INFANTIL_PRE_ESCOLA_DESPESAS_CUSTEADAS_FUNDEB",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 905077.11,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 905077.11,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 905077.11,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3991,
+      "tipo": "MDE_DESPESAS_ENSINO_FUNDAMENTAL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 13958363.62,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 13958363.62,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 13958363.62,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3992,
+      "tipo": "MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_FUNDEB",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 12174814.2,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 12174814.2,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 12174814.2,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3993,
+      "tipo": "MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 1783549.42,
+        "despesasLiquidadasAteBimestre": 99.98,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 1783549.42,
+        "despesasEmpenhadasPercentual": 99.98,
+        "despesasLiquidadasAteBimestre": 1783549.42,
+        "despesasLiquidadasPercentual": 99.98
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3994,
+      "tipo": "MDE_DESPESAS_ENSINO_MEDIO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 63000,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 63000,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 63000,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 3998,
+      "tipo": "MDE_TOTAL_DESPESAS_ACOES_TIPICAS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 16923961.05,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 16923961.05,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 16923961.05,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 4000,
+      "tipo": "DESPESAS_CUSTEADAS_CONTRIBUICAO_SOCIAL_SALARIO_EDUCACAO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 220796.1,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 220796.1,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 220796.1,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 4002,
+      "tipo": "DESPESAS_CUSTEADAS_OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 648184.34,
+        "despesasLiquidadasAteBimestre": 75.18,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 648184.34,
+        "despesasEmpenhadasPercentual": 75.18,
+        "despesasLiquidadasAteBimestre": 648184.34,
+        "despesasLiquidadasPercentual": 75.18
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 4003,
+      "tipo": "TOTAL_OUTRAS_DESPESAS_CUSTEADAS_FINANCIAMENTO_ENSINO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 868980.44,
+        "despesasLiquidadasAteBimestre": 80.24,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 868980.44,
+        "despesasEmpenhadasPercentual": 80.24,
+        "despesasLiquidadasAteBimestre": 868980.44,
+        "despesasLiquidadasPercentual": 80.24
+      }
+    },
+    {
+      "municipio": "Porto",
+      "modelo": "despesa1920",
+      "id": 4004,
+      "tipo": "TOTAL_GERAL_DESPESAS_MDE",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 17792941.49,
+        "despesasLiquidadasAteBimestre": 98.81,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 17792941.49,
+        "despesasEmpenhadasPercentual": 98.81,
+        "despesasLiquidadasAteBimestre": 17792941.49,
+        "despesasLiquidadasPercentual": 98.81
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11411,
+      "tipo": "IPTU",
+      "antes": {
+        "receitasRealizadaAteBimestre": 9.34,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 3174.57,
+        "percentual": 9.34
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11413,
+      "tipo": "ITBI",
+      "antes": {
+        "receitasRealizadaAteBimestre": 2.05,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 216.52,
+        "percentual": 2.05
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11415,
+      "tipo": "ISS",
+      "antes": {
+        "receitasRealizadaAteBimestre": 505.37,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 359341.59,
+        "percentual": 505.37
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11419,
+      "tipo": "COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B",
+      "antes": {
+        "receitasRealizadaAteBimestre": 95.24,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 6925742.19,
+        "percentual": 95.24
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11420,
+      "tipo": "COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D",
+      "antes": {
+        "receitasRealizadaAteBimestre": 96.43,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 311660.95,
+        "percentual": 96.43
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11421,
+      "tipo": "COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_E",
+      "antes": {
+        "receitasRealizadaAteBimestre": 103.08,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 312325.42,
+        "percentual": 103.08
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11430,
+      "tipo": "RECEITA_TRANSFERENCIAS_FNDE",
+      "antes": {
+        "receitasRealizadaAteBimestre": 40.23,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 129317.28,
+        "percentual": 40.23
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11439,
+      "tipo": "APLICACAO_FINANCEIRA_CONVENIOS",
+      "antes": {
+        "receitasRealizadaAteBimestre": 13.7,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 747.18,
+        "percentual": 13.7
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11444,
+      "tipo": "COTA_PARTE_FPM_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 95.24,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 1385148.13,
+        "percentual": 95.24
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11445,
+      "tipo": "COTA_PARTE_ICMS_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 112.79,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 140800.12,
+        "percentual": 112.79
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11447,
+      "tipo": "COTA_PARTE_IPI_EXPORTACAO_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 67.52,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 27.28,
+        "percentual": 67.52
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11448,
+      "tipo": "COTA_PARTE_ITR_OU_ITR_ARRECADADOS_DESTINADOS_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 394.83,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 446.63,
+        "percentual": 394.83
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "receita1920",
+      "id": 11449,
+      "tipo": "COTA_PARTE_IPVA_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 116.63,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 21085.65,
+        "percentual": 116.63
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6947,
+      "tipo": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_ENSINO_FUNDAMENTAL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 2367023.08,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 2367023.08,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 2367023.08,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6948,
+      "tipo": "FUNDEB_OUTRAS_DESPESAS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 807746.63,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 807746.63,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 807746.63,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6950,
+      "tipo": "FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 807746.63,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 807746.63,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 807746.63,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6951,
+      "tipo": "FUNDEB_TOTAL_DESPESAS_FUNDEB",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 3174769.71,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 3174769.71,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 3174769.71,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6952,
+      "tipo": "MDE_DESPESAS_EDUCACAO_INFANTIL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 747812,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 747812,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 747812,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6953,
+      "tipo": "MDE_DESPESAS_EDUCACAO_INFANTIL_CRECHE",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 259923.2,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 259923.2,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 259923.2,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6955,
+      "tipo": "MDE_EDUCACAO_INFANTIL_CRECHE_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 259923.2,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 259923.2,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 259923.2,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6956,
+      "tipo": "MDE_DESPESAS_EDUCACAO_INFANTIL_PRE_ESCOLA",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 487888.8,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 487888.8,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 487888.8,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6958,
+      "tipo": "MDE_EDUCACAO_INFANTIL_PRE_ESCOLA_DESPESAS_CUSTEADAS_IMPOSTOS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 487888.8,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 487888.8,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 487888.8,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6959,
+      "tipo": "MDE_DESPESAS_ENSINO_FUNDAMENTAL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 3743423.39,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 3743423.39,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 3743423.39,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6960,
+      "tipo": "MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_FUNDEB",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 3174769.71,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 3174769.71,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 3174769.71,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6961,
+      "tipo": "MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 568653.68,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 568653.68,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 568653.68,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6962,
+      "tipo": "MDE_DESPESAS_ENSINO_MEDIO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 417814.96,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 417814.96,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 417814.96,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6966,
+      "tipo": "MDE_TOTAL_DESPESAS_ACOES_TIPICAS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 4909050.35,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 4909050.35,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 4909050.35,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6968,
+      "tipo": "DESPESAS_CUSTEADAS_CONTRIBUICAO_SOCIAL_SALARIO_EDUCACAO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 47894.73,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 47894.73,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 47894.73,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6970,
+      "tipo": "DESPESAS_CUSTEADAS_OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 98298.1,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 98298.1,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 98298.1,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6971,
+      "tipo": "TOTAL_OUTRAS_DESPESAS_CUSTEADAS_FINANCIAMENTO_ENSINO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 146192.83,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 146192.83,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 146192.83,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Novo Oriente do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 6972,
+      "tipo": "TOTAL_GERAL_DESPESAS_MDE",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 5055243.18,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 5055243.18,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 5055243.18,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19599,
+      "tipo": "IPTU",
+      "antes": {
+        "receitasRealizadaAteBimestre": 10,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 2500,
+        "percentual": 10
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19601,
+      "tipo": "ITBI",
+      "antes": {
+        "receitasRealizadaAteBimestre": 13.89,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 2500,
+        "percentual": 13.89
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19603,
+      "tipo": "ISS",
+      "antes": {
+        "receitasRealizadaAteBimestre": 51.47,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 154410.1,
+        "percentual": 51.47
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19607,
+      "tipo": "COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_B",
+      "antes": {
+        "receitasRealizadaAteBimestre": 84.46,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 6925742.19,
+        "percentual": 84.46
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19608,
+      "tipo": "COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_D",
+      "antes": {
+        "receitasRealizadaAteBimestre": 86.57,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 311660.95,
+        "percentual": 86.57
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19609,
+      "tipo": "COTA_PARTE_FPM_PARCELA_CF_ART_159_I_ALINEA_E",
+      "antes": {
+        "receitasRealizadaAteBimestre": 89.24,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 312325.42,
+        "percentual": 89.24
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19618,
+      "tipo": "RECEITA_TRANSFERENCIAS_FNDE",
+      "antes": {
+        "receitasRealizadaAteBimestre": 49.31,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 355990.03,
+        "percentual": 49.31
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19626,
+      "tipo": "TRANSFERENCIAS_CONVENIOS",
+      "antes": {
+        "receitasRealizadaAteBimestre": 44.41,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 66612.8,
+        "percentual": 44.41
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19632,
+      "tipo": "COTA_PARTE_FPM_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 84.46,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 1385154.8,
+        "percentual": 84.46
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19633,
+      "tipo": "COTA_PARTE_ICMS_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 77.57,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 232698.63,
+        "percentual": 77.57
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19635,
+      "tipo": "COTA_PARTE_IPI_EXPORTACAO_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 12.3,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 49.22,
+        "percentual": 12.3
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19636,
+      "tipo": "COTA_PARTE_ITR_OU_ITR_ARRECADADOS_DESTINADOS_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 38.86,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 777.11,
+        "percentual": 38.86
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "receita1920",
+      "id": 19637,
+      "tipo": "COTA_PARTE_IPVA_DESTINADA_AO_FUNDEB",
+      "antes": {
+        "receitasRealizadaAteBimestre": 65.13,
+        "percentual": 0
+      },
+      "depois": {
+        "receitasRealizadaAteBimestre": 19539.12,
+        "percentual": 65.13
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11930,
+      "tipo": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_EDUCACAO_INFANTIL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 344153.78,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 344153.78,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 344153.78,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11931,
+      "tipo": "FUNDEB_PAGAMENTO_PROFISSIONAIS_MAGISTERIO_ENSINO_FUNDAMENTAL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 5034520.14,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 5034520.14,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 5034520.14,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11932,
+      "tipo": "FUNDEB_OUTRAS_DESPESAS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 325201.62,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 325201.62,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 325201.62,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11933,
+      "tipo": "FUNDEB_OUTRAS_DESPESAS_EDUCACAO_INFANTIL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 104535.99,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 104535.99,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 104535.99,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11934,
+      "tipo": "FUNDEB_OUTRAS_DESPESAS_ENSINO_FUNDAMENTAL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 220665.63,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 220665.63,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 220665.63,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11935,
+      "tipo": "FUNDEB_TOTAL_DESPESAS_FUNDEB",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 5703875.54,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 5703875.54,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 5703875.54,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11936,
+      "tipo": "MDE_DESPESAS_EDUCACAO_INFANTIL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 448689.77,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 448689.77,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 448689.77,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11940,
+      "tipo": "MDE_DESPESAS_EDUCACAO_INFANTIL_PRE_ESCOLA",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 448689.77,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 448689.77,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 448689.77,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11941,
+      "tipo": "MDE_EDUCACAO_INFANTIL_PRE_ESCOLA_DESPESAS_CUSTEADAS_FUNDEB",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 448689.77,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 448689.77,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 448689.77,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11943,
+      "tipo": "MDE_DESPESAS_ENSINO_FUNDAMENTAL",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 6295228.99,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 6295228.99,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 6295228.99,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11944,
+      "tipo": "MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_FUNDEB",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 5255185.77,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 5255185.77,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 5255185.77,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11945,
+      "tipo": "MDE_ENSINO_FUNDAMENTAL_DESPESAS_CUSTEADAS_OUTROS_IMPOSTOS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 1040043.22,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 1040043.22,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 1040043.22,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11950,
+      "tipo": "MDE_TOTAL_DESPESAS_ACOES_TIPICAS",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 6743918.76,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 6743918.76,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 6743918.76,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11952,
+      "tipo": "DESPESAS_CUSTEADAS_CONTRIBUICAO_SOCIAL_SALARIO_EDUCACAO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 74442.03,
+        "despesasLiquidadasAteBimestre": 100,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 74442.03,
+        "despesasEmpenhadasPercentual": 100,
+        "despesasLiquidadasAteBimestre": 74442.03,
+        "despesasLiquidadasPercentual": 100
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11954,
+      "tipo": "DESPESAS_CUSTEADAS_OUTRAS_RECEITAS_FINANCIAMENTO_ENSINO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 282704.81,
+        "despesasLiquidadasAteBimestre": 56.92,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 282704.81,
+        "despesasEmpenhadasPercentual": 56.92,
+        "despesasLiquidadasAteBimestre": 282704.81,
+        "despesasLiquidadasPercentual": 56.92
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11955,
+      "tipo": "TOTAL_OUTRAS_DESPESAS_CUSTEADAS_FINANCIAMENTO_ENSINO",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 357146.84,
+        "despesasLiquidadasAteBimestre": 62.53,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 357146.84,
+        "despesasEmpenhadasPercentual": 62.53,
+        "despesasLiquidadasAteBimestre": 357146.84,
+        "despesasLiquidadasPercentual": 62.53
+      }
+    },
+    {
+      "municipio": "Nazar├® do Piau├¡",
+      "modelo": "despesa1920",
+      "id": 11956,
+      "tipo": "TOTAL_GERAL_DESPESAS_MDE",
+      "antes": {
+        "despesasEmpenhadasAteBimestre": 0,
+        "despesasEmpenhadasPercentual": 7101065.6,
+        "despesasLiquidadasAteBimestre": 97.07,
+        "despesasLiquidadasPercentual": 0
+      },
+      "depois": {
+        "despesasEmpenhadasAteBimestre": 7101065.6,
+        "despesasEmpenhadasPercentual": 97.07,
+        "despesasLiquidadasAteBimestre": 7101065.6,
+        "despesasLiquidadasPercentual": 97.07
+      }
+    }
+  ]
+}
